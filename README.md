@@ -3,3 +3,5 @@
 Все что я уже изучил. Как проходит мое обучение. Это бесконечный проект, обучение началось, продолжается и никогда не закончится.
 
 https://frontend200tb.github.io/200tb/frontend/frontend.html
+
+Пишу и поддерживаю на HTML, CSS, JavaScript, Pug, Sass. Сборка программой prepros https://prepros.io/
