@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Иван Каширин">
+    <meta name="copyright" content="200TB Web Studio">
+    <meta name="description" content="Online ресурсы для верстальщиков">
+    <meta name="keywords" content="верстка, frontend">
+    <title>200tb Frontend online</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/favicon.ico">
+  </head>
+  <body>
+    <div class="page snow page_blue" id="page">
+      <header class="header" id="header">
+        <div class="header__first-row">
+          <div class="header__logo">200TERABYTE</div>
+          <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
+          </nav>
+        </div>
+        <div class="header__second-row">
+          <div class="social" id="social">
+            
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            <a class="social__icon social__icon_gh" href="https://github.com/frontend200tb" title="GitHub"></a>
+            
+          </div>
+          <div class="settings" id="settings">
+            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__item" id="set__item">
+              <div class="settings__color" id="setColor">
+                <button id="selectRed"></button>
+                <button id="selectOrange"></button>
+                <button id="selectYellow"></button>
+                <button id="selectGreen"></button>
+                <button id="selectDodgerblue"></button>
+                <button id="selectBlue"></button>
+                <button id="selectPurple"></button>
+                <button id="selectBrown"></button>
+              </div>
+              <div class="settings__snow" id="setSnow">Снег</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <main class="main">
+        <aside><a class="active" href="articles.html">Articles</a><a href="notepad.html">Notepad</a><a href="verdaccio.html">Verdaccio</a>
+        </aside>
+        <section class="content online">
+          <h1>Полезные заметки</h1>
+          <article>
+            <h2>Какой сетевой фильтр мне нужен</h2><a href="https://aliexpress.ru/item/33043272718.html">сетевой фильтр orico</a>
+          </article>
+          <article>
+            <h2>Как скачать защищенное видео</h2><a href="https://www.youtube.com/watch?v=bY8GME5HnUg">RuFrame</a><br><em>Скачиваем защищённое видео через cmd \ FFmpeg или как скачать потоковое видео</em>
+          </article>
+          <article>
+            <h2>Как сделать текстовый документ, содержащий список файлов в нужной папке, вручную.</h2>
+            <ol>
+              <li>Запустите командную строку от имени администратора.</li>
+              <li>Введите cd x:\folder\ где x:\folder\ — полный путь к папке, список файлов из которой нужно получить. Нажмите Enter.</li>
+              <li>Введите команду dir /a /-p /o:gen >files.txt (где files.txt — текстовый файл, в котором будет сохранен список файлов). Нажмите Enter.</li>
+              <li>Если использовать команду с параметром /b (dir /a /b /-p /o:gen >files.txt), то в полученном списке будет отсутствовать любая дополнительная информация о размерах файлов или дате создания — только список имен.</li>
+            </ol>
+            <p>Готово. В результате будет создан текстовый файл, содержащий необходимую информацию. В команде выше, данный документ сохраняется в той же папке, список файлов из которой требуется получить. Можно также убрать вывод в текстовый файл, в этом случае список будет отображаться только в командной строке.</p>
+            <hr>
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+        <h1>200TERABYTE Frontend</h1>
+      </footer>
+    </div>
+    <div id="js">
+      <script src="../../js/settings.js"></script>
+      <script src="../../js/nav.js"></script>
+      <script src="../../js/showhide.js"></script>
+    </div>
+  </body>
+</html>

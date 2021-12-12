@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Иван Каширин">
+    <meta name="copyright" content="200TB Web Studio">
+    <meta name="description" content="Online ресурсы для верстальщиков">
+    <meta name="keywords" content="верстка, frontend">
+    <title>200tb Frontend online</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/favicon.ico">
+  </head>
+  <body>
+    <div class="page snow page_blue" id="page">
+      <header class="header" id="header">
+        <div class="header__first-row">
+          <div class="header__logo">200TERABYTE</div>
+          <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
+          </nav>
+        </div>
+        <div class="header__second-row">
+          <div class="social" id="social">
+            
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            <a class="social__icon social__icon_gh" href="https://github.com/frontend200tb" title="GitHub"></a>
+            
+          </div>
+          <div class="settings" id="settings">
+            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__item" id="set__item">
+              <div class="settings__color" id="setColor">
+                <button id="selectRed"></button>
+                <button id="selectOrange"></button>
+                <button id="selectYellow"></button>
+                <button id="selectGreen"></button>
+                <button id="selectDodgerblue"></button>
+                <button id="selectBlue"></button>
+                <button id="selectPurple"></button>
+                <button id="selectBrown"></button>
+              </div>
+              <div class="settings__snow" id="setSnow">Снег</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <main class="main">
+        <aside><a href="articles.html">Articles</a><a href="notepad.html">Notepad</a><a class="active" href="verdaccio.html">Verdaccio</a>
+        </aside>
+        <section class="content online">
+          <h1>Как настроить локальный npm репозиторий verdaccio</h1>
+          <article>
+            <!-- Verdaccio-->
+            <h2>Доккументация nmp</h2>
+            <ol>
+              <li><a href="https://docs.npmjs.com/">docs.npmjs.com</a></li>
+              <li><a href="https://habr.com/ru/post/133363/">habr.com/ru/post/133363</a></li>
+            </ol>
+            <h2>Доккументация Verdaccio</h2>
+            <ol>
+              <li><a href="https://verdaccio.org/">verdaccio.org</a></li>
+              <li><a href="https://habr.com/ru/post/453614/">habr.com/ru/post/453614</a></li>
+            </ol>
+            <h2>Установка локального npm репозитория Verdaccio</h2>
+            <p>Есть ноутбук с доступом к интернету — исходник и ноутбук без доступа - целевая машина</p>
+            <p>На исходнике и на целевой машине должны быть node.js (проще всего, если одной или близких версий).</p>
+            <p><strong>Далее все команды вводим в терминале</strong> (например в терминале VS Code).</p>
+            <p>Создаем на исходнике папочку verdaccio и переходим в нее:</p><code><span class="pre_function">mkdir</span> verdaccio<br><span class="pre_function">cd</span> verdaccio</code>
+            <p>Проверим версию node:</p><code>C:\verdaccio> <span class="pre_function">node</span> -v<br>v16.13.1</code>
+            <p>Проверим версию npm (он установился вместе с node.js):</p><code>C:\verdaccio> <span class="pre_function">npm</span> -v<br>8.1.2</code>
+            <p>Посмотрим все установленные глобальные библиотеки:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list -g<br>C:\Users\Admin\AppData\Roaming\npm<br>└── (empty)</code>
+            <p>Если нужно удалить глобальну библиотеку:</p><code>C:\verdaccio> <span class="pre_function">npm</span> uninstall -g имя_пакета</code>
+            <p>Посмотрим библиотеки установленные локально в папку verdaccio:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>└── (empty)</code>
+            <p>Если нужно удалить локальную библиотеку:</p><code>C:\verdaccio> <span class="pre_function">npm</span> uninstall имя_пакета</code>
+            <p>Посмотрим эффективный каталог установки наших глобальных пакетов npm:</p><code>C:\verdaccio> <span class="pre_function">npm</span> root -g<br>C:\Users\Admin\AppData\Roaming\npm\node_modules</code>
+            <p>Посмотрим эффективный каталог установки наших локальных пакетов npm:</p><code>C:\verdaccio> <span class="pre_function">npm</span> root<br>C:\verdaccio\node_modules</code>
+            <p>Посмотрим текущее значение репозитория</p><code><span class="pre_function">npm </span><span class="pre_keyword">get</span> registry<br>https://registry.npmjs.org/</code>
+            <p>Если отличается, то вернем значение по-умолчанию</p><code><span class="pre_function">npm </span><span class="pre_keyword">set</span> registry https://registry.npmjs.org/</code>
+            <p>или</p><code><span class="pre_function">npm </span><span class="pre_keyword">config</span> delete registry</code>
+            <p>Локально ставим пакет Verdaccio</p><code><span class="pre_function">npm</span> i verdaccio</code>
+            <p>Посмотрим библиотеки установленные локально в папку verdaccio:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>└── verdaccio@5.3.0</code>
+            <p>В каталоге c:\verdaccio появится каталог node_modules и файлы package.json и package-lock.json</p>
+            <p>Запустим verdaccio в отдельном терминале</p><code>c:\verdaccio\node_modules\.bin\verdaccio.cmd</code>
+            <p>Появится сообщение</p><code>warn --- config file  - C:\Users\Admin\AppData\Roaming\verdaccio\config.yaml<br>warn --- Plugin successfully loaded: verdaccio-htpasswd<br>warn --- Plugin successfully loaded: verdaccio-audit<br>warn --- http address - http://localhost:4873/ - verdaccio/5.3.0</code>
+            <p>Первая строка указывает путь к созданному файлу конфигурации config.yaml</p>
+            <p>Последняя строка указывает адрес хранилища локального репозитория verdaccio, доступного пока запущена программа verdaccio.cmd</p>
+            <p>Чтобы проверить доступен ли в данный момент локальный репозиторий, можно открыть этот адрес в браузере</p><code>http://localhost:4873</code>
+            <div>Теперь нам нужно сделать несколько вещей:
+              <ol>
+                <li>Очистить npm-cache (убить содержимое c:\Users\Admin\AppData\Roaming\npm-cache )</li>
+                <li>Переключить npm на локальный репозиторий<code><span class="pre_function">npm</span> set registry http://localhost:4873/</code></li>
+                <li>Скопировать config.yaml в нашу уютную папку verdaccio</li>
+                <li>Убедиться, что раздел uplinks этого файла выглядит так:
+                  <pre>\nuplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    cache: true          </pre>
+                  <p>В конце конфига добавить :</p>
+                  <pre>\nlisten:
+  - 0.0.0.0:4873          </pre>
+                  <p>Если этого не сделать, то вы не сможете достучаться позже на целевой машине к локальному адресу.</p>
+                </li>
+              </ol>
+            </div>Собственно мы готовы, теперь все пакеты, что мы возьмем через npm install осядут в c:\Users\Admin\AppData\Roaming\verdaccio\storage\, что нам и нужно. Восстанавливаем целевой проект, ставим дополнительно:<code><span class="pre_function">npm</span> i node-windows</code>
+            <p>Посмотрим библиотеки установленные локально в папку verdaccio:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>├── node-windows@1.0.0-beta.6<br>└── verdaccio@5.3.0</code>
+            <p>Установим локально нужные нам библиотеки в текущий проект и они же осядут в хранилище</p><code>C:\verdaccio> <span class="pre_function">npm</span> i pug<br>C:\verdaccio> <span class="pre_function">npm</span> i gulp<br>C:\verdaccio> <span class="pre_function">npm</span> i webpack<br>C:\verdaccio> <span class="pre_function">npm</span> i webpack-cli<br></code>
+            <p>Посмотрим установленные библиотеки</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>├── gulp@4.0.2<br>├── node-windows@1.0.0-beta.6<br>├── pug@3.0.2<br>├── verdaccio@5.3.0<br>├── webpack-cli@4.9.1<br>└── webpack@5.65.0</code>
+            <p>Архивируем папку c:\Users\Admin\AppData\Roaming\verdaccio\ в verdaccio-roaming.zip<br>Архивируем папку c:\verdaccio\ в verdaccio-c.zip<br>и отправляем их на целевую машину</p>
+            <h2>Настройка доступа к локальному npm репозиторию на целевой машине</h2>
+            <p>На целевой машине распаковываем папку verdaccio-roaming.zip в c:\Users\1\AppData\Roaming\<br>Теперь здесь находится наш локальный npm репозиторий</p>
+            <pre>c:\Users\1\AppData\Roaming\verdaccio\storage\</pre>
+            <p>распаковываем папку verdaccio-c.zip в c:\. В корне папки создать файл installservice.js:</p>
+            <pre>var Service = require('node-windows').Service;
+var svc = new Service({
+  name: 'VerdaccioSvc',
+  description: 'Verdaccio - npm local repository',
+  script: 'C:\verdacio\node_modules\verdaccio\bin\verdaccio',
+  nodeOptions: []
+}); 
+svc.on('install', function() {svc.start();});
+svc.install();    </pre>
+            <p>Запускаем :</p><code>node installservice.js</code>
+            <p>последующая синхронизация сводится к копированию содержимого</p><code>./storage</code>
+            <p>Запустим verdaccio в отдельном терминале</p><code>c:\verdaccio\node_modules\.bin\verdaccio.cmd</code>
+            <p>Появится сообщение</p><code>warn --- config file  - C:\Users\1\AppData\Roaming\verdaccio\config.yaml<br>warn --- Plugin successfully loaded: verdaccio-htpasswd<br>warn --- Plugin successfully loaded: verdaccio-audit<br>warn --- http address - http://localhost:4873/ - verdaccio/5.3.0</code>
+            <p>Первая строка указывает путь к созданному файлу конфигурации config.yaml</p>
+            <p>Последняя строка указывает адрес хранилища локального репозитория verdaccio, доступного пока запущена программа verdaccio.cmd</p>
+            <p>Чтобы проверить доступен ли в данный момент локальный репозиторий, можно открыть этот адрес в браузере</p><code>http://localhost:4873</code>
+            <p>Переключить npm на локальный репозиторий</p><code><span class="pre_function">npm</span> set registry http://localhost:4873/</code>
+            <p>Посмотрим установленные пакеты:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>├── gulp@4.0.2<br>├── node-windows@1.0.0-beta.6<br>├── pug@3.0.2<br>├── verdaccio@5.3.0<br>├── webpack-cli@4.9.1<br>└── webpack@5.65.0</code>
+            <p>Установим пакет sass</p><code><span class="pre_function">npm</span> i sass</code>
+            <p>Посмотрим установленные пакеты:</p><code>C:\verdaccio> <span class="pre_function">npm</span> list<br>C:\verdaccio<br>├── gulp@4.0.2<br>├── node-windows@1.0.0-beta.6<br>├── pug@3.0.2<br>├── sass@1.43.4<br>├── verdaccio@5.3.0<br>├── webpack-cli@4.9.1<br>└── webpack@5.65.0</code>
+            <hr><a href="#header">К началу страницы</a>
+            <hr>
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+        <h1>200TERABYTE Frontend</h1>
+      </footer>
+    </div>
+    <div id="js">
+      <script src="../../js/settings.js"></script>
+      <script src="../../js/nav.js"></script>
+      <script src="../../js/showhide.js"></script>
+    </div>
+  </body>
+</html>

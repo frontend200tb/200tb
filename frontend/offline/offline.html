@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Иван Каширин">
+    <meta name="copyright" content="200TB Web Studio">
+    <meta name="description" content="Online ресурсы для верстальщиков">
+    <meta name="keywords" content="верстка, frontend">
+    <title>200tb Frontend online</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/favicon.ico">
+  </head>
+  <body>
+    <div class="page snow page_blue" id="page">
+      <header class="header" id="header">
+        <div class="header__first-row">
+          <div class="header__logo">200TERABYTE</div>
+          <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
+          </nav>
+        </div>
+        <div class="header__second-row">
+          <div class="social" id="social">
+            
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            <a class="social__icon social__icon_gh" href="https://github.com/frontend200tb" title="GitHub"></a>
+            
+          </div>
+          <div class="settings" id="settings">
+            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__item" id="set__item">
+              <div class="settings__color" id="setColor">
+                <button id="selectRed"></button>
+                <button id="selectOrange"></button>
+                <button id="selectYellow"></button>
+                <button id="selectGreen"></button>
+                <button id="selectDodgerblue"></button>
+                <button id="selectBlue"></button>
+                <button id="selectPurple"></button>
+                <button id="selectBrown"></button>
+              </div>
+              <div class="settings__snow" id="setSnow">Снег</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <main class="main">
+        <aside><a href="articles.html">Articles</a><a href="notepad.html">Notepad</a><a href="verdaccio.html">Verdaccio</a>
+        </aside>
+        <section class="content online">
+          <h1>Перенос программ на ноутбук без интернета</h1>
+          <article>
+            <!-- Verdaccio-->
+            <p>При использовании локального npm репозитория на ноутбуке без интернета используется команда установки репозитария:</p><code><span class="pre_function">npm </span><span class="pre_keyword">set</span> registry http://172.18.0.4:4873</code>
+            <p>Есть возможность установить registry для отдельного пакета, например @devkit</p><code><span class="pre_function">npm </span><span class="pre_keyword">set</span> @devkit:registry http://172.18.0.39:4873</code>
+            <p>Посмотреть текущее значение</p><code><span class="pre_function">npm </span><span class="pre_keyword">get</span> registry
+              https://registry.npmjs.org/</code>
+            <p>Вернуть значение по-умолчанию</p><code><span class="pre_function">npm </span><span class="pre_keyword">set</span> registry https://registry.npmjs.org/</code>
+            <p>или</p><code><span class="pre_function">npm </span><span class="pre_keyword">config</span> delete registry</code>
+            <hr><a href="#header">К началу страницы</a>
+            <hr>
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+        <h1>200TERABYTE Frontend</h1>
+      </footer>
+    </div>
+    <div id="js">
+      <script src="../../js/settings.js"></script>
+      <script src="../../js/nav.js"></script>
+      <script src="../../js/showhide.js"></script>
+    </div>
+  </body>
+</html>
