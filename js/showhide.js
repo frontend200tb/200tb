@@ -20,7 +20,7 @@ if (document.getElementById('set') &&
 
     /*Скроем содержимое*/
     setItem.style.display = 'none';
-        /*По нажатию на кнопку Settings появятся Настройки*/
+    /*По нажатию на кнопку Settings появятся Настройки*/
         set.addEventListener('click', () => showHide(setItem));
 }
 /**************Settings*/

@@ -11,19 +11,20 @@ const setColor = document.getElementById('setColor');
 
 /*Удаляем имя класса с прошлым цветом и добавляем имя класса с новым цветом для page*/
 const addPageColor = (color) => {
-    page.classList.remove('page_green', 'page_yellow', 'page_blue', 'page_dodgerblue', 'page_red', 'page_brown', 'page_purple');
+    page.classList.remove('page_red', 'page_orange', 'page_yellow', 'page_green', 'page_dodgerblue', 'page_blue', 'page_purple', 'page_brown');
     page.classList.add(color);
 }
 
 
 /*обработаем нажатие на кнопку*/
-selectGreen.addEventListener('click', () => addPageColor('page_green'));
-selectYellow.addEventListener('click', () => addPageColor('page_yellow'));
-selectBlue.addEventListener('click', () => addPageColor('page_blue'));
-selectDodgerblue.addEventListener('click', () => addPageColor('page_dodgerblue'));
 selectRed.addEventListener('click', () => addPageColor('page_red'));
-selectBrown.addEventListener('click', () => addPageColor('page_brown'));
+selectOrange.addEventListener('click', () => addPageColor('page_orange'));
+selectYellow.addEventListener('click', () => addPageColor('page_yellow'));
+selectGreen.addEventListener('click', () => addPageColor('page_green'));
+selectDodgerblue.addEventListener('click', () => addPageColor('page_dodgerblue'));
+selectBlue.addEventListener('click', () => addPageColor('page_blue'));
 selectPurple.addEventListener('click', () => addPageColor('page_purple'));
+selectBrown.addEventListener('click', () => addPageColor('page_brown'));
 
 
 /***********************
