@@ -1,4 +1,194 @@
 @charset "UTF-8";
+/* Фоновые цвета */
+/* красный */
+.page_red {
+  background-color: #b01030;
+  /* темно-красный цвет */
+}
+
+.page_red .nav a.active,
+.page_red .nav a:hover,
+.page_red aside a.active,
+.page_red aside a:hover,
+.page_red th[colspan],
+.page_red h3,
+li.red {
+  background-color: #ee3e61;
+  /* светло-красный цвет */
+}
+
+.page_red h2,
+li.red:hover {
+  background-color: #dc143c;
+  /* красный цвет */
+}
+
+/* красный */
+/* оранжевый песочный*/
+.page_orange {
+  background-color: #E2A76F;
+  /* темно-оранжевый цвет */
+}
+
+.page_orange .nav a.active,
+.page_orange .nav a:hover,
+.page_orange aside a.active,
+.page_orange aside a:hover,
+.page_orange th[colspan],
+.page_orange h3 {
+  background-color: #E2A76F;
+  /* светло-оранжевый цвет */
+}
+
+.page_orange h2 {
+  background-color: #E2A76F;
+  /* оранжевый цвет */
+}
+
+/* оранжевый */
+/* желтый */
+.page_yellow {
+  background-color: #795b16;
+  /* темно-желтый цвет */
+}
+
+.page_yellow .nav a.active,
+.page_yellow .nav a:hover,
+.page_yellow aside a:hover,
+.page_yellow aside a.active,
+.page_yellow th[colspan],
+.page_yellow h3,
+li.yellow {
+  background-color: #ffcc20;
+  /* светло-желтый цвет */
+}
+
+.page_yellow h2,
+li.yellow:hover {
+  background-color: #f0b200;
+  /* желтый цвет */
+}
+
+/* желтый */
+/* зеленый */
+.page_green {
+  background-color: #006600;
+  /* темно-зеленый цвет */
+}
+
+.page_green .nav a.active,
+.page_green .nav a:hover,
+.page_green aside a.active,
+.page_green aside a:hover,
+.page_green th[colspan],
+.page_green h3,
+li.green {
+  background-color: #00a000;
+  /* светло-зеленый цвет */
+}
+
+.page_green h2,
+li.green:hover {
+  background-color: #008000;
+  /* зеленый цвет */
+}
+
+/* зеленый */
+/* dodgerblue защитно-синий */
+.page_dodgerblue {
+  background-color: #0074e4;
+  /* темный защитно-синий цвет */
+}
+
+.page_dodgerblue .nav a.active,
+.page_dodgerblue .nav a:hover,
+.page_dodgerblue aside a.active,
+.page_dodgerblue aside a:hover,
+.page_dodgerblue th[colspan],
+.page_dodgerblue h3,
+li.dodgerblue {
+  background-color: #65b3ff;
+  /* светлый защитно-синий цвет */
+}
+
+.page_dodgerblue h2,
+li.dodgerblue:hover {
+  background-color: #1e90ff;
+  /* защитно-синий цвет */
+}
+
+/* dodgerblue защитно-синий */
+/* синий */
+.page_blue {
+  background-color: #0000cc;
+  /* темно-синий цвет */
+}
+
+.page_blue .nav a.active,
+.page_blue .nav a:hover,
+.page_blue aside a.active,
+.page_blue aside a:hover,
+.page_blue th[colspan],
+.page_blue h2,
+.page_blue h3,
+.li_blue {
+  background-color: #0088ff;
+  /* светло-синий цвет */
+}
+
+.page_blue {
+  background-color: #0000ff;
+  /* синий цвет */
+}
+
+/* синий */
+/* фиолетоввый */
+.page_purple {
+  background-color: #660066;
+  /* темно-фиолетовый цвет */
+}
+
+.page_purple .nav a.active,
+.page_purple .nav a:hover,
+.page_purple aside a.active,
+.page_purple aside a:hover,
+.page_purple h3,
+.li_purple {
+  background-color: #a000a0;
+  /* светло-фиолетовый цвет */
+}
+
+.page_purple h2 {
+  background-color: #800080;
+  /* фиолетовый цвет */
+}
+
+/* фиолетоввый */
+/* коричневый */
+.page_brown {
+  background-color: #341d08;
+  /* темно-коричневый цвет */
+}
+
+.page_brown .nav a.active,
+.page_brown .nav a:hover,
+.page_brown aside a.active,
+.page_brown aside a:hover,
+.page_brown th[colspan],
+.page_brown h2,
+.page_brown h3,
+.li_brown {
+  background-color: #c08457;
+  /* светло-коричневый цвет */
+}
+
+.page_brown {
+  background-color: #633309;
+  /* коричневый цвет */
+}
+
+/* коричневый */
+/* Конец - Фоновые цвета */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -63,172 +253,6 @@ aside a {
   min-height: 100vh;
 }
 
-/* Фоновые цвета */
-/* зеленый */
-.page_green {
-  background-color: #006600;
-  /* темно-зеленый цвет */
-}
-
-.page_green .nav a.active,
-.page_green .nav a:hover,
-.page_green aside a.active,
-.page_green aside a:hover,
-.page_green th[colspan],
-.page_green h3,
-li.green {
-  background-color: #00a000;
-  /* светло-зеленый цвет */
-}
-
-.page_green h2,
-li.green:hover {
-  background-color: #008000;
-  /* зеленый цвет */
-}
-
-/* зеленый */
-/* желтый */
-.page_yellow {
-  background-color: #795b16;
-  /* темно-желтый цвет */
-}
-
-.page_yellow .nav a.active,
-.page_yellow .nav a:hover,
-.page_yellow aside a:hover,
-.page_yellow aside a.active,
-.page_yellow th[colspan],
-.page_yellow h3,
-li.yellow {
-  background-color: #ffcc20;
-  /* светло-желтый цвет */
-}
-
-.page_yellow h2,
-li.yellow:hover {
-  background-color: #f0b200;
-  /* желтый цвет */
-}
-
-/* желтый */
-/* синий */
-.page_blue {
-  background-color: #0000cc;
-  /* темно-синий цвет */
-}
-
-.page_blue .nav a.active,
-.page_blue .nav a:hover,
-.page_blue aside a.active,
-.page_blue aside a:hover,
-.page_blue th[colspan],
-.page_blue h3,
-.li_blue {
-  background-color: #0088ff;
-  /* светло-синий цвет */
-}
-
-.page_blue h2 {
-  background-color: #0000ff;
-  /* синий цвет */
-}
-
-/* синий */
-/* dodgerblue защитно-синий */
-.page_dodgerblue {
-  background-color: #0074e4;
-  /* темный защитно-синий цвет */
-}
-
-.page_dodgerblue .nav a.active,
-.page_dodgerblue .nav a:hover,
-.page_dodgerblue aside a.active,
-.page_dodgerblue aside a:hover,
-.page_dodgerblue th[colspan],
-.page_dodgerblue h3,
-li.dodgerblue {
-  background-color: #65b3ff;
-  /* светлый защитно-синий цвет */
-}
-
-.page_dodgerblue h2,
-li.dodgerblue:hover {
-  background-color: #1e90ff;
-  /* защитно-синий цвет */
-}
-
-/* dodgerblue защитно-синий */
-/* красный */
-.page_red {
-  background-color: #b01030;
-  /* темно-красный цвет */
-}
-
-.page_red .nav a.active,
-.page_red .nav a:hover,
-.page_red aside a.active,
-.page_red aside a:hover,
-.page_red th[colspan],
-.page_red h3,
-li.red {
-  background-color: #ee3e61;
-  /* светло-красный цвет */
-}
-
-.page_red h2,
-li.red:hover {
-  background-color: #dc143c;
-  /* красный цвет */
-}
-
-/* красный */
-/* коричневый */
-.page_brown {
-  background-color: #341d08;
-  /* темно-коричневый цвет */
-}
-
-.page_brown .nav a.active,
-.page_brown .nav a:hover,
-.page_brown aside a.active,
-.page_brown aside a:hover,
-.page_brown th[colspan],
-.page_brown h3,
-.li_brown {
-  background-color: #c08457;
-  /* светло-коричневый цвет */
-}
-
-.page_brown h2 {
-  background-color: #633309;
-  /* коричневый цвет */
-}
-
-/* коричневый */
-/* фиолетоввый */
-.page_purple {
-  background-color: #660066;
-  /* темно-фиолетовый цвет */
-}
-
-.page_purple .nav a.active,
-.page_purple .nav a:hover,
-.page_purple aside a.active,
-.page_purple aside a:hover,
-.page_purple h3,
-.li_purple {
-  background-color: #a000a0;
-  /* светло-фиолетовый цвет */
-}
-
-.page_purple h2 {
-  background-color: #800080;
-  /* фиолетовый цвет */
-}
-
-/* фиолетоввый */
-/* Конец - Фоновые цвета */
 @-webkit-keyframes snow {
   0% {
     background-position: 0px 0px, 0px 0px, 0px 0px;
@@ -237,6 +261,7 @@ li.red:hover {
     background-position: 500px 1000px, 400px 400px, 300px 300px;
   }
 }
+
 @keyframes snow {
   0% {
     background-position: 0px 0px, 0px 0px, 0px 0px;
@@ -372,6 +397,10 @@ li.red:hover {
   cursor: pointer;
 }
 
+.settings__item {
+  display: none;
+}
+
 .settings__color {
   margin-bottom: 10px;
 }
@@ -383,10 +412,16 @@ li.red:hover {
   color: #fff;
 }
 
-#selectGreen {
+#selectRed {
   width: 20px;
   height: 20px;
-  background: green;
+  background: red;
+}
+
+#selectOrange {
+  width: 20px;
+  height: 20px;
+  background: #E2A76F;
 }
 
 #selectYellow {
@@ -395,10 +430,10 @@ li.red:hover {
   background: yellow;
 }
 
-#selectBlue {
+#selectGreen {
   width: 20px;
   height: 20px;
-  background: blue;
+  background: green;
 }
 
 #selectDodgerblue {
@@ -407,22 +442,22 @@ li.red:hover {
   background: dodgerblue;
 }
 
-#selectRed {
+#selectBlue {
   width: 20px;
   height: 20px;
-  background: red;
-}
-
-#selectBrown {
-  width: 20px;
-  height: 20px;
-  background: brown;
+  background: blue;
 }
 
 #selectPurple {
   width: 20px;
   height: 20px;
   background: purple;
+}
+
+#selectBrown {
+  width: 20px;
+  height: 20px;
+  background: brown;
 }
 
 .nav {
@@ -523,7 +558,8 @@ details summary {
 }
 
 /* Конец Content */
-pre {
+pre,
+code {
   display: block;
   padding: 1em;
   background-color: #f5f2f0;
