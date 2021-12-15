@@ -52,27 +52,53 @@
       <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
       <main class="main">
-        <aside><a class="active" href="articles.html">Articles</a><a href="git.html">Git</a><a href="haq.html">How ask questions</a><a href="notepad.html">Notepad</a><a href="sublime.html">Sublime</a><a href="verdaccio.html">Verdaccio</a>
+        <aside><a href="articles.html">Articles</a><a class="active" href="git.html">Git</a><a href="haq.html">How ask questions</a><a href="notepad.html">Notepad</a><a href="sublime.html">Sublime</a><a href="verdaccio.html">Verdaccio</a>
         </aside>
-        <section class="content online">
-          <h1>Полезные заметки</h1>
-          <article>
-            <h2>Какой сетевой фильтр мне нужен</h2><a href="https://aliexpress.ru/item/33043272718.html">сетевой фильтр orico</a>
-          </article>
-          <article>
-            <h2>Как скачать защищенное видео</h2><a href="https://www.youtube.com/watch?v=bY8GME5HnUg">RuFrame</a><br><em>Скачиваем защищённое видео через cmd \ FFmpeg или как скачать потоковое видео</em>
-          </article>
-          <article>
-            <h2>Как сделать текстовый документ, содержащий список файлов в нужной папке, вручную.</h2>
-            <ol>
-              <li>Запустите командную строку от имени администратора.</li>
-              <li>Введите cd x:\folder\ где x:\folder\ — полный путь к папке, список файлов из которой нужно получить. Нажмите Enter.</li>
-              <li>Введите команду dir /a /-p /o:gen >files.txt (где files.txt — текстовый файл, в котором будет сохранен список файлов). Нажмите Enter.</li>
-              <li>Если использовать команду с параметром /b (dir /a /b /-p /o:gen >files.txt), то в полученном списке будет отсутствовать любая дополнительная информация о размерах файлов или дате создания — только список имен.</li>
-            </ol>
-            <p>Готово. В результате будет создан текстовый файл, содержащий необходимую информацию. В команде выше, данный документ сохраняется в той же папке, список файлов из которой требуется получить. Можно также убрать вывод в текстовый файл, в этом случае список будет отображаться только в командной строке.</p>
-            <hr>
-          </article>
+        <section class="content haq">
+          <h1>Требования к именам коммитов</h1>
+          <ul>
+            <li>Названия коммитов должны быть согласно гайдлайну</li>
+            <li>Должен использоваться present tense ("add feature" not "added feature")</li>
+            <li>Должен использоваться imperative mood ("move cursor to..." not "moves cursor to...")</li>
+          </ul>
+          <h2>Примеры имен коммитов</h2>
+          <ul>
+            <li>init: - используется для начала проекта/таска. Примеры:
+              <pre>init: start youtube-task
+init: start mentor-dashboard task
+</pre>
+            </li>
+            <li>feat: - это реализованная новая функциональность из технического задания (добавил поддержку зумирования, добавил footer, добавил карточку продукта). Примеры:
+              <pre>feat: add basic page layout
+feat: implement search box 
+feat: implement request to youtube API
+feat: implement swipe for horizontal list
+feat: add additional navigation button
+feat: add banner
+feat: add social links
+feat: add physical security section
+feat: add real social icons
+</pre>
+            </li>
+            <li>fix: - исправил ошибку в ранее реализованной функциональности. Примеры:
+              <pre>fix: implement correct loading data from youtube
+fix: change layout for video items to fix bugs
+fix: relayout header for firefox
+fix: adjust social links for mobile
+</pre>
+            </li>
+            <li>refactor: - новой функциональности не добавлял / поведения не менял. Файлы в другие места положил, удалил, добавил. Изменил форматирование кода (white-space, formatting, missing semi-colons, etc). Улучшил алгоритм, без изменения функциональности. Примеры:
+              <pre>refactor: change structure of the project
+refactor: rename vars for better readability
+refactor: apply eslint
+refactor: apply prettier
+</pre>
+            </li>
+            <li>docs: - используется при работе с документацией/readme проекта. Примеры:
+              <pre>docs: update readme with additional information
+docs: update description of run() method</pre>
+            </li>
+          </ul>
         </section>
       </main>
       <footer class="footer">
