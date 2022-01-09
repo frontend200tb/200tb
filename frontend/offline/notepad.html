@@ -24,11 +24,16 @@
           <div class="social" id="social">
             
             <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
-            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
             <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram"></a>
+            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub"></a>
+            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen"></a>
+            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars"></a>
+            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it"></a>
+            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube"></a>
             <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
             <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
-            <a class="social__icon social__icon_gh" href="https://github.com/frontend200tb" title="GitHub"></a>
             
           </div>
           <div class="settings" id="settings">
@@ -52,7 +57,7 @@
       <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
       <main class="main">
-        <aside><a href="articles.html">Articles</a><a href="git.html">Git</a><a href="haq.html">How ask questions</a><a class="active" href="notepad.html">Notepad</a><a href="sublime.html">Sublime</a><a href="verdaccio.html">Verdaccio</a>
+        <aside><a href="git.html">Git</a><a href="vim.html">Vim</a><a class="active" href="notepad.html">Notepad</a><a href="sublime.html">Sublime</a><a href="vscode.html">VS Code</a><a href="verdaccio.html">Verdaccio</a><a href="markdown.html">Markdown</a><a href="haq.html">How ask questions</a><a href="articles.html">Articles</a>
         </aside>
         <section class="content online">
           <h1>Notepad++</h1>
@@ -62,17 +67,20 @@
             <ol>
               <li><a href="https://npp-user-manual.org/">npp-user-manual.org</a></li>
             </ol>
-            <h2>Установка Notepad++</h2>
+            <h2>Установка Notepad++ (портативной версии)</h2>
             <ol>
               <li>Заходим на сайт <a href="https://notepad-plus-plus.org/">notepad-plus-plus.org</a></li>
               <li>Скачиваем 32битную портативную версию <code>npp.8.1.2.portable.zip</code></li>
               <li>Распаковываем ее в каталог <code>c:\Portable\Notepad++\</code></li>
+            </ol>
+            <h2>Как добавить Notepad++ в меню пуск</h2>
+            <ol>
               <li>Выбираем файл (клик правой кнопкой мыши) <code>c:\Portable\Notepad++\notepad++.exe</code></li>
               <li>Выбираем Закрепить на начальном экране</li>
             </ol>
-            <h2>Как добавить программу Notepad++ в контекстное меню</h2>
+            <h2>Как добавить <em>программу</em> Notepad++ в контекстное меню</h2>
             <ol>
-              <li>Открыть Редактор реестра, для этого нажать Пуск - Выполнить и ввести команду <code>regedit</code></li>
+              <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
               <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
               <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать > Раздел</code></li>
               <li>Назовите его так, как должна называться команда в контекстном меню. Скажем, <code>Открыть с помощью Notepad++</code></li>
@@ -81,9 +89,9 @@
               <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
               <li>В открывшемся окне введите следующую команду <code>"c:\Portable\Notepad++\notepad++.exe" "%1"</code></li>
             </ol>
-            <h2>Как добавить иконку Notepad++ в контекстное меню</h2>
+            <h2>Как добавить <em>иконку</em> Notepad++ в контекстное меню</h2>
             <ol>
-              <li>Открыть Редактор реестра, для этого нажать Пуск - Выполнить и ввести команду <code>regedit</code></li>
+              <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
               <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью Notepad++</code></li>
               <li>Клик правой кнопкой мыши и выбираем команду <code>Создать > Строковый параметр</code></li>
               <li>в поле Имя укажите значение <code>Icon</code></li>
@@ -97,12 +105,13 @@
               После него установать Emmet
             </p>
             <ol>
-              <li>Заходим на сайт <a href="https://sourceforge.net/projects/npppythonscript/">sourceforge.net/projects/npppythonscript</a></li>
+              <li>Заходим на сайт <a href="https://sourceforge.net/projects/npppythonscript/">https://sourceforge.net/projects/npppythonscript/</a></li>
               <li>Скачиваем установщик <code>PythonScript_1.0.8.0.msi</code></li>
               <li>Запускаем его и он установит в папку <code>c:\Program Files (x86)\Notepad++\</code> файлы:<code>c:\Program Files (x86)\Notepad++\plugins\PythonScript\<br>c:\Program Files (x86)\Notepad++\plugins\PythonScript.dll<br>c:\Program Files (x86)\Notepad++\python27.dll</code></li>
+              <li>Эти файлы надо скопировать в папку<code>c:\Portable\Notepad++\plugins\</code>В итоге получится<code>c:\Portable\Notepad++\plugins\PythonScript\doc\<br>c:\Portable\Notepad++\plugins\PythonScript\lib\<br>c:\Portable\Notepad++\plugins\PythonScript\scripts\<br>c:\Portable\Notepad++\plugins\PythonScript\python27.dll<br>c:\Portable\Notepad++\plugins\PythonScript\PythonScript.dll</code></li>
               <li>Запускаем notepad++ от имени Администратора</li>
-              <li>Выбираем меню <code>Опции - Импортировать - Импортировать плагины</code></li>
-              <li>В открывшемся окне выбираем файл <code>c:\Program Files (x86)\Notepad++\plugins\PythonScript.dll</code></li>
+              <li>Выбираем меню <code>Settings - Import - Import plugin(s)...</code></li>
+              <li>В открывшемся окне выбираем файл <code>c:\Portable\Notepad++\plugins\PythonScript\PythonScript.dll</code></li>
               <li>После успешного импортирования перезапускаем notepad++</li>
               <li>Смотрим меню Плагины и видим Python Script</li>
             </ol>
@@ -111,9 +120,9 @@
               <li>Заходим на сайт <a href="https://emmet.io/">emmet.io</a></li>
               <li>Выбираем плагин Emmet для notepad++</li>
               <li>Переходим на сайт https://github.com/emmetio/ и скачиваем архив <code>emmet-npp.zip</code></li>
-              <li>Распаковываем архив emmet-npp.zip в папку <code>c:\Portable\Notepad++\plugins\</code> появится папка и в ней файл <code>c:\Portable\Notepad++\plugins\EmmetNPP\<br>c:\Portable\Notepad++\plugins\EmmetNPP\EmmetNPP.dll</code></li>
+              <li>Распаковываем архив emmet-npp.zip в папку <code>c:\Portable\Notepad++\plugins\</code>Оставляем папку и в ней файл <code>c:\Portable\Notepad++\plugins\EmmetNPP\<br>c:\Portable\Notepad++\plugins\EmmetNPP\EmmetNPP.dll</code></li>
               <li>Запускаем notepad++ от имени Администратора</li>
-              <li>Выбираем меню <code>Опции - Импортировать - Импортировать плагины</code></li>
+              <li>Выбираем меню <code>Settings - Import - Import plugin(s)...</code></li>
               <li>В открывшемся окне выбираем файл <code>c:\Portable\Notepad++\plugins\EmmetNPP\EmmetNPP.dll</code></li>
               <li>После успешного импортирования перезапускаем notepad++</li>
               <li>Смотрим меню Плагины и видим Emmet</li>
@@ -121,16 +130,27 @@
             <p>Как  Установить pythonscript и emmet на 64битную версию notepad++ я не знаю</p>
             <h2>Полезные плагины для Notepad++ которые надо сразу установить</h2>
             <ol>
-              <li>Python Script (нужен для Emmet)</li>
-              <li>Emmet (ускоряет ввод кода)</li>
-              <li>Explorer показывает слева файлы и папки</li>
-              <li>Auto Indent отступы в коде</li>
-              <li>MultiClipboard копирует в много буферов обмена</li>
+              <li>Python Script (нужен для Emmet)<br><a href="https://sourceforge.net/projects/npppythonscript/">https://sourceforge.net/projects/npppythonscript/</a></li>
+              <li>Emmet (ускоряет ввод кода)<br><a href="https://emmet.io/">emmet.io</a></li>
+              <li>Explorer показывает слева файлы и папки<br><a href="https://sourceforge.net/projects/npp-plugins/files/Explorer/">https://sourceforge.net/projects/npp-plugins/files/Explorer/</a></li>
+              <li>Auto Indent отступы в коде<br><a href="https://sourceforge.net/projects/npp-plugins/files/NppAutoIndent/">https://sourceforge.net/projects/npp-plugins/files/NppAutoIndent/</a></li>
+              <li>MultiClipboard копирует в много буферов обмена<br><a href="https://sourceforge.net/projects/npp-plugins/files/MultiClipboard/">https://sourceforge.net/projects/npp-plugins/files/MultiClipboard/</a></li>
               <li>NppFTP</li>
               <li>Compare сравнивает два текста</li>
               <li>Snippets</li>
               <li>TextFX Characters подставляет закрывающий тег</li>
               <li>Webedit</li>
+            </ol>
+            <h2>Установка плагинов</h2>
+            <ol>
+              <li>Заходим на сайт </li><a href="https://sourceforge.net/projects/npp-plugins/files/">sourceforge.net/projects/npp-plugins</a>
+              <li>Скачиваем нужный плагин</li>
+              <li>Распаковываем его в</li><code>c:\Portable\Notepad++\plugins\имя_плагина\</code>
+              <li>Запускаем notepad++ от имени Администратора</li>
+              <li>Выбираем меню <code>Settings - Import - Import plugin(s)...</code></li>
+              <li>В открывшемся окне выбираем файл <code>c:\Portable\Notepad++\plugins\имя_плагина\имя_плагина.dll</code></li>
+              <li>После успешного импортирования перезапускаем notepad++</li>
+              <li>Смотрим меню Плагины и видим имя_плагина</li>
             </ol>
             <h2>Настройка Notepad++</h2>
             <ol>

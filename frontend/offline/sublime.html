@@ -24,11 +24,16 @@
           <div class="social" id="social">
             
             <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
-            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
             <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram"></a>
+            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub"></a>
+            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen"></a>
+            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars"></a>
+            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it"></a>
+            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube"></a>
             <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
             <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
-            <a class="social__icon social__icon_gh" href="https://github.com/frontend200tb" title="GitHub"></a>
             
           </div>
           <div class="settings" id="settings">
@@ -52,7 +57,7 @@
       <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
       <main class="main">
-        <aside><a href="articles.html">Articles</a><a href="git.html">Git</a><a href="haq.html">How ask questions</a><a href="notepad.html">Notepad</a><a class="active" href="sublime.html">Sublime</a><a href="verdaccio.html">Verdaccio</a>
+        <aside><a href="git.html">Git</a><a href="vim.html">Vim</a><a href="notepad.html">Notepad</a><a class="active" href="sublime.html">Sublime</a><a href="vscode.html">VS Code</a><a href="verdaccio.html">Verdaccio</a><a href="markdown.html">Markdown</a><a href="haq.html">How ask questions</a><a href="articles.html">Articles</a>
         </aside>
         <section class="content online">
           <h1>Sublime text</h1>
@@ -62,18 +67,21 @@
             <ol>
               <li><a href="https://npp-user-manual.org/">npp-user-manual.org</a></li>
             </ol>
-            <h2>Установка Sublime text</h2>
+            <h2>Установка Sublime text (портативной версии)</h2>
             <ol>
               <li>Заходим на сайт <a href="https://www.sublimetext.com/">sublimetext.com</a></li>
               <li>Нажимаем Download</li>
               <li>Выбираем portable version sublime_text_build_4113_x64.zip</li>
               <li>Распаковываем ее в каталог <code>c:\Portable\SublimeText\</code></li>
+            </ol>
+            <h2>Как добавить Sublime text в меню пуск</h2>
+            <ol>
               <li>Выбираем файл (клик правой кнопкой мыши) <code>c:\Portable\SublimeText\sublime_text.exe</code></li>
               <li>Выбираем Закрепить на начальном экране</li>
             </ol>
-            <h2>Как добавить программу Sublime text в контекстное меню</h2>
+            <h2>Как добавить <em>программу</em> Sublime text в контекстное меню</h2>
             <ol>
-              <li>Открыть Редактор реестра, для этого нажать Пуск - Выполнить и ввести команду <code>regedit</code></li>
+              <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
               <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
               <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать > Раздел</code></li>
               <li>Назовите его так, как должна называться команда в контекстном меню. Скажем, <code>Открыть с помощью Sublime text</code></li>
@@ -82,9 +90,9 @@
               <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
               <li>В открывшемся окне введите следующую команду <code>"c:\Portable\SublimeText\sublime_text.exe" "%1"</code></li>
             </ol>
-            <h2>Как добавить иконку Sublime text в контекстное меню</h2>
+            <h2>Как добавить <em>иконку</em> Sublime text в контекстное меню</h2>
             <ol>
-              <li>Открыть Редактор реестра, для этого нажать Пуск - Выполнить и ввести команду <code>regedit</code></li>
+              <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
               <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью Sublime text</code></li>
               <li>Клик правой кнопкой мыши и выбираем команду <code>Создать > Строковый параметр</code></li>
               <li>в поле Имя укажите значение <code>Icon</code></li>
@@ -109,16 +117,19 @@
             <p>Список полезных плагинов</p>
             <ol>
               <li>Emmet ускоряет написание кода</li>
-              <li>AutoFileName автоподстановка пути файлов и картинок</li>
               <li>All Autocomplete начинаем писать и нам предлагают подставить то что уже есть</li>
+              <li>AutoFileName автоподстановка пути файлов и картинок</li>
+              <li>Alignment выравнивает фрагменты кода</li>
+              <li>BracketHighlighter подсветка начального и закрывающего тега</li>
               <li>ColorHighlighter подсветка цвета</li>
               <li>ColorPicker выбор цвета</li>
-              <li>BracketHighlighter подсветка начального и закрывающего тега</li>
-              <li>SideBarEnhancements больше команд в сайд баре</li>
               <li>Goto-CSS-Declaration находит класс в css</li>
               <li>LiveReload Обновление файла в браузере при редактировании</li>
+              <li>LiveServer</li>
               <li>LiveStyle</li>
-              <li>Sass для работы с препроцессором Sass</li>
+              <li>Sass для работы с препроцессором Sass, выделяет синтаксис</li>
+              <li>SideBarEnhancements больше команд в сайд баре</li>
+              <li>SublimeLinter</li>
             </ol>
             <h2>Настройка пункта меню View</h2>
             <p>показать навигацию по файлам слева</p><code>View - Side bar - Show side bar </code>
