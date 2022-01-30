@@ -1,0 +1,78 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+  /* 1rem */
+  font-family: Arial, sans-serif;
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 0.8rem;
+    /* размер шрифта */
+  }
+}
+@media (min-width: 992px) {
+  html {
+    font-size: 1rem;
+    /* размер шрифта */
+  }
+}
+@media (min-width: 1400px) {
+  html {
+    font-size: 1.2rem;
+    /* размер шрифта */
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav a,
+aside a {
+  color: white;
+}
+
+.page {
+  padding: 10px 0;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header,
+.search,
+.nav,
+.footer {
+  margin: 10px auto;
+  width: 90%;
+}
+
+::-moz-selection {
+  /* псевдокласс выделения */
+  color: #fff;
+  background-color: #2B7DED;
+}
+
+::selection {
+  /* псевдокласс выделения */
+  color: #fff;
+  background-color: #2B7DED;
+}
+
+.main {
+  text-align: center;
+}

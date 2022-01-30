@@ -49,81 +49,106 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a class="active" href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      <nav class="nav"><a href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a class="active" href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a class="active" href="courses.html">Courses</a><a href="hosting.html">Hosting</a><a href="learning.html">Learning</a><a href="links.html">Links</a><a href="metalamp.html">Metalamp</a><a href="rsschool.html">RS School</a>
+      <div class="asidemain">
+        <aside class="aside"><a class="active" href="courses.html">Courses</a><a href="hosting.html">Hosting</a><a href="learning.html">Learning</a><a href="links.html">Links</a><a href="metalamp.html">Metalamp</a><a href="rsschool.html">RS School</a><a href="epam.html">Epam</a>
         </aside>
-        <section class="content online">
+        <main class="main">
           <h1>Сайты с онлайн курсами</h1>
-          <h2>Полностью бесплатные курсы</h2>
-          <ol>
-            <li><strong><a href="https://ru.code-basics.com/">code-basics.com</a></strong><br>Кирилл Мокевнин
-              <ul>
-                <li><strong>HTML для начинающих (прошел 2021-12-13 пн) </strong><a href="https://ru.code-basics.com/languages/html">ссылка</a><br>11 часов 41 урок с практикой в браузере</li>
-                <li><strong>CSS для начинающих (прошел 2021-12-16 чт) </strong><a href="https://ru.code-basics.com/languages/css">ссылка</a><br>8 часов 33 урока с практикой в браузере</li>
-              </ul>
-            </li>
-          </ol>
-          <article class="showhide">
-            <!-- Бесплатные курсы на платных платформах-->
-            <h2 class="showhide__h" id="hide1">Бесплатные курсы на платных платформах</h2>
-            <div class="showhide__text" id="hide1_item">
+          <div class="content__menu">
+            <p class="content__menu-link" id="content__menu-link1">Полностью бесплатные курсы</p>
+            <p class="content__menu-link" id="content__menu-link2">Бесплатные курсы на платных платформах</p>
+            <p class="content__menu-link" id="content__menu-link3">Платные курсы</p>
+          </div>
+          <div class="content__items">
+            <div id="content__item1">
+              <h2>Полностью бесплатные курсы</h2>
+              <ol>
+                <li><strong><a href="https://ru.code-basics.com/">code-basics.com</a></strong><br>Кирилл Мокевнин
+                  <ul>
+                    <li><a href="https://ru.code-basics.com/languages/html">HTML для начинающих</a> (прошел 2021-12-13 пн)<br>11 часов 41 урок с практикой в браузере</li>
+                    <li><a href="https://ru.code-basics.com/languages/css">CSS для начинающих</a> (прошел 2021-12-16 чт)<br>8 часов 33 урока с практикой в браузере</li>
+                    <li><a href="https://ru.code-basics.com/languages/javascript">JavaScript для начинающих</a> (прошел 2022-01-13 чт)<br>22 часа 79 уроков с практикой в браузере</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div id="content__item2">
+              <h2>Бесплатные курсы на платных платформах</h2>
               <ol>
                 <li><strong><a href="https://proity.ru/programming/free-frontend-courses/">free-frontend-courses</a></strong><br><em>28 бесплатных онлайн-курсов по Frontend-разработке для начинающих с нуля</em></li>
-                <li><strong><a href="https://htmlacademy.ru/courses">htmlacademy.ru</a></strong><br>htmlacademy.ru
+                <li><a href="https://htmlacademy.ru/courses">htmlacademy.ru</a>
                   <ul>
-                    <li><strong>[старт] Знакомство с веб-разработкой</strong> (прошел 2021-11-01 пн)<a href="https://htmlacademy.ru/courses/intro-to-web-development">ссылка</a>
+                    <li><a href="https://htmlacademy.ru/blog">Блог HTML Academy</a></li>
+                    <li><a href="https://htmlacademy.ru/courses/intro-to-web-development">[старт] Знакомство с веб-разработкой</a> (прошел 2021-11-01 пн)
                       <details>
                         <summary>1 час 35 минут теории, 1 час 40 минут практики</summary>        Часть 1: Основы HTML и CSS<br>Часть 2: Основы JavaScript<br>Часть 3: Основы PHP
                       </details>
                     </li>
-                    <li><strong>[начальный уровень] Знакомство с HTML и CSS</strong> (прошел 2021-11-09 вт)<a href="https://htmlacademy.ru/courses/basic-html-css">ссылка</a>
+                    <li><a href="https://htmlacademy.ru/courses/basic-html-css">[начальный уровень] Знакомство с HTML и CSS</a> (прошел 2021-11-09 вт)
                       <details>
                         <summary>3 часа теории, 3 часа практики</summary>        Часть 1:Структура HTML-документа<br>Часть 2:Разметка текста<br>Часть 3:Ссылки и изображения<br>Часть 4:Основы CSS<br>Часть 5:Оформление текста
                       </details>
                     </li>
                   </ul>
                 </li>
-                <li><strong><a href="https://netology.ru/">netology.ru</a></strong><br>netology.ru
+                <li><a href="https://netology.ru/">netology.ru</a>
                   <ul>
-                    <li><strong>Основы вёрстки сайта (Владимир Языков)</strong> (прошел 2021-08-25 ср)<a href="https://netology.ru/programs/html-css-base">ссылка</a></li>
-                    <li><strong>Первые шаги в JavaScript: создаём сайт и приложение (Дмитрий Бронских)</strong> (прошел 2021-08-28 сб)<a href="https://netology.ru/programs/javascript-free">ссылка</a></li>
-                    <li><strong>Python-разработка для начинающих (Дмитрий Демидов)</strong> (прошел 2021-09-03 пт)<a href="https://netology.ru/programs/python-free">ссылка</a></li>
-                    <li><strong>Профессии в программировании</strong> (прошел 2021-09-08 ср)<a href="https://netology.ru/profile/program/code-bp">ссылка</a></li>
+                    <li><a href="https://netology.ru/blog/">Блог Нетология</a></li>
+                    <li><a href="https://netology.ru/programs/html-css-base">Основы вёрстки сайта (Владимир Языков)</a> (прошел 2021-08-25 ср)</li>
+                    <li><a href="https://netology.ru/programs/javascript-free">Первые шаги в JavaScript: создаём сайт и приложение (Дмитрий Бронских)</a> (прошел 2021-08-28 сб)</li>
+                    <li><a href="https://netology.ru/programs/python-free">Python-разработка для начинающих (Дмитрий Демидов)</a> (прошел 2021-09-03 пт)</li>
+                    <li><a href="https://netology.ru/profile/program/code-bp">Профессии в программировании</a> (прошел 2021-09-08 ср)</li>
                   </ul>
                 </li>
-                <li><strong><a href="https://stepik.org/course/38218/promo">stepik.org</a></strong><br>stepik.org
+                <li><a href="https://stepik.org/course/38218/promo">stepik.org</a>
                   <ul>
-                    <li><strong>Веб-разработка для начинающих: HTML и CSS</strong> (прошел 2021-06-06 вс)<a href="https://stepik.org/course/38218/syllabus">ссылка</a>
+                    <li><a href="https://stepik.org/course/38218/syllabus">Веб-разработка для начинающих: HTML и CSS</a> (прошел 2021-06-06 вс)
                       <details>
-                        <summary>содержание курса</summary>        1. Вступление<br>2. HTML: База<br>3. HTML: Основные элементы<br>4. HTML: Составные элементы<br>5. CSS: Введение<br>6. CSS: База<br>7. Продвинутая вёрстка<br>8. Фреймворки<br>9. Деплой сайта
+                        <summary>содержание курса</summary>66 заданий<br>1. Вступление<br>2. HTML: База<br>3. HTML: Основные элементы<br>4. HTML: Составные элементы<br>5. CSS: Введение<br>6. CSS: База<br>7. Продвинутая вёрстка<br>8. Фреймворки<br>9. Деплой сайта
                       </details>
                     </li>
-                    <li><strong>JavaScript для начинающих (Антон Холин)</strong> (прошел 2021-06-28 пн)<a href="https://stepik.org/course/2223/syllabus">ссылка</a>
+                    <li><a href="https://stepik.org/course/2223/syllabus">JavaScript для начинающих (Антон Холин)</a> (прошел 2021-06-28 пн)
                       <details>
-                        <summary>содержание курса</summary>        1. Введение в JavaScript<br>2. Стандартные объекты<br>3. Продвинутые операции<br>4. Заключение
+                        <summary>содержание курса</summary>42 задания<br>1. Введение в JavaScript<br>2. Стандартные объекты<br>3. Продвинутые операции<br>4. Заключение
                       </details>
                     </li>
+                    <li><a href="https://stepik.org/course/13929/syllabus">Введение в программирование (JavaScript ES6)</a> (прошел 2022-01-19 ср)
+                      <details>
+                        <summary>содержание курса</summary>155 заданий<br>1. Введение<br>2. Подробнее о языке JavaScript<br>3. Полное погружение в JavaScript
+                      </details>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="https://ru.hexlet.io/">hexlet.io</a><br>Кирилл Мокевнин
+                  <ul>
+                    <li><a href="https://ru.hexlet.io/blog">Блог Хекслета</a></li>
+                    <li><a href="https://ru.hexlet.io/courses/free">Бесплатные курсы Хекслета</a></li>
                   </ul>
                 </li>
                 <li><strong><a href="https://skillbox.ru/">skillbox.ru</a></strong><br>skillbox.ru</li>
-                <li><strong><a href="https://practicum.yandex.ru/profile/web/">practicum.yandex.ru</a></strong><br><em>Яндекс</em></li>
-                <p class="old"><a href="https://practicum.yandex.ru/profile/web/"><strong>HTML, CSS, JavaScript бесплатный вводный курс</strong></a><br><a href="https://practicum.yandex.ru/profile/backend-developer/"><strong>Как стать Python-разработчиком</strong></a></p>
+                <li><strong><a href="https://practicum.yandex.ru/profile/web/">practicum.yandex.ru</a></strong><br><em>Яндекс</em>
+                  <ul>
+                    <li><a href="https://practicum.yandex.ru/profile/web/"><strong>HTML, CSS, JavaScript бесплатный вводный курс</strong></a></li>
+                    <li><a href="https://practicum.yandex.ru/profile/backend-developer/"><strong>Как стать Python-разработчиком</strong></a></li>
+                  </ul>
+                </li>
+                <li><strong><a href="https://hyperskill.org/tracks">JetBrains Academy (eng)</a></strong><br>hyperskill.org</li>
               </ol>
               <hr><a href="#header">К началу страницы</a>
               <hr>
             </div>
-          </article>
-          <article class="showhide">
-            <!-- платные курсы-->
-            <h2 class="showhide__h" id="hide2">платные курсы</h2>
-            <div class="showhide__text" id="hide2_item">
+            <div id="content__item3">
+              <h2>Платные курсы</h2>
               <ol>
                 <li><strong><a href="https://beonmax.com/">beonmax.com</a></strong><br><em>beonmax</em></li>
                 <li><strong><a href="https://ru.bitdegree.org/">ru.bitdegree.org</a></strong><br><em>bitdegree</em></li>
@@ -134,7 +159,6 @@
                 <li><strong><a href="https://fructcode.com/ru/">fructcode.com</a></strong><br><em>курсы fructcode</em></li>
                 <li><strong><a href="https://gb.ru/">gb.ru</a></strong><br><em>Москва GeekBrains</em></li>
                 <li><strong><a href="https://goit.ua/">goit.ua</a></strong><br><em>Киев goit</em></li>
-                <li><strong><a href="https://ru.hexlet.io/">hexlet.io</a></strong><br><em>Helsinki, Finland</em></li>
                 <li><strong><a href="https://htmlacademy.ru/program">htmlacademy.ru</a></strong><br>htmlacademy.ru</li>
                 <li><strong><a href="https://htmllessons.ru/">htmllessons.ru</a></strong><br><em>htmllessons.ru</em></li>
                 <li><strong><a href="https://irs.academy/">irs.academy</a></strong><br><em>irs.academy</em></li>
@@ -154,7 +178,7 @@
               <hr><a href="#header">К началу страницы</a>
               <hr>
             </div>
-          </article>
+          </div>
           <article class="showhide">
             <!-- Онлайн курсы (eng)-->
             <h2 class="showhide__h" id="hide3">Онлайн курсы (eng)</h2>
@@ -197,8 +221,8 @@
               <hr>
             </div>
           </article>
-        </section>
-      </main>
+        </main>
+      </div>
       <footer class="footer">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
@@ -207,6 +231,7 @@
       <script src="../../js/settings.js"></script>
       <script src="../../js/nav.js"></script>
       <script src="../../js/showhide.js"></script>
+      <script src="../../js/order.js"></script>
     </div>
   </body>
 </html>

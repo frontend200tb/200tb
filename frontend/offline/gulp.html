@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Иван Каширин">
+    <meta name="copyright" content="200TB Web Studio">
+    <meta name="description" content="Online ресурсы для верстальщиков">
+    <meta name="keywords" content="верстка, frontend">
+    <title>200tb Frontend online</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../img/favicon.ico">
+  </head>
+  <body>
+    <div class="page snow page_blue" id="page">
+      <header class="header" id="header">
+        <div class="header__first-row">
+          <div class="header__logo">200TERABYTE</div>
+          <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
+          </nav>
+        </div>
+        <div class="header__second-row">
+          <div class="social" id="social">
+            
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram"></a>
+            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub"></a>
+            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen"></a>
+            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars"></a>
+            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it"></a>
+            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            
+          </div>
+          <div class="settings" id="settings">
+            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__item" id="set__item">
+              <div class="settings__color" id="setColor">
+                <button id="selectRed"></button>
+                <button id="selectOrange"></button>
+                <button id="selectYellow"></button>
+                <button id="selectGreen"></button>
+                <button id="selectDodgerblue"></button>
+                <button id="selectBlue"></button>
+                <button id="selectPurple"></button>
+                <button id="selectBrown"></button>
+              </div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="nav"><a href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <div class="asidemain">
+        <aside class="aside"><a href="git.html">Git</a><a class="active" href="gulp.html">Gulp</a><a href="verdaccio.html">Verdaccio</a><a href="haq.html">How ask questions</a><a href="articles.html">Articles</a>
+        </aside>
+        <main class="main">
+          <h1>Gulp</h1>
+          <div class="content__menu">
+            <p class="content__menu-link" id="content__menu-link1">Установка gulp</p>
+            <p class="content__menu-link" id="content__menu-link2">gulpfile.js</p>
+            <p class="content__menu-link" id="content__menu-link3">Плагин gulp-sass</p>
+            <p class="content__menu-link" id="content__menu-link4">Плагин gulp-concat</p>
+            <p class="content__menu-link" id="content__menu-link5">gulp watch</p>
+            <p class="content__menu-link" id="content__menu-link6">Плагин browser-sync</p>
+          </div>
+          <div class="content__items">
+            <div id="content__item1">
+              <h3>Установка gulp</h3>
+              <p>Раньше была одна версия gulp которую нужно было устанавливать глобально и локально. Локальная версия используется в gulpfile.js глобальная для запуска в консоле. Но начиная с 4 версии gulp нужно устанавливать gulp-cli. Разделение произошло из-за проблем совместимости глобальной и локальной версии. gulp-cli (gulp command line interface) - это всего лишь способ запустить gulp-task из консоли.</p>
+              <ol>
+                <li>Если нет node.js и npm, то ставим сначала их <a href="https://nodejs.org/en/">nodejs</a></li>
+                <li>Установим gulp-cli глобально во всей системе<code>npm i -g gulp-cli</code>(сокращенно от npm install --global gulp-cli)</li>
+                <li>Создадим папку для нашего проекта и перейдем в нее
+                  <pre>mkdir project1
+cd project1
+d://project1/
+</pre>
+                </li>
+                <li>Инициализируем проект<code>npm init -y</code>(то же что и npm init , не отвечая на вопросы)</li>
+                <li>В итоге в папке с проектом появится файл package.json<code>d://project1/package.json</code></li>
+                <li>После этого можно устанавливать пакеты, которые будут являться зависимостями для нашего приложения. Установим gulp в наш проект и занесем плагин gulp в раздел devDependencies (который нужен только для разработки) файла package.json<code>npm i -D gulp</code>(сокращенно от npm install --save-dev gulp)</li>
+                <li>В итоге в папке с проектом появится папка node_modules, в которой установлен gulp и все необходимые зависимости для того чтобы работал только gulp. Эту папку трогать не нужно<code>d://project1/node_modules</code></li>
+                <li>Создадим файл gulpfile.js в который будем прописывать задачи для gulp<code>d://project1/gulpfile.js</code></li>
+              </ol>
+            </div>
+            <div id="content__item2">
+              <h3>gulpfile.js</h3>
+              <p>Поскольку gulp работает на node.js, то в файле gulpfile.js доступны такие команды языка javascript как require, exports и другие</p>
+              <ol>
+                <li>В файле gulpfile.js создадим переменную в которую поместим плагин gulp<code>const gulp = require('gulp');</code>или создадим только те переменные, какие мы будем использовать<code>const {src, dest, watch, series, parallel} = require('gulp');</code></li>
+                <li>Создадим функцию вывода текста в консоль и назовем ее hello
+                  <pre>function hello () {
+  console.log('Привет, я выполнился')
+};
+exports.hello = hello;</pre>
+                </li>
+                <li>Чтобы запустить эту задачу выполним команду в папке проекта<code>gulp hello</code></li>
+              </ol>
+              <h3>Задачи по умолчанию</h3>
+              <ol>
+                <li>В файле gulpfile.js напишем экспорт задачи по умолчанию<code>exports.default = style;</code></li>
+                <li>Эта задача будет выполняться при запуске gulp в папке проекта<code>gulp</code></li>
+              </ol>
+              <h3>Переместить файл</h3>
+              <ol>
+                <li>Чтобы переместить файл напишем функцию move(), в ней запишем задачу gulp.src (возьми файл), pipe (перейди в следующую задачу), gulp.dist (сохрани файл) и экспортируем эту функцию в node.js
+                  <pre>function move() {
+  return gulp.src('src/css/main.css')
+    .pipe(gulp.dest('dist/css/main.css'));
+};
+exports.move = move
+</pre>
+                </li>
+                <li>Запустим таск move<code>gulp move</code></li>
+                <li>В итоге появится новый файл <code>d://project1/dist/css/main.css</code></li>
+              </ol>
+            </div>
+            <div id="content__item3">
+              <h3>Плагин gulp-sass</h3>
+              <ol>
+                <li>Установим в наш проект плагин gulp-sass для преобразования файлов sass в css и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-sass</code></li>
+                <li>В файле gulpfile.js создадим переменную sass<code>const scss = require('gulp-sass');</code></li>
+                <li>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет файл scss и передает второй задаче.Вторая задача преобразует его в css. Третья задача записывает его в папку назначения. Если будут ошибки при компиляции, они запишутся в файл sass.logfile.
+                  <pre>function style () {
+  return gulp.src('src/scss/style.scss')
+    .pipe(scss().on('error', scss.logfile))
+    .pipe(gulp.dest('dist/css'));
+}
+</pre>
+                </li>
+                <li>В итоге получим
+                  <pre>const gulp = require('gulp'),
+const scss = require('gulp-sass');
+function style () {
+  return gulp.src('src/scss/main.scss')
+    .pipe(scss().on('error', scss.logfile))
+    .pipe(gulp.dest('dist/css'));
+}
+exports.style = style;</pre>
+                </li>
+                <li>В терминале запустим задачу style<code>gulp style</code></li>
+              </ol>
+            </div>
+            <div id="content__item4">
+              <h3>Плагин gulp-concat</h3>
+              <ol>
+                <li>Установим в наш проект плагин gulp-concat (для соединения файлов в один и переименования его) и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-concat</code></li>
+                <li>В файле gulpfile.js создадим переменную concat<code>const concat = require('gulp-concat');</code></li>
+                <li>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет исходные файлы и передает второй задаче.Вторая задача соединяет их в один и дает ему имя. Третья задача записывает его в папку назначения.
+                  <pre>function concat () {
+  return gulp.src('src/scss/style.scss')
+    .pipe(concat(style.min.css))
+    .pipe(gulp.dest('dist/css'));
+}
+
+</pre>
+                </li>
+              </ol>
+            </div>
+            <div id="content__item5">
+              <h3>gulp watch</h3>
+              <ol>
+                <li>Напишем функцию слежения, которая при изменении файлов запускает другую функцию
+                  <pre>function watch () {
+  gulp.watch('src/sass/main.sass', style);
+}
+exports.watch = watch;</pre>
+                </li>
+                <li>В терминале запускаем задачу watch<code>gulp watch</code></li>
+              </ol>
+            </div>
+            <div id="content__item6">
+              <h3>Плагин browser-sync</h3>
+              <ol>
+                <li>Установим плагин browser-sync для автоматического обновления страницы в браузере<code>npm i -D browser-sync</code></li>
+                <li>В файле gulpfile.js создадим переменную browserSync<code>const browserSync = require('browser-sync').create();</code></li>
+                <li>Напишем функцию которая запускает сервер
+                  <pre>function browsersync () {
+  browserSync.init({
+    server: {
+      baseDir: "./dist/"
+    }
+  });
+}</pre>
+                </li>
+                <li>В итоге получим
+                  <pre>const gulp = require('gulp'),
+const scss = require('gulp-sass');
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
+function server () {
+  browserSync.init({
+    server: {
+      baseDir: "./dist/"
+    }
+  });
+}
+function style () {
+  return gulp.src('src/scss/main.scss')
+    .pipe(scss().on('error', scss.logfile))
+    .pipe(concat(style.min.css))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.stream())
+}
+function watch () {
+  gulp.watch('src/sass/main.sass', style);
+  gulp.watch('src/**/*.html').on('change', browserSync.reload);
+}
+exports.style = style;
+exports.watch = watch;
+exports.browsrsync = browsersync;
+
+exports.default = gulp.parallel(browsersync, watch);
+</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <hr><a href="#header">К началу страницы</a>
+          <hr>
+        </main>
+      </div>
+      <footer class="footer">
+        <div class="footer__logo">200TERABYTE Frontend</div>
+      </footer>
+    </div>
+    <div id="js">
+      <script src="../../js/settings.js"></script>
+      <script src="../../js/nav.js"></script>
+      <script></script>
+      <script src="../../js/order.js"></script>
+    </div>
+  </body>
+</html>
