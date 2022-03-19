@@ -10,11 +10,11 @@
     <meta name="keywords" content="карта развития frontend разработчика, шпаргалка HTML CSS JS">
     <title>200tb Frontend</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../img/favicon.ico">
+    <link rel="icon" href="../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_green" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
           <div class="header__logo">200TERABYTE</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../index.html">News</a><a href="../lang/lang.html">Lang</a><a class="active" href="../frontend/frontend.html">Frontend</a>
@@ -49,16 +49,19 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="books/books.html">Books</a><a href="learned/learned.html">Learned</a><a href="offline/offline.html">Offline</a><a href="online/online.html">Online</a><a href="tools/tools.html">Tools</a><a href="video/video.html">Video</a><a href="youtube/yt1.html">Youtube</a>
+      <nav class="nav container"><a href="books/books.html">Books</a><a href="code/code.html">Code</a><a href="learned/learned.html">Learned</a><a href="offline/offline.html">Offline</a><a href="online/online.html">Online</a><a href="roadmap/roadmap.html">Roadmap</a><a href="tools/tools.html">Tools</a><a href="vacancy/vacancy.html">Vacancy</a><a href="video/video.html">Video</a><a href="youtube/yt1.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a href="#hide1">Карта развития</a><a href="#hide2">Шпаргалки</a><a href="#hide3">HTML</a><a href="#hide4">CSS</a><a href="#hide5">JavaScript</a><a href="#hide6">Git</a><a href="#hide7">Методология БЭМ</a><a href="#hide8">CSS preprocessor</a><a href="#hide9">HTML preprocessor</a><a href="#hide10">Node.js</a><a href="#hide11">Менеджеры пакетов</a><a href="#hide12">Инструменты сборки</a><a href="#hide13">.js</a><a href="#hide14">jQuery</a><a href="#hide15">CSS фреймворки</a><a href="#hide16">CMS</a><a href="#hide17">Server</a></aside>
-        <section class="content">
+      <div class="asidemain container">
+        <aside class="aside"><a href="#hide1">Карта развития</a><a href="#hide2">Шпаргалки</a><a href="#hide3">HTML</a><a href="#hide4">CSS</a><a href="#hide5">JavaScript</a><a href="#hide6">Git</a><a href="#hide7">Методология БЭМ</a><a href="#hide8">CSS preprocessor</a><a href="#hide9">HTML preprocessor</a><a href="#hide10">Node.js</a><a href="#hide11">Менеджеры пакетов</a><a href="#hide12">Инструменты сборки</a><a href="#hide13">.js</a><a href="#hide14">jQuery</a><a href="#hide15">CSS фреймворки</a><a href="#hide16">CMS</a><a href="#hide17">Server</a></aside>
+        <main class="main">
           <!-- Карта развития-->
           <article class="showhide">
             <h2 class="showhide__h" id="hide1">Карта развития</h2>
@@ -88,22 +91,6 @@
             </div>
           </article>
           <!-- /Шпаргалки-->
-          <!-- HTML-->
-          <article class="showhide">
-            <h2 class="showhide__h" id="hide3">HTML</h2>
-            <div class="showhide__text" id="hide3_item">
-              <h3>Документация</h3>
-              <ol>
-                <li><strong><a href="https://html.spec.whatwg.org/multipage/">html.spec.whatwg.org</a></strong><br>HTML Living standart</li>
-                <li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">developer.mozilla.org</a></strong><br>HTML Reference</li>
-                <li><strong><a href="https://htmlreference.io/">htmlreference.io</a></strong><br>HTML Reference</li>
-                <li><strong><a href="https://htmlcheatsheet.com/">htmlcheatsheet.com</a></strong><br>htmlcheatsheet</li>
-              </ol>
-              <hr><a href="#header">К началу страницы</a>
-              <hr>
-            </div>
-          </article>
-          <!-- /HTML-->
           <!-- CSS-->
           <article class="showhide">
             <h2 class="showhide__h" id="hide4">CSS</h2>
@@ -134,26 +121,6 @@
             </div>
           </article>
           <!-- /JavaScropt-->
-          <!-- git-->
-          <article class="showhide">
-            <h2 class="showhide__h" id="hide6">Git (2005)</h2>
-            <div class="showhide__text" id="hide6_item">
-              <ol>
-                <li><a href="https://git-scm.com/">git-scm.com</a><br>git и Git Bush</li>
-                <li><a href="https://uleming.github.io/gitbook/index.html">uleming.github.io/gitbook</a><br>git хорошая документация</li>
-                <li><a href="https://www.evernote.com/shard/s368/client/snv?noteGuid=b1359883-2b9e-419a-b9de-dd959fc05f05&amp;noteKey=97c0f19486d851b3&amp;sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs368%2Fsh%2Fb1359883-2b9e-419a-b9de-dd959fc05f05%2F97c0f19486d851b3&amp;title=Git">evernote</a><br>Хороший конспект по git</li>
-                <li><a href="https://gitforwindows.org/">gitforwindows.org</a><br>git for windows</li>
-                <li><a href="https://www.sourcetreeapp.com/">sourcetreeapp.com</a><br>git окно</li>
-                <li><a href="https://githowto.com/ru">githowto.com/ru</a><br>Обучение git 51 урок</li>
-                <li><a href="https://git-scm.com/book/ru/v2">git-scm.com/book/ru/v2</a><br>Обучение git 10 уроков</li>
-                <li><a href="https://learngitbranching.js.org/">learngitbranching.js.org</a><br>Learn git branching</li>
-                <li><a href="https://www.atlassian.com/git">atlassian.com/git</a><br>Learn git</li>
-              </ol>
-              <hr><a href="#header">К началу страницы</a>
-              <hr>
-            </div>
-          </article>
-          <!-- /git-->
           <!-- Методология БЭМ-->
           <article class="showhide">
             <h2 class="showhide__h" id="hide7">Методология БЭМ (2009)</h2>
@@ -471,16 +438,12 @@
             </div>
           </article>
           <!-- /Server-->
-        </section>
-      </main>
-      <footer class="footer">
+        </main>
+      </div>
+      <footer class="footer container">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../js/settings.js"></script>
-      <script src="../js/nav.js"></script>
-      <script src="../js/showhide.js"></script>
-    </div>
+    <script src="../js/index.js"></script>
   </body>
 </html>

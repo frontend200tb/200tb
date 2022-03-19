@@ -10,11 +10,11 @@
     <meta name="keywords" content="тюркские, кавказские, арабский, иврит">
     <title>200tb Frontend</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/favicon.ico">
+    <link rel="icon" href="../../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_orange" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
           <div class="header__logo">200TERABYTE</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a class="active" href="../../lang/lang.html">Lang</a><a href="../../frontend/frontend.html">Frontend</a>
@@ -49,18 +49,32 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="../english.html">English</a><a href="../serbia.html">Serbia</a><a class="active" href="../oriental/oriental.html">Oriental</a><a href="../radio/radio.html">Radio</a><a href="../tv.html">TV</a><a href="../yt.html">Youtube</a>
+      <nav class="nav container"><a href="../lang-eng.html">English</a><a href="../lang-srb.html">Serbia</a><a class="active" href="../oriental/oriental.html">Oriental</a><a href="../radio/radio.html">Radio</a><a href="../lang-tv.html">TV</a><a href="../lang-yt.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a href="turkish.html">Тюркские</a><a href="caucas.html">Кавказские</a><a href="persian.html">Таджикский</a><a class="active" href="arab.html">Арабский</a><a href="asia.html">Азиатские</a>
+      <div class="asidemain container">
+        <aside class="aside"><a href="turkish.html">Тюркские</a><a href="caucas.html">Кавказские</a><a href="persian.html">Таджикский</a><a class="active" href="arab.html">Арабский</a><a href="asia.html">Азиатские</a>
         </aside>
-        <section class="content">
+        <main class="main">
           <h1>Арабский язык</h1>
+          <h2>Восточные магазины</h2>
+          <ol>
+            <li><strong><a href="http://bismillahi.ru/">bismillahi.ru</a></strong><br>миск 3мл 50р 6мл 100р бони 130 капор 440</li>
+            <li><strong><a href="http://www.fatmafashion.ru/">fatmafashion.ru</a></strong><br>коран четки</li>
+            <li><strong><a href="http://www.islamtovar.ru/">islamtovar.ru</a></strong><br>магазин</li>
+            <li><strong><a href="http://risalat.ru/">risalat.ru</a></strong><br>рубашки</li>
+            <li><strong><a href="http://shop.islamtv.ru/">shop.islamtv.ru</a></strong><br>духи 5мл 100р</li>
+            <li><strong><a href="http://www.salsabil.ru/">salsabil.ru</a></strong><br>миск 150р шапочка 100р бони 50р 140р</li>
+            <li><strong><a href="http://yaseen-hijab.ru/">yaseen-hijab.ru</a></strong><br>часы 350р тюбетейка 50р четки 100р миск 150р жвачка 25р</li>
+            <li><strong><a href="http://www.irada.su/">irada.su</a></strong><br>кружка 260р платок 400р бони 400р палантин 700р</li>
+          </ol>
           <h2>Торренты</h2>
           <ol>
             <li><strong><a href="http://www.arabp2p.com/">arabp2p.com</a></strong><br>arabp2p.com</li>
@@ -111,16 +125,12 @@
           <ol>
             <li><strong><a href="http://www.diwanalarab.com/">diwanalarab.com</a></strong><br>diwanalarab.com</li>
           </ol>
-        </section>
-      </main>
-      <footer class="footer">
+        </main>
+      </div>
+      <footer class="footer container">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../../js/settings.js"></script>
-      <script src="../../js/nav.js"></script>
-      <script src="../../js/showhide.js"></script>
-    </div>
+    <script src="../../js/index.js"></script>
   </body>
 </html>

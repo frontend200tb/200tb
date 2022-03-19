@@ -10,11 +10,11 @@
     <meta name="keywords" content="books, frontend">
     <title>200tb Frontend books</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/favicon.ico">
+    <link rel="icon" href="../../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_yellow" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
           <div class="header__logo">200TERABYTE</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
@@ -49,17 +49,20 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a class="active" href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      <nav class="nav container"><a class="active" href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../roadmap/roadmap.html">Roadmap</a><a href="../tools/tools.html">Tools</a><a href="../vacancy/vacancy.html">Vacancy</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a class="active" href="books.html">Основы</a><a href="books_01_html.html">HTML</a><a href="books_02_css.html">CSS</a><a href="books_02_css_bootstrap.html">Bootstrap</a><a href="books_03_js.html">JavaScript</a><a href="books_03_js_jquery.html">jQuery</a><a href="books_04_php.html">PHP MySQL</a><a href="books_05_python.html">Python</a><a href="books_01_html_web.html">Создание сайтов</a>
+      <div class="asidemain container">
+        <aside class="aside"><a class="active" href="books.html">Основы</a><a href="books_01_html.html">HTML</a><a href="books_02_css.html">CSS</a><a href="books_02_css_bootstrap.html">Bootstrap</a><a href="books_03_js.html">JavaScript</a><a href="books_03_js_jquery.html">jQuery</a><a href="books_04_php.html">PHP MySQL</a><a href="books_05_python.html">Python</a><a href="books_01_html_web.html">Создание сайтов</a>
         </aside>
-        <section class="content">
+        <main class="main">
           <h1>Книги по программированию</h1>
           <!-- Где скачать книги-->
           <h2>Где скачать книги</h2><a href="https://html5beginner.github.io/books/index.html">html5beginner.github.io</a><br><a href="http://progbook.ru/">progbook.ru</a><br><a href="https://scanlibs.com/">scanlibs.com</a>
@@ -158,16 +161,12 @@
               </ol>
             </div>
           </article>
-        </section>
-      </main>
-      <footer class="footer">
+        </main>
+      </div>
+      <footer class="footer container">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../../js/settings.js"></script>
-      <script src="../../js/nav.js"></script>
-      <script src="../../js/showhide.js"></script>
-    </div>
+    <script src="../../js/index.js"></script>
   </body>
 </html>

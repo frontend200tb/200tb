@@ -10,11 +10,11 @@
     <meta name="keywords" content="верстка, frontend">
     <title>200tb Frontend online</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/favicon.ico">
+    <link rel="icon" href="../../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_dodgerblue" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
           <div class="header__logo">200TERABYTE</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
@@ -49,49 +49,65 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a class="active" href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      <nav class="nav container"><a href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a class="active" href="../online/online.html">Online</a><a href="../roadmap/roadmap.html">Roadmap</a><a href="../tools/tools.html">Tools</a><a href="../vacancy/vacancy.html">Vacancy</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a href="courses.html">Courses</a><a href="hosting.html">Hosting</a><a href="learning.html">Learning</a><a href="links.html">Links</a><a href="metalamp.html">Metalamp</a><a class="active" href="rsschool.html">RS School</a>
+      <div class="asidemain container">
+        <aside class="aside"><a href="courses.html">Courses</a><a href="hosting.html">Hosting</a><a href="learning.html">Learning</a><a href="links.html">Links</a><a href="metalamp.html">Metalamp</a><a class="active" href="rsschool.html">RS School</a><a href="epam.html">Epam</a>
         </aside>
-        <section class="content online">
+        <main class="main">
           <h1>The Rolling Scopes School (бесплатные курсы в EPAM)</h1>
+          <h2>Ссылки для верстки</h2>
+          <p><a href="https://derzky.ru/generator-css-filtrov-dlja-zadannogo-cveta/">Генератор цветовых CSS фильтров из заданного цвета</a><br><a href="https://cssmatic.com/box-shadow/">Генератор тени в CSS</a></p>
           <h2>Как записаться на курс</h2>
           <p><a href="https://rs.school/">rs.school</a><br><a href="https://rs.school/js-stage0/">rs.school/js-stage0</a><br>Начало 13 декабря 2021<br><a href="https://rs.school/js/">rs.school/js</a><br>Начало 27 февраля 2022</p>
-          <hr>
-          <p><a href="https://app.rs.school/">app.rs.school</a><br>учебная платформа школы<br><a href="https://discord.com/channels/516715744646660106/917120666782801991">discord.com</a><br>Чат курса</p>
-          <hr>
-          <p><a href="https://github.com/rolling-scopes-school/tasks/tree/master/stage0">github.com/rolling-scopes-school/tasks/tree/master/stage0</a><br>11 недель подготовки<br><a href="https://olgamardvilko.github.io/up-skill-lab/#1-1">olgamardvilko.github.io/up-skill-lab</a><br>Много ссылок по неделям<br><a href="https://irinainina.github.io/stage0-2021q1/#/README">irinainina.github.io/stage0-2021q1/#/README</a><br>Описание этапа самоподготовки<br><a href="https://medium.com/rs-school/draft-%D0%BA%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B0-the-rolling-scopes-school-32298109e3a3">medium.com/rs-school/draft</a><br>Как устроена The Rolling Scopes School</p>
+          <h2>Учебная платформа</h2>
+          <p><a href="https://app.rs.school/">app.rs.school</a><br>учебная платформа школы<br><a href="https://discord.com/channels/516715744646660106/917120666782801991">discord.com</a><br>Чат курса<br><a href="https://docs.rs.school/#/">docs.rs.school</a><br>Документация о курсе<br><a href="https://github.com/rolling-scopes-school/tasks/tree/master/stage0">github.com/rolling-scopes-school/tasks/tree/master/stage0</a><br>11 недель подготовки<br></p>
+          <h2>Статьи о курсе</h2>
+          <p><a href="https://medium.com/rs-school/draft-%D0%BA%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B0-the-rolling-scopes-school-32298109e3a3">medium.com/rs-school/draft</a><br>Как устроена The Rolling Scopes School<br><a href="https://becooladmin.wordpress.com/2021/03/25/rs-school-week-0/">becooladmin.wordpress.com/2021/03/25/rs-school-week-0</a><br>RS School — stage 0 + 1/2<br><a href="https://habr.com/ru/post/465463/">habr.com/ru/post/465463</a><br>Хорошее не бывает дешёвым. Но бывает бесплатным<br><a href="https://journal.tinkoff.ru/sravnyator/it-courses/otzyvy/otzyv-o-kurse-javascript-front-end-ot-rs-school-otlichnyy-besplatnyy-kurs-stoit-zatrachennogo-vremeni/">journal.tinkoff.ru/sravnyator/it-courses</a><br>Отзыв о курсе «JavaScript/Front-end» от RS School<br></p>
+          <h2>Описание курса</h2>
+          <p><a href="https://rolling-scopes-school.github.io/2021q3/">rolling-scopes-school.github.io/2021q3</a><br>RS School. Курс JS/Frontend-разработка. Подготовительный этап<br><a href="https://olgamardvilko.github.io/up-skill-lab/#1-1">olgamardvilko.github.io/up-skill-lab</a><br>Много ссылок по неделям<br><a href="https://irinainina.github.io/stage0-2021q1/#/README">irinainina.github.io/stage0-2021q1/#/README</a><br>Описание этапа самоподготовки<br></p>
           <hr>
           <h2>Неделя 1</h2>
-          <p><strong>2021-12-13 пн </strong>Self-studying Подготовительный курс. Неделя #1<br><strong>2021-12-13 пн </strong>Online Lecture Знакомство с RSSchool<br><strong>2021-12-14 вт </strong>Online Lecture Знакомство с профессией JS/Frontend разработчик<br><strong>2021-12-16 чт </strong>Online Lecture Chrome Dev Tools и VS Code<br><strong>2021-12-13 пн - 2021-12-21 вт </strong>Auto-test RSS Test<br><a href="https://docs.rs.school/#/">docs.rs.school</a><br>Документация о курсе<br><strong>2021-12-14 вт - 2021-12-21 вт </strong>Auto-test Test HTML Basics<br><a href="https://ru.code-basics.com/languages/html">ru.code-basics.com/languages/html</a><br>Онлайн курс HTML Basics</p>
+          <p><strong>2021-12-13 пн </strong>Self-studying Подготовительный курс. Неделя #1<br><strong>2021-12-13 пн - 2021-12-21 вт </strong>Auto-test RSS Test<br><strong>2021-12-14 вт - 2021-12-21 вт </strong>Auto-test Test HTML Basics<br><a href="https://ru.code-basics.com/languages/html">ru.code-basics.com/languages/html</a><br>Онлайн курс HTML Basics<br><strong>2021-12-13 пн </strong>Online Lecture Знакомство с RSSchool<br><strong>2021-12-14 вт </strong>Online Lecture Знакомство с профессией JS/Frontend разработчик<br><strong>2021-12-16 чт </strong>Online Lecture Chrome Dev Tools и VS Code<br></p>
           <hr>
           <h2>Неделя 2</h2>
-          <p><strong>2021-12-21 вт </strong>Self-studying Подготовительный курс. Неделя #2<br><strong>2021-12-21 вт </strong>Online Lecture HTML/CSS Basics<br><strong>2021-12-24 пт </strong>Online Lecture Git for beginners<br><strong>2021-12-25 сб </strong>Online Lecture CSS Flex<br><strong>2021-12-21 вт - 2021-12-28 вт </strong>Auto-test Test Css Basics<br><a href="https://ru.code-basics.com/languages/css">ru.code-basics.com/languages/css</a><br>Онлайн курс CSS Basics<br><strong>2021-12-21 вт - 2021-12-28 вт </strong>Auto-test Git Test<br><a href="https://uleming.github.io/gitbook/index.html">uleming.github.io/gitbook</a><br>Хорошие материалы от Git-комьюнити<br><strong>2021-12-21 вт - 2022-01-06 чт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/git-markdown.md">CV#1. Markdown & Git</a><br><strong>2021-12-21 вт - 2022-01-06 чт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/html-css-git.md">CV#2. HTML, CSS & Git Basics</a></p>
+          <p><strong>2021-12-21 вт </strong>Self-studying Подготовительный курс. Неделя #2<br><strong>2021-12-21 вт - 2021-12-28 вт </strong>Auto-test Test Css Basics<br><a href="https://ru.code-basics.com/languages/css">ru.code-basics.com/languages/css</a><br>Онлайн курс CSS Basics<br><strong>2021-12-21 вт - 2021-12-28 вт </strong>Auto-test Git Test<br><a href="https://uleming.github.io/gitbook/index.html">uleming.github.io/gitbook</a><br>Хорошие материалы от Git-комьюнити<br><strong>2021-12-21 вт - 2022-01-06 чт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/git-markdown.md">CV#1. Markdown & Git</a><br><strong>2021-12-21 вт - 2022-01-06 чт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/html-css-git.md">CV#2. HTML, CSS & Git Basics</a><br><strong>2021-12-21 вт </strong>Online Lecture HTML/CSS Basics<br><strong>2021-12-24 пт </strong>Online Lecture Git for beginners<br><strong>2021-12-25 сб </strong>Online Lecture CSS Flex<br></p>
           <hr>
           <h2>Неделя 3</h2>
-          <p><strong>2021-12-28 вт </strong>Self-studying Подготовительный курс. Неделя #3<br><strong>2021-12-29 ср </strong>Online Lecture JS Basics<br><strong>2021-12-27 пн - 2022-01-04 вт </strong>Auto-test Test CSS Flex<br><a href="https://habr.com/ru/post/467049/">habr.com/ru/post/467049</a><br>Полное руководство по Flexbox<br><strong>2021-12-28 вт - 2022-01-06 чт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/cv-stage0.md">CV#3. CV. Cross Check</a><br><a href="https://codeguide.academy/html-css.html">codeguide.academy/html-css.html</a><br>Гайдлайн кода<br><strong>2021-12-28 вт - 2022-01-18 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codewars/preschool-2022-codewars1.md">Codewars Part 1</a></p>
+          <p><strong>2021-12-28 вт </strong>Self-studying Подготовительный курс. Неделя #3<br><strong>2021-12-27 пн - 2022-01-04 вт </strong>Auto-test Test CSS Flex<br><a href="https://habr.com/ru/post/467049/">habr.com/ru/post/467049</a><br>Полное руководство по Flexbox<br><strong>2021-12-28 вт - 2022-01-06 чт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/cv/cv-stage0.md">CV#3. CV. Cross Check</a><br><a href="https://codeguide.academy/html-css.html">codeguide.academy/html-css.html</a><br>Гайдлайн кода<br><strong>2021-12-28 вт - 2022-01-18 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codewars/preschool-2022-codewars1.md">Codewars Part 1</a><br><strong>2021-12-29 ср </strong>Online Lecture JS Basics<br></p>
           <hr>
           <h2>Неделя 4</h2>
-          <p><strong>2022-01-04 вт </strong>Self-studying Подготовительный курс. Неделя #4<br><strong>2021-12-04 вт </strong>Online Lecture Знакомство с Codewars<br><strong>2021-12-06 чт </strong>Online Lecture JS Functions<br><strong>2022-01-04 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/human-readable-number">Human Readable Number</a><br><strong>2022-01-04 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/reverse-int">Reverse Int</a><br><strong>2022-01-04 вт - 2022-01-11 вт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio.md">Portfolio#1 Часть 1. Фиксированная вёрстка</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part1.md">Требования и критерии оценки</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part1-hints.md">Советы по выполнению задания Portfolio#1-Фиксированная вёрстка</a><br><a href="https://github.com/rolling-scopes-school/frontend200tb-JSFEPRESCHOOL">Приватный репозиторий</a></p>
+          <p><strong>2022-01-04 вт </strong>Self-studying Подготовительный курс. Неделя #4<br><strong>2022-01-04 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/human-readable-number">Human Readable Number</a><br><strong>2022-01-04 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/reverse-int">Reverse Int</a><br><strong>2022-01-04 вт - 2022-01-11 вт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio.md">Portfolio</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part1.md">Portfolio#1 Фиксированная вёрстка Требования и критерии оценки</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part1-hints.md">Portfolio#1 Фиксированная вёрстка Советы по выполнению задания</a><br><a href="https://github.com/rolling-scopes-school/frontend200tb-JSFEPRESCHOOL">Приватный репозиторий</a><br><strong>2022-01-04 вт </strong>Online Lecture Знакомство с Codewars<br><strong>2022-01-06 чт </strong>Online Lecture JS Functions<br></p>
           <hr>
           <h2>Неделя 5</h2>
-          <p></p>
-        </section>
-      </main>
-      <footer class="footer">
+          <p><strong>2022-01-11 вт </strong>Self-studying Подготовительный курс. Неделя #5<br><strong>2022-01-14 вт - 2022-01-25 вт </strong>Auto-test Test JS Basics [RU]<br><strong>2022-01-11 вт - 2022-01-25 вт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio.md">Portfolio</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part2.md">Portfolio#2 Адаптивная вёрстка Требования и критерии оценки</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part2-hints.md">Portfolio#2 Адаптивная вёрстка Советы по выполнению задания</a><br><strong>2022-01-13 чт </strong>Online Lecture JS Objects and Arrays<br></p>
+          <hr>
+          <h2>Неделя 6</h2>
+          <p><strong>2022-01-18 вт </strong>Self-studying Подготовительный курс. Неделя #6<br><strong>2022-01-18 вт - 2022-01-31 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codewars/preschool-2022-codewars2.md">Codewars Part 2</a><br><strong>2022-01-18 вт - 2022-02-01 вт </strong>Cross Check <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio.md">Portfolio</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3.md">Portfolio#3 Добавление функционала Требования и критерии оценки</a><br><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md">Portfolio#3 Добавление функционала Советы по выполнению задания</a><br><strong>2022-01-20 чт </strong>Online Lecture DOM API/ DOM Events<br></p>
+          <h2>Неделя 7</h2>
+          <p><strong>2022-01-25 вт </strong>Self-studying Подготовительный курс. Неделя #7<br><strong>2022-01-25 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/romacher/morse-decoder">JS: Morse-decoder</a><br><strong>2022-01-25 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/towel-sort/blob/master/README.md">Towel Sort</a><br><strong>2022-01-04 вт - 2022-02-25 пт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/brackets">JS: Brackets</a><br><strong>2022-01-27 чт </strong>Online Lecture Algorythms and Data Structures<br></p>
+          <h2>Неделя 8</h2>
+          <p><strong>2022-02-01 вт </strong>Self-studying Подготовительный курс. Неделя #8<br><strong>2022-02-01 вт - 2022-02-15 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codewars/preschool-2022-codewars3.md">Codewars Part 3</a><br><strong>2022-02-01 вт - 2022-02-15 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#1.1-eco-sounds</a><br><strong>2022-02-01 вт - 2022-02-15 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#1.2-audio-player</a><br><strong>2022-02-01 вт - 2022-02-15 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#1.3-custom-video</a><br><strong>2022-02-02 ср </strong>Online Lecture Q&A Session<br></p>
+          <h2>Неделя 9</h2>
+          <p><strong>2022-02-08 вт </strong>Self-studying Подготовительный курс. Неделя #9<br><strong>2022-02-08 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#2.1-random-jokes</a><br><strong>2022-02-08 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#2.2-image-galery</a><br><strong>2022-02-08 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#2.3-movie-app</a><br><strong>2022-02-09 ср </strong>Online Lecture Q&A Session<br></p>
+          <h2>Неделя 10</h2>
+          <p><strong>2022-02-15 вт </strong>Self-studying Подготовительный курс. Неделя #10<br><strong>2022-02-15 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#3.1-tic-tac-toe</a><br><strong>2022-02-15 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#3.2-memory-game</a><br><strong>2022-02-15 вт - 2022-02-22 вт </strong>Auto-test <a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30.md">js30#3.3-random-game</a><br><strong>2022-02-16 ср </strong>Online Lecture Q&A Session<br></p>
+          <h2>Неделя 11</h2>
+          <p><strong>2022-02-22 вт </strong>Self-studying Подготовительный курс. Неделя #11<br><strong>2022-02-24 чт </strong>Online Lecture Q&A Session<br></p>
+        </main>
+      </div>
+      <footer class="footer container">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../../js/settings.js"></script>
-      <script src="../../js/nav.js"></script>
-      <script src="../../js/showhide.js"></script>
-    </div>
+    <script src="../../js/index.js"></script>
   </body>
 </html>

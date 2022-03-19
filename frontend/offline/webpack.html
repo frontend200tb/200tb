@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Иван Каширин">
+    <meta name="copyright" content="200TB Web Studio">
+    <meta name="description" content="Online ресурсы для верстальщиков">
+    <meta name="keywords" content="верстка, frontend">
+    <title>200tb Frontend online</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../../assets/favicon.ico">
+  </head>
+  <body>
+    <div class="page snow page_blue" id="page">
+      <header class="header container" id="header">
+        <div class="header__first-row">
+          <div class="header__logo">200TERABYTE</div>
+          <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
+          </nav>
+        </div>
+        <div class="header__second-row">
+          <div class="social" id="social">
+            
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
+            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram"></a>
+            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub"></a>
+            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen"></a>
+            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars"></a>
+            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it"></a>
+            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            
+          </div>
+          <div class="settings" id="settings">
+            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__item" id="set__item">
+              <div class="settings__color" id="setColor">
+                <button id="selectRed"></button>
+                <button id="selectOrange"></button>
+                <button id="selectYellow"></button>
+                <button id="selectGreen"></button>
+                <button id="selectDodgerblue"></button>
+                <button id="selectBlue"></button>
+                <button id="selectPurple"></button>
+                <button id="selectBrown"></button>
+              </div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="nav container"><a href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a class="active" href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../roadmap/roadmap.html">Roadmap</a><a href="../tools/tools.html">Tools</a><a href="../vacancy/vacancy.html">Vacancy</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <div class="asidemain container">
+        <aside class="aside"><a href="git.html">Git</a><a href="gulp.html">Gulp</a><a class="active" href="webpack.html">Webpack</a><a href="verdaccio.html">Verdaccio</a><a href="haq.html">How ask questions</a><a href="articles.html">Articles</a>
+        </aside>
+        <main class="main">
+          <h1>Webpack</h1>
+          <div class="content__menu">
+            <p class="content__menu-link" id="content__menu-link1">Настройка webpack для работы с pug и scss</p>
+            <p class="content__menu-link" id="content__menu-link2">Установка webpack</p>
+            <p class="content__menu-link" id="content__menu-link3">webpack.config.js</p>
+            <p class="content__menu-link" id="content__menu-link4">rules</p>
+            <div class="content__items">
+              <div id="content__item1">
+                <h3>Настройка webpack для работы с pug и scss</h3>
+                <ol>
+                  <li>Создадим папку для нашего проекта и перейдем в нее
+                    <pre>mkdir project1
+cd project1
+d://project1/
+</pre>
+                  </li>
+                  <li>Проверим версии установленных node.js и npm
+                    <pre>node -v
+v16.13.1
+npm -v
+8.1.2</pre>если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a>
+                  </li>
+                  <li>Инициализируем проект<code>npm init -y</code>(то же что и npm init , не отвечая на вопросы)</li>
+                  <li>Установим необходимые пакеты<code>npm i -D webpack webpack-cli sass-loader node-sass</code></li>
+                </ol>
+              </div>
+              <div id="content__item2">
+                <h3>Установка webpack</h3>
+                <p>Webpack это упаковщик модулей (отдельных частей программы) в единую систему. Изначально применялся для сборки JS, но в настоящее время применяется для сборки любых ресурсов HTML, CSS, шрифтов, изображений. Loader (обработчик) - преобразовывает определенный тип файла в JS модуль. Loader это js function которая принимает исходный код и возвращает обработанный код. Plugins (плагины) позволяют делать все то, что не позволяют делать loaders. Compiler сборщик. Compilartion объект сборки.</p>
+                <ol>
+                  <li>Создадим папку для нашего проекта и перейдем в нее
+                    <pre>mkdir project1
+cd project1
+d://project1/
+</pre>
+                  </li>
+                  <li>Проверим версии установленных node.js и npm
+                    <pre>node -v
+v16.13.1
+npm -v
+8.1.2</pre>если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a>
+                  </li>
+                  <li>Инициализируем проект<code>npm init -y</code>(то же что и npm init , не отвечая на вопросы)</li>
+                  <li>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут являться зависимостями для нашего приложения.<code>d://project1/package.json</code></li>
+                  <li>Установим два пакета в dev dependencies. webpack-cli нужен чтобы взаимодействовать с webpack через консоль<code>npm i -D webpack webpack-cli</code>(сокращенно от npm install --save-dev webpack webpack-cli)</li>
+                  <li>Чтобы понять что они установились, проверим версии пакетов
+                    <pre>webpack -v
+webpack-cli -v
+</pre>
+                  </li>
+                  <li>В итоге в папке с проектом появится папка node_modules и файл package-lock.json,. В node_modules установлены webpack, webpack-cli и все необходимые зависимости для того чтобы они работали. Эту папку трогать не нужно</li>
+                  <pre>d://project1/node_modules
+d://project1/package-lock.json
+</pre>
+                  <li>Создадим конфигурационный файл webpack.config.js
+                    <pre>touch webpack.config.js
+d://project1/webpack.config.js
+
+</pre>
+                  </li>
+                </ol>
+              </div>
+              <div id="content__item3">
+                <h3>webpack.config.js</h3>
+                <ol>
+                  <li>Запишем в файл webpack.config.js
+                    <pre>const path = require('path');
+const webpack = require('webpack');
+//imports
+
+module.exports = env => ({
+  entry: path.resolve('static/js/app.js'),
+  devtool: 'source-map',
+  output : {
+    path: path.join(__dirname, 'www/static'),
+    filename: '[name]-[hash].js',
+    publicPath: '/static/',
+  },
+  module {
+    rules: [
+      //rules
+    ],                
+  },
+  plugins: [
+    //plugins
+  ],
+  optimization: {
+    //optimization
+  },
+});
+
+</pre>
+                  </li>
+                </ol>
+              </div>
+              <div id="content__item4">
+                <h3>Rules (правила)</h3>
+                <h4>Правила для scss</h4>
+                <ol>
+                  <li>Напишем rules (правила) для scss
+                    <pre>{
+  test: /\.scss$/,
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        hmr: !env.production,
+      },
+    },
+    {
+      loader: 'css-loader',
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true,
+        includePaths: [path.resolve(__dirname, 'static/scss/_settings')],
+      },
+    },
+  ],
+}
+</pre>
+                  </li>
+                  <li>Напишем rules (правила) для шрифтов
+                    <pre>{
+  test: /\.(otf|ttf|eot|woff|woff2)$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[name]-[hash].[ext]',
+        outputPath: 'fonts',
+      },
+    },
+  ],
+},
+</pre>
+                  </li>
+                  <li>Напишем rules (правила) для картинок
+                    <pre>{
+  test: /\.(png|jpe?g|gif)$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[name]-[hash].[ext]',
+        outputPath: 'img',
+      },
+    },
+  ],
+},</pre>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <footer class="footer container">
+        <div class="footer__logo">200TERABYTE Frontend</div>
+      </footer>
+    </div>
+    <script src="../../js/index.js"></script>
+  </body>
+</html>

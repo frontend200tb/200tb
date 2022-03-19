@@ -10,11 +10,11 @@
     <meta name="keywords" content="верстка, frontend">
     <title>200tb Frontend online</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/favicon.ico">
+    <link rel="icon" href="../../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_dodgerblue" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
           <div class="header__logo">200TERABYTE</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
@@ -49,16 +49,20 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="theme" id="theme"></div>
+                <div class="setSnow" id="setSnow"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="../books/books.html">Books</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a class="active" href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      <nav class="nav container"><a href="../books/books.html">Books</a><a href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../roadmap/roadmap.html">Roadmap</a><a class="active" href="../tools/tools.html">Tools</a><a href="../vacancy/vacancy.html">Vacancy</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
       </nav>
-      <main class="main">
-        <aside><a href="#hide1">Browser</a><a href="#hide2">Code Editor</a><a href="#hide3">Image Editor</a><a href="#hide4">FTP</a></aside>
-        <section class="content">
+      <div class="asidemain container">
+        <aside class="aside"><a href="vim.html">Vim</a><a href="notepad.html">Notepad</a><a href="sublime.html">Sublime</a><a href="vscode.html">VS Code</a>
+        </aside>
+        <main class="main">
           <h1>Инструменты фронтенд разработчика</h1>
           <!-- Browser-->
           <article class="showhide">
@@ -268,16 +272,12 @@
             </div>
           </article>
           <!-- /FTP-->
-        </section>
-      </main>
-      <footer class="footer">
+        </main>
+      </div>
+      <footer class="footer container">
         <div class="footer__logo">200TERABYTE Frontend</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../../js/settings.js"></script>
-      <script src="../../js/nav.js"></script>
-      <script src="../../js/showhide.js"></script>
-    </div>
+    <script src="../../js/index.js"></script>
   </body>
 </html>
