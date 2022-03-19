@@ -4,4 +4,6 @@
 
 https://frontend200tb.github.io/200tb/frontend/frontend.html
 
-Пишу и поддерживаю на HTML, CSS, JavaScript, Pug, Sass. Сборка программой prepros https://prepros.io/
+~~Пишу и поддерживаю на HTML, CSS, JavaScript, Pug, Sass. Сборка программой prepros https://prepros.io/~~
+
+Пишу на Pug, Scss, JavaScript. Сборка на Gulp
