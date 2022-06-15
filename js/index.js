@@ -258,20 +258,31 @@ if (document.getElementById('content__menu-link12') &&
 
 /*************Content*/
 /****************
-Скрипт написан для
-search
-поисковая строка google
-*******************/
+Скрипт появления формы поиска по нажатию на иконку лупы
+****************/
 
-/*Добавим код для searchGoogle*/
+/* Если есть иконка лупы и есть форма поиска,
+то по нажатию на иконку лупы показывать/скрывать
+форму поиска */
 
-/*Создадим переменную для searchGoogle*/
+if (document.getElementById('setSearch') && document.getElementById('searchGoogle')) {
+  function clickSetSearch() {
+    searchG.classList.toggle('show');
+  }
+
+  const setSearch = document.getElementById('setSearch');
+  const searchG = document.getElementById('searchGoogle');
+  setSearch.addEventListener('click', clickSetSearch);
+}
+
+
+/* Код формы поиска
 
 if (document.getElementById('searchGoogle')) {
   const searchG = document.getElementById('searchGoogle');
   searchG.innerHTML = '<form action="https://www.google.com/search" method="get"> <input type="text" name="q" size="100"> <input type="submit" value="Search in google.com"> <input type="reset" value="Reset"> </form>'; 
 }
-
+*/
 /****************
 Скрипт написан для
 header > header__second-row > settings
