@@ -10,34 +10,34 @@
     <meta name="keywords" content="code, language">
     <title>200tb Frontend online</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" href="../../img/favicon.ico">
+    <link rel="icon" href="../../assets/favicon.ico">
   </head>
   <body>
     <div class="page snow page_dodgerblue" id="page">
-      <header class="header" id="header">
+      <header class="header container" id="header">
         <div class="header__first-row">
-          <div class="header__logo">200TERABYTE</div>
+          <div class="header__logo">frontend200tb</div>
           <nav class="header__nav header__nav_frontend" id="header_nav"><a href="../../index.html">News</a><a href="../../lang/lang.html">Lang</a><a class="active" href="../../frontend/frontend.html">Frontend</a>
           </nav>
         </div>
         <div class="header__second-row">
           <div class="social" id="social">
             
-            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp"></a>
-            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте"></a>
-            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram"></a>
-            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram"></a>
-            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub"></a>
-            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen"></a>
-            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars"></a>
-            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it"></a>
-            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube"></a>
-            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook"></a>
-            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter"></a>
+            <a class="social__icon social__icon_wa" href="https://wa.me/79507658158" title="WhatsApp" target="_blank"></a>
+            <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте" target="_blank"></a>
+            <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram" target="_blank"></a>
+            <a class="social__icon social__icon_ig" href="https://www.instagram.com/frontend200tb/" title="Instagram" target="_blank"></a>
+            <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub" target="_blank"></a>
+            <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen" target="_blank"></a>
+            <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars" target="_blank"></a>
+            <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it" target="_blank"></a>
+            <a class="social__icon social__icon_yt" href="https://www.youtube.com/channel/UCxQkWhcXUes0CdxvJH3B7Ug" title="Youtube" target="_blank"></a>
+            <a class="social__icon social__icon_fb" href="https://www.facebook.com/frontend200tb" title="Facebook" target="_blank"></a>
+            <a class="social__icon social__icon_tw" href="https://twitter.com/frontend200tb" title="Twitter" target="_blank"></a>
             
           </div>
           <div class="settings" id="settings">
-            <button class="settings__btn" id="set">Settings</button>
+            <div class="settings__btn" id="set">Settings</div>
             <div class="settings__item" id="set__item">
               <div class="settings__color" id="setColor">
                 <button id="selectRed"></button>
@@ -49,29 +49,365 @@
                 <button id="selectPurple"></button>
                 <button id="selectBrown"></button>
               </div>
-              <div class="settings__snow" id="setSnow">Снег</div>
+              <div class="settings__snow">
+                <div class="setTheme" id="setTheme"></div>
+                <div class="setSnow" id="setSnow"></div>
+                <div class="setSearch" id="setSearch"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="nav"><a href="../books/books.html">Books</a><a class="active" href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
-      </nav>
-      <div class="asidemain">
-        <aside class="aside"><a href="markdown.html">Markdown</a><a href="html.html">HTML</a><a class="active" href="css.html">CSS</a><a href="js.html">JavaScript</a><a href="pug.html">Pug</a><a href="sass.html">SASS</a>
-        </aside>
-        <main class="main">
-          <h1>CSS</h1>
-        </main>
+      <div class="search container" id="searchGoogle">
+        <form action="https://www.google.com/search" method="get">
+          <input type="text" name="q">
+          <input type="submit" value="Search in google.com">
+          <input type="reset" value="Reset">
+        </form>
       </div>
-      <footer class="footer">
-        <div class="footer__logo">200TERABYTE Frontend</div>
+      <nav class="nav container"><a href="../books/books.html">Books</a><a class="active" href="../code/code.html">Code</a><a href="../learned/learned.html">Learned</a><a href="../node/node.html">Node</a><a href="../offline/offline.html">Offline</a><a href="../online/online.html">Online</a><a href="../tools/tools.html">Tools</a><a href="../vacancy/vacancy.html">Vacancy</a><a href="../video/video.html">Video</a><a href="../youtube/yt1.html">Youtube</a>
+      </nav>
+      <main class="main container">
+        <div class="main_col">
+          <aside class="aside"><a href="markdown.html">Markdown</a><a href="html.html">HTML</a><a class="active" href="css.html">CSS</a><a href="js.html">JavaScript</a><a href="pug.html">Pug</a><a href="sass.html">SASS</a>
+          </aside>
+          <section class="content">
+            <h1>CSS</h1>
+            <h2>Онлайн игры для обучения CSS</h2>
+            <ol>
+              <li><strong>Flexbox Froggy</strong><br><a href="https://flexboxfroggy.com/">flexboxfroggy.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></li>
+              <li><strong>Grid Garden</strong><br><a href="https://cssgridgarden.com/">cssgridgarden.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></li>
+              <li><strong>Grid Critters</strong><br><a href="https://gridcritters.com/">gridcritters.com</a><br>Разработчик Dave Geddes<br><a href="https://mastery.games/">mastery.games</a></li>
+              <li><strong>Flexbox Zombies</strong><br><a href="https://flexboxzombies.com/">flexboxzombies.com</a><br>Разработчик Dave Geddes<br><a href="https://mastery.games/">mastery.games</a></li>
+              <li><strong>Service Workers</strong><br><a href="https://serviceworkies.com/">serviceworkies.com</a><br>Разработчик Dave Geddes<br><a href="https://gedd.ski/">gedd.ski</a></li>
+              <li><strong>CSS Diner</strong><br><a href="https://flukeout.github.io/">flukeout.github.io</a><br>Разработчик Luke Pacholski<br><a href="https://github.com/flukeout/css-diner">github.com/flukeout</a></li>
+              <li><strong>Flexbox Defense</strong><br><a href="http://www.flexboxdefense.com/">flexboxdefense.com</a><br>Разработчик Channing Allen</li>
+              <li><strong>CSS Battle</strong><br><a href="https://cssbattle.dev/">cssbattle.dev</a><br>Разработчик Kushagra Gour</li>
+              <li><strong>Roadmap (Дорожная карта)</strong><br><a href="http://victordarras.fr/cssgame/">victordarras.fr</a><br>Разработчик Victor Darras</li>
+            </ol>
+            <h2>Список всех селекторов css</h2><table>
+<thead>
+<tr>
+<th>Селектор</th>
+<th>Пример</th>
+<th>Описание примера</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#class-selector" rel="nofollow"><var>*</var></a></td>
+<td><var>*</var></td>
+<td>Все элементы.</td>
+</tr>
+<tr>
+<td><a href="#id-selector" rel="nofollow"><var>#id</var></a></td>
+<td><var>#firstname</var></td>
+<td>Элемент с <var>id="firstname"</var>.</td>
+</tr>
+<tr>
+<td><a href="#class-selector" rel="nofollow"><var>.class</var></a></td>
+<td><var>.intro</var></td>
+<td>Все элементы с <var>class="intro"</var>.</td>
+</tr>
+<tr>
+<td><a href="#class-selector" rel="nofollow"><var>.class1.class2</var></a></td>
+<td><var>.name1.name2</var></td>
+<td>Все элементы с <var>class="name1 name2"</var>.</td>
+</tr>
+<tr>
+<td><a href="#class-selector" rel="nofollow"><var>.class1 .class2</var></a></td>
+<td><var>.name1 .name2</var></td>
+<td>Все элементы с <var>class="name2"</var> у которых родитель с <var>class="name1"</var>.</td>
+</tr>
+<tr>
+<td><a href="#tag-selector" rel="nofollow"><var>tag</var></a></td>
+<td><var>p</var></td>
+<td>Все <var>&lt;p&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#class-selector" rel="nofollow"><var>tag.class</var></a></td>
+<td><var>p.intro</var></td>
+<td>Все <var>&lt;p&gt;</var> элементы с <var>class="intro"</var>.</td>
+</tr>
+<tr>
+<td><a href="#comma" rel="nofollow"><var>tag, tag</var></a></td>
+<td><var>div, p</var></td>
+<td>Все <var>&lt;div&gt;</var> и все <var>&lt;p&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#space" rel="nofollow"><var>tag tag</var></a></td>
+<td><var>div p</var></td>
+<td>Все <var>&lt;p&gt;</var> внутри всех <var>&lt;div&gt;</var>.</td>
+</tr>
+<tr>
+<td><a href="#gt" rel="nofollow"><var>tag > tag</var></a></td>
+<td><var>div > p</var></td>
+<td>Все <var>&lt;p&gt;</var> прямой родитель которых <var>&lt;div&gt;</var>.</td>
+</tr>
+<tr>
+<td><a href="#plus" rel="nofollow"><var>tag + tag</var></a></td>
+<td><var>div + p</var></td>
+<td><var>&lt;p&gt;</var> который находятся сразу после <var>&lt;div&gt;</var>.</td>
+</tr>
+<tr>
+<td><a href="#tilde" rel="nofollow"><var>tag ~ tag</var></a></td>
+<td><var>div ~ p</var></td>
+<td>Все <var>&lt;p&gt;</var> которые находятся после <var>&lt;div&gt;</var>.</td>
+</tr>
+<tr>
+<td><a href="#attr" rel="nofollow"><var>[attribute]</var></a></td>
+<td><var>[target]</var></td>
+<td>Все элементы с <var>target="что-либо"</var>.</td>
+</tr>
+<tr>
+<td><a href="#attr-value" rel="nofollow"><var>[attribute = value]</var></a></td>
+<td><var>[target=_blank]</var></td>
+<td>Все элементы с <var>target="_blank"</var>.</td>
+</tr>
+<tr>
+<td><a href="#attr-start-value" rel="nofollow"><var>[attribute ^= value]</var></a></td>
+<td><var>a[href^="https"]</var></td>
+<td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого начинается с "https".</td>
+</tr>
+<tr>
+<td><a href="#attr-end-value" rel="nofollow"><var>[attribute $= value]</var></a></td>
+<td><var>a[href$=".pdf"]</var></td>
+<td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого заканчивается ".pdf".</td>
+</tr>
+<tr>
+<td><a href="#attr-float-value" rel="nofollow"><var>[attribute *= value]</var></a></td>
+<td><var>a[href*="w3schools"]</var></td>
+<td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого содержит подстроку "w3schools".</td>
+</tr>
+<tr>
+<td><a href="#attr-oneof-value" rel="nofollow"><var>[attribute ~= value]</var></a></td>
+<td><var>[title~=flower]</var></td>
+<td>Все элементы в атрибуте <var>title</var> которых есть слово "flower".</td>
+</tr>
+<tr>
+<td><a href="#attr-start-equal" rel="nofollow"><var>[attribute |= value]</var></a></td>
+<td><var>[lang|=en]</var></td>
+<td>Все элементы атрибут <var>lang</var> которых начинается с "en".</td>
+</tr>
+<tr>
+<td><a href="#link" rel="nofollow"><var>:active</var></a></td>
+<td><var>a:active</var></td>
+<td>Активная ссылка.</td>
+</tr>
+<tr>
+<td><a href="#after" rel="nofollow"><var>::after</var></a></td>
+<td><var>p::after</var></td>
+<td>Вставляет псевод-элемент в начале каждого <var>&lt;p&gt;</var> элемента.</td>
+</tr>
+<tr>
+<td><a href="#before" rel="nofollow"><var>::before</var></a></td>
+<td><var>p::before</var></td>
+<td>Вставляет псевод-элемент в конце каждого <var>&lt;p&gt;</var> элемента.</td>
+</tr>
+<tr>
+<td><a href="#checked" rel="nofollow"><var>:checked</var></a></td>
+<td><var>input:checked</var></td>
+<td>Все выбранные <var>&lt;input type="checkbox"&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#default" rel="nofollow"><var>:default</var></a></td>
+<td><var>input:default</var></td>
+<td>Все <var>&lt;input&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#disabled" rel="nofollow"><var>:disabled</var></a></td>
+<td><var>input:disabled</var></td>
+<td>Все <var>&lt;input disabled&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#empty" rel="nofollow"><var>:empty</var></a></td>
+<td><var>p:empty</var></td>
+<td>Все пустые <var>&lt;p&gt;</var>, в которых нет пробелом, текста или других элементов.</td>
+</tr>
+<tr>
+<td><a href="#enabled" rel="nofollow"><var>:enabled</var></a></td>
+<td><var>input:enabled</var></td>
+<td>Все активные (не disabled) элементы <var>&lt;input&gt;</var>.</td>
+</tr>
+<tr>
+<td><a href="#first-child" rel="nofollow"><var>:first-child</var></a></td>
+<td><var>p:first-child</var></td>
+<td>Первый элемент в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#first-of-type" rel="nofollow"><var>:first-of-type</var></a></td>
+<td><var>p:first-of-type</var></td>
+<td>Первый <var>&lt;p&gt;</var> элемент в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#first-letter" rel="nofollow"><var>::first-letter</var></a></td>
+<td><var>p::first-letter</var></td>
+<td>Первая буква каждого <var>&lt;p&gt;</var> элемента.</td>
+</tr>
+<tr>
+<td><a href="#first-letter" rel="nofollow"><var>::first-line</var></a></td>
+<td><var>p::first-line</var></td>
+<td>Первая линия каждого <var>&lt;p&gt;</var> элемента.</td>
+</tr>
+<tr>
+<td><a href="#focus" rel="nofollow"><var>:focus</var></a></td>
+<td><var>input:focus</var></td>
+<td><var>&lt;input&gt;</var> в котором находится курсор.</td>
+</tr>
+<tr>
+<td><a href="#focus-visible" rel="nofollow"><var>:focus-visible</var></a></td>
+<td><var>a:focus-visible</var></td>
+<td>Фокус сработает, только если на кнопку перешли с клавиатуры через TAB.</td>
+</tr>
+<tr>
+<td><a href="#focus-within" rel="nofollow"><var>:focus-within</var></a></td>
+<td><var>div:focus-within</var></td>
+<td>Сработает на блоке, когда его внутренний элемент находится в фокусе.</td>
+</tr>
+<tr>
+<td><a href="#hover" rel="nofollow"><var>:hover</var></a></td>
+<td><var>a:hover</var></td>
+<td>Сслыка на которую наведена мышка.</td>
+</tr>
+<tr>
+<td><var>:in-range</var></td>
+<td><var>input:in-range</var></td>
+<td>Все <var>&lt;input&gt;</var> со значением в пределах указанного диапазона.</td>
+</tr>
+<tr>
+<td><var>:indeterminate</var></td>
+<td><var>input:indeterminate</var></td>
+<td>Все <var>&lt;input&gt;</var> в статусе indeterminate.</td>
+</tr>
+<tr>
+<td><var>:invalid</var></td>
+<td><var>input:invalid</var></td>
+<td>Все <var>&lt;input&gt;</var> с недопустимым значением.</td>
+</tr>
+<tr>
+<td><var>:lang(language)</var></td>
+<td><var>p:lang(it)</var></td>
+<td>Все <var>&lt;p&gt;</var> с <var>lang="it"</var>.</td>
+</tr>
+<tr>
+<td><a href="#last-child" rel="nofollow"><var>:last-child</var></a></td>
+<td><var>p:last-child</var></td>
+<td>Последний элемент в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#first-of-type" rel="nofollow"><var>:last-of-type</var></a></td>
+<td><var>p:last-of-type</var></td>
+<td>Последний <var>&lt;p&gt;</var> в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#link" rel="nofollow"><var>:link</var></a></td>
+<td><var>a:link</var></td>
+<td>Все непосещенные ссылки.</td>
+</tr>
+<tr>
+<td><a href="#not-selector" rel="nofollow"><var>:not(selector)</var></a></td>
+<td><var>:not(p)</var></td>
+<td>Все не <var>&lt;p&gt;</var> элементы.</td>
+</tr>
+<tr>
+<td><a href="#not-only-child" rel="nofollow"><var>:not(:only-child)</var></a></td>
+<td><var>div:not(:only-child)</var></td>
+<td>Все <var>&lt;div&gt;</var> внутри которых больше одного элемента.</td>
+</tr>
+<tr>
+<td><a href="#nth-child" rel="nofollow"><var>:nth-child(n)</var></a></td>
+<td><var>p:nth-child(2)</var></td>
+<td>Второй элемент в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#nth-of-type" rel="nofollow"><var>:nth-of-type(n)</var></a></td>
+<td><var>p:nth-of-type(2)</var></td>
+<td>Второй <var>&lt;p&gt;</var> в списке родительского элемента.</td>
+</tr>
+<tr>
+<td><a href="#nth-last-child" rel="nofollow"><var>:nth-last-child(n)</var></a></td>
+<td><var>p:nth-last-child(2)</var></td>
+<td>Второй элемент в списке родительского элемента (счет идет с конца).</td>
+</tr>
+<tr>
+<td><a href="#nth-last-of-type" rel="nofollow"><var>:nth-last-of-type(n)</var></a></td>
+<td><var>p:nth-last-of-type(2)</var></td>
+<td>Второй <var>&lt;p&gt;</var> в списке родительского элемента (счет идет с конца).</td>
+</tr>
+<tr>
+<td><a href="#only-child" rel="nofollow"><var>:only-child</var></a></td>
+<td><var>p:only-child</var></td>
+<td>Единственный <var>&lt;p&gt;</var> у родителя (других элементов быть не может).</td>
+</tr>
+<tr>
+<td><a href="#only-of-type" rel="nofollow"><var>:only-of-type</var></a></td>
+<td><var>p:only-of-type</var></td>
+<td>Один <var>&lt;p&gt;</var> у родителя (других элементы могут быть).</td>
+</tr>
+<tr>
+<td><var>:optional</var></td>
+<td><var>input:optional</var></td>
+<td>Все <var>&lt;input&gt;</var> у которых нет артибута "required".</td>
+</tr>
+<tr>
+<td><var>:required</var></td>
+<td><var>input:required</var></td>
+<td>Все <var>&lt;input&gt;</var> у которых указан атрибут "required".</td>
+</tr>
+<tr>
+<td><var>:out-of-range</var></td>
+<td><var>input:out-of-range</var></td>
+<td>Все <var>&lt;input&gt;</var> со значением выходящим за указанный рэндж.</td>
+</tr>
+<tr>
+<td><var>::placeholder</var></td>
+<td><var>input::placeholder</var></td>
+<td>Все <var>&lt;input&gt;</var> у которых указан атрибут "placeholder".</td>
+</tr>
+<tr>
+<td><var>:read-only</var></td>
+<td><var>input:read-only</var></td>
+<td>Все <var>&lt;input&gt;</var> у которых указан атрибут "readonly".</td>
+</tr>
+<tr>
+<td><var>:read-write</var></td>
+<td><var>input:read-write</var></td>
+<td>Все <var>&lt;input&gt;</var> у которых не указан атрибут "readonly".</td>
+</tr>
+<tr>
+<td><var>:root</var></td>
+<td><var>:root</var></td>
+<td>Корень документа.</td>
+</tr>
+<tr>
+<td><var>::selection</var></td>
+<td><var>::selection</var></td>
+<td>Выберет текущее выделение текста мышкой.</td>
+</tr>
+<tr>
+<td><a href="#target" rel="nofollow"><var>:target</var></a></td>
+<td><var>#news:target</var></td>
+<td>Выберет элемент с <var>id="news"</var> когда к нему пришли по клику.</td>
+</tr>
+<tr>
+<td><var>:valid</var></td>
+<td><var>input:valid</var></td>
+<td>Все <var>&lt;input&gt;</var> с валидным значением.</td>
+</tr>
+<tr>
+<td><a href="#link" rel="nofollow"><var>:visited</var></a></td>
+<td><var>a:visited</var></td>
+<td>Все посещенные ссылки.</td>
+</tr>
+</tbody>
+</table>
+          </section>
+        </div>
+      </main>
+      <footer class="footer container">
+        <div class="footer__logo">200TERABYTE WEB STUDIO</div>
       </footer>
     </div>
-    <div id="js">
-      <script src="../../js/settings.js"></script>
-      <script src="../../js/nav.js"></script>
-      <script src="../../js/showhide.js"></script>
-      <script></script>
-    </div>
+    <script src="../../js/index.js"></script>
   </body>
 </html>
