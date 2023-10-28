@@ -1,0 +1,224 @@
+<h2>VS Code (2015)</h2>
+
+<div class="content__menu">
+  <p class="content__menu-link" id="content__menu-link1">Документация</p>
+  <p class="content__menu-link" id="content__menu-link2">Удаление</p>
+  <p class="content__menu-link" id="content__menu-link3">Установка</p>
+  <p class="content__menu-link" id="content__menu-link4">Расширения</p>
+  <p class="content__menu-link" id="content__menu-link5">Настройка</p>
+  <p class="content__menu-link" id="content__menu-link6">Горячие клавиши</p>
+</div>
+
+<div class="content__items">
+
+  <div class="content__item" id="content__item1">
+    <h3>Документация VS Code</h3>
+    <ul>
+      <li><a href="https://code.visualstudio.com/">code.visualstudio.com</a><br>VSCode</li>
+      <li><a
+          href="https://dev-gang.ru/article/visual-studio-code-moscznoe-rukovodstvo-polzovatelja-dwedy9wjzg/">dev-gang.ru</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content__item" id="content__item2">
+    <h3>Удаление VS Code (не портативной версии)</h3>
+    <ol>
+      <li>Удалить через Панель управления - Программы и компоненты<code>Microsoft Visual Studio Code (User)</code></li>
+      <li>Удалить папки
+        <code>c:\Users\1\.vscode\
+      <br>c:\Users\1\AppData\Roaming\Code\</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item3">
+    <h3>Установка VS Code (портативной версии)</h3>
+    <ol>
+      <li>Заходим на сайт <a href="https://code.visualstudio.com/">code.visualstudio.com</a>
+      </li>
+      <li>Скачиваем 64битную zip (портативную) версию <code>VSCode-win32-x64-1.82.2.zip</code></li>
+      <li>Распаковываем ее в каталог
+        <code>c:\Portable\VSCode\</code>
+      </li>
+      <li>В этом каталоге создать папку data (здесь будет храниться пользовательский профиль настроек и расширения):
+        <code>c:\Portable\VSCode\data</code>
+      </li>
+      <li>Далее, внутри data создаём 2 обязательные
+        <code>c:\Portable\VSCode\data\extensions
+      <br>c:\Portable\VSCode\data\user-data</code>
+        и 1 опциональную папки
+        <code>c:\Portable\VSCode\data\tmp</code>
+        extensions — здесь будут храниться все установленные расширения;
+        <br>user-data — это, собственно, пользовательский профиль настроек;
+        <br>tmp — опциональная папка, если вы хотите, чтобы Visual Studio Code хранил все временные файлы локально, если
+        эту папку не создавать, то все временные файлы будут храниться в %TEMP%.
+      </li>
+      <li>Вот и всё, можно запускать Code.exe и настраивать, работать. Если вы уже работали на ПК с Visual Studio Code и
+        хотите скопировать или иммигрировать с обычной версии на портативную, то повторяем все шаги выше, и
+        дополнительно для переноса расширений и настроек необходимо сделать следующее:
+        <code>data\extensions — копируем сюда всё из %USERPROFILE%\.vscode\extensions
+      <br>data\user-data — копируем сюда всё из %APPDATA%\Code</code>
+      </li>
+    </ol>
+
+    <h3>Как добавить VS Code в меню пуск</h3>
+    <ol>
+      <li>Выбираем файл (клик правой кнопкой мыши) <code>c:\Portable\VSCode\Code.exe</code></li>
+      <li>Выбираем Закрепить на начальном экране</li>
+    </ol>
+
+    <h3>Как добавить <em>программу</em> VS Code в контекстное меню</h3>
+    <ol>
+      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду
+        <code>regedit</code>
+      </li>
+      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
+      <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать > Раздел</code></li>
+      <li>Назовите его так, как должна называться команда в контекстном меню. Скажем,
+        <code>Открыть с помощью VS Code</code>
+      </li>
+      <li>Клик правой кнопкой мыши на созданной папке и снова выбираем команду
+        <code>Создать > Раздел</code>
+      </li>
+      <li>Новый вложенный раздел назовите <code>command</code></li>
+      <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
+      <li>В открывшемся окне введите следующую команду <code>"c:\Portable\VSCode\Code.exe" "%1"</code></li>
+    </ol>
+
+    <h3>Как добавить <em>иконку</em> VS Code в контекстное меню</h3>
+    <ol>
+      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду
+        <code>regedit</code>
+      </li>
+      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью VS Code</code></li>
+      <li>Клик правой кнопкой мыши и выбираем команду <code>Создать > Строковый параметр</code></li>
+      <li>в поле Имя укажите значение <code>Icon</code></li>
+      <li>
+        а в поле Значение укажите путь к exe-файлу,
+        как показано ниже (кавычки обязательны): <code>"c:\Portable\VSCode\Code.exe"</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item4">
+    <h3>Расширения (extentions)</h3>
+    <h3>Visual extentions</h3>
+    <ol>
+      <li>indent-rainbow (oderwat) Цветные отступы</li>
+      <li>Image preview (Kiss Tamas) Просмотр превью картинки в html коде</li>
+      <li>Theme (Mhammed Talhaouy) A Visual Studio Code theme for those of us who like to code late into the night</li>
+      <li>Prettier - Code formatter (Prettier) Code formatter using prettier Выравнивание кода
+        <h3>Настройка Prettier</h3>
+        <div>В VSCode открыть настройки Settings.
+          <br>Выбрать Prettier: Semi для добавления ";" в конце строки.
+          <br>Выбрать Prettier: Single Quote для замены двойных кавычек на одинарные.
+          <br>Выбрать Prettier: Tab Width 2 для замены табуляции на 2 пробела
+        </div>
+      </li>
+      <li>Polacode (P & P) Делает красивые скриншоты кода</li>
+      <li>Debugger for Chrome (Microsoft) Отладка javascript кода</li>
+    </ol>
+    <h3>Functional extentions</h3>
+    <ol>
+      <li>Live Server (Ritwick Dey) local Server with live reload feature</li>
+      <li>Auto Rename Tag (Jun Han) При изменении открывающего тега изменяет закрывающий</li>
+      <li>CSS Peek (Pranay Prakash) Переход из html в css к выбранному классу</li>
+      <li>HTML CSS Support (ecmel) Дописывает название класса в html из css</li>
+      <li>Live Sass Compiler (Ritwick Dey) Вместе сним уже идет Live Server</li>
+      <li>Beautify (HookyQR)</li>
+      <li>HTML Snippets (Mohamed Abusaid)</li>
+    </ol>
+    <h3>JavaScript extentions</h3>
+    <ol>
+      <li>ESLint (Microsoft) Integrates ESLint JavaScript into VS Code.</li>
+      <li>Babel JavaScript (Michael McDermott) Подсветка нового синтаксиса</li>
+      <li>Quokka.js (Wallaby.js) Песочница js внутри редактора</li>
+      <li>JavaScript (ES6) code snippets (charalampos karypidis)</li>
+    </ol>
+    <h3>C# extentions</h3>
+    <ol>
+      <li>.NET Runtime Install Tool (Microsoft) This extension installs and manages different versions of the .NET Runtime.</li>
+    </ol>
+  </div>
+
+
+  <div class="content__item" id="content__item5">
+    <h2>Настройка (Settings)</h2>
+    <ul>
+      <li>Чтобы войти в настройки редактора, выберем
+        <code>File - Preferences - Settings (Ctrl + ,)</code>
+      </li>
+    </ul>
+
+    <h3>Git Bash в VS Code</h3>
+    <ul>
+      <li>
+        Согласно статье <a href="https://flagman.top/about-business/php-i-t-p-uzelki/git-bash-%D0%B2-vs-code">Git Bash в VS Code</a> чтобы вместо стандартного терминала PowerShell в VSCode открывался терминал GitBash - нужно его настроить
+        <br>Открыть VS Code. Войти в настройки редактора File &gt; Preferences &gt; Settings (Ctrl + ,). Набрать в строке поиска
+        <code>Terminal Default Profile</code>
+        Перейти в
+        <code>Terminal &gt; Integrated &gt; Default Profile: Windows</code>
+        и выбрать
+        <code>Git Bash</code>
+      </li>
+    </ul>
+
+    <h3>Изменить отступы в тексте</h3>
+    <ul>
+      <li>Войти в настройки редактора File &gt; Preferences &gt; Settings (Ctrl + ,). Набрать в строке поиска
+        <code>tab size</code>
+        Перейти в
+        <code>Editor: Tab Size</code>
+        Изменим отступ с 4 на 2
+      </li>
+    </ul>
+
+    <h3>Wrap. Перенос строк</h3>
+    <ul>
+      <li>Войти в настройки редактора File &gt; Preferences &gt; Settings (Ctrl + ,). Набрать в строке поиска
+        <code>wrap</code>
+        Перейти в
+        <code>Editor: Word Wap</code>
+        Выбрать on
+      </li>
+    </ul>
+ 
+    <h3>Color Theme. Выбор цветовой темы</h3>
+    <ul>
+      <li>Войти в настройки редактора File &gt; Preferences &gt; Settings (Ctrl + ,). Набрать в строке поиска
+        <code>theme</code>
+        Перейти в
+        <code>Workbench: Color Theme</code>
+        Выбрать Theme
+      </li>
+    </ul>
+ </div>
+
+
+  <div class="content__item" id="content__item6">
+    <h3>Горячие клавиши (Hot keys)</h3>
+    <ul>
+      <li>Ctrl+, Открыть настройки</li>
+      <li>Ctrl+Shift+P Показать все команды (Command Palette)</li>
+      <li>Ctrl+O Открыть файл</li>
+      <li>Ctrl+K Ctrl+O Открыть папку</li>
+      <li>Ctrl+R Открыть последний</li>
+      <li>Ctrl+P Перейти к файлу</li>
+      <li>Ctrl+Shift+F Найти в файлах</li>
+      <li>F5 Начать отладку</li>
+      <li>Ctrl+Shift+G Открыть git</li>
+      <li>Ctrl+Shift+X Открыть расширения</li>
+      <li>Ctrl+= Увеличить масштаб программы</li>
+      <li>Ctrl+- Уменьшить масштаб программы</li>
+      <li>Ctrl+0 Масштаб по умолчанию</li>
+      <li>Alt+Z Вкл/выкл перенос текста</li>
+      <li>Ctrl+Shift+M Открыть панель Проблемы</li>
+      <li>Ctrl+~ Открыть терминал</li>
+      <li>Ctrl+Shift+E Открыть проводник</li>
+    </ul>
+  </div>
+
+  <hr><a href="#header">К началу страницы</a>
+  <hr>
+</div>

@@ -1,0 +1,175 @@
+const dataBooksComp = [
+
+  {
+    id: 1,
+    year: 2003,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Организация ЭВМ (5е)',
+    author: 'Карл Хамахер',
+    pages: '846',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2003,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Компьютерные сети (4е)',
+    author: 'Эндрю Таненбаум',
+    pages: '993',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2003,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Протоколы интернета',
+    author: 'Филимонов',
+    pages: '514',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2005,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Компьютерные системы. Архитектура и программирование. Взгляд программиста',
+    author: 'Брайант',
+    pages: '1090',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2006,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Операционные системы. Разработка и реализация (2е)',
+    author: 'Эндрю Таненбаум',
+    pages: '576',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2007,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Операционные системы. Разработка и реализация (3е)',
+    author: 'Эндрю Таненбаум',
+    pages: '706',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2013,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Архитектура компьютера (6е)',
+    author: 'Эндрю Таненбаум',
+    pages: '816',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2014,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Справочник по протоколам',
+    author: 'Гольдштейн',
+    pages: '456',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2015,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Современные операционные системы (4е)',
+    author: 'Эндрю Таненбаум',
+    pages: '1120',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2016,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Компьютерные сети (6е)',
+    author: 'Джеймс Куроуз',
+    pages: '912',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2022,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Как на самом деле работают компьютеры',
+    author: 'Мэтью Джастис',
+    pages: '429',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2003,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Компьютерные сети (6е)',
+    author: 'Эндрю Таненбаум',
+    pages: '992',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2023,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Компьютерные сети',
+    author: 'Антон Харитонов',
+    pages: '137',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2023,
+    category: 'Основы',
+    theme: 'Компьютер',
+    title: 'Архитектура ЭВМ',
+    author: 'Павел Скаков',
+    pages: '102',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {},
+
+];
+
+export default dataBooksComp;

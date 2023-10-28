@@ -1,0 +1,58 @@
+/*********************
+header__first-row
+*********************/
+
+.header-stick {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.header__first-row {
+  display: flex;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: monospace, sans-serif;
+}
+
+.header__logo {
+  display: block;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.header__nav {
+  font-size: 20px;
+}
+
+.header__nav a {
+  margin-left: 5px;
+  padding-bottom: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__nav a.active,
+.header__nav a:hover {
+  border-bottom: 3px solid white;
+}
+
+/* Конец header__first-row */
+
+/*********************
+header__second-row
+*********************/
+
+.header__second-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: monospace, sans-serif;
+}
+
+/* Конец header__second-row */

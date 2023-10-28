@@ -1,0 +1,193 @@
+const dataBooksNode = [
+
+  {
+    id: 1,
+    year: 2012,
+    category: 'npm',
+    theme: 'node',
+    title: 'Node.js. Разработка серверных веб-приложений на JavaScript',
+    author: 'Дэвид Хэррон',
+    pages: '146',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2015,
+    category: 'npm',
+    theme: 'node',
+    title: 'Node.js. Путеводитель по технологии',
+    author: 'Кирилл Сухов',
+    pages: '420',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Учусь node.js',
+    author: 'stackoverflow',
+    pages: '441',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2017,
+      title: 'Learning Node.js',
+      author: 'stackoverflow',
+    },
+  },
+
+  {
+    id: 4,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Учусь node.js (eng)',
+    author: 'stackoverflow',
+    pages: '441',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2017,
+      title: 'Learning Node.js',
+      author: 'stackoverflow',
+    },
+  },
+
+  {
+    id: 5,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Веб разработка Node и Express',
+    author: 'Итан Браун',
+    pages: '336',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Шаблоны проектирования Node.JS (2-е изд)',
+    author: 'Марио Каскиаро',
+    pages: '397',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2016,
+      title: 'Node.js Design Patterns',
+      author: 'Mario Casciaro',
+    },
+  },
+
+  {
+    id: 7,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Шаблоны проектирования Node.JS (2-е изд) (eng)',
+    author: 'Марио Каскиаро',
+    pages: '520',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2016,
+      title: 'Node.js Design Patterns',
+      author: 'Mario Casciaro',
+    },
+  },
+
+  {
+    id: 8,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Изучаем Node (2-е изд)',
+    author: 'Шелли Пауэрс',
+    pages: '304',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2016,
+      title: 'Learning Node (2nd)',
+      author: 'Shelley Powers',
+    },
+  },
+
+  {
+    id: 9,
+    year: 2017,
+    category: 'npm',
+    theme: 'node',
+    title: 'Изучаем Node (2-е изд) (eng)',
+    author: 'Шелли Пауэрс',
+    pages: '288',
+    isLearned: false,
+    dateLearned: '',
+    origin: {
+      year: 2016,
+      title: 'Learning Node (2nd)',
+      author: 'Shelley Powers',
+    },
+  },
+
+  {
+    id: 10,
+    year: 2018,
+    category: 'npm',
+    theme: 'node',
+    title: 'Руководство по Node.js',
+    author: 'ruvds',
+    pages: '121',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2018,
+    category: 'npm',
+    theme: 'node',
+    title: 'Node.JS в действии (2-е изд)',
+    author: 'Майк Кантелон',
+    pages: '432',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2021,
+    category: 'npm',
+    theme: 'node',
+    title: 'Веб разработка с применением Node и Express (2-е изд)',
+    author: 'Итан Браун',
+    pages: '336',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2023,
+    category: 'npm',
+    theme: 'node',
+    title: 'Основы разработки на node.js',
+    author: 'Илья Государев',
+    pages: '179',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {},
+
+];
+
+export default dataBooksNode;

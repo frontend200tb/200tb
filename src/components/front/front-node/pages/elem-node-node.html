@@ -1,0 +1,84 @@
+<h1>Node</h1>
+<div class="content__menu">
+  <p class="content__menu-link" id="content__menu-link1">about</p>
+  <p class="content__menu-link" id="content__menu-link2">links</p>
+  <p class="content__menu-link" id="content__menu-link3">install</p>
+  <p class="content__menu-link" id="content__menu-link4">server</p>
+</div>
+<div class="content__items">
+  <div class="content__item" id="content__item1">
+    <h3>About</h3>
+    <ul>
+      <li>
+        <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</p>
+      </li>
+    </ul>
+  </div>
+  <div class="content__item" id="content__item2">
+    <h3>Ссылки</h3>
+    <ul>
+      <li> <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+    </ul>
+  </div>
+  <div class="content__item" id="content__item3">
+    <h3>Установка</h3>
+    <ol>
+      <li>Установим последнюю версию node.js с официального сайта <a
+          href="https://nodejs.org/en/">https://nodejs.org/en/ </a>Вместе с node.js поставится и npm</li>
+      <li>Проверим версии установленных node.js и npm
+        <code>
+          node -v
+          <br>v18.18.2
+          <br>npm -v
+          <br>9.8.1
+        </code>
+        (сокращенно от node --version и npm --version)
+      </li>
+      <li>Создадим папку с названием project<code>mkdir project</code>Чтобы удалить пустую папку с названием project
+        наберите<code>rmdir project</code></li>
+      <li>Перейдем в папку с названием project
+        <code>
+          cd project
+          <br>d://project/
+        </code>
+        Чтобы выйти из папки наберите
+        <code>
+          cd ..
+          <br>d://
+        </code>
+      </li>
+      <li>Инициализируем проект<code>npm init -y</code>(сокращенно от npm init --yes, то же что и npm init, не отвечая
+        на вопросы)</li>
+      <li>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут
+        являться зависимостями для нашего приложения.<code>d://project/package.json</code></li>
+      <li>Для примера, установим @babel/cli, @babel/core, @babel/preset-env
+        <code>npm i -D @babel/cli @babel/core @babel/preset-env</code>
+        (сокращенно от npm install --save-dev @babel/cli @babel/core @babel/preset-env)
+      </li>
+      <li>Появится папка node_modules, файл package-lock.json, а в файл package.json добавятся зависимости
+        <code>
+          "devDependencies": {
+          <br>&nbsp;&nbsp;"@babel/cli": "^7.18.10",
+          <br>&nbsp;&nbsp;"@babel/core": "^7.18.13",
+          <br>&nbsp;&nbsp;"@babel/preset-env": "^7.18.10"
+          <br>}
+        </code>
+      </li>
+      <li>Чтобы удалить пакеты и удалить зависимости из файла package.json
+        <code>npm uninstall -D @babel/cli @babel/core @babel/preset-env</code>(Флаг -D удаляет devDependencies, флаг -S
+        удаляет Dependencies)</li>
+    </ol>
+  </div>
+  <div class="content__item" id="content__item4">
+    <h3>Локальный сервер на node js</h3>
+    <ul>
+      <li> <a
+          href="https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module-ru">Создание
+          веб-сервера в Node.js с помощью модуля HTTP (2020-05-07)</a></li>
+      <li> <a href="https://habr.com/ru/post/327440/">Свой веб-сервер на NodeJS, и ни единого фреймворка. Часть 1
+          (2017-04-26)</a></li>
+      <li> <a href="https://metanit.com/web/nodejs/3.4.php">Отправка файлов (2019-05-18)</a></li>
+      <li> <a href="https://habr.com/ru/post/481898/">Простой веб сервер для SPA/PWA за «5 минут» (2019-12-26)</a></li>
+    </ul>
+  </div>
+</div>

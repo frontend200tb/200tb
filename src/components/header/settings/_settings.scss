@@ -1,0 +1,23 @@
+/*********************
+settings
+*********************/
+
+.settings {
+  text-align: right;
+}
+
+.set-up-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  column-gap: 20px;
+  margin: 0 0 10px auto;
+}
+
+/* Конец settings */
+
+@import 'set-btn/set-btn';
+@import 'set-color/set-color';
+@import 'theme/_theme';
+@import 'snow/_snow';
+@import 'search-btn/search-btn';

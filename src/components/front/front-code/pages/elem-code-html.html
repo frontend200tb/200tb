@@ -1,0 +1,1599 @@
+<h1>Справочник по HTML тегам</h1>
+
+<div class="article">
+<div class="anchor" id="content"></div>
+<h2>Содержание</h2>
+</div>
+
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#info">info</a></p>
+    <p><a href="#single">Одиночные</a></p>
+    <p><a href="#semantic">Семантические</a></p>
+    <p><a href="#html5">HTML5</a></p>
+    <p><a href="#block">Блочные</a></p>
+    <p><a href="#inline">Строчные</a></p>
+    <p><a href="#no-standard">Нестандартные</a></p>
+    <p><a href="#obsolete-elements">Осуждаемые</a></p>
+    <br>
+    <p><a href="#doctype">&lt;!DOCTYPE&gt;</a></p>
+    <p><a href="#comment">&lt;!--...--&gt;</a></p>
+    <p><a href="#tag-html">&lt;html&gt;</a></p>
+    <br>
+    <p><a href="#base-elements">Базовые<br>элементы</a>
+    <br><a href="#tag-head">&lt;head&gt;</a>
+    <br><a href="#tag-body">&lt;body&gt;</a></p>
+    <br>
+    <p><a href="#metadata">Метаданные</a>
+    <br><a href="#tag-meta">&lt;meta /&gt;</a>
+    <br><a href="#tag-base">&lt;base /&gt;</a>
+    <br><a href="#tag-link">&lt;link /&gt;</a>
+    <br><a href="#tag-title">&lt;title&gt;</a>
+    <br><a href="#tag-style">&lt;style&gt;</a></p> 
+  </div>
+
+  <div>
+    <p><a href="#section-elements">Секции</a> 
+    <br><a href="#tag-header">&lt;header&gt;</a>
+    <br><a href="#tag-nav">&lt;nav&gt;</a>
+    <br><a href="#tag-aside">&lt;aside&gt;</a>
+    <br><a href="#tag-main">&lt;main&gt;</a>
+    <br><a href="#tag-article">&lt;article&gt;</a> 
+    <br><a href="#tag-section">&lt;section&gt;</a>
+    <br><a href="#tag-adress">&lt;adress&gt;</a>
+    <br><a href="#tag-footer">&lt;footer&gt;</a></p>
+    <br>
+    <p><a href="#container-elements">Контейнер</a>
+    <br><a href="#tag-div">&lt;div&gt;</a>
+    <br><a href="#tag-span">&lt;span&gt;</a></p>
+    <br>
+    <p><a href="#headings">Заголовки</a> 
+    <br><a href="#tag-hgroup">&lt;hgroup&gt;</a>
+    <br><a href="#tag-h1">&lt;h1&gt;</a>
+    <br><a href="#tag-h2">&lt;h2&gt; - &lt;h6&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#text-elements1">Оформление<br>текста</a> 
+    <br><a href="#tag-a">&lt;a&gt;</a>
+    <br><a href="#tag-hr">&lt;hr /&gt;</a>
+    <br><a href="#tag-p">&lt;p&gt;</a>
+    <br><a href="#tag-pre">&lt;pre&gt;</a>
+    <br><a href="#tag-br">&lt;br /&gt;</a>
+    <br><a href="#tag-wbr">&lt;wbr /&gt;</a></p>
+    <br>
+    <p><a href="#text-elements2">Выделение<br>текста</a> 
+    <br><a href="#tag-b">&lt;b&gt;</a>
+    <br><a href="#tag-i">&lt;i&gt;</a>
+    <br><a href="#tag-s">&lt;s&gt;</a>
+    <br><a href="#tag-u">&lt;u&gt;</a>
+    <br><a href="#tag-del">&lt;del&gt;</a>
+    <br><a href="#tag-ins">&lt;ins&gt;</a>
+    <br><a href="#tag-mark">&lt;mark&gt;</a>
+    <br><a href="#tag-small">&lt;small&gt;</a>
+    <br><a href="#tag-sup">&lt;sup&gt;</a>
+    <br><a href="#tag-sub">&lt;sub&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#text-elements3">Значение<br>текста</a> 
+    <br><a href="#tag-abbr">&lt;abbr&gt;</a>
+    <br><a href="#tag-code">&lt;code&gt;</a>
+    <br><a href="#tag-data">&lt;data&gt;</a>
+    <br><a href="#tag-dfn">&lt;dfn&gt;</a>
+    <br><a href="#tag-em">&lt;em&gt;</a>
+    <br><a href="#tag-kbd">&lt;kbd&gt;</a>
+    <br><a href="#tag-samp">&lt;samp&gt;</a>
+    <br><a href="#tag-strong">&lt;strong&gt;</a>
+    <br><a href="#tag-time">&lt;time&gt;</a>
+    <br><a href="#tag-var">&lt;var&gt;</a></p>
+    <br>
+    <p><a href="#text-elements4">Цитаты</a> 
+    <br><a href="#tag-blockquote">&lt;blockquote&gt;</a>
+    <br><a href="#tag-q">&lt;q&gt;</a>
+    <br><a href="#tag-cite">&lt;cite&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#text-elements5">Направление<br>текста</a> 
+    <br><a href="#tag-bdi">&lt;bdi&gt;</a>
+    <br><a href="#tag-tbdo">&lt;tbdo&gt;</a></p>
+    <br>
+    <p><a href="#text-elements6">Аннотация</a> 
+    <br><a href="#tag-ruby">&lt;ruby&gt;</a>
+    <br><a href="#tag-rt">&lt;rt&gt;</a>
+    <br><a href="#tag-rp">&lt;rp&gt;</a></p>
+    <br>
+    <p><a href="#list-elements">Список</a> 
+    <br><a href="#tag-ol">&lt;ol&gt;</a>
+    <br><a href="#tag-ul">&lt;ul&gt;</a>
+    <br><a href="#tag-li">&lt;li&gt;</a>
+    <br><a href="#tag-dl">&lt;dl&gt;</a>
+    <br><a href="#tag-dt">&lt;dt&gt;</a>
+    <br><a href="#tag-dd">&lt;dd&gt;</a>
+    <br><a href="#tag-menu">&lt;menu&gt;</a>
+    <br><a href="#tag-command">&lt;command&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#table-elements">Таблица</a> 
+    <br><a href="#tag-table">&lt;table&gt;</a>
+    <br><a href="#tag-caption">&lt;caption&gt;</a>
+    <br><a href="#tag-colgroup">&lt;colgroup&gt;</a>
+    <br><a href="#tag-col">&lt;col&gt;</a>
+    <br><a href="#tag-thead">&lt;thead&gt;</a>
+    <br><a href="#tag-tfoot">&lt;tfoot&gt;</a>
+    <br><a href="#tag-tbody">&lt;tbody&gt;</a>
+    <br><a href="#tag-tr">&lt;tr&gt;</a>
+    <br><a href="#tag-th">&lt;th&gt;</a>
+    <br><a href="#tag-td">&lt;td&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#form-elements">Форма</a> 
+    <br><a href="#tag-form">&lt;form&gt;</a>
+    <br><a href="#tag-fieldset">&lt;fieldset&gt;</a>
+    <br><a href="#tag-legend">&lt;legend&gt;</a>
+    <br><a href="#tag-input">&lt;input&gt;</a>
+    <br><a href="#tag-datalist">&lt;datalist&gt;</a>
+    <br><a href="#tag-label">&lt;label&gt;</a>
+    <br><a href="#tag-textarea">&lt;textarea&gt;</a>
+    <br><a href="#tag-select">&lt;select&gt;</a>
+    <br><a href="#tag-optgroup">&lt;optgroup&gt;</a>
+    <br><a href="#tag-meter">&lt;meter&gt;</a>
+    <br><a href="#tag-progress">&lt;progress&gt;</a>
+    <br><a href="#tag-button">&lt;button&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#embed-elements">Встраиваемый<br>контент</a> 
+    <br><a href="#tag-img">&lt;img /&gt;</a>
+    <br><a href="#tag-area">&lt;area /&gt;</a>
+    <br><a href="#tag-picture">&lt;picture&gt;</a>
+    <br><a href="#tag-source">&lt;source&gt;</a>
+    <br><a href="#tag-figure">&lt;figure&gt;</a>
+    <br><a href="#tag-figcaption">&lt;figcaption&gt;</a>
+    <br><a href="#tag-iframe">&lt;iframe&gt;</a>
+    <br><a href="#tag-embed">&lt;embed&gt;</a>
+    <br><a href="#tag-object">&lt;object&gt;</a>
+    <br><a href="#tag-param">&lt;param&gt;</a>
+    <br><a href="#tag-video">&lt;video&gt;</a>
+    <br><a href="#tag-audio">&lt;audio&gt;</a>
+    <br><a href="#tag-track">&lt;track&gt;</a>
+    <br><a href="#tag-map">&lt;map&gt;</a>
+    <br><a href="#tag-use">&lt;use&gt;</a>
+    <br><a href="#tag-svg">&lt;svg&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#interactive-elements">Интерактивные<br>элементы</a> 
+    <br><a href="#tag-dialog">&lt;dialog&gt;</a>
+    <br><a href="#tag-details">&lt;details&gt;</a>
+    <br><a href="#tag-summary">&lt;summary&gt;</a></p>
+    <br>
+    <p><a href="#script-elements">Скрипты</a> 
+    <br><a href="#tag-script">&lt;script&gt;</a>
+    <br><a href="#tag-noscript">&lt;noscript&gt;</a>
+    <br><a href="#tag-canvas">&lt;canvas&gt;</a></p>
+    <br>
+    <p><a href="#web-elements">Веб-компоненты</a> 
+    <br><a href="#tag-template">&lt;template&gt;</a>
+    <br><a href="#tag-slot">&lt;slot&gt;</a></p>
+  </div>
+
+  <div>
+    <p><a href="#obsolete-elements">Устаревшие</a> 
+    <br><a href="#tag-acronym">&lt;acronym&gt;</a>
+    <br><a href="#tag-applet">&lt;applet&gt;</a>
+    <br><a href="#tag-basefont">&lt;basefont&gt;</a>
+    <br><a href="#tag-bgsound">&lt;bgsound&gt;</a>
+    <br><a href="#tag-big">&lt;big&gt;</a>
+    <br><a href="#tag-blink">&lt;blink&gt;</a>
+    <br><a href="#tag-center">&lt;center&gt;</a>
+    <br><a href="#tag-content">&lt;content&gt;</a>
+    <br><a href="#tag-dir">&lt;dir&gt;</a>
+    <br><a href="#tag-font">&lt;font&gt;</a>
+    <br><a href="#tag-frame">&lt;frame&gt;</a>
+    <br><a href="#tag-frameset">&lt;frameset&gt;</a>
+    <br><a href="#tag-image">&lt;image&gt;</a>
+    <br><a href="#tag-keygen">&lt;keygen&gt;</a>
+    <br><a href="#tag-marquee">&lt;marquee&gt;</a>
+    <br><a href="#tag-menuitem">&lt;menuitem&gt;</a>
+    <br><a href="#tag-nobr">&lt;nobr&gt;</a>
+    <br><a href="#tag-noembed">&lt;noembed&gt;</a>
+    <br><a href="#tag-noframes">&lt;noframes&gt;</a>
+    <br><a href="#tag-plaintext">&lt;plaintext&gt;</a>
+    <br><a href="#tag-rb">&lt;rb&gt;</a>
+    <br><a href="#tag-rtc">&lt;rtc&gt;</a>
+    <br><a href="#tag-spacer">&lt;spacer&gt;</a>
+    <br><a href="#tag-strike">&lt;strike&gt;</a>
+    <br><a href="#tag-tt">&lt;tt&gt;</a>
+    <br><a href="#tag-xmp">&lt;xmp&gt;</a></p>
+  </div>
+</div>
+
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://htmlbook.ru/html">htmlbook.ru/html</a> Справочник по HTML (Влад Мержевич)</p>
+  <p><a href="https://webref.ru/html">webref.ru/html</a> Справочник HTML</p>
+  <p><a href="https://html5css.ru/tags/default.php">html5css.ru/tags</a> HTML Справочник всех тегов онлайн и примеры</p>
+  <p><a href="https://htmlbase.ru/">htmlbase.ru</a> HTMLBASE - самый современный справочник по HTML и CSS</p>
+  <p><a href="https://guruweba.com/html/">guruweba.com/html</a> Справочник тегов HTML</p>
+  <p><a href="https://ru.w3docs.com/uchebnik-html.html">ru.w3docs.com/uchebnik-html.html</a> Учебник HTML</p>
+  <p><a href="https://hcdev.ru/html/">hcdev.ru/html</a> Справочник HTML</p>
+  <p><a href="https://htmlacademy.ru/blog/html-tags/book">htmlacademy.ru/blog/html-tags/book</a> справочник по html</p>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">developer.mozilla.org</a> HTML Reference</p>
+  <p><a href="https://doka.guide/html/">doka.guide/html</a> HTML</p>
+  <p><a href="https://htmlcheatsheet.com/">htmlcheatsheet.com</a> htmlcheatsheet</p>
+  <p><a href="https://www.htmlquick.com/reference/tags.html">htmlquick.com/reference/tags.html</a></p>
+  <p><a href="https://html.spec.whatwg.org/multipage/">html.spec.whatwg.org</a> HTML Living standart</p>
+  <p><a href="https://htmlreference.io/">htmlreference.io</a> HTML Reference</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="info"></div>
+  <h2>info</h2>
+
+  <p>Всего в HTML 110 элементов - 2 без тегов (доктайп, комментарий), 15 с одиночным тегом, 93 с парными тегами. </p>
+
+  <hr>
+
+  <p><b>Элемент с одиночным тегом</b> называется пустым (empty element). Он не имеет содержимого и закрывающего тега, а состоит только из открывающего тега.</p>
+  <p><b>Элемент с парными тегами</b> состоит из открывающего тега (start tag), содержимого (content) и закрывающего тега (end tag).</p>
+              
+</article>
+
+<article class="article">
+  <div class="anchor" id="single"></div>
+  <h2>Элементы с одиночным тегом (15)</h2>  
+
+  <p>
+  <strong>&lt;area /&gt;</strong>&nbsp;
+  <strong>&lt;base /&gt;</strong>&nbsp;
+  <strong>&lt;br /&gt;</strong>&nbsp;
+  <strong>&lt;col /&gt;</strong>&nbsp;
+  <strong>&lt;embed /&gt;</strong>&nbsp;
+  <strong>&lt;hr /&gt;</strong>&nbsp;
+  <strong>&lt;img /&gt;</strong>&nbsp;
+  <strong>&lt;input /&gt;</strong>&nbsp;
+  <strong>&lt;keygen /&gt;</strong>&nbsp;
+  <strong>&lt;link /&gt;</strong>&nbsp;
+  <strong>&lt;meta /&gt;</strong>&nbsp;
+  <strong>&lt;param /&gt;</strong>&nbsp;
+  <strong>&lt;source /&gt;</strong>&nbsp;
+  <strong>&lt;track /&gt;</strong>&nbsp;
+  <strong>&lt;wbr /&gt;</strong>
+  </p>
+              
+</article>
+
+<article class="article">
+  <div class="anchor" id="semantic"></div>
+  <h2>Семантические теги (15)</h2>  
+  <p>
+    <strong>&lt;address&gt;</strong>
+    <strong>&lt;article&gt;</strong>
+    <strong>&lt;aside&gt;</strong>
+    <strong>&lt;bdi&gt;</strong>
+    <strong>&lt;figcaption&gt;</strong>
+    <strong>&lt;figure&gt;</strong>
+    <strong>&lt;footer&gt;</strong>
+    <strong>&lt;header&gt;</strong>
+    <strong>&lt;main&gt;</strong>
+    <strong>&lt;mark&gt;</strong>
+    <strong>&lt;nav&gt;</strong>
+    <strong>&lt;section&gt;</strong>
+    <strong>&lt;time&gt;</strong>
+    <strong>&lt;wbr&gt;</strong>
+  </p>
+  <p>Семантические теги появились в HTML5. До их появления вся разметка веб-страниц строилась при помощи элементов &lt;div&gt;, которым присваивались идентификаторы (id) или классы (class). Они нужны для группировки контента и разметки текстового содержимого. Они четко описывают, какой контент содержат.</p>
+  <p>Элемент <strong>&lt;address&gt;</strong> определяет контактную информацию автора/владельца документа или статьи.</p>
+  <p>Элемент <strong>&lt;article&gt;</strong> определяет независимый блок, в котором группируются записи (статьи, публикации в блоге, комментарии и т.д).</p>
+  <p>Элемент <strong>&lt;aside&gt;</strong> oн определяет раздел, в котором содержится информация, дополняющая основной отдел. Эта информация является факультативной, и если ее удалить, основное содержимое не пострадает. Такой информацией могут быть комментарии, справочная информация, списки терминов, коллекция ссылок и т.д.</p>
+  <p>Элемент <strong>&lt;header&gt;</strong> формирует заголовочный блок или “шапку” документа, используется как контейнер для группировки вводных и навигационных элементов (логотип, навигационное меню, форма поиска и т.д.).</p>
+  <p>Элемент <strong>&lt;bdi&gt;</strong> определяет фрагмент текста двунаправленного форматирования, который должен быть изолирован от остального текста.</p>
+  <p>Элемент <strong>&lt;figcaption&gt;</strong> используется для добавления подписи или пояснений к содержимому тега &lt;figure&gt;.</p>
+  <p>Элемент <strong>&lt;figure&gt;</strong> определяет автономный контент, являющийся самостоятельным элементом основного потока. Используется для добавления кратких аннотаций к иллюстрациям, фотографиям, диаграммам, фрагментам кода и т.д.</p>
+  <p>Элемент <strong>&lt;footer&gt;</strong> формирует нижний колонтитул секции или корневого элемента, в котором находится. Как правило, в нем размещается информация об авторских правах, контактные данные, ссылки для навигации и т.д.</p>
+  <p>Элемент <strong>&lt;main&gt;</strong> формирует основное содержимое документа (содержимое элемента &lt;body&gt;). Содержимое тега должно быть уникальным и не дублировать однотипные блоки, которые повторяются в других документах, таких как шапка сайта (header), нижний колонтитул (footer), меню, форма поиска, информация об авторских правах и т.д.</p>
+  <p>Элемент <strong>&lt;mark&gt;</strong> используется для выделения важного содержимого или ключевых слов. По умолчанию выделяет желтым цветом.</p>
+  <p>Элемент <strong>&lt;nav&gt;</strong> формирует основной блок навигационных ссылок. Обратите внимание, что не все ссылки в HTML документе могут быть помещены внутрь элемента &lt;nav&gt;, он может включать в себя только крупные навигационные блоки.</p>
+  <p>Элемент <strong>&lt;section&gt;</strong> используется для группировки тематического содержимого (оглавление, программа, разделы и т.д.).</p>
+  <p>Элемент <strong>&lt;time&gt;</strong> определяет время (24 часа) или дату по григорианскому календарю с возможным указанием времени и смещения часового пояса.</p>
+  <p>Элемент <strong>&lt;wbr&gt;</strong> указывает браузеру место возможного разрыва длинной строки в случае необходимости.</p>
+              
+</article>
+
+<article class="article">
+  <div class="anchor" id="html5"></div>
+  <h2>Элементы, которые появились в стандарте HTML5 (30)</h2>  
+  <p>
+    <strong>&lt;article&gt;</strong>
+    <strong>&lt;aside&gt;</strong>
+    <strong>&lt;audio&gt;</strong>
+    <strong>&lt;bdi&gt;</strong>
+    <strong>&lt;canvas&gt;</strong>
+    <strong>&lt;command&gt;</strong>
+    <strong>&lt;datalist&gt;</strong>
+    <strong>&lt;details&gt;</strong>
+    <strong>&lt;figcaption&gt;</strong>
+    <strong>&lt;figure&gt;</strong>
+    <strong>&lt;footer&gt;</strong>
+    <strong>&lt;header&gt;</strong>
+    <strong>&lt;hgroup&gt;</strong>
+    <strong>&lt;keygen&gt;</strong>
+    <strong>&lt;main&gt;</strong>
+    <strong>&lt;mark&gt;</strong>
+    <strong>&lt;menu&gt;</strong>
+    <strong>&lt;meter&gt;</strong>
+    <strong>&lt;nav&gt;</strong>
+    <strong>&lt;output&gt;</strong>
+    <strong>&lt;progress&gt;</strong>
+    <strong>&lt;rp&gt;</strong>
+    <strong>&lt;rt&gt;</strong>
+    <strong>&lt;ruby&gt;</strong>
+    <strong>&lt;section&gt;</strong>
+    <strong>&lt;source&gt;</strong>
+    <strong>&lt;summary&gt;</strong>
+    <strong>&lt;time&gt;</strong>
+    <strong>&lt;video&gt;</strong>
+    <strong>&lt;wbr&gt;</strong>
+  </p>
+        
+</article>
+
+<article class="article">
+  <div class="anchor" id="block"></div>
+  <h2>Block elements (Блочные элементы) (20)</h2>
+  <p>
+    <strong>&lt;address&gt;</strong>
+    <strong>&lt;blockquote&gt;</strong>
+    <strong>&lt;center&gt;</strong>
+    <strong>&lt;div&gt;</strong>
+    <strong>&lt;fieldset&gt;</strong>
+    <strong>&lt;form&gt;</strong>
+    <strong>&lt;h1&gt;</strong>
+    <strong>&lt;h2&gt;</strong>
+    <strong>&lt;h3&gt;</strong>
+    <strong>&lt;h4&gt;</strong>
+    <strong>&lt;h5&gt;</strong>
+    <strong>&lt;h6&gt;</strong>
+    <strong>&lt;hr&gt;</strong>
+    <strong>&lt;isindex&gt;</strong>
+    <strong>&lt;menu&gt;</strong>
+    <strong>&lt;ol&gt;</strong>
+    <strong>&lt;p&gt;</strong>
+    <strong>&lt;pre&gt;</strong>
+    <strong>&lt;table&gt;</strong>
+    <strong>&lt;ul&gt;</strong>
+  </p>
+  <p>Блочные элементы занимают всю доступную ширину, высота элемента определяется его содержимым, и он всегда начинается с новой строки.</p>
+  <p>Тег <strong>&lt;address&gt;</strong> предназначен для хранения информации об авторе</p>
+  <p>Тег <strong>&lt;blockquote&gt;</strong> Предназначен для выделения длинных цитат внутри документа.</p>
+  <p>Тег <strong>&lt;center&gt;</strong> Выравнивает содержимое контейнера по центру относительно родительского элемента.</p>
+  <p>Тег <strong>&lt;div&gt;</strong> Универсальный блочный элемент.</p>
+  <p>Тег <strong>&lt;fieldset&gt;</strong> Предназначен для группирования элементов формы.</p>
+  <p>Тег <strong>&lt;form&gt;</strong> Устанавливает форму на веб-странице.</p>
+  <p>Тег <strong>&lt;h1&gt;</strong> Заголовок первого уровня.</p>
+  <p>Тег <strong>&lt;h2&gt;</strong> Заголовок второго уровня.</p>
+  <p>Тег <strong>&lt;h3&gt;</strong> заголовок третьего уровня.</p>
+  <p>Тег <strong>&lt;h4&gt;</strong> заголовок четвертого уровня.</p>
+  <p>Тег <strong>&lt;h5&gt;</strong> заголовок пятого уровня.</p>
+  <p>Тег <strong>&lt;h6&gt;</strong> заголовок шестого уровня.</p>
+  <p>Тег <strong>&lt;hr&gt;</strong> горизонтальная линия.</p>
+  <p>Тег <strong>&lt;isindex&gt;</strong> Используется для поискового индекса в текущем документе.</p>
+  <p>Тег <strong>&lt;menu&gt;</strong> Отображает список меню.</p>
+  <p>Тег <strong>&lt;ol&gt;</strong> нумерованный список.</p>
+  <p>Тег <strong>&lt;p&gt;</strong> текстовый абзац.</p>
+  <p>Тег <strong>&lt;pre&gt;</strong> Определяет блок предварительно форматированного текста.</p>
+  <p>Тег <strong>&lt;table&gt;</strong> Создает таблицу.</p>
+  <p>Тег <strong>&lt;ul&gt;</strong> маркированный список.</p>
+  
+</article>
+
+<article class="article">
+  <div class="anchor" id="inline"></div>
+  <h2>Inline elements (Строчные элементы) (31)</h2>
+  <p>
+    <strong>&lt;a&gt;</strong>
+    <strong>&lt;abbr&gt;</strong>
+    <strong>&lt;acronym&gt;</strong>
+    <strong>&lt;b&gt;</strong>
+    <strong>&lt;basefont&gt;</strong>
+    <strong>&lt;bdo&gt;</strong>
+    <strong>&lt;big&gt;</strong>
+    <strong>&lt;br&gt;</strong>
+    <strong>&lt;cite&gt;</strong>
+    <strong>&lt;code&gt;</strong>
+    <strong>&lt;dfn&gt;</strong>
+    <strong>&lt;em&gt;</strong>
+    <strong>&lt;font&gt;</strong>
+    <strong>&lt;i&gt;</strong>
+    <strong>&lt;input&gt;</strong>
+    <strong>&lt;kbd&gt;</strong>
+    <strong>&lt;label&gt;</strong>
+    <strong>&lt;q&gt;</strong>
+    <strong>&lt;s&gt;</strong>
+    <strong>&lt;samp&gt;</strong>
+    <strong>&lt;select&gt;</strong>
+    <strong>&lt;small&gt;</strong>
+    <strong>&lt;strike&gt;</strong>
+    <strong>&lt;strong&gt;</strong>
+    <strong>&lt;span&gt;</strong>
+    <strong>&lt;sub&gt;</strong>
+    <strong>&lt;sup&gt;</strong>
+    <strong>&lt;textarea&gt;</strong>
+    <strong>&lt;tt&gt;</strong>
+    <strong>&lt;u&gt;</strong>
+    <strong>&lt;var&gt;</strong>
+  </p>
+  <p>Строчные элементы являются частью другого элемента, например, текстового абзаца. В основном они используются для изменения вида текста или его логического выделения.</p>
+  <p>Тег <strong>&lt;a&gt;</strong> Является одним из важных элементов HTML и предназначен для создания ссылок.</p>
+  <p>Тег <strong>&lt;abbr&gt;</strong> указывает, что последовательность символов является аббревиатурой.</p>
+  <p>Тег <strong>&lt;acronym&gt;</strong> Сообщает, что текст является акронимом. В отличие от аббревиатуры, акроним — это устоявшееся сокращение, которое применяется как самостоятельное слово.</p>
+  <p>Тег <strong>&lt;b&gt;</strong> Устанавливает жирное начертание шрифта</p>
+  <p>Тег <strong>&lt;basefont&gt;</strong> Предназначен для задания шрифта, размера и цвета текста по умолчанию.</p>
+  <p>Тег <strong>&lt;bdo&gt;</strong> Устанавливает направление вывода текста: слева направо или справа налево.</p>
+  <p>Тег <strong>&lt;big&gt;</strong> Увеличивает размер шрифта на единицу по сравнению с обычным текстом.</p>
+  <p>Тег <strong>&lt;br&gt;</strong> Перенос строки.</p>
+  <p>Тег <strong>&lt;cite&gt;</strong> Помечает текст как цитату или сноску на другой материал.</p>
+  <p>Тег <strong>&lt;code&gt;</strong> Предназначен для отображения текста программного кода.</p>
+  <p>Тег <strong>&lt;dfn&gt;</strong> Выделяет термин в документе.</p>
+  <p>Тег <strong>&lt;em&gt;</strong> Предназначен для акцентирования текста.</p>
+  <p>Тег <strong>&lt;font&gt;</strong> Предназначен для изменения характеристик шрифта, таких как размер, цвет и гарнитура.</p>
+  <p>Тег <strong>&lt;i&gt;</strong> Устанавливает курсивное начертание шрифта.</p>
+  <p>Тег <strong>&lt;input&gt;</strong> Позволяет создавать разные элементы интерфейса.</p>
+  <p>Тег <strong>&lt;kbd&gt;</strong> Используется для обозначения текста, который набирается на клавиатуре или для названия клавиш.</p>
+  <p>Тег <strong>&lt;label&gt;</strong> Устанавливает связь между определенной меткой и элементом формы.</p>
+  <p>Тег <strong>&lt;q&gt;</strong> Используется для выделения в тексте цитат.</p>
+  <p>Тег <strong>&lt;s&gt;</strong> Отображает текст как перечеркнутый.</p>
+  <p>Тег <strong>&lt;samp&gt;</strong> Используется для отображения текста, который является результатом вывода компьютерной программы.</p>
+  <p>Тег <strong>&lt;select&gt;</strong> Создает раскрывающийся список.</p>
+  <p>Тег <strong>&lt;small&gt;</strong> Уменьшает размер шрифта на единицу по сравнению с обычным текстом.</p>
+  <p>Тег <strong>&lt;span&gt;</strong> Универсальный       строчный элемент.</p>
+  <p>Тег <strong>&lt;strike&gt;</strong> Отображает текст как перечеркнутый.</p>
+  <p>Тег <strong>&lt;strong&gt;</strong> Акцентирует текст, обычно жирным начертанием.</p>
+  <p>Тег <strong>&lt;sub&gt;</strong>
+  Отображает шрифт в виде нижнего индекса.</p>
+  <p>Тег <strong>&lt;sup&gt;</strong> Отображает шрифт в виде верхнего индекса.</p>
+  <p>Тег <strong>&lt;textarea&gt;</strong> Создает поле для многострочного текста.</p>
+  <p>Тег <strong>&lt;tt&gt;</strong> Отображает текст моноширинным текстом.</p>
+  <p>Тег <strong>&lt;u&gt;</strong> Добавляет подчеркивание к тексту.</p>
+  <p>Тег <strong>&lt;var&gt;</strong> Используется для выделения переменных компьютерных программ.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="no-standard"></div>
+  <h2>Нестандартные теги (9)</h2>
+  <p>
+    <strong>&lt;bgsound&gt;</strong>
+    <strong>&lt;blink&gt;</strong>
+    <strong>&lt;comment&gt;</strong>
+    <strong>&lt;marquee&gt;</strong>
+    <strong>&lt;multicol&gt;</strong>
+    <strong>&lt;nobr&gt;</strong>
+    <strong>&lt;noembed&gt;</strong>
+    <strong>&lt;plaintext&gt;</strong>
+    <strong>&lt;spacer&gt;</strong>
+  </p>
+  <p>Некоторые разработчики браузеров или поисковых систем включают поддержку собственных тегов, которые не входят в спецификацию HTML. Использование этих тегов приводит к невалидному коду, а также поддерживаются не всеми браузерами.</p>
+  <p>Тег <strong>&lt;bgsound&gt;</strong> Определяет музыкальный файл, который будет проигрываться на веб-странице.</p>
+  <p>Тег <strong>&lt;blink&gt;</strong> Устанавливает мигание текста.</p>
+  <p>Тег <strong>&lt;comment&gt;</strong> Добавляет комментарий в код документа.</p>
+  <p>Тег <strong>&lt;marquee&gt;</strong> Создает бегущую строку на странице.</p>
+  <p>Тег <strong>&lt;multicol&gt;</strong> Задает количество колонок, ширину и расстояние между колонками в многоколоночном тексте.</p>
+  <p>Тег <strong>&lt;nobr&gt;</strong> Уведомляет браузер отображать текст без переносов.</p>
+  <p>Тег <strong>&lt;noembed&gt;</strong> предназначен для отображения информации на веб-странице, если браузер не поддерживает работу с плагинами.</p>
+  <p>Тег <strong>&lt;plaintext&gt;</strong> Отображает содержимое контейнера «как есть».</p>
+  <p>Тег <strong>&lt;spacer&gt;</strong> Создает пустое пространство по вертикали или горизонтали.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="doctype"></div>
+  <h2>Тип документа &lt;!DOCTYPE&gt;</h2>
+    
+  <p>Пишется первой строчкой любого html документа. Для страниц стандарта html5 имеет вид
+  <code>&lt;!DOCTYPE html&gt;</code></p>
+
+  <p>Элемент &lt;!DOCTYPE&gt; предназначен для указания типа текущего документа — DTD (document type definition, описание типа документа). Это необходимо, чтобы браузер понимал, как следует интерпретировать текущую веб-страницу. Поскольку HTML существует в нескольких версиях, существует несколько видов &lt;!DOCTYPE&gt;</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="comment"></div>
+  <h2>Комментарий &lt;!--...--&gt;</h2>
+    
+  <p>Браузер игнорирует все что написано внутри. Таким образом можно оставлять комментарий к коду или экранировать фрагменты кода. Вложенные комментарии (один комментарий в другом) не поддерживаются.
+  <code>&lt;!-- какой-то комментарий к коду --&gt;</code></p>
+
+    
+  <p>Если комментарий расположен внутри тега &lt;title&gt;, он трактуется как текст и будет показан в заголовке страницы. Проще говоря, тег &lt;!-- --&gt; внутри тега &lt;title&gt; не работает.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-html"></div>
+  <h2>Root Element (Корневой элемент) &lt;html&gt;</h2>
+    
+  <p>В документе html может быть только один корневой элемент &lt;html&gt;. Он идет сразу после элемента &lt;doctype&gt;        
+  <code>&lt;!DOCTYPE html&gt;
+  <br>&lt;html&gt;&lt;/html&gt;</code></p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="base-elements"></div>
+  <h2>Базовые элементы (2)</h2>
+  <p><a href="#tag-head">&lt;head&gt;</a>
+  <a href="#tag-body">&lt;body&gt;</a></p>
+    
+  <p>В корневой элемент &lt;html&gt; последовательно вкладывают базовые элементы &lt;head&gt; и &lt;body&gt;
+  
+  <code>&lt;!DOCTYPE html&gt;
+  <br>&lt;html&gt;
+  <br>&nbsp;&nbsp;&lt;head&gt;
+  <br>&nbsp;&nbsp;&lt;/head&gt;
+  <br>&nbsp;&nbsp;&lt;body&gt;
+  <br>&nbsp;&nbsp;&lt;/body&gt;
+  <br>&lt;/html&gt;</code></p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-head"></div>
+  <h3>&lt;head&gt;</h3>
+
+  <p>Содержимое тега &lt;head&gt; не отображается напрямую на веб-странице, за исключением тега &lt;title&gt; устанавливающего заголовок окна веб-страницы. Внутри контейнера &lt;head&gt;  находятся метатеги, которые используются для хранения информации предназначенной для браузеров и поисковых систем. Внутри контейнера &lt;head&gt; допускается размещать следующие элементы: &lt;base&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;script&gt;, &lt;style&gt;, &lt;title&gt; (устаревшие &lt;basefont&gt;, &lt;bgsound&gt;).</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-body"></div>
+  <h3>&lt;body&gt;</h3>
+  <p>В теге &lt;body&gt; находится все содержимое страницы, которое показывается в окне браузера.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="metadata"></div>
+  <h2>Document Metadata (Метаданные) (5)</h2>
+  <p><a href="#tag-meta">&lt;meta /&gt;</a>
+  <a href="#tag-base">&lt;base /&gt;</a>
+  <a href="#tag-link">&lt;link /&gt;</a>
+  <a href="#tag-title">&lt;title&gt;</a>
+  <a href="#tag-style">&lt;style&gt;</a></p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-meta"></div>
+  <h3>&lt;meta /&gt;</h3>
+  <p>Всегда внутри контейнера &lt;head&gt;. Данные в нем не видны пользователю и предназначены для браузеров и поисковых систем.
+</article>
+    
+<article class="article">
+  <div class="anchor" id="tag-base"></div>
+  <h3>&lt;base /&gt;</h3>
+  <p>Всегда внутри контейнера &lt;head&gt;. Сообщает браузеру полный базовый адрес текущего документа. В атрибут href пишут адрес, который должен использоваться для указания полного пути к файлам. &lt;base /&gt; предназначен для документов, в которых используется относительный адрес и эти документы могут переноситься в другую папку или даже на другой компьютер без потери связи.</p>
+  <p>Второе применение элемента <base> — задание целевого окна для всех ссылок на текущей странице. В атрибут target пишут имя окна, в котором будут открываться все ссылки.</p>
+  <p>Если на странице встречается несколько элементов <base>, то берётся значение атрибутов только у первого элемента, остальные игнорируются.</p>
+  
+  <code>&lt;!DOCTYPE html&gt;
+  <br>&lt;html&gt;
+  <br>&nbsp;&nbsp;&lt;head&gt;
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;base href="https://html5css.ru/images/" target="_blank"&gt;
+  <br>&nbsp;&nbsp;&lt;/head&gt;        
+  <br>&nbsp;&nbsp;&lt;body&gt;
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="spiderman.gif" width="50" height="100" alt="Spiderman"&gt;
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="spiderman.html"&gt;Человек-паук&lt;/a&gt;
+  <br>&nbsp;&nbsp;&lt;/body&gt;
+  <br>&lt;/html&gt;</code>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-link"></div>
+  <h3>&lt;link /&gt;</h3>
+  <p>Всегда внутри контейнера &lt;head&gt;. Устанавливает связь с внешним документом вроде файла со стилями, со шрифтамиили или favicon.
+  
+  <code>&lt;!DOCTYPE html&gt;
+  <br>&lt;html&gt;
+  <br>&nbsp;&nbsp;&lt;head&gt;
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="style.css"&gt;
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="icon" href="favicon.ico"&gt;
+  <br>&nbsp;&nbsp;&lt;/head&gt;
+  <br>&nbsp;&nbsp;&lt;body&gt;
+  <br>&nbsp;&nbsp;&lt;/body&gt;
+  <br>&lt;/html&gt;</code>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-title"></div>
+  <h3>&lt;title&gt;</h3>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-style"></div>
+  <h3>&lt;style&gt;</h3>
+</article>
+
+</article>
+
+<article class="article">
+  <div class="anchor" id="section-elements"></div>
+  <h2>Sections (Секции) (8)</h2>
+  <p><a href="#tag-header">&lt;header&gt;</a>
+  <a href="#tag-nav">&lt;nav&gt;</a>
+  <a href="#tag-aside">&lt;aside&gt;</a>
+  <a href="#tag-main">&lt;main&gt;</a>
+  <a href="#tag-article">&lt;article&gt;</a> 
+  <a href="#tag-section">&lt;section&gt;</a>
+  <a href="#tag-adress">&lt;adress&gt;</a>
+  <a href="#tag-footer">&lt;footer&gt;</a></p>
+</article>
+    
+<article class="article">
+  <div class="anchor" id="tag-header"></div>
+  <h3>&lt;header&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-nav"></div>
+  <h3>&lt;nav&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-aside"></div>
+  <h3>&lt;aside&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-main"></div>
+  <h3>&lt;main&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-article"></div>
+  <h3>&lt;article&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-section"></div>
+  <h3>&lt;section&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-adress"></div>
+  <h3>&lt;adress&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-footer"></div>
+  <h3>&lt;footer&gt;</h3>
+</article>
+
+<article class="article">
+  <div class="anchor" id="container-elements"></div>
+  <h2>Container (Контейнер) (2)</h2>
+  <p><a href="#tag-div">&lt;div&gt;</a>
+  <a href="#tag-span">&lt;span&gt;</a></p>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-div"></div>
+  <h3>&lt;div&gt;</h3>
+</article>
+        
+<article class="article">
+  <div class="anchor" id="tag-span"></div>
+  <h3>&lt;span&gt;</h3>
+</article>
+
+<article class="article">
+  <div class="anchor" id="headings"></div>
+  <h2>Headings (Заголовки) (7)</h2>
+  <p><a href="#tag-hgroup">&lt;hgroup&gt;</a>
+  <a href="#tag-h1">&lt;h1&gt;</a>
+  <a href="#tag-h2">&lt;h2&gt; - &lt;h6&gt;</a></p>
+
+  <p>HTML предлагает шесть заголовков разного уровня, которые показывают относительную важность секции, расположенной после заголовка. &lt;h1&gt; представляет собой наиболее важный заголовок первого уровня. Считается что он должен быть один на странице. Отображается самым крупным шрифтом жирного начертания, заголовки последующего уровня по размеру меньше. Это блочные элементы. Перед заголовком и после него добавляется пустое пространство.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="tag-hgroup"></div>
+  <h3>&lt;hgroup&gt;</h3>
+
+  <p>Представляет заголовок раздела. Группирует несколько заголовков. Связывает вторичный заголовок или даже теги с основным заголовком без загрязнения структуры документа</p>
+  <code>
+    &lt;hgroup&gt;<br>
+      &nbsp;&nbsp;&lt;h1&gt;Главный заголовок&lt;/h1&gt;<br>
+      &nbsp;&nbsp;&lt;h2&gt;Вторичный заголовок&lt;/h2&gt;<br>
+    &lt;/hgroup&gt;
+  </code>
+  <code>
+    &lt;hgroup id="document-title"&gt;<br>
+      &nbsp;&nbsp;&lt;h1&gt;HTML: Living Standard&lt;/h1&gt;<br>
+      &nbsp;&nbsp;&lt;p&gt;Last Updated 12 July 2022&lt;/p&gt;<br>
+    &lt;/hgroup&gt;
+  </code>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-h1"></div>
+  <h3>&lt;h1&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-h2"></div>
+  <h3>&lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements1"></div>
+  <h2>Оформление текста (6)</h2>
+  <p><a href="#tag-a">&lt;a&gt;</a>
+  <a href="#tag-hr">&lt;hr /&gt;</a>
+  <a href="#tag-p">&lt;p&gt;</a>
+  <a href="#tag-pre">&lt;pre&gt;</a>
+  <a href="#tag-br">&lt;br /&gt;</a>
+  <a href="#tag-wbr">&lt;wbr /&gt;</a></p>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-a"></div>
+  <h3>Гиперссылка &lt;a&gt;</h3>
+  <p>Тег a создает ссылку на другую страницу своего или чужого сайта. Адрес ссылки следует писать в атрибуте href. Ссылки по умолчанию подчеркнуты. Отменить подчеркивание можно с помощью CSS свойства text-decoration.</p>
+  <p>Атрибуты</p>
+  <p><strong>href</strong> Адрес страницы, на которую ссылается ссылка</p>
+  <p><strong>target</strong> Указывает ссылке в какой вкладке ей открываться</p>
+  <p>Значения атрибута <strong>target</strong> (Значение по умолчанию: <strong>_self</strong>)</p>
+  <p><strong>_blank</strong> Страница откроется в <strong>новой</strong> вкладке браузера.</p>
+  <p><strong>_self</strong>	Страница откроется в <strong>текущей</strong> вкладке браузера.</p>
+  <p><strong>_parent</strong>	Страница откроется во <strong>фрейме-родителе.</strong></p>
+  <p><strong>_top</strong> Отменяет все фреймы и загружает страницу в полном окне браузера.</p>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-hr"></div>
+  <h3>Горизонтальная линия &lt;hr /&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-p"></div>
+  <h3>Параграф &lt;p&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-pre"></div>
+  <h3>&lt;pre&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-br"></div>
+  <h3>Конец строки &lt;br /&gt;</h3>
+  <p>(от англ. line break — перенос строки)</p>
+  <code>У лукоморья дуб зелёный;&lt;br&gt;
+  <br>Златая цепь на дубе том</code>    
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-wbr"></div>
+  <h3>Мягкий перенос строки &lt;wbr /&gt;</h3>
+  <p>Указывает браузеру, что в этом месте можно сделать перенос строки</p>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements2"></div>
+  <h2>Выделение текста (10)</h2>
+  <p><a href="#tag-b">&lt;b&gt;</a>
+  <a href="#tag-i">&lt;i&gt;</a>
+  <a href="#tag-s">&lt;s&gt;</a>
+  <a href="#tag-u">&lt;u&gt;</a>
+  <a href="#tag-del">&lt;del&gt;</a>
+  <a href="#tag-ins">&lt;ins&gt;</a>
+  <a href="#tag-mark">&lt;mark&gt;</a>
+  <a href="#tag-small">&lt;small&gt;</a>
+  <a href="#tag-sup">&lt;sup&gt;</a>
+  <a href="#tag-sub">&lt;sub&gt;</a></p>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-b"></div>
+  <h3>&lt;b&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-i"></div>
+  <h3>&lt;i&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-s"></div>
+  <h3>&lt;s&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-u"></div>
+  <h3>&lt;u&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-del"></div>
+  <h3>&lt;del&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-ins"></div>
+  <h3>&lt;ins&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-mark"></div>
+  <h3>&lt;mark&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-small"></div>
+  <h3>&lt;small&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-sup"></div>
+  <h3>&lt;sup&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-sub"></div>
+  <h3>&lt;sub&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements3"></div>
+  <h2>Значение текста (10)</h2>
+  <p><a href="#tag-abbr">&lt;abbr&gt;</a>
+  <a href="#tag-code">&lt;code&gt;</a>
+  <a href="#tag-data">&lt;data&gt;</a>
+  <a href="#tag-dfn">&lt;dfn&gt;</a>
+  <a href="#tag-em">&lt;em&gt;</a>
+  <a href="#tag-kbd">&lt;kbd&gt;</a>
+  <a href="#tag-samp">&lt;samp&gt;</a>
+  <a href="#tag-strong">&lt;strong&gt;</a>
+  <a href="#tag-time">&lt;time&gt;</a>
+  <a href="#tag-var">&lt;var&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-abbr"></div>
+  <h3>&lt;abbr&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-code"></div>
+  <h3>&lt;code&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-data"></div>
+  <h3>&lt;data&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-dfn"></div>
+  <h3>&lt;dfn&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-em"></div>
+  <h3>&lt;em&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-kbd"></div>
+  <h3>&lt;kbd&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-samp"></div>
+  <h3>&lt;samp&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-strong"></div>
+  <h3>&lt;strong&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-time"></div>
+  <h3>&lt;time&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-var"></div>
+  <h3>&lt;var&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements4"></div>
+  <h2>Цитаты (3)</h2>
+  <p><a href="#tag-blockquote">&lt;blockquote&gt;</a>
+  <a href="#tag-q">&lt;q&gt;</a>
+  <a href="#tag-cite">&lt;cite&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-blockquote"></div>
+  <h3>&lt;blockquote&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-q"></div>
+  <h3>&lt;q&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-cite"></div>
+  <h3>&lt;cite&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements5"></div>
+  <h2>Направление текста (2)</h2>
+  <p><a href="#tag-bdi">&lt;bdi&gt;</a>
+  <a href="#tag-tbdo">&lt;tbdo&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-bdi"></div>
+  <h3>&lt;bdi&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-tbdo"></div>
+  <h3>&lt;tbdo&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="text-elements6"></div>
+  <h2>Аннотация к иероглифам (3)</h2>
+  <p><a href="#tag-ruby">&lt;ruby&gt;</a>
+  <a href="#tag-rt">&lt;rt&gt;</a>
+  <a href="#tag-rp">&lt;rp&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-ruby"></div>
+  <h3>&lt;ruby&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-rt"></div>
+  <h3>&lt;rt&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-rp"></div>
+  <h3>&lt;rp&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="list-elements"></div>
+  <h2>List (Список) (8)</h2>
+  <p><a href="#tag-ol">&lt;ol&gt;</a>
+  <a href="#tag-ul">&lt;ul&gt;</a>
+  <a href="#tag-li">&lt;li&gt;</a>
+  <a href="#tag-dl">&lt;dl&gt;</a>
+  <a href="#tag-dt">&lt;dt&gt;</a>
+  <a href="#tag-dd">&lt;dd&gt;</a>
+  <a href="#tag-menu">&lt;menu&gt;</a>
+  <a href="#tag-command">&lt;command&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-ol"></div>
+  <h3>&lt;ol&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-ul"></div>
+  <h3>&lt;ul&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-li"></div>
+  <h3>&lt;li&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-dl"></div>
+  <h3>&lt;dl&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-dt"></div>
+  <h3>&lt;dt&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-dd"></div>
+  <h3>&lt;dd&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-menu"></div>
+  <h3>&lt;menu&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-command"></div>
+  <h3>&lt;command&gt;</h3>
+  <div><a href="#page">Содержание</a></div>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="table-elements"></div>
+  <h2>Table (Таблица) (10)</h2>
+  <p><a href="#tag-table">&lt;table&gt;</a>
+  <a href="#tag-caption">&lt;caption&gt;</a>
+  <a href="#tag-colgroup">&lt;colgroup&gt;</a>
+  <a href="#tag-col">&lt;col&gt;</a>
+  <a href="#tag-thead">&lt;thead&gt;</a>
+  <a href="#tag-tfoot">&lt;tfoot&gt;</a>
+  <a href="#tag-tbody">&lt;tbody&gt;</a>
+  <a href="#tag-tr">&lt;tr&gt;</a>
+  <a href="#tag-th">&lt;th&gt;</a>
+  <a href="#tag-td">&lt;td&gt;</a></p>
+
+  <table class="table">
+  <caption>Таблица рекордов</caption>
+  <colgroup>
+  <col class="col-1">
+  <col class="col-2">
+  <col class="col-3">
+  </colgroup>
+  <thead>
+  <tr>
+  <th>Место</th>
+  <th>Счет</th>
+  <th>Игрок</th>
+  </tr>
+  </thead>
+  <tfoot>
+  <tr>
+  <th>Текущий счет</th>
+  <th colspan="2">25</th>
+  </tr>
+  </tfoot>
+  <tbody>
+  <tr>
+  <td>1</td>
+  <td>21</td>
+  <td rowspan="2">Вова</td>
+  </tr>
+  <tr>
+  <td>2</td>
+  <td>20</td>
+  </tr>
+  <tr>
+  <td>3</td>
+  <td>15</td>
+  <td>Маша</td>
+  </tr>
+  <tr>
+  <td>4</td>
+  <td>10</td>
+  <td>Варя</td>
+  </tr>
+  </tbody>
+  </table>
+  <pre>&lt;table&gt;
+
+&lt;caption&gt;Таблица рекордов&lt;/caption&gt;
+
+&lt;colgroup&gt;
+&lt;col class="col-1"&gt;
+&lt;col class="col-2"&gt;
+&lt;col class="col-3"&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Место&lt;/th&gt;
+&lt;th&gt;Счет&lt;/th&gt;
+&lt;th&gt;Игрок&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;th&gt;Текущий счет&lt;/th&gt;
+&lt;th colspan="2"&gt;25&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;td rowspan="2"&gt;Вова&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;Маша&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;Варя&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/tbody&gt;
+
+&lt;/table&gt;
+
+</pre>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-table"></div>
+  <h3>&lt;table&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-caption"></div>
+  <h3>&lt;caption&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-colgroup"></div>
+  <h3>&lt;colgroup&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-col"></div>
+  <h3>&lt;col&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-thead"></div>
+  <h3>&lt;thead&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-tfoot"></div>
+  <h3>&lt;tfoot&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-tbody"></div>
+  <h3>&lt;tbody&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-tr"></div>
+  <h3>&lt;tr&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-th"></div>
+  <h3>&lt;th&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-td"></div>
+  <h3>&lt;td&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="form-elements"></div>
+  <h2>Form (Форма) (14)</h2>
+  <p><a href="#tag-form">&lt;form&gt;</a>
+  <a href="#tag-fieldset">&lt;fieldset&gt;</a>
+  <a href="#tag-legend">&lt;legend&gt;</a>
+  <a href="#tag-input">&lt;input&gt;</a>
+  <a href="#tag-datalist">&lt;datalist&gt;</a>
+  <a href="#tag-label">&lt;label&gt;</a>
+  <a href="#tag-textarea">&lt;textarea&gt;</a>
+  <a href="#tag-select">&lt;select&gt;</a>
+  <a href="#tag-optgroup">&lt;optgroup&gt;</a>
+  <a href="#tag-meter">&lt;meter&gt;</a>
+  <a href="#tag-progress">&lt;progress&gt;</a>
+  <a href="#tag-button">&lt;button&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-form"></div>
+  <h3>&lt;form&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-fieldset"></div>
+  <h3>&lt;fieldset&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-legend"></div>
+  <h3>&lt;legend&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-input"></div>
+  <h3>&lt;input&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-datalist"></div>
+  <h3>&lt;datalist&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-label"></div>
+  <h3>&lt;label&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-textarea"></div>
+  <h3>&lt;textarea&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-select"></div>
+  <h3>&lt;select&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-optgroup"></div>
+  <h3>&lt;optgroup&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-meter"></div>
+  <h3>&lt;meter&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-progress"></div>
+  <h3>&lt;progress&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-button"></div>
+  <h3>&lt;button&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="embed-elements"></div>
+  <h2>Embedded content (Встраиваемый контент) (16)</h2>
+  <p><a href="#tag-img">&lt;img /&gt;</a>
+  <a href="#tag-area">&lt;area /&gt;</a>
+  <a href="#tag-picture">&lt;picture&gt;</a>
+  <a href="#tag-source">&lt;source&gt;</a>
+  <a href="#tag-figure">&lt;figure&gt;</a>
+  <a href="#tag-figcaption">&lt;figcaption&gt;</a>
+  <a href="#tag-iframe">&lt;iframe&gt;</a>
+  <a href="#tag-embed">&lt;embed&gt;</a>
+  <a href="#tag-object">&lt;object&gt;</a>
+  <a href="#tag-param">&lt;param&gt;</a>
+  <a href="#tag-video">&lt;video&gt;</a>
+  <a href="#tag-audio">&lt;audio&gt;</a>
+  <a href="#tag-track">&lt;track&gt;</a>
+  <a href="#tag-map">&lt;map&gt;</a>
+  <a href="#tag-use">&lt;use&gt;</a>
+  <a href="#tag-svg">&lt;svg&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-img"></div>
+  <h3>&lt;img /&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-area"></div>
+  <h3>&lt;area /&gt;</h3>
+  <p>Определяет активную область на изображении и, при желании, связывает её с гипертекстовой ссылкой. Этот элемент используется только внутри элемента &lt;map&gt;.</p>
+  <code>&lt;map name="planet"&gt;
+  <br>&nbsp;&nbsp;&lt;area shape="rect" coords="0,0,50,50"
+        href="sun.html" alt="sun"&gt;
+  <br>&lt;/map&gt;
+  <br>&lt;img usemap="#planet" src="space.png" alt="space"&gt;
+  </code>
+
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-picture"></div>
+  <h3>&lt;picture&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-source"></div>
+  <h3>&lt;source&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-figure"></div>
+  <h3>&lt;figure&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-figcaption"></div>
+  <h3>&lt;figcaption&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-iframe"></div>
+  <h3>&lt;iframe&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-embed"></div>
+  <h3>&lt;embed&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-object"></div>
+  <h3>&lt;object&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-param"></div>
+  <h3>&lt;param&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-video"></div>
+  <h3>&lt;video&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-audio"></div>
+  <h3>&lt;audio&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-track"></div>
+  <h3>&lt;track&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-map"></div>
+  <h3>&lt;map&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-use"></div>
+  <h3>&lt;use&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-svg"></div>
+  <h3>&lt;svg&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="interactive-elements"></div>
+  <h2>Interactive elements (Интерактивные элементы) (3)</h2>
+  <p><a href="#tag-dialog">&lt;dialog&gt;</a>
+  <a href="#tag-details">&lt;details&gt;</a>
+  <a href="#tag-summary">&lt;summary&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-dialog"></div>
+  <h3>&lt;dialog&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-details"></div>
+  <h3>&lt;details&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-summary"></div>
+  <h3>&lt;summary&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="script-elements"></div>
+  <h2>Scripting (Скрипты) (2)</h2>
+  <p><a href="#tag-script">&lt;script&gt;</a>
+  <a href="#tag-noscript">&lt;noscript&gt;</a>
+  <a href="#tag-canvas">&lt;canvas&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-script"></div>
+  <h3>&lt;script&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-noscript"></div>
+  <h3>&lt;noscript&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-canvas"></div>
+  <h3>&lt;canvas&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="web-elements"></div>
+  <h2>Web components (Веб-компоненты) (2)</h2>
+  <p><a href="#tag-template">&lt;template&gt;</a>
+  <a href="#tag-slot">&lt;slot&gt;</a></p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-template"></div>
+  <h3>&lt;template&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-slot"></div>
+  <h3>&lt;slot&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="obsolete-elements"></div>
+  <h2>Obsolete (Устаревшие) (26)</h2>
+  <p><a href="#tag-acronym">&lt;acronym&gt;</a>
+  <a href="#tag-applet">&lt;applet&gt;</a>
+  <a href="#tag-basefont">&lt;basefont&gt;</a>
+  <a href="#tag-bgsound">&lt;bgsound&gt;</a>
+  <a href="#tag-big">&lt;big&gt;</a>
+  <a href="#tag-blink">&lt;blink&gt;</a>
+  <a href="#tag-center">&lt;center&gt;</a>
+  <a href="#tag-content">&lt;content&gt;</a>
+  <a href="#tag-dir">&lt;dir&gt;</a>
+  <a href="#tag-font">&lt;font&gt;</a>
+  <a href="#tag-frame">&lt;frame&gt;</a>
+  <a href="#tag-frameset">&lt;frameset&gt;</a>
+  <a href="#tag-image">&lt;image&gt;</a>
+  <a href="#tag-keygen">&lt;keygen&gt;</a>
+  <a href="#tag-marquee">&lt;marquee&gt;</a>
+  <a href="#tag-menuitem">&lt;menuitem&gt;</a>
+  <a href="#tag-nobr">&lt;nobr&gt;</a>
+  <a href="#tag-noembed">&lt;noembed&gt;</a>
+  <a href="#tag-noframes">&lt;noframes&gt;</a>
+  <a href="#tag-plaintext">&lt;plaintext&gt;</a>
+  <a href="#tag-rb">&lt;rb&gt;</a>
+  <a href="#tag-rtc">&lt;rtc&gt;</a>
+  <a href="#tag-spacer">&lt;spacer&gt;</a>
+  <a href="#tag-strike">&lt;strike&gt;</a>
+  <a href="#tag-tt">&lt;tt&gt;</a>
+  <a href="#tag-xmp">&lt;xmp&gt;</a></p>
+  <p>Осуждаемыми (устаревние) тегаи удалены из спецификации HTML как морально устаревшие. Вместо них рекомендуется использовать другие теги или стили. Хотя браузеры в большинстве случаев прекрасно понимают осуждаемые теги, код с ними проходит валидацию, только при использовании переходного &lt;!DOCTYPE&gt;.</p>
+</article> 
+
+<article class="article">          
+  <div class="anchor" id="tag-acronym"></div>
+  <h3>&lt;acronym&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-applet"></div>
+  <h3>&lt;applet&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-basefont"></div>
+  <h3>&lt;basefont&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-bgsound"></div>
+  <h3>&lt;bgsound&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-big"></div>
+  <h3>&lt;big&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-blink"></div>
+  <h3>&lt;blink&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-center"></div>
+  <h3>&lt;center&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-content"></div>
+  <h3>&lt;content&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-dir"></div>
+  <h3>&lt;dir&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-font"></div>
+  <h3>&lt;font&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-frame"></div>
+  <h3>&lt;frame&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-frameset"></div>
+  <h3>&lt;frameset&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-image"></div>
+  <h3>&lt;image&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-keygen"></div>
+  <h3>&lt;keygen&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-marquee"></div>
+  <h3>&lt;marquee&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-menuitem"></div>
+  <h3>&lt;menuitem&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-nobr"></div>
+  <h3>&lt;nobr&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-noembed"></div>
+  <h3>&lt;noembed&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-noframes"></div>
+  <h3>&lt;noframes&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-plaintext"></div>
+  <h3>&lt;plaintext&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-rb"></div>
+  <h3>&lt;rb&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-rtc"></div>
+  <h3>&lt;rtc&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-spacer"></div>
+  <h3>&lt;spacer&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-strike"></div>
+  <h3>&lt;strike&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-tt"></div>
+  <h3>&lt;tt&gt;</h3>
+</article>
+
+<article class="article">          
+  <div class="anchor" id="tag-xmp"></div>
+  <h3>&lt;xmp&gt;</h3>
+</article>

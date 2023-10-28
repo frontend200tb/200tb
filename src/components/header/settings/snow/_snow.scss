@@ -1,0 +1,37 @@
+/*********************
+_snow.scss
+*********************/
+
+snow-btn {
+  display: inline-block;
+  margin: 0 5px;
+  height: 30px;
+}
+
+.snow_btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-image: url(assets/snowflake_white.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@keyframes snow {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+
+  100% {
+    background-position: 500px 1000px, 400px 400px, 300px 300px;
+  }
+}
+
+.snow {
+  background-image: url(assets/snowflake.png), url(assets/snowflake3.png), url(assets/snowflake2.png);
+  height: 100%;
+  animation: snow 20s linear infinite;
+}
+
+/* Конец _snow.scss */

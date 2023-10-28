@@ -1,0 +1,140 @@
+<h2>Notepad++</h2>
+
+<div class="content__menu">
+  <p class="content__menu-link" id="content__menu-link1">Документация</p>
+  <p class="content__menu-link" id="content__menu-link2">Установка</p>
+  <p class="content__menu-link" id="content__menu-link3">Плагины</p>
+  <p class="content__menu-link" id="content__menu-link4">Настройка</p>
+  <p class="content__menu-link" id="content__menu-link5">Горячие клавиши</p>
+</div>
+
+<div class="content__items">
+
+  <div class="content__item" id="content__item1">
+    <h3>Документация Notepad++</h3>
+    <ol>
+      <li><a href="https://npp-user-manual.org/">npp-user-manual.org</a></li>
+      <li><a href="https://notepad-plus-plus.org/">notepad-plus-plus.org</a><br>notepad++ (eng)</li>
+      <li><a href="https://notepad-download.ru/">notepad-download.ru</a><br>notepad++</li>
+      <li><a href="https://sourceforge.net/projects/npp-plugins/files/">sourceforge.net</a><br>plugins (eng)</li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item2">
+
+    <h3>Установка Notepad++ (портативной версии)</h3>
+    <ol>
+      <li>Заходим на сайт <a href="https://notepad-plus-plus.org/">notepad-plus-plus.org</a></li>
+      <li>Скачиваем 64битную портативную версию <code>npp.8.5.7.portable.zip</code></li>
+      <li>Распаковываем ее в каталог <code>c:\Portable\Notepad++\</code></li>
+    </ol>
+
+    <h3>Как добавить Notepad++ в меню пуск</h3>
+    <ol>
+      <li>Выбираем файл (клик правой кнопкой мыши) <code>c:\Portable\Notepad++\notepad++.exe</code></li>
+      <li>Выбираем Закрепить на начальном экране</li>
+    </ol>
+
+    <h3>Как добавить <em>программу</em> Notepad++ в контекстное меню</h3>
+    <ol>
+      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
+      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
+      <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать &gt; Раздел</code></li>
+      <li>Назовите его так, как должна называться команда в контекстном меню. Скажем, <code>Открыть с помощью Notepad++</code></li>
+      <li>Клик правой кнопкой мыши на созданной папке и снова выбираем команду <code>Создать &gt; Раздел</code></li>
+      <li>Новый вложенный раздел назовите <code>command</code></li>
+      <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
+      <li>В открывшемся окне введите следующую команду <code>"c:\Portable\Notepad++\notepad++.exe" "%1"</code></li>
+    </ol>
+
+    <h3>Как добавить <em>иконку</em> Notepad++ в контекстное меню</h3>
+    <ol>
+      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
+      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью Notepad++</code></li>
+      <li>Клик правой кнопкой мыши и выбираем команду <code>Создать &gt; Строковый параметр</code></li>
+      <li>в поле Имя укажите значение <code>Icon</code></li>
+      <li>а в поле Значение укажите путь к exe-файлу, как показано ниже (кавычки обязательны): 
+        <code>"c:\Portable\Notepad++\notepad++.exe"</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item3">
+    <h3>Установка плагина Emmet</h3>
+    <ol>
+      <li>Заходим на сайт <a href="https://emmet.io/">emmet.io</a></li>
+      <li>Выбираем плагин Emmet для notepad++</li>
+      <li>Переходим на сайт https://github.com/emmetio/ и скачиваем архив <code>emmet-npp.zip</code></li>
+      <li>Распаковываем архив emmet-npp.zip в папку 
+        <code>c:\Portable\Notepad++\plugins\</code>
+        Оставляем папку и в ней файл 
+        <code>c:\Portable\Notepad++\plugins\EmmetNPP\
+        <br>c:\Portable\Notepad++\plugins\EmmetNPP\EmmetNPP.dll</code>
+      </li>
+      <li>Запускаем notepad++ от имени Администратора</li>
+      <li>Выбираем меню <code>Settings - Import - Import plugin(s)...</code></li>
+      <li>В открывшемся окне выбираем файл 
+        <code>c:\Portable\Notepad++\plugins\EmmetNPP\EmmetNPP.dll</code>
+      </li>
+      <li>После успешного импортирования перезапускаем notepad++</li>
+      <li>Смотрим меню Плагины и видим Emmet</li>
+      <li>Как  Установить pythonscript и emmet на 64битную версию notepad++ я не знаю</li>
+    </ol>
+
+    <h3>Полезные плагины для Notepad++ которые надо сразу установить</h3>
+    <ol>
+      <li>Python Script (нужен для Emmet)<br><a href="https://sourceforge.net/projects/npppythonscript/">https://sourceforge.net/projects/npppythonscript/</a></li>
+      <li>Emmet (ускоряет ввод кода)<br><a href="https://emmet.io/">emmet.io</a></li>
+      <li>Explorer показывает слева файлы и папки<br><a href="https://sourceforge.net/projects/npp-plugins/files/Explorer/">https://sourceforge.net/projects/npp-plugins/files/Explorer/</a></li>
+      <li>Auto Indent отступы в коде<br><a href="https://sourceforge.net/projects/npp-plugins/files/NppAutoIndent/">https://sourceforge.net/projects/npp-plugins/files/NppAutoIndent/</a></li>
+      <li>MultiClipboard копирует в много буферов обмена<br><a href="https://sourceforge.net/projects/npp-plugins/files/MultiClipboard/">https://sourceforge.net/projects/npp-plugins/files/MultiClipboard/</a></li>
+      <li>NppFTP</li>
+      <li>Compare сравнивает два текста</li>
+      <li>Snippets</li>
+      <li>TextFX Characters подставляет закрывающий тег</li>
+      <li>Webedit</li>
+    </ol>
+
+    <h3>Установка плагинов</h3>
+    <ol>
+      <li>Заходим на сайт <a href="https://sourceforge.net/projects/npp-plugins/files/">sourceforge.net/projects/npp-plugins</a></li>
+      <li>Скачиваем нужный плагин</li>
+      <li>Распаковываем его в
+        <code>c:\Portable\Notepad++\plugins\имя_плагина\</code>
+      </li>
+      <li>Запускаем notepad++ от имени Администратора</li>
+      <li>Выбираем меню <code>Settings - Import - Import plugin(s)...</code></li>
+      <li>В открывшемся окне выбираем файл 
+        <code>c:\Portable\Notepad++\plugins\имя_плагина\имя_плагина.dll</code>
+      </li>
+      <li>После успешного импортирования перезапускаем notepad++</li>
+      <li>Смотрим меню Плагины и видим имя_плагина</li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item4">
+    <h3>Настройка Notepad++</h3>
+    <ol>
+      <li>
+        Цветовая схема
+        Опции - Определение стилей - Выбрать стиль - Plastic Code Wrap
+      </li>
+      <li>Вид - Отображение символов - Отображать пробелы и табуляции</li>
+      <li>Вид - Отображение символов - Отображать направляющие отступов</li>
+      <li>
+        меню Запуск - Запуск
+        чтобы запустить файл из нотепада надо написать путь к программе и <code>"$(FULL_CURRENT_PATH)"</code>
+      </li>
+      <li>
+        меню Опции - Настройки - Правка - Мультиредактирование
+        ctrl + shift + t открыть последнюю закрытую вкладку
+      </li>
+    </ol>
+  </div>
+  
+  <div class="content__item" id="content__item5">
+    <h3>Горячие клавиши (Hot keys)</h3>
+  </div>
+  <hr><a href="#header">К началу страницы</a>
+  <hr>
+</div>

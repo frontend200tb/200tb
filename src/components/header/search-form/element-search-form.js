@@ -1,0 +1,19 @@
+class SearchForm extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+      <div id="search-google" class="search-google container none">
+        <form action="https://www.google.com/search" method="get">
+          <input type="text" name="q">
+          <input type="submit" value="Search in google.com">
+          <input type="reset" value="Reset">
+        </form>
+      </div>
+      `;
+  }
+}
+
+customElements.define('search-form', SearchForm);

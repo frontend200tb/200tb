@@ -1,0 +1,19 @@
+/*********************
+MAIN
+*********************/
+
+.main {
+  flex-grow: 1;
+  min-width: 320px;
+  vertical-align: top;
+}
+
+.main__aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Конец Main */

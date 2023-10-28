@@ -1,0 +1,187 @@
+const dataBooksJquery = [
+
+  {
+    id: 1,
+    year: 2010,
+    category: 'library',
+    theme: 'jquery',
+    title: 'Изучаем jQuery 1.3',
+    author: 'Джонатан Чаффер',
+    pages: '448',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2010,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery. Новый стиль программирования на JavaScript',
+    author: 'Николай Прохоренок',
+    pages: '272',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2011,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery. Сборник рецептов (2е)',
+    author: 'Геннадий Самков',
+    pages: '416',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2012,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery учебник для начинающих',
+    author: 'Антон Шевчук',
+    pages: '122',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2012,
+    category: 'library',
+    theme: 'jquery',
+    title: 'HeadFirst jQuery',
+    author: 'Райан Бенедетти',
+    pages: '528',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2012,
+    category: 'library',
+    theme: 'jquery',
+    title: 'Изучаем jQuery (2е)',
+    author: 'Эрл Каслдайн',
+    pages: '400',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2013,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery для профессионалов',
+    author: 'Адам Фримен',
+    pages: '960',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2013,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery Mobile Разработка приложений для смартфонов и планшетов',
+    author: 'Максимилиано Фритман',
+    pages: '256',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2014,
+    category: 'library',
+    theme: 'jquery',
+    title: 'Расширение библиотеки jQuery',
+    author: 'Кит Вуд',
+    pages: '400',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2015,
+    category: 'library',
+    theme: 'jquery',
+    title: 'JavaScript и jQuery исчерпывающее руководство (3е)',
+    author: 'Дэвид Макфарланд',
+    pages: '880',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2015,
+    category: 'library',
+    theme: 'jquery',
+    title: 'Разработка интерактивных сайтов jQuery',
+    author: 'Перепелица',
+    pages: '142',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2016,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery для начинающих',
+    author: 'Антон Шевчук',
+    pages: '156',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2017,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery в действии (3е)',
+    author: 'Беэр Бибо, Иегуда Кац',
+    pages: '528',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
+    year: 2017,
+    category: 'library',
+    theme: 'jquery',
+    title: 'JavaScript и jQuery. Интерактивная разработка',
+    author: 'Джон Дакетт',
+    pages: '640',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
+    year: 2018,
+    category: 'library',
+    theme: 'jquery',
+    title: 'jQuery для начинающих',
+    author: 'Антон Шевчук',
+    pages: '269',
+    isLearned: true,
+    dateLearned: '2021-09-27 пн',
+  },
+
+  {},
+
+];
+
+export default dataBooksJquery;

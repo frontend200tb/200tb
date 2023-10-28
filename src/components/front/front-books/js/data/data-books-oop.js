@@ -1,0 +1,187 @@
+const dataBooksOop = [
+
+  {
+    id: 1,
+    year: 2001,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Приемы ООП. Паттерны проектирования',
+    author: 'Гамма',
+    pages: '344',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2002,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Шаблоны проектирования. Новый подход к ООП',
+    author: 'Шаллоуей',
+    pages: '271',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2008,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Основы ООП',
+    author: 'Финогенов',
+    pages: '93',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2011,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Алгоритмическое и ООП',
+    author: 'Холодов',
+    pages: '459',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2012,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Практикуп по ООП (3е)',
+    author: 'Бабушкина',
+    pages: '372',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2014,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Объектно-ориентированное мышление',
+    author: 'Вайсфельд',
+    pages: '304',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2014,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП Хорошая книга для хороших людей',
+    author: 'Комлев',
+    pages: '300',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2014,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП',
+    author: 'Романенко',
+    pages: '475',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2015,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Практикуп по ООП (4е)',
+    author: 'Бабушкина',
+    pages: '369',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2015,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Приемы ООП. Паттерны проектирования',
+    author: 'Гамма',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2015,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП',
+    author: 'Николаев',
+    pages: '225',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2015,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП Лабораторный практикум 1',
+    author: 'Николаев',
+    pages: '183',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2015,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП Лабораторный практикум 2',
+    author: 'Николаев',
+    pages: '156',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
+    year: 2016,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Основы ООП (ИНТУИТ)',
+    author: 'Мейер',
+    pages: '970',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
+    year: 2020,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Паттерны ООП',
+    author: 'Гамма',
+    pages: '448',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {},
+
+];
+
+export default dataBooksOop;

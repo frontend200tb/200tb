@@ -1,0 +1,118 @@
+<h1>Eslint</h1>
+
+<div class="content__menu">
+  <p class="content__menu-link" id="content__menu-link1">about</p>
+  <p class="content__menu-link" id="content__menu-link2">links</p>
+  <p class="content__menu-link" id="content__menu-link3">install</p>
+  <p class="content__menu-link" id="content__menu-link4">.eslintrc.js</p>
+</div>
+
+<div class="content__items">
+  <div class="content__item" id="content__item1">
+    <h3>About</h3>
+    <ul>
+      <li>
+        <p>Линтер — это статический анализатор для языка программирования. Он сообщает о потенциально опасных выражениях
+          в коде, которые могут привести к аварийному завершению программы. Также линтер может сообщить об устаревших
+          участках кода, синтаксических ошибках и неиспользованных переменных. Всего существует около 300 правил,
+          которые можно включить/выключить по желанию.</p>
+        <p>Find and fix problems in your JavaScript code. ESLint statically analyzes your code to quickly find problems.
+          It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content__item" id="content__item2">
+    <h3>Links</h3>
+    <ul>
+      <li>
+        <p><a href="https://eslint.org/">https://eslint.org/</a></p>
+        <p><a href="https://www.npmjs.com/package/eslint">https://www.npmjs.com/package/eslint</a></p>
+        <p><a href="https://github.com/eslint/eslint">https://github.com/eslint/eslint</a></p>
+      </li>
+    </ul>
+    <h3>Статьи на habr</h3>
+    <ul>
+      <li>
+        <p><a href="https://habr.com/ru/companies/domclick/articles/743384/">ESLint. Анатомия правил линтинга: разбираем
+            структуру, создаём собственное правило для React-приложения (Anastasia Puchnina 2023-06-23)</a></p>
+        <p><a href="https://habr.com/ru/articles/758954/">Повышаем продуктивность разработки: магия общей ESLint
+            конфигурации (Dmitrii Pashkevich 2023-09-05)</a></p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content__item" id="content__item3">
+    <h3>Установка</h3>
+    <ol>
+      <li>Проверим версии установленных node.js и npm
+        <code>
+          node -v
+          <br>v16.17.0
+          <br>npm -v
+          <br>8.15.0
+        </code>
+        если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a>
+      </li>
+      <li>Установим глобально eslint и eslint-config-airbnb
+        <code>npm i -g eslint eslint-config-airbnb</code>
+      </li>
+      <li>Создадим папку для нашего проекта и перейдем в нее
+        <code>
+          mkdir project1
+          <br>cd project1
+          <br>d://project1/
+        </code>
+      </li>
+      <li>Инициализируем проект<code>npm init -y</code>(сокращенно от npm init --yes, то же что и npm init, не отвечая
+        на вопросы)</li>
+      <li>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут
+        являться зависимостями для нашего приложения.<code>d://project1/package.json</code></li>
+      <li>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb
+        <code>npm i -D eslint eslint-config-airbnb</code>
+      </li>
+      <li>Появится папка node_modules, файл package-lock.json, а в файл package.json добавятся зависимости
+        <code>
+          "devDependencies": {
+          <br>&nbsp;&nbsp;"eslint": "^8.49.0",
+          <br>&nbsp;&nbsp;"eslint-config-airbnb": "^19.0.4",
+          <br>}
+        </code>
+      </li>
+      <li>Создадим файл .eslintrc.js в котором будут настройки для eslint
+        <code>touch .eslintrc.js</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item4">
+    <h3>.eslintrc.js</h3>
+    <ol>
+      <li>Из файла .eslintrc.js будем экспортировать объект, со свойством preset-env
+        <code>
+        module.exports = {
+        <br>&nbsp;&nbsp;env: {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;commonjs: true,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;es6: true,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;browser: true,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;node: true,
+        <br>&nbsp;&nbsp;},
+        <br>&nbsp;&nbsp;extends: [
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;'airbnb-base',
+        <br>&nbsp;&nbsp;],
+        <br>&nbsp;&nbsp;globals: {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;Atomics: 'readonly',
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;SharedArrayBuffer: 'readonly',
+        <br>&nbsp;&nbsp;},
+        <br>&nbsp;&nbsp;parserOptions: {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;ecmaVersion: 2020,
+        <br>&nbsp;&nbsp;},
+        <br>&nbsp;&nbsp;rules: {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;'no-console': 0,
+        <br>&nbsp;&nbsp;},
+        <br>}
+      </code>
+      </li>
+    </ol>
+  </div>
+</div>

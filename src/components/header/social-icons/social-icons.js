@@ -1,0 +1,35 @@
+import './_social-icons.scss';
+
+class SocialIcons extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+    <div class="social" id="social">        
+      <a class="social__icon social__icon_dc" href="https://discord.com/channels/516715744646660106/917120666782801991" title="Discord" target="_blank"></a>
+
+      <a class="social__icon social__icon_vk" href="https://vk.com/benchpress250" title="ВКонтакте" target="_blank"></a>
+
+      <a class="social__icon social__icon_wa" href="https://wa.me/79507658158") title="WhatsApp" target="_blank"></a>
+    
+      <a class="social__icon social__icon_tg" href="https://t.me/Frontend200tb" title="Telegram" target="_blank"></a>
+    
+      <a class="social__icon social__icon_github" href="https://github.com/frontend200tb" title="GitHub" target="_blank"></a>
+    
+      <a class="social__icon social__icon_cp" href="https://codepen.io/ivan200tb/" title="Codepen" target="_blank"></a>
+    
+      <a class="social__icon social__icon_cw" href="https://www.codewars.com/users/frontend200tb" title="Codewars" target="_blank"></a>
+    
+      <a class="social__icon social__icon_replit" href="https://replit.com/@frontend200tb" title="Repl.it" target="_blank"></a>
+    
+      <a class="social__icon social__icon_yt" href="https://www.youtube.com/@ivan-kashirin" title="@ivan-kashirin" target="_blank"></a>
+
+      <a class="social__icon social__icon_yt" href="https://www.youtube.com/@ivan200kg" title="@ivan200kg" target="_blank"></a>
+    </div>
+    `;
+  }
+}
+
+customElements.define('social-icons', SocialIcons);
