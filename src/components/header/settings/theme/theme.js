@@ -28,8 +28,8 @@ class ThemeBtn extends HTMLElement {
       localStorage.setItem('theme', currentTheme);
     }
 
-    // Берем настройки из localStorage, если их нет то пусть будет снег будет темная тема
-    let currentTheme = localStorage.getItem('theme') || 'dark';
+    // Берем настройки из localStorage, если их нет то пусть будет снег будет светлая тема
+    let currentTheme = localStorage.getItem('theme') || 'light';
     if (currentTheme == 'dark') {
       page.classList.add('dark-theme');
     }
