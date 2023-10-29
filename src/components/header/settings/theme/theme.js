@@ -7,6 +7,7 @@
 */
 
 const page = document.querySelector('#page');
+const stick = document.querySelector('.header-stick');
 
 // 1. Создаем касс ThemeBtn
 class ThemeBtn extends HTMLElement {
@@ -20,6 +21,7 @@ class ThemeBtn extends HTMLElement {
 
     function themeToggle() {
       page.classList.toggle('dark-theme');
+      stick.classList.toggle('dark-theme');
     }
 
     // Функция saveTheme() сохранит настройки темы в localStorage
@@ -32,7 +34,8 @@ class ThemeBtn extends HTMLElement {
     let currentTheme = localStorage.getItem('theme') || 'light';
     if (currentTheme == 'dark') {
       page.classList.add('dark-theme');
-    }
+      stick.classList.add('dark-theme');
+}
   }
 
   connectedCallback() {
