@@ -4,6 +4,7 @@
 
 // 1. Импортируем массивы из файлов data-video.js...
 import dataVideo1cbitrix from './data/data-video-1cbitrix';
+import dataVideoAlgorithm from './data/data-video-algorithm';
 import dataVideoAngular from './data/data-video-angular';
 import dataVideoBem from './data/data-video-bem';
 import dataVideoBootstrap from './data/data-video-bootstrap';
@@ -37,7 +38,8 @@ import dataVideoWp from './data/data-video-wp';
 import dataVideoYii2 from './data/data-video-yii2';
 
 // 2. Создаем массив dataArray для импортированных массивов
-const dataArray = [dataVideoHtmlcss, dataVideo1cbitrix, dataVideoAngular, dataVideoBem,
+const dataArray = [dataVideoAlgorithm, dataVideoHtmlcss, dataVideo1cbitrix, dataVideoAngular,
+  dataVideoBem,
   dataVideoBootstrap, dataVideoCsharp, dataVideoDocker, dataVideoDrupal, dataVideoElectron,
   dataVideoFigma, dataVideoFreelance, dataVideoFrontend, dataVideoGit, dataVideoGulp,
   dataVideoInterview, dataVideoJoomla, dataVideoJs, dataVideoJson, dataVideoNuxt, dataVideoOpencart,

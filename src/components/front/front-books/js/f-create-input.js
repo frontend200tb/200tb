@@ -32,8 +32,10 @@ import dataBooksPhp from './data/data-books-php';
 import dataBooksPhpEn from './data/data-books-php-en';
 import dataBooksPython from './data/data-books-python';
 import dataBooksPythonEn from './data/data-books-python-en';
+import dataBooksC from './data/data-books-c';
 import dataBooksCsharp from './data/data-books-csharp';
 import dataBooksOop from './data/data-books-oop';
+import dataBooksGit from './data/data-books-git';
 
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [dataBooksHtmlcss, dataBooksHtmlcssEn, dataBooksJs, dataBooksJsEn, dataBooksTs,
@@ -41,7 +43,7 @@ const dataArray = [dataBooksHtmlcss, dataBooksHtmlcssEn, dataBooksJs, dataBooksJ
   dataBooksVue, dataBooksVueEn, dataBooksBootstrap, dataBooksBootstrapEn, dataBooksJquery,
   dataBooksJqueryEn, dataBooksNode, dataBooksNodeEn, dataBooksInformatika, dataBooksComp,
   dataBooksCompEn, dataBooksBase, dataBooksAlgorithm, dataBooksWeb, dataBooksWebEn, dataBooksPhp,
-  dataBooksPhpEn, dataBooksPython, dataBooksPythonEn, dataBooksCsharp, dataBooksOop];
+  dataBooksPhpEn, dataBooksPython, dataBooksPythonEn, dataBooksCsharp, dataBooksC, dataBooksOop, dataBooksGit];
 
 // 3. Создаем массив с книгами dataBooks из массива dataArray
 const dataBooks = [].concat(...dataArray);

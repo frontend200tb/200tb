@@ -175,6 +175,18 @@ const dataBooksNode = [
   },
 
   {
+    id: 12,
+    year: 2022,
+    category: 'npm',
+    theme: 'node',
+    title: 'Искусство WebAssembly',
+    author: 'Баттальини',
+    pages: '311',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 13,
     year: 2023,
     category: 'npm',

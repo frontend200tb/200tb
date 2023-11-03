@@ -2,6 +2,30 @@ const dataBooksCsharp = [
 
   {
     id: 1,
+    year: 2002,
+    category: 'code',
+    theme: 'c#',
+    title: 'Программирование для Microsoft Windows нa C#. Том 1',
+    author: 'Петцольд',
+    pages: '564',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 2002,
+    category: 'code',
+    theme: 'c#',
+    title: 'Программирование для Microsoft Windows нa C#. Том 2',
+    author: 'Петцольд',
+    pages: '612',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2003,
     category: 'code',
     theme: 'c#',
@@ -80,6 +104,18 @@ const dataBooksCsharp = [
     title: 'Полный справочник по C#',
     author: 'Шилдт',
     pages: '748',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2006,
+    category: 'code',
+    theme: 'c#',
+    title: 'Программирование с использованием Windows Forms',
+    author: 'Петцольд',
+    pages: '433',
     isLearned: false,
     dateLearned: '',
   },
@@ -529,6 +565,18 @@ const dataBooksCsharp = [
   },
 
   {
+    id: 42,
+    year: 2019,
+    category: 'code',
+    theme: 'c#',
+    title: 'Конкурентность и параллелизм на платформе .NET',
+    author: 'Террелл',
+    pages: '624',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 43,
     year: 2019,
     category: 'code',
@@ -553,6 +601,18 @@ const dataBooksCsharp = [
   },
 
   {
+    id: 44,
+    year: 2020,
+    category: 'code',
+    theme: 'c#',
+    title: 'Основы ООП на базе языка С# (2е)',
+    author: 'Залогова',
+    pages: '139',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 45,
     year: 2020,
     category: 'code',
@@ -565,6 +625,18 @@ const dataBooksCsharp = [
   },
 
   {
+    id: 45,
+    year: 2020,
+    category: 'code',
+    theme: 'c#',
+    title: 'Структуры данных в C#',
+    author: 'Симонова',
+    pages: '164',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 46,
     year: 2020,
     category: 'code',
@@ -572,6 +644,18 @@ const dataBooksCsharp = [
     title: 'C# Программирование 2D и 3D',
     author: 'Тюкачев',
     pages: '318',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 46,
+    year: 2020,
+    category: 'code',
+    theme: 'c#',
+    title: 'Разработка мобильных приложений на C# для iOS и Android',
+    author: 'Черников',
+    pages: '189',
     isLearned: false,
     dateLearned: '',
   },
@@ -629,9 +713,21 @@ const dataBooksCsharp = [
     year: 2022,
     category: 'code',
     theme: 'c#',
-    title: 'Программирование на C# для начинающих',
+    title: 'Программирование на C# для начинающих. Особенности языка',
     author: 'Васильев',
     pages: '529',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 51,
+    year: 2022,
+    category: 'code',
+    theme: 'c#',
+    title: 'Программирование. Базовый курс С#',
+    author: 'Подбельский',
+    pages: '370',
     isLearned: false,
     dateLearned: '',
   },
@@ -728,6 +824,18 @@ const dataBooksCsharp = [
     title: 'Справочник C#. Кратко, быстро, под рукой',
     author: 'Евдокимов',
     pages: '338',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 58,
+    year: 2023,
+    category: 'code',
+    theme: 'c#',
+    title: 'Программирование на C# для начинающих. Основные сведения',
+    author: 'Васильев',
+    pages: '586',
     isLearned: false,
     dateLearned: '',
   },

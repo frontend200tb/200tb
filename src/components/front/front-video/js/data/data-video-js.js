@@ -204,8 +204,8 @@ const dataVideoJs = [
     numberLessons: '',
     time_h_m: [16, 30],
     size: '3.1 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2023-10-30 пн',
   },
 
   {

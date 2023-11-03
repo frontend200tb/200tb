@@ -14,7 +14,7 @@ import htmlDsrLec1 from './dsr2023net-lecture1.html';
 import htmlDsrLec2 from './dsr2023net-lecture2.html';
 import htmlDsrLec3 from './dsr2023net-lecture3.html';
 import htmlDsrLec4 from './dsr2023net-lecture4.html';
-
+import htmlDsrLec5 from './dsr2023net-lecture5.html';
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
   const currentContent = document.querySelector('#edu');
@@ -155,6 +155,15 @@ function dsrLinks() {
     dsrLecture4.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlDsrLec4;
+      backToDsr();
+    });
+  }
+
+  const dsrLecture5 = document.getElementById('dsr-lecture-5');
+  if (dsrLecture5) {
+    dsrLecture5.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlDsrLec5;
       backToDsr();
     });
   }

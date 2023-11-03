@@ -301,6 +301,18 @@ const dataBooksJs = [
   },
 
   {
+    id: 23,
+    year: 2017,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Введение в разработку игр на JavaScript',
+    author: 'Стюарт',
+    pages: 206,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 24,
     year: 2017,
     category: 'code',
@@ -545,6 +557,18 @@ const dataBooksJs = [
     title: 'Web-программирование на javascript',
     author: 'Андрей Диков',
     pages: 169,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 40,
+    year: 2021,
+    category: 'code',
+    theme: 'javascript',
+    title: 'JavaScript. 20 уроков для начинающих',
+    author: 'Дронов',
+    pages: 354,
     isLearned: false,
     dateLearned: '',
   },
@@ -943,6 +967,18 @@ const dataBooksJs = [
     year: 2023,
     category: 'code',
     theme: 'javascript',
+    title: 'Новые возможности JavaScript',
+    author: 'Ти Джей Краудер',
+    pages: 634,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 69,
+    year: 2023,
+    category: 'code',
+    theme: 'javascript',
     title: 'JavaScript. Рецепты для разработчиков',
     author: 'Адам Скотт',
     pages: 528,
@@ -951,7 +987,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 69,
+    id: 70,
     year: 2023,
     category: 'code',
     theme: 'javascript',
@@ -963,7 +999,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 70,
+    id: 71,
     year: 2023,
     category: 'code',
     theme: 'javascript',

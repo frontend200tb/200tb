@@ -10,7 +10,7 @@ export default function sortBooks(books) {
         return -a.title.localeCompare(b.title, 'en');
       }
       // Иначе сортировать по автору
-      return -a.author.localeCompare(b.title, 'en');
+      return -a.author.localeCompare(b.author, 'en');
     }
     // Иначе сортировать по году
     return a.year - b.year;

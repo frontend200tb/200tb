@@ -149,6 +149,18 @@ const dataBooksReact = [
     year: 2023,
     category: 'framework',
     theme: 'react',
+    title: 'React. Сборник рецептов',
+    author: 'Гриффитс',
+    pages: '530',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2023,
+    category: 'framework',
+    theme: 'react',
     title: 'React. Быстрый старт (2е)',
     author: 'Стоян Стефанов',
     pages: '304',

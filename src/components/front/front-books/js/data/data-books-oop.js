@@ -25,6 +25,18 @@ const dataBooksOop = [
   },
 
   {
+    id: 2,
+    year: 2002,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Объектно-ориентированные методы. Принципы и практика (3е)',
+    author: 'Грэхем',
+    pages: '882',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 3,
     year: 2008,
     category: 'Основы',
@@ -169,6 +181,30 @@ const dataBooksOop = [
   },
 
   {
+    id: 14,
+    year: 2018,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП. Настольная книга программиста',
+    author: 'Комлев',
+    pages: '299',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
+    year: 2020,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'Практикум по ООП',
+    author: 'Бабушкина',
+    pages: '369',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 15,
     year: 2020,
     category: 'Основы',
@@ -176,6 +212,18 @@ const dataBooksOop = [
     title: 'Паттерны ООП',
     author: 'Гамма',
     pages: '448',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
+    year: 2020,
+    category: 'Основы',
+    theme: 'ООП',
+    title: '2023 Маттиас - Объекты. Стильное ООП',
+    author: 'Гамма',
+    pages: '304',
     isLearned: false,
     dateLearned: '',
   },
