@@ -25,6 +25,30 @@ const dataBooksHtmlcss = [
   },
 
   {
+    id: 2,
+    year: 2002,
+    category: 'code',
+    theme: 'HTML CSS',
+    title: 'Самоучитель HTML',
+    author: 'Гончаров',
+    pages: '242',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2003,
+    category: 'code',
+    theme: 'HTML CSS',
+    title: 'HTML 4.0. В подлиннике',
+    author: 'Матросов',
+    pages: '242',
+    isLearned: false,
+    dateLearned: '674',
+  },
+
+  {
     id: 3,
     year: 2008,
     category: 'code',

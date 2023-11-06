@@ -37,6 +37,18 @@ const dataBooksOop = [
   },
 
   {
+    id: 2,
+    year: 2006,
+    category: 'Основы',
+    theme: 'ООП',
+    title: 'ООП',
+    author: 'Бадд',
+    pages: '296',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 3,
     year: 2008,
     category: 'Основы',

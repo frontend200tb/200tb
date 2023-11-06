@@ -2,9 +2,21 @@ const dataBooksAlgorithm = [
 
   {
     id: 1,
+    year: 1978,
+    category: 'Основы',
+    theme: 'Алгоритмы',
+    title: 'Искусство программирования для ЭВМ',
+    author: 'Дональд Кнут',
+    pages: '355',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1998,
     category: 'Основы',
-    theme: 'Программирование',
+    theme: 'Алгоритмы',
     title: 'Конкретная математика. Основы информатики',
     author: 'Дональд Кнут',
     pages: '703',

@@ -290,6 +290,42 @@ const dataBooksInformatika = [
 
   {
     id: 19,
+    year: '2002',
+    category: 'Основы',
+    theme: 'Информатика',
+    title: 'Информатика. Часть 1',
+    author: 'Майстренко',
+    pages: '49',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: '2002',
+    category: 'Основы',
+    theme: 'Информатика',
+    title: 'Лекции по информатике',
+    author: 'Масюков',
+    pages: '101',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: '2004',
+    category: 'Основы',
+    theme: 'Информатика',
+    title: 'Информатика',
+    author: 'Горяев',
+    pages: '116',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
     year: '2004',
     category: 'Основы',
     theme: 'Информатика',

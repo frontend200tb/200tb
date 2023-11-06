@@ -32,6 +32,22 @@ const dataVideoAlgorithm = [
     dateLearned: '2023.11.01 ср',
   },
 
+  {
+    id: 1,
+    year: 2019,
+    date: '',
+    category: 'code',
+    theme: 'Алгоритмы',
+    title: 'Бинарное дерево поиска',
+    author: 'Юрий Петранков',
+    name: 'Udemy',
+    numberLessons: '7',
+    time_h_m: [0, 50],
+    size: '295 mb',
+    isLearned: true,
+    dateLearned: '2023.11.03 пт',
+  },
+
   {},
 
 ];

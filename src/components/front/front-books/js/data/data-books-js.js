@@ -2,10 +2,46 @@ const dataBooksJs = [
 
   {
     id: 1,
+    year: 2000,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Практические занятия по JavaScript',
+    author: 'Николенко',
+    pages: 129,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 2001,
+    category: 'code',
+    theme: 'javascript',
+    title: 'JavaScript',
+    author: 'Мэрдок',
+    pages: 285,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 2005,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Самоучитель JavaScript (2е)',
+    author: 'Дунаев',
+    pages: 402,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2011,
     category: 'code',
     theme: 'javascript',
-    title: 'JavaScript шаблоны (рус)',
+    title: 'JavaScript шаблоны',
     author: 'Стоян Стефанов',
     pages: 212,
     isLearned: false,

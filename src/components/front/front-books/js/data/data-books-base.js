@@ -126,6 +126,18 @@ const dataBooksBase = [
   },
 
   {
+    id: 9,
+    year: 2005,
+    category: 'Основы',
+    theme: 'Программирование',
+    title: 'Совершенный код (2е)',
+    author: 'Макконнелл',
+    pages: '893',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 2006,
     category: 'Основы',
