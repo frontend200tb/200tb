@@ -3,7 +3,7 @@ Aside
 *********************/
 
 .aside {
-  width: 180px;
+  min-width: 180px;
   background: none;
 
   /* Стилизация ссылок левого меню */
@@ -24,7 +24,7 @@ Aside
 //мобильная версия
 @media (max-width: 580px) {
   .aside {
-    width: 132px;
+    min-width: 132px;
 
     & a {
       padding: 5px;

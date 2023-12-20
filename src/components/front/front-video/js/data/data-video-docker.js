@@ -4,7 +4,7 @@ const dataVideoDocker = [
     id: 1,
     year: 2019,
     date: '',
-    category: 'other',
+    category: 'tools',
     theme: 'docker',
     title: 'Продвинутый видеокурс по Docker',
     author: '',

@@ -1,74 +1,630 @@
 <h1>JavaScript</h1>
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">about</p>
-  <p class="content__menu-link" id="content__menu-link2">links</p>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
 </div>
+  
+<!-- Содержание -->
+<div class="article article__content">
 
-<div class="content__items">
-
-  <div class="content__item" id="content__item1">
-    <h2>Javascript</h2>
-    <ul>
-      <li>Javascript</li>
-    </ul>
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#keywords">keywords</a></p>
+    <p><a href="#number">number</a></p>
+    <p><a href="#string">string</a></p>
   </div>
 
-  <div class="content__item" id="content__item2">
-    <h3>Ссылки</h3>
-    <ul>
-      <li>
-        <p><a href="https://my-js.org/">my-js.org</a> MyJavaScript Руководства, шпаргалки</p>
-        <p><a href="https://metanit.com/web/javascript/">metanit.com/web/javascript</a> Руководство по JavaScript (обновление 2023-07-15)</p>
-      </li>
-    </ul>
-
-    <h3>Статьи на habr</h3>
-    <ul>
-      <li>
-        <p><a href="https://habr.com/ru/articles/188010/">Знай сложности алгоритмов</a> (Eric Rowell 2013-07-29)</p>
-        <p><a href="https://habr.com/ru/articles/196560/">Введение в анализ сложности алгоритмов (часть 1)</a> (Dionysis Zindros 2013-10-07)</p>
-        <p><a href="https://habr.com/ru/post/518386/">JavaScript: полное руководство по классам</a> (Dmitri Pavlutin 2020-09-09)</p>
-        <p><a href="https://habr.com/ru/post/522380/">Объектно-ориентированный JavaScript простыми словами</a> (Zell Liew 2020-10-07)</p>
-        <p><a href="https://habr.com/ru/company/otus/blog/547098/">Основы JavaScript: почему вы должны знать, как работает JS-движок</a> (OTUS 2021-03-15)</p>
-        <p><a href="https://habr.com/ru/post/552076/">Используй console.log () как про</a> (Marko Denic 2021-04-12)</p>
-        <p><a href="https://habr.com/ru/company/ruvds/blog/554288/">JavaScript-классы — это не просто «синтаксический сахар»</a> (Andrea Giammarchi 2021-05-03)</p>
-        <p><a href="https://habr.com/ru/company/ruvds/blog/665290/">Знакомство с ООП на примере JavaScript</a> (Germán Cocca 2022-05-15)</p>
-        <p><a href="https://habr.com/ru/post/666972/">20+ консольных команд, которые изменят ваше представление об отладке</a> (Web Dev Simplified 2022-05-20)</p>
-        <p><a href="https://habr.com/ru/post/667662/">Приведение значений к Boolean в JavaScript</a> (Natalie Pina 2022-05-25)</p>
-        <p><a href="https://habr.com/ru/companies/yandex/articles/718084/">Полное понимание асинхронности в браузере</a> (gbiz
-          2023-02-28)</p>
-      </li>
-    </ul>
-
-    <h3>Статьи</h3>
-    <ul>
-      <li>
-        <p><a href="https://frontend-stuff.com/blog/object-oriented-programming/">ООП в JavaScript Вкратце об объектно-ориентированном программировании</a> (Alexey Myzgin 2020-01-24)</p>
-        <p><a href="https://gcoder.ru/gajd-dlya-razvitiya-frontend-razrabotchika-v-2021/">ГАЙД ДЛЯ РАЗВИТИЯ ФРОНТЕНД-РАЗРАБОТЧИКА В 2021</a></p>
-        <p><a href="https://ru.hexlet.io/blog/posts/js-s-chego-nachat">С чего начать изучение JavaScript и как это делать эффективно</a> (Екатерина Самохвалова 2022-09-22)</p>
-        <p><a href="https://ru.hexlet.io/blog/posts/stoit-li-uchit-javascript-perspektivy-situatsiya-na-rynke-truda-mneniya-ekspertov">Стоит ли учить JavaScript: перспективы, ситуация на рынке труда, мнения экспертов</a> (Дмитрий Дементий 2023-01-10)</p>
-      </li>
-    </ul>
-
-    <h3>Статьи на habr. Подготовка к собеседованию</h3>
-    <ul>
-      <li>
-        <p><a href="https://habr.com/ru/company/ruvds/blog/505480/">Как пройти собеседование в GitLab, попасть в команду разработчиков Vue и стать Staff-engineer</a> (RUVDS.com 2020-06-06)</p>
-        <p><a href="https://habr.com/ru/company/prequel/blog/666136/">Войти в IT в 27 лет. Что получилось за 4 года</a> (Prequel 2022-05-17)</p>
-        <p><a href="https://habr.com/ru/company/netologyru/blog/667520/">Что спрашивают у начинающего разработчика JavaScript на собеседованиях и в тестовых заданиях</a> (Нетология 2022-05-24)</p>
-      </li>
-    </ul>
-
-    <h3>Статьи. Подготовка к собеседованию</h3>
-    <ul>
-      <li>
-        <p><a href="https://gcoder.ru/kak-ponyat-chto-vy-gotovy-zanyat-poziciyu-front-end-razrabotchika/">КАК ПОНЯТЬ, ЧТО ВЫ ГОТОВЫ ЗАНЯТЬ ПОЗИЦИЮ FRONT-END РАЗРАБОТЧИКА</a> (2020-12-30)</p>
-        <p><a href="https://tproger.ru/problems/sobesedovanie-na-poziciju-middle-javascript-razrabotchika-primery-zadach-i-neobhodimye-znanija/">Собеседование на позицию Middle JavaScript разработчика: примеры задач и необходимые знания</a> (Дмитрий Шостак 2021-01-27)</p>
-        <p><a href="https://webdevblog.ru/7-voprosov-dlya-sobesedovaniya-o-zamykanie-v-javascript-smozhete-li-vy-na-nih-otvetit/">7 вопросов для собеседования о замыкание в JavaScript. Сможете ли вы на них ответить</a> (Dmitri Pavlutin 2021-02-15)</p>
-        <p><a href="https://gcoder.ru/5-sovetov-dlya-pervogo-goda-raboty-junior-razrabotchika/">5 СОВЕТОВ ДЛЯ ПЕРВОГО ГОДА РАБОТЫ JUNIOR РАЗРАБОТЧИКА</a> (2021-03-17)</p>
-        <p><a href="https://ru.hexlet.io/blog/posts/kak-dzhunu-napisat-soprovoditelnoe-pismo">Как джуну написать сопроводительное письмо, за которое его возьмут на работу</a> (Наталья Ёркина 2022-02-02)</p>
-        <p><a href="https://ru.hexlet.io/blog/posts/kak-dzhunu-nayti-rabotu-i-gde-nachinat-karieru">Как джуну найти работу и где лучше начинать карьеру в IT: советы от Хекслета</a> (Екатерина Самохвалова 2023-04-14)</p>
-      </li>
-    </ul>
-  </div>
 </div>
+
+<!-- links-->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://my-js.org/">my-js.org</a> MyJavaScript Руководства, шпаргалки</p>
+  <p><a href="https://metanit.com/web/javascript/">metanit.com/web/javascript</a> Руководство по JavaScript (обновление 2023-07-15)</p>
+  <p><a href="https://jsexpert.net/handbook/">jsexpert.net/handbook/</a> JavaScript справочник</p>
+
+  <h3>Статьи на habr</h3>
+
+  <p><a href="https://habr.com/ru/articles/188010/">Знай сложности алгоритмов</a> (Eric Rowell 2013-07-29)</p>
+  <p><a href="https://habr.com/ru/articles/196560/">Введение в анализ сложности алгоритмов (часть 1)</a> (Dionysis Zindros 2013-10-07)</p>
+  <p><a href="https://habr.com/ru/post/518386/">JavaScript: полное руководство по классам</a> (Dmitri Pavlutin 2020-09-09)</p>
+  <p><a href="https://habr.com/ru/post/522380/">Объектно-ориентированный JavaScript простыми словами</a> (Zell Liew 2020-10-07)</p>
+  <p><a href="https://habr.com/ru/company/otus/blog/547098/">Основы JavaScript: почему вы должны знать, как работает JS-движок</a> (OTUS 2021-03-15)</p>
+  <p><a href="https://habr.com/ru/post/552076/">Используй console.log () как про</a> (Marko Denic 2021-04-12)</p>
+  <p><a href="https://habr.com/ru/company/ruvds/blog/554288/">JavaScript-классы — это не просто «синтаксический сахар»</a> (Andrea Giammarchi 2021-05-03)</p>
+  <p><a href="https://habr.com/ru/company/ruvds/blog/665290/">Знакомство с ООП на примере JavaScript</a> (Germán Cocca 2022-05-15)</p>
+  <p><a href="https://habr.com/ru/post/666972/">20+ консольных команд, которые изменят ваше представление об отладке</a> (Web Dev Simplified 2022-05-20)</p>
+  <p><a href="https://habr.com/ru/post/667662/">Приведение значений к Boolean в JavaScript</a> (Natalie Pina 2022-05-25)</p>
+  <p><a href="https://habr.com/ru/companies/yandex/articles/718084/">Полное понимание асинхронности в браузере</a> (gbiz
+    2023-02-28)</p>
+
+  <h3>Статьи</h3>
+
+  <p><a href="https://frontend-stuff.com/blog/object-oriented-programming/">ООП в JavaScript Вкратце об объектно-ориентированном программировании</a> (Alexey Myzgin 2020-01-24)</p>
+  <p><a href="https://gcoder.ru/gajd-dlya-razvitiya-frontend-razrabotchika-v-2021/">ГАЙД ДЛЯ РАЗВИТИЯ ФРОНТЕНД-РАЗРАБОТЧИКА В 2021</a></p>
+  <p><a href="https://ru.hexlet.io/blog/posts/js-s-chego-nachat">С чего начать изучение JavaScript и как это делать эффективно</a> (Екатерина Самохвалова 2022-09-22)</p>
+  <p><a href="https://ru.hexlet.io/blog/posts/stoit-li-uchit-javascript-perspektivy-situatsiya-na-rynke-truda-mneniya-ekspertov">Стоит ли учить JavaScript: перспективы, ситуация на рынке труда, мнения экспертов</a> (Дмитрий Дементий 2023-01-10)</p>
+
+  <h3>Статьи на habr. Подготовка к собеседованию</h3>
+
+  <p><a href="https://habr.com/ru/company/ruvds/blog/505480/">Как пройти собеседование в GitLab, попасть в команду разработчиков Vue и стать Staff-engineer</a> (RUVDS.com 2020-06-06)</p>
+  <p><a href="https://habr.com/ru/company/prequel/blog/666136/">Войти в IT в 27 лет. Что получилось за 4 года</a> (Prequel 2022-05-17)</p>
+  <p><a href="https://habr.com/ru/company/netologyru/blog/667520/">Что спрашивают у начинающего разработчика JavaScript на собеседованиях и в тестовых заданиях</a> (Нетология 2022-05-24)</p>
+
+  <h3>Статьи. Подготовка к собеседованию</h3>
+
+  <p><a href="https://gcoder.ru/kak-ponyat-chto-vy-gotovy-zanyat-poziciyu-front-end-razrabotchika/">КАК ПОНЯТЬ, ЧТО ВЫ ГОТОВЫ ЗАНЯТЬ ПОЗИЦИЮ FRONT-END РАЗРАБОТЧИКА</a> (2020-12-30)</p>
+  <p><a href="https://tproger.ru/problems/sobesedovanie-na-poziciju-middle-javascript-razrabotchika-primery-zadach-i-neobhodimye-znanija/">Собеседование на позицию Middle JavaScript разработчика: примеры задач и необходимые знания</a> (Дмитрий Шостак 2021-01-27)</p>
+  <p><a href="https://webdevblog.ru/7-voprosov-dlya-sobesedovaniya-o-zamykanie-v-javascript-smozhete-li-vy-na-nih-otvetit/">7 вопросов для собеседования о замыкание в JavaScript. Сможете ли вы на них ответить</a> (Dmitri Pavlutin 2021-02-15)</p>
+  <p><a href="https://gcoder.ru/5-sovetov-dlya-pervogo-goda-raboty-junior-razrabotchika/">5 СОВЕТОВ ДЛЯ ПЕРВОГО ГОДА РАБОТЫ JUNIOR РАЗРАБОТЧИКА</a> (2021-03-17)</p>
+  <p><a href="https://ru.hexlet.io/blog/posts/kak-dzhunu-napisat-soprovoditelnoe-pismo">Как джуну написать сопроводительное письмо, за которое его возьмут на работу</a> (Наталья Ёркина 2022-02-02)</p>
+  <p><a href="https://ru.hexlet.io/blog/posts/kak-dzhunu-nayti-rabotu-i-gde-nachinat-karieru">Как джуну найти работу и где лучше начинать карьеру в IT: советы от Хекслета</a> (Екатерина Самохвалова 2023-04-14)</p>
+</article>
+
+<!-- keywords-->
+<article class="article">
+  <div class="anchor" id="keywords"></div>
+  <h2>Ключевые слова (keywords) в Javascript</h2>
+  <p>Ключевые слова - это имена (идентификаторы), зарезервированные для специального использования. Ключевые слова нельзя использовать в качестве имен переменных и функций.</p>
+
+  <p>В JavaScript существуют следующие ключевые слова (часть из них на самом деле являются ключевыми словами языка Java, а в JavaScript зарезервированы лишь в целях большей совместимости):</p>
+  
+  <div class="flex-keywords">
+    <div>await</div> <div>break</div>	<div>case</div> <div>catch</div>  
+    <div>class</div> <div>const</div> <div>continue</div> <div>debugger</div>  
+    <div>default</div> <div>delete</div> <div>do</div> <div>else</div> <div>enum</div>
+    <div>export</div>  <div>extends</div> <div>false</div> <div>finally</div>
+    <div>for</div> <div>function</div> <div>if</div> <div>import</div> <div>in</div>        <div>instanceof</div> <div>new</div> <div>null</div> <div>return</div> <div>super</div> <div>switch</div> <div>this</div> <div>throw</div> <div>true</div> <div>try</div>
+    <div>typeof</div> <div>var</div> <div>void</div> <div>while</div> <div>with</div>
+    <div>yield</div>
+  </div>
+    
+  <p>Кроме вышеприведенных ключевых слов, программисту не рекомендуется использовать в качестве имен переменных и функций следующие идентификаторы:</p>
+    
+  <p>
+    alert  	isNaN  	pageYOffset  
+    anchor  	java  	parent  
+    area  	JavaArray  	parseFloat  
+    array  	JavaClass  	parseInt  
+    assign  	JavaObject  	password  
+    blur  	JavaPackage  	pkcs11  
+    button  	innerHeight  	plugin  
+    checkbox  	innerWidth  	prompt  
+    clearTimeout  	length  	prototype  
+    clientInformation  	link  	radio  
+    close  	location  	ref  
+    closed  	Math  	reset  
+    confirm  	MimeType  	screenX  
+    crypto  	name  	screenY  
+    date  	navigate  	scroll  
+    defaultStatus  	navigator  	secure  
+    document  	netscape  	select  
+    element  	number  	self  
+    escape  	object  	setTimeout  
+    eval  	offscreenBuffering  	status  
+    event  	onblur  	string  
+    fileUpload  	onerror  	submit  
+    focus  	onfocus  	sun  
+    form  	onload  	taint  
+    frame  	onunload  	text  
+    frames  	open  	textarea  
+    frameRate  	opener  	top  
+    function  	option  	toString  
+    getClass  	outerHeight  	unescape  
+    hidden  	outerWidth  	untaint  
+    history  	packages  	valueOf  
+    image  	pageXOffset  	window  </p>
+</article>
+
+<!-- number-->
+<article class="article">
+  <div class="anchor" id="number"></div>
+  <h2>Число (тип данных number) в Javascript</h2>
+</article>
+
+<!-- string-->
+<article class="article">
+  <div class="anchor" id="string"></div>
+  <h2>Строка (тип данных string) в Javascript</h2>
+  
+  <h3>1. Какой тип данных у строки</h3>
+  <p>Есть два типа строк: строки примитивного типа и строки типа объект (String Object).</p>
+  
+  <h3>2. Как создать строку примитивного типа</h3>
+  <p>Строковые примитивы это строковые литералы и строки, возвращенные вызовом String без ключевого слова new.</p>
+
+  <p>Инициализируем примитивную строку. Присваиваем переменной литерал строки.</p>
+  <code>const a = 'Frontend';</code>
+  
+  <p>Инициализируем примитивную строку. Присваиваем переменной результат работы глобального объекта String</p>
+  <code>const b = String('Backend');</code>
+
+  <h3>3. Как создать строку String Object</h3>
+  <p>Инициализируем String Object. Вызываем конструктор нового объекта через ключевое слово new и в качестве параметра передаем в конструктор литерал строки.</p>
+  <code>const c = new String('Fullstack');</code>
+  <p>Можно использовать оператор typeof, чтобы определить тип значения.</p>
+  <code>typeof a;
+  <br>'string'</code>
+  <code>typeof b;
+  <br>'string'</code>
+  <code>typeof c;
+  <br>'object'</code>
+  <p>Методы и свойства String Objects доступны для всех строк. Если методы и свойства нужно вызвать на примитивном типе, то JavaScript осуществляет конвертацию строки в объект и обратно каждый раз, когда вызывается метод или свойство.</p>
+  
+  <h3>4. Как преобразовать строку примитивного типа в String Object</h3>
+  <p>JavaScript автоматически преобразует примитивы в объекты String, так что на строковых примитивах возможно использовать методы объекта String.</p>
+  
+  <p>В контекстах, когда на примитивной строке вызывается метод или происходит поиск свойства, JavaScript автоматически оборачивает строковый примитив объектом и вызывает на нём метод или ищет в нём свойство.</p>
+
+  <h3>5. Как преобразовать объект String в строковый примитив</h3>
+  <p>Объект String также всегда может быть преобразован в его примитивный аналог при помощи метода valueOf().</p>
+  
+  <h3>6. Как индексируется строка</h3>
+  <p>Каждый символ строки соответствует индексу, начиная с 0.</p>
+  
+  <h3>7. Как получить доступ к символу строки</h3>
+  <p>Используя квадратные скобки, можно получить доступ к любому символу строки.</p> 
+  <code>let str = 'Frontend';
+  <br>str[0] = 'f'; // ошибка</code>
+  <p>Можно создать новую строку и записать ее в ту же самую переменную.</p>
+  <code>let str = 'Frontend'
+  <br>str = str.toUpperCase(); // 'FRONTEND'
+  </code>
+    
+  <h3>8. Как изменить строку</h3>
+  <p>Строки неизменяемы. Содержимое строки в JavaScript нельзя изменить. Нельзя взять символ посередине и заменить его. Как только строка создана — она такая навсегда.</p> 
+  <code>'Frontend'[4];
+  <br>t</code>
+
+  <h3>8. Свойства строк</h3>
+  <p>Строки имеют только одно свойство - length.</p>
+
+  <table>
+    <tr>
+      <th>length</th>
+      <td>Возвращает количество символов в строке</td>
+    </tr>
+  </table>
+  
+  <h3>Свойство length</h3>
+  <p>Возвращает количество символов в строке</p>
+  <code>'Frontend'.length
+  <br>8</code>
+  <code>a = 'Front';
+  <br>b = a.length;</code>
+  <p>Свойство length не изменяет исходную строку</p>
+  <code>console.log(a); // 'Front'</code>
+  <p>Свойство length возвращает number</p>
+  <code>console.log(b); // 4</code>
+</article>
+
+<article class="article">
+  <h3>9. Методы строк</h3>
+  <p>Методы объекта String, записанные в его прототипе String.prototype.</p>
+  <table>
+    <tr>
+      <th><a href="#at-string">at()</a></th>
+      <td>Поиск символа по его индексу в строке</td>
+    </tr>
+    <tr>
+      <th><a href="#char-at-string">charAt()</a></th>
+      <td>Возвращает символ строки по его индексу</td>
+    </tr>
+    <tr>
+      <th><a href="#char-code-at-string">charCodeAt()</a></th>
+      <td>Возвращает числовое значение Юникода</td>
+    </tr>
+    <tr>
+      <th><a href="#code-point-at-string">codePointAt()</a></th>
+      <td>Возвращает целое число, обозначающее значение Unicode позиции символа в строке.</td>
+    </tr>
+    <tr>
+      <th><a href="#concat-string">concat()</a></th>
+      <td>Объединяет две или более строк и возвращает новую, объединенную строку</td>
+    </tr>
+    <tr>
+      <th><a href="#ends-with-string">endsWith()</a></th>
+      <td>Возвращает true если строка оканчивается на указанную подстроку</td>
+    </tr>
+    <tr>
+      <th><a href="#from-char-code-string">fromCharCode()</a></th>
+      <td>Преобразует значения Unicode в символы</td>
+    </tr>
+    <tr>
+      <th><a href="#includes-string">includes()</a></th>
+      <td>Возвращает true если строка содержит указанную подстроку</td>
+    </tr>
+    <tr>
+      <th><a href="#index-of-string">indexOf()</a></th>
+      <td>Возвращает индекс первого вхождения в строке</td>
+    </tr>
+    <tr>
+      <th><a href="#last-index-of-string">lastIndexOf()</a></th>
+      <td>Возвращает индекс последнего вхождения в строке</td>
+    </tr>
+    <tr>
+      <th><a href="#locale-compare-string">localeCompare()</a></th>
+      <td>Возвращает 1, 0, -1 как результат сравнения двух строк</td>
+    </tr>
+    <tr>
+      <th><a href="#match-string">match()</a></th>
+      <td>Ищет строку для соответствия регулярному выражению и возвращает совпадения</td>
+    </tr>
+    <tr>
+      <th>matchAll()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>normalize()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>padEnd()</th>
+      <td>Добавление символов в конец строки</td>
+    </tr>
+    <tr>
+      <th>padStart()</th>
+      <td>Добавление символов в начало строки</td>
+    </tr>
+    <tr>
+      <th>repeat()</th>
+      <td>Возвращает строку, повторяющую исходную указанное количество раз</td>
+    </tr>
+    <tr>
+      <th>replace()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>search()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>slice()</th>
+      <td>Извлечение подстроки</td>
+    </tr>
+    <tr>
+      <th>split()</th>
+      <td>Разбиение строк</td>
+    </tr>
+    <tr>
+      <th>startsWith()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>substring()</th>
+      <td>Извлечение подстроки</td>
+    </tr>
+    <tr>
+      <th>toLocaleLowerCase()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>toLocaleUpperCase()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>toLowerCase()</th>
+      <td>Преобразует все символы в нижний регистр</td>
+    </tr>
+    <tr>
+      <th>toString()</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>toUpperCase()</th>
+      <td>Преобразует все символы в верхний регистр</td>
+    </tr>
+    <tr>
+      <th>trim()</th>
+      <td>Отсечение пробелов в начале и конце строки</td>
+    </tr>
+    <tr>
+      <th>trimEnd()</th>
+      <td>Отсечение пробелов в конце строки</td>
+    </tr>
+    <tr>
+      <th>trimStart()</th>
+      <td>Отсечение пробелов в начале строки</td>
+    </tr>
+    <tr>
+      <th>valueOf()</th>
+      <td></td>
+    </tr>
+  </table>
+</article>
+
+<!-- at-string -->
+<article class="article">
+  <div class="anchor" id="at-string"></div>
+  <h3>Метод At()</h3>
+  <p>Метод at осуществляет поиск символа по номеру его позиции в строке. В параметре метода мы указываем целое число, которое может быть положительным или отрицательным (в этом случае поиск ведется с конца строки).</p>
+  <code>let str = 'Frontend';
+  <br>let res = str.at(0);
+  <br>console.log(res); // 'F'</code>
+</article>
+
+<!-- char-at-string -->
+<article class="article">
+  <div class="anchor" id="char-at-string"></div>
+  <h3>Метод charAt()</h3>
+  <p>Метод charAt() принимает индекс, возвращает символ по указанному индексу.</p>
+  <p></p>
+  <code>'Frontend'.charAt(4);
+  <br>t</code>
+  <code>a = 'Frontend';
+  <br>b = a.charAt(4);</code>
+  <p>Метод charAt() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод charAt() возвращает string</p>
+  <code>console.log(b); // 't'</code>
+</article>
+
+<!-- char-code-at-string -->
+<article class="article">
+  <div class="anchor" id="char-code-at-string"></div>
+  <h3>Метод charCodeAt()</h3>
+  <p>Метод charCodeAt принимает позицию элемента в строке (индекс) и возвращает целое число между 0 и 65535 представление элемента кода UTF-16 в данном индексе. Нумерация символов начинается с 0. Если указанное число больше последнего символа строки, то метод возвращает NaN.</p>
+  <code>'T'.charCodeAt();
+  <br>84</code>
+  <code>'t'.charCodeAt();
+  <br>116</code>
+  <code>let str = 'ABC';
+  <br>let res = str.charCodeAt(0);
+  <br>console.log(res); // 65
+  </code>
+</article>
+
+<!-- code-pointe-at-string -->
+<article class="article">
+  <div class="anchor" id="code-pointe-at-string"></div>
+  <h3>Метод codePointAt()</h3>
+  <p>Метод codePointAt() возвращает целое число, обозначающее значение Unicode позиции символа в строке.</p>
+  <code>let str = 'Frontend';
+  <br>let res = str.codePointAt(2);
+  <br>console.log(res); // 111
+  </code>
+</article>
+
+<!-- concat-string -->
+<article class="article">
+  <div class="anchor" id="concat-string"></div>
+  <h3>Метод concat()</h3>
+  <p>Без параметров возвращает ту же самую строку</p>
+  <code>'Frontend'.concat();
+  <br>'Frontend'</code>
+  <p>С одним или более параметрами преобразуют каждый параметр в строку и по очереди добавляют в конец исходной строки, возвращая новую строку</p>
+  <code>'Frontend'.concat('Backend');
+  <br>'FrontendBackend'</code>
+  <code>'Frontend'.concat('Backend', 123, null, NaN, '', undefined, Infinity);
+  <br>'FrontendBackend123nullNaNundefinedInfinity'</code>
+  <code>a = 'Frontend';
+  <br>b = a.concat(12, '34');</code>
+  <p>Метод concat() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод concat() возвращает string</p>
+  <code>console.log(b); // 'Frontend1234'</code>
+</article>
+
+<!-- ends-with-string -->
+<article class="article">
+  <div class="anchor" id="ends-with-string"></div>
+  <h3>Метод endsWith()</h3>
+  <p>Метод endsWith проверяет, заканчивается ли строка на указанную в первом параметре подстроку. Если заканчивается, то возвращает true, а если не заканчивается,то false. Вторым необязательным параметром можно принудительно указать длину строки. В этом случае проверка будет не настоящего конца строки, а указанного.</p>
+</article>
+
+<!-- from-char-code-string -->
+<article class="article">
+  <div class="anchor" id="from-char-code-string"></div>
+  <h3>Метод fromCharCode()</h3>
+  <p>Преобразует числовые значения Юникода в читаемые символы</p>
+  <code>String.fromCharCode(72, 101, 108, 108, 11);
+  <br>'Hello'</code>
+</article>
+
+<!-- includes-string -->
+<article class="article">
+  <div class="anchor" id="includes-string"></div>
+  <h3>Метод includes()</h3>
+  <p>Метод includes выполняет поиск заданной строки в текущей с учетом регистра. Первым параметром метод принимает строку, которую нужно найти, вторым необязательным - позицию, с которой нужно начинать поиск. После выполнения метод возвращает true или false.</p>
+</article>
+
+<!-- index-of-string -->
+<article class="article">
+  <div class="anchor" id="index-of-string"></div>
+  <h3>Метод indexOf()</h3>
+  <p>Методы indexOf() и lastIndexOf() принимают символ или строку, возвращают индекс.</p>
+  <p>Возвращает индекс первого вхождения в строке</p>
+  <code>'Frontend'.indexOf('n');
+  <br>3</code>
+  <code>'Frontend'.indexOf('ont');
+  <br>2</code>
+  <code>a = 'Frontend';
+  <br>b = a.indexOf('n');</code>
+  <p>Метод indexOf() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод indexOf() возвращает number</p>
+  <code>console.log(b); // 3</code>
+</article>
+
+<!-- last-index-of-string -->
+<article class="article">
+  <div class="anchor" id="last-index-of-string"></div>
+  <h3>Метод lastIndexOf()</h3>
+  <p>Методы indexOf() и lastIndexOf() принимают символ или строку, возвращают индекс.</p>
+  <p>Возвращает индекс последнего вхождения символа в строке</p>
+  <code>"Frontend".lastIndexOf('n');
+  <br>6</code>
+  <code>a = 'Frontend';
+  <br>b = a.lastIndexOf('n');</code>
+  <p>Метод indexOf() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод indexOf() возвращает number</p>
+  <code>console.log(b); // 6</code>
+</article>
+
+<!-- locale-compare-string -->
+<article class="article">
+  <div class="anchor" id="locale-compare-string"></div>
+  <h3>Метод localeCompare()</h3>
+  <p>Метод localeCompare() сравнивает две строки в текущей локали. Локаль основана на настройках языка браузера.</p>
+  <code>string.localeCompare(compareString)</code>
+  <p>Возвращает одно из трех значений:
+  <br>-1, если строка сортируется до compareString
+  <br>0, если две строки равны
+  <br>1, если строка сортируется после compareString
+  </p>
+</article>
+
+<!-- match-string -->
+<article class="article">
+  <div class="anchor" id="match-string"></div>
+  <h3>Метод match()</h3>
+  <p>Метод match() ищет строку для соответствия регулярному выражению и возвращает совпадения в качестве объекта Array.</p>
+</article>
+
+<article class="article">
+  <h3>Метод padEnd()</h3>
+  <p>Добавляет в конце пробелы до указанной длины строки</p>
+  <code>"Frontend".padEnd(10);
+  <br>“Frontend  ”</code>
+  <p>Добавляет в конце указанные символы до указанной длины строки</p>
+  <code>"Frontend".padEnd(10, “*”);
+  <br>“Frontend**”</code>
+</article>
+
+<article class="article">
+  <h3>Метод repeat()</h3>
+  <p>Без параметров возвращает пустую строку</p>
+  <code>'front'.repeat();
+  <br>''</code>
+  <p>Если параметр 0 или который при привидении к number дает 0 ('0', NaN, false, null, undefined) возвращает пустую строку</p>
+  <code>'front'.repeat(NaN);
+  <br>''</code>
+  <p>Если параметр 1 или при привидении к number дает 1 ('1', true) возвращает исходную строку</p>
+  <code>'front'.repeat(true);
+  'front'</code>
+  <p>Если параметр число или приводится к числу, возвращает строку, повторяющую исходную указанное количество раз</p>
+  <code>'front'.repeat(3);
+  'frontfrontfront'</code>
+  <code>a = 'front';
+  <br>b = a.repeat('3');</code>
+  <p>Метод repeat() не изменяет исходную строку</p>
+  <code>console.log(a); // 'front'</code>
+  <p>Метод repeat() возвращает string</p>
+  <code>console.log(b); // 'frontfrontfront'</code>
+</article>
+
+<article class="article">
+  <h3>Метод replace()</h3>
+  <p>Ищет в строке указанное значение или регулярное выражение и возвращает новую строку, в которой выполнена замена на второй параметр</p>
+  <code>"Frontend".replace(“Front”, “Back”);
+  <br>Backend</code>
+</article>
+
+<article class="article">
+  <h3>Метод replaceAll()</h3>
+  <p>Заменяет все найденные совпадения другой строкой</p>
+  <code>"FrontFrontend".replace(“Front”, “Back”);
+  <br>BackBackend</code>
+</article>
+
+<article class="article">
+  <h3>Метод slice()</h3>
+  <p>Возвращает символы начиная с указанного индекса и до конца строки</p>
+  <code>"Frontend".slice(“5”);
+  <br>end</code>
+  <p>Возвращает символы между двумя индексами</p>
+  <code>"Frontend".slice(“5, 7”);
+  <br>en</code>
+  <p>Можно указывать отрицательные значения</p>
+  <code>"Frontend".slice(“-5, -2”);
+  <br>nte</code>
+</article>
+
+<article class="article">
+  <h3>Метод split()</h3>
+  <p>Без параметров возвращает массив из одного элемента, содержащего исходную строку</p>
+  <code>'Frontend'.split();
+  <br>['Frontend']</code>
+  <p>Если параметр это пустая строка, то возвращает массив из всех символов исходной строки</p>
+  <code>'Frontend'.split('');
+  <br>['F', 'r', 'o', 'n', 't', 'e', 'n', 'd']</code>
+  <p>Возвращает массив строк из исходной строки по символу переданному в параметрах</p>
+  <code>'Front end developer'.split(' ');
+  <br>['Front', 'end', 'developer']</code>
+  <code>a = 'Frontend';
+  <br>b = a.split('');</code>
+  <p>Метод split() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод split() возвращает array</p>
+  <code>console.log(b); // ['F', 'r', 'o', 'n', 't', 'e', 'n', 'd']</code>
+</article>
+
+<article class="article">
+  <h3>Метод substr()</h3>
+  <p>Извлекает часть строки указанной длины</p>
+  <code>"Frontend". substr(2, 3);
+  <br>ron</code>
+</article>
+
+<article class="article">
+  <h3>Метод substring()</h3>
+  <p>Возвращает символы начиная с указанного индекса и до конца строки</p>
+  <code>"Frontend". substring(“5”);
+  <br>end</code>
+  <p>Возвращает символы между двумя индексами</p>
+  <code>"Frontend". substring(“5, 7”);
+  <br>en</code>
+  <p>В отличие от slice, можно задавать start больше, чем end. Отрицательные значения не поддерживаются, они интерпретируются как 0.</p>
+</article>
+
+<article class="article">
+  <h3>Метод toLowerCase()</h3>
+  <p>Не принимает параметры, преобразует все символы в нижний регистр, возвращает новую строку</p>
+  <code>'Frontend'.toLowerCase();
+  <br>frontend</code>   
+  <code>a = 'Frontend';
+  <br>b = a.toLowerCase();</code>
+  <p>Метод toLowerCase() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод toLowerCase() возвращает string</p>
+  <code>console.log(b); // 'frontend'</code>
+</article>
+
+<article class="article">
+  <h3>Метод toUpperCase()</h3>
+  <p>Не принимает параметры, преобразует все символы в верхний регистр, возвращает новую строку</p>
+  <code>'Frontend'.toUpperCase();
+  <br>'FRONTEND'</code>
+  <code>a = 'Frontend';
+  <br>b = a.toUpperCase();</code>
+  <p>Метод toUpperCase() не изменяет исходную строку</p>
+  <code>console.log(a); // 'Frontend'</code>
+  <p>Метод toUpperCase() возвращает string</p>
+  <code>console.log(b); // 'FRONTEND'</code>
+</article>
+
+<article class="article">
+  <h3>Метод trim()</h3>
+  <p>Возвращает строку без пробелов в начале и конце строки</p>
+  <code>"   Frontend   ".trim();
+  <br>“Frontend”</code>
+</article>
+
+<article class="article">
+  <h3>Метод trimEnd()</h3>
+  <p>Возвращает строку без пробелов в конце строки</p>
+  <code>"   Frontend   ".trimEnd();
+  <br>“   Frontend”</code>
+</article>
+
+<article class="article">
+  <h3>Метод trimStart()</h3>
+  <p>Возвращает строку без пробелов в начале строки</p>
+  <code>"   Frontend   ".trimStart();
+  <br>“Frontend   ”</code>
+</article>

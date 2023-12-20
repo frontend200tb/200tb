@@ -40,7 +40,6 @@ frontYt.elemSection = createElemSection(frontYt.elements);
 
 // 7. Экспортируем функцию showFrontYt()
 export default function showFrontYt() {
-  console.log('frontYt', frontYt);
   const elementFrontYt = document.querySelector('.front-yt');
   if (elementFrontYt) {
     elementFrontYt.append(frontYt.mainNav);

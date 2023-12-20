@@ -1,22 +1,45 @@
 /** **************
 Скрипт из файла nav.js
-News Auto Books Mail Programs Shops
-Audio Books Films Links Music Radio Youtube
-Links Books Shops Youtube
-Frontend Books Code Edu Learned Node Offline Tools Vacancy Video Youtube
+создает ссылки в меню nav для каждого пункта меню header_nav
+Code HTML CSS JS TS C# Markdown Pug Sass Php
+Frontend Books Code Edu Learned Node Offline Vacancy Video Youtube
 ****************** */
 
-import { dataNavFront } from './data-nav';
+import {
+  dataNavCode, dataNavFront,
+} from './data-nav';
 import { endUrl } from '../header/header-nav/header-nav';
 
 const nav = document.getElementById('nav');
 const main = document.getElementById('main');
 
 /** **************
-4. nav для страниц frontend
+1. nav для страниц code
 **************** */
 
-// 4.1 Создаем ссылки из массива dataNavFront
+// 4.1 Создаем ссылки из массива dataNavCode
+createNavCode(dataNavCode);
+
+function createNavCode(navCode) {
+  navCode.forEach((el) => {
+    el.elem = document.createElement('a');
+    el.elem.href = '';
+    el.elem.innerHTML = el.text;
+    el.elem.addEventListener('click', (event) => {
+      event.preventDefault();
+      // добавим class="active"
+      classActive(navCode, el.elem);
+      main.innerHTML = el.content;
+      el.act();
+    });
+  });
+}
+
+/** **************
+2. nav для страниц frontend
+**************** */
+
+// 5.1 Создаем ссылки из массива dataNavFront
 createNavFront(dataNavFront);
 
 function createNavFront(navFront) {
@@ -43,7 +66,16 @@ function classActive(menu, activElem) {
 }
 
 export default function createNav() {
-  // 4.2 Добавим ссылки navFront в nav если адрес index.html
+  // 1.2 Добавим ссылки navCode в nav если адрес code.html
+  if (endUrl === '/code.html') {
+    nav.innerHTML = '';
+    dataNavCode.forEach((el) => {
+      nav.appendChild(el.elem);
+      el.elem.classList.remove('active');
+    });
+  }
+
+  // 2.2 Добавим ссылки navFront в nav если адрес index.html
   if (endUrl === '/index.html') {
     nav.innerHTML = '';
     dataNavFront.forEach((el) => {

@@ -21,7 +21,7 @@ import pageLink from './pages/pages';
 import contentOrder from '../../../js/order';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['DSR 2023 .Net', 'Courses', 'Courses learned', 'Learning', 'RS School', 'RSS 2022 Stage0', 'RSS 2022 Stage1', 'RSS 2022 Stage3 Angular', 'RSS 2023 Stage0', 'Quiz'];
+const asideThemes = ['DSR 2023 .Net', 'RSS 2023 Stage1', 'Courses', 'Courses learned', 'Learning', 'RS School', 'RSS 2022 Stage0', 'RSS 2022 Stage1', 'RSS 2022 Stage3 Angular', 'RSS 2023 Stage0', 'Quiz', 'JS Examples'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 export const asideDiv = [];

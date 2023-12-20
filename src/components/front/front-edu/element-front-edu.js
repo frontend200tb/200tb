@@ -10,7 +10,7 @@ class FrontEdu extends HTMLElement {
     <div class="front-edu" id="front-edu">
       <section class="main__aside">
         <aside class="aside"></aside>
-        <main class="list" id="edu">
+        <main class="main" id="edu">
           <edu-edu></edu-edu>
         </main>
       </section>

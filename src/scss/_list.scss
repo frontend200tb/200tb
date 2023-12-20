@@ -40,6 +40,11 @@ List
     box-shadow: 4px 6px;
   }
 
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+
   & li:nth-child(odd) {
     background-color: antiquewhite;
   }

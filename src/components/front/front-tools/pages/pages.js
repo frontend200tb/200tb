@@ -1,12 +1,12 @@
 /** **************
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ****************** */
-import './elem-tools-tools';
-import './elem-tools-git';
-import './elem-tools-notepad';
-import './elem-tools-sublime';
-import './elem-tools-vscode';
-import './elem-tools-vim';
+import htmlToolsTools from './elem-tools-tools.html';
+import htmlToolsGit from './elem-tools-git.html';
+import htmlToolsNotepad from './elem-tools-notepad.html';
+import htmlToolsSublime from './elem-tools-sublime.html';
+import htmlToolsVscode from './elem-tools-vscode.html';
+import htmlToolsVim from './elem-tools-vim.html';
 import contentOrder from '../../../../js/order';
 
 export default function pageLink() {
@@ -16,7 +16,7 @@ export default function pageLink() {
   if (asideTools) {
     asideTools.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-tools></tools-tools>';
+      currentContent.innerHTML = htmlToolsTools;
       contentOrder();
     });
   }
@@ -25,7 +25,7 @@ export default function pageLink() {
   if (asideGit) {
     asideGit.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-git></tools-git>';
+      currentContent.innerHTML = htmlToolsGit;
       contentOrder();
     });
   }
@@ -34,7 +34,7 @@ export default function pageLink() {
   if (asideNotepad) {
     asideNotepad.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-notepad></tools-notepad>';
+      currentContent.innerHTML = htmlToolsNotepad;
       contentOrder();
     });
   }
@@ -43,7 +43,7 @@ export default function pageLink() {
   if (asideSublime) {
     asideSublime.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-sublime></tools-sublime>';
+      currentContent.innerHTML = htmlToolsSublime;
       contentOrder();
     });
   }
@@ -52,7 +52,7 @@ export default function pageLink() {
   if (asideVscode) {
     asideVscode.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-vscode></tools-vscode>';
+      currentContent.innerHTML = htmlToolsVscode;
       contentOrder();
     });
   }
@@ -61,7 +61,7 @@ export default function pageLink() {
   if (asideVim) {
     asideVim.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<tools-vim></tools-vim>';
+      currentContent.innerHTML = htmlToolsVim;
       contentOrder();
     });
   }

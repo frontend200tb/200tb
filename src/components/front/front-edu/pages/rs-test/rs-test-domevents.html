@@ -1,0 +1,401 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St1] DOM Events</h1>
+
+  <strong>31 вопросов. Выполнил на 84 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Can you differentiate between a real DOM event and a synthetic event created programmatically?</h3>
+
+  <ul>
+    <li>Yes, by checking event.defaultEvent</li>
+    <li>Yes, by calling DOM method isDefaultEvent()</li>
+    <li><strong>Yes, by checking event.isTrusted</strong></li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. event.eventPhase property returns a number. What does it mean?</h3>
+
+  <ul>
+    <li>If this event can bubble</li>
+    <li>How many phases this event has</li>
+    <li><strong>Which phase of the event flow is currently being evaluated</strong></li>
+    <li>Number of event handlers</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. How to remove an event handler which is added by an addEventListener()?</h3>
+
+  <ul>
+    <li>eventListener = null</li>
+    <li>clearEventListener</li>
+    <li><strong>removeEventListener</strong></li>
+    <li>deleteEventListener</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Identify the correct touch event types supported in JavaScript. (checkbox)</h3>
+
+  <ul>
+    <li>touchenter</li>
+    <li><strong>touchstart</strong></li>
+    <li><strong>touchmove</strong></li>
+    <li>touchleave</li>
+    <li><strong>touchend</strong></li>
+    <li><strong>touchcancel</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Is it true that all events in JavaScript bubble by default?</h3>
+
+    <ul>
+      <li><strong>Yes</strong></li>
+      <li>No</li>
+      <li>Yes, they love to attend parties</li>
+    </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. TouchEvent interface is a UIEvent which is dispatched when the state of contacts with a touch-sensitive surface changes. Is this statement correct?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+    <li>Partly correct, it's not UIEvent</li>
+    <li>Partly correct, it follows not the state of contacts</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. What are the advantages of using the addEventListener() method? (checkbox)</h3>
+
+  <ul>
+    <li><strong>Handler can be removed at any time</strong></li>
+    <li><strong>One method call can set unlimited number of handlers to one event</strong></li>
+    <li><strong>Event handler's behavior can be configured (e.g. it can be called once)</strong></li>
+    <li><strong>Adding an unlimited number of handlers to one event</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. What are the different ways to add an event handler in JavaScript? (checkbox)</h3>
+
+  <ul>
+    <li><strong>HTML event handler attribute (inline)</strong></li>
+    <li><strong>DOM property</strong></li>
+    <li>DOM node</li>
+    <li><strong>Special DOM method addEventListener()</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. What can be set as an event handler?</h3>
+
+  <ul>
+    <li>Function</li>
+    <li>Object</li>
+    <li><strong>Function and object</strong></li>
+    <li>None of the above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. What does a constructor 'new Event' do?</h3>
+
+  <ul>
+    <li><strong>Creates an event object</strong></li>
+    <li>Creates an event handler</li>
+    <li>Creates an element for the event passed as argument</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. What does preventDefault() method do?</h3>
+
+  <ul>
+    <li>Creates new event</li>
+    <li>Stop element's bubbling / capturing</li>
+    <li><strong>Prevent element's default behavior</strong></li>
+    <li>Prevent element's bubbling</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. What does the expression 'elem.target !== elem.currentTarget' typically evaluate to?</h3>
+
+  <ul>
+    <li>true</li>
+    <li>false</li>
+    <li><strong>It can be both - true or false</strong></li>
+    <li>Always returns true because it's very confident</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. What does the 'target' property of an event object signify?</h3>
+
+  <ul>
+    <li>It reference to the deepest element to which the event handler has been attached</li>
+    <li><strong>It reference to the deepest element onto which the event was dispatched</strong></li>
+    <li>It stores this event handler</li>
+    <li>None of above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. What Drag Event Types exist? (checkbox)</h3>
+
+  <ul>
+    <li><strong>drag</strong></li>
+    <li><strong>dragend</strong></li>
+    <li><strong>dragenter</strong></li>
+    <li>dragcenter</li>
+    <li><strong>dragover</strong></li>
+    <li><strong>dragleave</strong></li>
+    <li><strong>dragstart</strong></li>
+    <li><strong>drop</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. What events related to focus does FocusEvent interface represent? (checkbox)</h3>
+
+  <ul>
+    <li><strong>focus</strong></li>
+    <li>reblur</li>
+    <li><strong>focusin</strong></li>
+    <li>unfocus</li>
+    <li><strong>blur</strong></li>
+    <li><strong>focusout</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. What is an event bubbling?</h3>
+
+  <ul>
+    <li><strong>Propagation of the event from a child element to its parent elements</strong></li>
+    <li>Propagation of the event from a trigger element to its sibling elements</li>
+    <li>Propagation of the event from a parent element to its child element</li>
+    <li>No propagation</li>
+    <li>A party for events where they all get to bubble</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. What is an event capturing?</h3>
+
+  <ul>
+    <li>Propagation of the event from a child element to its parent elements</li>
+    <li>Propagation of the event from a trigger element to its sibling elements</li>
+    <li><strong>Propagation of the event from a parent element to its child element</strong></li>
+    <li>No propagation</li>
+    <li>When events go on a secret mission</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What is an event delegation?</h3>
+
+  <ul>
+    <li>Consistent list of invoked events</li>
+    <li><strong>When an event handler is put only on a parent element and this element's child elements use this handler when the event happens</strong></li>
+    <li>When an event handler is put only on a child element and this element's parent elements use this handler when the event happens</li>
+    <li>When an event handler is put only on one element and this element's sibling elements use this handler when the event happens</li>
+    <li>A formal meeting where events decide their leader</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What is an 'event' object in an event handler?</h3>
+
+  <ul>
+    <li>Object where the event occurred</li>
+    <li><strong>Operational System Events</strong></li>
+    <li>Global scope object which is passed as an argument to the event handler</li>
+    <li>There is no 'event' object in the event handler</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What is the maximum number of arguments that the addEventListener() method can accept when used on an EventTarget?</h3>
+
+  <ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li><strong>3</strong></li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What methods are available on a JavaScript event object? (checkbox)</h3>
+
+  <ul>
+    <li>preventPropagation</li>
+    <li><strong>preventDefault</strong></li>
+    <li><strong>stopPropagation</strong></li>
+    <li>stopDefault</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What methods can stop bubbling? (checkbox)</h3>
+
+  <ul>
+    <li>elem.removeEventListener()</li>
+    <li><strong>event.stopPropagation()</strong></li>
+    <li>elem.clearEventListener()</li>
+    <li><strong>event.stopImmediatePropagation()</strong></li>
+    <li>event.eventPhase()</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What Mouse Event Types exist? (checkbox)</h3>
+
+  <ul>
+    <li><strong>click</strong></li>
+    <li><strong>contextmenu</strong></li>
+    <li><strong>dblclick</strong></li>
+    <li>mouseenter</li>
+    <li>rightClick</li>
+    <li><strong>mouseup</strong></li>
+    <li>mouseCenter</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What properties are specific to a KeyboardEvent object? (checkbox)</h3>
+
+  <ul>
+    <li><strong>altKey</strong></li>
+    <li><strong>shiftKey</strong></li>
+    <li>keyLocale</li>
+    <li><strong>key</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What properties does an event object have? (checkbox)</h3>
+
+  <ul>
+    <li><strong>target</strong></li>
+    <li><strong>currentTarget</strong></li>
+    <li>bubble</li>
+    <li><strong>eventPhase</strong></li>
+    <li><strong>type</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What properties does TouchEvent have? (checkbox)</h3>
+
+  <ul>
+    <li>touch</li>
+    <li><strong>touches</strong></li>
+    <li>touchcancel</li>
+    <li><strong>targetTouches</strong></li>
+    <li>touchleave</li>
+    <li><strong>changedTouches</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Which method is most recommended for adding an event handler in JavaScript?</h3>
+
+  <ul>
+    <li>Use an HTML event handler attribute (inline)</li>
+    <li>Use a DOM property</li>
+    <li>Use a DOM node</li>
+    <li><strong>Use a special DOM method addEventListener()</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. Which of the following are valid focus event types in JavaScript? (checkbox)</h3>
+
+  <ul>
+    <li><strong>blur</strong></li>
+    <li>reblur</li>
+    <li>unfocus</li>
+    <li><strong>focus</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Which of the following is a property of the DragEvent object?</h3>
+
+  <ul>
+    <li>drag</li>
+    <li><strong>dataTransfer</strong></li>
+    <li>dragend</li>
+    <li>dragenter</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which properties are part of the MouseEvent object? (checkbox)</h3>
+
+  <ul>
+    <li><strong>altKey</strong></li>
+    <li>enterKey</li>
+    <li><strong>button</strong></li>
+    <li><strong>clientX</strong></li>
+    <li>clientZ</li>
+    <li><strong>screenX</strong></li>
+    <li><strong>screenY</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which sets of arguments are valid for the addEventListener() method? (checkbox)</h3>
+
+  <ul>
+    <li><strong>type, listener, useCapture</strong></li>
+    <li>only listener</li>
+    <li><strong>type, listener</strong></li>
+    <li>only options</li>
+    <li>only type</li>
+    <li><strong>type, listener, options</strong></li>
+  </ul>
+</article>

@@ -1,0 +1,124 @@
+<h1>TypeScript</h1>
+
+<div class="content__menu">
+  <p class="content__menu-link" id="content__menu-link1">about</p>
+  <p class="content__menu-link" id="content__menu-link2">links</p>
+  <p class="content__menu-link" id="content__menu-link3">install</p>
+  <p class="content__menu-link" id="content__menu-link4">tsconfig.json</p>
+  <p class="content__menu-link" id="content__menu-link5">typescript</p>
+</div>
+
+<div class="content__items">
+
+  <div class="content__item" id="content__item1">
+    <h3>About</h3>
+    <ul>
+      <li>
+        <p>TypeScript is JavaScript with syntax for types.</p>
+        <p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at
+          any scale.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content__item" id="content__item2">
+    <h3>Ссылки</h3>
+    <ul>
+      <li>
+        <p><a href="https://www.typescriptlang.org/">typescriptlang.org</a> Typescript документация</p>
+        <p><a
+            href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">typescriptlang.org/docs/handbook/typescript-in-5-minutes.html</a>
+          Typescript за 5 минут</p>
+        <p><a href="https://www.typescriptlang.org/play/">typescriptlang.org/play</a> Песочница</p>
+        <p><a href="http://typescript-lang.ru/docs/">typescript-lang.ru/docs</a></p>
+        <p><a href="https://metanit.com/web/typescript/1.1.php">metanit.com/web/typescript</a> Руководство по TypeScript
+          (обновление 2023-01-09)</p>
+        <p><a href="https://my-js.org/docs/guide/ts/">my-js.org/docs/guide/ts</a> Карманная книга по Typescript</p>
+        <p><a href="https://www.totaltypescript.com/">totaltypescript.com</a></p>
+        <p><a href="https://type-level-typescript.com/">type-level-typescript.com</a></p>
+      </li>
+    </ul>
+    <h3>Статьи на habr</h3>
+    <ul>
+      <li>
+        <p><a href="https://habr.com/ru/company/macloud/blog/557996/">Практическое руководство по TypeScript для
+            разработчиков (2021-05-18)</a></p>
+        <p><a href="https://habr.com/ru/post/667104/">Почему вы должны начать писать на TypeScript в 2022 году
+            (2022-05-22)</a></p>
+        <p><a href="https://habr.com/ru/post/667156/">Принципы ООП в TypeScript (2022-05-23)</a></p>
+      </li>
+    </ul>
+    <h3>Статьи</h3>
+    <ul>
+      <li>
+        <p><a href="https://ru.hexlet.io/blog/posts/sistema-tipov-v-typescript">Как устроена система типов в TypeScript
+            (Алексей Покровский 2022-12-06)</a></p>
+        <p><a
+            href="https://ru.hexlet.io/blog/posts/vse-chto-nuzhno-znat-novichku-o-typescript-ischerpyvayuschiy-gayd">Что
+            такое TypeScript и зачем он нужен (Екатерина Самохвалова 2023-07-14)</a></p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content__item" id="content__item3">
+    <h3>Установка</h3>
+    <ol>
+      <li>Установка typescript глобально<code>npm i -g typescript</code></li>
+      <li>Проверим установленную версию typescript<code>tsc -v</code></li>
+      <li>Теперь мы можем скомпилировать любой ts файл (например, index.ts) в js файл командой<code>tsc index.ts</code>
+        При этом создастся файл index.js</li>
+      <li>Создадим папку для нового проекта<code>mkdir ts_project</code></li>
+      <li>Перейдем в папку ts_project<code>cd ts_project</code></li>
+      <li>Инициализируем typescript в новом проекте<code>tsc init</code></li>
+      <li>При этом будет создан файл конфигурации<code>tsconfig.json</code></li>
+      <li>Теперь можно скомпилировать все ts файлы проекта командой <code>tsc</code></li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item4">
+    <h3>tsconfig.json</h3>
+    <ol>
+      <li>Вся конфигурация для компилятора ts файлов записывается в файл tsconfig.json, например
+        <code>
+          {
+          <br>&nbsp;&nbsp;"CompilerOptions": {
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;"target": "es6",
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;"sourceMap": true,
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;"outFile": "build/tsc.js"
+          <br>&nbsp;&nbsp;},
+          <br>&nbsp;&nbsp;"include": [
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;"src"
+          <br>&nbsp;&nbsp;],
+          <br>&nbsp;&nbsp;"exclude": [
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;"node_modules"
+          <br>&nbsp;&nbsp;]
+          <br>}
+        </code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="content__item" id="content__item5">
+    <h3>Typescript</h3>
+    <ul>
+      <li>
+        <p>Typescript это надстройка над языком Javascript со строгой типизацией, где без указания типа создаваемых
+          данных ничего сделать нельзя. Строгая типизация гарантирует что уменьшится количество ошибок от несовпадения
+          данных которые мы ожидаем на вход нашей функции.</p>
+        <p>Typescript это компилируемый язык, в отличие от Javascript. Но после компиляции он становится обычным
+          Javascript, который выполняется в браузере.</p>
+        <p>Плюсы тайпскрипта. Кроссплатформенный язык. Предпочтителен для больших приложений. Улучшает читаемость кода и
+          поддержку готового приложения. Улучшает документацию проекта. На этапе разработке показывает ошибки.
+          Синтаксический сахар.</p>
+        <P>Минусы тайпскрипта. Больше кода примерно на 30% при разработке, но на размер конечного кода (который будет
+          уже на javascript) это не повлияет. Требует файла конфигурации где описывается его работа. Отдельный пакет для
+          языка.</P>
+        <p>Типы указываются при объявлении переменной.<code>let isMoodGood: boolean;</code></p>
+        <p>Если при объявлении мы записываем в переменную значение то тип указывать не
+          обязательно<code>let isMoodGood = true;</code>но можно и указывать<code>let isMoodGood: boolean = true;</code>
+        </p>
+        <p>Типы данных: Boolean, String, Number, Array, Tuple, Enum, Any, Void, Null, Undefined, Never.</p>
+      </li>
+    </ul>
+  </div>
+</div>

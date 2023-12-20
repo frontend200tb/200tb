@@ -29,7 +29,7 @@ const dataVideoJs = [
     time_h_m: [7, 22],
     size: '1.7 gb',
     isLearned: true,
-    dateLearned: '2022-10-13 чт',
+    dateLearned: '2023-12-04 пн, 2022-10-13 чт',
   },
 
   {
@@ -45,7 +45,7 @@ const dataVideoJs = [
     time_h_m: [5, 0],
     size: '1.155 gb',
     isLearned: true,
-    dateLearned: '2022-09-16 пт',
+    dateLearned: '2023-12-05 вт, 2022-09-16 пт',
   },
 
   {
@@ -217,11 +217,11 @@ const dataVideoJs = [
     title: 'Javascript. Только для участников основного курса',
     author: 'Дмитрий Лаврик',
     name: '',
-    numberLessons: '',
+    numberLessons: '4 урока',
     time_h_m: [8, 37],
     size: '1.2 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2023-11-15 ср',
   },
 
   {
@@ -247,13 +247,13 @@ const dataVideoJs = [
     category: 'code',
     theme: 'javascript',
     title: 'Профессиональный JavaScript уровень 1',
-    author: '',
+    author: 'Игорь Алексеенко',
     name: 'HTML Academy',
-    numberLessons: '',
+    numberLessons: '10',
     time_h_m: [22, 48],
     size: '10 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2023-11-29 ср',
   },
 
   {
@@ -270,6 +270,22 @@ const dataVideoJs = [
     size: '7 gb',
     isLearned: false,
     dateLearned: '',
+  },
+
+  {
+    id: 16,
+    year: 2018,
+    date: '',
+    category: 'code',
+    theme: 'javascript',
+    title: 'Javascript для профессионалов (Advanced)',
+    author: 'Дмитрий Охрименко',
+    name: 'ITVDN',
+    numberLessons: '10 уроков',
+    time_h_m: [12, 2],
+    size: '3 gb',
+    isLearned: true,
+    dateLearned: '2023-12-12 вт',
   },
 
   {

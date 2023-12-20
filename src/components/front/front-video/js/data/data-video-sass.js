@@ -4,7 +4,7 @@ const dataVideoSass = [
     id: 1,
     year: 2017,
     date: '',
-    category: 'npm',
+    category: 'code',
     theme: 'sass',
     title: 'Препроцессоры Sass и Less',
     author: 'Владилен Минин',

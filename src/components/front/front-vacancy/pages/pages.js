@@ -1,3 +1,4 @@
+import htmlPostcross from './elem-postcross.html';
 import htmlInterview from './elem-interview.html';
 import htmlMetalampFrontend1 from './elem-metalamp-frontend1.html';
 import htmlMetalampFrontend2 from './elem-metalamp-frontend2.html';
@@ -19,6 +20,15 @@ export function pageLink() {
     asideInterview.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlInterview;
+      contentOrder();
+    });
+  }
+
+  const asidePostcross = document.getElementById('vacancy-postcross');
+  if (asidePostcross) {
+    asidePostcross.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlPostcross;
       contentOrder();
     });
   }

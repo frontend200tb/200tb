@@ -283,15 +283,15 @@ const dataFrontYtRus = [
   {
     id: 21,
     theme: 'frontend',
-    title: 'Фронтенд',
+    title: 'Yandex for Frontend',
     author: '',
     city: 'Москва',
     country: 'Россия',
-    link: 'https://www.youtube.com/@user-kd6bu2qj1v/videos',
-    site: 'https://academy.yandex.ru/',
+    link: 'https://www.youtube.com/@YandexforFrontend/videos',
+    site: 'https://events.yandex.ru/',
     dateFirstVideo: '2014.11.05',
     dateLastVideo: '2022.09.01',
-    amountVideos: 619,
+    amountVideos: 620,
   },
 
   {
@@ -3097,14 +3097,14 @@ const dataFrontYtRus = [
   {
     id: 222,
     theme: 'frontend',
-    title: 'makecsx',
-    author: 'Лом-Али (Лев) Гуржиханов',
+    title: 'CLOWNdsnt',
+    author: 'Сергей Пузанков',
     city: '',
     country: '',
-    link: 'https://www.youtube.com/@makecsx/videos',
+    link: 'https://www.youtube.com/@CLOWNdsnt/videos',
     site: '',
-    dateFirstVideo: '2018.02.15',
-    dateLastVideo: '2022.05.21',
+    dateFirstVideo: '2021.10.17',
+    dateLastVideo: '2021.10.28',
     amountVideos: 66,
   },
 
@@ -3963,20 +3963,6 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 284,
-    theme: 'frontend',
-    title: 'Helio',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@helio404/videos',
-    site: '',
-    dateFirstVideo: '2022.09.14',
-    dateLastVideo: '2023.01.07',
-    amountVideos: 41,
-  },
-
-  {
     id: 285,
     theme: 'frontend',
     title: 'METATECH',
@@ -4057,6 +4043,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2022.10.10',
     dateLastVideo: '2023.05.05',
+    amountVideos: 40,
+  },
+
+  {
+    id: 297,
+    theme: 'frontend',
+    title: 'IT BEAR',
+    author: '',
+    city: 'Москва',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@itbear5698/videos',
+    site: '',
+    dateFirstVideo: '2022.03.20',
+    dateLastVideo: '2023.11.29',
     amountVideos: 40,
   },
 
@@ -4169,6 +4169,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2019.12.07',
     dateLastVideo: '2022.10.25',
+    amountVideos: 38,
+  },
+
+  {
+    id: 298,
+    theme: 'frontend',
+    title: 'Помогите, я джун',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@helpMeImJunior/videos',
+    site: '',
+    dateFirstVideo: '2023.07.26',
+    dateLastVideo: '2023.11.18',
     amountVideos: 38,
   },
 
@@ -4688,6 +4702,20 @@ const dataFrontYtRus = [
     dateFirstVideo: '2018.03.11',
     dateLastVideo: '2019.01.17',
     amountVideos: 29,
+  },
+
+  {
+    id: 336,
+    theme: 'frontend',
+    title: 'IT - Science',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@IT-Science/videos',
+    site: '',
+    dateFirstVideo: '2020.08.23',
+    dateLastVideo: '2023.11.12',
+    amountVideos: 28,
   },
 
   {
@@ -5349,6 +5377,20 @@ const dataFrontYtRus = [
   },
 
   {
+    id: 284,
+    theme: 'frontend',
+    title: 'Helio',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@helio404/videos',
+    site: '',
+    dateFirstVideo: '2022.09.14',
+    dateLastVideo: '2023.01.07',
+    amountVideos: 18,
+  },
+
+  {
     id: 383,
     theme: 'frontend',
     title: 'JS ACADEMY – Влад Грибенников',
@@ -5430,6 +5472,20 @@ const dataFrontYtRus = [
     dateFirstVideo: '2019.11.26',
     dateLastVideo: '2020.04.25',
     amountVideos: 17,
+  },
+
+  {
+    id: 389,
+    theme: 'frontend',
+    title: 'CosyFrontend',
+    author: 'Настя',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@CosyFrontendNastia/videos',
+    site: '',
+    dateFirstVideo: '2023.03.20',
+    dateLastVideo: '2023.06.08',
+    amountVideos: 16,
   },
 
   {
@@ -5741,6 +5797,20 @@ const dataFrontYtRus = [
   },
 
   {
+    id: 222,
+    theme: 'frontend',
+    title: 'makecsx',
+    author: 'Лом-Али (Лев) Гуржиханов',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@makecsx/videos',
+    site: '',
+    dateFirstVideo: '2018.02.15',
+    dateLastVideo: '2022.05.21',
+    amountVideos: 13,
+  },
+
+  {
     id: 411,
     theme: 'frontend',
     title: 'Merrick',
@@ -5975,6 +6045,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2023.07.03',
     dateLastVideo: '2023.08.11',
+    amountVideos: 11,
+  },
+
+  {
+    id: 427,
+    theme: 'frontend',
+    title: 'Тьюринг — Школа программирования',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@turing_pro/videos',
+    site: '',
+    dateFirstVideo: '2022.11.01',
+    dateLastVideo: '2023.02.28',
     amountVideos: 11,
   },
 

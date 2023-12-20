@@ -1,0 +1,504 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St1] DOM Api</h1>
+
+  <strong>34 вопроса. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Are 'parentElement' and 'parentNode' properties always equal?</h3>
+
+  <ul>
+    <li>Yes, always, since they return the same value</li>
+    <li>Never, as they return different values</li>
+    <li><strong>Often, but not always, depending on the element they belong to</strong></li>
+    <li>No, 'parentElement' property doesn't exist</li>
+    <li>No, 'parentNode' property doesn't exist</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. A tag &lt;input&gt; belongs to the 'HTMLInputElement' class. It inherits methods and properties from: (checkbox)</h3>
+
+  <ul>
+    <li>HTMLInputElement</li>
+    <li>HTMLElement</li>
+    <li>Element</li>
+    <li>Window</li>
+    <li>EventTarget</li>
+    <li>Node</li>
+    <li>Document</li>
+    <li>Object</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Can the DOM properties be typed and accept any values except strings?</h3>
+
+  <ul>
+    <li>Yes, they accept values with the boolean type</li>
+    <li>Yes, they accept values with types string and object</li>
+    <li>Yes, they accept values with the types boolean, string and object</li>
+    <li>No, they can't</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Does the specification allow to add HTML tags after the &lt;body&gt; closing tag?</h3>
+
+  <ul>
+    <li>Yes, but these tags will be rendered after &lt;body&gt; in the DOM tree</li>
+    <li>Yes, but these tags will be rendered inside &lt;body&gt;</li>
+    <li>Yes, but they will not render</li>
+    <li>No, and such tags will not render</li>
+    <li>No, but they will render inside &lt;body&gt;</li>
+    <li>No, but they will render after &lt;body&gt; in the DOM tree</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Does the tag &lt;body&gt; accept the type attribute following the specification as in the example: &lt;body id="body" type="JS"&gt;?</h3>
+
+  <ul>
+    <li>Yes, and you can refer to it</li>
+    <li>Yes, but only using the special method 'elem.setAttribute(name, value)'</li>
+    <li>Yes, but only using the special method 'elem.getAttribute(name)'</li>
+    <li>Not at all</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. How do you obtain the value of an element's 'data-name' attribute?</h3>
+
+  <ul>
+    <li>elem.dataset(name)</li>
+    <li>elem.getData(name)</li>
+    <li>elem.getAttribute(name)</li>
+    <li>elem.attributes(name)</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. How many types of nodes exist according following the documentation?</h3>
+
+  <ul>
+    <li>3</li>
+    <li>4</li>
+    <li>7</li>
+    <li>10</li>
+    <li>12</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Is a comment considered a node in HTML?</h3>
+
+  <ul>
+    <li>Yes, it is a text node</li>
+    <li>No, it's not a node</li>
+    <li>Yes, comments are separate elements/tags</li>
+    <li>Yes, comments are nodes of type 'comment'</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Is it mandatory under HTML standards to include a &lt;tbody&gt; within a &lt;table&gt;>?</h3>
+
+    <ul>
+      <li>Yes, because the table won't render correctly without it</li>
+      <li>Yes, it's required but the table can still be created without it</li>
+      <li>No, it should not be inside a table according to the standard</li>
+      <li>No, it's required outside of a table according to the standard</li>
+    </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. Is the condition 'elem.childNodes[elem.childNodes.length] === elem.lastChild' always truthy?</h3>
+
+  <ul>
+    <li>Yes, always</li>
+    <li>Never</li>
+    <li>Only when lastChild promises to be on its best behavior</li>
+    <li>Yes, if the elem has child nodes</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Is the condition truthy: document.body.parentNode === document.documentElement?</h3>
+
+  <ul>
+    <li>Yes</li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. Is the statement 'elem.childNodes[0] === elem.firstChild' always true?</h3>
+
+  <ul>
+    <li>Yes, always</li>
+    <li>Never</li>
+    <li>It's true if the elem has child nodes</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. It's a root "abstract" class. Instances of this class can't be created. The class is a basis for all events. - What class is this statement about?</h3>
+
+  <ul>
+    <li>Node</li>
+    <li>EventTarget</li>
+    <li>Element</li>
+    <li>HTMLElement</li>
+    <li>None of the above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Look at the code example. What of the following tags are descendants of <body> in a browser? (checkbox)</h3>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+  &lt;div&gt;Start&lt;/div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;Info 1&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Info 2&lt;/b&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+  <ul>
+    <li>&lt;html&gt;</li>
+    <li>&lt;body&gt;</li>
+    <li>&lt;div&gt;</li>
+    <li>&lt;ul&gt;</li>
+    <li>&lt;li&gt;</li>
+    <li>&lt;b&gt;</li>
+    <li>&lt;head&gt;</li>
+    <li>&lt;script&gt;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Look at the code. What of the following tags are child nodes of &lt;html&gt; in browser? (checkbox)</h3>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+  &lt;div&gt;Start&lt;/div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;Info 1&lt;/b&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Info 2&lt;/b&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+  <ul>
+    <li>&lt;html&gt;</li>
+    <li>&lt;body&gt;</li>
+    <li>&lt;div&gt;</li>
+    <li>&lt;ul&gt;</li>
+    <li>&lt;li&gt;</li>
+    <li>&lt;b&gt;</li>
+    <li>&lt;head&gt;</li>
+    <li>&lt;script&gt;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. What does a property elem.childNodes store?</h3>
+
+  <ul>
+    <li>Element</li>
+    <li>Function</li>
+    <li>Object</li>
+    <li>Array</li>
+    <li>Collection</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. What does describe the method 'document.write' correctly? (checkbox)</h3>
+
+  <ul>
+    <li>It works only when the page is loading</li>
+    <li>The document's content will remain the same if the method has been called after the page is loaded</li>
+    <li>It will overwrite the document's content if the method has been called after the page is loaded</li>
+    <li>This method doesn't exist</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What is an HTML tag in the Document Object Model?</h3>
+
+  <ul>
+    <li>Object</li>
+    <li>Variable</li>
+    <li>Text</li>
+    <li>Link</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What is stored in a document.head.nextElementSibling property?</h3>
+
+  <ul>
+    <li>html</li>
+    <li>[object Object]</li>
+    <li>Nothing, code will throw an error</li>
+    <li>head</li>
+    <li>body</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What method adds a new node following the existing node?</h3>
+
+  <ul>
+    <li>append</li>
+    <li>prepend</li>
+    <li>before</li>
+    <li>after</li>
+    <li>replaceWith</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What method adds a new node to the end of the existing element?</h3>
+
+  <ul>
+    <li>append</li>
+    <li>prepend</li>
+    <li>before</li>
+    <li>after</li>
+    <li>replaceWith</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What method returns the value of the specified element attribute?</h3>
+
+  <ul>
+    <li>hasAttribute()</li>
+    <li>getAttribute()</li>
+    <li>setAttribute()</li>
+    <li>attributes()</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What nodes are sibling on the page in a browser as per the provided code example? (checkbox)</h3>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;div&gt;Start&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;b&gt;Info 1&lt;/b&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;b&gt;Info 2&lt;/b&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/pre&gt;
+
+  <ul>
+    <li>&lt;head&gt; and &lt;body&gt;</li>
+    <li>&lt;html&gt; and &lt;body&gt;</li>
+    <li>&lt;div&gt; and &lt;body&gt;</li>
+    <li>&lt;div&gt; and &lt;ul&gt;</li>
+    <li>&lt;li&gt; and &lt;li&gt;</li>
+    <li>&lt;li&gt; and &lt;b&gt;</li>
+    <li>&lt;b&gt; and &lt;b&gt;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What should be used as the first parameter for the method 'elem.insertAdjacentHTML(value1,value2)' to add a &lt;html&gt; tag following the 'elem'?</h3>
+
+  <ul>
+    <li>beforebegin</li>
+    <li>afterbegin</li>
+    <li>beforeend</li>
+    <li>afterend</li>
+    <li>"beforebegin"</li>
+    <li>"afterbegin"</li>
+    <li>"beforeend"</li>
+    <li>"afterend"</li>
+    <li>afterparty</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What the difference is between the methods 'Element.append' and 'Node.appendChild'? (checkbox)</h3>
+
+  <ul>
+    <li>'append' returns nothing, and 'appendChild' return the added node object</li>
+    <li>'append' can add several nodes and strings when 'appendChild' can add only one node</li>
+    <li>'appendChild' is deprecated as well as 'insertBefore', 'replaceChild', 'removeChild'. The 'append' method is recommended for using together with 'prepend', 'before', 'after', 'remove', 'replaceWith'</li>
+    <li>'appendChild' accepts strings together with nodes, 'append' accepts only nodes</li>
+    <li>There is no difference</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What will be the result of the following code execution: someDiv.innerHTML += 'hi'?</h3>
+
+  <ul>
+    <li>It will add 'hi' to the existing text content</li>
+    <li>It replaces the content of 'someDiv' with 'hi'</li>
+    <li>It will overwrite the text content of 'someDiv' element together with its child elements and replace all with a concatenation of the old content and 'hi'</li>
+    <li>It will throw an error</li>
+    <li>It says 'hi' back, because someDiv is friendly</li>
+    <li>It will replace the someDiv element with 'hi'</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Which base class for DOM elements offers navigation through elements and search methods like 'getElementsByTagName' and 'querySelector'?</h3>
+
+  <ul>
+    <li>Node</li>
+    <li>EventTarget</li>
+    <li>Element</li>
+    <li>HTMLElement</li>
+    <li>None of the above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. Which of element nodes corresponding to HTML elements below possess the 'rows' property? (checkbox)</h3>
+
+  <ul>
+    <li>table</li>
+    <li>tr</li>
+    <li>th</li>
+    <li>tfoot</li>
+    <li>td</li>
+    <li>tbody</li>
+    <li>thead</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Which of the expressions are correct and really change a page's style? (checkbox)</h3>
+
+  <ul>
+    <li>document.body.style.margin = 10;</li>
+    <li>document.body.style.margin = '10';</li>
+    <li>document.body.style.margin = '10px';</li>
+    <li>document.body.style.margin = 10px;</li>
+    <li>document.body.style.marginTop = '1rem';</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which of the following classes inherit from the 'Element' class? (checkbox)</h3>
+
+  <ul>
+    <li>SVGElement</li>
+    <li>HTMLInputElement</li>
+    <li>XMLElement</li>
+    <li>HTMLElement</li>
+    <li>HTMLAnchorElement</li>
+    <li>HTMLBodyElement</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which of the following methods exist for the Element.classList property? (checkbox)</h3>
+
+  <ul>
+    <li>add</li>
+    <li>remove</li>
+    <li>toggle</li>
+    <li>replaceWith</li>
+    <li>contains</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which of the following options are nodes? (checkbox)</h3>
+
+  <ul>
+    <li>comments</li>
+    <li>text nodes</li>
+    <li>HTML tags</li>
+    <li>JavaScript nodes</li>
+    <li>document</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. Which of the following options return an elements collection? (checkbox)</h3>
+
+  <ul>
+    <li>document.getElementById(id)</li>
+    <li>elem.getElementById(id)</li>
+    <li>document.querySelector('div')</li>
+    <li>document.querySelectorAll('div')[0]</li>
+    <li>document.querySelectorAll('div')</li>
+    <li>elem.matches('elem')</li>
+    <li>document.getElementsByName(name)</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>34. Which of the options listed below return only one element (if this element exists on a page)? (checkbox)</h3>
+
+  <ul>
+    <li>document.getElementById(id)</li>
+    <li>document.getElementsByName(name)</li>
+    <li>document.querySelector('div')</li>
+    <li>document.querySelectorAll('div')[0]</li>
+    <li>document.querySelectorAll('div')</li>
+    <li>elem.matches('elem')</li>
+    <li>elem.getElementsByTagName('div')</li>
+  </ul>
+</article>

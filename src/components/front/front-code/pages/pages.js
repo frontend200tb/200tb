@@ -3,11 +3,11 @@ import htmlCodeHtml from './elem-code-html.html';
 import htmlCodeCss from './elem-code-css.html';
 import htmlCodeCssSel from './elem-code-css-sel.html';
 import htmlCodeJs from './elem-code-js.html';
+import htmlCodeTs from './elem-code-ts.html';
 import htmlCodeCsharp from './elem-code-csharp.html';
 import htmlCodeMarkdown from './elem-code-markdown.html';
 import htmlCodePug from './elem-code-pug.html';
 import htmlCodeSass from './elem-code-sass.html';
-import htmlCodeTailwind from './elem-code-tailwind.html';
 import htmlCodePhp from './elem-code-php.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
@@ -40,6 +40,15 @@ export default function pageLink() {
     });
   }
 
+  const asideTs = document.getElementById('code-typescript');
+  if (asideTs) {
+    asideTs.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlCodeTs;
+      contentOrder();
+    });
+  }
+
   const asideCsharp = document.getElementById('code-c');
   if (asideCsharp) {
     asideCsharp.addEventListener('click', (e) => {
@@ -63,15 +72,6 @@ export default function pageLink() {
     asideSass.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlCodeSass;
-      contentOrder();
-    });
-  }
-
-  const asideTailwind = document.getElementById('code-tailwind');
-  if (asideTailwind) {
-    asideTailwind.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlCodeTailwind;
       contentOrder();
     });
   }

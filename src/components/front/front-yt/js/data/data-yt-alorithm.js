@@ -151,11 +151,11 @@ const dataYtAlgorithm = [
     site: '',
     dateFirstVideo: '2014.11.10',
     dateLastVideo: '2023.10.19',
-    amountVideos: 442,
+    amountVideos: 451,
   },
 
   {
-    id: 12,
+    id: 13,
     theme: 'Алгоритмы',
     title: 'Кафедра ИВМ МФТИ',
     author: '',
@@ -169,7 +169,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 13,
+    id: 14,
     theme: 'Алгоритмы',
     title: 'Pavel Mavrin',
     author: '',
@@ -183,7 +183,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 14,
+    id: 15,
     theme: 'Алгоритмы',
     title: 'Тинькофф Образование',
     author: '',
@@ -197,7 +197,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 15,
+    id: 16,
     theme: 'Алгоритмы',
     title: 'alishev',
     author: '',
@@ -211,7 +211,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 16,
+    id: 17,
     theme: 'Алгоритмы',
     title: 'Niyaz Nigmatullin',
     author: '',
@@ -225,7 +225,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 17,
+    id: 18,
     theme: 'Алгоритмы',
     title: 'ACM MIET',
     author: '',

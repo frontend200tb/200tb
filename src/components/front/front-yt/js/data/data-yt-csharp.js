@@ -17,6 +17,20 @@ const dataYtCsharp = [
   {
     id: 2,
     theme: 'C#',
+    title: 'SHIFU',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@shifuio/videos',
+    site: '',
+    dateFirstVideo: '2015.01.23',
+    dateLastVideo: '2023.11.20',
+    amountVideos: 508,
+  },
+
+  {
+    id: 3,
+    theme: 'C#',
     title: 'Byte++',
     author: '',
     city: '',
@@ -29,7 +43,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 3,
+    id: 4,
     theme: 'C#',
     title: 'SimpleCode',
     author: '',
@@ -43,7 +57,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 4,
+    id: 5,
     theme: 'C#',
     title: 'XpucT',
     author: 'Хачатур',
@@ -59,6 +73,20 @@ const dataYtCsharp = [
   {
     id: 5,
     theme: 'C#',
+    title: 'XpucT',
+    author: 'АйтишныйДомосед',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@ITHomester/videos',
+    site: '',
+    dateFirstVideo: '2020.12.15',
+    dateLastVideo: '2023.11.06',
+    amountVideos: 225,
+  },
+
+  {
+    id: 6,
+    theme: 'C#',
     title: 'Victor Dudarev',
     author: 'Виктор Дударев',
     city: '',
@@ -71,7 +99,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 6,
+    id: 7,
     theme: 'C#',
     title: 'IRON PROGRAMMER',
     author: '',
@@ -85,7 +113,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 7,
+    id: 8,
     theme: 'C#',
     title: 'Програмысли',
     author: 'Михаил Фленов',
@@ -99,7 +127,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 8,
+    id: 9,
     theme: 'C#',
     title: 'CODE BLOG',
     author: '',
@@ -113,7 +141,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 9,
+    id: 10,
     theme: 'C#',
     title: 'Abanking Education',
     author: '',
@@ -127,7 +155,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 10,
+    id: 11,
     theme: 'C#',
     title: 'EngineerSpock - IT & программирование',
     author: '',
@@ -141,7 +169,21 @@ const dataYtCsharp = [
   },
 
   {
-    id: 11,
+    id: 12,
+    theme: 'C#',
+    title: 'Andrey Shyrokoriadov',
+    author: 'Андрей Широкорядов',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@AndreyShyrokoriadov/videos',
+    site: '',
+    dateFirstVideo: '2020.12.20',
+    dateLastVideo: '2023.07.01',
+    amountVideos: 124,
+  },
+
+  {
+    id: 13,
     theme: 'C#',
     title: 'TesIa OfficiaI',
     author: '',
@@ -155,7 +197,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 12,
+    id: 14,
     theme: 'C#',
     title: 'Denis Kirin',
     author: '',
@@ -169,7 +211,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 13,
+    id: 15,
     theme: 'C#',
     title: 'SBeregovoyRU',
     author: '',
@@ -183,7 +225,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 14,
+    id: 16,
     theme: 'C#',
     title: 'Програмысли Видеоуроки',
     author: 'Михаил Фленов',
@@ -197,7 +239,35 @@ const dataYtCsharp = [
   },
 
   {
-    id: 15,
+    id: 17,
+    theme: 'C#',
+    title: 'Excalib',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@Excalib/videos',
+    site: '',
+    dateFirstVideo: '2018.02.03',
+    dateLastVideo: '2023.11.14',
+    amountVideos: 55,
+  },
+
+  {
+    id: 18,
+    theme: 'C#',
+    title: 'Андрей Старинин',
+    author: 'Андрей Старинин',
+    city: 'Воронеж',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@StarininAndrey/videos',
+    site: 'https://github.com/anst-foto',
+    dateFirstVideo: '2021.12.12',
+    dateLastVideo: '2023.05.16',
+    amountVideos: 52,
+  },
+
+  {
+    id: 19,
     theme: 'C#',
     title: 'Путь к Senior-у',
     author: 'Александр',
@@ -211,7 +281,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 16,
+    id: 20,
     theme: 'C#',
     title: 'codaza',
     author: '',
@@ -225,7 +295,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 17,
+    id: 21,
     theme: 'C#',
     title: 'Alexander Kryukov',
     author: '',
@@ -239,7 +309,21 @@ const dataYtCsharp = [
   },
 
   {
-    id: 18,
+    id: 21,
+    theme: 'C#',
+    title: 'Просто программист',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@RadmirT/videos',
+    site: '',
+    dateFirstVideo: '2022.11.10',
+    dateLastVideo: '2023.10.25',
+    amountVideos: 36,
+  },
+
+  {
+    id: 22,
     theme: 'C#',
     title: 'Нуб Кодер',
     author: '',
@@ -253,7 +337,21 @@ const dataYtCsharp = [
   },
 
   {
-    id: 19,
+    id: 23,
+    theme: 'C#',
+    title: 'Артур Губайдуллин',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@arthur_gub/videos',
+    site: '',
+    dateFirstVideo: '2023.10.01',
+    dateLastVideo: '2023.11.19',
+    amountVideos: 15,
+  },
+
+  {
+    id: 24,
     theme: 'C#',
     title: 'Evgeniy Batov',
     author: '',
@@ -267,7 +365,7 @@ const dataYtCsharp = [
   },
 
   {
-    id: 20,
+    id: 25,
     theme: 'C#',
     title: 'Дмитрий Васильченко',
     author: 'Дмитрий Васильченко',
@@ -278,6 +376,34 @@ const dataYtCsharp = [
     dateFirstVideo: '2023.09.03',
     dateLastVideo: '2023.10.12',
     amountVideos: 8,
+  },
+
+  {
+    id: 26,
+    theme: 'C#',
+    title: 'DotNet Interview Preparation',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@DotNetInterviewPreparation/videos',
+    site: '',
+    dateFirstVideo: '2023.10.23',
+    dateLastVideo: '2023.11.13',
+    amountVideos: 4,
+  },
+
+  {
+    id: 27,
+    theme: 'C#',
+    title: 'Coder C#',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@CoderC-charp/videos',
+    site: '',
+    dateFirstVideo: '2023.11.22',
+    dateLastVideo: '2023.11.22',
+    amountVideos: 2,
   },
 
   {},

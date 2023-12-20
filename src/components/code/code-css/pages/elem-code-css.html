@@ -1,0 +1,611 @@
+<h1>Справочник по CSS свойствам</h1>
+
+<div class="article article__content">
+  <p>
+    <a href="#" id="css-sel">CSS селекторы</a> 
+  </p>
+</div>
+
+<div class="article">
+<div class="anchor" id="content"></div>
+<h2>Содержание</h2>
+</div>
+
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#info">info</a></p>
+    <p><a href="#doctype">!important</a></p>
+    <br>
+    <p><a href="#property-font">Шрифт</a></p>
+    <p><a href="#css-font-face">@font-face</a></p>
+    <p><a href="#css-font">font</a></p>
+    <p><a href="#css-font-family">font-family</a></p>
+    <p><a href="#css-font-feature-settings">font-feature-settings</a></p>
+    <p><a href="#css-font-kerning">font-kerning</a></p>
+    <p><a href="#css-font-size">font-size</a></p>
+    <p><a href="#css-font-size-adjust">font-size-adjust</a></p>
+    <p><a href="#css-font-stretch">font-stretch</a></p>
+    <p><a href="#css-font-style">font-style</a></p>
+    <p><a href="#css-font-synthesis">font-synthesis</a></p>
+    <p><a href="#css-font-variant">font-variant</a></p>
+    <p><a href="#css-font-variant-caps">font-variant-caps</a></p>
+    <p><a href="#css-font-variant-east-asian">font-variant-east-asian</a></p>
+    <p><a href="#css-font-variant-ligatures">font-variant-ligatures</a></p>
+    <p><a href="#css-font-variant-numeric">font-variant-numeric</a></p>
+    <p><a href="#css-font-variant-position">font-variant-position</a></p>
+    <p><a href="#css-font-weight">font-weight</a></p>
+  </div>
+
+  <div>
+    <p><a href="#property-animation">Анимация</a></p>
+    <p><a href="#css-keyframes">@keyframes</a></p>
+    <p><a href="#css-animation">animation</a></p>
+    <p><a href="#css-animation-delay">animation-delay</a></p>
+    <p><a href="#css-animation-direction">animation-direction</a></p>
+    <p><a href="#css-animation-duration">animation-duration</a></p>
+    <p><a href="#css-animation-fill-mode">animation-fill-mode</a></p>
+    <p><a href="#css-font-animation-iteration-count">animation-iteration-count</a></p>
+    <p><a href="#css-animation-name">animation-name</a></p>
+    <p><a href="#css-animation-play-state">animation-play-state</a></p>
+    <p><a href="#css-animation-timing-function">animation-timing-function</a></p>
+  </div>
+
+  <div>
+    <p><a href="#property-transform">Трансформация</a></p>
+    <p><a href="#css-backface-visibility">backface-visibility</a></p>
+    <p><a href="#css-perspective">perspective</a></p>
+    <p><a href="#css-perspective-origin">perspective-origin</a></p>
+    <p><a href="#css-transform">transform</a></p>
+    <p><a href="#css-transform-origin">transform-origin</a></p>
+    <p><a href="#css-transform-style">transform-style</a></p>
+    <p><a href="#css-transition">transition</a></p>
+    <p><a href="#css-transition-delay">transition-delay</a></p>
+    <p><a href="#css-transition-duration">transition-duration</a></p>
+    <p><a href="#css-transition-property">transition-property</a></p>
+    <p><a href="#css-transition-timing-function">transition-timing-function</a></p>
+  </div>
+
+  <div>
+    <p><a href="#property-flex">Flex</a></p>
+    <p><a href="#css-align-content">align-content</a></p>
+    <p><a href="#css-align-items">align-items</a></p>
+    <p><a href="#css-align-self">align-self</a></p>
+    <p><a href="#css-flex">flex</a></p>
+    <p><a href="#css-flex-basis">flex-basis</a></p>
+    <p><a href="#css-flex-direction">flex-direction</a></p>
+    <p><a href="#css-flex-flow">flex-flow</a></p>
+    <p><a href="#css-flex-grow">flex-grow</a></p>
+    <p><a href="#css-flex-shrink">flex-shrink</a></p>
+    <p><a href="#css-flex-wrap">flex-wrap</a></p>
+    <p><a href="#css-justify-content">justify-content</a></p>
+    <p><a href="#css-order">order</a></p>
+  </div>
+
+  <div>
+    <p><a href="#property-background">Фон</a></p>
+    <p><a href="#css-background">background</a></p>
+    <p><a href="#css-background-attachment">background-attachment</a></p>
+    <p><a href="#css-background-blend-mode">background-blend-mode</a></p>
+    <p><a href="#css-background-clip">background-clip</a></p>
+    <p><a href="#css-background-color">background-color</a></p>
+    <p><a href="#css-background-image">background-image</a></p>
+    <p><a href="#css-background-origin">background-origin</a></p>
+    <p><a href="#css-background-position">background-position</a></p>
+    <p><a href="#css-background-repeat">background-repeat</a></p>
+    <p><a href="#css-background-size">background-size</a></p>
+  </div>
+
+</div>
+
+
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+  <h2>css</h2>
+  <p><a href="https://g-soft.info/notes/1922/npm-sozdanie-paketa-dlya-offlayn-ustanovki/">g-soft.info</a> npm: создание пакета для оффлайн установки</p>
+  <p><a href="https://msiter.ru/references/css-reference">msiter.ru/references/css-reference</a> CSS свойства</p>
+  <p><a href="https://html5book.ru/css-spravochnik.html">html5book.ru/css-spravochnik.html</a> CSS справочник</p>
+  <p><a href="https://htmlbook.ru/css">htmlbook.ru/css</a> Справочник CSS</p>
+  <p><a href="http://www.csszengarden.com/">csszengarden.com</a> The beauty of CSS</p>
+
+  <h3>Статьи</h3>
+  <p><a href="https://web-standards.ru/articles/position-sticky/">Как на са­мом деле ра­бо­та­ет position: sticky в CSS</a> (ЭЛАД ШЕХТЕР 2019-01-31)</p>
+
+  <h2>Онлайн игры для обучения CSS</h2>
+  <p><strong>Flexbox Froggy</strong><br><a href="https://flexboxfroggy.com/">flexboxfroggy.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></p>
+  <p><strong>Grid Garden</strong><br><a href="https://cssgridgarden.com/">cssgridgarden.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></p>
+  <p><strong>Grid Critters</strong><br><a href="https://gridcritters.com/">gridcritters.com</a><br>Разработчик Dave Geddes<br><a href="https://mastery.games/">mastery.games</a></p>
+  <p><strong>Flexbox Zombies</strong><br><a href="https://flexboxzombies.com/">flexboxzombies.com</a><br>Разработчик Dave Geddes<br><a href="https://mastery.games/">mastery.games</a></p>
+  <p><strong>Service Workers</strong><br><a href="https://serviceworkies.com/">serviceworkies.com</a><br>Разработчик Dave Geddes<br><a href="https://gedd.ski/">gedd.ski</a></p>
+  <p><strong>CSS Diner</strong><br><a href="https://flukeout.github.io/">flukeout.github.io</a><br>Разработчик Luke Pacholski<br><a href="https://github.com/flukeout/css-diner">github.com/flukeout</a></p>
+  <p><strong>Flexbox Defense</strong><br><a href="http://www.flexboxdefense.com/">flexboxdefense.com</a><br>Разработчик Channing Allen</p>
+  <p><strong>CSS Battle</strong><br><a href="https://cssbattle.dev/">cssbattle.dev</a><br>Разработчик Kushagra Gour</p>
+  <p><strong>Roadmap (Дорожная карта)</strong><br><a href="http://victordarras.fr/cssgame/">victordarras.fr</a><br>Разработчик Victor Darras</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="info"></div>
+  <h2>info</h2>
+
+</article>
+
+
+<article class="article">
+  <div class="anchor" id="property-font"></div>
+  <h2>Font (Шрифт) (17)</h2>
+  <p><a href="#css-font-face">@font-face</a>
+  <a href="#css-font">font</a>
+  <a href="#css-font-family">font-family</a>
+  <a href="#css-font-feature-settings">font-feature-settings</a>
+  <a href="#css-font-kerning">font-kerning</a>
+  <a href="#css-font-size">font-size</a>
+  <a href="#css-font-size-adjust">font-size-adjust</a>
+  <a href="#css-font-stretch">font-stretch</a>
+  <a href="#css-font-style">font-style</a>
+  <a href="#css-font-synthesis">font-synthesis</a>
+  <a href="#css-font-variant">font-variant</a>
+  <a href="#css-font-variant-caps">font-variant-caps</a>
+  <a href="#css-font-variant-east-asian">font-variant-east-asian</a>
+  <a href="#css-font-variant-ligatures">font-variant-ligatures</a>
+  <a href="#css-font-variant-numeric">font-variant-numeric</a>
+  <a href="#css-font-variant-position">font-variant-position</a>
+  <a href="#css-font-weight">font-weight</a></p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-face"></div>
+  <h3>@font-face</h3>
+  <p>Позволяет определить настройки шрифтов, а также загрузить специфичный шрифт на компьютер пользователя</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font"></div>
+  <h3>font</h3>
+  <p>Краткая запись свойств шрифта. Позволяет установить все значения свойств шрифта в одном объявлении</p>
+  <code>font: [font-style||font-variant||font-weight] font-size [/line-height] font-family | inherit</code>
+  <p>В качестве обязательных значений свойства font указывается размер шрифта и его семейство. Остальные значения являются опциональными и задаются при желании. Любые не указанные значения сбрасываются до дефолтных. Хотя значения для свойств font-size-adjust и font-kerning не могут быть указаны внутри шортката font, они тоже сбрасываются до дефолтных.</p>
+  <p>Пример краткой записи:</p>
+  <code>p { font: 12px sans-serif; }</code>
+  <p>Пример полной записи</p>
+  <code>p { font: italic small-caps bold 12px/18px serif; }</code>
+  <p>Системные шрифты задаются обычным свойством font всего с одним параметром — тип шрифта. Разумеется, тип начертания, размер и прочие атрибуты уже содержатся внутри этого параметра.</p>
+  <code>.menu { font: menu; }</code>
+  <p>Допускается в качестве значения использовать ключевые слова, определяющие шрифт различных элементов операционной системы пользователя:</p>
+  <p><strong>caption</strong> Шрифт на управляющих элементах (кнопки, радио, выпадающие списки).</p>
+  <p><strong>icon</strong> Шрифт для текста под иконками.</p>
+  <p><strong>menu</strong> Шрифт, используемый в системных меню.</p>
+  <p><strong>message-box</strong> Шрифт в диалоговых окнах.</p>
+  <p><strong>small-caption</strong> Шрифт для подписей к небольшим элементам управления.</p>
+  <p><strong>status-bar</strong> Шрифт в строке состояния.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-family"></div>
+  <h3>font-family</h3>
+  <p>Задает семейство шрифта, которое будет использоваться для оформления текста содержимого</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-feature-settings"></div>
+  <h3>font-feature-settings</h3>
+  <p>Низкоуровневое управление настройками шрифтов</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-kerning"></div>
+  <h3>font-kerning</h3>
+  <p>Кернинг</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-size"></div>
+  <h3>font-size</h3>
+  <p>Размер шрифта</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-size-adjust"></div>
+  <h3>font-size-adjust</h3>
+  <p>Относительный размер шрифта</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-stretch"></div>
+  <h3>font-stretch</h3>
+  <p>Ширина шрифта. Устанавливает более широкое или узкое начертание шрифта</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-style"></div>
+  <h3>font-style</h3>
+  <p>Устанавливает стиль начертания шрифта - обычное, курсивное или наклонное</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-synthesis"></div>
+  <h3>font-synthesis</h3>
+  <p>Управление синтезом шрифтов</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant"></div>
+  <h3>font-variant</h3>
+  <p>Before CSS3, this property accepted one of two possible values: normal (how text is rendered by default) and small-caps. The font-variant CSS shorthand property allows you to set all the font variants for a font. Краткая запись для рендеринга шрифтов. Определяет, как следует представлять строчные буквы - делать их все прописными уменьшенного размера или оставить без изменений</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant-caps"></div>
+  <h3>font-variant-caps</h3>
+  <p>Преобразование в заглавные буквы</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant-east-asian"></div>
+  <h3>font-variant-east-asian</h3>
+  <p>Визуализация восточноазиатского текста</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant-ligatures"></div>
+  <h3>font-variant-ligatures</h3>
+  <p>Лигатуры</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant-numeric"></div>
+  <h3>font-variant-numeric</h3>
+  <p>Форматирование цифр</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-variant-position"></div>
+  <h3>font-variant-position</h3>
+  <p>Подстрочные и надстрочные формы</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-font-weight"></div>
+  <h3>font-weight</h3>
+  <p>Толщина шрифта.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="property-animation"></div>
+  <h2>Animation (Анимация) (10)</h2>
+  <p><a href="#css-keyframes">@keyframes</a>
+  <a href="#css-animation">animation</a>
+  <a href="#css-animation-delay">animation-delay</a>
+  <a href="#css-font-animation-direction">animation-direction</a>
+  <a href="#css-animation-duration">animation-duration</a>
+  <a href="#css-animation-fill-mode">animation-fill-mode</a>
+  <a href="#css-font-animation-iteration-count">animation-iteration-count</a>
+  <a href="#css-animation-name">animation-name</a>
+  <a href="#css-animation-play-state">animation-play-state</a>
+  <a href="#css-animation-timing-function">animation-timing-function</a></p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-keyframes"></div>
+  <h3>@keyframes</h3>
+  <p>Устанавливает ключевые кадры при анимации элемента.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation"></div>
+  <h3>animation</h3>
+  <p>Краткая запись свойств анимации. Позволяет установить все значения свойств анимации в одном объявлении.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-delay"></div>
+  <h3>animation-delay</h3>
+  <p>Устанавливает время (в секундах или миллисекундах)ожидания перед запуском анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-direction"></div>
+  <h3>animation-direction</h3>
+  <p>Устанавливает направление движения анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-duration"></div>
+  <h3>animation-duration</h3>
+  <p>Устанавливает время (в секундах или миллисекундах), одного цикла анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-fill-mode"></div>
+  <h3>animation-fill-mode</h3>
+  <p>Определяет, какие стили должны применяться к элементу, когда анимация не проигрывается</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-fill-mode"></div>
+  <h3>animation-fill-mode</h3>
+  <p>Определяет, какие стили должны применяться к элементу, когда анимация не проигрывается</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-iteration-count"></div>
+  <h3>animation-iteration-count</h3>
+  <p>Устанавливает, сколько раз проигрывать цикл анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-name"></div>
+  <h3>animation-name</h3>
+  <p>Определяет список имен анимаций, которые должны быть применены к выбранному элементу</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-play-state"></div>
+  <h3>animation-play-state</h3>
+  <p>Определяет, проигрывать анимацию или поставить её на паузу</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-timing-function"></div>
+  <h3>animation-timing-function</h3>
+  <p>Определяет кривую скорости для анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="property-transform"></div>
+  <h2>Transformation (Трансформация) (11)</h2>
+  <p>
+    <a href="#css-backface-visibility">backface-visibility</a>
+    <a href="#css-perspective">perspective</a>
+    <a href="#css-perspective-origin">perspective-origin</a>
+    <a href="#css-transform">transform</a>
+    <a href="#css-transform-origin">transform-origin</a>
+    <a href="#css-transform-style">transform-style</a>
+    <a href="#css-font-transition">transition</a>
+    <a href="#css-transition-delay">transition-delay</a>
+    <a href="#css-transition-duration">transition-duration</a>
+    <a href="#css-transition-property">transition-property</a>
+    <a href="#css-transition-timing-function">transition-timing-function</a>
+  </p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-backface-visibility"></div>
+  <h3>backface-visibility</h3>
+  <p>Определяет, показывать обратную сторону элемента или нет</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-perspective"></div>
+  <h3>perspective</h3>
+  <p>Определяет, на сколько пикселей удален 3D элемент от точки обзора</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-perspective-origin"></div>
+  <h3>perspective-origin</h3>
+  <p>Определяет, где располагается 3D элемент на осях x и y</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-perspective-origin"></div>
+  <h3>perspective-origin</h3>
+  <p>Определяет, где располагается 3D элемент на осях x и y</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transform"></div>
+  <h3>transform</h3>
+  <p>Применяет к элементу 2D или 3D трансформацию</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transform-origin"></div>
+  <h3>transform-origin</h3>
+  <p>Устанавливает исходную точку трансформации элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transform-style"></div>
+  <h3>transform-style</h3>
+  <p>Определяет, как дочерние элементы будут отображаться в 3D-пространстве</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition"></div>
+  <h3>transition</h3>
+  <p>Позволяет делать плавные переходы между двумя значениями какого-либо CSS свойства</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-delay"></div>
+  <h3>transition-delay</h3>
+  <p>Устанавливает продолжительность задержки перед началом анимации перехода</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-duration"></div>
+  <h3>transition-duration</h3>
+  <p>Устанавливает продолжительность анимации перехода</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-property"></div>
+  <h3>transition-property</h3>
+  <p>Определяет CSS свойство, для которого будет применён эффект перехода</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-timing-function"></div>
+  <h3>transition-timing-function</h3>
+  <p>Определяет кривую скорости для анимации перехода</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="property-transform"></div>
+  <h2>Flex (12)</h2>
+  <p>
+  <a href="#css-align-content">align-content</a>
+  <a href="#css-align-items">align-items</a>
+  <a href="#css-align-self">align-self</a>
+  <a href="#css-flex">flex</a>
+  <a href="#css-flex-basis">flex-basis</a>
+  <a href="#css-flex-direction">flex-direction</a>
+  <a href="#css-flex-flow">flex-flow</a>
+  <a href="#css-flex-grow">flex-grow</a>
+  <a href="#css-flex-shrink">flex-shrink</a>
+  <a href="#css-flex-wrap">flex-wrap</a>
+  <a href="#css-justify-content">justify-content</a>
+  <a href="#css-order">order</a>
+</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-align-content"></div>
+  <h3>align-content</h3>
+  <p>Выравнивает строки флекс-элементов по вертикали внутри флекс-контейнера</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-align-items"></div>
+  <h3>align-items</h3>
+  <p>Выравнивает флекс-элементы внутри контейнера по высоте</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-align-self"></div>
+  <h3>align-self</h3>
+  <p>Устанавливает выравнивание по высоте отдельно взятого флекс-элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex"></div>
+  <h3>flex</h3>
+  <p>Универсальное свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-basis"></div>
+  <h3>flex-basis</h3>
+  <p>Устанавливает базовую ширину флекс-элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-direction"></div>
+  <h3>flex-direction</h3>
+  <p>Определяет направление главной оси во флекс-контейнере</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-flow"></div>
+  <h3>flex-flow</h3>
+  <p>Позволяет за одну декларацию задать направление главной оси и возможность переноса флекс-элементов на новую строку</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-grow"></div>
+  <h3>flex-grow</h3>
+  <p>Определяет коэффициент увеличения ширины флекс-элемента относительно других флекс-элементов</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-shrink"></div>
+  <h3>flex-shrink</h3>
+  <p>Определяет коэффициент уменьшения ширины флекс-элемента относительно других флекс-элементов</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-wrap"></div>
+  <h3>flex-wrap</h3>
+  <p>Разрешает или нет перенос на другую строку</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-justify-content"></div>
+  <h3>justify-content</h3>
+  <p>Выравнивает флекс-элементы по ширине флекс-контейнера</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-order"></div>
+  <h3>order</h3>
+  <p>Определяет порядок вывода флекс-элементов внутри флекс-контейнера</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="property-background"></div>
+  <h2>Background (Фон) (10)</h2>
+  <p>
+    <a href="#css-background">background</a>
+    <a href="#css-background-attachment">background-attachment</a>
+    <a href="#css-background-blend-mode">background-blend-mode</a>
+    <a href="#css-background-clip">background-clip</a>
+    <a href="#css-background-color">background-color</a>
+    <a href="#css-background-image">background-image</a>
+    <a href="#css-background-origin">background-origin</a>
+    <a href="#css-background-position">background-position</a>
+    <a href="#css-background-repeat">background-repeat</a>
+    <a href="#css-background-size">background-size</a>
+  </p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background"></div>
+  <h3>background</h3>
+  <p>Короткое свойство, устанавливающее все свойства фона элемента за одну декларацию</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-attachment"></div>
+  <h3>background-attachment</h3>
+  <p>Определяет, будет ли фоновое изображение зафиксировано, или оно будет прокручиваться вместе с остальным содержимым страницы</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-blend-mode"></div>
+  <h3>background-blend-mode</h3>
+  <p>Устанавливает режим наложения фонового изображения элемента на фоны других элементов.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-clip"></div>
+  <h3>background-clip</h3>
+  <p>Устанавливает область прорисовки фонового изображения</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-color"></div>
+  <h3>background-color</h3>
+  <p>Определяет фоновый цвет элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-image"></div>
+  <h3>background-image</h3>
+  <p>Определяет фоновое изображение элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-origin"></div>
+  <h3>background-origin</h3>
+  <p>Устанавливает область позиционирования фонового изображения</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-position"></div>
+  <h3>background-position</h3>
+  <p>Задает начальное положение фонового изображения в пределах содержащего его элемента</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-repeat"></div>
+  <h3>background-repeat</h3>
+  <p>Определяет, как будет повторяться фоновое изображение, установленное с помощью параметра background-image</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-background-size"></div>
+  <h3>background-size</h3>
+  <p>Устанавливает размер фонового изображения</p>
+</article>

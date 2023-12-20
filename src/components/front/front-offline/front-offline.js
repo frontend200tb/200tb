@@ -17,52 +17,59 @@
 */
 
 import './element-front-offline';
-import pageLink from './pages/pages';
+import pageLink from './pages';
 
-// 1. Создаем массив asideThemes с темами
-const asideThemes = ['Algorithm', 'Http', 'Websocket', 'Verdaccio', 'How ask questions', 'Articles'];
+// 1. Создадим контент для #main-nav
+// 1.1 Создаем массив categories с категориями
+const categories = ['code', 'основы', 'framework', 'cms', 'tools', 'theme', 'other'];
 
-// 2. Создаем массив asideDiv для элементов aside меню
-const asideDiv = [];
+// 1.2 Создаем массив mainNav для элементов nav меню
+const mainNav = [];
+  let idNameSuffix = 1;
 
-// 3. Для каждой темы из массива asideThemes
-for (const theme of asideThemes) {
-  // 3.1 Создаем элемент elementAside
-  const elementAside = document.createElement('a');
-  elementAside.href = '#';
-  elementAside.innerHTML = theme;
-  elementAside.id = createId(theme);
-
+// 1.3 Для каждой категории из массива categories
+for (const category of categories) {
+  // 1.3.1 Создаем элемент elementNav
+  const elementNav = document.createElement('a');
+  elementNav.href = '#';
+  elementNav.innerHTML = category;
+  elementNav.id = createId(category);
+  
   function createId(str) {
+    // если имя категории не содержит английских букв и цифр, заменить его на цифру
+    if (str.replace(/[^a-z0-9]/gi, '') === '') {
+      str = '' + idNameSuffix;
+      idNameSuffix++;
+    }
     // удалить всё, кроме букв и цифр
     return `offline-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
   }
 
-  // 3.2 Добавляем элемент elementAside в массив asideDiv
-  asideDiv.push(elementAside);
+  // 1.3.2 Добавляем элемент elementNav в массив mainNav
+  mainNav.push(elementNav);
 
-  // 3.3 По клику на элемент elementAside
-  elementAside.addEventListener('click', (e) => {
+  // 1.3.3 По клику на элемент elementNav
+  elementNav.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // 3.3.1 добавим ему class="active"
-    classActive(asideDiv, elementAside);
+    // 1.3.3.1 добавим ему class="active"
+    classActive(mainNav, elementNav);
   });
 }
 
 export default function showFrontOffline() {
-  const aside = document.querySelector('.aside');
+  const elemMainNav = document.querySelector('#main-nav');
 
-  // 4. Показываем нужный aside
-  aside.innerHTML = '';
-  aside.append(...asideDiv);
+  // 4. Показываем нужный main-nav
+  elemMainNav.innerHTML = '';
+  elemMainNav.append(...mainNav);
 
-  // 5. Вешаем обработчики кликов по aside
+  // 5. Вешаем обработчики кликов по main-nav
   pageLink();
 
-  // 6. Создадим и вызовем событие click на первом aside эелементе
+  // 6. Создадим и вызовем событие click на первом main-nav эелементе
   const eventClick = new Event('click');
-  asideDiv[0].dispatchEvent(eventClick);
+  mainNav[0].dispatchEvent(eventClick);
 }
 
 // Ставим class="active" выбранному элементу меню и убираем с остальных

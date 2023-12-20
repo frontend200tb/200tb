@@ -106,7 +106,7 @@ export default function createElements(data) {
   function addLearned() {
     const elementNav = document.createElement('a');
     elementNav.href = '#';
-    elementNav.innerHTML = 'Learned';
+    elementNav.innerHTML = 'learned';
     navDiv.push(elementNav);
     const elementMain = createLearnedList(data.learned);
 

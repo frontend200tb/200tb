@@ -6,10 +6,9 @@ class FrontOffline extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="front-offline" id="front-offline">
-      <section class="main__aside">
-        <aside class="aside"></aside>
-        <main class="list" id="offline"></main>
-      </section>
+      <h1>Frontend справочник</h1>
+      <nav class="nav" id="main-nav"></nav>
+      <div id="offline"></div>
     </div>
     `;
   }

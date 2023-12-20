@@ -1,17 +1,14 @@
 /** **************
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ****************** */
-import './elem-node-node';
-import './elem-node-angular';
-import './elem-node-axios';
-import './elem-node-babel';
-import './elem-node-eslint';
-import './elem-node-gulp';
-import './elem-node-react';
-import './elem-node-typescript';
-import './elem-node-vite';
-import './elem-node-vue';
-import './elem-node-webpack';
+import htmlNodeNode from './elem-node-node.html';
+import htmlNodeAxios from './elem-node-axios.html';
+import htmlNodeBabel from './elem-node-babel.html';
+import htmlNodeEslint from './elem-node-eslint.html';
+import htmlNodeGulp from './elem-node-gulp.html';
+import htmlNodeVite from './elem-node-vite.html';
+import htmlNodeWebpack from './elem-node-webpack.html';
+import htmlNodeTailwind from './elem-node-tailwind.html';
 import contentOrder from '../../../../js/order';
 
 export default function pageLink() {
@@ -21,16 +18,7 @@ export default function pageLink() {
   if (asideNode) {
     asideNode.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-node></node-node>';
-      contentOrder();
-    });
-  }
-
-  const asideAngular = document.getElementById('node-angular');
-  if (asideAngular) {
-    asideAngular.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<node-angular></node-angular>';
+      currentContent.innerHTML = htmlNodeNode;
       contentOrder();
     });
   }
@@ -39,7 +27,7 @@ export default function pageLink() {
   if (asideAxios) {
     asideAxios.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-axios></node-axios>';
+      currentContent.innerHTML = htmlNodeAxios;
       contentOrder();
     });
   }
@@ -48,7 +36,7 @@ export default function pageLink() {
   if (asideBabel) {
     asideBabel.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-babel></node-babel>';
+      currentContent.innerHTML = htmlNodeBabel;
       contentOrder();
     });
   }
@@ -57,7 +45,7 @@ export default function pageLink() {
   if (asideEslint) {
     asideEslint.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-eslint></node-eslint>';
+      currentContent.innerHTML = htmlNodeEslint;
       contentOrder();
     });
   }
@@ -66,25 +54,7 @@ export default function pageLink() {
   if (asideGulp) {
     asideGulp.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-gulp></node-gulp>';
-      contentOrder();
-    });
-  }
-
-  const asideReact = document.getElementById('node-react');
-  if (asideReact) {
-    asideReact.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<node-react></node-react>';
-      contentOrder();
-    });
-  }
-
-  const asideTypescript = document.getElementById('node-typescript');
-  if (asideTypescript) {
-    asideTypescript.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<node-typescript></node-typescript>';
+      currentContent.innerHTML = htmlNodeGulp;
       contentOrder();
     });
   }
@@ -93,16 +63,7 @@ export default function pageLink() {
   if (asideVite) {
     asideVite.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-vite></node-vite>';
-      contentOrder();
-    });
-  }
-
-  const asideVue = document.getElementById('node-vue');
-  if (asideVue) {
-    asideVue.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<node-vue></node-vue>';
+      currentContent.innerHTML = htmlNodeVite;
       contentOrder();
     });
   }
@@ -111,7 +72,16 @@ export default function pageLink() {
   if (asideWebpack) {
     asideWebpack.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<node-webpack></node-webpack>';
+      currentContent.innerHTML = htmlNodeWebpack;
+      contentOrder();
+    });
+  }
+
+  const asideTailwind = document.getElementById('node-tailwind');
+  if (asideTailwind) {
+    asideTailwind.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlNodeTailwind;
       contentOrder();
     });
   }

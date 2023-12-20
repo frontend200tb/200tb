@@ -1,2 +1,2 @@
-import './search-form.scss';
+import './_search-form.scss';
 import './element-search-form';

@@ -1,0 +1,502 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>Test JS Scope & Functions</h1>
+
+  <strong>26 вопросов. Выполнил на 100 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. How are parameters passed to a function</h3>
+
+  <ul>
+    <li>All variables are passed by reference</li>
+    <li>All variables are passed by value</li>
+    <li><strong>Primitives are passed by value and objects are passed by reference</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Indicate what is subject to hoisting in JavaScript</h3>
+
+  <ul>
+    <li>Function expression</li>
+    <li><strong>Function declaration</strong></li>
+    <li>Arrow function</li>
+    <li><strong>Variable declaration</strong></li>
+    <li>Assigning a value to a variable</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Specify the correct way to access all function arguments:</h3>
+
+  <ul>
+    <li>(1)
+  <pre>
+  function foo() {
+    console.log(Function.getArguments(this));
+  }
+  </pre>
+    </li>
+    <li><strong>(2)</strong>
+  <pre>
+  function foo() {
+    console.log(arguments);
+  }
+  </pre>
+    </li>
+    <li>(3)
+  <pre>
+  function foo() {
+    console.log(foo.getArguments());
+  }
+  </pre>
+    </li>
+    <li>(4)
+  <pre>
+  function foo() {
+    console.log(this.arguments);
+  }
+  </pre>
+    </li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. What is closure</h3>
+
+  <ul>
+    <li>Function internal scope</li>
+    <li>The ability of a function to access the outer scope</li>
+    <li>JS language's ability to create block scope</li>
+    <li><strong>The ability of a function to remember variables from the outer scope at the time of its creation</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. What will be the result of the code execution</h3>
+
+  <pre>
+  const foo = bar();
+  const number = 2;
+
+  function bar() { return number; }
+  </pre>
+  <ul>
+    <li>2</li>
+    <li>undefined</li>
+    <li><strong>ReferenceError: number is not defined</strong></li>
+    <li>ReferenceError: bar is not defined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. What will be the result of the code execution</h3>
+
+  <pre>
+  (function(a) {
+    arguments[0] = 10;
+    return a;
+  }
+  )(5);
+  </pre>
+  <ul>
+    <li>5</li>
+    <li><strong>10</strong></li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. What will be the result of the code execution</h3>
+
+  <pre>
+  function foo(a,b) {
+    return a * b;
+  }
+
+  const bar = foo.bind(null, 2);
+  bar(2);
+  </pre>
+  <ul>
+    <li>2</li>
+    <li><strong>4</strong></li>
+    <li>NaN</li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. What will the code below output to the console</h3>
+
+  <pre>
+  console.log(message);
+  var message = 'Hello';
+  </pre>
+  <ul>
+    <li>'Hello'</li>
+    <li><strong>undefined</strong></li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. What will the code below output to the console</h3>
+
+  <pre>
+  console.log(message);
+  let message = 'Hello';
+  </pre>
+  <ul>
+    <li>'Hello'</li>
+    <li>undefined</li>
+    <li><strong>Will be an error</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. What will the code below output to the console</h3>
+
+  <pre>
+  const details = {
+    name: 'John!',
+  }
+  function getMessage(message) {
+    return `${message} ${this.name}`;
+  }
+
+  console.log(getMessage.apply(details, ['Hello']));
+  </pre>
+  <ul>
+    <li>An error will occur</li>
+    <li>[object Object]</li>
+    <li><strong>'Hello John!'</strong></li>
+    <li>false</li>
+    <li>true</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. What will the code below output to the console</h3>
+
+  <pre>
+  for(let i = 0; i &lt; 3; i++) {
+    setTimeout(function() {
+      console.log(i)
+    }, 1000)
+  }
+  </pre>
+  <ul>
+    <li><strong>0 1 2</strong></li>
+    <li>3 3 3</li>
+    <li>undefined undefined undefined</li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. What will the code below output to the console</h3>
+
+  <pre>
+  for(var i = 0; i &lt; 3; i++) {
+    setTimeout(function() {
+      console.log(i)
+    }, 1000)
+  }
+  </pre>
+  <ul>
+    <li>0 1 2</li>
+    <li><strong>3 3 3</strong></li>
+    <li>undefined undefined undefined</li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. What will the code below output to the console</h3>
+
+  <pre>
+  for(var i = 0; i &lt; 10; i++) {
+
+  }
+  console.log(i);
+  </pre>
+  <ul>
+    <li>undefined</li>
+    <li>9</li>
+    <li><strong>10</strong></li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. What will the code below output to the console</h3>
+
+  <pre>
+  function foo() {
+    return { bar: 1 };
+  }
+  console.log(typeof foo().bar);
+  </pre>
+  <ul>
+    <li>object</li>
+    <li>string</li>
+    <li><strong>number</strong></li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. What will the code below output to the console</h3>
+
+  <pre>
+  function foo() { console.log(this);}
+  foo.call(null);
+  </pre>
+  <ul>
+    <li><strong>[object Window]</strong></li>
+    <li>null</li>
+    <li>[object Document]</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. What will the code below output to the console</h3>
+
+  <pre>
+  function getThis() {
+    return this;
+  }
+
+  console.log(getThis());
+  </pre>
+  <ul>
+    <li><strong>[object Window]</strong></li>
+    <li>[object Object]</li>
+    <li>[object Document]</li>
+    <li>[Function]</li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. What will the code below output to the console</h3>
+
+  <pre>
+  let f = function g() { return 23; };
+
+  console.log(typeof g());
+  </pre>
+  <ul>
+    <li>number</li>
+    <li>undefined</li>
+    <li>function</li>
+    <li><strong>Will be an error</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What will the code below output to the console</h3>
+
+  <pre>
+  let name = 'John';
+
+  function printName() {
+    let name = 'Peter';
+    console.log(name);
+  }
+
+  printName();
+  </pre>
+
+  <ul>
+    <li>'John'</li>
+    <li><strong>'Peter'</strong></li>
+    <li>Will be an error</li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What will the code below output to the console</h3>
+
+  <pre>
+  let name = 'John';
+  function printName() {
+    console.log(name)
+  }
+
+  setTimeout(() => {
+    let name = 'Peter';
+    printName();
+  }, 1000);
+  </pre>
+  <ul>
+    <li><strong>'John'</strong></li>
+    <li>'Peter'</li>
+    <li>undefined</li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What will the code below output to the console</h3>
+
+  <pre>
+  printMessage();
+
+  function printMessage() {
+    console.log('Hello!');
+  }
+  </pre>
+  <ul>
+    <li><strong>'Hello!'</strong></li>
+    <li>Will be an error</li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What will the code below output to the console</h3>
+
+  <pre>
+  "use strict";
+
+  const details = {
+    message: 'Hello!',
+  }
+  function getMessage() {
+    return this.message;
+  }
+
+  console.log(getMessage.call(details));
+  </pre>
+  <ul>
+    <li>An error will occur</li>
+    <li>[object Object]</li>
+    <li>true</li>
+    <li>false</li>
+    <li><strong>'Hello!'</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What will the code below output to the console</h3>
+
+  <pre>
+  "use strict";
+
+  function getThis() {
+    return this;
+  }
+
+  console.log(getThis());
+  </pre>
+  <ul>
+    <li>[object Window]</li>
+    <li>[object Object]</li>
+    <li>[object Document]</li>
+    <li>[Function]</li>
+    <li><strong>undefined</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What will the code below output to the console</h3>
+
+  <pre>
+  var a = 1, b = function a(x) { x && a(--x); };
+  console.log(a);
+  </pre>
+  <ul>
+    <li>2</li>
+    <li>3</li>
+    <li><strong>1</strong></li>
+    <li>0</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What will the code below output to the console</h3>
+
+  <pre>
+  var name = 'John';
+
+  function printName() {
+    console.log(name)
+    var name = 'Peter';
+    console.log(name);
+  }
+
+  printName();
+  </pre>
+  <ul>
+    <li>'John' 'Peter'</li>
+    <li>'Peter' 'Peter'</li>
+    <li><strong>undefined 'Peter'</strong></li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What will the code below output to the console</h3>
+
+  <pre>
+  var name = 'John';
+
+  var user = {
+    name: 'Peter',
+    printMessage() {
+      console.log(`Hello, ${this.name}!`);
+    }
+  };
+
+  var printMessage = user.printMessage;
+  printMessage();
+  </pre>
+  <ul>
+    <li>'Hello, Peter!'</li>
+    <li><strong>'Hello, John!'</strong></li>
+    <li>'Hello, undefined!'</li>
+    <li>Will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. Which options correctly declare a function f that returns the sum of two arguments</h3>
+
+  <ul>
+    <li><strong>let f = function(a,b) { return a+b }</strong></li>
+    <li><strong>let f = new Function("a,b", "return a+b")</strong></li>
+    <li><strong>let f = new Function("a", "b", "return a+b")</strong></li>
+    <li><strong>let f = (a, b) => a + b</strong></li>
+    <li>let f = (a, b) => { a + b }</li>
+  </ul>
+</article>

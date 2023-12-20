@@ -1,8 +1,11 @@
+// index.js -> header/header.js -> header-nav/header-nav.js
+
+
 /** **************
 Скрипт из файла header-nav.js
 написан для header > header__first-row > header-nav
 навигация по сайту
-News Lang Bench Frontend
+News Lang Bench Code Frontend
 ****************** */
 /*
 Алгоритм работы
@@ -21,6 +24,23 @@ const main = document.getElementById('main');
 
 export let endUrl = '/index.html';
 
+// все переменные для навигации по страницам моего SPA записываем в объект MyHref
+const MyHref = {};
+// определяем url текущей страницы
+MyHref.current = window.location.href;
+// проверяем как заканчивается url: index.html или /
+MyHref.li = MyHref.current.lastIndexOf('index.html');
+
+// создаем базовый url
+if (MyHref.current[MyHref.current.length - 1] === '/') {
+  MyHref.base = MyHref.current;
+}
+
+if (MyHref.li !== '-1') {
+  MyHref.base = MyHref.current.slice(0, MyHref.li);
+}
+
+
 // 1. Создаем ссылки для меню header_nav из массива dataHeaderNav
 createHeaderNav(dataHeaderNav);
 renderHeaderNav();
@@ -34,24 +54,32 @@ function createHeaderNav(dataHeaderNav) {
       event.preventDefault();
       // добавим class="active"
       classActive(dataHeaderNav, el.elem);
-      // добавим History API
-      // history.pushState({}, '', currentUrl.replace(endUrl, el.url));
       endUrl = el.url;
       main.innerHTML = el.content;
       createNav();
+      // добавим History API
+      changeHistory(el.text, el.url)
       el.act();
     });
   });
+}
+
+function changeHistory(name = {}, url = '') {
+  try {
+    history.pushState(name, null, url);
+  } catch (err) {
+    // console.error('history.pushState error');
+  }
 }
 
 function renderHeaderNav() {
   dataHeaderNav.forEach((el) => {
     headerNav.appendChild(el.elem);
   });
-  classActive(dataHeaderNav, dataHeaderNav[0].elem);
-  main.innerHTML = dataHeaderNav[0].content;
+  classActive(dataHeaderNav, dataHeaderNav[1].elem);
+  main.innerHTML = dataHeaderNav[1].content;
   createNav();
-  dataHeaderNav[0].act();
+  dataHeaderNav[1].act();
 }
 
 // Ставим class="active" выбранному элементу меню и убираем с остальных
@@ -61,30 +89,3 @@ function classActive(menu, activElem) {
   });
   activElem.classList.add('active');
 }
-
-/*
-Свойства объекта Location
-Все следующие свойства являются строками.
-
-Пример url http://www.google.com:80/search?q=javascript#test
-
-window.location.href = "http://www.google.com:80/search?q=javascript#test"- весь URL;
-
-window.location.origin = "http://www.google.com:80" - Базовый URL (Протокол + имя хоста + номер порта);
-
-window.location.protocol = "http:"- Протокол (http: или https);
-
-window.location.host = "www.google.com:80" -хост и порт;
-хост это доменное имя
-
-window.location.hostname = "www.google.com" - хост (без порта);
-
-window.location.port = "80" - номер порта;
-
-window.location.pathname = "/search" строка пути (относительно хоста);
-
-window.location.search = "?q=javascript" - часть адреса после символа ?, включая символ ?;
-
-window.location.hash = "#test"	- часть URL, которая идет после символа решетки '#', включая символ '#';
-
-*/

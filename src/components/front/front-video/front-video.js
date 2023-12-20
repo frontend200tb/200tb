@@ -40,7 +40,6 @@ frontVideo.elemSection = createElemSection(frontVideo.elements);
 
 // 7. Экспортируем функцию showFrontVideo()
 export default function showFrontVideo() {
-  console.log('frontVideo', frontVideo);
   const elementFrontVideo = document.querySelector('.front-video');
   if (elementFrontVideo) {
     elementFrontVideo.append(frontVideo.mainNav);

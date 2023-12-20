@@ -7,13 +7,13 @@ import dataFrontYtRus from './data/data-front-yt';
 import dataFrontYtEng from './data/data-front-yt-eng';
 import dataFrontYtSrb from './data/data-front-yt-srb';
 import dataFrontYtCze from './data/data-front-yt-cze';
-import dataYtPython from './data/data-yt-py';
-import dataYtCsharp from './data/data-yt-csharp';
+import dataYtBase from './data/data-yt-base';
 import dataYtAlgorithm from './data/data-yt-alorithm';
+import dataYtCsharp from './data/data-yt-csharp';
 
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [dataFrontYtRus, dataFrontYtEng, dataFrontYtSrb, dataFrontYtCze,
-  dataYtPython, dataYtCsharp, dataYtAlgorithm];
+dataYtBase, dataYtAlgorithm, dataYtCsharp];
 
 // 3. Создаем массив dataYt из массива dataArray
 const dataYt = [].concat(...dataArray);
