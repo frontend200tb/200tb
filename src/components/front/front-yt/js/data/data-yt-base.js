@@ -197,6 +197,20 @@ const dataYtBase = [
   },
 
   {
+    id: 8,
+    theme: 'Основы',
+    title: 'Мультодей',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@multodey/videos',
+    site: '',
+    dateFirstVideo: '2022.02.08',
+    dateLastVideo: '2023.12.27',
+    amountVideos: 49,
+  },
+
+  {
     id: 9,
     theme: 'Основы',
     title: 'Lo-Fi Собеседования',

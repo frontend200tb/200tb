@@ -1,0 +1,43 @@
+<article class="article">
+  <h1>Мои программы на node.js</h1>
+</article>
+
+<article class="article">
+  <h2>Как сделать пустые текстовые файлы с названиями файлов текущей папки</h2>
+  <p>Создайте текстовый документ и назовите ее name.js</p>
+  <p>Откройте его в любом текстовом редакторе и запишите туда
+  следующий код на языке javascript</p>
+  <code>
+  const fs = require('fs');
+  <br>const dir = './';
+  <br>const files = fs.readdirSync(dir);
+  <br>for (const file of files) {
+  <br>&nbsp;&nbsp;fs.writeFileSync(\`\${file}.txt\`, '');
+  <br>}
+  </code>
+  <p>Получилась программа на javascript, которая работает в среде node.js</p>
+  <p>Запустите ее в нужной папке</p>
+  <code>node name</code>
+</article>
+
+<article class="article">
+  <h2>Как в отдельном файле взять поле id у массива объектов и записать в него номера объектов по порядку</h2>
+  <p>Создайте текстовый документ и назовите ее id.js</p>
+  <p>Откройте его в любом текстовом редакторе и запишите туда
+  следующий код на языке javascript</p>
+  <code>
+    const fs = require('fs');
+    <br>const input = fs.readFileSync('file.txt', 'utf8');
+    <br>let i = 0;
+    <br>const output = input.replace(/id:\s\d*,/g, () => {
+    <br>&nbsp;&nbsp;i++;
+    <br>&nbsp;&nbsp;return `id: ${i},`;
+    <br>});
+    <br>fs.writeFileSync('new-file.txt', output);
+  </code>
+  <p>Получилась программа на javascript, которая работает в среде node.js</p>
+  <p>Положите файл с массивом объектов в ту же папку где и файл с программой и назовите его file.txt</p>
+  <p>Запустите файл с программой</p>
+  <code>node id</code>
+  <p>Файл с результатом будет называться new-file.txt</p>
+</article>

@@ -22,7 +22,7 @@ import pageLink from './pages/pages';
 // const currentPage = document.querySelector('#front-node');
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Node', 'Axios', 'Babel', 'Eslint', 'Gulp', 'Vite', 'Webpack', 'Tailwind'];
+const asideThemes = ['Node', 'Axios', 'Babel', 'Eslint', 'Gulp', 'Vite', 'Webpack', 'Tailwind', 'Nodejs'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

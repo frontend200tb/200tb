@@ -9,6 +9,7 @@ import htmlNodeGulp from './elem-node-gulp.html';
 import htmlNodeVite from './elem-node-vite.html';
 import htmlNodeWebpack from './elem-node-webpack.html';
 import htmlNodeTailwind from './elem-node-tailwind.html';
+import htmlNodeNodejs from './elem-node-nodejs.html';
 import contentOrder from '../../../../js/order';
 
 export default function pageLink() {
@@ -83,6 +84,14 @@ export default function pageLink() {
       e.preventDefault();
       currentContent.innerHTML = htmlNodeTailwind;
       contentOrder();
+    });
+  }
+
+  const asideNodejs = document.getElementById('node-nodejs');
+  if (asideNodejs) {
+    asideNodejs.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlNodeNodejs;
     });
   }
 }

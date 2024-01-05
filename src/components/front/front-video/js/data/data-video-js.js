@@ -29,7 +29,7 @@ const dataVideoJs = [
     time_h_m: [7, 22],
     size: '1.7 gb',
     isLearned: true,
-    dateLearned: '2023-12-04 пн, 2022-10-13 чт',
+    dateLearned: '2023-12-04 пн',
   },
 
   {
@@ -45,7 +45,7 @@ const dataVideoJs = [
     time_h_m: [5, 0],
     size: '1.155 gb',
     isLearned: true,
-    dateLearned: '2023-12-05 вт, 2022-09-16 пт',
+    dateLearned: '2023-12-05 вт',
   },
 
   {
@@ -268,8 +268,8 @@ const dataVideoJs = [
     numberLessons: '',
     time_h_m: [18, 21],
     size: '7 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2023-12-28 чт',
   },
 
   {
@@ -286,6 +286,22 @@ const dataVideoJs = [
     size: '3 gb',
     isLearned: true,
     dateLearned: '2023-12-12 вт',
+  },
+
+  {
+    id: 16,
+    year: 2018,
+    date: '',
+    category: 'code',
+    theme: 'javascript',
+    title: 'JavaScript Расширенные возможности',
+    author: 'Сергей Патеха',
+    name: 'ITVDN',
+    numberLessons: '8 уроков',
+    time_h_m: [6, 46],
+    size: '1.9 gb',
+    isLearned: true,
+    dateLearned: '2023-12-22 пт',
   },
 
   {

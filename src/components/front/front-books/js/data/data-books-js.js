@@ -8,8 +8,8 @@ const dataBooksJs = [
     title: 'Практические занятия по JavaScript',
     author: 'Николенко',
     pages: 129,
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2023-12-28 чт',
   },
 
   {

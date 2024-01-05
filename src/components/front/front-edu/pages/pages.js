@@ -1,4 +1,3 @@
-import contentOrder from '../../../../js/order';
 import rain from './rain';
 import star from './star';
 import './rain.scss';
@@ -29,9 +28,16 @@ import htmlDsrLec6 from './dsr/dsr2023net-lecture6.html';
 import htmlDsrLec7 from './dsr/dsr2023net-lecture7.html';
 import htmlDsrLec8 from './dsr/dsr2023net-lecture8.html';
 import htmlDsrLec9 from './dsr/dsr2023net-lecture9.html';
+import htmlDsrLec10 from './dsr/dsr2023net-lecture10.html';
+import htmlDsrLec11 from './dsr/dsr2023net-lecture11.html';
+import htmlDsrLec12 from './dsr/dsr2023net-lecture12.html';
 
 import htmlDsrWshop1 from './dsr/dsr2023net-workshop1.html';
 import htmlDsrWshop2 from './dsr/dsr2023net-workshop2.html';
+import htmlDsrWshop3 from './dsr/dsr2023net-workshop3.html';
+import htmlDsrWshop4 from './dsr/dsr2023net-workshop4.html';
+import htmlDsrWshop5 from './dsr/dsr2023net-workshop5.html';
+import htmlDsrWshop6 from './dsr/dsr2023net-workshop6.html';
 
 // RS Test
 import htmlRsTestRss from './rs-test/rs-test-rss.html';
@@ -53,6 +59,8 @@ import htmlRsTestDomapi from './rs-test/rs-test-domapi.html';
 import htmlRsTestDomevents from './rs-test/rs-test-domevents.html';
 import htmlRsTestGitgithub from './rs-test/rs-test-gitgithub.html';
 import htmlRsTestAlgorithms from './rs-test/rs-test-algorithms.html';
+import htmlRsTestCleancode from './rs-test/rs-test-cleancode.html';
+import htmlRsTestLinters from './rs-test/rs-test-linters.html';
 
 // Создаем массив страниц с Aside меню
 const htmlPages = [htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduCourses,
@@ -61,10 +69,12 @@ const htmlPages = [htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduCourses,
 
 // Создаем массив страниц с лекциями DSR
 const htmlDsrLec = [htmlDsrLec0, htmlDsrLec1, htmlDsrLec2, htmlDsrLec3,
-htmlDsrLec4, htmlDsrLec5, htmlDsrLec6, htmlDsrLec7, htmlDsrLec8, htmlDsrLec9];
+htmlDsrLec4, htmlDsrLec5, htmlDsrLec6, htmlDsrLec7, htmlDsrLec8, htmlDsrLec9,
+htmlDsrLec10, htmlDsrLec11, htmlDsrLec12];
 
 // Создаем массив страниц с практикой DSR
-const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2];
+const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2, htmlDsrWshop3, htmlDsrWshop4, htmlDsrWshop5,
+htmlDsrWshop6];
 
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
@@ -72,7 +82,7 @@ htmlRsTestJsBasics, htmlRsTestJsTypes, htmlRsTestJsScope, htmlRsTestJsEvolution,
 htmlRsTestHtmlBasics, htmlRsTestCssBasics, htmlRsTestCssflexbox, htmlRsTestCssGrid,
 htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
 htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
-htmlRsTestAlgorithms];
+htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -83,7 +93,6 @@ export default function pageLink() {
     asideCourses.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduCourses;
-      contentOrder();
     });
   }
 
@@ -92,7 +101,6 @@ export default function pageLink() {
     asideCourseslearned.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduCoursesLearned;
-      contentOrder();
     });
   }
 
@@ -101,7 +109,6 @@ export default function pageLink() {
     asideLearning.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduLearning;
-      contentOrder();
     });
   }
 
@@ -110,7 +117,6 @@ export default function pageLink() {
     asideRss.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss;
-      contentOrder();
     });
   }
 
@@ -119,7 +125,6 @@ export default function pageLink() {
     asideRss2022stage0.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss2022stage0;
-      contentOrder();
     });
   }
 
@@ -128,7 +133,6 @@ export default function pageLink() {
     asideRss2022stage1.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss2022stage1;
-      contentOrder();
     });
   }
 
@@ -137,7 +141,6 @@ export default function pageLink() {
     asideRss2022stage3Angular.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss2022stage3;
-      contentOrder();
     });
   }
 
@@ -146,7 +149,6 @@ export default function pageLink() {
     asideRss2023stage0.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss2023stage0;
-      contentOrder();
     });
   }
 
@@ -155,7 +157,6 @@ export default function pageLink() {
     asideRss2023stage1.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduRss2023stage1;
-      contentOrder();
     });
   }
 
@@ -164,7 +165,6 @@ export default function pageLink() {
     asideDsr2023net.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduDsr2023net;
-      contentOrder();
       dsrLinks();
     });
   }
@@ -176,7 +176,6 @@ export default function pageLink() {
       currentContent.innerHTML = htmlEduQuiz;
       rain();
       star();
-      contentOrder();
       rsLinks();
     });
   }
@@ -223,12 +222,11 @@ function dsrLinks() {
 function backToDsr() {
   const currentContent = document.querySelector('#edu');
 
-  const linkToDsr = document.getElementById('edu-dsr');
+  const linkToDsr = document.getElementById('link-to-dsr2023net');
   if (linkToDsr) {
     linkToDsr.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduDsr2023net;
-      contentOrder();
       dsrLinks();
     });
   }
@@ -259,7 +257,6 @@ function backToQuiz() {
     linkToQuiz.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduQuiz;
-      contentOrder();
       rsLinks();
     });
   }

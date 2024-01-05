@@ -3,7 +3,7 @@
 
   <h1>[St1] Test Git & GitHub #2</h1>
 
-  <strong>25 вопросов. Выполнил на 0 баллов из 100</strong>
+  <strong>25 вопросов. Выполнил на 96 баллов из 100</strong>
 </article>
 
 
@@ -11,10 +11,36 @@
   <h3>1. After modifying some existing files in a repository, you decide to discard the changes. What command can you use? (checkbox)</h3>
 
   <ul>
-    <li>git restore</li>
+    <li><strong>git restore</strong></li>
     <li>git undo</li>
     <li>git clean</li>
-    <li>git checkout</li>
+    <li><strong>git checkout</strong></li>
+    <li>None of these</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>After pushing commits to the remote repository for the first time using the command 'git push -u origin master', what shorthand command can you use in future?</h3>
+
+  <ul>
+    <li>git push master</li>
+    <li>git push origin</li>
+    <li>Same as before, git push -u origin master</li>
+    <li><strong>git push</strong></li>
+    <li>None of these</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>After staging a series of changes to the index, which command could you use to review them prior to a commit?</h3>
+
+  <ul>
+    <li>git diff</li>
+    <li><strong>git diff --cached</strong></li>
+    <li>git diff --HEAD</li>
+    <li>git status -v -v</li>
     <li>None of these</li>
   </ul>
 </article>
@@ -25,7 +51,7 @@
 
   <ul>
     <li>git --v</li>
-    <li>git --version</li>
+    <li><strong>git --version</strong></li>
     <li>git --option</li>
     <li>git --current</li>
     <li>None of these</li>
@@ -38,7 +64,7 @@
 
   <ul>
     <li>Find the commit in the remote repository, as that's the only place that kind of information is stored.</li>
-    <li>Use the diff-tree command with the commit hash.</li>
+    <li><strong>Use the diff-tree command with the commit hash.</strong></li>
     <li>Run git commit --info with the commit hash.</li>
     <li>None of these</li>
   </ul>
@@ -51,7 +77,7 @@
   <ul>
     <li>Caching</li>
     <li>You can't. git merge --squash is the only git command for that operation.</li>
-    <li>Rebasing</li>
+    <li><strong>Rebasing</strong></li>
     <li>Reflogging</li>
     <li>None of these</li>
   </ul>
@@ -63,7 +89,7 @@
 
   <ul>
     <li>git branch</li>
-    <li>git checkout</li>
+    <li><strong>git checkout</strong></li>
     <li>git change</li>
     <li>git go</li>
   </ul>
@@ -71,11 +97,46 @@
 
 
 <article class="article">
+  <h3>How do you stage files for a commit?</h3>
+
+  <ul>
+    <li>git stage</li>
+    <li><strong>git add</strong></li>
+    <li>git track</li>
+    <li>git commit</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>How do you supply a commit message to a commit?</h3>
+
+  <ul>
+    <li>git m 'Some changes'</li>
+    <li>git commit 'Some changes'</li>
+    <li>git m -commit 'Some changes'</li>
+    <li><strong>git commit -m 'Some changes'</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>How to check changes between commits?</h3>
+
+<ul>
+  <li>git info --changes</li>
+  <li>git show --changes</li>
+  <li><strong>git diff</strong></li>
+  <li>git changes</li>
+</ul>
+
+
+<article class="article">
   <h3>6. If you cloned an existing git repository, what would happen?</h3>
 
   <ul>
     <li>A new copy would overwrite the central repository</li>
-    <li>A copy of the repository would be created on your local machine</li>
+    <li><strong>A copy of the repository would be created on your local machine</strong></li>
     <li>Nothing, cloning is not a supported git function</li>
     <li>A copy of the repository would be created on the hosting platform</li>
     <li>None of these</li>
@@ -85,11 +146,11 @@
 
 <article class="article">
   <h3>7. In a situation where you have several commits for a single task, what is the most efficient way to restructure your commit history?</h3>
-  
+
   <ul>
     <li>Cherry pick the related commits to another branch.</li>
     <li>Delete the task commits and recommit with a new message.</li>
-    <li>Squash the related commits together into a single coherent commit.</li>
+    <li><strong>Squash the related commits together into a single coherent commit.</strong></li>
     <li>Stash the related commits under a new hash.</li>
     <li>None of these</li>
   </ul>
@@ -97,16 +158,30 @@
 
 
 <article class="article">
-  <h3>8. Looking at the following commands, describe what is happening. 'git checkout feature-user-location git cherry-pick kj2342134sdf090093f0sdgasdf99sdfo992mmmf9921231'</h3>
+  <h3>8. Looking at the following commands, describe what is happening.
+    <br>git checkout feature-user-location
+    <br>git cherry-pick kj2342134sdf090093f0sdgasdf99sdfo992mmmf9921231</h3>
 
   <ul>
     <li>The commit is being tagged for release on the feature-user-location branch</li>
     <li>A commit is being copied from its original branch over to the feature-user-location branch</li>
     <li>The commit is being cherry picked as the new HEAD of the commit history</li>
     <li>A commit is being copied from the feature-user-location branch to the master branch</li>
-    <li>The branch is switched to the feature-user-location branch, and the specified commit is applied to the branch.</li>
+    <li><strong>The branch is switched to the feature-user-location branch, and the specified commit is applied to the branch.</strong></li>
     <li>None of these</li>
   </ul>
+</article>
+
+
+<article class="article">
+  <h3>What are some advantages to using GIT?</h3>
+
+<ul>
+  <li>It allows you to see what changes you made</li>
+  <li>It allows you to easily roll back changes if needed</li>
+  <li>Allows you to have a backup of your code and for others to have the ability to view, comment, and edit it</li>
+  <li><strong>All of them</strong></li>
+</ul>
 </article>
 
 
@@ -114,8 +189,33 @@
   <h3>9. What comes first, staging with git add . or committing with git commit?</h3>
 
   <ul>
-    <li>staging, then commiting</li>
+    <li><strong>staging, then commiting</strong></li>
     <li>commiting, then staging</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What command creates a new branch from the currently checked-out branch?</h3>
+
+  <ul>
+    <li>git -b checkout &lt;nameOfBranch&gt;</li>
+    <li>git branch</li>
+    <li>git checkout &lt;nameOfBranch&gt;</li>
+    <li><strong>git checkout -b &lt;nameOfBranch&gt;</strong></li>
+    <li>None of these</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Which command should you use to initialize a new Git repository?</h3>
+
+  <ul>
+    <li>git start</li>
+    <li>git new</li>
+    <li><strong>git init</strong></li>
+    <li>git install</li>
   </ul>
 </article>
 
@@ -124,10 +224,27 @@
   <h3>10. What command would let you modify your previous commit?</h3>
 
   <ul>
-    <li>git commit --amend</li>
+    <li><strong>git commit --amend</strong></li>
     <li>git commit --modify</li>
     <li>git commit --quickfix</li>
     <li>git commit --fix</li>
+    <li>None of these</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What commands would you use to force an overwrite of your local files with the master branch?</h3>
+
+  <ul>
+    <li>git pull --all
+      <br>git reset --hard origin/master</li>
+    <li>git pull -u origin master
+      <br>git reset --hard master</li>
+    <li>git pull origin master
+      <br>git reset --hard origin/myCurrentBranch</li>
+    <li><strong>git fetch --all
+      <br>git reset --hard origin/master</strong></li>
     <li>None of these</li>
   </ul>
 </article>
@@ -140,7 +257,7 @@
     <li>It deletes all previous commits and reset the repository history back to its initial state.</li>
     <li>It resets the working branch to the first commit.</li>
     <li>It keeps the HEAD at the current commit, but clears all previous commits.</li>
-    <li>It sets HEAD to the previous commit and leaves changes from the undone commit in the stage/index.</li>
+    <li><strong>It sets HEAD to the previous commit and leaves changes from the undone commit in the stage/index.</strong></li>
     <li>None of these</li>
   </ul>
 </article>
@@ -151,7 +268,7 @@
 
   <ul>
     <li>shell script pointers and keychain credentials</li>
-    <li>updates to branch tips and other references in the local repository</li>
+    <li><strong>updates to branch tips and other references in the local repository</strong></li>
     <li>release notes and hook script values</li>
     <li>tag and versioning information</li>
     <li>None of these</li>
@@ -163,7 +280,7 @@
   <h3>13. What is the difference between a soft reset (git reset --soft) and a hard reset (git reset --hard) ?</h3>
 
   <ul>
-    <li>A soft reset only changes the commit that HEAD points to, while a hard reset resets the index and working tree to match the specified commit, discarding any changes.</li>
+    <li><strong>A soft reset only changes the commit that HEAD points to, while a hard reset resets the index and working tree to match the specified commit, discarding any changes.</strong></li>
     <li>A soft reset caches the old HEAD pointer, while a hard reset deletes it entirely.</li>
     <li>A hard reset changes only where the HEAD is pointing, while a soft reset changes the HEAD and index.</li>
     <li>A hard reset caches the old HEAD pointer, while a soft reset deletes it entirely.</li>
@@ -173,10 +290,23 @@
 
 
 <article class="article">
+  <h3>What is the difference between git fetch AND git pull</h3>
+
+  <ul>
+    <li>git fetch creates a new branch off the master branch, while git pull creates a new branch off the local repository's master branch.</li>
+    <li>git pull downloads new data from a remote repository without integrating it into local files, while git fetch updates the current HEAD branch with the latest changes from the remote server.</li>
+    <li>git fetch updates remote tracking branches with changes from a remote repository, while git pull updates remote tracking branches with changes from a remote repository and merges them into their corresponding local branches.</li>
+    <li>git fetch downloads and merges data from the local repository, while git pull informs your colleagues you are about to make changes to the master branch.</li>
+    <li><strong>None of these</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
   <h3>14. What Language is used in GIT?</h3>
 
   <ul>
-    <li>C</li>
+    <li><strong>C</strong></li>
     <li>C++</li>
     <li>C#</li>
     <li>Java</li>
@@ -191,7 +321,7 @@
   <ul>
     <li>--all</li>
     <li>--master</li>
-    <li>--global</li>
+    <li><strong>--global</strong></li>
     <li>--update</li>
     <li>None of these</li>
   </ul>
@@ -205,7 +335,7 @@
     <li>git stage --all</li>
     <li>git stage .</li>
     <li>git add --all</li>
-    <li>git add .</li>
+    <li><strong>git add .</strong></li>
   </ul>
 </article>
 
@@ -215,7 +345,7 @@
 
   <ul>
     <li>git fork</li>
-    <li>git clone</li>
+    <li><strong>git clone</strong></li>
     <li>git copy</li>
     <li>git pull-request</li>
     <li>None of these</li>
@@ -230,7 +360,7 @@
     <li>git create --branch=newbranch</li>
     <li>git make --branch=newbranch</li>
     <li>git checkout newbranch</li>
-    <li>git branch newbranch</li>
+    <li><strong>git branch newbranch</strong></li>
   </ul>
 </article>
 
@@ -240,7 +370,7 @@
 
   <ul>
     <li>git upload</li>
-    <li>git push</li>
+    <li><strong>git push</strong></li>
     <li>git send</li>
     <li>git pull-request</li>
     <li>None of these</li>
@@ -252,7 +382,7 @@
   <h3>20. Which Git command begins tracking of a new file?</h3>
 
   <ul>
-    <li>add</li>
+    <li><strong>add</strong></li>
     <li>addfile</li>
     <li>begin</li>
     <li>track</li>
@@ -266,10 +396,34 @@
 
   <ul>
     <li>Only new files in the working directory are staged to the index.</li>
-    <li>All new and updated files from the working directory are staged to the index.</li>
+    <li><strong>All new and updated files from the working directory are staged to the index.</strong></li>
     <li>All files in the working directory are staged to the index in alphabetical order.</li>
     <li>Only updated files in the working directory are staged to the index.</li>
     <li>None of these</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Which ways are present in Git to integrate changes from one branch into another?</h3>
+
+<ul>
+  <li>git integrate</li>
+  <li><strong>git rebase</strong></li>
+  <li>git switch</li>
+  <li>git branch</li>
+  <li><strong>git merge</strong></li>
+</ul>
+
+
+<article class="article">
+  <h3>Who is attributed with inventing Git?</h3>
+
+  <ul>
+    <li>Bill Gates</li>
+    <li>Steve Jobs</li>
+    <li>Kohsuke Kawaguchi</li>
+    <li><strong>Linus Torvalds</strong></li>
   </ul>
 </article>
 
@@ -279,7 +433,7 @@
 
   <ul>
     <li>To run a comparative search of the last 10 commits for differences</li>
-    <li>To list the last 10 commits and modify them with either the squash or fixup command</li>
+    <li><strong>To list the last 10 commits and modify them with either the squash or fixup command</strong></li>
     <li>To delete the last 10 commits and reset the HEAD</li>
     <li>In order to locally cache the last 10 commits</li>
     <li>None of these</li>
@@ -294,7 +448,7 @@
     <li>Manually backtrack through your commit history.</li>
     <li>Use git search -diff to compare all commits in your repository history.</li>
     <li>Run a git rebase to find the buggy commit.</li>
-    <li>Use git bisect to compare the buggy commit to an early commit that works as expected.</li>
+    <li><strong>Use git bisect to compare the buggy commit to an early commit that works as expected.</strong></li>
     <li>None of these</li>
   </ul>
 </article>
@@ -307,7 +461,7 @@
     <li>git push --overwrite</li>
     <li>git push --update</li>
     <li>git push --assert</li>
-    <li>git push --force-with-lease</li>
+    <li><strong>git push --force-with-lease</strong></li>
     <li>None of these</li>
   </ul>
 </article>
@@ -318,7 +472,7 @@
 
   <ul>
     <li>git rebase -log</li>
-    <li>git rebase -i</li>
+    <li><strong>git rebase -i</strong></li>
     <li>git rebase -verbose</li>
     <li>git rebase -all</li>
     <li>None of these</li>
