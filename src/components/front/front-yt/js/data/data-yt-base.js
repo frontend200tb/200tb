@@ -211,6 +211,20 @@ const dataYtBase = [
   },
 
   {
+    id: 8,
+    theme: 'Основы',
+    title: 'Менеджмент разработки ПО',
+    author: 'Валерий Студенников',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@softdevmgmt/videos',
+    site: '',
+    dateFirstVideo: '2022.09.08',
+    dateLastVideo: '2023.12.13',
+    amountVideos: 32,
+  },
+
+  {
     id: 9,
     theme: 'Основы',
     title: 'Lo-Fi Собеседования',

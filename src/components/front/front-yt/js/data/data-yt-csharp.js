@@ -71,6 +71,20 @@ const dataYtCsharp = [
   },
 
   {
+    id: 5,
+    theme: 'C#',
+    title: 'Паша Львов',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@JinOptimist/streams',
+    site: '',
+    dateFirstVideo: '2020.04.29',
+    dateLastVideo: '2024.01.09',
+    amountVideos: 240,
+  },
+
+  {
     id: 6,
     theme: 'C#',
     title: 'XpucT',

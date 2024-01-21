@@ -7,7 +7,7 @@ import './element-code-js';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['JavaScript', 'String'];
+const asideThemes = ['JavaScript', 'String', 'Array', 'ASCII'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

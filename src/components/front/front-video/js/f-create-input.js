@@ -19,6 +19,7 @@ import dataVideoAlgorithm from './data/data-video-algorithm';
 import dataVideoAngular from './data/data-video-angular';
 import dataVideoReact from './data/data-video-react';
 import dataVideoVue from './data/data-video-vue';
+import dataVideoNode from './data/data-video-node';
 import dataVideoElectron from './data/data-video-electron';
 import dataVideoBootstrap from './data/data-video-bootstrap';
 import dataVideoNuxt from './data/data-video-nuxt';
@@ -58,8 +59,9 @@ const dataArray = [
   // Base
   dataVideoBase, dataVideoAlgorithm,
   // Framework
-  dataVideoAngular, dataVideoReact, dataVideoVue, dataVideoElectron,
-  dataVideoBootstrap, dataVideoNuxt, dataVideoRedux, dataVideoYii2,
+  dataVideoAngular, dataVideoReact, dataVideoVue, dataVideoNode,
+  dataVideoElectron, dataVideoBootstrap, dataVideoNuxt, dataVideoRedux,
+  dataVideoYii2,
   // CMS
   dataVideo1cbitrix, dataVideoDrupal, dataVideoJoomla, dataVideoOpencart,
   dataVideoTilda, dataVideoWp,

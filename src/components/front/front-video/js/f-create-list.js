@@ -38,11 +38,19 @@ export default function createList(data) {
       video.time = `Время ${data[i].time}`;
     }
 
+    // 6.1 Свойство link объекта video содержит ссылки на видео
+    if (data[i].link) {
+      video.link = '<a href="1.html" class="video-algorithm">открыть</a>';
+    } else {
+      video.link = '';
+    }
+
     // 6. Запишем свойства фильма в элемент списка фильмов
     elementLi.innerHTML = `
     <strong>[${data[i].year}] ${data[i].title}</strong>
     <div>${data[i].author} ${data[i].name}</div>
-    <div>${data[i].numberLessons} ${video.time} Размер ${data[i].size}</div>
+    <div>${data[i].numberLessons} видео. ${video.time} Размер ${data[i].size}</div>
+    <div>${video.link}</div>
     <div>Изучено ${data[i].isLearned}</div>`;
 
     // 7. Добавим элемент elementLi в массив parentDiv для элементов li списка

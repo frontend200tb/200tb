@@ -1,0 +1,534 @@
+<h1>Array</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#array">array</a></p>
+    <p><a href="#methods">Методы массивов</a></p>
+  </div>
+
+</div>
+
+<!-- links-->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array">developer.mozilla.org/Array</a></p>
+  <p><a href="https://learn.javascript.ru/array">learn.javascript.ru/array</a></p>
+  <p><a href="https://doka.guide/js/arrays/">doka.guide/js/arrays</a></p>
+  <p><a href="https://metanit.com/web/javascript/5.3.php">metanit.com</a></p>
+</article>
+
+<!-- array-->
+<article class="article">
+  <div class="anchor" id="array"></div>
+  <h2>Массив (тип данных Object) в Javascript</h2>
+</article>
+
+<article class="article">
+  <h3>8. Свойства массивов</h3>
+  <p>Массивы имеют только одно свойство - length.</p>
+
+  <table>
+    <tr>
+      <th>length</th>
+      <td>Возвращает число элементов массива</td>
+    </tr>
+  </table>
+
+  <h3>Свойство length</h3>
+  <p>Значение данного свойства 32-битное безнаковое целое число, которое всегда численно больше чем самый наибольший индекс в массиве.</p>
+  <code>['one', 'two', 100].length
+  <br>3</code>
+</article>
+
+<!-- Методы массивов-->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h3>9. Методы массивов</h3>
+  <p>Методы строк не изменяют исхдную строку.</p>
+  <p>Методы объекта String, записанные в его прототипе String.prototype.</p>
+  <table>
+    <tr>
+      <td>1</td>
+      <th><a href="#at-array">at()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <th><a href="#concat-array">concat()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <th><a href="#copy-within-array">copyWithin()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <th><a href="#entries-array">entries()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <th><a href="#every-array">every()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <th><a href="#fill-array">fill()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <th><a href="#filter-array">filter()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <th><a href="#find-array">find()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <th><a href="#find-index-array">findIndex()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <th><a href="#find-last-array">findLast()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <th><a href="#find-last-index-array">findLastIndex()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <th><a href="#flat-array">flat()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <th><a href="#flat-map-array">flatMap()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <th><a href="#for-each-array">forEach()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <th><a href="#from-array">Array.from()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <th><a href="#from-async-array">Array.fromAsync()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <th><a href="#includes-array">includes()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <th><a href="#index-of-array">indexOf()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <th><a href="#is-array-array">Array.isArray()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <th><a href="#join-array">join()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <th><a href="#keys-array">keys()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <th><a href="#last-index-of-array">lastIndexOf()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <th><a href="#map-array">map()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <th><a href="#of-array">Array.of()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <th><a href="#pop-array">pop()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <th><a href="#push-array">push()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <th><a href="#reduce-array">reduce()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <th><a href="#reduce-right-array">reduceRight()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <th><a href="#reverse-array">reverse()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <th><a href="#shift-array">shift()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <th><a href="#slice-array">slice()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <th><a href="#some-array">some()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <th><a href="#sort-array">sort()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <th><a href="#splice-array">splice()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <th><a href="#to-locale-string-array">toLocaleString()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <th><a href="#to-reversed-array">toReversed()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <th><a href="#to-sorted-array">toSorted()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <th><a href="#to-spliced-array">toSpliced()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <th><a href="#to-string-array">toString()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <th><a href="#unshift-array">unshift()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <th><a href="#values-array">values()</a></th>
+      <td></td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <th><a href="#with-array">with()</a></th>
+      <td></td>
+    </tr>
+  </table>
+</article>
+
+<!-- 1. at() -->
+<article class="article">
+  <div class="anchor" id="at-array"></div>
+  <h3>Метод At()</h3>
+</article>
+
+<!-- 2. concat() -->
+<article class="article">
+  <div class="anchor" id="concat-array"></div>
+  <h3>Метод concat()</h3>
+</article>
+
+<!-- 3. copyWithin() -->
+<article class="article">
+  <div class="anchor" id="copy-within-array"></div>
+  <h3>Метод copyWithin()</h3>
+</article>
+
+<!-- 4. entries() -->
+<article class="article">
+  <div class="anchor" id="entries-array"></div>
+  <h3>Метод entries()</h3>
+</article>
+
+<!-- 5. every() -->
+<article class="article">
+  <div class="anchor" id="every-array"></div>
+  <h3>Метод every()</h3>
+</article>
+
+<!-- 6. fill() -->
+<article class="article">
+  <div class="anchor" id="fill-array"></div>
+  <h3>Метод fill()</h3>
+</article>
+
+<!-- 7. filter() -->
+<article class="article">
+  <div class="anchor" id="filter-array"></div>
+  <h3>Метод filter()</h3>
+</article>
+
+<!-- 8. find() -->
+<article class="article">
+  <div class="anchor" id="find-array"></div>
+  <h3>Метод find()</h3>
+</article>
+
+<!-- 9. findIndex() -->
+<article class="article">
+  <div class="anchor" id="find-index-array"></div>
+  <h3>Метод findIndex()</h3>
+</article>
+
+<!-- 10. findLast() -->
+<article class="article">
+  <div class="anchor" id="find-last-array"></div>
+  <h3>Метод findLast()</h3>
+</article>
+
+<!-- 11. findLastIndex() -->
+<article class="article">
+  <div class="anchor" id="find-last-index-array"></div>
+  <h3>Метод findLastIndex()</h3>
+</article>
+
+<!-- 12. flat() -->
+<article class="article">
+  <div class="anchor" id="flat-array"></div>
+  <h3>Метод flat()</h3>
+</article>
+
+<!-- 13. flatMap() -->
+<article class="article">
+  <div class="anchor" id="flat-map-array"></div>
+  <h3>Метод flatMap()</h3>
+</article>
+
+<!-- 14. forEach() -->
+<article class="article">
+  <div class="anchor" id="for-each-array"></div>
+  <h3>Метод forEach()</h3>
+</article>
+
+<!-- 15. Array.from() -->
+<article class="article">
+  <div class="anchor" id="from-array"></div>
+  <h3>Метод Array.from()</h3>
+</article>
+
+<!-- 16. Array.fromAsync() -->
+<article class="article">
+  <div class="anchor" id="from-async-array"></div>
+  <h3>Метод Array.fromAsync()</h3>
+</article>
+
+<!-- 17. includes() -->
+<article class="article">
+  <div class="anchor" id="includes-array"></div>
+  <h3>Метод includes()</h3>
+</article>
+
+<!-- 18. indexOf() -->
+<article class="article">
+  <div class="anchor" id="index-of-array"></div>
+  <h3>Метод indexOf()</h3>
+</article>
+
+<!-- 19. Array.isArray() -->
+<article class="article">
+  <div class="anchor" id="is-array-array"></div>
+  <h3>Метод Array.isArray()</h3>
+</article>
+
+<!-- 20. join() -->
+<article class="article">
+  <div class="anchor" id="join-array"></div>
+  <h3>Метод join()</h3>
+</article>
+
+<!-- 21. keys() -->
+<article class="article">
+  <div class="anchor" id="keys-array"></div>
+  <h3>Метод keys()</h3>
+</article>
+
+<!-- 22. lastIndexOf() -->
+<article class="article">
+  <div class="anchor" id="last-index-of-array"></div>
+  <h3>Метод lastIndexOf()</h3>
+</article>
+
+<!-- 23. map() -->
+<article class="article">
+  <div class="anchor" id="map-array"></div>
+  <h3>Метод map()</h3>
+</article>
+
+<!-- 24. Array.of() -->
+<article class="article">
+  <div class="anchor" id="of-array"></div>
+  <h3>Метод Array.of()</h3>
+  <p>Array.of() — статический метод, который создаёт массив из переданных ему аргументов. Array.of() и конструктор массива Array() работают практически одинаково. Разница возникает, если передавать этим функциям один аргумент, причём этот аргумент должен быть числом. В этом случае для конструктора Array() аргумент будет считаться длинной массива, а для Array.of() — первым элементом массива.</p>
+  <code>Array.of('🐱', 0b001, document.createElement('div')); // ['🐱', 1, div]
+  <br>Array.of(3); // [3]
+  <br>Array(2) // [empty × 2] — массив из двух пустых элементов</code>
+  <code>// Для строк всё работает одинаково
+  <br>Array.of('котик') // ['котик']
+  <br>Array('котик') // ['котик']</code>
+  <code>Array.of(10.5) // [10.5]
+  <br>Array(10.5) // RangeError: Invalid array length</code>
+</article>
+
+<!-- 25. pop() -->
+<article class="article">
+  <div class="anchor" id="pop-array"></div>
+  <h3>Метод pop()</h3>
+</article>
+
+<!-- 26. push() -->
+<article class="article">
+  <div class="anchor" id="push-array"></div>
+  <h3>Метод push()</h3>
+</article>
+
+<!-- 27. reduce() -->
+<article class="article">
+  <div class="anchor" id="reduce-array"></div>
+  <h3>Метод reduce()</h3>
+</article>
+
+<!-- 28. reduceRight() -->
+<article class="article">
+  <div class="anchor" id="reduce-right-array"></div>
+  <h3>Метод reduceRight()</h3>
+</article>
+
+<!-- 29. reverse() -->
+<article class="article">
+  <div class="anchor" id="reverse-array"></div>
+  <h3>Метод reverse()</h3>
+</article>
+
+<!-- 30. shift() -->
+<article class="article">
+  <div class="anchor" id="shift-array"></div>
+  <h3>Метод shift()</h3>
+</article>
+
+<!-- 31. slice() -->
+<article class="article">
+  <div class="anchor" id="slice-array"></div>
+  <h3>Метод slice()</h3>
+</article>
+
+<!-- 32. some() -->
+<article class="article">
+  <div class="anchor" id="some-array"></div>
+  <h3>Метод some()</h3>
+</article>
+
+<!-- 33. sort() -->
+<article class="article">
+  <div class="anchor" id="sort-array"></div>
+  <h3>Метод sort()</h3>
+</article>
+
+<!-- 34. splice() -->
+<article class="article">
+  <div class="anchor" id="splice-array"></div>
+  <h3>Метод splice()</h3>
+</article>
+
+<!-- 35. toLocaleString() -->
+<article class="article">
+  <div class="anchor" id="to-locale-string-array"></div>
+  <h3>Метод toLocaleString()</h3>
+</article>
+
+<!-- 36. toReversed() -->
+<article class="article">
+  <div class="anchor" id="to-reversed-array"></div>
+  <h3>Метод toReversed()</h3>
+</article>
+
+<!-- 37. toSorted() -->
+<article class="article">
+  <div class="anchor" id="to-sorted-array"></div>
+  <h3>Метод toSorted()</h3>
+</article>
+
+<!-- 38. toSpliced() -->
+<article class="article">
+  <div class="anchor" id="to-spliced-array"></div>
+  <h3>Метод toSpliced()</h3>
+</article>
+
+<!-- 39. toString() -->
+<article class="article">
+  <div class="anchor" id="to-string-array"></div>
+  <h3>Метод toString()</h3>
+</article>
+
+<!-- 40. unshift() -->
+<article class="article">
+  <div class="anchor" id="unshift-array"></div>
+  <h3>Метод unshift()</h3>
+</article>
+
+<!-- 41. values() -->
+<article class="article">
+  <div class="anchor" id="values-array"></div>
+  <h3>Метод values()</h3>
+</article>
+
+<!-- 42. with() -->
+<article class="article">
+  <div class="anchor" id="with-array"></div>
+  <h3>Метод with()</h3>
+</article>
+

@@ -6,11 +6,13 @@
   <p class="content__menu-link" id="content__menu-link2">Установка git и Git Bash</p>
   <p class="content__menu-link" id="content__menu-link3">Первоначальная настройка Git</p>
   <p class="content__menu-link" id="content__menu-link4">Создание репозитория</p>
-  <p class="content__menu-link" id="content__menu-link6">Требования к именам коммитов</p>
-  <p class="content__menu-link" id="content__menu-link7">О файле .gitignore</p>
-  <p class="content__menu-link" id="content__menu-link8">Команды консоли</p>
-  <p class="content__menu-link" id="content__menu-link9">workflow</p>
-  <p class="content__menu-link" id="content__menu-link10">Команды Git Bash</p>
+  <p class="content__menu-link" id="content__menu-link5">Требования к именам коммитов</p>
+  <p class="content__menu-link" id="content__menu-link6">О файле .gitignore</p>
+  <p class="content__menu-link" id="content__menu-link7">Команды консоли</p>
+  <p class="content__menu-link" id="content__menu-link8">workflow</p>
+  <p class="content__menu-link" id="content__menu-link9">Команды Git Bash</p>
+  <p class="content__menu-link" id="content__menu-link10">Переписывание истории</p>
+  <p class="content__menu-link" id="content__menu-link11">Текстовый редактор</p>
 </div>
 
 
@@ -18,7 +20,7 @@
 
 
   <div class="content__item" id="content__item1">
-    <h3>Links</h3>
+    <h2>Links</h2>
     <ol>
       <li><a href="https://git-scm.com/book/ru/v2">git-scm.com/book</a></li>
       <li><a href="https://smartiqa.ru/courses/git">smartiqa.ru/courses/git</a></li>
@@ -31,12 +33,14 @@
       <li><a href="https://git-scm.com/book/ru/v2">git-scm.com/book/ru/v2</a><br>Обучение git 10 уроков</li>
       <li><a href="https://learngitbranching.js.org/">learngitbranching.js.org</a><br>Learn git branching</li>
       <li><a href="https://www.atlassian.com/git">atlassian.com/git</a><br>Learn git</li>
+      <li><a href="https://pingvinus.ru/git">pingvinus.ru/git</a><br>Git в вопросах и ответах</li>
+      <li><a href="https://ymatuhin.ru/tools/git-default-editor/">ymatuhin.ru/tools/git-default-editor</a><br>Связывание текстового редактора с Git</li>
     </ol>
   </div>
 
 
   <div class="content__item" id="content__item2">
-    <h3>Установка git и Git Bush</h3>
+    <h2>Установка git и Git Bush</h2>
     <ul>
       <li>Переходим на сайт <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> и скачиваем последнюю версию Git-2.42.0-64-bit.exe. Устанавливаем и на рабочем столе появится иконка Git Bush. Это и есть командная строка для работы с git.</li>
 
@@ -57,60 +61,72 @@
 
 
   <div class="content__item" id="content__item3">
-    <h3>Первоначальная настройка Git</h3>
-    <ul>
-      <li>Теперь, когда Git установлен в вашей системе, самое время настроить среду для работы с Git под себя. Это нужно сделать только один раз — при обновлении версии Git настройки сохранятся. Но, при необходимости, вы можете поменять их в любой момент, выполнив те же команды снова.</li>
-      <li>В состав Git входит утилита git config, которая позволяет просматривать и настраивать параметры, контролирующие все аспекты работы Git, а также его внешний вид. Для начала необходимо задать в глобальной конфигурации имя пользователя, электронную почту и имя начальной ветки.</li>
-      <li>Зададим имя пользователя Frontend200tb
-      <code>git config --global user.name "Frontend200tb"</code>
-      Зададим почту frontend200tb@mail.ru
-      <code>git config --global user.email "frontend200tb@mail.ru"</code>
-      Зададим имя начальной ветки master
+    <article class="article">
+      <h2>Первоначальная настройка Git</h2>
+    </article>
+
+    <article class="article">
+      <p>Теперь, когда Git установлен в вашей системе, самое время настроить среду для работы с Git под себя. Это нужно сделать только один раз — при обновлении версии Git настройки сохранятся. Но, при необходимости, вы можете поменять их в любой момент, выполнив те же команды снова.</p>
+      <p>В состав Git входит утилита git config, которая позволяет просматривать и настраивать параметры, контролирующие все аспекты работы Git, а также его внешний вид.</p>
+      <p>Для начала необходимо задать в глобальной конфигурации имя пользователя (frontend200tb), электронную почту (frontend200tb@mail.ru), имя начальной ветки (master) и текстовый редактор (notead++).</p>
+      <code>git config --global user.name frontend200tb</code>
+      <code>git config --global user.email frontend200tb@mail.ru</code>
       <code>git config --global init.defaultBranch master</code>
-      Проверим имя пользователя в глобальной конфигурации
+      <code>git config --global core.editor "'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
+    </article>
+
+    <article class="article">
+      <p>Проверим в глобальной конфигурации имя пользователя, электронную почту и имя начальной ветки.</p>
       <code>git config --global user.name
       <br>frontend200tb</code>
-      Проверим электронную почту пользователя в глобальной конфигурации
       <code>git config --global user.email
       <br>frontend200tb@mail.ru</code>
-      Проверим имя начальной ветки в глобальной конфигурации
       <code>git config --global init.defaultBranch
       <br>master</code>
-      </li>
-      <li>В зависимости от области действия и места хранения в Git cуществуют 3 типа настроек:</li>
-    </ul>
+      <code>git config --global core.editor
+      <br>'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin</code>
+    </article>
 
-    <ol>
-      <li>
-      Системные. Представляют собой настройки на уровне всей системы, то есть они распространяются на всех пользователей. Файл с этими настройками хранится по следующему пути: C:\\Program Files\\Git\\etc\\gitconfig. Задать параметр системной конфигурации можно командой
+    <article class="article">
+      <p>В зависимости от области действия и места хранения в Git cуществуют 3 уровня настроек. Каждый из этих уровней (системный, глобальный, локальный) переопределяет значения предыдущего уровня.</p>
+    </article>
+
+    <article class="article">
+      <p>1. Системные. Представляют собой настройки на уровне всей системы, то есть они распространяются на всех пользователей. Файл с этими настройками хранится по следующему пути:</p>
+      <code>c:\Program Files\Git\etc\gitconfig</code>
+      <p>Задать параметр системной конфигурации можно командой</p>
       <code>git config --system &lt;параметр&gt; &lt;значение&gt;</code>
-      Посмотреть значение параметра системной конфигурации можно командой
+      <p>Посмотреть значение параметра системной конфигурации можно командой</p>
       <code>git config --system &lt;параметр&gt;</code>
-      </li>
-      <li>Глобальные. Эти настройки одинаковы для всех репозиториев, созданных под вашим пользователем. Среди них есть, например, имя ветки по умолчанию. Файл с этими параметрами хранятся по следующему адресу: C:\\User\\имя пользователя\\.gitconfig. Задать параметр глобальной конфигурации можно командой
+    </article>
+    <article class="article">
+      <p>2. Глобальные. Эти настройки одинаковы для всех репозиториев, созданных под вашим пользователем. Среди них есть, например, имя ветки по умолчанию. Файл с этими параметрами хранятся по следующему адресу:</p>
+      <code>c:\Users\имя пользователя\.gitconfig</code>
+      <p>Задать параметр глобальной конфигурации можно командой</p>
       <code>git config --global &lt;параметр&gt; &lt;значение&gt;</code>
-      Посмотреть значение параметра глобальной конфигурации можно командой
+      <p>Посмотреть значение параметра глобальной конфигурации можно командой</p>
       <code>git config --global &lt;параметр&gt;</code>
-      </li>
-      <li>Локальные. Это настройки на уровне репозитория, они не будут применяться к другим вашим проектам. Эти параметры хранятся в каждом вашем репозитории по адресу: .git\\config.</li>
-    </ol>
+    </article>
+    <article class="article">
+      <p>3. Локальные. Это настройки на уровне репозитория, они не будут применяться к другим вашим проектам. Эти параметры хранятся в каждом вашем репозитории по адресу:</p>
+      <code>.git\config</code>
+      <p>Задать параметр локальной конфигурации можно командой</p>
+      <code>git config --local &lt;параметр&gt; &lt;значение&gt;</code>
+      <p>Посмотреть значение параметра локальной конфигурации можно командой</p>
+      <code>git config --local &lt;параметр&gt;</code>
+    </article>
 
-    <ul>
-      <li>
-      Список возможных команд утилиты git config
+    <article class="article">
+      <p>Список возможных команд утилиты git config</p>
       <code>git config --list</code>
-      Посмотрим все установленные настройки и узнаем где именно они заданы
+      <p>Посмотрим все установленные настройки и узнаем где именно они заданы</p>
       <code>git config --list --show-origin</code>
-      Локально для конкретного проекта (эти настройки переопределят глобальные)
-      <code>git config --local user.name "Frontend200tb"
-      <br>git config --local user.email "frontend200tb@mail.ru"</code>
-      </li>
-    </ul>
+    </article>
   </div>
 
 
   <div class="content__item" id="content__item4">
-    <h3>Создание репозизтория</h3>
+    <h2>Создание репозизтория</h2>
     <ul>
       <li>Начать работу с Git можно 2 способами
         <p>1. Создать новый репозиторий на GitHub (если его еще нет)</p>
@@ -184,8 +200,8 @@
   </div>
 
 
-  <div class="content__item" id="content__item6">
-    <h3>Требования к именам коммитов</h3>
+  <div class="content__item" id="content__item5">
+    <h2>Требования к именам коммитов</h2>
     <ul>
       <li>- Названия коммитов должны быть согласно <a href="https://www.conventionalcommits.org/en/v1.0.0/">гайдлайну</a>
       <br>- Тип коммита должен быть только в нижнием регистре (docs, feat, fix, init, refactor)
@@ -230,8 +246,8 @@
   </div>
 
 
-  <div class="content__item" id="content__item7">
-    <h3>О файле .gitignore</h3>
+  <div class="content__item" id="content__item6">
+    <h2>О файле .gitignore</h2>
     <ul>
       <li>.gitignore нужен для скрытия файлов и папок от системы контроля версий Git. Обычно скрывают конфигурационные файлы (особенно с паролями), временные файли и папки. gitignore использует glob формат для выборки файлов.</li>
       <li>Основной синтаксис:</li>
@@ -284,8 +300,8 @@ foo.txt
   </div>
 
 
-  <div class="content__item" id="content__item8">
-    <h3>Команды консоли</h3>
+  <div class="content__item" id="content__item7">
+    <h2>Команды консоли</h2>
     <ul>
       <li>Команды консоли будут работат и без установленной git.
       <br>Очистить консоль
@@ -309,8 +325,8 @@ foo.txt
   </div>
 
 
-  <div class="content__item" id="content__item9">
-    <h3>workflow</h3>
+  <div class="content__item" id="content__item8">
+    <h2>workflow</h2>
     <ul>
       <li>Репозиторий Git условно можно разделить на 4 составляющие:</li>
     </ul>
@@ -364,7 +380,7 @@ foo.txt
   </div>
 
 
-  <div class="content__item" id="content__item10">
+  <div class="content__item" id="content__item9">
     <h2>Команды Git Bush</h2>
     <ul>
       <li>Все команды git начинаются со слова git и работают только при установленной git.</li>
@@ -688,6 +704,132 @@ foo.txt
     <code>git stash pop</code>
     </li>
     </ul>
-
   </div>
+
+
+  <div class="content__item" id="content__item10">
+    <article class="article">
+      <h2>Переписывание истории</h2>
+    </article>
+
+    <article class="article">
+      <p>Есть три механизма переписывания истории git commit --amend, git rebase, git reflog.</p>
+    </article>
+
+    <article class="article">
+      <h3>Изменение последнего коммита: git commit --amend</h3>
+      <p>Команда git commit --amend — это удобный способ изменить последний коммит. Она позволяет объединить проиндексированные изменения с предыдущим коммитом без создания нового коммита. Ее можно использовать для редактирования комментария к предыдущему коммиту без изменения состояния кода в нем. Но такое изменение не только редактирует последний коммит, но и полностью его заменяет. То есть измененный коммит станет новой сущностью с отдельной ссылкой. Для Git он будет выглядеть как новый коммит.</p>
+    </article>
+
+    <article class="article">
+      <h3>Изменение комментария в последнем коммите Git</h3>
+      <code>git commit --amend -m "new comment"</code>
+      <p>Допустим, при выполнении коммита вы допустили ошибку в комментарии к нему. Выполнение этой команды в отсутствие проиндексированных файлов позволяет отредактировать комментарий к предыдущему коммиту без изменения состояния кода.</p>
+
+      <p>В процессе разработки регулярно случаются преждевременные коммиты. Очень просто забыть проиндексировать файл или использовать неправильный формат комментария к коммиту. Флаг --amend позволяет удобно исправить эти небольшие ошибки.</p>
+    </article>
+
+    <article class="article">
+      <h3>Изменение файлов в последнем коммите</h3>
+      <p>В следующем примере показан распространенный сценарий разработки с использованием Git. Допустим, вы отредактировали несколько файлов и хотите сделать коммит за одну операцию. Но потом выясняется, что вы забыли добавить один из файлов в самом начале. Для того чтобы исправить эту ошибку, достаточно проиндексировать другой файл и выполнить коммит с флагом --amend:</p>
+
+      <code># Edit hello.py and main.py
+      <br>git add hello.py
+      <br>git commit
+      <br># Realize you forgot to add the changes from main.py
+      <br>git add main.py
+      <br>git commit --amend --no-edit</code>
+
+      <p>Флаг --no-edit позволит внести изменения в коммит без изменения комментария к нему. Итоговый коммит заменит неполный коммит. При этом все будет выглядеть так, словно изменения в файлах hello.py и main.py были сделаны за один коммит</p>
+    </article>
+
+    <article class="article">
+      <h3>Как изменить файлы в старом коммите (не последнем) в Git: git rebase -i</h3>
+
+      <p>1. Если вы уже изменили какие-либо файлы, то сначала нужно спрятать изменения. Для этого выполняем команду:</p>
+      <code>git stash</code>
+
+      <p>2. Посмотрим список коммитов:</p>
+      <code>git log --oneline</code>
+
+      <p>3. Выполняем команду git rebase -i и указываем ей коммит, который мы хотим изменить. В данном случае мы хотим изменить третий коммит (относительно HEAD).</p>
+      <code>git rebase -i HEAD~3</code>
+
+      <p>4. Откроется текстовый редактор со списком коммитов. Измените слово pick на edit (или просто на букву e) у коммита, который вы хотите изменить.</p>
+
+      <p>5. Сохраните изменения в файле. Вы снова окажетесь в командной строке.</p>
+
+      <p>6. Теперь внесите те изменения, которые вы хотели сделать с файлами. Если вы на первом шаге спрятали эти изменения, то сейчас их можно снова извлечь:</p>
+      <code>git stash pop</code>
+      <p>Или же просто отредактируйте файлы.</p>
+
+      <p>7. Добавьте отредактированные файлы в индекс:</p>
+      <code>git add myfile1 myfile2</code>
+
+      <p>8. Применим наши изменения к коммиту:</p>
+      <code>git commit --amend --no-edit</code>
+
+      <p>9. Завершим процесс ребейза:</p>
+      <code>git rebase --continue</code>
+      <p>Если все пройдет успешно, то появится сообщение вида:</p>
+      <code>Successfully rebased and updated refs/heads/master.</code>
+    </article>
+  </div>
+
+
+  <div class="content__item" id="content__item11">
+    <article class="article">
+      <h2>Связывание текстового редактора с Git</h2>
+    </article>
+
+    <article class="article">
+      <p>При редактировании сообщений комита Git по умолчанию открывает Vim. Для тех кто с ним не знаком, это может стать серьезной проблемой. Хорошо что это поведение легко изменить выполнив одну команду в терминале.</p>
+
+      <h4>Visual Studio Code</h4>
+      <code>git config --global core.editor "code --wait"</code>
+
+      <h4>Atom</h4>
+      <code>git config --global core.editor "atom --wait"</code>
+
+      <h4>TextMate</h4>
+      <code>git config --global core.editor "mate -w"</code>
+
+      <h4>nano</h4>
+      <code>git config --global core.editor "nano -w"</code>
+
+      <h4>Text Wrangler (Mac)</h4>
+      <code>git config --global core.editor "edit -w"</code>
+
+      <h4>Sublime Text (Mac)</h4>
+      <code>git config --global core.editor "subl -n -w"</code>
+
+      <h4>Sublime Text (Win, x32)</h4>
+      <code>git config --global core.editor "'c:/program files (x86)/sublime text 3/sublime_text.exe' -w"</code>
+
+      <h4>Sublime Text (Win, x64)</h4>
+      <code>git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"</code>
+
+      <h4>Notepad++ (Win, x32)</h4>
+      <code>git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
+
+      <h4>Notepad++ (Win, x64)</h4>
+      <code>git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
+
+      <h4>Kate (Linux)</h4>
+      <code>git config --global core.editor "kate"</code>
+
+      <h4>Gedit (Linux)</h4>
+      <code>git config --global core.editor "gedit --wait --new-window"</code>
+
+      <h4>Scratch (Linux)</h4>
+      <code>git config --global core.editor "scratch-text-editor"</code>
+
+      <h4>emacs</h4>
+      <code>git config --global core.editor "emacs"</code>
+
+      <h4>vim</h4>
+      <code>git config --global core.editor "vim"</code>
+    </article>
+  </div>
+
 </div>

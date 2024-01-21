@@ -141,6 +141,20 @@ const dataYtAlgorithm = [
   },
 
   {
+    id: 10,
+    theme: 'Алгоритмы',
+    title: '3.5 задачи в неделю',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@35zvn/videos',
+    site: '',
+    dateFirstVideo: '2016.04.03',
+    dateLastVideo: '2020.01.06',
+    amountVideos: 779,
+  },
+
+  {
     id: 11,
     theme: 'Алгоритмы',
     title: 'Академия Яндекса',

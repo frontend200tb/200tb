@@ -3,6 +3,33 @@ const dataYandex = [
   {
     id: 1,
     theme: 'Яндекс',
+    header3: 'Яндекс Образование',
+    link: 'https://education.yandex.ru/',
+    name: 'https://education.yandex.ru/',
+    text: 'Яндекс Образование. Школьникам Студентам Родителям',
+  },
+
+  {
+    id: 1,
+    theme: 'Яндекс',
+    header3: 'Яндекс Образование',
+    link: 'https://education.yandex.ru/kruzhok',
+    name: 'https://education.yandex.ru/kruzhok',
+    text: 'Яндекс Образование. Олимпиадное программирование для школьников 6-11 классов',
+  },
+
+  {
+    id: 1,
+    theme: 'Яндекс',
+    header3: 'Яндекс Образование',
+    link: 'https://education.yandex.ru/vsosh',
+    name: 'https://education.yandex.ru/vsosh',
+    text: 'Яндекс Образование. Подготовка к олимпиаде по информатике для школьников 5-11 классов',
+  },
+
+  {
+    id: 1,
+    theme: 'Яндекс',
     header3: 'Яндекс Лицей',
     link: 'https://lyceum.yandex.ru/',
     name: 'https://lyceum.yandex.ru',

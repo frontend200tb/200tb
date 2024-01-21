@@ -1,5 +1,210 @@
+<!-- Заголовок -->
 <article class="article">
   <h1>Мои программы на node.js</h1>
+</article>
+
+<!-- Содержание -->
+<div class="article__contents">
+  <a href="#os" class="contents__link">Модуль os</a>
+  <a href="#global-const" class="contents__link">Глобальные переменные</a>
+  <a href="#path" class="contents__link">Модуль path</a>
+  <a href="#fs" class="contents__link">Модуль fs</a>
+</div>
+
+<!-- Модуль os -->
+<article class="article">
+  <div class="anchor" id="os"></div>
+  <h2>Встроенная библиотека os</h2>
+  <p>Можно узнать параметры операционной системы</p>
+
+  <p>os.machine() возвращает в виде строчного значения тип машины или ПК пользователя. Возможные значения включают 'arm', 'arm64', 'aarch64', 'mips', 'ppc64', 'ppc64le', 's390', 's390x', 'i386', 'i686', 'x86_64'.</p>
+  <code>const os = require('os');
+  <br>console.log('Тип машины: ', os.machine());</code>
+
+  <p>os.platform() возвращает информацию о платформе операционной системы. Возвращается строка, которая может принимать следующие значения: 'aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', 'win32'.</p>
+  <code>const os = require('os');
+  <br>console.log('Платформа: ', os.platform());</code>
+
+  <p>os.type() возвращает имя операционной системы. Возвращается строка, которая может принимать следующие значения: 'Linux', 'Darwin', 'Windows_NT'.</p>
+  <code>const os = require('os');
+  <br>console.log('Операционная система: ', os.type());</code>
+
+  <p>os.release() возвращает информацию о версии операционной системы в виде строчного значения.</p>
+  <code>const os = require('os');
+  <br>console.log('Релиз платформы: ', os.release());</code>
+  
+  <br>console.log('Версия: ', os.version());
+  <br>console.log('Релиз платформы: ', os.release());
+  <br>console.log('Архитектура платформы: ', os.arch());
+  <br>console.log('Свободной памяти: ', os.totalmem());
+  <br>console.log('Всего памяти: ', os.freemem());
+  <br>console.log('Домашняя директория: ', os.homedir());
+  <br>console.log('Имя компьютера: ', os.hostname());
+  <br>console.log('Сколько времени включен: ', os.uptime());</code>
+</article>
+
+<!-- Глобальные переменные -->
+<article class="article">
+  <div class="anchor" id="global-const"></div>
+  <h2>Глобальные переменные __dirname и __filename</h2>
+  <p>В node.js нам доступны две глобальные переменные __dirname и __filename.</p>
+  <p>__dirname содержит путь до текущего файла</p>
+  <code>console.log(__dirname);
+  <br>D:\webpack\200tbfrontend\node</code>
+  <p>__filename содержит путь до текущего файла, его имя и расширение</p>
+  <code>console.log(__filename);
+  <br>D:\webpack\200tbfrontend\node\array.js</code>
+</article>
+
+<!-- Модуль path -->
+<article class="article">
+  <div class="anchor" id="path"></div>
+  <h2>Встроенная библиотека path</h2>
+  <p>Встроенная библиотека path позволяет нам узнать имя файла, путь к нему и его расширение</p>
+  <code>const path = require('path');
+  <br>console.log(path);
+  <br>console.log(path.basename(__filename));
+  <br>console.log(path.dirname(__filename));
+  <br>console.log(path.extname(__filename));</code>
+</article>
+
+<!-- Модуль fs -->
+<article class="article">
+  <div class="anchor" id="fs"></div>
+  <h2>Модуль fs</h2>
+  <p>Каждый метод модуля fs существует в двух вариантах: в синхронном и в асинхронном.</p>
+  <p>Синхронный вариант работы проще, однако он блокирует весь скрипт на время своего выполнения. К примеру, если у вас выполняется чтение файла, то весь остальной код будет ожидать, пока файл не прочитается.</p>
+  <p>При этом при чтении файла в основном загружается жесткий диск, а не процессор. То есть процессор мог бы выполнять наш код дальше, но вынужден ожидать загрузки файла.</p>
+  <p>Работать с асинхронным вариантом сложнее, но его преимуществом является то, что он не блокирует скрипт.</p>
+  <p>Это значит, что пока с жесткого диска будет скачиваться файл, наш скрипт сможет выполнять другие операции, что существенно повышает быстродействие скрипта.</p>
+
+  <h2>Создать файл</h2>
+  <p>Есть два метода для записи в файл - writeFileSync (синхронный) и writeFile (асинхронный).</p>
+  
+  <p>В синхронный метод передаются два параметра - имя файла и данные для записи в файл.</p>
+  <p>Создадим файл some.txt в текущей папке. Для этого в качестве первого параметра передадим только имя файла.</p>
+  <code>const fs = require('fs');
+  <br>fs.writeFileSync('some.txt', 'Hello World');</code>
+  <p>В текущей папке создастся файл some.txt, в который запишется текстовая строка 'Hello World'. Если такой файл уже есть, то в нем все удалится и запишется текстовая строка 'Hello World'.</p>
+
+  <p>В асинхронный метод передается три параметра - имя файла, данные для записи в файл и колбэк функция, которая выполнится после того как файл создастся и в него запишутся данные.</p>
+  <code>const fs = require('fs');
+  <br>fs.writeFile('some.txt', 'Hello World', () => {});</code>
+  <p>По умолчанию методы writeFileSync и writeFile полностью перезаписывают файл.</p>
+  <p>Для того чтобы данные записывались в конец файла нужно в качестве параметра передать объект с флагом на дозапись {flag: 'a'}</p>
+  <code>const fs = require('fs');
+  <br>fs.writeFile("some.txt", "Hello again", {flag:"a"}, () => {});</code>
+</article>
+
+<article class="article">
+  <h2>Дозапись в файл</h2>
+  <p>Есть два метода для дозаписи в файл - appendFileSync (синхронный) и appendFile (асинхронный).</p>
+  <code>const fs = require('fs');
+  <br>fs.appendFileSync('some.txt', 'Hello again');</code>
+  <code>const fs = require('fs');
+  <br>fs.appendFile('some.txt', 'Hello again', () => {});</code>
+</article>
+
+<article class="article">
+  <h2>Чтение файла</h2>
+  <p>Есть два метода для чтения файла - readFileSync (синхронный) и readFile (асинхронный).</p>
+  <p>В синхронный метод передаются два параметра - имя файла и кодировка.</p>
+  <p>В асинхронный метод передается три параметра - имя файла, кодировка и колбэк функция, которая выполнится после того как файл прочитается.</p>
+  <p>Прочитаем файл some.txt из текущей папки.</p>
+  <code>const fs = require('fs');
+  <br>let result = fs.readFileSync('some.txt', 'utf-8');
+  <br>console.log(result);</code>
+  <code>const fs = require('fs');
+  <br>fs.readFile('some.txt', 'utf-8', (err, data) => {
+  <br>&nbsp;&nbsp;if (err) throw err;
+  <br>&nbsp;&nbsp;console.log(data);
+  <br>});
+  </code>
+</article>
+
+<article class="article">
+  <h2>Чтение файла и запись в него</h2>
+  <p>Метод readFileSync возвращает содержимое файла. Поэтому записываем его в переменную.</p>
+  <code>const fs = require('fs');
+  <br>let result = fs.readFileSync('some.txt', 'utf-8');
+  <br>fs.writeFileSync('some.txt', result + '\nJavascript');
+  <br>console.log('было: ', result);
+  <br>result = fs.readFileSync('some.txt', 'utf-8');
+  <br>console.log('стало: ', result);</code>
+
+  <p>Метод readFile возвращает промис. Поэтому нужен коллбек, в который попадет содержимое файла или ошибка.</p>
+  <code>const fs = require('fs');
+  <br>fs.readFile('some.txt', 'utf-8', (err, data) => {
+  <br>&nbsp;&nbsp;fs.writeFile('some.txt', data + '\nJavascript', (err, data) => {
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;console.log('запись прошла успешно')
+  <br>&nbsp;&nbsp;});
+  <br>});</code>
+</article>
+
+<article class="article">
+  <h2>Удалить файл</h2>
+  <p>Есть два метода для удаления файла - unlinkSync (синхронный) и unlink (асинхронный).</p>
+  <code>const fs = require('fs');
+  <br>fs.unlinkSync('./js-test/some.txt');</code>
+  <code>const fs = require('fs');
+  <br>fs.unlink('./js-test/some.txt', () => {});</code>
+</article>
+
+<article class="article">
+  <h2>Создать папку</h2>
+  <p>Есть два метода для создания папки - mkdirSync (синхронный) и mkdir (асинхронный).</p>
+  <p>В синхронный метод передается один параметр - имя папки.</p>
+  <code>const fs = require('fs');
+  <br>fs.mkdirSync('js-test');</code>
+  <p>В асинхронный метод передаются два параметра - имя папки и колбэк функция, которая выполнится после того как папка будет создана.</p>
+  <code>const fs = require('fs');
+  <br>fs.mkdir('js-test', () => {
+  <br>&nbsp;&nbsp;fs.writeFile('./js-test/some.txt', 'Hello', () => {});
+  <br>});</code>
+</article>
+
+<article class="article">
+  <h2>Удалить папку</h2>
+  <p>Удалить можно только пустую папку</p>
+  <code>const fs = require('fs');
+  <br>fs.rmdirSync('./js-test');</code>
+</article>
+
+<article class="article">
+  <h2>Удалить файл из папки и затем папку асинхронно</h2>
+  <code>const fs = require('fs');
+  <br>fs.unlink('./js-test/some.txt', () => {
+  <br>&nbsp;&nbsp;fs.rmdir('./js-test', () => {})
+  <br>})</code>
+</article>
+
+<article class="article">
+  <h2>Локальный сервер</h2>
+  <p>Если в заголовке передать 'Content-Type': 'text/plain; charset=utf-8', то сервер будет отдавать текст.</p>
+  <code>const http = require('http');
+  <br>let server = http.createServer((req, res) => {
+  <br>&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+  <br>&nbsp;&nbsp;res.end('Hello Node JS');
+  <br>})
+  <br>const PORT = 3000;
+  <br>const HOST = 'localhost';
+  <br>server.listen(PORT, HOST, () => {
+  <br>&nbsp;&nbsp;console.log(`Сервер запущен: http://${HOST}:${PORT}`);
+  <br>})</code>
+
+  <p>Если в заголовке передать 'Content-Type': 'text/html; charset=utf-8', то сервер будет отдавать html разметку.</p>
+  <code>const http = require('http');
+  <br>const fs = require('fs');
+  <br>let server = http.createServer((req, res) => {
+  <br>&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+  <br>&nbsp;&nbsp;const stream = fs.createReadStream('test/index.html');
+  <br>&nbsp;&nbsp;stream.pipe(res);
+  <br>})
+  <br>const PORT = 3000;
+  <br>const HOST = 'localhost';
+  <br>server.listen(PORT, HOST, () => {
+  <br>&nbsp;&nbsp;console.log(`Сервер запущен: http://${HOST}:${PORT}`);
+  <br>})</code>
 </article>
 
 <article class="article">
@@ -7,14 +212,12 @@
   <p>Создайте текстовый документ и назовите ее name.js</p>
   <p>Откройте его в любом текстовом редакторе и запишите туда
   следующий код на языке javascript</p>
-  <code>
-  const fs = require('fs');
+  <code>const fs = require('fs');
   <br>const dir = './';
   <br>const files = fs.readdirSync(dir);
   <br>for (const file of files) {
-  <br>&nbsp;&nbsp;fs.writeFileSync(\`\${file}.txt\`, '');
-  <br>}
-  </code>
+  <br>&nbsp;&nbsp;fs.writeFileSync(`${file}.txt`, '');
+  <br>}</code>
   <p>Получилась программа на javascript, которая работает в среде node.js</p>
   <p>Запустите ее в нужной папке</p>
   <code>node name</code>

@@ -59,6 +59,20 @@ const dataFrontYtEng = [
   {
     id: 4,
     theme: 'frontend eng',
+    title: 'Dave Gray',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@DaveGrayTeachesCode/videos',
+    site: '',
+    dateFirstVideo: '2020.07.20',
+    dateLastVideo: '2024.01.12',
+    amountVideos: 373,
+  },
+
+  {
+    id: 4,
+    theme: 'frontend eng',
     title: 'dcode',
     author: '',
     city: '',

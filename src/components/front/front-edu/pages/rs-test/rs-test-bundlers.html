@@ -1,0 +1,567 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>Test [St1] Introduction to Bundlers</h1>
+
+  <strong>43 вопроса. Выполнил на 86 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. How are webpack plugins included in the configuration?</h3>
+
+  <ul>
+    <li>As a global setting</li>
+    <li>As a property in the module object</li>
+    <li><strong>By using the plugins array</strong></li>
+    <li>Through external scripts</li>
+    <li>Through environment variables in the build process</li>
+  </ul>
+</article>
+
+
+
+<article class="article">
+  <h3>2. How do JavaScript bundlers handle module dependencies?</h3>
+
+  <ul>
+    <li>Ignore dependencies</li>
+    <li>Manually resolve each dependency</li>
+    <li>Convert all dependencies to global variables</li>
+    <li>Through automated version control for each module</li>
+    <li><strong>Create a dependency graph</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. How do JavaScript bundlers typically handle different types of assets like CSS and images?</h3>
+
+  <ul>
+    <li>Convert them to JavaScript</li>
+    <li><strong>Bundle them separately</strong></li>
+    <li>Ignore non-JavaScript assets</li>
+    <li>Integrate them into the JavaScript bundle</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. How do loaders handle different file types in webpack?</h3>
+
+  <ul>
+    <li>Ignore non-JavaScript files</li>
+    <li>Automatically convert them to JavaScript</li>
+    <li>Require separate plugins</li>
+    <li>Play a game of file type bingo, randomly picking which to process</li>
+    <li>Merge all file types into a single, unified format</li>
+    <li><strong>Transform them based on specified rules</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. How does a module bundler handle 'require' statements differently in the browser?</h3>
+
+  <ul>
+    <li>It uses the native 'require' function of the browser</li>
+    <li>It creates a custom 'require' function for the bundled code</li>
+    <li>It ignores 'require' statements</li>
+    <li>It translates 'require' into import/export statements</li>
+    <li><strong>Encapsulates 'require' statements within a secure environment</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. How does specifying 'runtime' in an entry point affect the webpack build?</h3>
+
+  <ul>
+    <li>Summons a digital genie to optimize your code</li>
+    <li><strong>Creates a new runtime chunk</strong></li>
+    <li>Reduces overall bundle size</li>
+    <li>Increases build time</li>
+    <li>Automatically optimizes load balancing across chunks</li>
+    <li>Disables code splitting</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. How does the '--force' option affect Vite's commands?</h3>
+
+  <ul>
+    <li>Forces HTTPS connection</li>
+    <li><strong>Ignores cached files and rebundles</strong></li>
+    <li>Forces all plugins to activate</li>
+    <li>Overrides existing files in the output directory</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. How does Vite handle project scaffolding?</h3>
+
+  <ul>
+    <li>Through external libraries</li>
+    <li><strong>Using the create-vite tool</strong></li>
+    <li>Manual configuration</li>
+    <li>Automated code generation</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. How does webpack handle 'dependOn' option in entry description objects?</h3>
+
+  <ul>
+    <li>Ignores it</li>
+    <li><strong>Creates separate chunks</strong></li>
+    <li>Ensures loaded dependencies before entry point</li>
+    <li>Bundles dependencies with entry point</li>
+    <li>Automatically updates dependencies to their latest versions</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. How does Webpack's 'loaders' feature contribute to the bundling process?</h3>
+
+  <ul>
+    <li>They add secret Easter eggs into your code</li>
+    <li>By managing client-side routing</li>
+    <li><strong>By transforming and bundling non-JS files</strong></li>
+    <li>By implementing security protocols</li>
+    <li>Automatically updating dependencies in the bundle</li>
+    <li>By optimizing server requests</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. How does webpack's 'mode' setting affect the build?</h3>
+
+  <ul>
+    <li>Determines the file types</li>
+    <li>Sets the language level</li>
+    <li><strong>Enables built-in optimizations</strong></li>
+    <li>Changes the output directory</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. In the context of JavaScript module bundling, what is the primary function of the 'getModules' function in dependency resolution?</h3>
+
+  <ul>
+    <li>Optimizing the performance of module loading</li>
+    <li>Transpiling ES6 code to compatible JavaScript</li>
+    <li>Directly importing modules from node_modules</li>
+    <li>Identifying and reporting outdated or deprecated modules</li>
+    <li><strong>Resolving dependencies recursively starting from the entry module</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. In Vite, how are CLI options like `--port` or `--open` used?</h3>
+
+  <ul>
+    <li>For configuring database connections</li>
+    <li><strong>To specify command line options for the dev server</strong></li>
+    <li>For deploying applications</li>
+    <li>To manage package dependencies</li>
+    <li>`--open` magically opens a portal to the developer's utopia</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. In webpack, how does the 'filename' property within 'output' affect the build?</h3>
+
+  <ul>
+    <li>Sets up the code splitting strategy</li>
+    <li>Configures the public path</li>
+    <li>Determines module format</li>
+    <li>Instructs webpack on which files to exclude from bundling</li>
+    <li><strong>Defines the bundle name</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. In webpack, what does the object syntax for entry points offer?</h3>
+
+  <ul>
+    <li>Simplified configuration</li>
+    <li><strong>Flexibility and scalability</strong></li>
+    <li>Automatic optimization</li>
+    <li>Reduced bundle size</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. In what way can webpack plugins interact with the compilation process?</h3>
+
+  <ul>
+    <li>By engaging in a digital tug-of-war with the compiler</li>
+    <li>By changing entry points</li>
+    <li><strong>Through the webpack compiler hooks</strong></li>
+    <li>By altering the code structure</li>
+    <li>By modifying output files</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Is it possible to split webpack configuration into multiple files?</h3>
+
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+    <li>Only when using specific webpack plugins</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What are the two main stages of a JavaScript module bundler?</h3>
+
+  <ul>
+    <li>Initial setup and final deployment</li>
+    <li><strong>Dependency Resolution and Packing</strong></li>
+    <li>Error Handling and Debugging</li>
+    <li>Coffee break and panic mode</li>
+    <li>Code Execution and Testing</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What command is used to start Vite's development server?</h3>
+
+  <ul>
+    <li>vite start</li>
+    <li><strong>vite</strong></li>
+    <li>vite run</li>
+    <li>vite launch</li>
+    <li>vite, oh pretty please</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What does the 'output' property define in webpack's configuration?</h3>
+
+  <ul>
+    <li>Determines which dependencies are to be bundled</li>
+    <li><strong>Specifies the destination for the bundled output files</strong></li>
+    <li>Defines the loaders to be utilized in the bundling process</li>
+    <li>Configures plugin settings within the webpack ecosystem</li>
+    <li>Sets the compatibility level with different browsers and devices</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What does the '--open' option do in the Vite CLI?</h3>
+
+  <ul>
+    <li>Opens the project in a code editor</li>
+    <li><strong>Opens the browser on startup</strong></li>
+    <li>Opens the project configuration</li>
+    <li>Opens a new terminal window</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What function does the 'publicPath' setting serve in webpack's output configuration?</h3>
+
+  <ul>
+    <li><strong>To set a custom path for public assets</strong></li>
+    <li>To configure the local server's base URL</li>
+    <li>To define external dependencies</li>
+    <li>To specify the path for source maps</li>
+    <li>Determines the accessibility levels of different modules in the bundle</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What high-priority challenges can arise when creating a JavaScript module bundler? (checkbox)</h3>
+
+  <ul>
+    <li><strong>Determining the order of module execution</strong></li>
+    <li><strong>Resolving nested dependencies</strong></li>
+    <li><strong>Preventing modules from getting into arguments over who gets bundled first</strong></li>
+    <li>Integration with external APIs</li>
+    <li>Optimizing for performance</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What impact do JavaScript bundlers have on web application performance?</h3>
+
+  <ul>
+    <li>Slows down the application</li>
+    <li><strong>Improves loading time by reducing requests</strong></li>
+    <li>Increases server load</li>
+    <li>Gives the application a pep talk for better performance</li>
+    <li>Has no impact</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What is a 'dependency graph' in the context of JavaScript module bundling?</h3>
+
+  <ul>
+    <li>A visual representation illustrating the server's architectural design</li>
+    <li><strong>A map of all code dependencies and relationships</strong></li>
+    <li>A schematic of user interface component interactions and layouts</li>
+    <li>A chart depicting the relationships and connections within a database system</li>
+    <li>A timeline that tracks module version histories and updates</li>
+    <li>A treasure map leading to the most used piece of code</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What is a webpack configuration file primarily written in?</h3>
+
+  <ul>
+    <li>JSON</li>
+    <li><strong>JavaScript</strong></li>
+    <li>TypeScript</li>
+    <li>YAML</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. What is the advantage of using multiple entry points in webpack for a multi-page application?</h3>
+
+  <ul>
+    <li>Enhances the speed of the compilation process</li>
+    <li>Streamlines integration with server-side rendering</li>
+    <li><strong>Decreases the size of bundles for each individual page</strong></li>
+    <li>Simplifies the deployment process</li>
+    <li>Facilitates the sharing of code between various pages</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. What is the primary function of a JavaScript bundler?</h3>
+
+  <ul>
+    <li>To compress images</li>
+    <li><strong>To merge multiple JavaScript files into one</strong></li>
+    <li>To convert HTML to JavaScript</li>
+    <li>To debug JavaScript code</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. What is the primary function of the 'output' property in webpack's configuration?</h3>
+
+  <ul>
+    <li>To specify the entry point</li>
+    <li>To configure loaders</li>
+    <li><strong>To define output file location</strong></li>
+    <li>To set up development server</li>
+    <li>Specifies external libraries to be included in the build</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. What is the primary purpose of 'loaders' in webpack?</h3>
+
+  <ul>
+    <li>Enhancing the efficiency of bundle optimization</li>
+    <li><strong>Facilitating the processing of non-JavaScript files like images and stylesheets</strong></li>
+    <li>Reducing the overall size of code through minification techniques</li>
+    <li>Enabling the live reloading feature during development</li>
+    <li>Detecting and resolving dependency conflicts in code</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. What is the purpose of the 'vite preview' command?</h3>
+
+  <ul>
+    <li>To start a production build</li>
+    <li>To deploy the project</li>
+    <li>To optimize dependencies</li>
+    <li>To show a movie trailer of your project's future success</li>
+    <li><strong>To locally preview a production build</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. What is the significance of source maps in JavaScript bundling?</h3>
+
+  <ul>
+    <li>Optimizing network performance</li>
+    <li><strong>Mapping compiled code back to original source code</strong></li>
+    <li>Reducing the size of the bundle</li>
+    <li>Encrypting the bundled code</li>
+    <li>It's like a treasure map for bugs</li>
+    <li>To categorize source code by its functionality</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. What is 'tree shaking' in the context of Rollup?</h3>
+
+  <ul>
+    <li><strong>Removing unused code</strong></li>
+    <li>Optimizing dependency trees</li>
+    <li>Splitting code into modules</li>
+    <li>Balancing load times</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>34. What role does an Immediately Invoked Function Expression (IIFE) play in JavaScript module bundling?</h3>
+
+  <ul>
+    <li><strong>Encapsulates module scope to avoid global scope pollution</strong></li>
+    <li>Enhances performance by locally scoping variables</li>
+    <li>Manages and isolates global variables within modules</li>
+    <li>Provides a testing environment within the module</li>
+    <li>Acts as a secret hideout for the module's code</li>
+    <li>Executes code asynchronously within the module context</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>35. What role does '[name]' play in webpack's 'output.filename' setting?</h3>
+
+  <ul>
+    <li><strong>Specifies a fixed filename</strong></li>
+    <li>Generates a unique hash for caching</li>
+    <li>Indicates the module name</li>
+    <li>Is the magic word that turns your bundle into a digital chameleon</li>
+    <li>Acts as a placeholder for the entry name</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>36. What types of files does webpack natively understand?</h3>
+
+  <ul>
+    <li><strong>JavaScript and JSON files</strong></li>
+    <li>HTML and CSS files</li>
+    <li>XML and YAML files</li>
+    <li>All file types</li>
+    <li>Markdown and text files</li>
+    <li>Files written in a secret developer language known only to the initiated</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>37. What unique feature does Rollup.js offer in module bundling?</h3>
+
+  <ul>
+    <li>Hot module replacement</li>
+    <li>Automatic code splitting</li>
+    <li>Telepathic debugging tools</li>
+    <li>Dynamic module loading</li>
+    <li><strong>Tree shaking</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>38. Which environment do webpack loaders primarily function in?</h3>
+
+  <ul>
+    <li>In the browser</li>
+    <li>Within a virtual machine</li>
+    <li><strong>In the Node.js environment</strong></li>
+    <li>Function within a containerized Docker environment</li>
+    <li>In a secret underground bunker for maximum code security</li>
+    <li>In the webpack compiler</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>39. Which feature in webpack allows for automatic injection of bundles into an HTML file?</h3>
+
+  <ul>
+    <li>The use of loaders to manage file integration</li>
+    <li><strong>HTMLWebpackPlugin</strong></li>
+    <li>Output property</li>
+    <li>Entry points</li>
+    <li>Using the WebpackDevServer for real-time injection</li>
+    <li>Webpack's magic wand that turns code into HTML fairy dust</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>40. Which feature is a key part of Vite's development experience?</h3>
+
+  <ul>
+    <li><strong>Hot Module Replacement</strong></li>
+    <li>Automated testing</li>
+    <li>Cloud deployment</li>
+    <li>Database optimization</li>
+    <li>Real-time code linting and correction</li>
+    <li>Integrated AI-based code suggestions</li>
+    <li>A virtual assistant named 'Vite Vince' who cheers you on</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>41. Which feature is commonly provided by JavaScript bundlers?</h3>
+
+  <ul>
+    <li>HTTP request optimization</li>
+    <li><strong>Code minification and uglification</strong></li>
+    <li>Direct database connection</li>
+    <li>A built-in coffee break reminder</li>
+    <li>Automatic variable renaming</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>42. Which specific challenge is Vite.js designed to overcome in JavaScript module bundling?</h3>
+
+  <ul>
+    <li>Improving code security</li>
+    <li>Streamlining database interactions</li>
+    <li><strong>Solving building performance issues</strong></li>
+    <li>Automating the testing and deployment processes</li>
+    <li>Vite.js exists solely to make developers feel faster</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>43. Which Vite CLI command is used for building a project for production?</h3>
+
+  <ul>
+    <li>vite abracadabra</li>
+    <li>vite compile</li>
+    <li>vite production</li>
+    <li>vite pack</li>
+    <li><strong>vite build</strong></li>
+  </ul>
+</article>

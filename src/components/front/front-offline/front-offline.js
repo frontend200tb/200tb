@@ -21,7 +21,7 @@ import pageLink from './pages';
 
 // 1. Создадим контент для #main-nav
 // 1.1 Создаем массив categories с категориями
-const categories = ['code', 'основы', 'framework', 'cms', 'tools', 'theme', 'other'];
+const categories = ['основы', 'framework', 'cms', 'tools', 'theme', 'other'];
 
 // 1.2 Создаем массив mainNav для элементов nav меню
 const mainNav = [];
@@ -34,7 +34,7 @@ for (const category of categories) {
   elementNav.href = '#';
   elementNav.innerHTML = category;
   elementNav.id = createId(category);
-  
+
   function createId(str) {
     // если имя категории не содержит английских букв и цифр, заменить его на цифру
     if (str.replace(/[^a-z0-9]/gi, '') === '') {

@@ -5,7 +5,7 @@
 Алгоритм работы
 
 */
-
+import vaLinks from './../pages/pages';
 import createList from './f-create-list';
 import createLearnedList from './f-create-learned-list';
 
@@ -16,6 +16,7 @@ export default function createElements(data) {
 
   const main = document.createElement('main');
   main.className = 'list';
+  main.id = 'video';
 
   const h2 = document.createElement('h2');
   const currentContent = document.createElement('ol');
@@ -78,6 +79,9 @@ export default function createElements(data) {
         // 5.3 показываем нужный main
         currentContent.innerHTML = '';
         currentContent.append(...elementMain);
+
+        // подключаем ссылки на страницы Pages
+        vaLinks();
       });
     }
 
