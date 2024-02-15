@@ -270,6 +270,19 @@ const dataBooksNetworks = [
   },
 
   {
+    id: 21,
+    year: 2004,
+    category: 'основы',
+    theme: 'Компьютерные сети',
+    title: 'Вычислительные системы, сети и телекоммуникации (2е)',
+    author: 'Бройдо',
+    authorName: 'Владимир',
+    pages: '706',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 22,
     year: 2004,
     category: 'основы',

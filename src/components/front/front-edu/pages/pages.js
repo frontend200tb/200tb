@@ -1,11 +1,8 @@
 import rain from './rain';
-import star from './star';
 import './rain.scss';
-import './star.scss';
 
 // Aside
-import htmlEduDsr2023net from './elem-edu-dsr2023net.html';
-import htmlEduRss2023stage1 from './elem-edu-rss2023-stage1.html';
+import htmlEduRss2024stage2 from './elem-edu-rss2024-stage2.html';
 import htmlEduCourses from './elem-edu-courses.html';
 import htmlEduCoursesLearned from './elem-edu-courseslearned.html';
 import htmlEduLearning from './elem-edu-learning.html';
@@ -13,7 +10,9 @@ import htmlEduRss from './elem-edu-rss.html';
 import htmlEduRss2022stage0 from './elem-edu-rss2022-stage0.html';
 import htmlEduRss2022stage1 from './elem-edu-rss2022-stage1.html';
 import htmlEduRss2022stage3 from './elem-edu-rss2022-stage3-angular.html';
+import htmlEduDsr2023net from './elem-edu-dsr2023net.html';
 import htmlEduRss2023stage0 from './elem-edu-rss2023-stage0.html';
+import htmlEduRss2023stage1 from './elem-edu-rss2023-stage1.html';
 import htmlEduQuiz from './elem-edu-quiz.html';
 import htmlEduJsExamples from './elem-edu-jsexamples.html';
 
@@ -39,6 +38,8 @@ import htmlDsrWshop4 from './dsr/dsr2023net-workshop4.html';
 import htmlDsrWshop5 from './dsr/dsr2023net-workshop5.html';
 import htmlDsrWshop6 from './dsr/dsr2023net-workshop6.html';
 
+import htmlDsrExam from './dsr/dsr-exam.html';
+
 // RS Test
 import htmlRsTestRss from './rs-test/rs-test-rss.html';
 import htmlRsTestGit from './rs-test/rs-test-git.html';
@@ -63,11 +64,17 @@ import htmlRsTestCleancode from './rs-test/rs-test-cleancode.html';
 import htmlRsTestLinters from './rs-test/rs-test-linters.html';
 import htmlRsTestModules from './rs-test/rs-test-modules.html';
 import htmlRsTestBundlers from './rs-test/rs-test-bundlers.html';
+import htmlRsTestChrome from './rs-test/rs-test-chrome.html';
+import htmlRsTestClient from './rs-test/rs-test-client.html';
+import htmlRsTestClasses from './rs-test/rs-test-classes.html';
+import htmlRsTestOop from './rs-test/rs-test-oop.html';
+import htmlRsTestFinal from './rs-test/rs-test-final.html';
 
 // Создаем массив страниц с Aside меню
-const htmlPages = [htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduCourses,
-  htmlEduCoursesLearned, htmlEduLearning, htmlEduRss, htmlEduRss2022stage0,
-  htmlEduRss2022stage1, htmlEduRss2022stage3, htmlEduRss2023stage0, htmlEduQuiz, htmlEduJsExamples];
+const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
+  htmlEduLearning, htmlEduRss, htmlEduRss2022stage0, htmlEduRss2022stage1, 
+  htmlEduRss2022stage3, htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduRss2023stage0,
+  htmlEduQuiz, htmlEduJsExamples];
 
 // Создаем массив страниц с лекциями DSR
 const htmlDsrLec = [htmlDsrLec0, htmlDsrLec1, htmlDsrLec2, htmlDsrLec3,
@@ -78,6 +85,9 @@ htmlDsrLec10, htmlDsrLec11, htmlDsrLec12];
 const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2, htmlDsrWshop3, htmlDsrWshop4, htmlDsrWshop5,
 htmlDsrWshop6];
 
+// Создаем массив страниц с экзаменом DSR
+const htmlDsrExams = [htmlDsrExam];
+
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
 htmlRsTestJsBasics, htmlRsTestJsTypes, htmlRsTestJsScope, htmlRsTestJsEvolution,
@@ -85,7 +95,8 @@ htmlRsTestHtmlBasics, htmlRsTestCssBasics, htmlRsTestCssflexbox, htmlRsTestCssGr
 htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
 htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
 htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
-htmlRsTestModules, htmlRsTestBundlers];
+htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
+htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -163,6 +174,14 @@ export default function pageLink() {
     });
   }
 
+  const asideRss2024stage2 = document.getElementById('edu-rss2024stage2');
+  if (asideRss2024stage2) {
+    asideRss2024stage2.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlEduRss2024stage2;
+    });
+  }
+
   const asideDsr2023net = document.getElementById('edu-dsr2023net');
   if (asideDsr2023net) {
     asideDsr2023net.addEventListener('click', (e) => {
@@ -178,8 +197,7 @@ export default function pageLink() {
       e.preventDefault();
       currentContent.innerHTML = htmlEduQuiz;
       rain();
-      star();
-      rsLinks();
+      quizLinks();
     });
   }
 
@@ -235,7 +253,7 @@ function backToDsr() {
   }
 }
 
-function rsLinks() {
+function quizLinks() {
   const currentContent = document.querySelector('#edu');
 
   const rsTests = document.querySelectorAll('.js-rs-test');
@@ -245,6 +263,19 @@ function rsLinks() {
         e.preventDefault();
         if (htmlRsTest[i]) {
           currentContent.innerHTML = htmlRsTest[i];
+          backToQuiz();
+        }
+      });
+    }
+  }
+
+  const dsrExam = document.querySelectorAll('.dsr-exam');
+  if (dsrExam) {
+    for (let i = 0; i < dsrExam.length; i++) {
+      dsrExam[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (htmlDsrExams[i]) {
+          currentContent.innerHTML = htmlDsrExams[i];
           backToQuiz();
         }
       });
@@ -260,7 +291,7 @@ function backToQuiz() {
     linkToQuiz.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduQuiz;
-      rsLinks();
+      quizLinks();
     });
   }
 }

@@ -10,10 +10,11 @@ import dataFrontYtCze from './data/data-front-yt-cze';
 import dataYtBase from './data/data-yt-base';
 import dataYtAlgorithm from './data/data-yt-alorithm';
 import dataYtCsharp from './data/data-yt-csharp';
+import dataYtPascal from './data/data-yt-pascal';
 
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [dataFrontYtRus, dataFrontYtEng, dataFrontYtSrb, dataFrontYtCze,
-dataYtBase, dataYtAlgorithm, dataYtCsharp];
+dataYtBase, dataYtAlgorithm, dataYtCsharp, dataYtPascal];
 
 // 3. Создаем массив dataYt из массива dataArray
 const dataYt = [].concat(...dataArray);

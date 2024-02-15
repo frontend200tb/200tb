@@ -15,9 +15,8 @@ Article
     box-shadow: none;
   }
 
-  & p,
-  & li {
-    margin: 10px 0;
+  & a {
+    font-weight: bold;
   }
 }
 
@@ -65,5 +64,4 @@ Article
   margin-top: -95px;
   padding-top: 95px;
 }
-
 /* /Справочник по HTML тегам */

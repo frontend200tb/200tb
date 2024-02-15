@@ -11,6 +11,24 @@
   <a href="#fs" class="contents__link">Модуль fs</a>
 </div>
 
+
+<article class="article">
+  <h2>Как устроен модуль common.js</h2>
+  <p>Каждый файл с расширением .js в node.js по умолчанию является модулем common.js. Есть переменная exports - это копия (алияс) переменной module.exports. Переменной module.exports был присвоен объект, и потом переменной exports было присвоено значение переменной module.exports. Выходит что exports и module.exports ссылаются на один и тот же объект. Можно изменять этот объект через любую из этих переменных.</p>
+  <p>Весь код javascript в файле с расширением .js в node.js помещается в анонимную функцию. При этом эта анонимная функция нам не видна. Мы просто пишем код javascript. Получается что в node.js каждый модуль оборачивается в такую анонимную функцию.
+    <code>(function (exports, require, module, __filename, __dirname) {
+    <br>// содержимое модуля
+    <br>});</code>
+  </p>
+  <p>Чтобы проверить что весь код js в node.js помещается в анонимную функцию нужно выполнить команду
+    <code>console.log(arguments.callee.toString());</code>
+    В любой функции, объявленной с помощью ключевого слова function доступна переменная arguments. Она представляет стобой объект, у которого есть свойство callee. И с помощью этого свойства можно посмотреть как выглядит функция, которая была вызвана.
+    <code>function (exports, require, module, __filename, __dirname) {
+    <br>&nbsp;&nbsp;console.log(arguments.callee.toString());
+    <br>}</code>
+  </p>
+</article>
+
 <!-- Модуль os -->
 <article class="article">
   <div class="anchor" id="os"></div>

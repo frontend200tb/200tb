@@ -6,7 +6,7 @@ import './element-code-ts';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['TypeScript'];
+const asideThemes = ['TypeScript', 'learn.microsoft'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

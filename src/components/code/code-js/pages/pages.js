@@ -1,7 +1,9 @@
 import htmlCodeJs from './elem-code-js.html';
 import htmlCodeString from './elem-code-string.html';
 import htmlCodeArray from './elem-code-array.html';
+import htmlCodeXhr from './elem-code-xhr.html';
 import htmlCodeAscii from './elem-code-ascii.html';
+import htmlCodeUnicode from './elem-code-unicode.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -31,11 +33,27 @@ export default function pageLink() {
     });
   }
 
+  const asideXhr = document.getElementById('code-xmlhttprequest');
+  if (asideXhr) {
+    asideXhr.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlCodeXhr;
+    });
+  }
+
   const asideAscii = document.getElementById('code-ascii');
   if (asideAscii) {
     asideAscii.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlCodeAscii;
+    });
+  }
+
+  const asideUnicode = document.getElementById('code-unicode');
+  if (asideUnicode) {
+    asideUnicode.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlCodeUnicode;
     });
   }
 }

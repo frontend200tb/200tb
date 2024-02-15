@@ -49,7 +49,7 @@ const dataVideoNode = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2022,
     date: '2022.10.10',
     category: 'framework',
@@ -62,6 +62,22 @@ const dataVideoNode = [
     size: '209 mb',
     isLearned: true,
     dateLearned: '2024.01.17 ср',
+  },
+
+  {
+    id: 5,
+    year: 2023,
+    date: '2023.04.24',
+    category: 'framework',
+    theme: 'node',
+    title: 'Курс по Node.js для Начинающих',
+    author: 'Богдан Стащук',
+    name: '',
+    numberLessons: '1',
+    time_h_m: [6, 6],
+    size: '1 gb',
+    isLearned: true,
+    dateLearned: '2024.02.01 чт',
   },
 
   {},

@@ -8,6 +8,7 @@ import showCodeMarkdown from '../code/code-markdown/code-markdown';
 import showCodePug from '../code/code-pug/code-pug';
 import showCodeSass from '../code/code-sass/code-sass';
 import showCodePhp from '../code/code-php/code-php';
+import showCodePascal from '../code/code-pascal/code-pascal';
 
 // front
 import showFrontBooks from '../front/front-books/front-books';
@@ -92,6 +93,14 @@ export const dataNavCode = [
     content: '<code-php></code-php>',
     act() {
       showCodePhp();
+    },
+  },
+  {
+    url: 'code-pascal.html',
+    text: 'Pascal',
+    content: '<code-pascal></code-pascal>',
+    act() {
+      showCodePascal();
     },
   },
 ];

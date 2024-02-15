@@ -2,6 +2,19 @@ const dataBooksC = [
 
   {
     id: 1,
+    year: 1985,
+    category: 'code',
+    theme: 'c c++',
+    title: 'Язык программирования Си. Задачи по языку Си',
+    author: 'Керниган',
+    authorName: 'Бриан',
+    pages: '281',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1994,
     category: 'code',
     theme: 'c c++',
@@ -1680,6 +1693,7 @@ const dataBooksC = [
     theme: 'c c++',
     title: 'Язык Си. Кратко и ясно',
     author: 'Парфенов',
+    authorName: 'Д.В.',
     pages: '320',
     isLearned: false,
     dateLearned: '',
@@ -1707,6 +1721,19 @@ const dataBooksC = [
     author: 'Страуструп',
     authorName: 'Бьярне',
     pages: '314',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 134,
+    year: 2024,
+    category: 'code',
+    theme: 'c c++',
+    title: 'C++ How to Program (11th)',
+    author: 'Deitel',
+    authorName: 'Paul',
+    pages: '1364',
     isLearned: false,
     dateLearned: '',
   },

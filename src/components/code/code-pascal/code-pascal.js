@@ -1,13 +1,15 @@
 /** *******************
-Скрипт из файла code-js.js
-Функция showCodeJs показывает страницу code-js
+Скрипт из файла code-pascal.js
+Функция showCodePascal показывает страницу code-pascal
 ******************** */
-import './scss/code-js.scss';
-import './element-code-js';
+// импорт scss
+import './_pascal.scss';
+
+import './element-code-pascal';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['JavaScript', 'String', 'Array', 'XMLHttpRequest', 'ASCII', 'Unicode'];
+const asideThemes = ['Pascal', 'Types', 'Lessons'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
@@ -37,7 +39,7 @@ for (const theme of asideThemes) {
   });
 }
 
-export default function showCodeJs() {
+export default function showCodePascal() {
   const aside = document.querySelector('.aside');
 
   // 4. Показываем нужный aside

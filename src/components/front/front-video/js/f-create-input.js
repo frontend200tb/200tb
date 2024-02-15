@@ -8,6 +8,7 @@ import dataVideoHtmlcss from './data/data-video-htmlcss';
 import dataVideoJs from './data/data-video-js';
 import dataVideoTs from './data/data-video-ts';
 import dataVideoCsharp from './data/data-video-csharp';
+import dataVideoPascal from './data/data-video-pascal';
 import dataVideoPug from './data/data-video-pug';
 import dataVideoSass from './data/data-video-sass';
 
@@ -55,7 +56,7 @@ import dataVideoVscode from './data/data-video-vscode';
 const dataArray = [
   // Code
   dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoCsharp,
-  dataVideoPug, dataVideoSass,
+  dataVideoPascal, dataVideoPug, dataVideoSass,
   // Base
   dataVideoBase, dataVideoAlgorithm,
   // Framework

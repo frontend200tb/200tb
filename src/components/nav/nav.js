@@ -1,7 +1,7 @@
 /** **************
 Скрипт из файла nav.js
 создает ссылки в меню nav для каждого пункта меню header_nav
-Code HTML CSS JS TS C# Markdown Pug Sass Php
+Code HTML CSS JS TS C# Markdown Pug Sass Php Pascal
 Frontend Books Code Edu Learned Node Offline Vacancy Video Youtube
 ****************** */
 

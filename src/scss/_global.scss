@@ -14,19 +14,9 @@ Global
 
 /* font*/
 html {
-  font-family: 'Roboto Serif', 'Times New Roman', serif;
+  font-family: 'Segoe UI', 'SegoeUI', 'Helvetica' , 'Arial', sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a {
-  font-family: Roboto, Arial, sans-serif;
 }
 
 @media (max-width: 992px) {

@@ -1,0 +1,298 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St1] Classes & Prototypes</h1>
+
+  <strong>27 вопросов. Выполнил на 96 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Can a class be declared as follows: const MyClass = class { ... }?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Can a class be defined without specifying a constructor?</h3>
+  <ul>
+    <li>No, it will result in an error</li>
+    <li>Yes, in that case, the constructor will not be called at all</li>
+    <li><strong>Yes, in that case, the default constructor will be called (including the parent or an empty one)</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Can a class have both #someProp and someProp fields simultaneously?</h3>
+  <ul>
+    <li>No, but there won't be an error, only the first field will be assigned</li>
+    <li>No, there will be an error</li>
+    <li><strong>Yes</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Can classes inherit from built-in classes (Array, Map, etc.)?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Can you assign __proto__ properties to objects in a circular manner?</h3>
+  <ul>
+    <li>Yes</li>
+    <li><strong>No</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Does JavaScript support multiple inheritance?</h3>
+  <ul>
+    <li>Yes</li>
+    <li><strong>No</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. How can you create an object with a null prototype?</h3>
+  <ul>
+    <li>It is not possible to create an object with such a prototype</li>
+    <li>const obj = null;</li>
+    <li>const obj = {}; obj.prototype = null;</li>
+    <li><strong>Object.create(null)</strong></li>
+    <li>Object.create()</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. How many constructor methods can a class contain?</h3>
+  <ul>
+    <li><strong>1</strong></li>
+    <li>2</li>
+    <li>3</li>
+    <li>&gt;3</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. In what mode is the code executed inside classes?</h3>
+  <ul>
+    <li><strong>In strict mode (use strict)</strong></li>
+    <li>In non-strict mode</li>
+    <li>It is impossible to determine</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. Is it a good practice to modify built-in prototypes?</h3>
+  <ul>
+    <li>No, it is not recommended to modify them</li>
+    <li>Yes, there is no reason not to modify built-in prototypes</li>
+    <li><strong>Yes, in case of creating polyfills</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Is there a difference between __proto__ and [[Prototype]]?</h3>
+  <ul>
+    <li>There is no difference</li>
+    <li>[[Prototype]] is a function, while __proto__ is an object or primitive</li>
+    <li><strong>[[Prototype]] is a hidden property of objects, while __proto__ is a combination of getter/setter that extends the internal prototype of the object</strong></li>
+    <li>__proto__ is a hidden property of objects, while [[Prototype]] is a combination of getter/setter that extends the internal prototype of the object</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>Mixins allow to add properties/methods to an instance of a class without inheriting them from another class.</strong></li>
+    <li>Mixins exist because JavaScript supports multiple inheritance.</li>
+    <li><strong>Mixins can make use of inheritance inside themselves.</strong></li>
+    <li>'Mixin' is just another way to say 'inheritance'.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. Select the correct statements: (checkbox)</h3>
+  <il>
+    <li>One object can have multiple [[Prototype]]</li>
+    <li><strong>One object can only have one [[Prototype]]</strong></li>
+    <li><strong>The 'isPrototypeOf' method of an object checks if the object is part of the prototype chain of another object</strong></li>
+    <li>The 'propertyIsEnumerable' method of an object returns a boolean indicating whether the object has a prototype</li>
+  </il>
+</article>
+
+
+<article class="article">
+  <h3>14. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>Protected properties of a class are conventionally named starting with the _ symbol, it is not supported at the language level, it is rather a well-known convention</strong></li>
+    <li><strong>Protected methods are inherited</strong></li>
+    <li>Protected methods are not inherited</li>
+    <li><strong>Private properties and methods are conventionally named starting with the # symbol, it is supported at the language level</strong></li>
+    <li><strong>Private properties and methods are only accessible within the class</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>Static properties and methods of classes are inherited</strong></li>
+    <li><strong>A static method is declared using the 'static' keyword</strong></li>
+    <li>Static methods belong to a specific object of a class, not the class itself</li>
+    <li>Static properties are not inherited, but class methods are inherited</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>The 'instanceof' operator allows you to check if an object belongs to a specific class, taking inheritance into account</strong></li>
+    <li>The 'instanceof' operator does not work with constructor functions</li>
+    <li><strong>The 'instanceof' operator can check if an object is inherited from a built-in class</strong></li>
+    <li><strong>The 'instanceof' operator checks the prototype chain, and JavaScript does not provide a way to check membership only to the parent</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>'typeof' works for primitives and returns a string</strong></li>
+    <li><strong>'Object.prototype.toString()' returns a string</strong></li>
+    <li>'instanceof' works for primitives and returns true or false</li>
+    <li><strong>'instanceof' works for objects</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Should class methods be separated by a comma (,)?</h3>
+  <ul>
+    <li>Yes</li>
+    <li><strong>No</strong></li>
+    <li>It is optional</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What is a class in JavaScript?</h3>
+  <ul>
+    <li>A primitive</li>
+    <li>A separate entity - a class</li>
+    <li>An interface</li>
+    <li><strong>A function</strong></li>
+    <li>A logical expression</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What is a polyfill?</h3>
+  <ul>
+    <li>Any method of a class that extends its capabilities</li>
+    <li>Built-in methods of a specific object</li>
+    <li>All methods of a specific object</li>
+    <li><strong>An emulation of a method that exists in the JavaScript specification but is not yet supported by the JavaScript engine</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What is the purpose of the 'super()' keyword used in a class constructor?</h3>
+  <ul>
+    <li><strong>super calls the parent constructor</strong></li>
+    <li>to inherit classes, without explicitly calling super, the class will not be inherited and an error will occur</li>
+    <li>to declare a class</li>
+    <li>to override the constructor</li>
+    <li>to set a getter\setter</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What is the term in OOP for the separation of internal interface from external interface?</h3>
+  <ul>
+    <li>inheritance</li>
+    <li><strong>encapsulation</strong></li>
+    <li>polymorphism</li>
+    <li>abstraction</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What keyword is used to create a class that inherits from another class?</h3>
+  <ul>
+    <li>using</li>
+    <li>prototypes</li>
+    <li><strong>extends</strong></li>
+    <li>as</li>
+    <li>super</li>
+    <li>No correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What value(s) can be assigned to proto? (checkbox)</h3>
+  <il>
+    <li><strong>object</strong></li>
+    <li>primitive</li>
+    <li><strong>null</strong></li>
+    <li>undefined</li>
+    <li>true/false</li>
+  </il>
+</article>
+
+
+<article class="article">
+  <h3>25. Which kind of functions within a class do not have 'super'? (When accessed from this function, the 'super' is taken from the outer function)</h3>
+  <ul>
+    <li>function declaration</li>
+    <li>function expression</li>
+    <li><strong>arrow function</strong></li>
+    <li>All functions have 'super': when accessed from any function, 'super' is not taken from the outer function</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. Which object method returns only the [[Prototype]] property?</h3>
+  <ul>
+    <li>create</li>
+    <li><strong>getPrototypeOf</strong></li>
+    <li>setPrototypeOf</li>
+    <li>[[Prototype]]</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Which term in OOP describes the ability of objects to take on many forms depending on the context?</h3>
+  <ul>
+    <li>inheritance</li>
+    <li><strong>polymorphism</strong></li>
+    <li>encapsulation</li>
+    <li>abstraction</li>
+  </ul>
+</article>

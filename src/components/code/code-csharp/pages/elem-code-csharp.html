@@ -1,248 +1,215 @@
 <h1>C#</h1>
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">about</p>
-  <p class="content__menu-link" id="content__menu-link2">links</p>
-  <p class="content__menu-link" id="content__menu-link3">install</p>
-  <p class="content__menu-link" id="content__menu-link4">.Net</p>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
 </div>
 
-<div class="content__items">
+<!-- Содержание -->
+<div class="article article__content">
 
-  <div class="content__item" id="content__item1">
-    <h2>About .Net</h2>
-    <ul>
-      <li>
-        <p>Первая версия языка вышла вместе с релизом Microsoft Visual Studio .NET в феврале 2002 года. Текущей версией
-          языка является версия C# 11, которая вышла 8 ноября 2022 года вместе с релизом .NET 7.</p>
-      </li>
-    </ul>
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#install">install</a></p>
+    <p><a href="#net">.Net</a></p>
   </div>
 
-  <div class="content__item" id="content__item2">
-    <h2>Ссылки</h2>
-    <ul>
-      <li>
-        <p><a href="https://www.flenov.info/">flenov.info</a> Програмысли</p>
-      </li>
-      <li>
-        <p><a href="https://metanit.com/sharp/tutorial/">metanit.com/sharp/tutorial</a> Полное руководство по языку
-          программирования С# 11 и платформе .NET 7 (Последнее обновление: 09.07.2023)</p>
-        <p><a href="https://metanit.com/sharp/tutorial/2.25.php">metanit.com/sharp/tutorial/2.25.php</a> Читаю
-          Переменные и константы</p>
-      </li>
-      <li>
-        <p><a href="https://code-basics.com/ru/languages/csharp">code-basics.com/ru/languages/csharp</a> Бесплатный курс
-          по C# для начинающих (16 часов, 64 урока)</p>
-      </li>
-      <li>
-        <p><a href="https://stepik.org/course/99426/promo"> stepik.org/course/99426/promo</a> Язык программирования C#
-          для начинающих</p>
-      </li>
-      <li>
-        <p><a href="https://c-sharp.pro/"> c-sharp.pro</a> Си шарп для начинающих</p>
-      </li>
-      <li>
-        <p><a href="https://professorweb.ru/my/csharp/charp_theory/level1/index.php"> professorweb.ru/my/csharp</a>
-          Руководство по C#</p>
-      </li>
-      <li>
-        <p><a href="https://ulearn.me/"> ulearn.me</a> Основы программирования на примере C#</p>
-      </li>
-      <li>
-        <p><a href="https://teach-in.ru/course/algorithms"> https://teach-in.ru/course/algorithms</a></p>
-      </li>
-      <li>
-        <p><a href="https://intuit.ru/"> intuit.ru</a></p>
-      </li>
-    </ul>
+</div>
 
-    <h2>Статьи</h2>
-    <ul>
-      <li>
-        <p><a href="https://skillbox.ru/media/code/yazyk-s-gde-ispolzuyut-chto-pishut-kak-poyavilsya-i-chem-khorosh/">
-            skillbox.ru</a> Язык С#: где используют, что пишут, как появился и чем хорош (21.06.2022)</p>
-        <p><a
-            href="https://blog.skillfactory.ru/kak-programmirovat-na-c-obzor-yazyka-primery-koda-bazovye-instrumenty/">
-            blog.skillfactory.ru</a> Как программировать на C#: обзор языка, примеры кода, базовые инструменты
-          (27.08.2023)</p>
-      </li>
-    </ul>
-  </div>
 
-  <div class="content__item" id="content__item3">
-    <h2>Install</h2>
-    <ul>
-      <li>
-        <p>Нужно установить среду разработки, где будем писать код и для получения результата. Рассмотрим два варианта.
-        </p>
-      </li>
-    </ul>
+<!-- about-->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
 
-    <h3>Вариант 1. Полноценная среда разработки Visual Studio Community 2022.</h3>
-    <ul>
-      <li>
-        <p>Скачиваем установщик с оффициального сайта <a
-            href="https://visualstudio.microsoft.com/ru/downloads/">visualstudio.microsoft.com/ru/downloads</a> .
-          Запускаем его, установщик докачает все необходимое. Далее мы
-          попадаем на экран где нужно выбрать какие модули надо установить. Выбираем Разработка классических приложений
-          .NET, ASP.NET и разработка веб-приложений. После этого нажимаем Установить (или Изменить).</p>
-        <p>И при инсталляции Visual Studio на ваш компьютер будут установлены все необходимые инструменты для разработки
-          программ, в том числе фреймворк .NET 7.</p>
-        <p>Для создания первой программы, откроем Visual Studio. На стартовом экране выберем Create a new project
-          (Создать новый проект).
-          В окне Создание проекта выбираем Консольное приложение .NET Core и жмем далее</p>
-        <p>Далее на следующем этапе нам будет предложено указать имя проекта и каталог, где будет располагаться проект.
-        </p>
-        <p>На следующем окне Visual Studio предложит нам выбрать версию .NET, которая будет использоваться для проекта.
-          Выберем последнюю на данный момент верси. - .NET 7.0</p>
-        <p>Нажмем на кнопку Create (Создать) для создания проекта, и после этого Visual Studio создаст и откроет нам
-          проект</p>
-      </li>
-    </ul>
+  <p>Первая версия языка вышла вместе с релизом Microsoft Visual Studio .NET в феврале 2002 года. Текущей версией
+    языка является версия C# 11, которая вышла 8 ноября 2022 года вместе с релизом .NET 7.</p>
+</article>
 
-    <h3>Вариант 2. Редактор кода Visual Studio Code.</h3>
-    <ul>
-      <li>
-        <p>В этом случае необходимо еще докачать платформу .NET <a
-            href="https://dotnet.microsoft.com/en-us/download">dotnet.microsoft.com/en-us/download</a>. После этого
-          можно использовать нужные команды, которые будут доступны из терминала. С помощью этих команд можно создать
-          или запустить проект. В VSCode надо установить расширение C# от ms-dotnettools.csharp от Microsoft C# for
-          Visual Studio Code (powered by OmniSharp)</p>
-        <p>Чтобы создать новый проект нужно открыть пустую папку. Открыть терминал. Команда clear - очистить терминал
-        </p>
-        <p>Проверим установленную версию .NET
-          <code>
-            dotnet --version
-            <br>7.0.401
-          </code>
-        </p>
-        <p>Создадим новое консольное приложение
-          <code>dotnet new console -o sample</code>
-        </p>
-        <p>
-          Наберем текст программы
-          <code>
-using System;
-<br>namespace sample {
+
+<!-- links-->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://www.flenov.info/">flenov.info</a> Програмысли</p>
+  <p><a href="https://metanit.com/sharp/tutorial/">metanit.com/sharp/tutorial</a> Полное руководство по языку программирования С# 11 и платформе .NET 7 (Последнее обновление: 09.07.2023)</p>
+  <p><a href="https://metanit.com/sharp/tutorial/2.25.php">metanit.com/sharp/tutorial/2.25.php</a> Читаю Переменные и константы</p>
+  <p><a href="https://code-basics.com/ru/languages/csharp">code-basics.com/ru/languages/csharp</a> Бесплатный курс по C# для начинающих (16 часов, 64 урока)</p>
+  <p><a href="https://stepik.org/course/99426/promo"> stepik.org/course/99426/promo</a> Язык программирования C# для начинающих</p>
+  <p><a href="https://c-sharp.pro/"> c-sharp.pro</a> Си шарп для начинающих</p>
+  <p><a href="https://professorweb.ru/my/csharp/charp_theory/level1/index.php"> professorweb.ru/my/csharp</a> Руководство по C#</p>
+  <p><a href="https://ulearn.me/"> ulearn.me</a> Основы программирования на примере C#</p>
+  <p><a href="https://teach-in.ru/course/algorithms"> https://teach-in.ru/course/algorithms</a></p>
+  <p><a href="https://intuit.ru/"> intuit.ru</a></p>
+
+  <h2>Статьи</h2>
+
+  <p><a href="https://skillbox.ru/media/code/yazyk-s-gde-ispolzuyut-chto-pishut-kak-poyavilsya-i-chem-khorosh/">      skillbox.ru</a> Язык С#: где используют, что пишут, как появился и чем хорош (21.06.2022)</p>
+  <p><a href="https://blog.skillfactory.ru/kak-programmirovat-na-c-obzor-yazyka-primery-koda-bazovye-instrumenty/">   blog.skillfactory.ru</a> Как программировать на C#: обзор языка, примеры кода, базовые инструменты (27.08.2023)</p>
+</article>
+
+
+<!-- install-->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>install</h2>
+
+  <p>Нужно установить среду разработки, где будем писать код и для получения результата. Рассмотрим два варианта.
+  </p>
+
+  <h3>Вариант 1. Полноценная среда разработки Visual Studio Community 2022.</h3>
+
+  <p>Скачиваем установщик с оффициального сайта <a
+      href="https://visualstudio.microsoft.com/ru/downloads/">visualstudio.microsoft.com/ru/downloads</a> .
+    Запускаем его, установщик докачает все необходимое. Далее мы
+    попадаем на экран где нужно выбрать какие модули надо установить. Выбираем Разработка классических приложений
+    .NET, ASP.NET и разработка веб-приложений. После этого нажимаем Установить (или Изменить).</p>
+  <p>И при инсталляции Visual Studio на ваш компьютер будут установлены все необходимые инструменты для разработки
+    программ, в том числе фреймворк .NET 7.</p>
+  <p>Для создания первой программы, откроем Visual Studio. На стартовом экране выберем Create a new project
+    (Создать новый проект).
+    В окне Создание проекта выбираем Консольное приложение .NET Core и жмем далее</p>
+  <p>Далее на следующем этапе нам будет предложено указать имя проекта и каталог, где будет располагаться проект.
+  </p>
+  <p>На следующем окне Visual Studio предложит нам выбрать версию .NET, которая будет использоваться для проекта.
+    Выберем последнюю на данный момент верси. - .NET 7.0</p>
+  <p>Нажмем на кнопку Create (Создать) для создания проекта, и после этого Visual Studio создаст и откроет нам
+    проект</p>
+
+  <h3>Вариант 2. Редактор кода Visual Studio Code.</h3>
+
+  <p>В этом случае необходимо еще докачать платформу .NET <a href="https://dotnet.microsoft.com/en-us/download">dotnet.microsoft.com/en-us/download</a>. После этого можно использовать нужные команды, которые будут доступны из терминала. С помощью этих команд можно создать или запустить проект. В VSCode надо установить расширение C# от ms-dotnettools.csharp от Microsoft C# for Visual Studio Code (powered by OmniSharp)</p>
+  <p>Чтобы создать новый проект нужно открыть пустую папку. Открыть терминал. Команда clear - очистить терминал</p>
+  <p>Проверим установленную версию .NET
+    <code>
+      dotnet --version
+      <br>7.0.401
+    </code>
+  </p>
+  <p>Создадим новое консольное приложение
+    <code>dotnet new console -o sample</code>
+  </p>
+  <p>
+    Наберем текст программы
+    <code>
+  using System;
+  <br>namespace sample {
   <br>class Program {
-    <br>static void Main(string[] args) {
-      <br>// Урок 1. Вывод в консоль
-      <br>Console.WriteLine("Hello, World!");
-      <br>
-      <br>// Урок 2. Типы данных (Ссылочные типы и типы значения)
-      <br>// Переменные типов значения (value types) хранятся в стеке и 
-      <br>// каждая занимает определенный объем памяти.
-      <br>// Всего 11 типов значений. Из них 8 численных типов
-      <br>// byte название типа в C#
-      <br>// Systm.Byte название типа в .NET
-      <br>
-      <br>// 8 численных типов
-      <br>// System.Byte 1 байт
-      <br>byte bmin = byte.MinValue;
-      <br>byte bmax = byte.MaxValue;
-      <br>Console.WriteLine("Тип данных byte. byte.MinValue = {0}, byte.MaxValue = {1}", bmin, bmax);
-      <br>
-      <br>// sbyte 1 байт
-      <br>sbyte sbmin = sbyte.MinValue;
-      <br>sbyte sbmax = sbyte.MaxValue;
-      <br>Console.WriteLine("Тип данных sbyte. sbyte.MinValue = {0}, sbyte.MaxValue = {1}", sbmin, sbmax);
-      <br>
-      <br>// System.Int16 2 байта
-      <br>short shmin = short.MinValue;
-      <br>short shmax = short.MaxValue;
-      <br>Console.WriteLine("Тип данных short. short.MinValue = {0}, short.MaxValue = {1}", shmin, shmax);
-      <br>
-      <br>// ushort 2 байта
-      <br>ushort ushmin = ushort.MinValue;
-      <br>ushort ushmax = ushort.MaxValue;
-      <br>Console.WriteLine("Тип данных ushort. ushort.MinValue = {0}, ushort.MaxValue = {1}", ushmin, ushmax);
-      <br>
-      <br>// System.Int32 4 байта
-      <br>int imin = int.MinValue;
-      <br>int imax = int.MaxValue;
-      <br>Console.WriteLine("Тип данных int. int.MinValue = {0}, int.MaxValue = {1}", imin, imax);
-      <br>
-      <br>// uint 4 байта
-      <br>uint uimin = uint.MinValue;
-      <br>uint uimax = uint.MaxValue;
-      <br>Console.WriteLine("Тип данных uint. uint.MinValue = {0}, uint.MaxValue = {1}", uimin, uimax);
-      <br>
-      <br>// System.Int64 8 байт
-      <br>long lmin = long.MinValue;
-      <br>long lmax = long.MaxValue;
-      <br>Console.WriteLine("Тип данных long. long.MinValue = {0}, long.MaxValue = {1}", lmin, lmax);
-      <br>
-      <br>// ulong 8 байт
-      <br>ulong ulmin = ulong.MinValue;
-      <br>ulong ulmax = ulong.MaxValue;
-      <br>Console.WriteLine("Тип данных ulong. ulong.MinValue = {0}, ulong.MaxValue = {1}", ulmin, ulmax);
-      <br>
-      <br>// System.Single 4 байта
-      <br>float fmin = float.MinValue;
-      <br>float fmax = float.MaxValue;
-      <br>float f = 12.9f;
-      <br>Console.WriteLine("Тип данных float. float.MinValue = {0}, float.MaxValue = {1}", fmin, fmax);
-      <br>
-      <br>// System.Double 8 байт
-      <br>double dmin = double.MinValue;
-      <br>double dmax = double.MaxValue;
-      <br>double d = 123.45;
-      <br>Console.WriteLine("Тип данных double. double.MinValue = {0}, double.MaxValue = {1}", dmin, dmax);
-      <br>
-      <br>// System.Decimal 16 байт
-      <br>decimal mmin = decimal.MinValue;
-      <br>decimal mmax = decimal.MaxValue;
-      <br>decimal m = 16.77m;
-      <br>Console.WriteLine("Тип данных decimal. decimal.MinValue = {0}, decimal.MaxValue = {1}", mmin, mmax);
-      <br>Console.WriteLine("float f = {0}, double d = {1}, decimal m = {2}", f, d, m);
-      <br>
-      <br>// System.Boolean 1 байт
-      <br>bool yes = true;
-      <br>bool no = false;
-      <br>Console.WriteLine("Тип данных bool. Имеет только два значения {0} и {1}", yes, no);
-      <br>
-      <br>// 3 нечисленных типа
-      <br>// System.Char 2 байта
-      <br>char ch = 'a';
-      <br>char ch2 = 'b';
-      <br>Console.WriteLine("Тип данных char. {0} {1}", ch, ch2);
-      <br>
-      <br>// string
-      <br>string s = "frontend";
-      <br>Console.WriteLine(s);
-      <br>
-      <br>//Console.ReadKey();
-      <br>}
-      <br>}
-      <br>}
-        </code>
-        </p>
-        <p>Запустим созданный проект командой
-          <code>dotnet run</code>
-        </p>
-      </li>
-    </ul>
-  </div>
+  <br>static void Main(string[] args) {
+  <br>// Урок 1. Вывод в консоль
+  <br>Console.WriteLine("Hello, World!");
+  <br>
+  <br>// Урок 2. Типы данных (Ссылочные типы и типы значения)
+  <br>// Переменные типов значения (value types) хранятся в стеке и 
+  <br>// каждая занимает определенный объем памяти.
+  <br>// Всего 11 типов значений. Из них 8 численных типов
+  <br>// byte название типа в C#
+  <br>// Systm.Byte название типа в .NET
+  <br>
+  <br>// 8 численных типов
+  <br>// System.Byte 1 байт
+  <br>byte bmin = byte.MinValue;
+  <br>byte bmax = byte.MaxValue;
+  <br>Console.WriteLine("Тип данных byte. byte.MinValue = {0}, byte.MaxValue = {1}", bmin, bmax);
+  <br>
+  <br>// sbyte 1 байт
+  <br>sbyte sbmin = sbyte.MinValue;
+  <br>sbyte sbmax = sbyte.MaxValue;
+  <br>Console.WriteLine("Тип данных sbyte. sbyte.MinValue = {0}, sbyte.MaxValue = {1}", sbmin, sbmax);
+  <br>
+  <br>// System.Int16 2 байта
+  <br>short shmin = short.MinValue;
+  <br>short shmax = short.MaxValue;
+  <br>Console.WriteLine("Тип данных short. short.MinValue = {0}, short.MaxValue = {1}", shmin, shmax);
+  <br>
+  <br>// ushort 2 байта
+  <br>ushort ushmin = ushort.MinValue;
+  <br>ushort ushmax = ushort.MaxValue;
+  <br>Console.WriteLine("Тип данных ushort. ushort.MinValue = {0}, ushort.MaxValue = {1}", ushmin, ushmax);
+  <br>
+  <br>// System.Int32 4 байта
+  <br>int imin = int.MinValue;
+  <br>int imax = int.MaxValue;
+  <br>Console.WriteLine("Тип данных int. int.MinValue = {0}, int.MaxValue = {1}", imin, imax);
+  <br>
+  <br>// uint 4 байта
+  <br>uint uimin = uint.MinValue;
+  <br>uint uimax = uint.MaxValue;
+  <br>Console.WriteLine("Тип данных uint. uint.MinValue = {0}, uint.MaxValue = {1}", uimin, uimax);
+  <br>
+  <br>// System.Int64 8 байт
+  <br>long lmin = long.MinValue;
+  <br>long lmax = long.MaxValue;
+  <br>Console.WriteLine("Тип данных long. long.MinValue = {0}, long.MaxValue = {1}", lmin, lmax);
+  <br>
+  <br>// ulong 8 байт
+  <br>ulong ulmin = ulong.MinValue;
+  <br>ulong ulmax = ulong.MaxValue;
+  <br>Console.WriteLine("Тип данных ulong. ulong.MinValue = {0}, ulong.MaxValue = {1}", ulmin, ulmax);
+  <br>
+  <br>// System.Single 4 байта
+  <br>float fmin = float.MinValue;
+  <br>float fmax = float.MaxValue;
+  <br>float f = 12.9f;
+  <br>Console.WriteLine("Тип данных float. float.MinValue = {0}, float.MaxValue = {1}", fmin, fmax);
+  <br>
+  <br>// System.Double 8 байт
+  <br>double dmin = double.MinValue;
+  <br>double dmax = double.MaxValue;
+  <br>double d = 123.45;
+  <br>Console.WriteLine("Тип данных double. double.MinValue = {0}, double.MaxValue = {1}", dmin, dmax);
+  <br>
+  <br>// System.Decimal 16 байт
+  <br>decimal mmin = decimal.MinValue;
+  <br>decimal mmax = decimal.MaxValue;
+  <br>decimal m = 16.77m;
+  <br>Console.WriteLine("Тип данных decimal. decimal.MinValue = {0}, decimal.MaxValue = {1}", mmin, mmax);
+  <br>Console.WriteLine("float f = {0}, double d = {1}, decimal m = {2}", f, d, m);
+  <br>
+  <br>// System.Boolean 1 байт
+  <br>bool yes = true;
+  <br>bool no = false;
+  <br>Console.WriteLine("Тип данных bool. Имеет только два значения {0} и {1}", yes, no);
+  <br>
+  <br>// 3 нечисленных типа
+  <br>// System.Char 2 байта
+  <br>char ch = 'a';
+  <br>char ch2 = 'b';
+  <br>Console.WriteLine("Тип данных char. {0} {1}", ch, ch2);
+  <br>
+  <br>// string
+  <br>string s = "frontend";
+  <br>Console.WriteLine(s);
+  <br>
+  <br>//Console.ReadKey();
+  <br>}
+  <br>}
+  <br>}
+    </code>
+    </p>
+    <p>Запустим созданный проект командой
+      <code>dotnet run</code>
+    </p>
+</article>
 
-  <div class="content__item" id="content__item4">
-    <h2>.Net</h2>
-    <ul>
-      <li>
-        <p>.Net (дот нет) Framework - платформа программирования под Windows</p>
-        <p>.Net Core - открытый кросс-платформенный фреймворк под Windows, Linux, macOS</p>
-        <p>C# (си шарп) - основной язык программирования платформы .Net</p>
-        <p>.Net Framework и .Net Core состоят из исполняющей среды и базовой библиотеки классов</p>
-        <p>CLR (Common Language Runtime) - исполняющая среда под платформой .Net Framework</p>
-        <p>Core CLR - исполняющая среда под платформой .Net Core</p>
-        <p>BCL (Base Class Library) = FCL (Foundation Class Library) + Frameworks</p>
-      </li>
-      <li>
-        <p><a href="https://learn.microsoft.com/ru-ru/dotnet/">learn.microsoft.com/ru-ru/dotnet</a> Документация по .NET
-        </p>
-        <p><a href="https://dotnet.microsoft.com/en-us/download">dotnet.microsoft.com/en-us/download</a> Download .NET
-        </p>
-      </li>
-    </ul>
-  </div>
 
-</div>
+<!-- net -->
+<article class="article">
+  <div class="anchor" id="net"></div>
+  <h2>.Net</h2>
+
+  <p>.Net (дот нет) Framework - платформа программирования под Windows</p>
+  <p>.Net Core - открытый кросс-платформенный фреймворк под Windows, Linux, macOS</p>
+  <p>C# (си шарп) - основной язык программирования платформы .Net</p>
+  <p>.Net Framework и .Net Core состоят из исполняющей среды и базовой библиотеки классов</p>
+  <p>CLR (Common Language Runtime) - исполняющая среда под платформой .Net Framework</p>
+  <p>Core CLR - исполняющая среда под платформой .Net Core</p>
+  <p>BCL (Base Class Library) = FCL (Foundation Class Library) + Frameworks</p>
+  <p><a href="https://learn.microsoft.com/ru-ru/dotnet/">learn.microsoft.com/ru-ru/dotnet</a> Документация по .NET
+  </p>
+  <p><a href="https://dotnet.microsoft.com/en-us/download">dotnet.microsoft.com/en-us/download</a> Download .NET
+  </p>
+</article>

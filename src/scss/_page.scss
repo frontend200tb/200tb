@@ -36,7 +36,11 @@ h1 {
 }
 
 p {
-  margin: 0.2em 0;
+  margin: 1rem 0 0 0;
+}
+
+li {
+  margin: 0.5rem 0 0 0;
 }
 
 .border {
@@ -75,6 +79,12 @@ code {
 
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+.code-inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .pre_function {

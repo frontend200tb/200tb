@@ -2,6 +2,19 @@ const dataBooksBase = [
 
   {
     id: 1,
+    year: 1980,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Программирование',
+    author: 'Любимский',
+    authorName: 'Эдуард',
+    pages: '610',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1990,
     category: 'основы',
     theme: 'Программирование',
@@ -1580,6 +1593,19 @@ const dataBooksBase = [
     author: 'Ньюмен',
     authorName: 'Сэм',
     pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 122,
+    year: 2021,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Языки программирования и методы трансляции (3е)',
+    author: 'Свердлов',
+    authorName: 'Сергей',
+    pages: '562',
     isLearned: false,
     dateLearned: '',
   },

@@ -11,6 +11,7 @@ import dataBooksCsharp from './data/data-books-csharp';
 import dataBooksC from './data/data-books-c';
 import dataBooksPhp from './data/data-books-php';
 import dataBooksPython from './data/data-books-python';
+import dataBooksPascal from './data/data-books-pascal';
 
 // Base
 import dataBooksBase from './data/data-books-base';
@@ -54,7 +55,7 @@ import dataBooksMl from './data/data-books-ml';
 const dataArray = [
   // Code
   dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksCsharp, dataBooksC,
-  dataBooksPhp, dataBooksPython,
+  dataBooksPhp, dataBooksPython, dataBooksPascal,
   // Base
   dataBooksBase, dataBooksAlgorithm, dataBooksComp, dataBooksBios,
   dataBooksOpsys, dataBooksNetworks, dataBooksInformatika, dataBooksOop,
