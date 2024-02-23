@@ -40,7 +40,7 @@ import htmlDsrWshop6 from './dsr/dsr2023net-workshop6.html';
 
 import htmlDsrExam from './dsr/dsr-exam.html';
 
-// RS Test
+// RS Test stage 1
 import htmlRsTestRss from './rs-test/rs-test-rss.html';
 import htmlRsTestGit from './rs-test/rs-test-git.html';
 import htmlRsTestFundInternet from './rs-test/rs-test-fundinternet.html';
@@ -70,9 +70,13 @@ import htmlRsTestClasses from './rs-test/rs-test-classes.html';
 import htmlRsTestOop from './rs-test/rs-test-oop.html';
 import htmlRsTestFinal from './rs-test/rs-test-final.html';
 
+// RS Test stage 2
+import htmlRsTestTsBasics from './rs-test/rs-test-tsbasics.html';
+import htmlRsTestTsAdvanced from './rs-test/rs-test-tsadvanced.html';
+
 // Создаем массив страниц с Aside меню
 const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
-  htmlEduLearning, htmlEduRss, htmlEduRss2022stage0, htmlEduRss2022stage1, 
+  htmlEduLearning, htmlEduRss, htmlEduRss2022stage0, htmlEduRss2022stage1,
   htmlEduRss2022stage3, htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduRss2023stage0,
   htmlEduQuiz, htmlEduJsExamples];
 
@@ -96,7 +100,7 @@ htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
 htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
 htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
 htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
-htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal];
+htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal, htmlRsTestTsBasics, htmlRsTestTsAdvanced];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {

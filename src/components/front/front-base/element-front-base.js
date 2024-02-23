@@ -7,7 +7,7 @@ class FrontBase extends HTMLElement {
     this.innerHTML = `
     <section class="main__aside">
       <aside class="aside"></aside>
-      <main class="list" id="base"></main>
+      <main class="main" id="base"></main>
     </section>
     `;
     this.className = 'front-base';

@@ -1,35 +1,55 @@
 <h1>Tailwind</h1>
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">Links</p>
-  <p class="content__menu-link" id="content__menu-link2">Статьи</p>
-  <p class="content__menu-link" id="content__menu-link3">install</p>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
 </div>
-<div class="content__items">
-  <div class="content__item" id="content__item1">
-    <h3>Links </h3>
-    <ul> 
-      <li> <a href="https://tailwindcss.ru/">https://tailwindcss.ru/</a></li>
-      <li> <a href="https://v2.tailwindcss.ru/">https://v2.tailwindcss.ru/</a></li>
-      <li> <a href="https://tailwindcss.com/">https://tailwindcss.com/</a></li>
-      <li> <a href="https://v2.tailwindcss.com/">https://v2.tailwindcss.com/</a></li>
-      <li> <a href="https://v1.tailwindcss.com/">https://v1.tailwindcss.com/</a></li>
-    </ul>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#install">install</a></p>
   </div>
-  <div class="content__item" id="content__item2">
-    <h3>Статьи</h3>
-    <ul> 
-      <li> <a href="https://habr.com/ru/post/508844/">TailwindCSS – очередной фреймворк или новый шаг эволюции (2020-07-01)</a></li>
-      <li> <a href="https://habr.com/ru/company/skillfactory/blog/558654/">Взгляд на Tailwind CSS (2021-05-23)</a></li>
-      <li> <a href="https://highload.today/tailwind-css-za-i-protiv/">Tailwind CSS: за и против (2021-03-12)</a></li>
-    </ul>
-  </div>
-  <div class="content__item" id="content__item3">
-    <h3>Установка</h3>
-    <ul> 
-      <li>Сохраните файл стилей tailwind.css в папке с проектом и подключите его в index.html 
-        <code>&lt;link href="tailwind.css" rel="stylesheet"&gt;</code>или подключите файл стилей tailwind.css через cdn 
-        <code> &lt;link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"&gt;</code>
-      </li>
-    </ul>
-  </div>
+
 </div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://tailwindcss.ru/">https://tailwindcss.ru/</a></p>
+  <p><a href="https://v2.tailwindcss.ru/">https://v2.tailwindcss.ru/</a></p>
+  <p><a href="https://tailwindcss.com/">https://tailwindcss.com/</a></p>
+  <p><a href="https://v2.tailwindcss.com/">https://v2.tailwindcss.com/</a></p>
+  <p><a href="https://v1.tailwindcss.com/">https://v1.tailwindcss.com/</a></p>
+
+  <h3>Статьи</h3>
+  <p><a href="https://habr.com/ru/post/508844/">TailwindCSS – очередной фреймворк или новый шаг эволюции (2020-07-01)</a></p>
+  <p><a href="https://habr.com/ru/company/skillfactory/blog/558654/">Взгляд на Tailwind CSS (2021-05-23)</a></p>
+  <p><a href="https://highload.today/tailwind-css-za-i-protiv/">Tailwind CSS: за и против (2021-03-12)</a></p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>install</h2>
+  
+  <p>Сохраните файл стилей tailwind.css в папке с проектом и подключите его в index.html</p> 
+  <code>&lt;link href="tailwind.css" rel="stylesheet"&gt;</code>
+  <p>или подключите файл стилей tailwind.css через cdn </p>
+  <code> &lt;link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"&gt;</code>
+</article>

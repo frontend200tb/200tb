@@ -6,12 +6,9 @@ class FrontNode extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="front-node" id="front-node">
-
-      <h1>Node Programs</h1>
-
       <section class="main__aside">
         <aside class="aside"></aside>
-        <main class="list" id="node"></main>
+        <main class="main" id="node"></main>
       </section>
     </div>
     `;

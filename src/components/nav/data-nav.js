@@ -12,7 +12,6 @@ import showCodePascal from '../code/code-pascal/code-pascal';
 
 // front
 import showFrontBooks from '../front/front-books/front-books';
-import showFrontCode from '../front/front-code/front-code';
 import showFrontEdu from '../front/front-edu/front-edu';
 import showFrontLearned from '../front/front-learned/front-learned';
 import showFrontNode from '../front/front-node/front-node';
@@ -113,14 +112,6 @@ export const dataNavFront = [
     content: '<front-books></front-books>',
     act() {
       showFrontBooks();
-    },
-  },
-  {
-    url: 'front-code.html',
-    text: 'Code',
-    content: '<front-code></front-code>',
-    act() {
-      showFrontCode();
     },
   },
  {

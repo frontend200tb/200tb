@@ -1,12 +1,55 @@
-<a href="#" id="back-to-css">назад</a>
-
 <h1>CSS селекторы</h1>
 
-<article class="article">
-  <div class="anchor" id="info"></div>
-  <h2>info</h2>
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
 
-  <h2>Список всех селекторов css</h2><table>
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#spec">Специфичность</a></p>
+    <p><a href="#list">Список всех селекторов</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://doka.guide/css/specificity/">doka.guide/css/specificity</a> Специфичность</p>
+  <p><a href="https://htmlacademy.ru/blog/css/which-selector">htmlacademy.ru/blog/css/which-selector</a> Специфичность селекторов в CSS</p>
+</article>
+
+
+<!-- spec -->
+<article class="article">
+  <div class="anchor" id="spec"></div>
+  <h2>Специфичность</h2>
+
+  <p>Когда к одному элементу на странице прописываются стили в разных строчках css файла, то браузер принимает решение на основе специфичности селектора.</p>
+  <p>Встроенные стили (inline) всегда важнее внешних, поэтому специфичность считается внутри тега style и во внешнем css файле</p>
+  <p>Вес селектора складывается из трех цифр</p>
+  <ol>
+    <li>Селекторы по идентификатору (id)</li>
+    <li>Селекторы по классу (class), селекторы по аттрибуту и селекторы с псевдоклассами</li>
+    <li>Селекторы по тегу, селеткторы с псевдоэлементами</li>
+  </ol>
+</article>
+
+
+<!-- list -->
+<article class="article">
+  <div class="anchor" id="list"></div>
+  <h2>Список всех селекторов css</h2>
+  
+  <table>
   <thead>
   <tr>
   <th>Селектор</th>

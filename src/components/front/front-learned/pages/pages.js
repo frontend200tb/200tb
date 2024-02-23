@@ -1,61 +1,28 @@
-/** **************
+/*
+Скрипт из файла page.js
 Функция pageLink вешает обработчик клика на элементы asideMenu
-****************** */
-import './elem-learned-all';
-import './elem-learned-books';
-import './elem-learned-video';
-import './elem-learned-courses';
-import './elem-learned-youtube';
-import './elem-learned-layout';
+*/
+import htmlLearnedAll from './elem-learned-all.html';
+import htmlLearnedBooks from './elem-learned-books.html';
+import htmlLearnedVideo from './elem-learned-video.html';
+import htmlLearnedCourses from './elem-learned-courses.html';
+import htmlLearnedYoutube from './elem-learned-youtube.html';
+import htmlLearnedLayout from './elem-learned-layout.html';
 
+// Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
+  const asideLearned = [htmlLearnedAll, htmlLearnedBooks, htmlLearnedVideo, htmlLearnedCourses, htmlLearnedYoutube, htmlLearnedLayout];  
   const currentContent = document.querySelector('#learned');
+  const asideItems = document.querySelectorAll('.aside a');
 
-  const asideAll = document.getElementById('learned-all');
-  if (asideAll) {
-    asideAll.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<learned-all></learned-all>';
-    });
-  }
+  asideItems.forEach((elem, index) => {
+    createAsideMenu(elem, index);
+  })
 
-  const asideBooks = document.getElementById('learned-books');
-  if (asideBooks) {
-    asideBooks.addEventListener('click', (e) => {
+  function createAsideMenu(elem, index) {
+    elem.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<learned-books></learned-books>';
-    });
-  }
-
-  const asideVideo = document.getElementById('learned-video');
-  if (asideVideo) {
-    asideVideo.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<learned-video></learned-video>';
-    });
-  }
-
-  const asideCourses = document.getElementById('learned-onlinecourses');
-  if (asideCourses) {
-    asideCourses.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<learned-courses></learned-courses>';
-    });
-  }
-
-  const asideYoutube = document.getElementById('learned-youtube');
-  if (asideYoutube) {
-    asideYoutube.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<learned-youtube></learned-youtube>';
-    });
-  }
-
-  const asideLayout = document.getElementById('learned-верстка');
-  if (asideLayout) {
-    asideLayout.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<learned-layout></learned-layout>';
+      currentContent.innerHTML = asideLearned[index];
     });
   }
 }

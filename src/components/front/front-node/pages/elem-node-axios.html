@@ -1,50 +1,63 @@
 <h1>Axios</h1>
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">about</p>
-  <p class="content__menu-link" id="content__menu-link2">links</p>
-  <p class="content__menu-link" id="content__menu-link3">install</p>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
 </div>
-<div class="content__items">
-  <div class="content__item" id="content__item1">
-    <h3>Об Axios</h3>
-    <ul> 
-      <li>Axios - это HTTP-клиент, основанный на Promise для node.js и браузера. Он изоморфный (= он может работать в браузере и node.js с той же базой кодов). На стороне сервера он использует нативный node.js http-модуль, тогда как на стороне клиента (браузер) он использует XMLHttpRequests.</li>
-    </ul>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#install">install</a></p>
   </div>
-  <div class="content__item" id="content__item2">
-    <h3>Ссылки</h3>
-    <ul> 
-      <li>
-        <p><a href="https://github.com/axios/axios">https://github.com/axios/axios</a></p>
-        <p><a href="https://axios-http.com/ru/">https://axios-http.com/ru/</a></p>
-        <p><a href="https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html">https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html</a></p>
-      </li>
-    </ul>
-    <h3>Статьи</h3>
-    <ul> 
-      <li>
-        <p><a href="https://medium.com/devschacht/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D0%BC-axios-%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5-%D1%81-vue-js-3bc45464c460">Используем axios вместе с Vue.js (2017-09-27)</a></p>
-        <p><a href="https://habr.com/ru/company/timeweb/blog/571252/">JavaScript: как из Fetch сделать Axios (2021-08-04)</a></p>
-        <p><a href="https://habr.com/ru/company/ruvds/blog/477286/">Axios или Fetch: чем пользоваться в 2019 году (2019-11-29)</a></p>
-      </li>
-    </ul>
-  </div>
-  <div class="content__item" id="content__item4">
-    <h3>Установка</h3>
-    <ul> 
-      <li>
-        <h3>Подключение через &lt;script&gt; </h3><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a>
-        <p>Просто скачайте JS-файл и подключите его тегом &lt;script&gt; на странице.</p>
-        <pre>&lt;script src="js/axios.min.js"&gt;&lt;/script&gt;</pre>
-      </li>
-      <li> 
-        <h3>Подключениие через jsDelivr CDN</h3><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a>
-        <pre>&lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;</pre>
-      </li>
-      <li> 
-        <h3>Подключениие через unpkg CDN</h3><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a>
-        <pre>&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;</pre>
-      </li>
-    </ul>
-  </div>
+
 </div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Axios - это HTTP-клиент, основанный на Promise для node.js и браузера. Он изоморфный (= он может работать в браузере и node.js с той же базой кодов). На стороне сервера он использует нативный node.js http-модуль, тогда как на стороне клиента (браузер) он использует XMLHttpRequests.</p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>Ссылки</h2>
+
+  <p><a href="https://github.com/axios/axios">https://github.com/axios/axios</a></p>
+  <p><a href="https://axios-http.com/ru/">https://axios-http.com/ru/</a></p>
+  <p><a href="https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html">https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html</a></p>
+
+  <h3>Статьи</h3>
+  <p><a href="https://medium.com/devschacht/%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D0%BC-axios-%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5-%D1%81-vue-js-3bc45464c460">Используем axios вместе с Vue.js (2017-09-27)</a></p>
+  <p><a href="https://habr.com/ru/company/timeweb/blog/571252/">JavaScript: как из Fetch сделать Axios (2021-08-04)</a></p>
+  <p><a href="https://habr.com/ru/company/ruvds/blog/477286/">Axios или Fetch: чем пользоваться в 2019 году (2019-11-29)</a></p>
+</article>
+
+
+<!-- inatall -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>Установка</h2>
+
+  <h3>Подключение через &lt;script&gt;</h3>
+  <p><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a></p>
+  <p>Просто скачайте JS-файл и подключите его тегом &lt;script&gt; на странице.</p>
+  <code>&lt;script src="js/axios.min.js"&gt;&lt;/script&gt;</code>
+
+  <h3>Подключениие через jsDelivr CDN</h3>
+  <p><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a></p>
+  <code>&lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;</code>
+
+  <h3>Подключениие через unpkg CDN</h3>
+  <p><a href="https://axios-http.com/ru/docs/intro">https://axios-http.com/ru/docs/intro</a></p>
+  <code>&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;</code>
+</article>

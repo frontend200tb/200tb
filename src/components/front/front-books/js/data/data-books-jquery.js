@@ -191,8 +191,8 @@ const dataBooksJquery = [
     author: 'Шевчук',
     authorName: 'Антон',
     pages: '156',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2021-09-27 пн',
   },
 
   {

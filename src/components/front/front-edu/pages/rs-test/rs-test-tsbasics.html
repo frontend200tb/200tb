@@ -3,317 +3,477 @@
 
   <h1>[St2] TypeScript Basics</h1>
 
-  <strong>33 вопроса. Выполнил на 100 баллов из 100</strong>
+  <strong>33 вопроса. Выполнил на 88 баллов из 100</strong>
 </article>
 
-1. Which of the following are correct ways to perform type assertions in TypeScript?
 
-const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
-
-const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
-
-const myCanvas = document.getElementById("main_canvas") as string;
-
-const myCanvas = (HTMLCanvasElement)document.getElementById("main_canvas");
-2. What distinguishes type aliases from interfaces in TypeScript?
-
-Type aliases are extendable, while interfaces are not.
-
-Type aliases cannot be re-opened to add new properties, while interfaces can.
-
-Type aliases are more powerful and versatile than interfaces.
-
-Interfaces cannot be used to declare the shapes of objects.
-3. In TypeScript, which syntax is used to declare a variable that can be either a 'number' or a 'string'?
-
-Types cannot be combined in TS.
-
-number && string
-
-number | string
-
-number || string
-
-number & string
-4. With strictNullChecks turned on in TypeScript, what is the behavior when a value is null or undefined?
-
-Values can be accessed normally without any issues
-
-Null and undefined can be assigned to a property of any type.
-
-Values must be tested for null or undefined before using methods or properties.
-
-Both a and b.
-5. In TypeScript, what is the default visibility modifier for class members?
-
-public
-
-private
-
-protected
-
-internal
-6. What does the function type expression (a: string) => void mean in TypeScript?
-
-A function with one parameter named "a" of type string, returning void.
-
-A function with one parameter named "string" of type any.
-
-A function with a parameter named "a" of type any.
-
-A function with no parameters and returns void.
-7. According to Microsoft recommendations, should the name of an interface in TS start with an additional 'I'?
-
-Yes, it should.
-
-No, it is not recommended.
-8. Select types in TS:
-
-int
-
-string
-
-object
-
-any
-
-boolean
-
-tuple
-
-never
-
-double
-
-Array
-9. When working with class constructors in TypeScript, what is a key difference between function signatures and constructor signatures?
-
-Constructors can have type parameters, unlike functions
-
-Constructors can have return type annotations, unlike functions
-
-Constructors always return the class instance type
-
-Constructors cannot have default values for parameters
-10. How do you correctly describe the type of a function: function func(){ console.log("My function"); };
-
-()=>string;
-
-()=>void;
-
-(string)=>void;
-
-(undefined)=>void;
-
-There is no correct answer.
-11. What does the keyof operator do?
-
-It takes an array and produces a union of its elements.
-
-It takes an object type and produces a union of its keys.
-
-It converts a string or number into a union type.
-
-It extracts the values from an array of objects.
-12. What is the purpose of intersection types in TypeScript?
-
-To create new types by extending existing types using the & operator.
-
-To define the relationship between interfaces and objects.
-
-To handle conflicts between types and aliases.
-
-To create generic helper types.
-13. What is the value of C in enum One {A = 1,B = 5,C,D = 0}?
-
-3
-
-undefined
-
-6
-
-5
-
-There will be an error
-14. Can JavaScript code be executed in a file with the .ts extension?
-
-Yes, it can.
-
-No, it cannot.
-15. Is the function call func('1','2') valid for the function function func(a: number, b: number){ ...some code... }?
-
-The call is valid, there will be no error.
-
-The call is incorrect, but there will be no error.
-
-The call is incorrect and there will be an error.
-16. Valid syntax in TS:
-
-let test = "hello world";
-
-let test: string = "hello world";
-
-let test string = "hello world";
-
-let string test = "hello world";
-
-let test: any = "hello world";
-17. What is a limitation of const assertions?
-
-They can only be applied to complex literal expressions.
-
-Const contexts immediately convert expressions to be fully immutable.
-
-They cannot be used with array literals.
-
-They can only be applied to simple literal expressions.
-18. Can you set a value that is another expression (e.g., a function call) as the default value for function parameters in TS?
-
-No, you cannot.
-
-Yes, you can.
-
-By default, you cannot, but you can create conditions under which it becomes possible.
-19. How can you add type annotations to variables in TypeScript?
-
-Before the variable, using "int x = 0;" style declarations.
-
-After the variable, using "let x: string = 'hello';" style declarations.
-
-Using the type keyword.
-
-TypeScript automatically infers types; no annotations needed.
-20. Does array destructuring work in TS?
-
-Yes
-
-No, it doesn't work
-
-Only in readonly arrays
-21. Is it possible to combine two or more other types to form a combined type representing values that may be any one of those initial types?
-
-Yes, it is called a union.
-
-Yes, it is called an onion.
-
-Yes, it is called a merger.
-
-No, it is not possible.
-22. In the expression 'let test: string = "hello world"; test = 23;'
-
-No error will occur.
-
-There will be an error because the type is not specified in the second expression.
-
-There will be an error because the types of the first and second expressions do not match.
-
-There is no correct answer.
-23. Can a function in TS accept another function as an argument?
-
-Yes, it can.
-
-No, it cannot.
-
-By default, it cannot, but you can create conditions under which it becomes possible.
-24. Which TypeScript strictness flag makes TypeScript issue an error on variables implicitly inferred as 'any'?
-
-strictNullChecks
-
-noImplicitAny
-
-strict
-
-noSurpriseVariables
-
-noAnyChecks
-25. What does the postfix ! operator do in TypeScript?
-
-It negates a boolean value.
-
-It asserts that a value isn't null or undefined.
-
-It converts a variable to a different type.
-
-It is used for arithmetic operations.
-26. Can you pass more parameters than expected in a function call in TS?
-
-No, you cannot.
-
-Yes, you can.
-27. Which type corresponds to the array let arr = [1, 2, 3];?
-
-number[ ]
-
-string[ ]
-
-Array
-
-Array<number>
-
-Array<string>
-28. Which type corresponds to the array let arr = [1, 2, 3]; where the elements cannot be modified?
-
-ReadonlyArray<number>
-
-ReadonlyArray<string>
-
-ReadonlyArray
-
-readonly string[ ]
-
-readonly number[ ]
-29. When deciding between type aliases and interfaces, what is recommended to use?
-
-Always use type aliases for better performance.
-
-Use type for simple structures and interfaces for complex structures.
-
-Use interfaces until you need features from type, then switch to type.
-
-There is no significant difference; choose based on personal preference.
-30. Select the type for let person = ["Alan", 20];
-
-It is impossible to write a type for this structure
-
-number[ ]
-
-[number, string]
-
-string[ ]
-
-[string, number]
-
-[never]
-
-[any]
-31. What values can the type-checking operator return?
-
-symbol
-
-number
-
-boolean
-
-tuple
-
-string
-
-undefined
-
-bigint
-
-any
-32. Can a function in TS return an object?
-
-Yes, it can.
-
-No, it cannot.
-
-By default, it cannot, but you can create conditions under which it becomes possible.
-
-It depends on the type of function (declaration, expression, arrow).
-33. Can you use alert() in TS?
-
-Yes, you can.
-
-No, you cannot.
+<article class="article">
+  <h3>1. According to Microsoft recommendations, should the name of an interface in TS start with an additional 'I'?</h3>
+  <ul>
+    <li>Yes, it should.</li>
+    <li><strong>No, it is not recommended.</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Can a function in TS accept another function as an argument?</h3>
+  <ul>
+    <li><strong>Yes, it can.</strong></li>
+    <li>No, it cannot.</li>
+    <li>By default, it cannot, but you can create conditions under which it becomes possible.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Can a function in TS return an object?</h3>
+  <ul>
+    <li><strong>Yes, it can.</strong></li>
+    <li>No, it cannot.</li>
+    <li>By default, it cannot, but you can create conditions under which it becomes possible.</li>
+    <li>It depends on the type of function (declaration, expression, arrow).</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Can JavaScript code be executed in a file with the .ts extension?</h3>
+  <ul>
+    <li><strong>Yes, it can.</strong></li>
+    <li>No, it cannot.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Can you pass more parameters than expected in a function call in TS?</h3>
+  <ul>
+    <li>No, you cannot.</li>
+    <li><strong>Yes, you can.</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Can you set a value that is another expression (e.g., a function call) as the default value for function parameters in TS?</h3>
+  <ul>
+    <li><strong>No, you cannot.</strong></li>
+    <li>Yes, you can.</li>
+    <li>By default, you cannot, but you can create conditions under which it becomes possible.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Can you use alert() in TS?</h3>
+  <ul>
+    <li><strong>Yes, you can.</strong></li>
+    <li>No, you cannot.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Does array destructuring work in TS?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No, it doesn't work</li>
+    <li>Only in readonly arrays</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. How can you add type annotations to variables in TypeScript?</h3>
+  <ul>
+    <li>Before the variable, using "int x = 0;" style declarations.</li>
+    <li><strong>After the variable, using "let x: string = 'hello';" style declarations.</strong></li>
+    <li>Using the type keyword.</li>
+    <li>TypeScript automatically infers types; no annotations needed.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. How do you correctly describe the type of a function: function func(){ console.log("My function"); };</h3>
+  <ul>
+    <li>()=>string;</li>
+    <li><strong>()=>void;</strong></li>
+    <li>(string)=>void;</li>
+    <li>(undefined)=>void;</li>
+    <li>There is no correct answer.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>In the expression 'let someVar: any = "hello"; test = 23;'</h3>
+  <ul>
+    <li><strong>No error will occur</strong></li>
+    <li>There will be an error because the type is not specified in the second expression</li>
+    <li>There will be an error because the types do not match in the first and second expressions</li>
+    <li>There is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>In the expression 'let test: any = "hello"; test = 23;'</h3>
+  <ul>
+    <li>There will be an error because the type is not specified in the first expression.</li>
+    <li>There will be an error because the type is not specified in the second expression.</li>
+    <li><strong>No error will occur.</strong></li>
+    <li>There is no correct answer.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. In the expression 'let test: string = "hello world"; test = 23;'</h3>
+  <ul>
+    <li>No error will occur.</li>
+    <li>There will be an error because the type is not specified in the second expression.</li>
+    <li><strong>There will be an error because the types of the first and second expressions do not match.</strong></li>
+    <li>There is no correct answer.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. In TypeScript, what is the default visibility modifier for class members?</h3>
+  <ul>
+    <li><strong>public</strong></li>
+    <li>private</li>
+    <li>protected</li>
+    <li>internal</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. In TypeScript, which syntax is used to declare a variable that can be either a 'number' or a 'string'?</h3>
+  <ul>
+    <li>Types cannot be combined in TS.</li>
+    <li>number && string</li>
+    <li><strong>number | string</strong></li>
+    <li>number || string</li>
+    <li>number & string</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Is it possible to combine two or more other types to form a combined type representing values that may be any one of those initial types?</h3>
+  <ul>
+    <li><strong>Yes, it is called a union.</strong></li>
+    <li>Yes, it is called an onion.</li>
+    <li>Yes, it is called a merger.</li>
+    <li>No, it is not possible.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Is the function call func('1','2') valid for the function function func(a: number, b: number){ ...some code... }?</h3>
+  <ul>
+    <li>The call is valid, there will be no error.</li>
+    <li>The call is incorrect, but there will be no error.</li>
+    <li><strong>The call is incorrect and there will be an error.</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Select the type for let person = ["Alan", 20]; (checkbox)</h3>
+  <ul>
+    <li>It is impossible to write a type for this structure</li>
+    <li>number[ ]</li>
+    <li>[number, string]</li>
+    <li>string[ ]</li>
+    <li><strong>[string, number]</strong></li>
+    <li>[never]</li>
+    <li>[any]</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Select types in TS: (checkbox)</h3>
+  <ul>
+    <li>int</li>
+    <li><strong>string</strong></li>
+    <li><strong>object</strong></li>
+    <li><strong>any</strong></li>
+    <li><strong>boolean</strong></li>
+    <li><strong>tuple</strong></li>
+    <li><strong>never</strong></li>
+    <li>double</li>
+    <li><strong>Array</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Valid syntax in TS: (checkbox)</h3>
+  <ul>
+    <li><strong>let test = "hello world";</strong></li>
+    <li><strong>let test: string = "hello world";</strong></li>
+    <li>let test string = "hello world";</li>
+    <li>let string test = "hello world";</li>
+    <li><strong>let test: any = "hello world";</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What distinguishes type aliases from interfaces in TypeScript?</h3>
+  <ul>
+    <li>Type aliases are extendable, while interfaces are not.</li>
+    <li><strong>Type aliases cannot be re-opened to add new properties, while interfaces can.</strong></li>
+    <li>Type aliases are more powerful and versatile than interfaces.</li>
+    <li>Interfaces cannot be used to declare the shapes of objects.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What does the function type expression (a: string) => void mean in TypeScript?</h3>
+  <ul>
+    <li><strong>A function with one parameter named "a" of type string, returning void.</strong></li>
+    <li>A function with one parameter named "string" of type any.</li>
+    <li>A function with a parameter named "a" of type any.</li>
+    <li>A function with no parameters and returns void.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What does the keyof operator do?</h3>
+  <ul>
+    <li>It takes an array and produces a union of its elements.</li>
+    <li><strong>It takes an object type and produces a union of its keys.</strong></li>
+    <li>It converts a string or number into a union type.</li>
+    <li>It extracts the values from an array of objects.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What does the question mark (?) signify when used in TypeScript object types?</h3>
+  <ul>
+    <li>The property is required.</li>
+    <li><strong>The property is optional.</strong></li>
+    <li>The property is read-only.</li>
+    <li>The property is a function.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What does the postfix ! operator do in TypeScript?</h3>
+  <ul>
+    <li>It negates a boolean value.</li>
+    <li><strong>It asserts that a value isn't null or undefined.</strong></li>
+    <li>It converts a variable to a different type.</li>
+    <li>It is used for arithmetic operations.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What is a limitation of const assertions?</h3>
+  <ul>
+    <li>They can only be applied to complex literal expressions.</li>
+    <li>Const contexts immediately convert expressions to be fully immutable.</li>
+    <li>They cannot be used with array literals.</li>
+    <li><strong>They can only be applied to simple literal expressions.</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What is 'as' in TS?</h3>
+  <ul>
+    <li><strong>It is a type assertion, a way to specify to the compiler which type (previously declared) the variable will have.</strong></li>
+    <li>It is a way to combine types and assign a different type (not previously defined) to a variable during compilation forcibly.</li>
+    <li>It is a replacement of the type previously described for a variable with the type needed in a specific line.</li>
+    <li>It is a deprecated operator that is not used at the moment.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What is the main advantage of the new unknown top type introduced in TypeScript 3.0?</h3>
+  <ul>
+    <li>It absorbs everything in a union type.</li>
+    <li>It allows operations without type assertion or narrowing.</li>
+    <li><strong>It is assignable to any type without restrictions.</strong></li>
+    <li>It is assignable only to itself and "any" without a type assertion or control flow based narrowing.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What is the purpose of intersection types in TypeScript?</h3>
+  <ul>
+    <li><strong>To create new types by extending existing types using the & operator.</strong></li>
+    <li>To define the relationship between interfaces and objects.</li>
+    <li>To handle conflicts between types and aliases.</li>
+    <li>To create generic helper types.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What is the type called for the structure: let person: [string, number] = ["Alan", 20];</h3>
+  <ul>
+    <li>Readonly Array</li>
+    <li>Enum</li>
+    <li><strong>Tuple</strong></li>
+    <li>Array</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What is the value of C in enum One {A = 1,B = 5,C,D = 0}?</h3>
+  <ul>
+    <li>3</li>
+    <li>undefined</li>
+    <li><strong>6</strong></li>
+    <li>5</li>
+    <li>There will be an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What types of functions can be written in TS? (checkbox)</h3>
+  <ul>
+    <li><strong>function declaration</strong></li>
+    <li><strong>function expression</strong></li>
+    <li><strong>arrow function</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What values can the type-checking operator return? (checkbox)</h3>
+  <ul>
+    <li><strong>symbol</strong></li>
+    <li><strong>number</strong></li>
+    <li><strong>boolean</strong></li>
+    <li>tuple</li>
+    <li><strong>string</strong></li>
+    <li><strong>undefined</strong></li>
+    <li><strong>bigint</strong></li>
+    <li>any</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. When deciding between type aliases and interfaces, what is recommended to use?</h3>
+  <ul>
+    <li><strong>Always use type aliases for better performance.</strong></li>
+    <li>Use type for simple structures and interfaces for complex structures.</li>
+    <li>Use interfaces until you need features from type, then switch to type.</li>
+    <li>There is no significant difference; choose based on personal preference.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. When working with class constructors in TypeScript, what is a key difference between function signatures and constructor signatures?</h3>
+  <ul>
+    <li>Constructors can have type parameters, unlike functions</li>
+    <li>Constructors can have return type annotations, unlike functions</li>
+    <li><strong>Constructors always return the class instance type</strong></li>
+    <li>Constructors cannot have default values for parameters</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Which enum declaration is correct? (checkbox)</h3>
+  <ul>
+    <li><strong>enum Month { Jan, Feb, Mar, Apr }</strong></li>
+    <li><strong>enum Month { Jan=1, Feb=2, Mar=3, Apr=5 }</strong></li>
+    <li>enum Month = { Jan, Feb, Mar=3, Apr }</li>
+    <li>enum Month { Jan='Янв', Feb='Фев', Mar, Apr='Апр' }</li>
+    <li><strong>enum Month { Jan=1, Feb=2, Mar, Apr=5 }</strong></li>
+    <li>enum Month { Jan, Feb='Фев', Mar, Apr='Апр' }</li>
+    <li>enum Month = { Jan, Feb='Фев', Mar='Мар', Apr='Апр' }</li>
+    <li><strong>enum Month { Jan=1, Feb=2, Mar, Apr='Апр' }</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Which of the following are correct ways to perform type assertions in TypeScript? (checkbox)</h3>
+  <ul>
+    <li><strong>const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;</strong></li>
+    <li><strong>const myCanvas = &lt;HTMLCanvasElement&gt;document.getElementById("main_canvas");</strong></li>
+    <li><strong>const myCanvas = document.getElementById("main_canvas") as string;</strong></li>
+    <li>const myCanvas = (HTMLCanvasElement)document.getElementById("main_canvas");</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Which of the following syntax options is valid for const assertions in TypeScript?</h3>
+  <ul>
+    <li>let x = "hello" &lt;const&gt;;</li>
+    <li><strong>let y = [10, 20] as const;</strong></li>
+    <li>let z = { text: "hello" } const;</li>
+    <li>let a = (Math.random() &lt; 0.5 ? 0 : 1) as const;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which type corresponds to the array let arr = [1, 2, 3];? (checkbox)</h3>
+  <ul>
+    <li><strong>number[ ]</strong></li>
+    <li>string[ ]</li>
+    <li>Array</li>
+    <li><strong>Array&lt;number&gt;</strong></li>
+    <li>Array&lt;string&gt;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which type corresponds to the array let arr = [1, 2, 3]; where the elements cannot be modified?</h3>
+  <ul>
+    <li><strong>ReadonlyArray&lt;number&gt;</strong></li>
+    <li>ReadonlyArray&lt;string&gt;</li>
+    <li>ReadonlyArray</li>
+    <li>readonly string[ ]</li>
+    <li><strong>readonly number[ ]</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which TypeScript strictness flag makes TypeScript issue an error on variables implicitly inferred as 'any'?</h3>
+  <ul>
+    <li>strictNullChecks</li>
+    <li><strong>noImplicitAny</strong></li>
+    <li>strict</li>
+    <li>noSurpriseVariables</li>
+    <li>noAnyChecks</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. With strictNullChecks turned on in TypeScript, what is the behavior when a value is null or undefined?</h3>
+  <ul>
+    <li>Values can be accessed normally without any issues</li>
+    <li>Null and undefined can be assigned to a property of any type.</li>
+    <li><strong>Values must be tested for null or undefined before using methods or properties.</strong></li>
+    <li>Both a and b.</li>
+  </ul>
+</article>

@@ -1,0 +1,884 @@
+<h1>Промисы</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#task1">Базовые задачи на Promise в JavaScript</a></p>
+    <p><a href="#task1-1">Задачи на .then Задача 1. Случаи, когда .then возвращает или не возвращает значение</a></p>
+    <p><a href="#task1-2">Задачи на .then Задача 2. Второй аргумент .then</a></p>
+    <p><a href="#task1-3">Задачи на .then Задача 3. null в .then</a></p>
+    <p><a href="#task1-4">Задачи на .catch Задача 4. Ошибка из Promise.reject</a></p>
+    <p><a href="#task1-5">Задачи на .catch Задача 5. Ошибка из Promise.reject в .catch</a></p>
+    <p><a href="#task1-6">Задачи на .catch Задача 6. Ошибка throw new Error</a></p>
+    <p><a href="#task1-7">Задачи на .catch Задача 7. Необработанная ошибка в Promise</a></p>
+    <p><a href="#task1-8">Задачи на .catch Задача 8. null в .catch</a></p>
+    <p><a href="#task1-9">Задачи на .finally Задача 9</a></p>
+    <p><a href="#task1-10">Задачи на несколько Promise Задача 10</a></p>
+    <p><a href="#task1-11">Задача на бесконечные микротаски Задача 11</a></p>
+    <p><a href="#task2">10 задач с JavaScript Promise для подготовки к собеседованиям</a></p>
+    <p><a href="#task2-1">Задача №1: Конструктор Promise</a></p>
+    <p><a href="#task2-2">Задача №2: .then()</a></p>
+    <p><a href="#task2-3">Задача №3: resolve()</a></p>
+    <p><a href="#task2-4">Задача №4: resolve() не вызывается</a></p>
+    <p><a href="#task2-5">Задача №5: Нечто, сбивающее с толку</a></p>
+    <p><a href="#task2-6">Задача №6: с Fulfilling Promise</a></p>
+    <p><a href="#task2-7">Задача №7: setTimeout vs Promise</a></p>
+    <p><a href="#task2-8">Задача №8: Микрозадачи смешиваются с макрозадачами</a></p>
+    <p><a href="#task2-9">Задача №9: приоритезировать микрозадачи и макрозадачи</a></p>
+    <p><a href="#task2-10">Задача №10: типичный вопрос с собеседования</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise">developer.mozilla.org</a> Promise</p>
+  <p><a href="https://learn.javascript.ru/promise">learn.javascript.ru/promise</a> Promise</p>
+  <p><a href="https://doka.guide/js/promise/">doka.guide/js/promise/</a> Promise</p>
+
+  <h3>Ссылки на задачи по Промисам</h3>
+  <p><a href="https://habr.com/ru/articles/582914/">habr.com/ru/articles/582914</a>
+    <br>Базовые задачи на Promise в JavaScript (2021.10.12)</p>
+  <p><a href="https://habr.com/ru/companies/otus/articles/686670/">habr.com/ru/companies/otus/articles/686670</a>
+    <br>10 задач с JavaScript Promise для подготовки к собеседованиям (2022.09.06 Otus)</p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Промис (Promise) — специальный объект JavaScript, который используется для написания и обработки асинхронного кода.</p>
+  <p>Асинхронные функции возвращают объект Promise в качестве значения. Внутри промиса хранится результат вычисления, которое может быть уже выполнено или выполнится в будущем.</p>
+  <p>Промис может находиться в одном из трёх состояний:</p>
+  <ul>
+    <li>pending — стартовое состояние, операция стартовала;</li>
+    <li>fulfilled — получен результат;</li>
+    <li>rejected — ошибка.</li>
+  </ul>
+  <p>Поменять состояние можно только один раз: перейти из pending либо в fulfilled, либо в rejected</p>
+  <p>У промиса есть методы then() и catch(), которые позволяют использовать результат работы промиса.</p>
+
+  <h3>Как пишется</h3>
+  <p>Промис создаётся с помощью конструктора.</p>
+  <p>В конструктор передаётся функция-исполнитель асинхронной операции (англ. executor). Она вызывается сразу после создания промиса. Задача этой функции — выполнить асинхронную операцию и перевести состояние промиса в fulfilled (успех) или rejected (ошибка).</p>
+  <p>Изменить состояние промиса можно, вызвав колбэки, переданные аргументами в функцию:</p>
+  <pre>const promise = new Promise(function (resolve, reject) {
+    const data = getData() // делаем асинхронную операцию: запрос в БД, API, etc.
+    resolve(data) // переводим промис в состояние fulfilled. Результатом выполнения будет объект data
+  })
+  
+  const errorPromise = new Promise(function (resolve, reject) {
+    reject(new Error('ошибка')) // переводим промис в состояние rejected. Результатом выполнения будет объект Error
+  })
+  </pre>
+  <ul>
+    <li>первый параметр (в примере кода назван resolve) — колбэк для перевода промиса в состояние fulfilled, при его вызове аргументом передаётся результат операции;</li>
+    <li>второй параметр (в примере кода назван reject) — колбэк для перевода промиса в состояние rejected, при его вызове аргументом передаётся информация об ошибке.</li>
+  </ul>
+
+  <h3>Как понять</h3>
+  <p>Промис решает задачу выполнения кода, который зависит от результата асинхронной операции.</p>
+  <p>Промис устроен таким образом, что рычаги управления его состоянием остаются у асинхронной функции. После создания, промис находится в состоянии ожидания pending. Когда асинхронная операция завершается, функция переводит промис в состояние успеха fulfilled или ошибки rejected.</p>
+  <p>С помощью методов then(), catch() и finally() мы можем реагировать на изменение состояния промиса и использовать результат его выполнения.</p>
+
+  <h3>Методы</h3>
+  <p>Существует три метода, которые позволяют работать с результатом выполнения вычисления внутри промиса:</p>
+  <ul>
+    <li>then()</li>
+    <li>catch()</li>
+    <li>finally()</li>
+  </ul>
+
+  <h3>then</h3>
+  <p>Метод then() используют, чтобы выполнить код после успешного выполнения асинхронной операции.</p>
+  <p>Например, мы запросили у сервера список фильмов и хотим отобразить их на экране, когда сервер получит результат. В этом случае:</p>
+  <ul>
+    <li>асинхронная операция — запрос данных у сервера;</li>
+    <li>код, который мы хотим выполнить после её завершения, — отрисовка списка.</li>
+  </ul>
+  <p>Метод then() принимает в качестве аргумента две функции-колбэка. Если промис в состоянии fulfilled то выполнится первая функция. Если в состоянии rejected — вторая. Хорошей практикой считается не использовать второй аргумент метода then() и обрабатывать ошибки при помощи метода catch().</p>
+  <pre>fetch(`https://swapi.dev/api/films/${id}/`).then(function (movies) {
+    renderList(movies)
+  })</pre>
+  <p>В коде выше, асинхронная функция fetch() возвращает промис, к которому применяется метод then. При его выполнении в переменной movies будет ответ сервера.</p>
+  
+  <h3>catch</h3>
+  <p>Метод catch() используют, чтобы выполнить код в случае ошибки при выполнении асинхронной операции.</p>
+  <p>Например, мы запросили у сервера список фильмов и хотим показать экран обрыва соединения, если произошла ошибка. В этом случае:</p>
+  <ul>
+    <li>асинхронная операция — запрос данных у сервера;</li>
+    <li>код, который мы хотим выполнить при ошибке — экран обрыва соединения.</li>
+  </ul>
+  <p>Метод catch() принимает в качестве аргумента функцию-колбэк, которая выполняется сразу после того, как промис поменял состояние на rejected. Параметр колбэка содержит экземпляр ошибки:</p>
+  <pre>fetch(`https://swapi.dev/api/films/${id}/`).catch(function (error) {
+    renderErrorMessage(error)
+  })</pre>
+
+  <h3>finally</h3>
+  <p>Метод finally() используют, чтобы выполнить код при завершении асинхронной операции. Он будет выполнен вне зависимости от того, была ли операция успешной или завершилась ошибкой.</p>
+  <p>Самый частый сценарий использования finally() — работа с индикаторами загрузки. Перед началом асинхронной операции разработчик включает индикатор загрузки. Индикатор нужно убрать вне зависимости от того, как завершилась операция. Если этого не сделать, то пользователь не сможет взаимодействовать с интерфейсом.</p>
+  <p>Метод finally() принимает в качестве аргумента функцию-колбэк, которая выполняется сразу после того, как промис поменял состояние на rejected или fulfilled:</p>
+  <pre>let isLoading = true
+    fetch(`https://swapi.dev/api/films/${id}/`).finally(function () {
+      isLoading = false
+    })</pre>
+</article>
+
+
+<!-- task1 -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h2>Базовые задачи на Promise в JavaScript</h2>
+
+  <p>Promise - специальный объект, который хранит своё состояние и используется для обработки результатов асинхронных операций.</p>
+  <p>Что будет в статье:</p>
+  <ul>
+    <li>Основные задачи на Promsie, которые часто спрашивают на собеседованиях</li>
+    <li>Код задач с подробными комментариями</li>
+  </ul>
+  <p>Чего в статье НЕ будет:</p>
+  <ul>
+    <li>Теории про Promsie и Event Loop</li>
+    <li>Задач на Event Loop, показывающих приоритетность выполнения Promise, setTimeout и т.д.</li>
+  </ul>
+  <p>Статья предназначена для тех, кто уже изучил теорию по Promise и хочет попрактиковаться в решении тестовых задач.</p>
+
+  <h3>Основные методы Promise</h3>
+  <p>Приведу список методов, которые будут использоваться а задачах:</p>
+  <ul>
+    <li>"Promise.resolve(value)" - создаёт успешно выполнившийся Promise с результатом value</li>
+    <li>"Promise.reject(value)" - создаёт выполнившийся Promise с ошибкой</li>
+    <li>".then" - обработчик событий Promise "onFulfilled" и "onRejected"</li>
+    <li>".catch" - обработчик события Promise "onRejected"</li>
+    <li>".finally" - дает возможность запустить один раз определенный участок кода, который должен выполниться вне зависимости от того, с каким результатом выполнился Promise</li>
+  </ul>
+</article>
+
+
+<!-- task1-1 -->
+<article class="article">
+  <div class="anchor" id="task1-1"></div>
+  <h2>Задачи на .then Задача 1. Случаи, когда .then возвращает или не возвращает значение</h2>
+
+  <pre>Promise.resolve("1")
+    // Promise.resolve вернул "1"
+    .then(data => {
+        console.log(data); // => "1"
+    })
+
+    // .then ничего не вернул
+    .then(data => {
+        console.log(data); // => "undefined"
+        return "2";
+    })
+
+    // .then вернул "2"
+    .then(data => {
+        console.log(data); // => "2"
+    })</pre>
+</article>
+
+
+<!-- task1-2 -->
+<article class="article">
+  <div class="anchor" id="task1-2"></div>
+  <h2>Задачи на .then Задача 2. Второй аргумент .then</h2>
+
+  <p>Первая задача</p>
+  <pre>Promise.reject(1)
+    // skip
+    // обработать reject можно только в .catch
+    .then(data => {
+        console.log(data);
+    })
+
+    // второй аргумент .then вместо .catch
+    .then(null, data => console.log(data)) // => 1
+
+    // после обработки ошибки попадаем в .then
+    // => "ok"
+    .then(() => console.log('ok'));</pre>
+
+    <p>Вторая задача</p>
+    <pre>Promise.reject()
+      // используем колбэки для .then и для .catch
+      .then(
+          data => console.log('ok'),   // => skip
+          data => console.log('error') // => "error"
+      )</pre>
+</article>
+
+
+<!-- task1-3 -->
+<article class="article">
+  <div class="anchor" id="task1-3"></div>
+  <h2>Задачи на .then Задача 3. null в .then</h2>
+
+  <pre>Promise.resolve("1")
+    // skip
+    .then(null)
+
+    // придут данные из Promise.resolve
+    .then(data => console.log(data)) // => "1"</pre>
+</article>
+
+
+<!-- task1-4 -->
+<article class="article">
+  <div class="anchor" id="task1-4"></div>
+  <h2>Задачи на .catch Задача 4. Ошибка из Promise.reject</h2>
+
+  <pre>Promise.reject("Api Error")
+    // skip из-за Promise.reject
+    .then(data => console.log('ok'))
+
+    // обработка ошибки
+    .catch(error => {
+        console.log(error); // => "Api Error"
+        return "1";
+    })
+
+    // catch вернул "1"
+    .then(data => {
+        console.log(data); // => "1"
+    })</pre>
+</article>
+
+
+<!-- task1-5 -->
+<article class="article">
+  <div class="anchor" id="task1-5"></div>
+  <h2>Задачи на .catch Задача 5. Ошибка из Promise.reject в .catch</h2>
+
+  <pre>Promise.reject()
+    // обработка Promise.reject
+    .catch(() => {
+        console.log('error1'); // => "error1"
+        return Promise.reject();
+        // аналогично
+        // return reject();
+    })
+
+    // обработка Promise.reject из предыдущего .catch
+    .catch(() => {
+        console.log('error2'); // => "error2"
+    })</pre>
+</article>
+
+
+<!-- task1-6 -->
+<article class="article">
+  <div class="anchor" id="task1-6"></div>
+  <h2>Задачи на .catch Задача 6. Ошибка throw new Error</h2>
+
+  <pre>Promise.resolve()
+    .then(data => {
+        // возникновение ошибки
+        throw new Error('Api Error');
+        // не имеет значения, что вернули
+        return 1;
+    })
+
+    // skip, потому что предыдущий .then бросил ошибку
+    .then(data => console.log('ok'))
+
+    // обработка ошибки
+    .catch(error => {
+        console.log(error.message); // => "Api Error"
+        return "2";
+    })
+
+    // .catch вернул "2"
+    .then(data => {
+        console.log(data); // => "2"
+    })</pre>
+</article>
+
+
+<!-- task1-7 -->
+<article class="article">
+  <div class="anchor" id="task1-7"></div>
+  <h2>Задачи на .catch Задача 7. Необработанная ошибка в Promise</h2>
+
+  <p>Необработанная ошибка в Promise не влияет на работу программы, т.к. Promise не выпускает ошибку за свои пределы.</p>
+  <pre>Promise.resolve()
+    .then(() => {
+        throw new Error('Api Error');
+    })
+
+// код будет работать
+setTimeout(() => {
+    console.log('setTimeout'); // => "setTimeout"
+}, 1000);</pre>
+</article>
+
+
+<!-- task1-8 -->
+<article class="article">
+  <div class="anchor" id="task1-8"></div>
+  <h2>Задачи на .catch Задача 8. null в .catch</h2>
+
+  <pre>Promise.reject("Api Error")
+    // skip: ошибку не обработали
+    .catch(null)
+
+    // skip из-за необработанной ошибки
+    .then(data => console.log('ok'))
+
+    // обработка ошибки
+    .catch(error => console.log(error)) // => "Api Error"
+
+    // .then выполнится
+    .then(data => console.log('ok')) // => "ok"</pre>
+</article>
+
+
+<!-- task1-9 -->
+<article class="article">
+  <div class="anchor" id="task1-9"></div>
+  <h2>Задачи на .finally Задача 9</h2>
+
+  <p>Первая задача</p>
+  <pre>Promise.resolve()
+    .then(() => {
+        return "1";
+    })
+
+    // .then вернул "1", но .finally пропустит его мимо себя
+    .finally(data => { 
+        console.log(data); // => "undefined"
+        return "2";
+    })
+
+    // из .finally вернули "2", но результат берется из предыдущего .then или .catch
+    .then(data => console.log(data)) // => "1"</pre>
+
+  <p>Вторая задача</p>
+  <pre>Promise.reject()
+    // .finally выполняется в любом случае: даже при возникновении ошибки
+    .finally(data => { 
+        console.log('finally'); // => "finally"
+    })</pre>
+</article>
+
+
+<!-- task1-10 -->
+<article class="article">
+  <div class="anchor" id="task1-10"></div>
+  <h2>Задачи на несколько Promise Задача 10</h2>
+
+  <p>Если несколько Promise, то ".then" будет выполняться последовательно для каждого:</p>
+  <pre>Promise.resolve()
+    .then(() => console.log(1))  // "Первый"
+    .then(() => console.log(2))  // "Третий"
+
+Promise.resolve()
+    .then(() => console.log(11)) // "Второй"
+    .then(() => console.log(12)) // "Четвертый"</pre>
+
+  <p>При ".catch" аналогично:</p>
+  <pre>Promise.resolve()
+    .then(() => console.log(1))                          // "Первый"
+    .then(() => { console.log(2); throw new Error(); })  // "Третий"
+    .catch(() => console.log(3))                         // "Пятый"
+    .then(() => console.log(4))                          // "Седьмой"
+
+Promise.resolve()
+    .then(() => console.log(11))                         // "Второй"
+    .then(() => { console.log(12); throw new Error(); }) // "Четвертый"
+    .catch(() => console.log(13))                        // "Шестой"
+    .then(() => console.log(14))                         // "Восьмой"</pre>
+</article>
+
+
+<!-- task1-11 -->
+<article class="article">
+  <div class="anchor" id="task1-11"></div>
+  <h2>Задача на бесконечные микротаски Задача 11</h2>
+
+  <p>В качестве бонуса покажу, как повесить браузер микротасками, которыми являются Promise:</p>
+  <pre>const foo = () =>  {
+    Promise.resolve().then(() => foo())
+}
+
+foo();</pre>
+</article>
+
+
+<!-- task2 -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h2>10 задач с JavaScript Promise для подготовки к собеседованиям</h2>
+
+  <p>Promise — это отличительная особенность JavaScript как асинхронного языка программирования. Нравится вам это или нет, понять его в любом случае придется.</p>
+  <p>В этой статье я привожу 10 примеров кода с Promise, начиная от базового уровня заканчивая продвинутым. Готовы? Начнем!</p>
+</article>
+
+
+<!-- task2-1 -->
+<article class="article">
+  <div class="anchor" id="task2-1"></div>
+  <h2>Задача №1: Конструктор Promise</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+  console.log('start');
+
+  const promise1 = new Promise((resolve, reject) => {
+    console.log(1)
+  })
+
+  console.log('end');
+  </pre>
+
+  <h3> Анализ</h3>
+  <p>С первой задачей справиться легко.</p>
+  <p>Что мы знаем:</p>
+  <ul>
+    <li>Блоки синхронного кода всегда выполняются последовательно сверху вниз.</li>
+    <li>Когда мы вызываем new Promise(callback), функция коллбэка будет выполнена сразу же.</li>
+  </ul>
+
+  <h3>Результат</h3>
+  <p>Итак, этот код должен последовательно выводить start, 1, end.</p>
+</article>
+
+
+<!-- task2-2 -->
+<article class="article">
+  <div class="anchor" id="task2-2"></div>
+  <h2>Задача №2: .then()</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+console.log('start');
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1)
+  resolve(2)
+})
+
+promise1.then(res => {
+  console.log(res)
+})
+
+console.log('end');
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Это фрагмент асинхронного кода. То есть коллбэк-функция в .then().</p>
+  <p>Помните о том, что интерпретатор JavaScript всегда сначала выполняет синхронный код, а затем асинхронный.</p>
+  <p>При столкновении с этой проблемой нам нужно только различать синхронный и асинхронный код.</p>
+
+  <h3>Результат</h3>
+  <p>Итак, выводом будет start , 1 , end и 2 .</p>
+</article>
+
+
+<!-- task2-3 -->
+<article class="article">
+  <div class="anchor" id="task2-3"></div>
+  <h2>Задача №3: resolve()</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+console.log('start');
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1)
+  resolve(2)
+  console.log(3)
+})
+
+promise1.then(res => {
+  console.log(res)
+})
+
+console.log('end');
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Этот фрагмент кода почти такой же, как и предыдущий; единственная разница в том, что после resolve(2) есть console.log(3).</p>
+  <p>Помните, что метод resolve не прерывает выполнение функции. Код, стоящий за ним, по-прежнему будет выполняться.</p>
+
+  <h3>Результат</h3>
+  <p>Таким образом, выходным результатом будет start , 1 , 3 , end и 2 .</p>
+  <p>Я неоднократно сталкивался с мнением, будто resolve прервет выполнение функции, поэтому я подчеркиваю этот момент здесь.</p>
+</article>
+
+
+<!-- task2-4 -->
+<article class="article">
+  <div class="anchor" id="task2-4"></div>
+  <h2>Задача №4: resolve() не вызывается</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+console.log('start');
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1)
+})
+
+promise1.then(res => {
+  console.log(2)
+})
+
+console.log('end');
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>В этом коде метод resolve никогда не вызывался, поэтому promise1 всегда находится в состоянии ожидания (pending). Так что promise1.then(…) никогда не выполнялся. 2 не выводится в консоли.</p>
+
+  <h3>Результат</h3>
+  <p>Выходным результатом станет start , 1 , end .</p>
+</article>
+
+
+<!-- task2-5 -->
+<article class="article">
+  <div class="anchor" id="task2-5"></div>
+  <h2>Задача №5: Нечто, сбивающее с толку</h2>
+
+  <pre>
+console.log('start')
+
+const fn = () => (new Promise((resolve, reject) => {
+  console.log(1);
+  resolve('success')
+}))
+
+console.log('middle')
+
+fn().then(res => {
+  console.log(res)
+})
+
+console.log('end')
+  </pre>
+  <p>Каким будет вывод этого фрагмента кода?</p>
+
+  <h3>Анализ</h3>
+  <p>Этот код преднамеренно добавляет функцию, чтобы запутать испытуемых, то есть нас, и это fn.</p>
+  <p>Пожалуйста, помните, что независимо от того, сколько существует слоев вызовов функций, наши базовые принципы остаются неизменными:</p>
+  <p>Сначала выполняется синхронный код, а затем асинхронный.</p>
+  <p>Синхронный код выполняется в том порядке, в котором он был вызван.</p>
+
+  <h3>Результат</h3>
+  <p>Выходным результатом будет start , middle, 1 , end и success.</p>
+</article>
+
+
+<!-- task2-6 -->
+<article class="article">
+  <div class="anchor" id="task2-6"></div>
+  <h2>Задача №6: с Fulfilling Promise</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+console.log('start')
+
+Promise.resolve(1).then((res) => {
+  console.log(res)
+})
+
+Promise.resolve(2).then((res) => {
+  console.log(res)
+})
+
+console.log('end')
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Здесь Promise.resolve(1) вернет объект Promise, состояние которого fulfilled, а результат равен 1 . Это синхронный код.</p>
+  <p>Выходным результатом будет start , end , 1 и 2.</p>
+  <p>Ну что, думаете, это незначительные трудности?</p>
+  <p>Это только начало. Сложность Promise проявляется, когда он используется с setTimeout. Следующие задачи будут сложнее.</p>
+  <p>Готовы? Продолжим.</p>
+</article>
+
+
+<!-- task2-7 -->
+<article class="article">
+  <div class="anchor" id="task2-7"></div>
+  <h2>Задача №7: setTimeout vs Promise</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+console.log('start')
+
+setTimeout(() => {
+  console.log('setTimeout')
+})
+
+Promise.resolve().then(() => {
+  console.log('resolve')
+})
+
+console.log('end')
+  </pre>
+
+  <h3>Анализ</h3>
+  <p></p>Обратите внимание, это сложный вопрос. Если вы сможете правильно ответить на него и объяснить причину, то можно считать, что ваше понимание асинхронного программирования в JavaScript достигло среднего уровня.
+  <p>Прежде чем я дам объяснение, давайте вспомним соответствующую теоретическую базу.</p>
+  <p>Ранее мы говорили, что синхронный код выполняется в порядке вызова, так в каком же порядке выполняются эти асинхронные коллбэк-функции?</p>
+  <p>Кто-то может сказать, что тот, кто закончит первым, будет и выполнен первым. Что ж, это правда, но что, если две асинхронные задачи выполняются одновременно?</p>
+  <p>Например, в приведенном выше коде таймер setTimeout равен 0 секундам, а Promise.resolve() также вернет выполненный объект Promise сразу же после выполнения.</p>
+  <p>Обе асинхронные задачи выполняются немедленно, поэтому чья коллбэк-функция будет выполнена первой?</p>
+  <p>Некоторые джуны могут сказать, что setTimeout находится в начале, поэтому сначала будет выведен setTimeout, а затем resolve. На самом деле, это утверждение неверно.</p>
+  <p>Мы знаем, что многие вещи НЕ выполняются в порядке по принципу «первым пришел — первым вышел», например, трафик.</p>
+
+  <h3>Приоритет</h3>
+  <p>Обычно мы делим весь транспорт на две категории:</p>
+  <ul>
+    <li>Общие транспортные средства.</li>
+    <li>Транспортные средства для чрезвычайных ситуаций. Например, пожарные машины и машины скорой помощи.</li>
+  </ul>
+  <p>Чтобы проехать многолюдные перекрестки, мы пропустим первыми пожарные машины и машины скорой помощи. Автомобили скорой помощи имеют приоритет выше, чем другой транспорт. Ключевое слово: приоритеты.</p>
+  <p>В JavaScript EventLoop также есть понятие приоритета.</p>
+  <ul>
+    <li>Задачи с более высоким приоритетом называются микрозадачами. Например: Promise, ObjectObserver, MutationObserver, process.nextTick, async/await.</li>
+    <li>Задачи с более низким приоритетом называются макрозадачами. Например: setTimeout, setInterval и XHR.</li>
+  </ul>
+  <p>Хотя setTimeout и Promise.resolve() выполняются одновременно, и даже код setTimeout еще впереди, но из-за низкого приоритета относящаяся к нему коллбэк-функция выполняется позже.</p>
+  <pre>
+console.log('start')
+console.log('end')
+// start, end
+  </pre>
+  <pre>
+console.log('resolve')
+// resolve
+  </pre>
+  <pre>
+console.log('setTimeout')
+// setTimeout
+  </pre>
+
+  <h3>Результат</h3>
+  <p>Выходным результатом будет start , end , resolve и setTimeout.</p>
+</article>
+
+
+<!-- task2-8 -->
+<article class="article">
+  <div class="anchor" id="task2-8"></div>
+  <h2>Задача №8: Микрозадачи смешиваются с макрозадачами</h2>
+
+  <p>Каким будет вывод этого фрагмента кода?</p>
+  <pre>
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  setTimeout(() => {
+    console.log("timerStart");
+    resolve("success");
+    console.log("timerEnd");
+  }, 0);
+  console.log(2);
+});
+
+promise.then((res) => {
+  console.log(res);
+});
+
+console.log(4);
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Эту задачу легко выполнить, если вы поняли предыдущий код.</p>
+  <p>Нам просто нужно выполнить эти три шага:</p>
+  <ol>
+    <li>Найти синхронный код.</li>
+    <li>Найти код микрозадачи.</li>
+    <li>Найти код макрозадачи.</li>
+  </ol>
+  <p>Сначала выполните синхронный код:</p>
+  <pre>
+console.log(1);
+setTimeout(() => {
+  console.log("timerStart");
+  resolve("success");
+  console.log("timerEnd");
+}, 0);
+console.log(2);
+console.log(4);
+// 1, 2, 3
+  </pre>
+  <p>Выведется 1 , 2  и 4 .</p>
+  <p>Затем выполните микрозадачу:</p>
+  <pre>
+promise.then((res) => {
+  console.log(res);
+});
+  </pre>
+  <p>Но вот ловушка: поскольку текущий Promise все еще находится в состоянии ожидания (pending), код в данный момент выполняться не будет.</p>
+  <p>Затем выполните макрозадачу:</p>
+  <pre>
+console.log("timerStart");
+resolve("success");
+console.log("timerEnd");
+// timerStart, timerEnd
+  </pre>
+  <p>И состояние promise становится fulfilled .</p>
+  <p>Затем с помощью Event Loop снова выполните микрозадачу:</p>
+  <pre>
+console.log(res);
+// success
+  </pre>
+
+  <h3>Результат</h3>
+  <p>Выходным результатом будет 1 , 2, 4, timeStart, timeEnd, success</p>
+</article>
+
+
+<!-- task2-9 -->
+<article class="article">
+  <div class="anchor" id="task2-9"></div>
+  <h2>Задача №9: приоритезировать микрозадачи и макрозадачи</h2>
+
+  <p>Прежде чем мы определим приоритет между микрозадачами и макрозадачами, здесь мы рассмотрим случай поочередного выполнения микрозадач и макрозадач.</p>
+  <p>Что выводит этот фрагмент кода?</p>
+  <pre>
+const timer1 = setTimeout(() => {
+  console.log('timer1');
+
+  const promise1 = Promise.resolve().then(() => {
+    console.log('promise1')
+  })
+}, 0)
+
+const timer2 = setTimeout(() => {
+  console.log('timer2')
+}, 0)
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Некоторые могут подумать, что микрозадачи и макрозадачи выполняются так:</p>
+  <ol>
+    <li>Сначала выполняются все микрозадачи.</li>
+    <li>Выполняются все макрозадачи.</li>
+    <li>Выполняются все микрозадачи снова.</li>
+    <li>Цикл повторяется / Цикл завершается.</li>
+  </ol>
+  <p>Но это утверждение неверно. Правильно вот так:</p>
+  <ol>
+    <li>Сначала выполняются все микрозадачи.</li>
+    <li>Выполняется одна макрозадача.</li>
+    <li>Повторно выполняются все (вновь добавленные) микрозадачи.</li>
+    <li>Выполняется следующая макрозадача.</li>
+    <li>Цикл повторяется / Цикл завершается.</li>
+  </ol>
+  <p>Так:</p>
+  <p>microtesk1, microtask2, macrotask1, microtask3, microtask4, macrotask2, microtask5, microtask6</p>
+  <p>Таким образом, в приведенном выше коде коллбэк-функция Promise.then будет выполняться перед коллбэк-функцией второго setTimeout, потому что это микрозадача, и она была врезана в последовательность задач.</p>
+
+  <h3>Результат</h3>
+  <p>Выходным результатом будет timer1, promise1, timer2</p>
+</article>
+
+
+<!-- task2-10 -->
+<article class="article">
+  <div class="anchor" id="task2-10"></div>
+  <h2>Задача №10: типичный вопрос с собеседования</h2>
+
+  <p>Что ж, это наша последняя задача. Если вы сможете правильно определить вывод этого кода, то ваше понимание Promise уже на высоком уровне. И однотипные вопросы на собеседовании точно не станут для вас трудностью.</p>
+  <p>Что выводит этот фрагмент кода?</p>
+  <pre>
+console.log('start');
+
+const promise1 = Promise.resolve().then(() => {
+  console.log('promise1');
+  const timer2 = setTimeout(() => {
+    console.log('timer2')
+  }, 0)
+});
+
+const timer1 = setTimeout(() => {
+  console.log('timer1')
+  const promise2 = Promise.resolve().then(() => {
+    console.log('promise2')
+  })
+}, 0)
+
+console.log('end');
+  </pre>
+
+  <h3>Анализ</h3>
+  <p>Эта задача является более суровой версией предыдущей задачи, но основной принцип остается прежним.</p>
+  <p>Вспомните, что мы узнали ранее:</p>
+  <ol>
+    <li>Синхронный код</li>
+    <li>Все микрозадачи</li>
+    <li>Первая макрозадача</li>
+    <li>Все недавно добавленные микрозадачи</li>
+    <li>Следующая макрозадача</li>
+  </ol>
+  <p>Итак:</p>
+  <ol>
+    <li>Выполним весь синхронный код:
+      <pre>
+console.log('start');
+console.log('end');
+// start, end
+      </pre>
+    </li>
+    <li>Выполним все микрозадачи:
+      <pre>
+console.log('promise1');
+const timer2 = setTimeout(() => {
+  console.log('timer2')
+}, 0)
+// promise1
+      </pre>
+    </li>
+    <li>Выполним первую макрозадачу:
+      <pre>
+console.log('timer1')
+const promise2 = Promise.resolve().then(() => {
+  console.log('promise2')
+})
+// timer1
+      </pre>
+      <p>Примечание. На этом шаге макрозадача добавляет в очередь задач новую микрозадачу.</p>
+    </li>
+    <li>4. Выполним все вновь добавленные микрозадачи:
+      <pre>
+console.log('promise2')
+// promise2
+      </pre>
+    </li>
+    <li>5. Выполним следующую макрозадачу:
+      <pre>
+console.log('timer2')
+// timer2
+      </pre>
+    </li>
+  </ol>
+
+  <h3>Результат</h3>
+  <p>Вывод будет таким start, end, promise1, timer1, promise2, timer2</p>
+
+  <h3>Заключение</h3>
+  <p>Для всех подобных вопросов нужно просто запомнить три правила:</p>
+  <ol>
+    <li>Интерпретатор JavaScript всегда сначала выполняет синхронный код, а затем асинхронный.</li>
+    <li>Микрозадачи имеют приоритет над макрозадачами.</li>
+    <li>Микрозадачи могут врезаться в последовательность выполнения в Event Loop.</li>
+  </ol>
+</article>

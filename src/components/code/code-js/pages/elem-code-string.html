@@ -123,7 +123,7 @@
     <tr>
       <td>3</td>
       <th>prototype</th>
-      <td>Возвращает ссылку на объект String.prototype</td>
+      <td>Возвращает ссылку на объект String.prototype. Позволяет добавлять новые свойства и методы к объекту String().</td>
     </tr>
   </table>
 </article>
@@ -172,187 +172,187 @@
   <table>
     <tr>
       <td>1</td>
-      <th><a href="#at-string">at()</a></th>
+      <th><a href="#string-at">at()</a></th>
       <td>Возвращает символ по его индексу в строке. Возвращает <strong>string</strong></td>
     </tr>
     <tr>
       <td>2</td>
-      <th><a href="#char-at-string">charAt()</a></th>
+      <th><a href="#string-char-at">charAt()</a></th>
       <td>Возвращает символ по его индексу в строке. Возвращает <strong>string</strong></td>
     </tr>
     <tr>
       <td>3</td>
-      <th><a href="#char-code-at-string">charCodeAt()</a></th>
+      <th><a href="#string-char-code-at">charCodeAt()</a></th>
       <td>Возвращает Unicode (целое число между 0 и 65535) символа по его индексу в строке. Возвращает <strong>number</strong></td>
     </tr>
     <tr>
       <td>4</td>
-      <th><a href="#code-point-at-string">codePointAt()</a></th>
+      <th><a href="#string-code-point-at">codePointAt()</a></th>
       <td>Возвращает Unicode (целое число между 0 и 65535) символа по его индексу в строке. Возвращает <strong>number</strong></td>
     </tr>
     <tr>
       <td>5</td>
-      <th><a href="#concat-string">concat()</a></th>
+      <th><a href="#string-concat">concat()</a></th>
       <td>Объединяет переданные в параметрах строки с исходной строкой и возвращает объединенную строку. Возвращает <strong>string</strong></td>
     </tr>
     <tr>
       <td>6</td>
-      <th><a href="#ends-with-string">endsWith()</a></th>
+      <th><a href="#string-ends-with">endsWith()</a></th>
       <td>Возвращает true если строка оканчивается на указанную подстроку. Возвращает <strong>boolean</strong></td>
     </tr>
     <tr>
       <td>7</td>
-      <th><a href="#from-char-code-string">String.fromCharCode()</a></th>
+      <th><a href="#string-from-char-code">String.fromCharCode()</a></th>
       <td>Преобразует значения Unicode в символы. Возвращает <strong>string</strong></td>
     </tr>
     <tr>
       <td>8</td>
-      <th><a href="#from-code-point-string">String.fromCodePoint()</a></th>
+      <th><a href="#string-from-code-point">String.fromCodePoint()</a></th>
       <td>Возвращает строку, созданную из указанной последовательности кодовых точек. Возвращает <strong>string</strong></td>
     </tr>
     <tr>
       <td>9</td>
-      <th><a href="#includes-string">includes()</a></th>
+      <th><a href="#string-includes">includes()</a></th>
       <td>Возвращает true если строка содержит указанную подстроку. Возвращает <strong>boolean</strong></td>
     </tr>
     <tr>
       <td>10</td>
-      <th><a href="#index-of-string">indexOf()</a></th>
+      <th><a href="#string-index-of">indexOf()</a></th>
       <td>Возвращает индекс первого вхождения в строке. Возвращает <strong>number</strong></td>
     </tr>
     <tr>
       <td>11</td>
-      <th><a href="#is-well-formed-string">isWellFormed()</a></th>
+      <th><a href="#string-is-well-formed">isWellFormed()</a></th>
       <td>returns a boolean indicating whether this string contains any lone surrogates.</td>
     </tr>
     <tr>
       <td>12</td>
-      <th><a href="#last-index-of-string">lastIndexOf()</a></th>
+      <th><a href="#string-last-index-of">lastIndexOf()</a></th>
       <td>Возвращает индекс последнего вхождения в строке</td>
     </tr>
     <tr>
       <td>13</td>
-      <th><a href="#locale-compare-string">localeCompare()</a></th>
+      <th><a href="#string-locale-compare">localeCompare()</a></th>
       <td>Возвращает 1, 0, -1 как результат сравнения двух строк</td>
     </tr>
     <tr>
       <td>14</td>
-      <th><a href="#match-string">match()</a></th>
+      <th><a href="#string-match">match()</a></th>
       <td>Ищет строку для соответствия регулярному выражению и возвращает совпадения</td>
     </tr>
     <tr>
       <td>15</td>
-      <th><a href="#match-all-string">matchAll()</a></th>
+      <th><a href="#string-match-all">matchAll()</a></th>
       <td>возвращает итератор по всем результатам при сопоставлении строки с регулярным выражением</td>
     </tr>
     <tr>
       <td>16</td>
-      <th><a href="#normalize-string">normalize()</a></th>
+      <th><a href="#string-normalize">normalize()</a></th>
       <td>возвращает форму нормализации Юникода данной строки</td>
     </tr>
     <tr>
       <td>17</td>
-      <th><a href="#pad-end-string">padEnd()</a></th>
+      <th><a href="#string-pad-end">padEnd()</a></th>
       <td>Добавление символов в конец строки</td>
     </tr>
     <tr>
       <td>18</td>
-      <th><a href="#pad-start-string">padStart()</a></th>
+      <th><a href="#string-pad-start">padStart()</a></th>
       <td>Добавление символов в начало строки</td>
     </tr>
     <tr>
       <td>19</td>
-      <th><a href="#raw-string">String.raw()</a></th>
+      <th><a href="#string-raw">String.raw()</a></th>
       <td>используется для получения необработанной строки из шаблона</td>
     </tr>
     <tr>
       <td>20</td>
-      <th><a href="#repeat-string">repeat()</a></th>
+      <th><a href="#string-repeat">repeat()</a></th>
       <td>Возвращает строку, повторяющую исходную указанное количество раз</td>
     </tr>
     <tr>
       <td>21</td>
-      <th><a href="#replace-string">replace()</a></th>
+      <th><a href="#string-replace">replace()</a></th>
       <td>Заменяет указанное значение (первое вхождение) в строке</td>
     </tr>
     <tr>
       <td>22</td>
-      <th><a href="#replace-all-string">replaceAll()</a></th>
+      <th><a href="#string-replace-all">replaceAll()</a></th>
       <td>Заменяет указанное значение (все вхождения) в строке</td>
     </tr>
     <tr>
       <td>23</td>
-      <th><a href="#search-string">search()</a></th>
+      <th><a href="#string-search">search()</a></th>
       <td></td>
     </tr>
     <tr>
       <td>24</td>
-      <th><a href="#search-string">slice()</a></th>
+      <th><a href="#string-search">slice()</a></th>
       <td>Извлечение подстроки</td>
     </tr>
     <tr>
       <td>25</td>
-      <th><a href="#search-string">split()</a></th>
+      <th><a href="#string-search">split()</a></th>
       <td>Разбиение строк</td>
     </tr>
     <tr>
       <td>26</td>
-      <th><a href="#starts-with-string">startsWith()</a></th>
+      <th><a href="#string-starts-with">startsWith()</a></th>
       <td></td>
     </tr>
     <tr>
       <td>27</td>
-      <th><a href="#starts-with-string">substring()</a></th>
+      <th><a href="#string-starts-with">substring()</a></th>
       <td>Извлечение подстроки</td>
     </tr>
     <tr>
       <td>28</td>
-      <th><a href="#to-local-lower-case-string">toLocaleLowerCase()</a></th>
+      <th><a href="#string-to-local-lower-case">toLocaleLowerCase()</a></th>
       <td></td>
     </tr>
     <tr>
       <td>29</td>
-      <th><a href="#to-local-upper-case-string">toLocaleUpperCase()</a></th>
+      <th><a href="#string-to-local-upper-case">toLocaleUpperCase()</a></th>
       <td></td>
     </tr>
     <tr>
       <td>30</td>
-      <th><a href="#to-lower-case-string">toLowerCase()</a></th>
+      <th><a href="#string-to-lower-case">toLowerCase()</a></th>
       <td>Преобразует все символы в нижний регистр</td>
     </tr>
     <tr>
       <td>31</td>
-      <th><a href="#to-string-string">toString()</a></th>
+      <th><a href="#string-to-string">toString()</a></th>
       <td></td>
     </tr>
     <tr>
       <td>32</td>
-      <th><a href="#to-upper-case-string">toUpperCase()</a></th>
+      <th><a href="#string-to-upper-case">toUpperCase()</a></th>
       <td>Преобразует все символы в верхний регистр</td>
     </tr>
     <tr>
       <td>33</td>
-      <th><a href="#to-well-formed-string">toWellFormed()</a></th>
+      <th><a href="#string-to-well-formed">toWellFormed()</a></th>
       <td>returns a string where all lone surrogates of this string are replaced with the Unicode replacement character U+FFFD.</td>
     </tr>
     <tr>
       <td>34</td>
-      <th><a href="#trim-string">trim()</a></th>
+      <th><a href="#string-trim">trim()</a></th>
       <td>Отсечение пробелов в начале и конце строки</td>
     </tr>
     <tr>
       <td>35</td>
-      <th><a href="#trim-end-string">trimEnd()</a></th>
+      <th><a href="#string-trim-end">trimEnd()</a></th>
       <td>Отсечение пробелов в конце строки</td>
     </tr>
     <tr>
       <td>36</td>
-      <th><a href="#trim-start-string">trimStart()</a></th>
+      <th><a href="#string-trim-start">trimStart()</a></th>
       <td>Отсечение пробелов в начале строки</td>
     </tr>
     <tr>
       <td>37</td>
-      <th><a href="#value-of-string">valueOf()</a></th>
+      <th><a href="#string-value-of">valueOf()</a></th>
       <td></td>
     </tr>
   </table>
@@ -360,7 +360,7 @@
 
 <!-- 1. at() -->
 <article class="article">
-  <div class="anchor" id="at-string"></div>
+  <div class="anchor" id="string-at"></div>
   <h3>Метод at()</h3>
   <p><em>(Возвращает <strong>string</strong>)</em></p>
   <p><em>(Появился в <strong>es2022</strong>)</em></p>
@@ -412,7 +412,7 @@
 
 <!-- 2. charAt() -->
 <article class="article">
-  <div class="anchor" id="char-at-string"></div>
+  <div class="anchor" id="string-char-at"></div>
   <h3>Метод charAt()</h3>
   <p><em>(Возвращает <strong>string</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -457,7 +457,7 @@
 
 <!-- 3. charCodeAt() -->
 <article class="article">
-  <div class="anchor" id="char-code-at-string"></div>
+  <div class="anchor" id="string-char-code-at"></div>
   <h3>Метод charCodeAt()</h3>
   <p><em>(Возвращает <strong>number</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -507,7 +507,7 @@
 
 <!-- 4. codePointeAt() -->
 <article class="article">
-  <div class="anchor" id="code-pointe-at-string"></div>
+  <div class="anchor" id="string-code-pointe-at"></div>
   <h3>Метод codePointAt()</h3>
   <p><em>(Возвращает <strong>number</strong>)</em></p>
   <p><em>(Появился в <strong>es6</strong>)</em></p>
@@ -553,7 +553,7 @@
 
 <!-- 5. concat() -->
 <article class="article">
-  <div class="anchor" id="concat-string"></div>
+  <div class="anchor" id="string-concat"></div>
   <h3>Метод concat()</h3>
   <p><em>(Возвращает <strong>string</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -569,7 +569,7 @@
 
 <!-- 6. endsWith() -->
 <article class="article">
-  <div class="anchor" id="ends-with-string"></div>
+  <div class="anchor" id="string-ends-with"></div>
   <h3>Метод endsWith()</h3>
   <p><em>(Возвращает <strong>boolean</strong>)</em></p>
   <p><em>(Появился в <strong>ES6</strong>)</em></p>
@@ -578,7 +578,7 @@
 
 <!-- 7. String.fromCharCode() -->
 <article class="article">
-  <div class="anchor" id="from-char-code-string"></div>
+  <div class="anchor" id="string-from-char-code"></div>
   <h3>Метод String.fromCharCode()</h3>
   <p><em>(Возвращает <strong>string</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -589,7 +589,7 @@
 
 <!-- 8. String.fromCodePoint() -->
 <article class="article">
-  <div class="anchor" id="from-code-point-string"></div>
+  <div class="anchor" id="string-from-code-point"></div>
   <h3>Метод String.fromCodePoint()</h3>
   <p><em>(Возвращает <strong>string</strong>)</em></p>
   <p><em>(Появился в <strong>ES6</strong>)</em></p>
@@ -600,7 +600,7 @@
 
 <!-- 9. includes() -->
 <article class="article">
-  <div class="anchor" id="includes-string"></div>
+  <div class="anchor" id="string-includes"></div>
   <h3>Метод includes()</h3>
   <p><em>(Возвращает <strong>boolean</strong>)</em></p>
   <p><em>(Появился в <strong>ES6</strong>)</em></p>
@@ -609,7 +609,7 @@
 
 <!-- 10. indexOf() -->
 <article class="article">
-  <div class="anchor" id="index-of-string"></div>
+  <div class="anchor" id="string-index-of"></div>
   <h3>Метод indexOf()</h3>
   <p><em>(Возвращает <strong>number</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -629,7 +629,7 @@
 
 <!-- 11. isWellFormed() -->
 <article class="article">
-  <div class="anchor" id="is-well-formed-string"></div>
+  <div class="anchor" id="string-is-well-formed"></div>
   <h3>Метод isWellFormed()</h3>
   <p><em>(Появился в <strong>ES2024</strong>)</em></p>
   <p>Значения строк в ECMAScript представляют собой последовательность из 16-битных беззнаковых целочисленных значений.</p>
@@ -642,7 +642,7 @@
 
 <!-- 12. lastIndexOf() -->
 <article class="article">
-  <div class="anchor" id="last-index-of-string"></div>
+  <div class="anchor" id="string-last-index-of"></div>
   <h3>Метод lastIndexOf()</h3>
   <p><em>(Возвращает <strong>number</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -660,7 +660,7 @@
 
 <!-- 13. localeCompare() -->
 <article class="article">
-  <div class="anchor" id="locale-compare-string"></div>
+  <div class="anchor" id="string-locale-compare"></div>
   <h3>Метод localeCompare()</h3>
   <p><em>(Возвращает <strong>number</strong>)</em></p>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
@@ -675,7 +675,7 @@
 
 <!-- 14. match() -->
 <article class="article">
-  <div class="anchor" id="match-string"></div>
+  <div class="anchor" id="string-match"></div>
   <h3>Метод match()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Метод match() ищет строку для соответствия регулярному выражению и возвращает совпадения в качестве объекта Array.</p>
@@ -683,21 +683,21 @@
 
 <!-- 15. matchAll() -->
 <article class="article">
-  <div class="anchor" id="match-all-string"></div>
+  <div class="anchor" id="string-match-all"></div>
   <h3>Метод matchAll()</h3>
   <p>возвращает итератор по всем результатам при сопоставлении строки с регулярным выражением</p>
 </article>
 
 <!-- 16. normalize() -->
 <article class="article">
-  <div class="anchor" id="normalize-string"></div>
+  <div class="anchor" id="string-normalize"></div>
   <h3>Метод normalize()</h3>
   <p>возвращает форму нормализации Юникода данной строки</p>
 </article>
 
 <!-- 17. padEnd() -->
 <article class="article">
-  <div class="anchor" id="pad-end-string"></div>
+  <div class="anchor" id="string-pad-end"></div>
   <h3>Метод padEnd(num [, str])</h3>
   <p>Возвращает новую строку указанной длины num. Если исходная строка была длинее, то она возвращается без изменений.</p>
   <code>"Frontend".padEnd(5);
@@ -718,7 +718,7 @@
 
 <!-- 18. padStart() -->
 <article class="article">
-  <div class="anchor" id="pad-start-string"></div>
+  <div class="anchor" id="string-pad-start"></div>
   <h3>Метод padStart(num [, str])</h3>
   <p>Возвращает новую строку указанной длины num. Если исходная строка была длинее, то она возвращается без изменений.</p>
   <code>"Frontend".padStart(5);
@@ -739,7 +739,7 @@
 
 <!-- 19. String.raw() -->
 <article class="article">
-  <div class="anchor" id="raw-string"></div>
+  <div class="anchor" id="string-raw"></div>
   <h3>Метод String.raw()</h3>
   <p>используется для получения необработанной строки из шаблона</p>
   <code>String.raw`Привет\n${2 + 3}!`;
@@ -748,7 +748,7 @@
 
 <!-- 20. repeat() -->
 <article class="article">
-  <div class="anchor" id="repeat-string"></div>
+  <div class="anchor" id="string-repeat"></div>
   <h3>Метод repeat()</h3>
   <p><em>(Появился в <strong>ES6</strong>)</em></p>
   <p>Без параметров возвращает пустую строку</p>
@@ -773,7 +773,7 @@
 
 <!-- 21. replace() -->
 <article class="article">
-  <div class="anchor" id="replace-string"></div>
+  <div class="anchor" id="string-replace"></div>
   <h3>Метод replace()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Ищет в строке указанное значение или регулярное выражение и возвращает новую строку, в которой выполнена замена на второй параметр</p>
@@ -783,7 +783,7 @@
 
 <!-- 22. replaceAll() -->
 <article class="article">
-  <div class="anchor" id="replace-all-string"></div>
+  <div class="anchor" id="string-replace-all"></div>
   <h3>Метод replaceAll()</h3>
   <p>Заменяет все найденные совпадения другой строкой</p>
   <code>"FrontFrontend".replace(“Front”, “Back”);
@@ -792,14 +792,14 @@
 
 <!-- 23. search() -->
 <article class="article">
-  <div class="anchor" id="search-string"></div>
+  <div class="anchor" id="string-search"></div>
   <h3>Метод search()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
 </article>
 
 <!-- 24. slice() -->
 <article class="article">
-  <div class="anchor" id="slice-string"></div>
+  <div class="anchor" id="string-slice"></div>
   <h3>Метод slice()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Возвращает символы начиная с указанного индекса и до конца строки</p>
@@ -815,7 +815,7 @@
 
 <!-- 25. split() -->
 <article class="article">
-  <div class="anchor" id="split-string"></div>
+  <div class="anchor" id="string-split"></div>
   <h3>Метод split()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Без параметров возвращает массив из одного элемента, содержащего исходную строку</p>
@@ -837,14 +837,14 @@
 
 <!-- 26. startsWith() -->
 <article class="article">
-  <div class="anchor" id="starts-with-string"></div>
+  <div class="anchor" id="string-starts-with"></div>
   <h3>Метод startsWith()</h3>
   <p><em>(Появился в <strong>ES6</strong>)</em></p>
 </article>
 
 <!-- 27. substring() -->
 <article class="article">
-  <div class="anchor" id="substring-string"></div>
+  <div class="anchor" id="string-substring"></div>
   <h3>Метод substring(indexA [, indexB])</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Если указать только один параметр, то возвращает символы начиная с указанного индекса indexA и до конца строки</p>
@@ -858,21 +858,21 @@
 
 <!-- 28. toLocaleLowerCase() -->
 <article class="article">
-  <div class="anchor" id="to-local-lower-case-string"></div>
+  <div class="anchor" id="string-to-local-lower-case"></div>
   <h3>Метод toLocaleLowerCase()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
 </article>
 
 <!-- 29. toLocaleUpperCase() -->
 <article class="article">
-  <div class="anchor" id="to-local-upper-case-string"></div>
+  <div class="anchor" id="string-to-local-upper-case"></div>
   <h3>Метод toLocaleUpperCase()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
 </article>
 
 <!-- 30. toLowerCase() -->
 <article class="article">
-  <div class="anchor" id="to-lower-case-string"></div>
+  <div class="anchor" id="string-to-lower-case"></div>
   <h3>Метод toLowerCase()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Не принимает параметры, преобразует все символы в нижний регистр, возвращает новую строку</p>
@@ -888,7 +888,7 @@
 
 <!-- 31. toString() -->
 <article class="article">
-  <div class="anchor" id="to-string-string"></div>
+  <div class="anchor" id="string-to-string"></div>
   <h3>Метод toString()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>возвращает строку, представляющую указанный объект</p>
@@ -898,7 +898,7 @@
 
 <!-- 32. toUpperCase() -->
 <article class="article">
-  <div class="anchor" id="to-upper-case-string"></div>
+  <div class="anchor" id="string-to-upper-case"></div>
   <h3>Метод toUpperCase()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
   <p>Не принимает параметры, преобразует все символы в верхний регистр, возвращает новую строку</p>
@@ -914,13 +914,13 @@
 
 <!-- 33. toWellFormed() -->
 <article class="article">
-  <div class="anchor" id="to-well-formed-string"></div>
+  <div class="anchor" id="string-to-well-formed"></div>
   <h3>Метод toWellFormed()</h3>
 </article>
 
 <!-- 34. trim() -->
 <article class="article">
-  <div class="anchor" id="trim-string"></div>
+  <div class="anchor" id="string-trim"></div>
   <h3>Метод trim()</h3>
   <p><em>(Появился в <strong>ES3</strong>)</em></p>
   <p>Возвращает строку без пробелов в начале и конце строки</p>
@@ -930,7 +930,7 @@
 
 <!-- 35. trimEnd() -->
 <article class="article">
-  <div class="anchor" id="trim-end-string"></div>
+  <div class="anchor" id="string-trim-end"></div>
   <h3>Метод trimEnd()</h3>
   <p>Возвращает строку без пробелов в конце строки</p>
   <code>"   Frontend   ".trimEnd();
@@ -939,7 +939,7 @@
 
 <!-- 36. trimStart() -->
 <article class="article">
-  <div class="anchor" id="trim-start-string"></div>
+  <div class="anchor" id="string-trim-start"></div>
   <h3>Метод trimStart()</h3>
   <p>Возвращает строку без пробелов в начале строки</p>
   <code>"   Frontend   ".trimStart();
@@ -948,7 +948,7 @@
 
 <!-- 37. valueOf() -->
 <article class="article">
-  <div class="anchor" id="value-of-string"></div>
+  <div class="anchor" id="string-value-of"></div>
   <h3>Метод valueOf()</h3>
   <p><em>(Появился в <strong>ES1</strong>)</em></p>
 </article>

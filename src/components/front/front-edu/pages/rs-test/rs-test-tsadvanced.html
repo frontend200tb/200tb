@@ -1,0 +1,474 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] TS Advanced [EN]</h1>
+
+  <strong>41 вопрос. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+1. Can an interface contain getters and setters?
+
+yes, it can
+
+no
+2. What type of function corresponds to the call test('5')? (checkbox)
+
+function test(val: number): number
+
+function test(val: number, t: string): number
+
+function test(val: string): number
+
+function test(val: number, t?: string): number
+
+function test(val: string, t?: string): number
+3. Creates a type with all properties of T set as read-only.
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+4. Creates a type that excludes null and undefined from Type:
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+5. Can a class be used as an interface?
+
+yes, it can
+
+no
+
+by default, no, but conditions can be created to make it possible
+6. What utility types exist in TS? (checkbox)
+
+Omit
+
+ReturnType
+
+PartialType
+
+InstanceType
+
+Required
+
+Pick
+
+Extract
+
+Exclude
+
+This
+7. A type which represents the return value of functions which don't return a value.
+
+any
+
+never
+
+unknown
+
+void
+
+null
+
+undefined
+8. In TS, classes are inherited from each other using the keyword:
+
+extends
+
+implements
+
+as
+
+inherit
+9. Can a class be used as a type specifier?
+
+yes, it can
+
+no
+
+by default, no, but conditions can be created to make it possible
+10. Which operator lets us validate that the type of an expression matches some type, without changing the resulting type of that expression?
+
+reassures
+
+satisfies
+
+typeof
+
+no correct answer
+11. Choose the correct answer:
+
+TS supports namespaces, namespaces cannot be nested
+
+TS does not support namespaces
+
+TS supports namespaces, namespaces can be nested
+
+TS supports namespaces, namespaces can be nested, namespaces cannot be exported
+12. Does the interface remain in the code after compilation?
+
+yes, it remains
+
+no
+
+by default, no, but conditions can be created to make it possible
+13. Creates a type with all properties of T set as optional.
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+14. Creates a type consisting of the return type of the function T
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+15. Please choose the correct syntax for generics in a function. (checkbox)
+
+function test<A>(arg: A[ ]): A[ ] {...}
+
+function test<T>(arg<T>): T {...}
+
+function test: T(arg: T): T {...}
+
+function test<T>(arg: T): T {...}
+
+function test<T>(arg<T>) <T> {...}
+16. Which keyword is used to declare a namespace?
+
+export
+
+constructon
+
+name
+
+set
+
+namespace
+
+TS does not have namespaces
+17. Which modifiers can be applied during type binding? (checkbox)
+
+readonly and ?
+
+, and -
+
++ and |
+
+& and &&
+
+||
+
+! and !!
+18. Creates a type by selecting all properties from T and then removing K (keys):
+
+Omit<T, K>
+
+Record<K, T>
+
+Pick<T, K>
+
+Extract<T, K>
+
+no correct answer
+19. What does Partial<T> do in TypeScript?
+
+Converts all properties of T into required properties
+
+Converts all properties of T into optional properties
+
+Converts all properties of T into read-only properties
+
+Converts all properties of T not to accept null or undefined
+20. Creates a type consisting of all properties of T where the value is set as required.
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+21. How does TypeScript implement type assertions?
+
+const x: number = (number) '123'
+
+const x: number = as.number '123'
+
+const x: number = '123'.asNumber
+
+const x: number = <number> '123'
+22. Which utility type can be used to represent all subsets of a given type?
+
+Partial
+
+Readonly
+
+Record
+
+Omit
+23. What is the correct syntax when an argument is optional?
+
+function test(a: string) { ... }
+
+function test?(a: string) { ... }
+
+function test(a?: string) { ... }
+
+function test(a:? string) { ... }
+24. Creates a type by selecting a set of properties K (keys) from T.
+
+Omit<T, K>
+
+Record<K, T>
+
+Pick<T, K>
+
+Extract<T, K>
+
+no correct answer
+25. Creates a tuple type from the types used in the type parameters of a function.
+
+Omit<T, K>
+
+Record<K, T>
+
+Pick<T, K>
+
+Extract<T, K>
+
+no correct answer
+26. Select the correct imports and exports in TS: (checkbox)
+
+export var test = 5;
+
+import { a, b, c} from './test.js'
+
+import { a as v, b, c} from './test.js'
+
+export default function test(){...}
+
+import * as a from './test.js'
+
+export type Test = { .... }
+27. Is the 'extends' keyword used in generics?
+
+yes, it is used
+
+no
+28. Is there support for classes and constructors within them in TS?
+
+yes, both classes and class constructors
+
+only classes
+
+only class constructors
+
+no
+29. Select the correct statement:
+
+Unlike ES6, in TS, any file containing import or export is considered a module.
+
+Just like in ES6, in TS, any file containing import or export is considered a module.
+
+In TS, any file containing import (but not export) is considered a module.
+
+In TS, any file containing export (but not import) is considered a module.
+30. A primitive type indicating that a value is not defined. It has the same characteristics as the type in JS.
+
+any
+
+void
+
+never
+
+null
+
+undefined
+31. What does a TypeScript conditional type look like?
+
+T extends U ? X : Y
+
+T if U ? X : Y
+
+T === U ? X : Y
+
+If T extends U Then X Else Y
+32. Creates a type consisting of the type of an instance of the constructor function in T.
+
+Readonly<T>
+
+Required<T>
+
+Omit<T>
+
+Partial<T>
+
+Parameters<T>
+
+NonNullable<T>
+
+ConstructorParameters<T>
+
+ReturnType<T>
+
+InstanceType<T>
+33. How can you check if an object belongs to a class in TS?
+
+inheritenceOf
+
+instanceOf
+
+typeof
+
+extends
+34. Can you specify the allowed data types for a getter and setter in an interface?
+
+yes, you can
+
+no
+35. A primitive data type which represents the type of values that never occur.
+
+any
+
+never
+
+null
+
+void
+
+undefined
+
+unknown
+36. Can be abstract: (checkbox)
+
+field
+
+type
+
+class
+
+interface
+
+namespace
+
+method
+
+import and export
+37. What does the TypeScript unknown type represent?
+
+The type of a variable is not known to the compiler
+
+The type of a variable is any object
+
+The type of a variable is any non-null object
+
+The type of a variable is any non-undefined object
+38. Select the correct statements: (checkbox)
+
+Modifiers public, protected, and private cannot be applied to static fields
+
+Static fields of a class are not associated with specific instances of the class
+
+Static fields of a class are not inherited
+
+Static fields of a class can be accessed through the class constructor object
+39. A primitive type indicating intentional absence of the value. It has the same characteristics as the type in JS.
+
+never
+
+unknown
+
+any
+
+void
+
+null
+40. No operations are allowed on this type. Equivalent to the any type.
+
+null
+
+undefined
+
+void
+
+never
+
+unknown
+41. What keyword is used in the implementation of a generic constraint?
+
+instance
+
+implements
+
+extends
+
+as
+
+inheritance

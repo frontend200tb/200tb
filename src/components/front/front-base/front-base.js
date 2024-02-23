@@ -1,4 +1,4 @@
-/** **************
+/*
 Скрипт из файла front-base.js
 Функция showFrontBase показывает страницу front-base
 ****************** */
@@ -20,7 +20,7 @@ import './element-front-base';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Algorithm'];
+const asideThemes = ['Structure', 'Algorithm', 'Principle', 'Pattern'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

@@ -1,14 +1,23 @@
+/*
+Скрипт из файла page.js
+Функция pageLink вешает обработчик клика на элементы asideMenu
+*/
 import htmlCodeHtml from './elem-code-html.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
+  const asideHtml = [htmlCodeHtml];  
   const currentContent = document.querySelector('#code');
+  const asideItems = document.querySelectorAll('.aside a');
 
-  const asideHtml = document.getElementById('code-html');
-  if (asideHtml) {
-    asideHtml.addEventListener('click', (e) => {
+  asideItems.forEach((elem, index) => {
+    createAsideMenu(elem, index);
+  })
+
+  function createAsideMenu(elem, index) {
+    elem.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = htmlCodeHtml;
+      currentContent.innerHTML = asideHtml[index];
     });
   }
 }
