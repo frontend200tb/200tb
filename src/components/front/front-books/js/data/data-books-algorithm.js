@@ -365,6 +365,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 38,
+    year: 2014,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование в алгоритмах (5е)',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '386',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 29,
     year: 2015,
     category: 'основы',
@@ -511,7 +524,7 @@ const dataBooksAlgorithm = [
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
-    title: 'Программирование. Теоремы и задачии',
+    title: 'Программирование. Теоремы и задачии (6е)',
     author: 'Шень',
     authorName: 'Александр',
     pages: '320',

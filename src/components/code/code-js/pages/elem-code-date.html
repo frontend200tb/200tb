@@ -1,0 +1,859 @@
+<h1>Объект Date</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#methods">Методы объекта Date</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date">developer.mozilla.org</a> Дата</p>
+  <p><a href="https://puzzleweb.ru/javascript/obj_date.php">puzzleweb.ru</a> JavaScript объект Date</p>
+</article>
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Объект Date позволяет работать с датами и временем. Для создания нового объекта Date используется следующий синтаксис:</p>
+  <code>new Date();</code>
+  <code>Thu Feb 29 2024 10:10:28 GMT+0300 (Москва, стандартное время)</code>
+  <p>Даты хранятся в нём как количество миллисекунд, прошедших с полуночи 1 января 1970 г. согласно единому всемирному времени (UTC). Благодаря такому формату с помощью Date можно точно представлять даты, отстоящие от 1 января 1970 г. на 285616 лет.</p>
+  <p>Если конструктор Date вызывается без аргументов, создаётся объект с текущими значениями даты и времени. Для создания объекта Date с определенной датой или временем, необходимо будет передать один из четырех возможных параметров:</p>
+  <ol>
+    <li>миллисекунды: значение должно быть числом миллисекунд с 01.01.1970
+      <code>new Date(1700000000000); // 17 и одиннадцать нулей</code>
+      <code>Wed Nov 15 2023 01:13:20 GMT+0300 (Москва, стандартное время) {}</code> 
+    </li>
+    <li>строка с датой: любая дата в формате поддерживаемом методом parse()
+      <code>new Date("Februar 29, 2024");</code>
+      <code>Thu Feb 29 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+    </li>
+    <li>год, месяц, день
+      <code>new Date(2024, 1, 29);</code>
+      <code>Thu Feb 29 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+      <p>Обратите внимание, что число 4 соответствует маю месяцу. Это значит, что январю соответствует число 0. Аналогичным образом вычисляются и дни, только нулю в этом случае соответствует воскресенье.</p>
+    </li>
+    <li>год, месяц, день, час, минуты, секунды, миллисекунды
+      <p>При работе с объектом Date важно помнить, что вычисления выполняются с использованием единого всемирного времени (UTC), несмотря на то, что ваш компьютер может отображать время в соответствии с вашей временной зоной.</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Методы объекта Date -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы объекта Date</h2>
+  <ol>
+    <li><a href="#getDate">getDate</a></li>
+    <li><a href="#getDay">getDay</a></li>
+    <li><a href="#getFullYear">getFullYear</a></li>
+    <li><a href="#getHours">getHours</a></li>
+    <li><a href="#getMilliseconds">getMilliseconds</a></li>
+    <li><a href="#getMinutes">getMinutes</a></li>
+    <li><a href="getMonth">getMonth</a></li>
+    <li><a href="#getSeconds">getSeconds</a></li>
+    <li><a href="#getTime">getTime</a></li>
+    <li><a href="#getTimezoneOffset">getTimezoneOffset</a></li>
+    <li><a href="#getUTCDate">getUTCDate</a></li>
+    <li><a href="#getUTCDay">getUTCDay</a></li>
+    <li><a href="#getUTCFullYear">getUTCFullYear</a></li>
+    <li><a href="#getUTCHours">getUTCHours</a></li>
+    <li><a href="#getUTCMilliseconds">getUTCMilliseconds</a></li>
+    <li><a href="#getUTCMinutes">getUTCMinutes</a></li>
+    <li><a href="#getUTCMonth">getUTCMonth</a></li>
+    <li><a href="#getUTCSeconds">getUTCSeconds</a>
+      <p><a href="#getYear">getYear</a> удален</p>
+    </li>    
+    <li><a href="#dateNow">Date.now</a></li>
+    <li><a href="#dateParse">Date.parse</a></li>
+    <li><a href="#setDate">setDate</a></li>
+    <li><a href="#setFullYear">setFullYear</a></li>
+    <li><a href="#setHours">setHours</a></li>
+    <li><a href="#setMilliseconds">setMilliseconds</a></li>
+    <li><a href="#setMinutes">setMinutes</a></li>
+    <li><a href="#setMonth">setMonth</a></li>
+    <li><a href="#setSeconds">setSeconds</a></li>
+    <li><a href="#setTime">setTime</a></li>
+    <li><a href="#setUTCDate">setUTCDate</a></li>
+    <li><a href="#setUTCFullYear">setUTCFullYear</a></li>
+    <li><a href="#setUTCHours">setUTCHours</a></li>
+    <li><a href="#setUTCMilliseconds">setUTCMilliseconds</a></li>
+    <li><a href="#setUTCMinutes">setUTCMinutes</a></li>
+    <li><a href="#setUTCMonth">setUTCMonth</a></li>
+    <li><a href="#setUTCSeconds">setUTCSeconds</a>
+      <p><a href="#setYear">setYear</a> удален</p>
+    </li>    
+    <li><a href="#toDateString">toDateString</a></li>
+    <li><a href="#toISOString">toISOString</a></li>
+    <li><a href="#toJSON">toJSON</a></li>
+    <li><a href="#toLocaleDateString">toLocaleDateString</a></li>
+    <li><a href="#toLocaleTimeString">toLocaleTimeString</a></li>
+    <li><a href="#toLocaleString">toLocaleString</a></li>
+    <li><a href="#toString">toString</a></li>
+    <li><a href="#toTimeString">toTimeString</a></li>
+    <li><a href="#toUTCString">toUTCString</a></li>
+    <li><a href="#dateUTC">Date.UTC</a></li>
+    <li><a href="#valueOf">valueOf</a></li>
+  </ol>
+</article>
+
+
+<!-- getDate -->
+<article class="article">
+  <div class="anchor" id="getDate"></div>
+  <h2>1. getDate()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает день месяца (от 1 до 31) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getDate();</code>
+  <code>1</code>
+</article>
+
+
+<!-- getDay -->
+<article class="article">
+  <div class="anchor" id="getDay"></div>
+  <h2>2. getDay()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает день недели (от 0 до 6, 0 - воскресенье, ... 6 - суббота) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getDay();</code>
+  <code>1</code>
+</article>
+
+
+<!-- getFullYear -->
+<article class="article">
+  <div class="anchor" id="getFullYear"></div>
+  <h2>3. getFullYear()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает год (четыре цифры) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getFullYear();</code>
+  <code>2024</code>
+</article>
+
+
+<!-- getHours -->
+<article class="article">
+  <div class="anchor" id="getHours"></div>
+  <h2>4. getHours()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает час (от 0 до 23) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getHours();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getMilliseconds -->
+<article class="article">
+  <div class="anchor" id="getMilliseconds"></div>
+  <h2>5. getMilliseconds()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает миллисекунды (от 0 до 999) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getMilliseconds();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getMinutes -->
+<article class="article">
+  <div class="anchor" id="getMinutes"></div>
+  <h2>6. getMinutes()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает минуты (от 0 до 59) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getMinutes();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getMonth -->
+<article class="article">
+  <div class="anchor" id="getMonth"></div>
+  <h2>7. getMonth()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает месяц (от 0 до 11; 0 = январь, 1 = февраль и т.д.) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getMonth();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getSeconds -->
+<article class="article">
+  <div class="anchor" id="getSeconds"></div>
+  <h2>8. getSeconds()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает секунды (от 0 до 59) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getSeconds();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getTime -->
+<article class="article">
+  <div class="anchor" id="getTime"></div>
+  <h2>9. getTime()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает количество миллисекунд, прошедших с полуночи 01.01.1970 по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getTime();</code>
+  <code>1704056400000</code>
+</article>
+
+
+<!-- getTimezoneOffset -->
+<article class="article">
+  <div class="anchor" id="getTimezoneOffset"></div>
+  <h2>10. getTimezoneOffset()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает разницу во времени между временем UTC и местным временем, в минутах.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getTimezoneOffset();</code>
+  <code>-180</code>
+</article>
+
+
+<!-- getUTCDate -->
+<article class="article">
+  <div class="anchor" id="getUTCDate"></div>
+  <h2>11. getUTCDate()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает день месяца (от 1 до 31) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCDate();</code>
+  <code>31</code>
+</article>
+
+
+<!-- getUTCDay -->
+<article class="article">
+  <div class="anchor" id="getUTCDay"></div>
+  <h2>12. getUTCDay()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает день недели (от 0 до 6, 0 - воскресенье, ... 6 - суббота) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCDay();</code> 
+  <code>0</code>
+</article>
+
+
+<!-- getUTCFullYear -->
+<article class="article">
+  <div class="anchor" id="getUTCFullYear"></div>
+  <h2>13. getUTCFullYear()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает год (четыре цифры) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCFullYear();</code>
+  <code>2023</code>
+</article>
+
+
+<!-- getUTCHours -->
+<article class="article">
+  <div class="anchor" id="getUTCHours"></div>
+  <h2>14. getUTCHours()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает час (от 0 до 23) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCHours();</code>
+  <code>21</code>
+</article>
+
+
+<!-- getUTCMilliseconds -->
+<article class="article">
+  <div class="anchor" id="getUTCMilliseconds"></div>
+  <h2>15. getUTCMilliseconds()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает миллисекунды (от 0 до 999) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCMilliseconds();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getUTCMinutes -->
+<article class="article">
+  <div class="anchor" id="getUTCMinutes"></div>
+  <h2>16. getUTCMinutes()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает минуты (от 0 до 59) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCMinutes();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getUTCMonth -->
+<article class="article">
+  <div class="anchor" id="getUTCMonth"></div>
+  <h2>17. getUTCMonth()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает месяц (от 0 до 11) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCMonth();</code>
+  <code>11</code>
+</article>
+
+
+<!-- getUTCSeconds -->
+<article class="article">
+  <div class="anchor" id="getUTCSeconds"></div>
+  <h2>18. getUTCSeconds()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает секунды (от 0 до 59) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getUTCSeconds();</code>
+  <code>0</code>
+</article>
+
+
+<!-- getYear -->
+<article class="article">
+  <div class="anchor" id="getYear"></div>
+  <h2>getYear() метод удален из стандарта</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Метод getYear() возвращает год (год минус 1900) указанной даты по местному времени. Поскольку метод getYear() не возвращает полный год («проблема 2000 года»), он больше не используется и был заменён методом getFullYear().</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.getYear();</code>
+  <code>124</code>
+</article>
+
+
+<!-- Date.now -->
+<article class="article">
+  <div class="anchor" id="dateNow"></div>
+  <h2>19. Date.now()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><em>(Появился в <strong>es5</strong>)</em></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Метод Date.now() возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.</p>
+  <code>Date.now();</code>
+  <code>1709378146339</code>
+</article>
+
+
+<!-- Date.parse -->
+<article class="article">
+  <div class="anchor" id="dateParse"></div>
+  <h2>20. Date.parse()</h2>
+  <p><strong>Принимает строку (string)</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Анализирует строку даты (например, "21 мая 1992 года") и возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.</p>
+  <code>Date.parse('2024 feb 2');</code>
+  <code>1706821200000</code>
+</article>
+
+
+<!-- setDate -->
+<article class="article">
+  <div class="anchor" id="setDate"></div>
+  <h2>21. setDate()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее номер дня в месяце.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает день месяца (от 1 до 31) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setDate(5);</code>
+  <code>1704402000000</code>
+  <code>date</code>
+  <code>Fri Jan 05 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setFullYear -->
+<article class="article">
+  <div class="anchor" id="setFullYear"></div>
+  <h2>22. setFullYear()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее год.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает год (четыре цифры) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setFullYear(2025);</code>
+  <code>1735678800000</code>
+  <code>date</code>
+  <code>Wed Jan 01 2025 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setHours -->
+<article class="article">
+  <div class="anchor" id="setHours"></div>
+  <h2>23. setHours()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее час.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает часы (от 0 до 23) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setHours(16);</code>
+  <code>1704114000000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 16:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setMilliseconds -->
+<article class="article">
+  <div class="anchor" id="setMilliseconds"></div>
+  <h2>24. setMilliseconds()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее миллисекунды.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает миллисекунды (от 0 до 999) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setMilliseconds(911);</code>
+  <code>1704056400911</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setMinutes -->
+<article class="article">
+  <div class="anchor" id="setMinutes"></div>
+  <h2>25. setMinutes()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее минуты.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает минуты (от 0 до 59) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setMinutes(25);</code>
+  <code>1704057900000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:25:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setMonth -->
+<article class="article">
+  <div class="anchor" id="setMonth"></div>
+  <h2>26. setMonth()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее месяц.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает месяц (от 0 до 11) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setMonth(5);</code>
+  <code>1717189200000</code>
+  <code>date</code>
+  <code>Sat Jun 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setSeconds -->
+<article class="article">
+  <div class="anchor" id="setSeconds"></div>
+  <h2>27. setSeconds()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее секунды.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает секунды (от 0 до 59) для указанной даты по местному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setSeconds(35);</code>
+  <code>1704056435000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:00:35 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setTime -->
+<article class="article">
+  <div class="anchor" id="setTime"></div>
+  <h2>28. setTime()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее количество миллисекунд, прошедших с 1 января 1970 00:00:00 по UTC.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает дату в миллисекундах (от 0 до 999) после (или до) 01.01.1970.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setTime(1707117935700);</code>
+  <code>1707117935700</code>
+  <code>date</code>
+  <code>Mon Feb 05 2024 10:25:35 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCDate -->
+<article class="article">
+  <div class="anchor" id="setUTCDate"></div>
+  <h2>29. setUTCDate()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее номер дня месяца.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает день месяца (от 0 до 31) по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCDate(1);</code>
+  <code>1701464400000</code>
+  <code>date</code>
+  <code>Sat Dec 02 2023 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCFullYear -->
+<article class="article">
+  <div class="anchor" id="setUTCFullYear"></div>
+  <h2>30. setUTCFullYear()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее год.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает год (четыре цифры) по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCFullYear(2025);</code>
+  <code>1767214800000</code>
+  <code>date</code>
+  <code>Thu Jan 01 2026 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCHours -->
+<article class="article">
+  <div class="anchor" id="setUTCHours"></div>
+  <h2>31. setUTCHours()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее час.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает час (от 0 до 23) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCHours(23);</code>
+  <code>1704063600000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 02:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCMilliseconds -->
+<article class="article">
+  <div class="anchor" id="setUTCMilliseconds"></div>
+  <h2>32. setUTCMilliseconds()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее миллисекунды.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает миллисекунды (от 0 до 999) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCMilliseconds(555);</code>
+  <code>1704056400555</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCMinutes -->
+<article class="article">
+  <div class="anchor" id="setUTCMinutes"></div>
+  <h2>33. setUTCMinutes()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее минуты.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает минуты (от 0 до 59) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCMinutes(4);</code>
+  <code>1704056640000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:04:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCMonth -->
+<article class="article">
+  <div class="anchor" id="setUTCMonth"></div>
+  <h2>34. setUTCMonth()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее месяц.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает месяц (от 0 до 11) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCMonth(10);</code>
+  <code>1701464400000</code>
+  <code>date</code>
+  <code>Sat Dec 02 2023 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setUTCSeconds -->
+<article class="article">
+  <div class="anchor" id="setUTCSeconds"></div>
+  <h2>35. setUTCSeconds()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее секунды.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает секунды (от 0 до 59) для указанной даты по всемирному времени.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setUTCSeconds(15);</code>
+  <code>1704056415000</code>
+  <code>date</code>
+  <code>Mon Jan 01 2024 00:00:15 GMT+0300 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- setYear -->
+<article class="article">
+  <div class="anchor" id="setYear"></div>
+  <h2>setYear()</h2>
+  <p><strong>Принимает целое число (number)</strong>, представляющее год.</p>
+  <p><strong>Изменяет объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Устанавливает год (четыре цифры) для указанной даты по местному времени. Поскольку метод setYear() не устанавливает полный год («проблема 2000 года»), он больше не используется и был заменён методом setFullYear().</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.setYear(15);</code>
+  <code>-1735698617000</code>
+  <code>date</code>
+  <code>Fri Jan 01 1915 00:00:00 GMT+0230 (Москва, стандартное время) {}</code>
+</article>
+
+
+<!-- toDateString -->
+<article class="article">
+  <div class="anchor" id="toDateString"></div>
+  <h2>36. toDateString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong> в виде человеко-читаемой строки на американском английском.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toDateString();</code>
+  <code>'Mon Jan 01 2024'</code>
+</article>
+
+
+<!-- toISOString -->
+<article class="article">
+  <div class="anchor" id="toISOString"></div>
+  <h2>37. toISOString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong> в формате ISO 8601. Часовой пояс всегда равен UTC, что обозначено суффиксом "Z".</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toISOString();</code>
+  <code>'2023-12-31T21:00:00.000Z'</code>
+</article>
+
+
+<!-- toJSON -->
+<article class="article">
+  <div class="anchor" id="toJSON"></div>
+  <h2>38. toJSON()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает дату в виде строки, отформатированную как дата JSON (при помощи метода toISOString()). Этот метод, как правило, предназначен для сериализации объектов Date в JSON</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toJSON();</code>
+  <code>'2023-12-31T21:00:00.000Z'</code>
+</article>
+
+
+<!-- toLocaleDateString -->
+<article class="article">
+  <div class="anchor" id="toLocaleDateString"></div>
+  <h2>39. toLocaleDateString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает дату (год, месяц, число) в виде строки, с языкозависимым представлением даты на основе параметров системы.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toLocaleDateString();</code>
+  <code>'01.01.2024'</code>
+</article>
+
+
+<!-- toLocaleTimeString -->
+<article class="article">
+  <div class="anchor" id="toLocaleTimeString"></div>
+  <h2>40. toLocaleTimeString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает время (часы, минуты, секунды) в виде строки, с языкозависимым представлением на основе параметров системы.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toLocaleTimeString();</code>
+  <code>'00:00:00'</code>
+</article>
+
+
+<!-- toLocaleString -->
+<article class="article">
+  <div class="anchor" id="toLocaleString"></div>
+  <h2>41. toLocaleString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает дату (год, месяц, число и часы, минуты, секунды) в виде строки, с языкозависимым представлением даты на основе параметров системы.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toLocaleString();</code>
+  <code>'01.01.2024, 00:00:00'</code>
+</article>
+
+
+<!-- toString -->
+<article class="article">
+  <div class="anchor" id="toString"></div>
+  <h2>42. toString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает строку, представляющую указанный объект Date.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toString();</code>
+  <code>'Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время)'</code>
+</article>
+
+
+<!-- toTimeString -->
+<article class="article">
+  <div class="anchor" id="toTimeString"></div>
+  <h2>43. toTimeString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Возвращает часть даты в виде строки. То же что и toString(), толко без года, месяча, числа.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toTimeString();</code>
+  <code>'00:00:00 GMT+0300 (Москва, стандартное время)'</code>
+</article>
+
+
+<!-- toUTCString -->
+<article class="article">
+  <div class="anchor" id="toUTCString"></div>
+  <h2>44. toUTCString()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает строку (string)</strong></p>
+  <p>Преобразует дату в строку, используя часовой пояс UTC.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.toUTCString();</code>
+  <code>'Sun, 31 Dec 2023 21:00:00 GMT'</code>
+</article>
+
+
+<!-- Date.UTC -->
+<article class="article">
+  <div class="anchor" id="dateUTC"></div>
+  <h2>45. Date.UTC()</h2>
+  <p><strong>Принимает параметры в виде целых чисел (number)</strong> Date.UTC(year[, month[, day[, hour[, minute[, second[, millisecond]]]]]])</p>
+  <p><strong>Возвращает number</strong></p>
+  <p><strong>Создает объект</strong> и возвращает количество миллисекунд от начала эпохи (1 января 1970 00:00:00 UTC) для полученного значения объекта</p>
+  <code>Date.UTC(2024, 11, 31, 23, 59, 59, 999);</code>
+  <code>1735689599999</code>
+</article>
+
+
+<!-- valueOf -->
+<article class="article">
+  <div class="anchor" id="valueOf"></div>
+  <h2>46. valueOf()</h2>
+  <p><strong>Не принимает параметры</strong></p>
+  <p><strong>Не изменяет объект</strong></p>
+  <p><strong>Возвращает number</strong></p>
+  <p>Возвращает примитивное значение объекта Date.</p>
+  <code>let date = new Date(2024, 0, 1);</code>
+  <code>Mon Jan 01 2024 00:00:00 GMT+0300 (Москва, стандартное время) {}</code>
+  <code>date.valueOf();</code>
+  <code>1704056400000</code>
+</article>

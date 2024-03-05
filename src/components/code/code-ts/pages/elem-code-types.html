@@ -1,0 +1,207 @@
+<h1>Типы в TypeScript</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#everyday">everyday types</a></p>
+    <p><a href="#utility">utility types</a></p>
+    </div>
+
+</div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://metanit.com/web/typescript/2.5.php">Типы данных</a> (metanit.com 15.05.2021)</p>
+  <p><a href="https://purpleschool.ru/knowledge-base/article/types">Типы данных в TypeScript</a> (purpleschool.ru 22 февраля 2024 г.)</p>
+  <p><a href="https://runebook.dev/ru/docs/typescript/2/everyday-types">runebook.dev/ru/docs/typescript/2/everyday-types</a> Everyday Types</p>
+  <p><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html">typescriptlang.org/docs/handbook/2/everyday-types.html</a> Everyday Types</p>
+  <p><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html">typescriptlang.org/docs/handbook/utility-types.html</a> Utility Types</p>
+
+  <h2>Статьи на habr</h2>
+
+  <p><a href="https://habr.com/ru/articles/711686/">Искусство типизации: TypeScript Utility Types</a> (shittyprogrammer 19 янв 2023)</p>
+  <p><a href="https://habr.com/ru/articles/762902/">TypeScript и все что тебе нужно в разработке</a> (Маслов Андрей 24 сен 2023)</p>
+</article>
+
+
+<!-- everyday -->
+<article class="article">
+  <div class="anchor" id="everyday"></div>
+  <h2>everyday types</h2>
+</article>
+
+
+<!-- utility -->
+<article class="article">
+  <div class="anchor" id="utility"></div>
+  <h2>utility types</h2>
+
+  <p>TypeScript Utility Types - это набор встроенных типов, которые можно использовать для манипулирования типами данных в коде. Рассмотрим их подробнее.</p>
+
+  <h3>Awaited</h3>
+  <p>Awaited&lt;T&gt; - это специальный тип, который может быть использован для обозначения типа, который будет возвращен из асинхронной функции.</p>
+<pre>async function getData(): Promise&lt;string&gt; {
+  return 'hello';
+}
+
+let awaitedData: Awaited&lt;ReturnType&lt;typeof getData&gt;&gt;;
+// теперь awaitedData может быть 'hello'</pre>
+
+  <h3>Partial</h3>
+  <p>Partial&lt;T&gt; - делает все свойства объекта типа T необязательными.</p>
+<pre>interface Person {
+  name: string;
+  age: number;
+}
+
+let partialPerson: Partial&lt;Person&gt;;
+// теперь partialPerson может быть { name?: string; age?: number; }</pre>
+
+  <h3>Required</h3>
+  <p>Required&lt;T&gt; - делает все свойства объекта типа T обязательными.</p>
+<pre>interface Person {
+  name?: string;
+  age?: number;
+}
+
+let requiredPerson: Required&lt;Person&gt;;
+// теперь requiredPerson может быть { name: string; age: number; }</pre>
+
+  <h3>Readonly</h3>
+  <p>Readonly&lt;T&gt; - делает все свойства объекта типа T доступными только для чтения.</p>
+<pre>interface Point {
+  x: number;
+  y: number;
+}
+
+let readonlyPoint: Readonly&lt;Point&gt;;
+// теперь readonlyPoint может быть { readonly x: number; readonly y: number; }</pre>
+
+  <h3>Record</h3>
+  <p>Record&lt;Keys, Type&gt; - создает тип, который является записью с ключами, определенными в первом параметре, и значениями типа, определенного во втором параметре.</p>
+<pre>type Keys = 'a' | 'b' | 'c';
+type RecordType = Record&lt;Keys, number&gt;;
+
+let record: RecordType;
+// теперь record может быть { a: number, b: number, c: number }</pre>
+
+  <h3>Pick</h3>
+  <p>Pick&lt;T, K extends keyof T&gt; - выбирает свойства объекта типа T с ключами, указанными в K.</p>
+<pre>interface Person {
+  name: string;
+  age: number;
+}
+
+let pickedPerson: Pick&lt;Person, 'name'&gt;;
+// теперь pickedPerson может быть { name: string; }</pre>
+
+  <h3>Omit</h3>
+  <p>Omit&lt;T, K extends keyof T&gt; - выбирает свойства объекта типа T, исключая те, которые указаны в K</p>
+<pre>interface Person {
+  name: string;
+  age: number;
+}
+
+let omittedPerson: Omit&lt;Person, 'age'&gt;;
+// теперь omittedPerson может быть { name: string; }</pre>
+
+  <h3>Exclude</h3>
+  <p>Exclude&lt;UnionType, ExcludedMembers&gt; - исключает определенные типы из объединенного типа.</p>
+<pre>type A = 'a' | 'b' | 'c';
+type B = Exclude&lt;A, 'a' | 'b'&gt;;
+// теперь B это 'c'</pre>
+
+  <h3>Extract</h3>
+  <p>Extract&lt;Type, Union&gt; - извлекает из типа Type только те типы, которые присутствуют в Union.</p>
+<pre>type A = 'a' | 'b' | 'c';
+type B = 'a' | 'b';
+type C = Extract&lt;A, B&gt;;
+// теперь C это 'a' | 'b'</pre>
+
+  <h3>NonNullable</h3>
+  <p>NonNullable&lt;Type&gt; - извлекает тип из Type, исключая null и undefined.</p>
+<pre>let value: string | null | undefined;
+let nonNullableValue: NonNullable&lt;typeof value&gt;;
+// теперь nonNullableValue это string</pre>
+
+  <h3>Parameters</h3>
+  <p>Parameters&lt;Type&gt; - извлекает типы аргументов функции Type.</p>
+<pre>function foo(a: string, b: number) {}
+type FooParameters = Parameters&lt;typeof foo&gt;;
+// теперь FooParameters это [string, number]</pre>
+
+  <h3>ConstructorParameters</h3>
+  <p>ConstructorParameters&lt;Type&gt; - извлекает типы аргументов конструктора Type.</p>
+<pre>class Foo {
+    constructor(a: string, b: number) {}
+}
+type FooConstructorParameters = ConstructorParameters&lt;typeof Foo&gt;;
+// теперь FooConstructorParameters это [string, number]</pre>
+
+  <h3>ReturnType</h3>
+  <p>ReturnType&lt;Type&gt; - извлекает тип возвращаемого значения функции Type.</p>
+<pre>function foo(): string { return 'hello'; }
+type FooReturnType = ReturnType&lt;typeof foo&gt;;
+// теперь FooReturnType это string</pre>
+
+  <h3>InstanceType</h3>
+  <p>InstanceType&lt;Type&gt; - извлекает тип экземпляра класса Type.</p>
+<pre>class Foo { x: number }
+type FooInstance = InstanceType&lt;typeof Foo&gt;;
+// теперь FooInstance это { x: number }</pre>
+
+  <h3>ThisParameterType</h3>
+  <p>ThisParameterType&lt;Type&gt; - извлекает тип this из функции Type.</p>
+<pre>class Foo {
+    x: number;
+    method(this: this): void { }
+}
+type ThisType = ThisParameterType&lt;Foo["method"]&gt;;
+// теперь ThisType это Foo</pre>
+
+  <h3>OmitThisParameter</h3>
+  <p>OmitThisParameter&lt;Type&gt; - определяет функцию без типа this.</p>
+<pre>class Foo {
+    x: number;
+    method(this: this): void { }
+}
+type MethodType = OmitThisParameter&lt;Foo["method"]&gt;;
+// теперь MethodType это () => void</pre>
+
+  <h3>ThisType</h3>
+  <p>ThisType&lt;Type&gt; - добавляет тип this к функции Type.</p>
+<pre>class Foo {
+    x: number;
+    method(): void { }
+}
+type MethodType = ThisType&lt;Foo["method"]&gt;;
+// теперь MethodType это (this: Foo) => void</pre>
+
+  <h3>Управление регистром</h3>
+  <p>Uppercase&lt;StringType&gt;, Lowercase&lt;StringType&gt;, Capitalize&lt;StringType&gt;, Uncapitalize&lt;StringType&gt; - это утилитные типы для манипуляции строками, которые изменяют регистр строки в соответствии с их именем.</p>
+<pre>type Uppercased = Uppercase&lt;'hello'&gt;; // 'HELLO'
+type Lowercased = Lowercase&lt;'Hello'&gt;; // 'hello'
+type Capitalized = Capitalize&lt;'hello'&gt;; // 'Hello'
+type Uncapitalized = Uncapitalize&lt;'Hello'&gt;; // 'hello'</pre>
+</article>
+

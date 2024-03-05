@@ -1,0 +1,93 @@
+<h1>Web Storage API</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#local">localStorage</a></p>
+    <p><a href="#session">sessionStorage</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+  <p><a href="https://www.dev-notes.ru/articles/frontend/use-cases-for-htmls-web-storage-API/">Варианты использования Web Storage API в HTML</a> (2023-07-22)</p>
+
+  <h3>habr</h3>
+  <p><a href="https://habr.com/ru/articles/496348/">Web Storage API: примеры использования</a> (2020-04-09)</p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Объект «Storage» используется для хранения данных на стороне клиента и в этом смысле выступает альтернативой cookies. Преимущество Storage состоит в размере хранилища (от 5 Мб, зависит от браузера, при превышении лимита выбрасывается ошибка «QUOTA_EXCEEDED_ERR») и отсутствии необходимости обращаться к серверу.</p>
+  <p>Web Storage API включает в себя localStorage и sessionStorage. Разница между ними состоит во времени хранения данных. В localStorage данные хранятся постоянно до их «явного» удаления (ни перезагрузка страницы, ни ее закрытие не приводят к удалению данных). Время хранения данных в sessionStorage, как следует из названия, ограничено сессией браузера. Поскольку sessionStorage на практике почти не используется, мы будет рассматривать только localStorage.</p>
+</article>
+
+
+<!-- localStorage -->
+<article class="article">
+  <div class="anchor" id="local"></div>
+  <h2>localStorage</h2>
+  <h3>localStorage обладает следующими методами:</h3>
+  <ul>
+    <li><strong>Storage.length</strong> — длина хранилища (количество элементов — пар ключ/значение)</li>
+    <li><strong>Storage.key(index)</strong> — имя ключа (возвращает ключ элемента, который имеет индекс index)</li>
+    <li><strong>Storage.setItem(key, value)</strong> — записать элемент (устанавливает для элемента с ключом key значение value)</li>
+    <li><strong>Storage.getItem(key)</strong> — получить элемент (возвращает элемент, который имеет ключ key)</li>
+    <li><strong>Storage.removeItem(key)</strong> — удалить элемент с ключом key</li>
+    <li><strong>Storage.clear()</strong> — очистить хранилище (удаляет все элементы из хранилища)</li>
+  </ul>
+
+  <h3>Данные в хранилище записываются одним из следующих способов:</h3>
+  <code>localStorage.color1 = 'red';</code>
+  <code>localStorage['color2'] = 'red';</code>
+  <code>localStorage.setItem('color', 'red'); // рекомендуется использовать этот способ</code>
+  <p>Получить данные можно так:</p>
+  <code>localStorage.color1;</code>
+  <code>localStorage['color2'];</code>
+  <code>localStorage.getItem('color3'); // рекомендуется использовать этот способ</code>
+
+  <h3>Как перебрать ключи хранилища и получить значения?</h3>
+  <p>способ 1</p>
+<pre>for (let i = 0; i &lt; localStorage.length; i++) {
+  let key = localStorage.key(i)
+  console.log(`${key}: ${localStorage.getItem(key)}`)
+}</pre>
+  <p>способ 2</p>
+<pre>let keys = Object.keys(localStorage)
+for (let key of keys) {
+  console.log(`${key}: ${localStorage.getItem(key)}`)
+}</pre>
+</article>
+
+
+<!-- sessionStorage -->
+<article class="article">
+  <div class="anchor" id="session"></div>
+  <h2>sessionStorage</h2>
+  <h3>sessionStorage обладает теми же свойствами и методами что и localStorage:</h3>
+  <ul>
+    <li><strong>Storage.length</strong> — длина хранилища (количество элементов — пар ключ/значение)</li>
+    <li><strong>Storage.key(index)</strong> — имя ключа (возвращает ключ элемента, который имеет индекс index)</li>
+    <li><strong>Storage.setItem(key, value)</strong> — записать элемент (устанавливает для элемента с ключом key значение value)</li>
+    <li><strong>Storage.getItem(key)</strong> — получить элемент (возвращает элемент, который имеет ключ key)</li>
+    <li><strong>Storage.removeItem(key)</strong> — удалить элемент с ключом key</li>
+    <li><strong>Storage.clear()</strong> — очистить хранилище (удаляет все элементы из хранилища)</li>
+  </ul>
+</article>

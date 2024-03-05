@@ -1455,6 +1455,19 @@ const dataBooksBase = [
   },
 
   {
+    id: 94,
+    year: 2020,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Основы программирования (10е)',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '339',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 112,
     year: 2020,
     category: 'основы',

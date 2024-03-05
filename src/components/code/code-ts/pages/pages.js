@@ -4,10 +4,11 @@
 */
 import htmlCodeTs from './elem-code-ts.html';
 import htmlCodeTsLearn from './elem-code-tslearn.html';
+import htmlCodeTypes from './elem-code-types.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
-  const asideTs = [htmlCodeTs, htmlCodeTsLearn];  
+  const asideTs = [htmlCodeTs, htmlCodeTsLearn, htmlCodeTypes];  
   const currentContent = document.querySelector('#code');
   const asideItems = document.querySelectorAll('.aside a');
 

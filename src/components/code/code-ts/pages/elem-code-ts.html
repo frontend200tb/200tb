@@ -13,14 +13,13 @@
     <p><a href="#about">about</a></p>
     <p><a href="#links">links</a></p>
     <p><a href="#install">install</a></p>
-    <p><a href="#config">tsconfig.json</a></p>
     <p><a href="#ts">typescript</a></p>
     </div>
 
 </div>
 
 
-<!-- about-->
+<!-- about -->
 <article class="article">
   <div class="anchor" id="about"></div>
   <h2>about</h2>
@@ -29,7 +28,7 @@
 </article>
 
 
-<!-- links-->
+<!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
   <h2>links</h2>
@@ -37,10 +36,12 @@
   <p><a href="https://www.typescriptlang.org/">typescriptlang.org</a> Typescript документация</p>
   <p><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">typescriptlang.org/docs/handbook/typescript-in-5-minutes.html</a> Typescript за 5 минут</p>
   <p><a href="https://www.typescriptlang.org/play/">typescriptlang.org/play</a> Песочница</p>
-  <p><a href="http://typescript-lang.ru/docs/">typescript-lang.ru/docs</a></p>
+  <p><a href="http://typescript-lang.ru/docs/">typescript-lang.ru/docs</a> Справочник Typescript</p>
+  <p><a href="https://scriptdev.ru/">scriptdev.ru</a></p>
   <p><a href="https://metanit.com/web/typescript/1.1.php">metanit.com/web/typescript</a> Руководство по TypeScript
     (обновление 2023-01-09)</p>
   <p><a href="https://my-js.org/docs/guide/ts/">my-js.org/docs/guide/ts</a> Карманная книга по Typescript</p>
+  <p><a href="https://typescript-handbook.ru/">typescript-handbook.ru</a> Карманная книга по Typescript</p>
   <p><a href="https://www.totaltypescript.com/">totaltypescript.com</a></p>
   <p><a href="https://type-level-typescript.com/">type-level-typescript.com</a></p>
   <p><a href="https://scrimba.com/learn/typescript">scrimba.com/learn/typescript</a></p>
@@ -57,56 +58,108 @@
   <h3>Статьи</h3>
   <p><a href="https://ru.hexlet.io/blog/posts/sistema-tipov-v-typescript">Как устроена система типов в TypeScript (Алексей Покровский 2022-12-06)</a></p>
   <p><a href="https://ru.hexlet.io/blog/posts/vse-chto-nuzhno-znat-novichku-o-typescript-ischerpyvayuschiy-gayd">Что такое TypeScript и зачем он нужен (Екатерина Самохвалова 2023-07-14)</a></p>
+  <p><a href="https://bestcode.su/frontend/ispolzovanie-webpack-s-typescript/">Использование Webpack с Typescript (bestcode.su 2024-01-26)</a></p>
 </article>
 
 
-<!-- install-->
+<!-- install -->
 <article class="article">
   <div class="anchor" id="install"></div>
   <h2>install</h2>
 
   <ol>
-    <li>Установка typescript глобально<code>npm i -g typescript</code></li>
-    <li>Проверим установленную версию typescript<code>tsc -v</code></li>
-    <li>Теперь мы можем скомпилировать любой ts файл (например, index.ts) в js файл командой<code>tsc index.ts</code>
-      При этом создастся файл index.js</li>
-    <li>Создадим папку для нового проекта<code>mkdir ts_project</code></li>
-    <li>Перейдем в папку ts_project<code>cd ts_project</code></li>
-    <li>Инициализируем typescript в новом проекте<code>tsc init</code></li>
-    <li>При этом будет создан файл конфигурации<code>tsconfig.json</code></li>
-    <li>Теперь можно скомпилировать все ts файлы проекта командой <code>tsc</code></li>
-  </ol>
-</article>
-
-
-<!-- config-->
-<article class="article">
-  <div class="anchor" id="config"></div>
-  <h2>tsconfig.json</h2>
-
-  <ol>
-    <li>Вся конфигурация для компилятора ts файлов записывается в файл tsconfig.json, например
-      <code>
-        {
-        <br>&nbsp;&nbsp;"CompilerOptions": {
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;"target": "es6",
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;"sourceMap": true,
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;"outFile": "build/tsc.js"
-        <br>&nbsp;&nbsp;},
-        <br>&nbsp;&nbsp;"include": [
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;"src"
-        <br>&nbsp;&nbsp;],
-        <br>&nbsp;&nbsp;"exclude": [
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;"node_modules"
-        <br>&nbsp;&nbsp;]
-        <br>}
-      </code>
+    <li>
+      <p>Установка typescript глобально</p>
+      <code>npm i -g typescript</code>
+      <p>Если нужно установить только в проект</p>
+      <code>npm i -D typescript</code>
     </li>
+    <li>
+      <p>Проверим установленную версию typescript</p>
+      <code>tsc -v</code>
+      <code>Version 5.2.2</code>
+    </li>
+    <li>
+      <p>Теперь мы можем скомпилировать любой ts файл (например, index.ts) в js файл командой</p>
+      <code>tsc index.ts</code>
+      <p>При этом создастся файл index.js</p>
+    </li>
+    <li>
+      <p>Создадим папку для нового проекта</p>
+      <code>mkdir ts_project</code>
+    </li>
+    <li>
+      <p>Перейдем в папку ts_project</p>
+      <code>cd ts_project</code>
+    </li>
+    <li>
+      <p>Инициализируем typescript в новом проекте</p>
+      <code>tsc --init</code>
+    </li>
+    <li>
+      <p>При этом будет создан файл конфигурации</p>
+      <code>tsconfig.json</code>
+    </li>
+    <li>
+      <p>Теперь можно скомпилировать все ts файлы проекта командой</p>
+      <code>tsc</code>
+    </li>
+    <li>Вся конфигурация для компилятора ts файлов записывается в файл tsconfig.json, например
+      <pre>{
+  "CompilerOptions": {
+    "target": "es6",
+    "sourceMap": true,
+    "outFile": "build/tsc.js"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}</pre>
+    </li>  
   </ol>
 </article>
 
 
-<!-- ts-->
+<!-- Установка webpack для работы с typescript -->
+<article class="article">
+  <h2>Установка webpack для работы с typescript</h2>
+
+  <p>Далее мы установим пакеты webpack и ts-loader в качестве зависимостей в нашем проекте:</p>
+  <code>npm i -D webpack webpack-cli ts-loader webpack-dev-server</code>
+  <p>Давайте добавим файл конфигурации webpack в наш проект. В корневой папке проекта создайте файл webpack.config.js со следующими конфигурациями:</p>
+  <pre>const path = require('path');
+
+module.exports = {
+  entry: './src/index.ts',
+  module: {
+    rules: [
+      {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    static: path.join(__dirname, "dist"),
+    compress: true,
+    port: 4000,
+  },
+};</pre>
+</article>
+
+
+<!-- ts -->
 <article class="article">
   <div class="anchor" id="ts"></div>
   <h2>Typescript</h2>

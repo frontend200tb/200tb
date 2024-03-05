@@ -1683,6 +1683,20 @@ const dataFrontYtRus = [
   {
     id: 121,
     theme: 'frontend',
+    title: 'Макс из codereview',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@yourcodereview/videos',
+    site: '',
+    dateFirstVideo: '2021.11.02',
+    dateLastVideo: '2024.02.19',
+    amountVideos: 167,
+  },
+
+  {
+    id: 122,
+    theme: 'frontend',
     title: 'CodexWeb',
     author: 'Сергей Михалевич',
     city: '',
@@ -1695,7 +1709,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 122,
+    id: 123,
     theme: 'frontend',
     title: 'Abanking Education',
     author: '',
@@ -1709,7 +1723,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 123,
+    id: 124,
     theme: 'frontend',
     title: 'KharkivJS Community',
     author: '',
@@ -1723,7 +1737,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 124,
+    id: 125,
     theme: 'frontend',
     title: 'Академия сайтов Программирование',
     author: '',
@@ -1737,7 +1751,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 125,
+    id: 126,
     theme: 'frontend',
     title: 'Дмитрий Лаврик',
     author: 'Дмитрий Лаврик',
@@ -1751,7 +1765,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 126,
+    id: 127,
     theme: 'frontend',
     title: 'Aldia',
     author: '',
@@ -1765,7 +1779,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 127,
+    id: 128,
     theme: 'frontend',
     title: 'Ulbi TV',
     author: 'Тимур Ульби',
@@ -1779,7 +1793,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 128,
+    id: 129,
     theme: 'frontend',
     title: 'Архитектор ПО. Александр Желнин',
     author: 'Александр Желнин',
@@ -1793,7 +1807,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 129,
+    id: 130,
     theme: 'frontend',
     title: 'MoscowJS',
     author: '',
@@ -1807,7 +1821,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 130,
+    id: 131,
     theme: 'frontend',
     title: 'Vlad Neverov',
     author: 'Влад Неверов',
@@ -1818,20 +1832,6 @@ const dataFrontYtRus = [
     dateFirstVideo: '2017.07.26',
     dateLastVideo: '2022.06.18',
     amountVideos: 153,
-  },
-
-  {
-    id: 131,
-    theme: 'frontend',
-    title: 'codereview: IT карьера под ключ',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@yourcodereview/videos',
-    site: '',
-    dateFirstVideo: '2021.11.02',
-    dateLastVideo: '2024.01.12',
-    amountVideos: 152,
   },
 
   {

@@ -1,0 +1,326 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] Web Storage</h1>
+
+  <strong>33 вопроса. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+1. Which of the following is the localStorage interface similar to?
+
+Number
+
+Function
+
+Map
+
+Heap
+2. Valid types of keys in an indexed database: (checkbox)
+
+number
+
+string
+
+date
+
+array
+
+binary
+3. Which time zone should be used when setting the expiration time for a cookie?
+
+GMT+3
+
+server time zone
+
+client time zone
+
+UTC
+4. Does the Storage interface have length property?
+
+yes
+
+no
+5. Which are valid configurations for setting up cookies via document.cookie? (checkbox)
+
+path=/
+
+getCookie(name)
+
+domain=site.com
+
+secure
+
+httpOnly
+
+SameSite
+6. What occurs with sessionStorage when the same web page is opened in a new browser window or tab?
+
+the previous session is loaded from sessionStorage
+
+a new session is created
+
+the session is not interrupted, and nothing happens
+7. What is the characteristic behavior of data stored in the localStorage property?
+
+remains stored only for the duration of the session, disappearing when the browser or tab closes
+
+faces no expiration and can be programmatically removed using JavaScript
+
+maintains storage for a fixed period of 7 days before automatic deletion
+
+vanishes upon refreshing the webpage
+8. What cookie configuration serves as a defense against Cross-Site Request Forgery (CSRF) attacks?
+
+httpOnly
+
+getCookie(name)
+
+SameSite
+
+GDPR
+9. Which Web Storage interfaces exist according to the specification? (checkbox)
+
+Storage
+
+LocalStorage
+
+Window
+
+SessionStorage
+
+StorageEvent
+
+Cookie
+10. Cache methods: (checkbox)
+
+Cache.match()
+
+Cache.matchAll()
+
+Cache.add()
+
+Cache.put()
+
+Cache.delete()
+
+Cache.deleteAll()
+
+Cache.keys()
+
+Cache.values()
+
+Cache.clear()
+11. Where are IndexedDB data stored?
+
+on the server
+
+in Web Storage
+
+in a user's browser
+
+in the cloud
+12. Is it possible to continue the execution of a transaction when an error occurs?
+
+it is possible
+
+it is not possible
+
+it is possible under certain conditions
+13. What primary function do third-party cookies serve in web browsing?
+
+transferring user-related information back to the server
+
+monitoring user browsing habits for targeted advertising
+
+facilitating cross-site request forgery (CSRF), an unintended use
+14. During private browsing after the last incognito tab is closed...
+
+all localStorage data gets automatically cleared
+
+localStorage data behaves as usual
+
+localStorage data transfers to cookies and then moves to sessionStorage
+
+localStorage functionality is disabled in incognito mode
+15. Can IndexedDB store objects with circular references?
+
+it can
+
+it cannot
+
+by default, no, but certain conditions can be created to allow it
+16. Web Storage is:
+
+an API that provides mechanisms for browsers to securely store key/value pairs
+
+an online data storage server
+
+a memory space in the computer's RAM for storing data from visited web pages
+
+a tiny data fragment dispatched by a web server and saved on the user's computer
+17. Do IndexedDB events bubble up?
+
+yes
+
+no
+
+i don't know
+
+no, but not sure
+
+only if you add soap, then they bubble everywhere
+18. Is it possible for various websites to access each other's IndexedDB databases?
+
+yes, cross-website database access is permitted
+
+no, cross-website database access is restricted
+
+no, by default access is restricted, but under specific conditions, it may be allowed
+
+it depends on luck
+19. What is the storage capacity limit of Web Storage?
+
+a maximum of 5 MB
+
+there is no set limit on the amount of data
+
+a total of 10MB, comprising 5MB for local storage and 5MB for session storage per origin
+
+depends on the phase of the moon
+20. What happens if client has newer version of the IndexedDB database than the version specified in the 'open' call?
+
+no noticeable change or impact
+
+the browser will not open the page
+
+the browser automatically resolves the issue.
+
+an error will occur
+
+an error will occur, and an 'error' event will be generated
+21. The maximum size of a single cookie is:
+
+20KB
+
+20MB
+
+5MB
+
+4KB
+22. Based on the provided JavaScript code, what output will be displayed in the console?
+console.log(document.cookie);
+// stage1=done; stage2=inprogress
+document.cookie = "school=RSSchool";
+console.log(document.cookie); // ??
+
+
+stage1=done; stage2=inprogress
+
+school=RSSchool
+
+SyntaxError
+
+stage1=done; stage2=inprogress; school=RSSchool
+23. The mechanism that serves as a per tab/window data storage area for each domain, available during a session...
+
+Window
+
+Browser history
+
+Browser bookmarks
+
+sessionStorage
+24. Is it permissible to include spaces within a key path in an IndexedDB?
+
+yes
+
+no
+25. Which JavaScript API is designed for client-side storage of substantial amounts of structured data?
+
+Express
+
+MongoDB
+
+IndexedDB
+
+Node.js
+
+LocalForage
+26. Operations using IndexedDB are performed:
+
+synchronously
+
+in parallel
+
+asynchronously
+
+there is no such information in the documentation
+27. What is the primary purpose of the Storage interface in web development?
+
+facilitating access to session and local storage for a particular domain
+
+reviewing session and local storage data from the most recent browser session
+
+interacting with the Web Storage API
+28. Possible ways to manually clear cookies in Chrome are the following: (checkbox)
+
+
+by calling Cookie Monster
+
+Settings > Privacy and security > Clear browsing data
+
+by running in the console cookies.delete()
+
+by click on the "Clear all cookies" icon in DevTools > Application > Cookies
+29. Which are the valid methods of the Storage interface in JavaScript? (checkbox)
+
+Storage.key()
+
+Storage.getItem()
+
+Storage.delete()
+
+Storage.setItem()
+
+Storage.clear()
+
+Storage.values()
+30. The keys and values of localStorage always have the type:
+
+String
+
+Symbol
+
+Number
+
+Object
+31. Cookies are considered third-party if: (checkbox)
+
+they are set by a domain that's different from the page being visited by the user
+
+they are imported into a new browser session
+
+they store various types of data on the server side
+
+have the SameSite=None attribute
+32. The difference between local storage and session storage is that:
+
+local storage also serves as a data storage area for each domain, available during a session, but it retains data even if the browser is reopened
+
+session storage also serves as a data storage area for each domain, available during a session, but it retains data even if the browser is reopened
+
+not all browsers support local storage, unlike session storage
+
+they are functionally identical with no differences
+33. In web browsing, what exactly is a 'cookie'?
+
+the history log of a web browser
+
+tiny data strings retained directly within the browser
+
+an API that stores key/value pairs and sends them to the server
+
+a unique property granting access to session or local storage for particular domains
+
+no such thing in a web browser, it's just a bakery product 🍪
