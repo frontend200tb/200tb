@@ -792,6 +792,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 60,
+    year: 2020,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Введение в методы машинной обработки данных',
+    author: 'Курносов',
+    authorName: 'Михаил',
+    pages: '227',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 61,
     year: 2020,
     category: 'основы',
@@ -1071,8 +1084,8 @@ const dataBooksAlgorithm = [
     author: 'Альтхофф',
     authorName: 'Кори',
     pages: '240',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024-03-06 ср',
   },
 
   {

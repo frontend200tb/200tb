@@ -12,6 +12,8 @@
   <div>
     <p><a href="#links">links</a></p>
     <p><a href="#about">about</a></p>
+    <p><a href="#interface">Интерфейсы Web Storage</a></p>
+    <p><a href="#storage">Интерфейс Storage</a></p>
     <p><a href="#local">localStorage</a></p>
     <p><a href="#session">sessionStorage</a></p>
   </div>
@@ -24,6 +26,7 @@
   <div class="anchor" id="links"></div>
   <h2>links</h2>
   <p><a href="https://www.dev-notes.ru/articles/frontend/use-cases-for-htmls-web-storage-API/">Варианты использования Web Storage API в HTML</a> (2023-07-22)</p>
+  <p><a href="https://doka.guide/tools/browsers-storages/">doka.guide/tools/browsers-storages</a> Хранение данных в браузере (2023-07-22)</p>
 
   <h3>habr</h3>
   <p><a href="https://habr.com/ru/articles/496348/">Web Storage API: примеры использования</a> (2020-04-09)</p>
@@ -35,10 +38,75 @@
   <div class="anchor" id="about"></div>
   <h2>about</h2>
 
-  <p>Объект «Storage» используется для хранения данных на стороне клиента и в этом смысле выступает альтернативой cookies. Преимущество Storage состоит в размере хранилища (от 5 Мб, зависит от браузера, при превышении лимита выбрасывается ошибка «QUOTA_EXCEEDED_ERR») и отсутствии необходимости обращаться к серверу.</p>
-  <p>Web Storage API включает в себя localStorage и sessionStorage. Разница между ними состоит во времени хранения данных. В localStorage данные хранятся постоянно до их «явного» удаления (ни перезагрузка страницы, ни ее закрытие не приводят к удалению данных). Время хранения данных в sessionStorage, как следует из названия, ограничено сессией браузера. Поскольку sessionStorage на практике почти не используется, мы будет рассматривать только localStorage.</p>
+  <p>Web Storage API предоставляет механизмы, при помощи которых браузеры могут безопасно хранить пары ключ/значение в более интуитивно понятной манере, чем куки (cookies).</p>
+  <p>Web Storage API включает в себя localStorage и sessionStorage. Разница между ними состоит во времени хранения данных.</p> 
+  <p>В localStorage данные хранятся постоянно до их «явного» удаления (ни перезагрузка страницы, ни ее закрытие не приводят к удалению данных).</p>
+  <p>Время хранения данных в sessionStorage, как следует из названия, ограничено сессией браузера (пока браузер открыт, даже в случае перезагрузки страницы).</p>
+  <p>Поскольку sessionStorage на практике почти не используется, мы будет рассматривать только localStorage.</p>
 </article>
 
+
+<!-- Интерфейсы Web Storage -->
+<article class="article">
+  <div class="anchor" id="interface"></div>
+  <h2>Интерфейсы Web Storage</h2>
+
+  <ol>
+    <li>
+      <h3>Storage</h3>
+      <p>Позволяет присваивать, извлекать (читать) и удалять данные для специфического домена и типа хранилища (сессии или локального).</p>
+    </li>
+    <li>
+      <h3>Window</h3>
+      <p>Web Storage API расширяет Window объект, добавляя к нему два новых свойства — Window.sessionStorage и Window.localStorage — которые предоставляют доступ к сессии текущего домена и к соответствующим локальным Storage объектам, и Window.onstorage (en-US) обработчик событий, который срабатывает при изменении объекта хранилища (например, при сохранении нового элемента)</p>
+    </li>
+    <li>
+      <h3>StorageEvent</h3>
+      <p>Событие storage срабатывает на объекте документа Window при изменении объекта хранилища.</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Storage -->
+<article class="article">
+  <div class="anchor" id="storage"></div>
+  <h2>Интерфейс Storage</h2>
+
+  <p>Объект «Storage» используется для хранения данных на стороне клиента и в этом смысле выступает альтернативой cookies. Преимущество Storage состоит в размере хранилища (от 5 Мб, зависит от браузера, при превышении лимита выбрасывается ошибка «QUOTA_EXCEEDED_ERR») и отсутствии необходимости обращаться к серверу.</p>
+  <p>Интерфейс Storage из Web Storage API предоставляет доступ для session storage или local storage для конкретного домена, позволяя вам к примеру добавлять, изменять или удалять сохранённые элементы данных.</p>
+  <p>В браузерах объект Window реализует объекты WindowLocalStorage и WindowSessionStorage, которые содержат свойства localStorage и sessionStorage. Вызов одного из этих свойств создаст экземпляр объекта Storage, с помощью которого можно устанавливать, извлекать и удалять элементы данных из хранилища.</p>
+  <p>Если вы хотите управлять session storage для домена, вы вызываете Window.sessionStorage метод; Если вы хотите управлять local storage домена, вы вызываете Window.localStorage.</p>
+  
+  <h3>Свойства Storage</h3>
+  <h3>Storage.length Только для чтения</h3>
+  <p>Возвращает число, представляющее количество элементов в объекте Storage.</p>
+  
+  <h3>Методы Storage</h3>
+  <ol>
+    <li>
+      <h3>Storage.key(n)</h3>
+      <p>Приняв число n, метод вернёт имя n-ного ключа в Storage</p>
+    </li>
+    <li>
+      <h3>Storage.getItem(key)</h3>
+      <p>Приняв имя ключа key, метод вернёт для него значение.</p>
+    </li>
+    <li>
+      <h3>Storage.setItem(key, value)</h3>
+      <p>Приняв имя ключа key и значение value, метод добавит этот ключ в Storage или обновит его значение, если ключ уже существовал.</p>
+    </li>
+    <li>
+      <h3>Storage.removeItem(key)</h3>
+      <p>Приняв имя ключа key, метод удалит этот ключ из Storage</p>
+    </li>
+    <li>
+      <h3>Storage.clear()</h3>
+      <p>При вызове метод удалит все ключи из Storage.</p>
+    </li>
+  </ol>
+
+</article>
 
 <!-- localStorage -->
 <article class="article">

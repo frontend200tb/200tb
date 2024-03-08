@@ -75,6 +75,7 @@ import htmlRsTestTsBasics from './rs-test/rs-test-tsbasics.html';
 import htmlRsTestTsAdvanced from './rs-test/rs-test-tsadvanced.html';
 import htmlRsTestCodereview from './rs-test/rs-test-codereview.html';
 import htmlRsTestSpa from './rs-test/rs-test-spa.html';
+import htmlRsTestWebstorage from './rs-test/rs-test-webstorage.html';
 
 // Создаем массив страниц с Aside меню
 const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
@@ -103,7 +104,8 @@ htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
 htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
 htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
 htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
-htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa];
+htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
+htmlRsTestWebstorage];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
