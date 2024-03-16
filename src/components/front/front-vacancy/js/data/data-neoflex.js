@@ -32,6 +32,38 @@ const dataNeoflex = [
     name: 'edu.neoflex.ru/frontend',
   },
 
+  {
+    id: 5,
+    theme: 'Neoflex',
+    header3: 'Neoflex учебный центр',
+    link: 'https://neostudy.neoflex.ru/',
+    name: 'neostudy.neoflex.ru',
+  },
+
+  {
+    id: 6,
+    theme: 'Neoflex',
+    header3: 'Тест по английскому',
+    link: 'https://www.ef.ru/test/',
+    name: 'ef.ru/test',
+  },
+
+  {
+    id: 6,
+    theme: 'Neoflex',
+    header3: 'Тест по английскому',
+    link: 'https://www.efset.org/ru/quick-check/',
+    name: 'efset.org/ru/quick-check',
+  },
+
+  {
+    id: 6,
+    theme: 'Neoflex',
+    header3: 'React',
+    link: 'https://ru.hexlet.io/blog/posts/react-router-v6',
+    name: 'ru.hexlet.io/blog/posts/react-router-v6',
+  },
+
   {},
 
 ];

@@ -1,0 +1,93 @@
+<h1>React</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#install">install</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://ru.legacy.reactjs.org/">ru.legacy.reactjs.org</a> Этот сайт больше не обновляется. Перейдите на react.dev</p>
+  <p><a href="https://react.dev/">react.dev</a> The library for web and native user interfaces</p>
+  <p><a href="https://create-react-app.dev/">https://create-react-app.dev</a> Set up a modern web app by running one command</p>
+  <p><a href="https://npmjs.com/package/create-react-app/">https://npmjs.com/package/create-react-app</a></p>
+  <p><a href="https://max-frontend.gitbook.io/react-course-ru/">https://max-frontend.gitbook.io/react-course-ru/</a> Максим Пацианский 2016</p>
+  <p><a href="https://max-frontend.gitbook.io/react-course-ru-v2/">https://max-frontend.gitbook.io/react-course-ru-v2/</a> Максим Пацианский 2018</p>
+  <p><a href="https://metanit.com/web/react/">metanit.com/web/react</a> Руководство по React (Последнее обновление: 29.10.2022)</p>
+  <p><a href="https://metanit.com/web/react/2.1.php">metanit.com/web/react/2.1.php</a> Читаю Глава 2 Основы React Рендеринг элементов</p>
+
+  <h3>Статьи на habr</h3>
+
+  <p><a href="https://habr.com/ru/post/544046/">Разрабатываем чат на React с использованием Socket.IO (2021-02-25)</a></p>
+
+  <h3>Статьи</h3>
+
+  <p><a href="https://gcoder.ru/kak-izuchit-react-v-2021-7-neobhodimyh-navykov/">https://gcoder.ru/</a> КАК ИЗУЧИТЬ REACT В 2021: 7 НЕОБХОДИМЫХ НАВЫКОВ (2021-01-12)</p>
+</article>
+
+
+<!-- About React -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>About React</h2>
+
+  <p>React (иногда React.js или ReactJS) — JavaScript-библиотека с открытым исходным кодом для разработки пользовательских интерфейсов. React разрабатывается и поддерживается Facebook, Instagram и сообществом отдельных разработчиков и корпораций. React может использоваться для разработки одностраничных и мобильных приложений. Его цель — предоставить высокую скорость разработки, простоту и масштабируемость. В качестве библиотеки для разработки пользовательских интерфейсов React часто используется с другими библиотеками, такими как MobX, Redux и GraphQL.</p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>install</h2>
+
+  <p>Рассмотрим два варианта установки и работы с React</p>
+
+  <h3>Вариант 1. Подключаем React на страницу index.html с помощью тега script</h3>
+  <p>На странице index.html подключаем следующие файлы
+    <code>
+      &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
+      <br>&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
+      <br>&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+    </code>
+  </p>
+  <p>Тогда index.html может выглядеть так
+    <code>
+      &lt;!DOCTYPE html&gt;
+      <br>&lt;html&gt;
+      <br>&lt;head&gt;
+      <br>&nbsp;&nbsp;&lt;meta charset="utf-8" /&gt;
+      <br>&nbsp;&nbsp;&lt;title&gt;Hello React&lt;/title&gt;
+      <br>&lt;/head&gt;
+      <br>&lt;body&gt;
+      <br>&nbsp;&nbsp;&lt;div id="app"&gt; &lt;/div&gt;                  
+      <br>&nbsp;&nbsp;&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
+      <br>&nbsp;&nbsp;&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
+      <br>&nbsp;&nbsp;&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;                  
+      <br>&nbsp;&nbsp;&lt;script type="text/babel"&gt;
+      <br>&nbsp;&nbsp;const rootNode = document.getElementById("app");
+      <br>&nbsp;&nbsp;const root = ReactDOM.createRoot(rootNode);
+      <br>&nbsp;&nbsp;root.render(
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello React&lt;/h1&gt;
+      <br>&nbsp;&nbsp;);
+      <br>&nbsp;&nbsp;&lt;/script&gt;
+      <br>&lt;/body&gt;
+      <br>&lt;/html&gt;
+    </code>
+  </p>
+</article>

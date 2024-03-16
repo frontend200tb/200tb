@@ -1,5 +1,6 @@
 import htmlPostcross from './elem-postcross.html';
 import htmlInterview from './elem-interview.html';
+import htmlTask from './elem-task.html';
 import htmlMetalampFrontend1 from './elem-metalamp-frontend1.html';
 import htmlMetalampFrontend2 from './elem-metalamp-frontend2.html';
 import htmlMetalampFrontend3 from './elem-metalamp-frontend3.html';
@@ -9,7 +10,6 @@ import htmlMetalampFaq from './elem-metalamp-faq.html';
 import htmlMetalampErrors from './elem-metalamp-errors.html';
 import htmlMetalampEmployment from './elem-metalamp-employment.html';
 import htmlMetalampIntro from './elem-metalamp-intro.html';
-import contentOrder from '../../../../js/order';
 
 // ссылки для aside menu
 export function pageLink() {
@@ -20,7 +20,14 @@ export function pageLink() {
     asideInterview.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlInterview;
-      contentOrder();
+    });
+  }
+
+  const asideTask = document.getElementById('vacancy-task');
+  if (asideTask) {
+    asideTask.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlTask;
     });
   }
 
@@ -29,7 +36,6 @@ export function pageLink() {
     asidePostcross.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlPostcross;
-      contentOrder();
     });
   }
 }

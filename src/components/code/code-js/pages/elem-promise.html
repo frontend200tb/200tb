@@ -1,0 +1,507 @@
+<h1>Промисы</h1>
+
+<article class="article">
+  <p><a href="elem-promise-tasks" class="promise-links">Задачи на Promise в JavaScript</a></p>
+</article>
+
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#problem">Какую проблему решают промисы</a></p>
+    <p><a href="#methods">Методы объекта Promise</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise">developer.mozilla.org</a> Promise</p>
+  <p><a href="https://learn.javascript.ru/promise">learn.javascript.ru/promise</a> Promise</p>
+  <p><a href="https://doka.guide/js/promise/">doka.guide/js/promise/</a> Promise</p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Промис (Promise) — специальный объект JavaScript, который используется для написания и обработки асинхронного кода.</p>
+  <p>Асинхронные функции возвращают объект Promise в качестве значения. Внутри промиса хранится результат вычисления, которое может быть уже выполнено или выполнится в будущем.</p>
+  <p>Промис может находиться в одном из трёх состояний:</p>
+  <ul>
+    <li>pending — стартовое состояние, операция стартовала;</li>
+    <li>fulfilled — получен результат;</li>
+    <li>rejected — ошибка.</li>
+  </ul>
+  <p>Поменять состояние можно только один раз: перейти из pending либо в fulfilled, либо в rejected</p>
+  <p>У промиса есть методы then() и catch(), которые позволяют использовать результат работы промиса.</p>
+
+  <h3>Как пишется</h3>
+  <p>Промис создаётся с помощью конструктора.</p>
+  <p>Если вызвать конструктор промиса без параметров то получим ошибку</p>
+  <code>new Promise(); // TypeError: Promise resolver undefined is not a function</code>
+  <p>В конструктор передаётся функция-исполнитель асинхронной операции (англ. executor).</p>
+  <code>let executor = () => {};
+  <br>let p = new Promise(executor);
+  <br>p // Promise {<pending>}</code>
+  <p>Функция executor выполняется при создании объекта промиса сразу, еще до того как конструктор вернет результат. Задача этой функции — выполнить асинхронную операцию и перевести состояние промиса в fulfilled (успех) или rejected (ошибка). Возвращаемое значение функции executor игнорируется.</p>
+  <p>Изменить состояние промиса можно, вызвав колбэки, переданные аргументами в функцию:</p>
+  <pre>const promise = new Promise(function (resolve, reject) {
+    const data = getData() // делаем асинхронную операцию: запрос в БД, API, etc.
+    resolve(data) // переводим промис в состояние fulfilled. Результатом выполнения будет объект data
+  })
+  
+  const errorPromise = new Promise(function (resolve, reject) {
+    reject(new Error('ошибка')) // переводим промис в состояние rejected. Результатом выполнения будет объект Error
+  })
+  </pre>
+  <ul>
+    <li>первый параметр (в примере кода назван resolve) — колбэк для перевода промиса в состояние fulfilled, при его вызове аргументом передаётся результат операции;</li>
+    <li>второй параметр (в примере кода назван reject) — колбэк для перевода промиса в состояние rejected, при его вызове аргументом передаётся информация об ошибке.</li>
+  </ul>
+
+  <h3>Как понять</h3>
+  <p>Промис решает задачу выполнения кода, который зависит от результата асинхронной операции.</p>
+  <p>Промис устроен таким образом, что рычаги управления его состоянием остаются у асинхронной функции. После создания, промис находится в состоянии ожидания pending. Когда асинхронная операция завершается, функция переводит промис в состояние успеха fulfilled или ошибки rejected.</p>
+  <p>С помощью методов then(), catch() и finally() мы можем реагировать на изменение состояния промиса и использовать результат его выполнения.</p>
+
+  <h3>Методы</h3>
+  <p>Существует три метода, которые позволяют работать с результатом выполнения вычисления внутри промиса:</p>
+  <ul>
+    <li>then()</li>
+    <li>catch()</li>
+    <li>finally()</li>
+  </ul>
+
+  <h3>then</h3>
+  <p>Метод then() используют, чтобы выполнить код после успешного выполнения асинхронной операции.</p>
+  <p>Например, мы запросили у сервера список фильмов и хотим отобразить их на экране, когда сервер получит результат. В этом случае:</p>
+  <ul>
+    <li>асинхронная операция — запрос данных у сервера;</li>
+    <li>код, который мы хотим выполнить после её завершения, — отрисовка списка.</li>
+  </ul>
+  <p>Метод then() принимает в качестве аргумента две функции-колбэка. Если промис в состоянии fulfilled то выполнится первая функция. Если в состоянии rejected — вторая. Хорошей практикой считается не использовать второй аргумент метода then() и обрабатывать ошибки при помощи метода catch().</p>
+  <pre>fetch(`https://swapi.dev/api/films/${id}/`).then(function (movies) {
+    renderList(movies)
+  })</pre>
+  <p>В коде выше, асинхронная функция fetch() возвращает промис, к которому применяется метод then. При его выполнении в переменной movies будет ответ сервера.</p>
+  
+  <h3>catch</h3>
+  <p>Метод catch() используют, чтобы выполнить код в случае ошибки при выполнении асинхронной операции.</p>
+  <p>Например, мы запросили у сервера список фильмов и хотим показать экран обрыва соединения, если произошла ошибка. В этом случае:</p>
+  <ul>
+    <li>асинхронная операция — запрос данных у сервера;</li>
+    <li>код, который мы хотим выполнить при ошибке — экран обрыва соединения.</li>
+  </ul>
+  <p>Метод catch() принимает в качестве аргумента функцию-колбэк, которая выполняется сразу после того, как промис поменял состояние на rejected. Параметр колбэка содержит экземпляр ошибки:</p>
+  <pre>fetch(`https://swapi.dev/api/films/${id}/`).catch(function (error) {
+    renderErrorMessage(error)
+  })</pre>
+
+  <h3>finally</h3>
+  <p>Метод finally() используют, чтобы выполнить код при завершении асинхронной операции. Он будет выполнен вне зависимости от того, была ли операция успешной или завершилась ошибкой.</p>
+  <p>Самый частый сценарий использования finally() — работа с индикаторами загрузки. Перед началом асинхронной операции разработчик включает индикатор загрузки. Индикатор нужно убрать вне зависимости от того, как завершилась операция. Если этого не сделать, то пользователь не сможет взаимодействовать с интерфейсом.</p>
+  <p>Метод finally() принимает в качестве аргумента функцию-колбэк, которая выполняется сразу после того, как промис поменял состояние на rejected или fulfilled:</p>
+  <pre>let isLoading = true
+    fetch(`https://swapi.dev/api/films/${id}/`).finally(function () {
+      isLoading = false
+    })</pre>
+</article>
+
+
+<!-- Какую проблему решают промисы -->
+<article class="article">
+  <div class="anchor" id="problem"></div>
+  <h2>Какую проблему решают промисы</h2>
+  <p>Разберем проблему, которая была до появления промисов.</p>
+  <p>Допустим, нам нужно сделать три запроса на получение данных, где каждый последующий зависит от предыдущих.</p>
+<pre>const url1 = 'https://api.ru/name';
+const url2 = 'https://api.ru/adress';
+const url3 = 'https://api.ru/phone';</pre>
+<p>Рассмотрим функцию request которая позволит нам делать эти запросы. Наша функция request принимает три параметра:</p> 
+  <ol>
+    <li>url типа строка, это ссылка по которой надо сделать запрос</li>
+    <li>success - это callback-функция, которая будет обрабатывать положительный результат</li>
+    <li>error - это callback-функция, которая будет обрабатывать ошибку</li>
+  </ol>
+<pre>function request(url, success, error) {
+
+  // создаем объект встроенного в браузер класса XMLHttpRequest
+  const xhr = new XMLHttpRequest(); 
+
+  xhr.open('GET', url); // инициализация запроса (async)
+  xhr.send(); // отправка запроса
+
+  // функция, которая обработает положительный результат
+  // когда-то в будущем
+  xhr.onload = () => { 
+    if (xhr.status !== 200) {
+      return xhr.statusText;
+    } else {
+      const result = JSON.parse(xhr.response).data[0];
+      success(result);
+    }
+  };
+
+  // функция, которая обработает ошибку
+  // когда-то в будущем, если не придет результат
+  xhr.onerror = () => {
+    const e = new Error('Failed request');
+    error(e);
+  };
+}</pre>
+  <p>Создадим функцию getInfo, которая сделает запрос по первому url</p>
+<pre>function getInfo() {
+  request(url1, 
+    (result) => {
+      console.log(result);
+    }, 
+    (err) => {
+      console.error(err);
+    }
+  );
+}</pre>
+  <p>Модифицируем функцию getInfo так, чтобы в случае успеха, она производила второй запрос по второму url</p>
+<pre>function getInfo() {
+  request(url1, 
+    (result) => {
+      console.log(result);
+
+      request(url2, 
+      (result2) => {
+        console.log(result2);
+      }, 
+      (err2) => {
+        console.error(err2);
+      }
+    );
+  
+    }, 
+    (err) => {
+      console.error(err);
+    }
+  );
+}</pre>
+  <p>Модифицируем функцию getInfo так, чтобы в случае успеха, она производила еще и третий запрос по третьему url</p>
+<pre>function getInfo() {
+  request(url1, 
+    (result) => {
+      console.log(result);
+
+      request(url2, 
+      (result2) => {
+        console.log(result2);
+
+        request(url3, 
+        (result3) => {
+          console.log(result3);
+        }, 
+        (err3) => {
+          console.error(err3);
+        }
+  
+      }, 
+      (err2) => {
+        console.error(err2);
+      }
+    );
+  
+    }, 
+    (err) => {
+      console.error(err);
+    }
+  );
+}</pre>
+  <p>Какая проблема у функции getInfo? Как минимум, в ней большая вложенность. Это усложняет читаемость кода и сдвигает его вправо. Множеству вложенных коллбеков даже дали название callback hell (ад коллбеков). Представим что нам нужно выполнить подряд множество запросов. getUser() -> getRole() -> getToken() -> sendMessage() -> sendMessages(). Сначала получить юзера, потом его роль, потом его токен, потом отправить сообщение, потом принять все сообщения. И каждый запрос может иметь сложную логику обработки результата.</p>
+  <p>Но это не единственная проблема. Рассмотрим пример, в котором есть чужая функция someFunc, которую мы импортировали откуда-то и хотим использовать. Все что мы о ней знаем это что она ожидает в качестве аргумента какой-то callback. Нам неизвестно что она делает с этим callback-ом внутри себя. Мы не знаем как она вызывает наш callback, вызывает ли она ее синхронно или асинхронно, с какими аргументами, в каком порядке. Эту опасность называют Инверсия управления.</p>
+  <p>Промисы пришли на борьбу с функциями обратного вызова. Чтобы внести ясность и простоту в асинхронные вызовы. Промисы это механизм для более удобной работы с асинхронным кодом.</p>
+</article>
+
+
+<!-- Методы объекта Promise -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы объекта Promise</h2>
+  <ol>
+    <li>
+      <a href="#promise-all">Promise.all()</a>
+      <br>Принимает массив промисов (или перебираемый объект)
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled если все переданные промисы перешли в состояние fulfilled. Перейдет в состояние rejected если хотя бы один из переданных промисов перейдет в состояние rejected.
+    </li>
+    <li>
+      <a href="#promise-all-settled">Promise.allSettled()</a>
+      <br>Принимает массив промисов (или перебираемый объект)
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled когда все переданные промисы перешли в любое состояние fulfilled или rejected. 
+    </li>
+    <li>
+      <a href="#promise-any">Promise.any()</a>
+      <br>Принимает массив промисов (или перебираемый объект)
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled когда любой из переданных промисов перешел в состояние fulfilled. Перейдет в состояние rejected когда все переданные промисы перешли в состояние rejected
+    </li>
+    <li>
+      <a href="#promise-catch">catch()</a>
+      <br>Принимает callback-функцию (с одним параметром - информацией об ошибке), которая выполнится когда промис перейдет в состояние rejected
+      <br>Возвращает новый промис
+    </li>
+    <li>
+      <a href="#promise-finally">finally()</a>
+      <br>Принимает callback-функцию (без параметров), которая выполнится когда промис перейдет в состояние fulfilled или rejected
+      <br>Возвращает новый промис
+    </li>
+    <li>
+      <a href="#promise-race">Promise.race()</a>
+      <br>Принимает массив промисов (или перебираемый объект)
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled или rejected когда первый из переданных промисов перешел в состояние fulfilled или rejected 
+    </li>
+    <li>
+      <a href="#promise-reject">Promise.reject()</a>
+      <br>Принимает
+      <br>Возвращает
+    </li>
+    <li>
+      <a href="#promise-resolve">Promise.resolve()</a>
+      <br>Принимает
+      <br>Возвращает
+    </li>
+    <li>
+      <a href="#promise-then">then()</a>
+      <br>Принимает
+      <br>Возвращает
+    </li>
+    <li>
+      <a href="#promise-with-resolvers">Promise.withResolvers()</a>
+      <br>Принимает
+      <br>Возвращает
+    </li>
+  </ol>
+</article>
+
+
+<!-- 1. Promise.all() -->
+<article class="article">
+  <div class="anchor" id="promise-all"></div>
+  <h3>1. Метод Promise.all()</h3>
+  <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
+  <br><strong>Возвращает</strong> новый промис со статусом pending
+  <p>Новый промис перейдет в состояние fulfilled если все переданные промисы перешли в состояние fulfilled.</p>
+  <p>Новый промис перейдет в состояние rejected если хотя бы один из переданных промисов перейдет в состояние rejected.</p> 
+  <p>Его новый промис перешел в состояние fulfilled, то его результатом будет массив результатов переданных промисов, сохраняя порядок оригинального массива, но не порядок выполнения.</p>
+
+  <h3>Задачи на метод Promise.all()</h3>
+  <p>Вернуть результат когда выполнятся три промиса</p>
+<pre>const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000));
+const promise2 = new Promise(resolve => setTimeout(() => resolve(2), 2000));
+const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000));
+
+Promise.all([promise1, promise2, promise3])
+  .then(([response1, response2, response3]) => {
+    console.log(response1) // 1
+    console.log(response2) // 2
+    console.log(response3) // 3
+  })</pre>
+  <p>Если один из промисов завершился ошибкой, то и новый промис вернет ошибку</p>
+<pre>const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000));
+const promise2 = new Promise((resolve, reject) => setTimeout(() => reject('error'), 2000));
+const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000));
+
+Promise.all([promise1, promise2, promise3])
+  .then(([response1, response2, response3 ]) => {
+    console.log(response1)
+    console.log(response2)
+    console.log(response3)
+  })
+  .catch(error => {
+    console.error(error) // error
+  })</pre>
+
+  <h3>Метод Promise.all(). Особенности</h3>
+  <p>Если в Promise.all() передать не промисы, он вернёт переданные не промисы в массив результатов как есть</p>
+<pre>const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000));
+const number = 2;
+const obj = {key: 'value'};
+
+Promise.all([promise1, number, obj])
+  .then(([response1, response2, response3]) => {
+    console.log(response1)
+    // 1
+    console.log(response2)
+    // 2
+    console.log(response3.key)
+    // 'value'
+  })</pre>
+</article>
+
+
+<!-- 2. Promise.allSettled() -->
+<article class="article">
+  <div class="anchor" id="promise-all-settled"></div>
+  <h3>2. Метод Promise.allSettled()</h3>
+  <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
+  <br><strong>Возвращает</strong> новый промис со статусом pending
+  <p>Новый промис перейдет в состояние fulfilled когда все переданные промисы перешли в любое состояние fulfilled или rejected.</p>
+  <p>Его новый промис перешел в состояние fulfilled, то его результатом будет массив результатов переданных промисов, сохраняя порядок оригинального массива, но не порядок выполнения.</p>
+  <p>Если промис выполнился успешно, то его результатом будет объект с двумя свойствами — status и value. status будет содержать строку 'fulfilled', а value — значение, которое передали при вызове resolve у промиса.</p>
+  <p>Если промис выполнился с отказом, то его результатом будет объект с двумя свойствами — status и reason. status будет содержать строку 'rejected', а reason — значение, которое передали при вызове reject у промиса.</p>
+
+  <h3>Задачи на метод Promise.allSettled()</h3>
+  <p>Передадим массив промисов в Promise.allSettled(). Один из созданных промисов завершится ошибкой</p>
+<pre>const promises = [
+  new Promise(resolve => setTimeout(() => resolve(1), 3000)),
+  new Promise((resolve, reject) => setTimeout(() => reject('error'), 2000)),
+  new Promise(resolve => setTimeout(() => resolve(3), 1000))
+]
+
+Promise.allSettled(promises)
+  .then(([response1, response2, response3]) => {
+    console.log(response1)
+    // { status: 'fulfilled', value: 1 }
+    console.log(response2)
+    // { status: 'rejected', reason: 'error' }
+    console.log(response3)
+    // { status: 'fulfilled', value: 3 }
+})</pre>
+</article>
+
+
+<!-- 3. Promise.any() -->
+<article class="article">
+  <div class="anchor" id="promise-any"></div>
+  <h3>3. Метод Promise.any()</h3>
+  <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
+  <br><strong>Возвращает</strong> новый промис со статусом pending
+  <p>Перейдет в состояние fulfilled любой из переданных промисов перешел в состояние fulfilled.</p>
+  <p>Перейдет в состояние rejected когда все переданные промисы перешли в состояние rejected</p>
+  <p>Возвращает значение первого успешно выполнившегося промиса.</p>
+  <p>Метод полезен, когда нужно вернуть первый исполненный промис. После того как один из промисов будет исполнен, метод не будет дожидаться исполнения остальных</p>
+  <p>Метод будет игнорировать исполнение промисов с ошибкой(rejection) вплоть до первого исполненного успешно (fulfilment).</p>
+
+  <h3>Задачи на метод Promise.any()</h3>
+  <p>Из двух промисов вернуть тот, что исполнится раньше</p>
+<pre>const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000));
+const promise2 = new Promise(resolve => setTimeout(() => resolve(2), 1000));
+
+Promise.any([promise1, promise2])
+  .then((result) => {
+    console.log(result); // 2
+  })</pre>
+
+  <p>Метод Promise.any() завершится с ошибкой, если все переданные промисы завершатся с ошибкой</p>
+<pre>const promise1 = new Promise((resolve, reject) => setTimeout(() => reject('error1'), 5000));
+const promise2 = new Promise((resolve, reject) => setTimeout(() => reject('error2'), 1000));
+
+Promise.any([promise1, promise2])
+  .then((result) => {
+    console.log(result)
+  })
+  .catch(error => {
+    console.error(error)
+    // AggregateError: All promises were rejected
+  })</pre>
+
+  <h3>Метод Promise.any(). Особенности</h3>
+  <p>Если передать пустой массив, то обработчик then() будет пропущен, а выполится обработчик catch()</p>
+<pre>Promise.any([])
+  .then((result) => {
+    console.log(result)
+  })
+  .catch(error => {
+    console.error(error)
+  })</pre>
+</article>
+
+
+<!-- 4. catch() -->
+<article class="article">
+  <div class="anchor" id="promise-catch"></div>
+  <h3>4. Метод catch()</h3>
+  <br><strong>Принимает</strong> callback-функцию (с одним параметром - информацией об ошибке), которая выполнится когда промис перейдет в состояние rejected
+  <br><strong>Возвращает</strong> новый промис
+
+  <h3>Задачи на метод catch()</h3>
+<pre>getPasswords() // асинхронная функция, которая возвращает промис
+  .then(function (result) {
+    // выполнится, если операция успешна
+  })
+  .catch(function (err) {
+    // колбэк выполнится, если getPassword завершится ошибкой
+    alert(err.message)
+  })</pre>
+</article>
+
+
+<!-- 5. finally() -->
+<article class="article">
+  <div class="anchor" id="promise-finally"></div>
+  <h3>5. Метод finally()</h3>
+  <strong>Появился</strong> в es2018
+  <br><strong>Принимает</strong> callback-функцию (без параметров), которая выполнится когда промис перейдет в состояние fulfilled или rejected
+  <br><strong>Возвращает</strong> новый промис
+  <p>finally() выполняет переданный ему колбэк независимо от того, как завершилась асинхронная операция.</p>
+  <p>Метод используют для того, чтобы избежать повторения кода между then() и catch(). Обычно такой код занимается уборкой после операции — скрывает индикаторы загрузки, закрывает меню и т.д.</p>
+  <p>Колбэк у finally() не содержит параметров. Это следствие того, что колбэк будет вызван как при успехе, так и при ошибке.</p>
+</article>
+
+
+<!-- 6. Promise.race() -->
+<article class="article">
+  <div class="anchor" id="promise-race"></div>
+  <h3>6. Метод Promise.race()</h3>
+  <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
+  <br><strong>Возвращает</strong> новый промис со статусом pending. Перейдет в состояние fulfilled или rejected когда первый из переданных промисов перешел в состояние fulfilled или rejected
+  <p>Метод Promise.race() используют, чтобы запустить несколько промисов и дождаться того, который выполнится быстрее.</p>
+
+  <h3>Задачи на метод Promise.race()</h3>
+  <p>Вернем первый промис, который завершится успешно</p>
+<pre>const slow = new Promise(resolve => setTimeout(() => resolve(1), 6000));
+const fast = new Promise(resolve => setTimeout(() => resolve(2), 3000));
+const theFastest = new Promise(resolve => setTimeout(() => resolve(3), 1000));
+
+Promise.race([slow, fast, theFastest])
+  .then((value) => {
+    console.log(value)
+    // 3
+  })</pre>
+</article>
+
+
+<!-- 7. Promise.reject() -->
+<article class="article">
+  <div class="anchor" id="promise-reject"></div>
+  <h3>7. Метод Promise.reject()</h3>
+</article>
+
+
+<!-- 8. Promise.resolve() -->
+<article class="article">
+  <div class="anchor" id="promise-resolve"></div>
+  <h3>8. Метод Promise.resolve()</h3>
+</article>
+
+
+<!-- 9. then() -->
+<article class="article">
+  <div class="anchor" id="promise-then"></div>
+  <h3>9. Метод then()</h3>
+</article>
+
+
+<!-- 10. Promise.withResolvers() -->
+<article class="article">
+  <div class="anchor" id="promise-with-resolvers"></div>
+  <h3>10. Метод Promise.withResolvers()</h3>
+</article>

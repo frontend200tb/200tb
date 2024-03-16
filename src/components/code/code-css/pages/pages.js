@@ -2,12 +2,16 @@
 Скрипт из файла page.js
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
-import htmlCodeCss from './elem-code-css.html';
-import htmlCodeCssSel from './elem-code-css-sel.html';
+import htmlCss from './elem-css.html';
+import htmlSel from './elem-sel.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
-  const asideCss = [htmlCodeCss, htmlCodeCssSel];  
+  const aside = [
+    htmlCss,
+    htmlSel
+  ];  
+  
   const currentContent = document.querySelector('#code');
   const asideItems = document.querySelectorAll('.aside a');
 
@@ -18,7 +22,7 @@ export default function pageLink() {
   function createAsideMenu(elem, index) {
     elem.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = asideCss[index];
+      currentContent.innerHTML = aside[index];
     });
   }
 }

@@ -1,37 +1,30 @@
-import contentOrder from '../../../../js/order';
-import htmlNodeAngular from './elem-node-angular.html';
-import htmlNodeReact from './elem-node-react.html';
-import htmlNodeVue from './elem-node-vue.html';
-
+/*
+Скрипт из файла page.js
+Функция pageLink вешает обработчик клика на элементы asideMenu
+*/
+import htmlAngular from './elem-angular.html';
+import htmlReact from './elem-react.html';
+import htmlVue from './elem-vue.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
+  const aside = [
+    htmlAngular,
+    htmlReact,
+    htmlVue,
+  ];
+  
   const currentContent = document.querySelector('#framework');
+  const asideItems = document.querySelectorAll('.aside a');
 
-  const asideAngular = document.getElementById('framework-angular');
-  if (asideAngular) {
-    asideAngular.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlNodeAngular;
-      contentOrder();
-    });
-  }
+  asideItems.forEach((elem, index) => {
+    createAsideMenu(elem, index);
+  })
 
-  const asideReact = document.getElementById('framework-react');
-  if (asideReact) {
-    asideReact.addEventListener('click', (e) => {
+  function createAsideMenu(elem, index) {
+    elem.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = htmlNodeReact;
-      contentOrder();
-    });
-  }
-
-  const asideVue = document.getElementById('framework-vue');
-  if (asideVue) {
-    asideVue.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlNodeVue;
-      contentOrder();
+      currentContent.innerHTML = aside[index];
     });
   }
 }

@@ -7,7 +7,7 @@ class FrontFramework extends HTMLElement {
     this.innerHTML = `
     <section class="main__aside">
       <aside class="aside"></aside>
-      <main class="list" id="framework"></main>
+      <main class="main" id="framework"></main>
     </section>
     `;
     this.className = 'front-framework';

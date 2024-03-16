@@ -76,6 +76,11 @@ import htmlRsTestTsAdvanced from './rs-test/rs-test-tsadvanced.html';
 import htmlRsTestCodereview from './rs-test/rs-test-codereview.html';
 import htmlRsTestSpa from './rs-test/rs-test-spa.html';
 import htmlRsTestWebstorage from './rs-test/rs-test-webstorage.html';
+import htmlRsTestFp from './rs-test/rs-test-fp.html';
+
+// Neoflex test
+import htmlNftest from './neoflex/nf-test.html';
+import htmlEftest1 from './neoflex/ef-test1.html';
 
 // Создаем массив страниц с Aside меню
 const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
@@ -95,6 +100,9 @@ htmlDsrWshop6];
 // Создаем массив страниц с экзаменом DSR
 const htmlDsrExams = [htmlDsrExam];
 
+// Создаем массив страниц с тестом Neoflex
+const htmlNeoflex = [htmlNftest, htmlEftest1];
+
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
 htmlRsTestJsBasics, htmlRsTestJsTypes, htmlRsTestJsScope, htmlRsTestJsEvolution,
@@ -105,117 +113,32 @@ htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
 htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
 htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
 htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
-htmlRsTestWebstorage];
+htmlRsTestWebstorage, htmlRsTestFp];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
   const currentContent = document.querySelector('#edu');
 
-  const asideCourses = document.getElementById('edu-courses');
-  if (asideCourses) {
-    asideCourses.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduCourses;
-    });
-  }
+  // собрать все ссылки в aside menu
+  const asideItems = document.querySelectorAll('.aside a');
 
-  const asideCourseslearned = document.getElementById('edu-courseslearned');
-  if (asideCourseslearned) {
-    asideCourseslearned.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduCoursesLearned;
-    });
-  }
-
-  const asideLearning = document.getElementById('edu-learning');
-  if (asideLearning) {
-    asideLearning.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduLearning;
-    });
-  }
-
-  const asideRss = document.getElementById('edu-rsschool');
-  if (asideRss) {
-    asideRss.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss;
-    });
-  }
-
-  const asideRss2022stage0 = document.getElementById('edu-rss2022stage0');
-  if (asideRss2022stage0) {
-    asideRss2022stage0.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2022stage0;
-    });
-  }
-
-  const asideRss2022stage1 = document.getElementById('edu-rss2022stage1');
-  if (asideRss2022stage1) {
-    asideRss2022stage1.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2022stage1;
-    });
-  }
-
-  const asideRss2022stage3Angular = document.getElementById('edu-rss2022stage3angular');
-  if (asideRss2022stage3Angular) {
-    asideRss2022stage3Angular.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2022stage3;
-    });
-  }
-
-  const asideRss2023stage0 = document.getElementById('edu-rss2023stage0');
-  if (asideRss2023stage0) {
-    asideRss2023stage0.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2023stage0;
-    });
-  }
-
-  const asideRss2023stage1 = document.getElementById('edu-rss2023stage1');
-  if (asideRss2023stage1) {
-    asideRss2023stage1.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2023stage1;
-    });
-  }
-
-  const asideRss2024stage2 = document.getElementById('edu-rss2024stage2');
-  if (asideRss2024stage2) {
-    asideRss2024stage2.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduRss2024stage2;
-    });
-  }
-
-  const asideDsr2023net = document.getElementById('edu-dsr2023net');
-  if (asideDsr2023net) {
-    asideDsr2023net.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduDsr2023net;
-      dsrLinks();
-    });
-  }
-
-  const asideQuiz = document.getElementById('edu-quiz');
-  if (asideQuiz) {
-    asideQuiz.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduQuiz;
-      rain();
-      quizLinks();
-    });
-  }
-
-  const asideJsExamples = document.getElementById('edu-jsexamples');
-  if (asideJsExamples) {
-    asideJsExamples.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlEduJsExamples;
-    });
+  // если ссылки в aside menu есть, то по клику показывать нужную страницу
+  if (asideItems) {
+    asideItems.forEach((elem, index) => {
+      elem.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentContent.innerHTML = htmlPages[index];
+        switch (htmlPages[index]) {
+          case htmlEduDsr2023net:
+            dsrLinks();
+            break;
+          case htmlEduQuiz:
+            rain();
+            quizLinks();
+            break;
+        }
+      });
+    })
   }
 }
 
@@ -285,6 +208,19 @@ function quizLinks() {
         e.preventDefault();
         if (htmlDsrExams[i]) {
           currentContent.innerHTML = htmlDsrExams[i];
+          backToQuiz();
+        }
+      });
+    }
+  }
+
+  const neoflexTest = document.querySelectorAll('.neoflex-test');
+  if (neoflexTest) {
+    for (let i = 0; i < neoflexTest.length; i++) {
+      neoflexTest[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (htmlNeoflex[i]) {
+          currentContent.innerHTML = htmlNeoflex[i];
           backToQuiz();
         }
       });

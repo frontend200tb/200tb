@@ -20,7 +20,7 @@ import './element-front-base';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Structure', 'Algorithm', 'Principle', 'Pattern'];
+const asideThemes = ['Structure', 'Algorithm', 'Principle', 'Pattern', 'OOP', 'FP'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

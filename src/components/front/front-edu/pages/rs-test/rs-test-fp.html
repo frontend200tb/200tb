@@ -1,0 +1,432 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] Functional Programming</h1>
+
+  <strong>33 вопроса. Выполнил на 85 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Can a named IIFE be invoked again after execution? (checkbox)</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Characteristics of functions as first-class entities: (checkbox)</h3>
+  <ul>
+    <li><strong>can be passed as arguments to other functions</strong></li>
+    <li>can produce side effects</li>
+    <li><strong>can be stored in a variable</strong></li>
+    <li><strong>can be returned from a function as a result of other functions</strong></li>
+    <li><strong>can be stored in an object or an array</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Choose the correct statement:</h3>
+  <ul>
+    <li><strong>recursion takes way more memory than a loop</strong></li>
+    <li>loop can be used in functional programming because it's imperative</li>
+    <li>it's easier to iterate over nested data structures, such as file directories, with loop rather than with recursion</li>
+    <li>it's more difficult to debug recursion rather than a loop</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Choose the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>imperative approach - programming style describing how to achieve the desired result</strong></li>
+    <li>imperative approach - programming style describing what exact result is needed</li>
+    <li>declarative approach - programming style describing how to achieve the desired result</li>
+    <li><strong>declarative approach - programming style describing what exact result is needed</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Closure is (checkbox)</h3>
+  <ul>
+    <li><strong>a function that remembers its outer variables and can access them</strong></li>
+    <li><strong>an inner function that has access to an outer function's scoped variables, even after the outer function has returned</strong></li>
+    <li>a function that has access only to the global variables, not to the outer ones</li>
+    <li>a function that runs as soon as it's defined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Currying: (checkbox)</h3>
+  <ul>
+    <li>used only in JavaScript</li>
+    <li><strong>transforms a function with multiple arguments into a series of function calls, each handling a single argument</strong></li>
+    <li>a special function call</li>
+    <li>suitable for functions with an unlimited number of arguments</li>
+    <li>a famous dish of Indian cuisine</li>
+    <li><strong>allows to get partials</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Currying example:</h3>
+  <ul>
+    <li>test(a,b,c)</li>
+    <li><strong>test(a)(b)(c)</strong></li>
+    <li>test((a),(b),(c))</li>
+    <li>test(a(b(c)))</li>
+    <li>test(test(a)test(b)test(c))</li>
+    <li>test(a, test(b, test(c, test(d, 1))))</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Function new Date(): (checkbox)</h3>
+  <ul>
+    <li>higher-order function</li>
+    <li>pure function</li>
+    <li><strong>first-class entity</strong></li>
+    <li><strong>function with side effects</strong></li>
+  </ul>
+</article>
+
+
+
+<article class="article">
+  <h3>9. Higher-order function -</h3>
+  <ul>
+    <li>a function that takes another function as an argument</li>
+    <li>a function returning another function</li>
+    <li>a function that takes and returns another function</li>
+    <li><strong>a function that takes or returns another function</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. How to create a modified copy of an object for further mutation ? (checkbox)</h3>
+  <ul>
+    <li>using Object.assign</li>
+    <li>using Object.clone</li>
+    <li>using Object.is</li>
+    <li><strong>using _.cloneDeep(obj) method of the lodash library</strong></li>
+    <li>using Spread operator</li>
+    <li>using Elvis operator</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. How to make an object immutable in JS?</h3>
+  <ul>
+    <li>Object.is()</li>
+    <li>Object.assign()</li>
+    <li><strong>Object.freeze()</strong></li>
+    <li>to declare using const</li>
+    <li>to declare with const and to use 'as const'</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. Immutability is the concept that: (checkbox)</h3>
+<ul>
+  <li>data or objects can be changed after their creation</li>
+  <li><strong>data or objects cannot be changed after they are created</strong></li>
+  <li><strong>only pure functions must be used in functional programming</strong></li>
+  <li>not only pure functions can be used in functional programming</li>
+</ul>
+</article>
+
+
+<article class="article">
+  <h3>13. Is it true that memoization is a type of caching?</h3>
+  <ul>
+    <li><strong>true</strong></li>
+    <li>false</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Is Math.random() a pure function?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Is the call for test function: test(6)(5)(4)(4); - function composition?</h3>
+  <ul>
+    <li>true</li>
+    <li><strong>false</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Is the call for test function: test(6, test(5, test(4, 4))); - function composition?</h3>
+  <ul>
+    <li><strong>true</strong></li>
+    <li>false</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Is the following true: Function composition - the application of one function to the result of another?</h3>
+  <ul>
+    <li><strong>true</strong></li>
+    <li>false</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Is the following true, that a recursive data structure – is a structure, which repeats itself in it's parts?</h3>
+  <ul>
+    <li><strong>true</strong></li>
+    <li>false</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. Is the following true: the more memoized functions are used in an application - the better for the application's readability and optimization, as well as for the code quality?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. Is the function pure? const cubeVolume = (a) => a**3;</h3>
+  <ul>
+    <li><strong>yes</strong></li>
+    <li>no</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. JS is considered as:</h3>
+<ul>
+  <li>language with imperative programming style</li>
+  <li>language with declarative programming style</li>
+  <li><strong>supporting both imperative and declarative paradigms</strong></li>
+</ul>
+</article>
+
+
+<article class="article">
+  <h3>22. Memoization -</h3>
+  <ul>
+    <li>the concept where data store (state) is used to store values</li>
+    <li><strong>a function that is able to remember previously computed results or values to prevent unnecessary computation by caching the computed results</strong></li>
+    <li>a function that is called or executed right after being created or declared</li>
+    <li>a function that returns another function or takes another function as an argument</li>
+    <li>a function which call is deferred to the future</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. Memoization returns the cached result from the memory when the same inputs occur again (that's why it's necessary for such a function to be pure).</h3>
+  <ul>
+    <li><strong>true</strong></li>
+    <li>false</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. Partial application:</h3>
+  <ul>
+    <li>is the same as currying</li>
+    <li><strong>taking a function with multiple arguments, fixing some of those arguments and producing a function which takes fewer arguments</strong></li>
+    <li>using functions with side effects</li>
+    <li>using functions with closures</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. Pick the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>primitive types in JS are immutable</strong></li>
+    <li>primitive types in JS are mutable</li>
+    <li>reference types in JS are immutable</li>
+    <li><strong>reference types in JS are mutable</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. Pure function: (checkbox)</h3>
+  <ul>
+    <li><strong>is deterministic</strong></li>
+    <li><strong>has no side effects</strong></li>
+    <li>does not exist in JS</li>
+    <li><strong>must take arguments on the input</strong></li>
+    <li>can modify external variables</li>
+    <li>output depends on the number of calls</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Recursion:</h3>
+  <ul>
+    <li>a function that takes another function</li>
+    <li>a function that returns another function</li>
+    <li><strong>a function that calls itself</strong></li>
+    <li>a function that calls another function</li>
+    <li>a function that takes itself as an argument</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. Recursive data structures:</h3>
+  <ul>
+    <li><strong>binary tree, tree, linked list</strong></li>
+    <li>linked list</li>
+    <li>binary tree and linked list</li>
+    <li>tree</li>
+    <li>binary tree</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Select an array's higher-order function: (checkbox)</h3>
+  <ul>
+    <li><strong>.map()</strong></li>
+    <li>.toString()</li>
+    <li>.fill()</li>
+    <li><strong>.find()</strong></li>
+    <li><strong>.flatMap()</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. The execution order is...</h3>
+  <ul>
+    <li><strong>from the innermost function to the outermost</strong></li>
+    <li>from the outermost function to the innermost</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. The following code is the example of: (checkbox)</h3>
+  <pre>function cookPie(x) {
+    return function (y) {
+      return `serve ${x + y}`;
+    };
+  }
+
+  const cherryPie = cookPie("cherry");
+  console.log(cherryPie("Pie"));</pre>
+  <ul>
+    <li>memoization</li>
+    <li>new Function</li>
+    <li>IIFE</li>
+    <li><strong>partial application</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. The following code is the example of: (checkbox)</h3>
+  <pre>((a, b) => {
+    const result = a + b;
+    console.log(`${a} + ${b} = ${result}`);
+  })(2, 3);</pre>
+  <ul>
+    <li>function composition</li>
+    <li>memoization</li>
+    <li><strong>IIFE</strong></li>
+    <li>new Function</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. The most typical side effects are: (checkbox)</h3>
+  <ul>
+    <li><strong>changing the file system (i.e. writing to files)</strong></li>
+    <li><strong>mutating the parameters that are passed as arguments</strong></li>
+    <li><strong>modifying external/global variables</strong></li>
+    <li><strong>interacting with the I/O</strong></li>
+    <li><strong>using console.log()</strong></li>
+    <li><strong>performing HTTP calls</strong></li>
+    <li>race conditions</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>34. The variable const obj = { ... } is:</h3>
+  <ul>
+    <li>immutable</li>
+    <li>partially immutable</li>
+    <li><strong>mutable</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>35. Ways of implementing partial application: (checkbox)</h3>
+  <ul>
+    <li><strong>bind</strong></li>
+    <li><strong>currying</strong></li>
+    <li><strong>closure</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>36. What happens if not to take into account the Base Case condition in a recursive function? (checkbox)</h3>
+  <ul>
+    <li>nothing</li>
+    <li><strong>overflow of a call stack</strong></li>
+    <li>a function will stop after one repeated call</li>
+    <li><strong>infinite recursions</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>37. What is the basis of functional programming?</h3>
+  <ul>
+    <li>modularity</li>
+    <li><strong>pure functions</strong></li>
+    <li>parallelism</li>
+    <li>functions causing side effects</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>38. What terms are used in functional programming? (checkbox)</h3>
+  <ul>
+    <li><strong>Currying</strong></li>
+    <li><strong>Immutability</strong></li>
+    <li><strong>Pure functions</strong></li>
+    <li><strong>Memoization</strong></li>
+    <li><strong>Partial application</strong></li>
+    <li><strong>Idempotency</strong></li>
+  </ul>
+</article>

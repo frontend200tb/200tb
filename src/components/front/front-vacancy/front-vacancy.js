@@ -35,7 +35,7 @@ import createList from './js/create-list';
 const data = createData();
 
 // 2. Создаем массив asideThemes с темами из PageLink
-const asideThemes = ['Postcross', 'Interview'];
+const asideThemes = ['Postcross', 'Interview', 'Task'];
 
 export default function showFrontVacancy() {
   const currentContent = document.querySelector('#vacancy');
