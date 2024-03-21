@@ -1,0 +1,193 @@
+<h1>Задачи на Javascript</h1>
+
+<article class="article">
+  <div id="link-to-eventloop" class="btn-back">назад</div>
+</article>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">Тема 1. Область видимости. Замыкания</a></p>
+    <p><a href="#this">Тема2. Контекст (this)</a></p>
+    <p><a href="#eventloop">Тема3. Цикл событий. Event loop. Promise. setTimeout</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+</article>
+
+
+<!-- Тема 1. Область видимости. Замыкания -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>Тема 1. Область видимости. Замыкания</h2>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>let a = [];
+for (var i = 0; i &lt; 3; i ++) {
+  a.push(() => console.log('i equal:', i))
+}
+for (var j = 0; j &lt; 3; j++) {
+  a[j]()
+}</pre>
+  <p>Ответ. Переменная, объявленная через var видна за пределами блока и равна 3 после окончания первого цикла for</p>
+<pre>i equal: 3
+i equal: 3
+i equal: 3</pre>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>let a = [];
+for (let i = 0; i &lt; 3; i ++) {
+  a.push(() => console.log('i equal:', i))
+}
+for (var j = 0; j &lt; 3; j++) {
+  a[j]()
+}</pre>
+  <p>Ответ. Переменная, объявленная через let не видна за пределами блока, поэтому в созданной функции она видна через замыкание и равна 0, 1, 2 для каждой итерации первого цикла for</p>
+<pre>i equal: 0
+i equal: 1
+i equal: 2</pre>
+
+  <h3>Задача 2. Что будет в консоли?</h3>
+<pre>for (let i = []; i.length &lt; 3; i.push(1)) {
+  setTimeout(() => console.log('array i:', i), 500);
+}</pre>
+  <p>Ответ. Код внутри setTimeout выполнится после окончания цикла. Цикл закончится, когда i.length = 3, при этом i = [1, 1, 1].</p>
+<pre>array i: [ 1, 1, 1 ]
+array i: [ 1, 1, 1 ]
+array i: [ 1, 1, 1 ]</pre>
+
+  <h3>Задача 2. Что будет в консоли?</h3>
+<pre>for (let i = []; i.length &lt; 3; i.push(1)) {
+  let j = [...i];
+  setTimeout(() => console.log('array j:', j), 500);
+}</pre>
+  <p>Ответ. Код внутри setTimeout выполнится после окончания цикла. Поскольку на каждой итерации цикла создается своя переменная j, то она запоминается в callback-функции через замыкание.</p>
+<pre>array j: []
+  array j: [ 1 ]
+  array j: [ 1, 1 ]</pre>
+</article>
+
+
+<!-- Тема 2. Контекст (this) -->
+<article class="article">
+  <div class="anchor" id="this"></div>
+  <h2>Тема 2. Контекст (this)</h2>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>var spiderMan = {
+  name: 'Peter',
+  surname: 'Parker',
+  greeting: function() {
+    return 'My name is ' + this.name + ' ' + this.surname;
+  }
+}
+
+var hello = (person) => {
+  console.log('Spiderman says: ', person.greeting());
+}
+
+hello(spiderMan);</pre>
+  <p>Ответ. Функция, объявленная как function declaration сохраняет свой контекст</p>
+  <code>Spiderman says:  My name is Peter Parker</code>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>var spiderMan = {
+  name: 'Peter',
+  surname: 'Parker',
+  greeting: () => {
+    return 'My name is ' + this.name + ' ' + this.surname;
+  }
+}
+
+var hello = (person) => {
+  console.log('Spiderman says: ', person.greeting());
+}
+
+hello(spiderMan);</pre>
+  <p>Ответ. Стрелочная функция не имеет контекста и this = undefined</p>
+  <code>Spiderman says:  My name is undefined undefined</code>
+</article>
+
+
+<!-- Тема3. Цикл событий. Event loop. Promise. setTimeout -->
+<article class="article">
+  <div class="anchor" id="eventloop"></div>
+  <h2>Тема3. Цикл событий. Event loop. Promise. setTimeout</h2>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>setTimeout(() => {
+  console.log('Асинхронный код исполнился без промиса')
+}, 1000);
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('Асинхронный код исполнился в промисе');
+    resolve('result');
+  }, 2000);
+});
+
+promise
+  .then(
+    result => {
+      console.log('Fulfilled: ' + result);
+    },
+    error => {
+      console.log('Rejected: ' + error);
+    }
+  );</pre>
+  <p>Ответ</p>
+<pre>Асинхронный код исполнился без промиса
+Асинхронный код исполнился в промисе
+Fulfilled: result</pre>
+
+  <h3>Задача 2. Что будет в консоли?</h3>
+<pre>console.log('start');
+
+setTimeout(() => console.log('setTimeout executed'), 0)
+
+new Promise((resolve) => {resolve()}).then(() => console.log('Promise executed'));
+
+console.log('end');</pre>
+  <p>Ответ</p>
+<pre>start
+end
+Promise executed
+setTimeout executed</pre>
+
+  <h3>Задача 3. Что будет в консоли?</h3>
+<pre>function first() {
+  setTimeout(() => console.log('1'), 0);
+}
+
+function second() {
+  console.log('2');
+  return new Promise((res) => {
+    res();
+    console.log('3');
+  }).then(() => console.log('4'));
+}
+
+first();
+second();
+console.log('5');</pre>
+  <p>Ответ</p>
+<pre>2
+3
+5
+4
+1</pre>
+</article>

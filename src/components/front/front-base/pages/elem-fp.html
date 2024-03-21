@@ -12,6 +12,7 @@
   <div>
     <p><a href="#links">links</a></p>
     <p><a href="#about">about</a></p>
+    <p><a href="#currying">Каррирование (currying)</a></p>
     </div>
 
 </div>
@@ -34,4 +35,53 @@
 <article class="article">
   <div class="anchor" id="about"></div>
   <h2>about</h2>
+</article>
+
+
+<!-- Каррирование (currying) -->
+<article class="article">
+  <div class="anchor" id="currying"></div>
+  <h2>Каррирование (currying)</h2>
+
+  <p>Каррирование это процесс превращения функции с множественной арностью в функцию с меньшей арностью. Арность это количество аргументов фуркции.</p>
+
+  <h3>Арность?</h3>
+  <p>1 арная</p>
+  <code>function a(a) {}</code>
+  <p>2 арная</p>
+  <code>function b(a, b) {}</code>
+  <p>Частный случай это функция с арностью N-1, где N изначальное число аргументов</p>
+  <p>Пример. Обычная функция</p>
+<pre>function sum(a, b, c) {
+  return a + b + c;
+}
+
+sum(1, 2, 3); // 6</pre>
+  <p>Каррируем функцию sum</p>
+  <code>let result = curry(sum);</code>
+
+  <p>Каррирование превращает функцию sum(a, b, c) в набор функций с меньшим число параметров sum(a)(b)(c)</p>
+<pre>result(1, 2)(3); // 6
+result(1)(2)(3); // 6
+result(1)(2, 3); // 6</pre>
+  <p>Реализация каррирования для множества аргументов sum(1, 2, 3)</p>
+<pre>function curry(f) {
+  return function curried(...args) {
+    // обертка возвращающая sum1 в лексическое окружение
+    if (args.length >= f.length) {
+      // f.length = 3
+      return f.apply(this, args);
+    } else {
+      return (...args2) => {
+        return curried.apply(this, args.concat(args2)); // (1) + (2)
+      };
+    }
+  };
+}
+
+// Изолента из мира функций
+const Isolenta = curry(sum);
+const PlusTwo = Isolenta(1); // sum(1, b, c)
+
+console.log(PlusTwo(2, 3)); // 6</pre>
 </article>

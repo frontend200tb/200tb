@@ -1,7 +1,7 @@
 <h1>Промисы</h1>
 
 <article class="article">
-  <p><a href="elem-promise-tasks" class="promise-links">Задачи на Promise в JavaScript</a></p>
+  <p><a href="elem-promise-tasks" class="promise-links">Задачи на Promise</a></p>
 </article>
 
 
@@ -32,6 +32,7 @@
   <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise">developer.mozilla.org</a> Promise</p>
   <p><a href="https://learn.javascript.ru/promise">learn.javascript.ru/promise</a> Promise</p>
   <p><a href="https://doka.guide/js/promise/">doka.guide/js/promise/</a> Promise</p>
+  <p><a href="https://proghunter.ru/articles/fetch-requests-in-javascript-syntax-and-examples">proghunter.ru</a> fetch() запросы в JavaScript: отправка и обработка запросов</p>
 </article>
 
 
@@ -230,6 +231,41 @@ const url3 = 'https://api.ru/phone';</pre>
   <p>Какая проблема у функции getInfo? Как минимум, в ней большая вложенность. Это усложняет читаемость кода и сдвигает его вправо. Множеству вложенных коллбеков даже дали название callback hell (ад коллбеков). Представим что нам нужно выполнить подряд множество запросов. getUser() -> getRole() -> getToken() -> sendMessage() -> sendMessages(). Сначала получить юзера, потом его роль, потом его токен, потом отправить сообщение, потом принять все сообщения. И каждый запрос может иметь сложную логику обработки результата.</p>
   <p>Но это не единственная проблема. Рассмотрим пример, в котором есть чужая функция someFunc, которую мы импортировали откуда-то и хотим использовать. Все что мы о ней знаем это что она ожидает в качестве аргумента какой-то callback. Нам неизвестно что она делает с этим callback-ом внутри себя. Мы не знаем как она вызывает наш callback, вызывает ли она ее синхронно или асинхронно, с какими аргументами, в каком порядке. Эту опасность называют Инверсия управления.</p>
   <p>Промисы пришли на борьбу с функциями обратного вызова. Чтобы внести ясность и простоту в асинхронные вызовы. Промисы это механизм для более удобной работы с асинхронным кодом.</p>
+  <p>Теперь перепишем наш код обработки трех вызовов на промисы</p>
+<pre>function newGetInfo() {
+  return new Promise((resolve, reject) => {
+    request(
+      url1,
+      resolve,
+      reject
+    );
+  });
+}
+
+newGetInfo().then((result) => {
+  return new Promise((res, rej) => {
+    request(
+      url2,
+      res,
+      rej
+    );
+  });
+})
+.then((result2) => {
+  return new Promise((res, rej) => {
+    request(
+      url3,
+      res,
+      rej
+    );
+  });
+})
+.then((result3) => {
+  console.log(result3);
+})
+.catch((err) => {
+  console.error(err);
+});</pre>
 </article>
 
 
@@ -270,23 +306,23 @@ const url3 = 'https://api.ru/phone';</pre>
     </li>
     <li>
       <a href="#promise-reject">Promise.reject()</a>
-      <br>Принимает
-      <br>Возвращает
+      <br>Принимает причину по которой промис отклонен
+      <br>Возвращает новый промис, который отклонен по указанной причине
     </li>
     <li>
       <a href="#promise-resolve">Promise.resolve()</a>
-      <br>Принимает
-      <br>Возвращает
+      <br>Принимает результат с каким выполнится промис
+      <br>Возвращает выполненный пропис с указанным результатом
     </li>
     <li>
       <a href="#promise-then">then()</a>
-      <br>Принимает
-      <br>Возвращает
+      <br>Принимает опционально два параметра - первый это callback-функция которая вызывается если промис перешел в состояние fulfilled, второй это callback-функция которая вызывается если промис перешел в состояние rejected
+      <br>Возвращает новый промис
     </li>
     <li>
       <a href="#promise-with-resolvers">Promise.withResolvers()</a>
-      <br>Принимает
-      <br>Возвращает
+      <br>Не принимает параметры
+      <br>Возвращает новый объект, содержащий промис и функции для resolve и reject
     </li>
   </ol>
 </article>
@@ -296,6 +332,7 @@ const url3 = 'https://api.ru/phone';</pre>
 <article class="article">
   <div class="anchor" id="promise-all"></div>
   <h3>1. Метод Promise.all()</h3>
+  <strong>Появился</strong> в es2015
   <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
   <br><strong>Возвращает</strong> новый промис со статусом pending
   <p>Новый промис перейдет в состояние fulfilled если все переданные промисы перешли в состояние fulfilled.</p>
@@ -429,6 +466,7 @@ Promise.any([promise1, promise2])
 <article class="article">
   <div class="anchor" id="promise-catch"></div>
   <h3>4. Метод catch()</h3>
+  <strong>Появился</strong> в es2015
   <br><strong>Принимает</strong> callback-функцию (с одним параметром - информацией об ошибке), которая выполнится когда промис перейдет в состояние rejected
   <br><strong>Возвращает</strong> новый промис
 
@@ -448,7 +486,7 @@ Promise.any([promise1, promise2])
 <article class="article">
   <div class="anchor" id="promise-finally"></div>
   <h3>5. Метод finally()</h3>
-  <strong>Появился</strong> в es2018
+  <strong>Появился</strong> в es2015
   <br><strong>Принимает</strong> callback-функцию (без параметров), которая выполнится когда промис перейдет в состояние fulfilled или rejected
   <br><strong>Возвращает</strong> новый промис
   <p>finally() выполняет переданный ему колбэк независимо от того, как завершилась асинхронная операция.</p>
@@ -461,6 +499,7 @@ Promise.any([promise1, promise2])
 <article class="article">
   <div class="anchor" id="promise-race"></div>
   <h3>6. Метод Promise.race()</h3>
+  <strong>Появился</strong> в es2015
   <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
   <br><strong>Возвращает</strong> новый промис со статусом pending. Перейдет в состояние fulfilled или rejected когда первый из переданных промисов перешел в состояние fulfilled или rejected
   <p>Метод Promise.race() используют, чтобы запустить несколько промисов и дождаться того, который выполнится быстрее.</p>
@@ -482,14 +521,46 @@ Promise.race([slow, fast, theFastest])
 <!-- 7. Promise.reject() -->
 <article class="article">
   <div class="anchor" id="promise-reject"></div>
-  <h3>7. Метод Promise.reject()</h3>
+  <h3>7. Метод Promise.reject(error)</h3>
+  <strong>Появился</strong> в es2015
+  <br><strong>Принимает</strong> причину по которой Promise отклонен
+  <br><strong>Возвращает</strong> новый промис, который отклонен по указанной причине
+
+  <h3>Задачи на метод Promise.reject()</h3>
+  <p>Создадим промис, который должен отклониться и вернуть ошибку error</p>
+  <code>let promise = Promise.reject(error);</code>
+  <p>То же самое что и</p>
+  <code>let promise = new Promise((resolve, reject) => reject(error));</code>
+
+  <h3>Метод Promise.reject(). Особенности</h3>
+  <p>После него then() не выполняется, а выполняется catch()</p>
+<pre>Promise.reject('ошибка')
+  .then(() => console.log('все хорошо'))
+  .catch(() => console.log('все плохо')) // все плохо
+</pre>
 </article>
 
 
 <!-- 8. Promise.resolve() -->
 <article class="article">
   <div class="anchor" id="promise-resolve"></div>
-  <h3>8. Метод Promise.resolve()</h3>
+  <h3>8. Метод Promise.resolve(value)</h3>
+  <strong>Появился</strong> в es2015
+  <br><strong>Принимает</strong> результат с каким выполнится промис
+  <br><strong>Возвращает</strong> выполненный пропис с указанным результатом
+
+  <h3>Задачи на метод Promise.resolve()</h3>
+  <p>Создадим промис, который должен выполниться и вернуть результат value</p>
+  <code>let promise = Promise.resolve(value);</code>
+  <p>То же самое что и</p>
+  <code>let promise = new Promise((resolve, reject) => resolve(value));</code>
+
+  <h3>Метод Promise.resolve(). Особенности</h3>
+  <p>После него выполняется then(), а catch() не выполняется</p>
+<pre>Promise.resolve('ошибка')
+  .then(() => console.log('все хорошо')) // все хорошо
+  .catch(() => console.log('все плохо'))
+</pre>
 </article>
 
 
@@ -497,6 +568,9 @@ Promise.race([slow, fast, theFastest])
 <article class="article">
   <div class="anchor" id="promise-then"></div>
   <h3>9. Метод then()</h3>
+  <strong>Появился</strong> в es2015
+  <br><strong>Принимает</strong> опционально два параметра - первый это callback-функция которая вызывается если промис перешел в состояние fulfilled, второй это callback-функция которая вызывается если промис перешел в состояние rejected
+  <br><strong>Возвращает</strong> новый промис
 </article>
 
 
@@ -504,4 +578,17 @@ Promise.race([slow, fast, theFastest])
 <article class="article">
   <div class="anchor" id="promise-with-resolvers"></div>
   <h3>10. Метод Promise.withResolvers()</h3>
+  <br><strong>Не принимает параметры</strong>
+  <br><strong>Возвращает</strong> новый объект, содержащий промис и функции для resolve и reject
+
+  <h3>Задачи на метод Promise.withResolvers()</h3>
+  <p>Создадим объект</p>
+<pre>let resolve, reject;
+
+  const promise = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });</pre>
+  <p>Получить в отдельные переменные промис и функции для вызова resolve и reject</p>
+  <code>const { promise, resolve, reject } = Promise.withResolvers();</code>
 </article>

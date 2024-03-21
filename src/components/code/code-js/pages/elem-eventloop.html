@@ -1,0 +1,58 @@
+<h1>Event Loop</h1>
+
+<article class="article">
+  <p><a href="elem-eventloop-tasks" class="eventloop-links">Задачи на Event Loop</a></p>
+</article>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Порядок работы Event loop</p>
+  <ol>
+    <li>JS это синхронный язык программирования и выполняется в один поток, поэтому он берет из кода последовательно каждую команду и смотрит</li>
+    <li>Если это синхронная команда, то она передается в Call Stack и сразу же выполняется</li>
+    <li>Если встречается microtask, то он кладется в очередь микрозадач Microtask queue</li>
+    <li>Если встречается macrotask, то он кладется в очередь макрозадач Macrotask queue</li>
+    <li>Когда весь синхронный код выполнится, выполняется очередь микрозадач. Берется первая команда из Microtask queue, передается в Call Stack и сразу же выполняется</li>
+    <li>Когда очередь микрозадач вся выполнится, то выполняется одна задача из очереди макрозадач</li>
+  </ol>
+  <p>Микрозадачи:</p>
+  <ol>
+    <li><code>process.nextTick()</code></li>
+    <li><code>Promise callback</code></li>
+    <li><code>async functions</code></li>
+    <li><code>queueMicrotask</code></li>
+  </ol>
+  <p>Макрозадачи:</p>
+  <ol>
+    <li><code>setTimeout()</code></li>
+    <li><code>setInterval()</code></li>
+    <li><code>setImmediate()</code></li>
+  </ol>
+</article>

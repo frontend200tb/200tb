@@ -1,4 +1,4 @@
-class FrontOther extends HTMLElement {
+class FrontArticles extends HTMLElement {
   constructor() {
     super();
   }
@@ -7,11 +7,11 @@ class FrontOther extends HTMLElement {
     this.innerHTML = `
       <section class="main__aside">
         <aside class="aside"></aside>
-        <main class="list" id="other"></main>
+        <main class="main" id="articles"></main>
       </section>
     `;
-    this.className = 'front-other';
+    this.className = 'front-articles';
   }
 }
 
-customElements.define('front-other', FrontOther);
+customElements.define('front-articles', FrontArticles);

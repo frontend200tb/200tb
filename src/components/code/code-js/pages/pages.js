@@ -16,15 +16,20 @@ import htmlHistory from './elem-history.html';
 import htmlLocation from './elem-location.html';
 import htmlMath from './elem-math.html';
 import htmlPromise from './elem-promise.html';
+import htmlEventloop from './elem-eventloop.html';
 import htmlPrototype from './elem-prototype.html';
 import htmlRegexp from './elem-regexp.html';
 import htmlStorage from './elem-storage.html';
 import htmlXhr from './elem-xhr.html';
 import htmlAscii from './elem-ascii.html';
 import htmlUnicode from './elem-unicode.html';
+import htmlTask from './elem-task.html';
 
 // Promise
-import htmlPromiseTask from './elem-promise-tasks.html';
+import htmlPromiseTask from './elem-promise-task.html';
+
+// Event Loop
+import htmlEventloopTask from './elem-eventloop-task.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -40,16 +45,21 @@ const aside = [
   htmlLocation,
   htmlMath,
   htmlPromise,
+  htmlEventloop,
   htmlPrototype,
   htmlRegexp,
   htmlStorage,
   htmlXhr,
   htmlAscii,
-  htmlUnicode
+  htmlUnicode,
+  htmlTask
 ];
 
 // массив страниц со страницы Promise
 const promiseLinks = [htmlPromiseTask];
+
+// массив страниц со страницы Event Loop
+const eventloopLinks = [htmlEventloopTask];
 
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
@@ -65,8 +75,13 @@ export default function pageLink() {
       elem.addEventListener('click', (e) => {
         e.preventDefault();
         currentContent.innerHTML = aside[index];
-        if (aside[index] === htmlPromise) {
-          pageLinkPromise();
+        switch (aside[index]) {
+          case htmlPromise:
+            pageLinkPromise();
+            break;
+          case htmlEventloop:
+            pageLinkEventloop();
+            break;
         }
       });
     })
@@ -79,7 +94,7 @@ function pageLinkPromise() {
   // собрать все ссылки на странице Promise
   const linksPromise = document.querySelectorAll('.promise-links');
 
-  // если ссылке на странице Promise есть, то по клику показывать нужную страницу
+  // если ссылки на странице Promise есть, то по клику показывать нужную страницу
   if (linksPromise) {
     linksPromise.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
@@ -99,6 +114,36 @@ function backToPromise() {
       e.preventDefault();
       currentContent.innerHTML = htmlPromise;
       pageLinkPromise();
+    });
+  }
+}
+
+// Функция pageLinkEventloop вешает обработчик клика на ссылки со страницы Event Loop
+function pageLinkEventloop() {
+  const currentContent = document.querySelector('#code');
+  // собрать все ссылки на странице Event Loop
+  const linksEventloop = document.querySelectorAll('.eventloop-links');
+
+  // если ссылки на странице Event Loop есть, то по клику показывать нужную страницу
+  if (linksEventloop) {
+    linksEventloop.forEach((elem, index) => {
+      elem.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentContent.innerHTML = eventloopLinks[index];
+          backToEventloop();
+        });
+    })
+  }
+}
+
+function backToEventloop() {
+  const currentContent = document.querySelector('#code');
+  const linkToEventloop = document.getElementById('link-to-eventloop');
+  if (linkToEventloop) {
+    linkToEventloop.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlEventloop;
+      pageLinkEventloop();
     });
   }
 }

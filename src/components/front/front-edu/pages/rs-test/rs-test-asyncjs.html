@@ -1,0 +1,397 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] Async JS Test</h1>
+
+  <strong>33 вопроса. Выполнил на 79 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Can you set request headers in fetch?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Can you set response headers in fetch?</h3>
+  <ul>
+    <li>Yes</li>
+    <li><strong>No</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. How can a file be uploaded to a server? (checkbox)</h3>
+  <ul>
+    <li>Using sendFile</li>
+    <li><strong>Using fetch</strong></li>
+    <li>Using loadFile</li>
+    <li><strong>Using FormData</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. How is error handling implemented for async/await?</h3>
+  <ul>
+    <li><strong>Using try..catch</strong></li>
+    <li>Using Promise.catch</li>
+    <li>Using try..catch and Promise.catch</li>
+    <li>There are no special techniques for error handling</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Is EventTarget.addEventListener() a higher-order function?</h3>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Is it true that the .then method takes up to two arguments?</h3>
+  <ul>
+    <li><strong>Yes, and the first argument is the function to be executed if the promise is fulfilled</strong></li>
+    <li>Yes, and the second argument is the function to be executed if the promise is fulfilled</li>
+    <li>No, .then takes no arguments</li>
+    <li>No, .then takes only one argument, which is the function to be executed if the promise is fulfilled</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Select the correct statement:</h3>
+  <ul>
+    <li>The .finally method will only be called if the promise is fulfilled</li>
+    <li>The .finally method will only be called if the promise is rejected</li>
+    <li>The .finally method will only be called if the promise is neither fulfilled nor rejected</li>
+    <li><strong>The .finally method will be called regardless of whether the promise is fulfilled or rejected</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Select the correct statement about the 'state' and 'result' properties of a Promise object: (checkbox)</h3>
+  <ul>
+    <li><strong>When a Promise is "fulfilled", its result holds the resolved value</strong></li>
+    <li>The 'state' property represents the execution time of the promise</li>
+    <li>The 'result' property of a Promise object always contains the resolved value, even if the promise is rejected</li>
+    <li><strong>The 'result' property of a Promise object will be undefined if the promise is still pending</strong></li>
+    <li>The 'state' property of a Promise object can be accessed using the .state accessor.</li>
+    <li><strong>The 'result' property of a Promise object can be accessed using the .then/.catch/.finally methods</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Select the correct statement regarding 'await':</h3>
+  <ul>
+    <li>The 'await' keyword in JavaScript instructs the program to wait for the execution of a promise. Until the promise is fulfilled, the JS engine cannot perform other tasks</li>
+    <li>If 'await' is used within a function that is not declared with the 'async' keyword, it will not cause an error</li>
+    <li>You cannot use 'await' at the top level of nesting without a surrounding function body</li>
+    <li><strong>The 'await' keyword allows working with promise-compatible (thenable) objects</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li>As the name suggests, XMLHttpRequest works only with XML data type</li>
+    <li>As the name suggests, XMLHttpRequest works only with XML data type</li>
+    <li><strong>XMLHttpRequest supports http and https</strong></li>
+    <li><strong>To make a request using XMLHttpRequest, it needs to be created, initialized and then sent using the send method</strong></li>
+    <li><strong>After the server responds to a request sent using XMLHttpRequest, the result of the request can be obtained from the status, statusText, and response properties</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li>Async functions cannot be placed inside an object as methods</li>
+    <li><strong>Using async/await can help avoid using the promise chains</strong></li>
+    <li><strong>An async function can be in the form of an IIFE</strong></li>
+    <li>Arrow functions cannot be asynchronous</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>Declaring async before a function defines an asynchronous function</strong></li>
+    <li>Function expressions cannot be async</li>
+    <li><strong>After being called, a function with async returns a promise</strong></li>
+    <li>await can be used inside a function declared with function (without async), and it will not throw an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>JavaScript is single-threaded</strong></li>
+    <li><strong>Requesting and retrieving data from a database are asynchronous operations</strong></li>
+    <li><strong>Callback functions are functions that are passed as arguments when another function is called</strong></li>
+    <li>Callback functions can only be defined using function declarations</li>
+    <li>Callback functions cannot accept other callback functions</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li><strong>Promise actions go through the 'microtask queue'</strong></li>
+    <li><strong>Promise.resolve(value) creates a promise that immediately resolves with the provided value</strong></li>
+    <li><strong>Promises support chaining, allowing you to attach multiple .then() methods one after another to handle asynchronous operations sequentially</strong></li>
+    <li>The .catch() method can only be used once per promise chain</li>
+    <li>The .finally() method can only be used if a .catch() method is present</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Select the correct statements: (checkbox)</h3>
+  <ul>
+    <li>The .then() method accepts two callbacks: onFulfilled() and onRejected(). They are mandatory, and without them, there will be an error</li>
+    <li><strong>If non-function arguments are provided to .then(), they are ignored</strong></li>
+    <li>onFulfilled() and onRejected() inside the .then() method can be called multiple times</li>
+    <li><strong>The .then() method can be called multiple times</strong></li>
+    <li>Callbacks can be nested inside each other for sequential execution of operations</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Select the correct statements regarding Promise.all:</h3>
+  <ul>
+    <li><strong>It can take an array of promises and returns a new promise</strong></li>
+    <li><strong>The returned promise contains an array of the execution results of the accepted promises</strong></li>
+    <li>If any of the promises is rejected, the remaining promises will still be executed</li>
+    <li><strong>The order of the elements in the array of execution results corresponds to the order of the original promises</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Select the correct statements regarding Promise.allSettled: (checkbox)</h3>
+  <ul>
+    <li><strong>It can take an array of promises and returns a new promise</strong></li>
+    <li><strong>The returned promise contains an array of the execution results of the accepted promises</strong></li>
+    <li><strong>If any of the promises is rejected, the remaining promises will still be executed</strong></li>
+    <li><strong>The order of the elements in the array of execution results corresponds to the order of the original promises</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Select the correct statements regarding Promise.race: (checkbox)</h3>
+  <ul>
+    <li><strong>It can take an array of promises and returns a new promise</strong></li>
+    <li>The returned promise contains an array of the execution results of the accepted promises</li>
+    <li>The returned promise contains the result of the first promise passed to Promise.race</li>
+    <li><strong>The returned promise contains the result of the first promise that either fulfills or rejects among those passed to Promise.race</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. Select the method that is not available in the Promise class:</h3>
+  <ul>
+    <li>allSettled</li>
+    <li>resolve</li>
+    <li><strong>allResolved</strong></li>
+    <li>reject</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. Select the states that promises can have in JavaScript: (checkbox)</h3>
+  <ul>
+    <li><strong>fulfilled</strong></li>
+    <li><strong>rejected</strong></li>
+    <li>loading</li>
+    <li><strong>pending</strong></li>
+    <li>done</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What are functions that can accept other functions as arguments and return them called?</h3>
+  <ul>
+    <li>IIFE</li>
+    <li>Anonymous functions</li>
+    <li><strong>Higher-order functions</strong></li>
+    <li>Callback functions</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What does clearTimeout do in JavaScript?</h3>
+  <ul>
+    <li>Clears the interval between function executions</li>
+    <li>Removes all scheduled functions</li>
+    <li><strong>Cancels the execution of a scheduled function</strong></li>
+    <li>Delays the execution of a function</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What does fetch return upon execution? (checkbox)</h3>
+  <ul>
+    <li>A promise</li>
+    <li><strong>A plain object</strong></li>
+    <li><strong>An Error object</strong></li>
+    <li>Request and response state</li>
+    <li>Request body</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What does the setTimeout method do when used with a delay of 0 milliseconds?</h3>
+  <ul>
+    <li>Executes the function immediately</li>
+    <li><strong>Schedules the function to run as soon as possible, after the current script completes</strong></li>
+    <li>Delays the execution of the function indefinitely</li>
+    <li>Throws an error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What happens if the onRejected callback is not provided to the then() method?</h3>
+  <ul>
+    <li>The promise gets resolved</li>
+    <li><strong>The default thrower function is used</strong></li>
+    <li>The promise gets rejected</li>
+    <li>The promise enters a pending state</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What happens when an async function contains an await expression?</h3>
+  <ul>
+    <li>The function becomes synchronous</li>
+    <li>Execution of following statements is deferred to the next tick</li>
+    <li>The function executes all code within the same tick</li>
+    <li><strong>The main thread is immediately freed for the next task</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. What is a callback function?</h3>
+  <ul>
+    <li>A function that calls itself</li>
+    <li>A function that is invoked right after the function is loaded by the browser compiler</li>
+    <li><strong>A function passed as an argument to another function</strong></li>
+    <li>A function without a name</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. What is a Promise chain?</h3>
+  <ul>
+    <li>There is no such concept</li>
+    <li>These are chains of promises where the result is passed through the chain of .catch handlers</li>
+    <li><strong>These are chains of promises where the result is passed through the chain of .then handlers</strong></li>
+    <li>These are the results of completed promises</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. When passing a function as an argument, which syntax is correct in JavaScript?</h3>
+  <ul>
+    <li>myFunction(myCallback())</li>
+    <li>myFunction([myCallback])</li>
+    <li><strong>myFunction(myCallback)</strong></li>
+    <li>myFunction({myCallback})</li>
+    <li>myFunction(callback: myCallback)</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which method allows a function to be performed periodically after a certain time interval?</h3>
+  <ul>
+    <li>runEvery</li>
+    <li>executeAtInterval</li>
+    <li>repeatAfterDelay</li>
+    <li><strong>setInterval</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which of the following are recognized patterns or syntaxes for implementing asynchronous operations in JavaScript? (checkbox)</h3>
+  <ul>
+    <li>Loops</li>
+    <li><strong>Promises</strong></li>
+    <li><strong>async/await</strong></li>
+    <li>Conditional statements</li>
+    <li>Callbacks</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which URL schemes can be used in fetch according to the specification? (checkbox)</h3>
+  <ul>
+    <li><strong>ftp</strong></li>
+    <li>blob</li>
+    <li>about</li>
+    <li><strong>http</strong></li>
+    <li>data</li>
+    <li><strong>file</strong></li>
+    <li><strong>https</strong></li>
+    <li>local</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. Why do we use asynchronous code in JavaScript? (checkbox)</h3>
+  <ul>
+    <li><strong>To improve responsiveness and user experience by preventing blocking operations</strong></li>
+    <li>To simplify code structure and enhance readability</li>
+    <li><strong>To handle time-consuming tasks such as network requests without halting the execution of other code</strong></li>
+    <li>To ensure that all code executes sequentially for better debugging</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>34. Will this code be considered a promise chain?</h3>
+<pre>new Promise(function (resolve, reject) {
+  // some code..
+})
+  .then(function (result) {
+    // some code..
+  })
+  .then(function (result) {
+    // some code..
+  });</pre>
+  <ul>
+    <li><strong>Yes</strong></li>
+    <li>No</li>
+    <li>There is an error in the code</li>
+  </ul>
+</article>

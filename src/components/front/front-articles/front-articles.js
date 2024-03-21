@@ -16,11 +16,11 @@
 6. Создадим и вызовем событие click на первом aside эелементе
 */
 
-import './element-front-other';
+import './element-front-articles';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Http', 'Websocket', 'Verdaccio', 'How ask questions', 'Articles'];
+const asideThemes = ['How ask questions', 'Articles'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

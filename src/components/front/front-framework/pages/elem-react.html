@@ -39,6 +39,7 @@
   <h3>Статьи</h3>
 
   <p><a href="https://gcoder.ru/kak-izuchit-react-v-2021-7-neobhodimyh-navykov/">https://gcoder.ru/</a> КАК ИЗУЧИТЬ REACT В 2021: 7 НЕОБХОДИМЫХ НАВЫКОВ (2021-01-12)</p>
+  <p><a href="https://ru.hexlet.io/blog/posts/react-router-v6">ru.hexlet.io</a> Маршрутизация в React Router: как она работает и почему ее выбирают разработчики (2023-02-07)</p>
 </article>
 
 
@@ -59,35 +60,35 @@
   <p>Рассмотрим два варианта установки и работы с React</p>
 
   <h3>Вариант 1. Подключаем React на страницу index.html с помощью тега script</h3>
-  <p>На странице index.html подключаем следующие файлы
-    <code>
-      &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
-      <br>&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
-      <br>&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
-    </code>
-  </p>
-  <p>Тогда index.html может выглядеть так
-    <code>
-      &lt;!DOCTYPE html&gt;
-      <br>&lt;html&gt;
-      <br>&lt;head&gt;
-      <br>&nbsp;&nbsp;&lt;meta charset="utf-8" /&gt;
-      <br>&nbsp;&nbsp;&lt;title&gt;Hello React&lt;/title&gt;
-      <br>&lt;/head&gt;
-      <br>&lt;body&gt;
-      <br>&nbsp;&nbsp;&lt;div id="app"&gt; &lt;/div&gt;                  
-      <br>&nbsp;&nbsp;&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
-      <br>&nbsp;&nbsp;&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
-      <br>&nbsp;&nbsp;&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;                  
-      <br>&nbsp;&nbsp;&lt;script type="text/babel"&gt;
-      <br>&nbsp;&nbsp;const rootNode = document.getElementById("app");
-      <br>&nbsp;&nbsp;const root = ReactDOM.createRoot(rootNode);
-      <br>&nbsp;&nbsp;root.render(
-      <br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello React&lt;/h1&gt;
-      <br>&nbsp;&nbsp;);
-      <br>&nbsp;&nbsp;&lt;/script&gt;
-      <br>&lt;/body&gt;
-      <br>&lt;/html&gt;
-    </code>
-  </p>
+
+  <p>На странице index.html подключаем следующие файлы</p>
+<pre>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
+&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</pre>
+  
+  <p>Тогда index.html может выглядеть так</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Hello React&lt;/title&gt;
+  &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
+  &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;                  
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="app"&gt; &lt;/div&gt;
+
+  &lt;script&gt;
+    const rootNode = document.getElementById("app");
+    const root = ReactDOM.createRoot(rootNode);
+    root.render(
+      &lt;h1&gt;Hello React&lt;/h1&gt;
+    );
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+  
+  <h3>Вариант 2. Подключаем React через npm</h3>
 </article>

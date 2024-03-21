@@ -62,8 +62,16 @@ const dataVacancy = [
     id: 2,
     theme: 'Vacancy',
     header3: 'Вакансии',
-    link: 'https://voronezh.hh.ru/',
-    name: 'voronezh.hh.ru',
+    link: 'https://hh.ru/',
+    name: 'hh.ru',
+  },
+
+  {
+    id: 2,
+    theme: 'Vacancy',
+    header3: 'Вакансии',
+    link: 'https://school.hh.ru/',
+    name: 'school.hh.ru',
   },
 
   {
@@ -76,6 +84,14 @@ const dataVacancy = [
 
   {
     id: 4,
+    theme: 'Vacancy',
+    header3: 'Вакансии',
+    link: 'https://getmatch.ru/',
+    name: 'getmatch.ru',
+  },
+
+  {
+    id: 5,
     theme: 'Vacancy',
     header3: 'Вакансии',
     link: 'https://www.rabota.ru/',
