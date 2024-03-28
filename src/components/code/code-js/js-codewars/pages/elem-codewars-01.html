@@ -1,0 +1,95 @@
+<h1>Codewars 1 Beginner</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">Знакомство с Codewars и алгоритмическими задачами</a></p>
+    <p><a href="#task-1">function-1-hello-world</a></p>
+    <p><a href="#task-2">quarter-of-the-year</a></p>
+    <p><a href="#task-3">capitalization-and-mutability</a></p>
+    <p><a href="#task-4">century-from-year</a></p>
+  </div>
+
+</div>
+
+<!-- Знакомство с Codewars и алгоритмическими задачами -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>Знакомство с Codewars и алгоритмическими задачами</h2>
+
+  <p>Темы:</p>
+  <ol>
+    <li>Числа</li>
+    <li>Строки</li>
+  </ol>
+  
+  <p>Ссылка на RSSchool</p>
+  <p><a href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/codewars/preschool-2022-codewars1.md">preschool-2022-codewars1</a></p>
+
+  <p>Ссылки на Codewars</p>
+  <p>8 kyu <a href="https://www.codewars.com/kata/function-1-hello-world">https://www.codewars.com/kata/function-1-hello-world</a></p>
+  <p>8 kyu <a href="https://www.codewars.com/kata/quarter-of-the-year">https://www.codewars.com/kata/quarter-of-the-year</a></p>
+  <p>8 kyu <a href="https://www.codewars.com/kata/capitalization-and-mutability">https://www.codewars.com/kata/capitalization-and-mutability</a></p>
+  <p>8 kyu <a href="https://www.codewars.com/kata/century-from-year">https://www.codewars.com/kata/century-from-year</a></p>
+</article>
+
+
+<!-- function-1-hello-world -->
+<article class="article">
+  <div class="anchor" id="task-1"></div>
+  <h2>function-1-hello-world</h2>
+
+  <p>Description</p>
+  <p>Make a simple function called greet that returns the most-famous "hello world!".</p>
+  
+  <details>
+  <summary>Solution</summary>
+<pre>function greet() {
+  return "hello world!";
+}</pre>
+  </details>
+</article>
+
+
+<!-- quarter-of-the-year -->
+<article class="article">
+  <div class="anchor" id="task-2"></div>
+  <h2>quarter-of-the-year</h2>
+
+  <p>Description</p>
+  <p>Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.</p>
+  <p>For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.</p>
+
+  <details>
+    <summary>Solution</summary>
+<pre>function quarterOf(month) {
+  return Math.ceil(month / 3);
+}</pre>
+  </details>
+</article>
+
+
+<!-- capitalization-and-mutability -->
+<article class="article">
+  <div class="anchor" id="task-3"></div>
+  <h2>capitalization-and-mutability</h2>
+
+  <p>Description</p>
+  <p>Your coworker was supposed to write a simple helper function to capitalize a string (that contains a single word) before they went on vacation.</p>
+  <p>Unfortunately, they have now left and the code they gave you doesn't work. Fix the helper function they wrote so that it works as intended (i.e. it must make the first character in the string upper case).</p>
+  <p>The string will always start with a letter and will never be empty.</p>
+
+  <details>
+    <summary>Solution</summary>
+<pre>function capitalizeWord(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}</pre>
+  </details>
+</article>

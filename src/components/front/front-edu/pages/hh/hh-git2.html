@@ -1,0 +1,154 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[hh.ru] Git продвинутый уровень</h1>
+
+  <strong>12 вопросов. Выполнил на 8 баллов из 12</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Git - это...</h3>
+  <ul>
+    <li><strong>Распределенная система контроля версий</strong></li>
+    <li>Централизованная система контроля версий</li>
+    <li>Язык программирования для управления системой контроля версий</li>
+    <li>Облачная интегрированная среда разработки</li>
+    <li>Облачное хранилище файлов</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <p>2. Вы работаете над проектом в репозитории Git с другими разработчиками. Ваша задача - добавить в проект новую функциональность и отправить ее на проверку.</p>
+  <p>Работа в команде выстроена так, что все новые функциональности создаются в отдельных ветках. Вы вносите изменения в файлы проекта, но перед этим необходимо посмотреть статус изменений. В конце работы вам необходимо сохранить все изменения в репозитории, а перед отправкой изменений вы решили обновить свою ветку с последними изменениями из основной ветки.</p>
+  <h3>Подберите наиболее корректную комбинацию команд для выполнения данных действий.</h3>
+  <ul>
+    <li><strong>git checkout -b new-feature | git status | ... | git commit -m "Added new feature" | git pull origin main</strong></li>
+    <li>git add . | ... | git status | git merge main | git pull update main</li>
+    <li>git checkout new-feature | git status | ... | git merge new-feature | git checkout main</li>
+    <li>git checkout new-feature | git add . | ... | git merge new-feature| git checkout main</li>
+    <li>git branch new-feature | ... | git commit -m "Added new feature" | git push origin new-feature | git pull origin main</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Какая последовательность действий позволит игнорировать определенные директории и файлы, чтобы они не попадали в коммиты?</h3>
+  <ul>
+    <li>Открыть файл .gitignore в любом текстовом редакторе и добавить пути к файлам/директориям, которые нужно игнорировать</li>
+    <li><strong>Создать новый файл .gitignore в корневой директории репозитория, все файлы/директории в нем будут автоматически игнорироваться</strong></li>
+    <li>Выполнить команду git ignore с указанием путей к файлам/директориям, которые нужно игнорировать</li>
+    <li>Запустить встроенный скрипт, который автоматически создаст и настроит файл .gitignore</li>
+    <li>Использовать команду git config для указания игнорируемых файлов/директорий в файле .gitignore</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Вы руководите группой разработки. Вам поручили организовать работу над командным проектом. Какой практике не стоит следовать вам и вашей команде, чтобы работать слаженно и минимизировать количество допускаемых ошибок?</h3>
+  <ul>
+    <li><strong>Использование одной общей ветки</strong></li>
+    <li>Использование pull-requests</li>
+    <li>Комментирование коммитов</li>
+    <li>Обновление локальных репозиториев</li>
+    <li>Определение четких правил ветвления</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Коллега попросил закоммитить часть кода, отвечающую за взаимодействие с серверной частью приложения. Какую команду используете в этом процессе?</h3>
+  <ul>
+    <li><strong>git stash</strong></li>
+    <li>git cherry-pick</li>
+    <li>git reset --soft</li>
+    <li>git rebase --onto</li>
+    <li>git add -p</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Вы хотите откатить последний коммит и при этом не сохранять изменения в рабочей директории. Какую команду используете?</h3>
+  <ul>
+    <li>git checkout HEAD~</li>
+    <li>git revert HEAD</li>
+    <li><strong>git reset --hard HEAD</strong></li>
+    <li>git stash</li>
+    <li>git commit --amend</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. В вашем проекте произошел конфликт изменений. Какая из команд позволит объединить изменения в одну ветку?</h3>
+  <ul>
+    <li>git commit</li>
+    <li>git pull</li>
+    <li><strong>git merge</strong></li>
+    <li>git add</li>
+    <li>git push</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <p>8. Вы решили привести в порядок историю проекта - хотите внедрить все изменения из тематичкеских веток в основную часть проекта. Вам важно провести аккуратное слияние веток и получить понятную в визуальном плане историю.</p>
+  <h3>Какой метод слияния веток будет более подходящим для данного варианта?</h3>
+  <ul>
+    <li>Использование команды git merge для объединения веток с автоматическим созданием коммита слияния</li>
+    <li>Использование команды git cherry-pick для выборочного переноса конкретных коммитов из одной ветки в другую</li>
+    <li>Создание новой ветки, копирование необходимых изменений с помощью команды git cherry-pick и последующее обновитьъединение этой ветки с орининальной</li>
+    <li><strong>Применение команды git rebase для перемещения коммитов из одной ветки в другую и создания линейной истории коммитов</strong></li>
+    <li>Выбор стратегии слияния git merge --squash чтобы объединить изменения из ветки в один коммит без истории коммитов</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Как перенести коммит из одной ветки в другую в Git?</h3>
+  <ul>
+    <li>git merge branchname</li>
+    <li>git rebase</li>
+    <li><strong>git cherry-pick commit-id</strong></li>
+    <li>git reset --hard commit-id</li>
+    <li>git rebase -i commit-id</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. Вы начали работу над учебным проектом - вы работаете над ним самостоятельно, без участия команды. Какой вариант слияния лучше подойдет для индивидуальной разработки?</h3>
+  <ul>
+    <li><strong>Merge</strong></li>
+    <li>Squash</li>
+    <li>Cherry-pick</li>
+    <li>Amend</li>
+    <li>Rebase</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Как выполнить объединение изменений в Git?</h3>
+  <ul>
+    <li>git merge branchname</li>
+    <li>git commit -m "commit message"</li>
+    <li>git checkout -b branchname</li>
+    <li><strong>git rebase -m</strong></li>
+    <li>git remote add origin https://github.com/user/my-repo.git</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вы хотите проверить новые изменения в удаленном репозитории, но не хотите загружать их на локальную машину. Какая команда поможет это сделать?</h3>
+  <ul>
+    <li>git clone</li>
+    <li>git remote update</li>
+    <li>git pull</li>
+    <li>git push</li>
+    <li><strong>git fetch</strong></li>
+  </ul>
+</article>

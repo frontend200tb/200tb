@@ -1,6 +1,7 @@
-import rain from './rain';
-import './rain.scss';
-
+/*
+Скрипт из файла page.js
+Функция pageLink вешает обработчик клика на элементы asideMenu
+*/
 // Aside
 import htmlEduRss2024stage2 from './elem-edu-rss2024-stage2.html';
 import htmlEduCourses from './elem-edu-courses.html';
@@ -79,10 +80,17 @@ import htmlRsTestWebstorage from './rs-test/rs-test-webstorage.html';
 import htmlRsTestFp from './rs-test/rs-test-fp.html';
 import htmlRsTestAsyncjs from './rs-test/rs-test-asyncjs.html';
 import htmlRsTestWebsecurity from './rs-test/rs-test-websecurity.html';
+import htmlRsTestRestful from './rs-test/rs-test-restful.html';
+import htmlRsTestEventloop from './rs-test/rs-test-eventloop.html';
 
 // Neoflex test
 import htmlNftest from './neoflex/nf-test.html';
 import htmlEftest1 from './neoflex/ef-test1.html';
+
+// hh.ru test
+import htmlHhGit1 from './hh/hh-git1.html';
+import htmlHhGit2 from './hh/hh-git2.html';
+import htmlHhEng from './hh/hh-eng.html';
 
 // Создаем массив страниц с Aside меню
 const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
@@ -96,14 +104,17 @@ htmlDsrLec4, htmlDsrLec5, htmlDsrLec6, htmlDsrLec7, htmlDsrLec8, htmlDsrLec9,
 htmlDsrLec10, htmlDsrLec11, htmlDsrLec12];
 
 // Создаем массив страниц с практикой DSR
-const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2, htmlDsrWshop3, htmlDsrWshop4, htmlDsrWshop5,
-htmlDsrWshop6];
+const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2, htmlDsrWshop3, htmlDsrWshop4,
+htmlDsrWshop5, htmlDsrWshop6];
 
 // Создаем массив страниц с экзаменом DSR
 const htmlDsrExams = [htmlDsrExam];
 
 // Создаем массив страниц с тестом Neoflex
 const htmlNeoflex = [htmlNftest, htmlEftest1];
+
+// Создаем массив страниц с тестом hh.ru
+const htmlHh = [htmlHhGit1, htmlHhGit2, htmlHhEng];
 
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
@@ -115,7 +126,8 @@ htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
 htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
 htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
 htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
-htmlRsTestWebstorage, htmlRsTestFp, htmlRsTestAsyncjs, htmlRsTestWebsecurity];
+htmlRsTestWebstorage, htmlRsTestFp, htmlRsTestAsyncjs, htmlRsTestWebsecurity,
+htmlRsTestRestful, htmlRsTestEventloop];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -135,7 +147,6 @@ export default function pageLink() {
             dsrLinks();
             break;
           case htmlEduQuiz:
-            rain();
             quizLinks();
             break;
         }
@@ -223,6 +234,19 @@ function quizLinks() {
         e.preventDefault();
         if (htmlNeoflex[i]) {
           currentContent.innerHTML = htmlNeoflex[i];
+          backToQuiz();
+        }
+      });
+    }
+  }
+
+  const hhTest = document.querySelectorAll('.hh-test');
+  if (hhTest) {
+    for (let i = 0; i < hhTest.length; i++) {
+      hhTest[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (htmlHh[i]) {
+          currentContent.innerHTML = htmlHh[i];
           backToQuiz();
         }
       });

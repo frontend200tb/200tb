@@ -5,10 +5,11 @@ class CodeJs extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside">
-      <aside class="aside"></aside>
-      <main class="main" id="code"></main>
-    </section>
+    <div class="code-js" id="code-js">
+      <h1>Справочник по JS</h1>
+      <nav class="nav" id="main-nav"></nav>
+      <div id="js"></div>
+    </div>
     `;
     this.className = 'code-js';
   }

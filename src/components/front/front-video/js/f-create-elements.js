@@ -20,7 +20,7 @@ export default function createElements(data) {
 
   const h2 = document.createElement('h2');
   const currentContent = document.createElement('ol');
-  currentContent.id = 'books';
+  currentContent.id = '';
 
   // 1. Создаем объект для main-nav, aside и main
   const elements = {};

@@ -5,25 +5,12 @@
 
 // Aside
 import htmlJs from './elem-js.html';
-import htmlNumber from './elem-number.html';
-import htmlString from './elem-string.html';
-import htmlNull from './elem-null.html';
-import htmlUndefined from './elem-undefined.html';
-import htmlObject from './elem-object.html';
-import htmlArray from './elem-array.html';
-import htmlDate from './elem-date.html';
-import htmlHistory from './elem-history.html';
-import htmlLocation from './elem-location.html';
-import htmlMath from './elem-math.html';
 import htmlPromise from './elem-promise.html';
 import htmlEventloop from './elem-eventloop.html';
 import htmlPrototype from './elem-prototype.html';
-import htmlRegexp from './elem-regexp.html';
-import htmlStorage from './elem-storage.html';
-import htmlXhr from './elem-xhr.html';
+import htmlScope from './elem-scope.html';
 import htmlAscii from './elem-ascii.html';
 import htmlUnicode from './elem-unicode.html';
-import htmlTask from './elem-task.html';
 
 // Promise
 import htmlPromiseTask from './elem-promise-task.html';
@@ -34,25 +21,12 @@ import htmlEventloopTask from './elem-eventloop-task.html';
 // массив страниц из aside menu
 const aside = [
   htmlJs,
-  htmlNumber,
-  htmlString,
-  htmlNull,
-  htmlUndefined,
-  htmlObject,
-  htmlArray,
-  htmlDate,
-  htmlHistory,
-  htmlLocation,
-  htmlMath,
   htmlPromise,
   htmlEventloop,
   htmlPrototype,
-  htmlRegexp,
-  htmlStorage,
-  htmlXhr,
+  htmlScope,
   htmlAscii,
   htmlUnicode,
-  htmlTask
 ];
 
 // массив страниц со страницы Promise
@@ -63,9 +37,9 @@ const eventloopLinks = [htmlEventloopTask];
 
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
-export default function pageLink() {  
-  const currentContent = document.querySelector('#code');
-  
+export default function pageLink() {
+  const currentContent = document.querySelector('#theory');
+
   // собрать все ссылки в aside menu
   const asideItems = document.querySelectorAll('.aside a');
 
@@ -90,7 +64,7 @@ export default function pageLink() {
 
 // Функция pageLinkPromise вешает обработчик клика на ссылки со страницы Promise
 function pageLinkPromise() {
-  const currentContent = document.querySelector('#code');
+  const currentContent = document.querySelector('#theory');
   // собрать все ссылки на странице Promise
   const linksPromise = document.querySelectorAll('.promise-links');
 
@@ -107,7 +81,7 @@ function pageLinkPromise() {
 }
 
 function backToPromise() {
-  const currentContent = document.querySelector('#code');
+  const currentContent = document.querySelector('#theory');
   const linkToPromise = document.getElementById('link-to-promise');
   if (linkToPromise) {
     linkToPromise.addEventListener('click', (e) => {
@@ -120,7 +94,7 @@ function backToPromise() {
 
 // Функция pageLinkEventloop вешает обработчик клика на ссылки со страницы Event Loop
 function pageLinkEventloop() {
-  const currentContent = document.querySelector('#code');
+  const currentContent = document.querySelector('#theory');
   // собрать все ссылки на странице Event Loop
   const linksEventloop = document.querySelectorAll('.eventloop-links');
 
@@ -137,7 +111,7 @@ function pageLinkEventloop() {
 }
 
 function backToEventloop() {
-  const currentContent = document.querySelector('#code');
+  const currentContent = document.querySelector('#theory');
   const linkToEventloop = document.getElementById('link-to-eventloop');
   if (linkToEventloop) {
     linkToEventloop.addEventListener('click', (e) => {

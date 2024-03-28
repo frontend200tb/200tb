@@ -1,0 +1,510 @@
+<h1>Number</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#create">Создание числа</a></p>
+    <p><a href="#convert">Преобразование к числу</a></p>
+    <p><a href="#properties">Свойства чисел</a></p>
+    <p><a href="#methods">Методы чисел</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number">developer.mozilla.org/Number</a></p>
+  <p><a href="https://learn.javascript.ru/number">learn.javascript.ru/number</a></p>
+  <p><a href="https://doka.guide/js/number/">doka.guide/js/number</a></p>
+  <p><a href="https://jsexpert.net/handbook/javascript/chislo-number/">jsexpert.net/handbook/javascript/chislo-number</a></p>
+  <p><a href="https://metanit.com/web/javascript/5.4.php">metanit.com объект Number</a></p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+  
+  <p>Тип данных number представляет собой число. Числа в js хранятся в 64-битном формате, который называют "числа с плавающей точкой двойной точности" (double precision floating point numbers). В рязрядах (0-51) хранится значение числа, (52-62) - положение десятичной точки, (63) - знак числа. Диапазон таких чисел от -(2<sup>53</sup>-1) до +(2<sup>53</sup>-1)</p>
+
+  <p>Кроме чисел, к типу данных number относятся также Infinity, -Infinity и NaN.</p>
+
+  <p>Большие числа можно писать слитно</p>
+  <code>let billion = 1000000000;</code>
+  <p>Можно использовать символ нижнего подчеркивания _. Это синтаксический сахар, который делает число более читабельным. Движок js попросту игнорирует _ между цифрами.</p>
+  <code>let billion = 1_000_000_000;</code>
+  <p>Записанные разным способом числа равны.</p>
+  <code>1000000000 === 1_000_000_000; // true</code>
+
+  <p>Если число большое и у него в конце есть много нулей, то можно записать такое число через символ e. Буква e умножает число на 1 с указанным количеством нулей</p>
+  <code>1000 === 1e3; // true</code>
+  <code>7300000 === 7.3e6; // true</code>
+
+  <p>Если число маленькое и у него в начале есть много нулей, то также это число можно записать через символ e, указав справа от него отрицательное число. Буква e делит число на 1 с указанным количеством нулей.</p>
+  <p>Например, запишем 1 микросекунду</p>
+  <code>0.000001 === 1e-6; // true</code>
+
+  <h3>Особенности чисел 0 и -0.</h3>
+  
+  <p>Ноль представлен двумя числами 0 и -0.</p>
+  <p>Сравнение знаком ===. Такое сравнение показывает что в js это одно и то же число.</p>
+  <code>0 === -0; // true</code>
+  <p>Сравнение через Object.is. Такое сравнение показывает что в js это разные объекты.</p>
+  <code>Object.is(0, -0); // false</code>
+  <p>0 можно получить при делении на Infinity</p>
+  <code>1 / Infinity; // 0</code>
+  <code>1 / -Infinity; // -0</code>
+
+  <h3>Особенности NaN</h3>
+
+  <p>NaN (не число) означает "что угодно, только не число"</p>
+  <p>Сравнение знаком ===. Такое сравнение показывает, что два значения не равны, потому что это "что угодно, только не число"</p>
+  <code>NaN === NaN; // false</code>
+  <p>Сравнение через Object.is. Такое сравнение показывает что в js это один объект.</p>
+  <code>Object.is(NaN, NaN); // true</code>
+
+  <h3>Особенности Infinity и -Infinity</h3>
+
+  <p>Infinity означает бесконечность, -Infinity означает минус бесконечность.</p>
+  <p>Сравнение знаком ===.</p>
+  <code>Infinity === Infinity; // true</code>
+  <p>Сравнение через Object.is.</p>
+  <code>Object.is(Infinity, Infinity); // true</code>
+  <p>Infinity можно получить при делении на 0</p>
+  <code>1 / 0; // Infinity</code>
+  <code>1 / -0; // -Infinity</code>
+</article>
+
+
+<!-- Создание числа -->
+<article class="article">
+  <div class="anchor" id="create"></div>
+  <h2>Создание числа</h2>
+
+  <p>Создать число можно тремя способами, используя</p>
+  <ol>
+    <li>
+      <h3>Литерал числа</h3>
+      <p>Этоот способ рекомендуется всегда, где это возможно</p>
+      <code>let a = 10;</code>
+    </li>
+    <li>
+      <h3>Преобразование к числу</h3>
+      <p>Когда приходят данные, например, в виде строки, а нужно получить число</p>
+      <code>+'10'; // 10</code>
+      <code>parseInt('10'); // 10</code>
+      <code>parseFloat('10'); // 10</code>
+      <code>Number('10'); // 10</code>
+    </li>
+    <li>
+      <h3>Конструктор объекта new Number()</h3>
+      <p>Этот способ не рекомендуется. При этом создаются объекты, а это ссылочный тип данных, поэтому каждый экземпляр объекта будет разным</p>
+      <code>new Number(10) === new Number(10); // false</code>
+      <code>new Number(10) == new Number(10); // false</code>
+      <code>Object.is(new Number(10), new Number(10)); // false</code>
+    </li>
+  </ol>
+
+  <p>Записать литерал числа можно тремя способами. Покажем на примере числа миллиард.</p>
+  <ol>
+    <li>
+      <h3>Обычный</h3>
+      <code>1000000000</code>
+    </li>
+    <li>
+      <h3>С символом нижнего подчеркивания _</h3>
+      <code>1_000_000_000</code>
+    </li>
+    <li>
+      <h3>С символом e</h3>
+      <code>1e9</code>
+    </li>
+  </ol>
+
+  <p>Есть четыре системы счисления, в которых можно записать литерал числа. Покажем на примере чилса 32</p>
+  <ol>
+    <li>
+      <h3>Десятичная</h3>
+      <code>32 // 32</code>
+    </li>
+    <li>
+      <h3>Двоичная</h3>
+      <code>0b100000 // 32</code>
+    </li>
+    <li>
+      <h3>Восьмеричная</h3>
+      <code>0o40 // 32</code>
+      <p>Если первая цифра 0, а следующие меньше 8, то js считает это число восьмеричным</p>
+      <code>0777 === 511; // true</code>
+      <code>0777 // 511</code>
+      <code>0778 // 778</code>
+    </li>
+    <li>
+      <h3>Шестнадцатиричная</h3>
+      <code>0x20 // 32</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Преобразование к числу -->
+<article class="article">
+  <div class="anchor" id="convert"></div>
+  <h2>Преобразование к числу</h2>
+
+  <p>Есть два вида преобразования - явное и неявное.</p> 
+  <p>Явное это когда мы сами специально преобразовываем нечисловой тип данных к числу.</p>
+  <p>Неявное преобразование к числу происходит в математических выражениях и везде, где js ожидает увидеть число.</p>
+
+  <h2>Явное преобразование к числу. Функция Number(). Оператор унарный +</h2>
+  <p>Есть два способа явно преобразовать значение к числу. Работают они одинаково</p> 
+  <ol>
+    <li>Функция Number()</li>
+    <li>Оператор унарный +</li>
+  </ol>
+  <p>Функция Number() и оператор унарный + преобразуют к числу по своим правилам для каждого типа данных.</p>
+  <ol>
+    <li>
+      <h3>Преобразование числа (тип данных number)</h3>
+      <p>Возвращается это же число</p>
+      <code>Number(10); // 10</code>
+    </li>
+    <li>
+      <h3>Преобразование строки (тип данных string)</h3>
+      <p>Если строку возможно преобразовать в число - то возвращается это число</p>
+      <code>Number('10'); // 10</code>
+      <p>Пробельные символы по краям обрезаются</p>
+      <code>Number('  10  '); // 10</code>
+      <p>Пустая строка возвращает 0</p>
+      <code>Number(''); // 0</code>
+      <p>Если строку невозможно преобразовать в число - то возвращается NaN</p>
+      <code>Number('10a'); // NaN</code>
+      <code>Number('10 5'); // NaN</code>
+      <code>Number('true'); // NaN</code>
+    </li>
+    <li>
+      <h3>Преобразование true и false (тип данных boolean)</h3>
+      <code>Number(true); // 1</code>
+      <code>Number(false); // 0</code>
+    </li>
+    <li>
+      <h3>Преобразование null (тип данных null)</h3>
+      <code>Number(null); // 0</code>
+    </li>
+    <li>
+      <h3>Преобразование undefined (тип данных undefined)</h3>
+      <code>Number(undefined); // NaN</code>
+    </li>
+    <li>
+      <h3>Преобразование типа данных bigint</h3>
+      <code>Namber(1001n); // 1001</code>
+    </li>
+    <li>
+      <h3>Преобразование типа данных symbol</h3>
+      <p>При попытки преобразовать тип данных symbol получим ошибку</p>
+      <code>Number(Symbol()); // TypeError: Cannot convert a Symbol value to a number</code>
+    </li>
+    <li>
+      <h3>Преобразование объекта</h3>
+      <p>Любой объект преобразовывается к числу NaN</p>
+      <code>Number({}); // NaN</code>
+
+      <h3>Особенности преобразования объекта</h3>
+      <p>Есть две особенности преобразования объекта</p>
+      <ol>
+        <li>
+          <h3>Преобразование массива</h3>
+          <p>Пустой массив вернет 0</p>
+          <code>Number([]); // </code>
+          <p>Если в массиве один элемент, то будет преобразован этот элемент</p>
+          <code>Number(['  10  ']); // 10</code>
+          <p>Если в массиве больше одного элемента, то вернет NaN</p>
+          <code>Number([1, 2]); // NaN</code>
+        </li>
+        <li>
+          <h3>Преобразование объекта, у которого метод valueOf() возвращает значение</h3>
+          <p>Если в объекте определен метод valueOf(), который возвращает значение, то происходит преобразование к числу этого значения</p>
+<pre>let a = {};
+a.valueOf = function() {return '  10  '};
+Number(a); // 10
+</pre>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <h2>Неявное преобразование к числу</h2>
+
+  <p>При неявном преобразовании значение сначала преобразуется в число с помощью функции Number, потом уже число подставляется в выражение.</p>
+  <p>Знаки математических операций преобразуют операнды к числу</p>
+  <code>'10' - '2'; // 8</code>
+  <code>'10' / '2'; // 5</code>
+  <code>'10' * '2'; // 20</code>
+  <code>'10' ** '2'; // 100</code>
+  <p>Объект Math ожидает в качестве параметра число</p>
+  <code>Math.round('22.4'); // 22</code>
+  <code>Math.round(''); // 0</code>
+  <code>Math.round(true); // 1</code>
+</article>
+
+
+<!-- Свойства чисел -->
+<article class="article">
+  <div class="anchor" id="properties"></div>
+  <h2>Свойства чисел</h2>
+
+  <ol>
+    <li>
+      <a href="#number-epsilon">Number.EPSILON</a>
+      <br>Примерно равно 2 в минус 52 степени
+      <br>Свойство Number.EPSILON представляет собой разницу между единицей и наименьшим значением, большим единицы, которое может быть представлено типом Number
+    </li>
+    <li>
+      <a href="#number-max-safe">Number.MAX_SAFE_INTEGER</a>
+      <br>Равно 9007199254740991 или 2<sup>53</sup> - 1
+      <br>Константа, которая представляет максимальное безопасное целое число
+    </li>
+    <li>
+      <a href="#number-max-value">Number.MAX_VALUE</a>
+      <br>Примерно равно 1.79E+308
+      <br>Свойство, которое представляет максимальное числовое значение, представимое в JavaScript. Значения, большие MAX_VALUE представляются как «бесконечность».
+    </li>
+    <li>
+      <a href="#number-min-safe">Number.MIN_SAFE_INTEGER</a>
+      <br>Равно -9007199254740991 или -2<sup>53</sup> - 1
+      <br>Константа, которая представляет минимальное безопасное целое число
+    </li>
+    <li>
+      <a href="#number-min-value">Number.MIN_VALUE</a>
+      <br>Примерно равно 5e-324
+      <br>Свойство, которое представляет минимальное положительное числовое значение, представимое в JavaScript. Значения, меньшие MIN_VALUE преобразуются в 0
+    </li>
+    <li>
+      <a href="#number-nan">Number.NaN</a>
+      <br>Эквивалентно глобальному объекту NaN
+    </li>
+    <li>
+      <a href="#number-neg-infinity">Number.NEGATIVE_INFINITY</a>
+      <br>Отрицательная бесконечность
+    </li>
+    <li>
+      <a href="#number-pos-infinity">Number.POSITIVE_INFINITY</a>
+      <br>Положительная бесконечность
+    </li>
+  </ol>
+</article>
+
+
+<!-- 1. Number.EPSILON -->
+<article class="article">
+  <div class="anchor" id="number-epsilon"></div>
+  <h3>1. Number.EPSILON</h3>
+  <br>Примерно равно 2 в минус 52 степени
+  <br>Свойство Number.EPSILON представляет собой разницу между единицей и наименьшим значением, большим единицы, которое может быть представлено типом Number
+</article>
+
+
+<!-- 2. Number.MAX_SAFE_INTEGER -->
+<article class="article">
+  <div class="anchor" id="number-max-safe"></div>
+  <h3>2. Number.MAX_SAFE_INTEGER</h3>
+  <br>Константа, равная 9007199254740991 или 2<sup>53</sup> - 1, представляет максимальное безопасное целое число
+</article>
+
+
+<!-- 3. Number.MAX_VALUE -->
+<article class="article">
+  <div class="anchor" id="number-max-value"></div>
+  <h3>3. Number.MAX_VALUE</h3>
+  <br>Примерно равно 1.79E+308
+  <br>Свойство MAX_VALUE представляет максимальное числовое значение, представимое в JavaScript. Значения, большие MAX_VALUE представляются как «бесконечность».
+</article>
+
+
+<!-- 4. Number.MIN_SAFE_INTEGER -->
+<article class="article">
+  <div class="anchor" id="number-min-safe"></div>
+  <h3>4. Number.MIN_SAFE_INTEGER</h3>
+  <br>Константа, равная -9007199254740991 или -2<sup>53</sup> - 1, представляет минимальное безопасное целое число
+</article>
+
+
+<!-- 5. Number.MIN_VALUE -->
+<article class="article">
+  <div class="anchor" id="number-min-value"></div>
+  <h3>5. Number.MIN_VALUE</h3>
+  <br>Примерно равно 5e-324
+  <br>Свойство, которое представляет минимальное положительное числовое значение, представимое в JavaScript. Значения, меньшие MIN_VALUE преобразуются в 0
+</article>
+
+
+<!-- 6. Number.NaN -->
+<article class="article">
+  <div class="anchor" id="number-nan"></div>
+  <h3>6. Number.NaN</h3>
+  <br>Эквивалентно глобальному объекту NaN
+  <code>Number.NaN // NaN</code>
+</article>
+
+
+<!-- 7. Number.NEGATIVE_INFINITY -->
+<article class="article">
+  <div class="anchor" id="number-neg-infinity"></div>
+  <h3>7. Number.NEGATIVE_INFINITY</h3>
+  <br>Отрицательная бесконечность
+  <code>Number.NEGATIVE_INFINITY // -Infinity</code>
+  <code>Number.NEGATIVE_INFINITY * Number.NEGATIVE_INFINITY // Infinity</code>
+  <code>Number.NEGATIVE_INFINITY * Number.POSITIVE_INFINITY // -Infinity</code>
+</article>
+
+
+<!-- 8. Number.POSITIVE_INFINITY -->
+<article class="article">
+  <div class="anchor" id="number-pos-infinity"></div>
+  <h3>8. Number.POSITIVE_INFINITY</h3>
+  <br>Положительная бесконечность
+  <code>Number.POSITIVE_INFINITY // Infinity</code>
+  <code>Number.POSITIVE_INFINITY * Number.POSITIVE_INFINITY // Infinity</code>
+</article>
+
+
+<!-- Методы чисел -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы чисел</h2>
+
+  <ol>
+    <li>
+      <a href="#number-is-finite">Number.isFinite()</a>
+      <br>Принимает значение, и проверяет является ли это значение коненым числом
+      <br>Возвращает true если передано конечное число, иначе возвращает false
+    </li>
+    <li>
+      <a href="#number-is-integer">Number.isInteger()</a>
+      <br>Принимает значение, и проверяет является ли это значение целым числом
+      <br>Возвращает true если передано целое число, иначе возвращает false
+    </li>
+    <li>
+      <a href="#number-is-nan">Number.isNaN()</a>
+      <br>Принимает значение, и проверяет является ли это значение NaN
+      <br>Возвращает true если передано число со значением NaN, иначе возвращает false
+    </li>
+    <li>
+      <a href="#number-is-safe-integer">Number.isSafeInteger()</a>
+      <br>Принимает значение, и проверяет является ли это значение безопасным целым числом
+      <br>Возвращает true если передано безопасное целое число, иначе возвращает false
+    </li>
+    <li>
+      <a href="#number-parse-float">Number.parseFloat()</a>
+    </li>
+    <li>
+      <a href="#number-parse-int">Number.parseInt()</a>
+    </li>
+    <li>
+      <a href="#number-to-exp">toExponential()</a>
+    </li>
+    <li>
+      <a href="#number-to-fixed">toFixed()</a>
+    </li>
+    <li>
+      <a href="#number-to-locale-string">toLocaleString()</a>
+    </li>
+    <li>
+      <a href="#number-to-precision">toPrecision()</a>
+    </li>
+    <li>
+      <a href="#number-to-string">toString()</a>
+    </li>
+    <li>
+      <a href="#number-value-of">valueOf()</a>
+    </li>
+  </ol>
+</article>
+  
+
+<!-- 1. Number.isFinite() -->
+<article class="article">
+  <div class="anchor" id="number-is-finite"></div>
+  <h3>1. Number.isFinite()</h3>
+  <br>Принимает значение, и проверяет является ли это значение коненым числом
+  <br>Возвращает true если передано конечное число, иначе возвращает false
+  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false
+
+  <h3>Задачи на метод Number.isFinite()</h3>
+  <code>Number.isFinite(0); // true</code>
+  <code>Number.isFinite(Infinity); // false</code>
+  <code>Number.isFinite(NaN); // false</code>
+  <code>Number.isFinite('10'); // false</code>
+</article>
+
+
+<!-- 2. Number.isInteger() -->
+<article class="article">
+  <div class="anchor" id="number-is-integer"></div>
+  <h3>2. Number.isInteger()</h3>
+  <br>Принимает значение, и проверяет является ли это значение целым числом
+  <br>Возвращает true если передано целое число, иначе возвращает false
+  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false
+
+  <h3>Задачи на метод Number.isInteger()</h3>
+  <code>Number.isInteger(0); // true</code>
+  <code>Number.isInteger(Infinity); // false</code>
+  <code>Number.isInteger(NaN); // false</code>
+  <code>Number.isInteger('10'); // false</code>
+  <p>Вещественное число с точкой</p>
+  <code>Number.isInteger(5.0); // true</code>
+  <code>Number.isInteger(5.01); // false</code>
+</article>
+
+
+<!-- 3. Number.isNaN() -->
+<article class="article">
+  <div class="anchor" id="number-is-nan"></div>
+  <h3>3. Number.isNaN()</h3>
+  <br>Принимает значение, и проверяет является ли это значение NaN
+  <br>Возвращает true если передано число со значением NaN, иначе возвращает false
+  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false
+
+  <h3>Задачи на метод Number.isNaN()</h3>
+  <p>Эти значения будут true и для проверки isNaN()</p>
+  <code>Number.isNaN(NaN); // true</code>
+  <code>Number.isNaN(Number.NaN); // true</code>
+  <code>Number.isNaN(0 / 0); // true</code>
+  <p>Эти значения будут false и для проверки isNaN()</p>
+  <code>Number.isNaN(true); // false</code>
+  <code>Number.isNaN(null); // false</code>
+  <code>Number.isNaN(37); // false</code>
+
+  <h3>Метод Number.isNaN(). Особенности</h3>
+  <p>Это более надежная версия оригинальной глобальной функции isNaN()</p>
+  <p>При использовании глобальной функции isNaN() это всё будет true</p>
+  <code>Number.isNaN("NaN"); // false</code>
+  <code>Number.isNaN(undefined); // false</code>
+  <code>Number.isNaN({}); // false</code>
+  <code>Number.isNaN("blabla"); // false</code>
+</article>
+
+
+<!-- 4. Number.isSafeInteger() -->
+<article class="article">
+  <div class="anchor" id="number-is-safe-integer"></div>
+  <h3>4. Number.isSafeInteger()</h3>
+  <br>Принимает значение, и проверяет является ли это значение безопасным целым числом
+  <br>Возвращает true если передано безопасное целое число, иначе возвращает false
+</article>
+
+

@@ -1,0 +1,488 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] RESTful API Style</h1>
+
+  <strong>33 вопроса. Выполнил на 85 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. According to REST principles, what is most likely to happen if you send a DELETE request to http://www.example.com/users with an id request body?</h3>
+  <ul>
+    <li><strong>deletion of one user with the specified id from the database</strong></li>
+    <li>deletion of the first user from the database</li>
+    <li>deletion of all users from the database</li>
+    <li>deletion of the last user from the database</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. According to REST principles, what is most likely to happen if you send a POST request to http://www.example.com/users with a request body?</h3>
+  <ul>
+    <li>the current user will be deleted</li>
+    <li>the current user will be modified</li>
+    <li><strong>a new user will be created</strong></li>
+    <li>the API will return all users</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. According to REST principles, what is the most likely response an API will return if you send a GET request to http://www.example.com/customers/33245/orders endpoint?</h3>
+  <ul>
+    <li>all customers</li>
+    <li>one customer with id 33245</li>
+    <li>one order from customer with id 33245</li>
+    <li>all orders from all customers</li>
+    <li><strong>all orders from customer with id 33245</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. API testing tools: (checkbox)</h3>
+  <ul>
+    <li><strong>Postman</strong></li>
+    <li><strong>Apigee</strong></li>
+    <li>Beeapi</li>
+    <li><strong>JMeter</strong></li>
+    <li><strong>Ping API</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. If a GET request is sent to the same address (http://www.example.com/users/256) after a DELETE request, what status code should typically be returned according to REST principles?</h3>
+  <ul>
+    <li>200</li>
+    <li>201</li>
+    <li>204</li>
+    <li>400</li>
+    <li><strong>404</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. In REST, loading and executing code or programs on the client side is allowed. Servers can temporarily extend or customize client functionality by transferring executable code. What principle of REST is being discussed?</h3>
+  <ul>
+    <li>client–server architecture</li>
+    <li>statelessness</li>
+    <li>cacheability</li>
+    <li>layered system</li>
+    <li>code on demand</li>
+    <li><strong>uniform Interface</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>1. In which format does data exchange occur for a RESTful service?</h3>
+  <ul>
+    <li>XML</li>
+    <li>JSON</li>
+    <li>YAML</li>
+    <li><strong>RESTful does not impose any special restrictions on the format</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Is it safe to transmit any data in the query string?</h3>
+  <ul>
+    <li>safe</li>
+    <li><strong>no</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Is there a limit on the length of the query string?</h3>
+  <ul>
+    <li>yes, there is a limit of 250 characters according to the specification</li>
+    <li>there are no limits, and they cannot be configured according to the specification</li>
+    <li><strong>there are no limits in the specification, but they can be set by the browser and server software</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Is there an official standard for RESTful web APIs?</h3>
+  <ul>
+    <li>exists, called 'Simple Object Access Protocol'</li>
+    <li>exists, called 'Application Programming Interface Protocol'</li>
+    <li>exists, called 'Application-level Data Transfer Protocol'</li>
+    <li>exists, called 'File Transfer Protocol'</li>
+    <li><strong>does not exist</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. It is allowed to divide the system into a hierarchy of layers, but with the condition that each component can only see the components of the immediately adjacent layer. What principle of REST is being discussed?</h3>
+  <ul>
+    <li>client–server architecture</li>
+    <li>statelessness</li>
+    <li>cacheability</li>
+    <li><strong>layered system</strong></li>
+    <li>code on demand</li>
+    <li>uniform Interface</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Select the correct statements about OpenAPI: (checkbox)</h3>
+  <ul>
+    <li><strong>it is a specification</strong></li>
+    <li>it uses only JSON as a format</li>
+    <li><strong>different approaches to writing it depending on the programming language</strong></li>
+    <li><strong>also known as Swagger</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. The server should not store any information about clients. The request should contain all the necessary information for request processing. What principle of REST is being discussed?</h3>
+  <ul>
+    <li>client–server architecture</li>
+    <li><strong>statelessness</strong></li>
+    <li>cacheability</li>
+    <li>layered system</li>
+    <li>code on demand</li>
+    <li>uniform Interface</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What are webhooks in the context of API communication?</h3>
+  <ul>
+    <li>Function similarly to RESTful APIs but utilize the XML protocol</li>
+    <li><strong>Serve as callback functions to enable event-driven communication among APIs</strong></li>
+    <li>Act as a robust testing tool for examining HTTP-based API calls</li>
+    <li>Represent a specific React Hook designed for server response management and data retrieval</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. What does REST stand for in web development?</h3>
+  <ul>
+    <li>Resources Establishing Transfer</li>
+    <li>Realtime Standard for Typescript</li>
+    <li><strong>Representational State Transfer</strong></li>
+    <li>Representational State Transport</li>
+    <li>Really Exciting Story Time</li>
+    <li>Relational Entity Streaming Technology</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. What HTTP response status code will be returned if the user is denied access to the document, and it is not related to authentication?</h3>
+  <ul>
+    <li>200</li>
+    <li>304</li>
+    <li>403</li>
+    <li><strong>404</strong></li>
+    <li>500</li>
+    <li>503</li>
+    <li>504</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. What HTTP response status code will be returned if the user is denied access to the document, and it is related to authentication?</h3>
+  <ul>
+    <li>200</li>
+    <li>304</li>
+    <li><strong>403</strong></li>
+    <li>404</li>
+    <li>500</li>
+    <li>503</li>
+    <li>504</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. What is an API?</h3>
+  <ul>
+    <li>transmission of a representative state</li>
+    <li>architectural style of an application</li>
+    <li><strong>application programming interface</strong></li>
+    <li>plug-in authentication modules</li>
+    <li>application's protocol of identification</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. What is included in the concept of CRUD? (checkbox)</h3>
+  <ul>
+    <li><strong>reading</strong></li>
+    <li><strong>creation</strong></li>
+    <li>designing</li>
+    <li><strong>deletion</strong></li>
+    <li><strong>updating</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. What is REST?</h3>
+  <ul>
+    <li><strong>architectural style of an application</strong></li>
+    <li>plug-in authentication modules</li>
+    <li>application-level protocol</li>
+    <li>application programming interface</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What is the difference between PUT and PATCH requests?</h3>
+  <ul>
+    <li>PUT performs partial updates, while PATCH performs complete updates</li>
+    <li><strong>PATCH performs partial updates, while PUT performs complete updates</strong></li>
+    <li>PUT returns the requested data, while PATCH performs data updates</li>
+    <li>there is no difference between them</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What is the domain in the endpoint http://example.com/wp-json/wp?page=2&sortBy=asc ?</h3>
+  <ul>
+    <li>http://</li>
+    <li><strong>example.com</strong></li>
+    <li>wp-json/wp</li>
+    <li>page=2&sortBy=asc</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What is the missing element in the chain?</h3>
+  <code>Web app in browser - internet - API - ? - Database</code>
+  <ul>
+    <li>W3C mmetup</li>
+    <li>Home router</li>
+    <li>Amazon cloud</li>
+    <li><strong>Web server</strong></li>
+    <li>PC plig-in</li>
+    <li>ID cards mainframe</li>
+    <li>User folder</li>
+    <li>Passcode app</li>
+    <li>User call</li>
+    <li>Bug search</li>
+    <li>CPU storage</li>
+    <li>Bank</li>
+    <li>Week access coun down</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What status code is typically used (according to REST principles) in the response for a successful DELETE request? (checkbox)</h3>
+  <ul>
+    <li><strong>200</strong></li>
+    <li>201</li>
+    <li><strong>202</strong></li>
+    <li>203</li>
+    <li><strong>204</strong></li>
+    <li>205</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What status code is typically used in the response for a successful processing of a POST request according to REST principles?</h3>
+  <ul>
+    <li><strong>200</strong></li>
+    <li>201</li>
+    <li>202</li>
+    <li>203</li>
+    <li>207</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What types of API exist? (checkbox)</h3>
+  <ul>
+    <li><strong>RPC</strong></li>
+    <li><strong>SOAP</strong></li>
+    <li>ADT</li>
+    <li><strong>REST</strong></li>
+    <li><strong>GraphQL</strong></li>
+    <li>WebSocket</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. Which class of HTTP response status codes indicates that the request cannot be fulfilled due to client error?</h3>
+  <ul>
+    <li>1хх</li>
+    <li>2хх</li>
+    <li>3хх</li>
+    <li><strong>4хх</strong></li>
+    <li>5хх</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Which class of HTTP response status codes is responsible for the process of data transmission, informing that the request has been received and processing will continue?</h3>
+  <ul>
+    <li>1хх</li>
+    <li>2хх</li>
+    <li>3хх</li>
+    <li>4хх</li>
+    <li>5хх</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. Which classes of HTTP response status codes exist? (checkbox)</h3>
+  <ul>
+    <li><strong>informational responses</strong></li>
+    <li><strong>client error responses</strong></li>
+    <li><strong>successful responses</strong></li>
+    <li>unknown responses</li>
+    <li><strong>redirection messages</strong></li>
+    <li><strong>server error responses</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+<h3>25. Which HTTP method is responsible for Create in CRUD operations?</h3>
+  <ul>
+    <li>GET</li>
+    <li><strong>POST</strong></li>
+    <li>PUT</li>
+    <li>PATCH</li>
+    <li>DELETE</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. Which HTTP method is responsible for Read in CRUD operations?</h3>
+  <ul>
+    <li>PATCH</li>
+    <li>POST</li>
+    <li>DELETE</li>
+    <li><strong>GET</strong></li>
+    <li>PUT</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Which of the answers describes private API?</h3>
+  <ul>
+    <li>(1)
+    <br>- APIs are available to any third-party developers
+    <br>- Apps are mostly designed for end customers
+    <br>- API release policy allows for increasing awareness and fostering external innovation</li>
+    <li>(2)
+    <br>- APIs are openly promoted but available for known business partners
+    <br>- End customers or business users are potential target audiences for such apps
+    <br>- The most popular use case for these APIs is software integration between two organizations</li>
+    <li><strong>(3)
+    <br>- APIs are solely used within a certain organization
+    <br>- Apps are mostly built for company employees
+    <br>- Integration of company systems/apps and development of new systems using existing resources</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. Which of the conditions are mandatory constraints for REST applications? (checkbox)</h3>
+  <ul>
+    <li><strong>cacheability</strong></li>
+    <li><strong>statelessness</strong></li>
+    <li><strong>client-server model</strong></li>
+    <li>synchronicity and asymmetry</li>
+    <li><strong>uniform interface</strong></li>
+    <li><strong>layered system</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Which of the following answers correctly represents the sequence of URL components?</h3>
+  <ul>
+    <li>protocol + domain + query string + path</li>
+    <li><strong>protocol + domain + path + query string</strong></li>
+    <li>domain + protocol + path + query string</li>
+    <li>protocol + path + query string + domain</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which of the HTTP response status codes indicates that the request has been successfully processed according to the user's expectations?</h3>
+  <ul>
+    <li><strong>200</strong></li>
+    <li>304</li>
+    <li>403</li>
+    <li>404</li>
+    <li>500</li>
+    <li>503</li>
+    <li>504</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which of the HTTP response status codes means that nothing is found at the given URL — the document does not exist?</h3>
+  <ul>
+    <li>200</li>
+    <li>304</li>
+    <li>403</li>
+    <li><strong>404</strong></li>
+    <li>500</li>
+    <li>503</li>
+    <li>504</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which of the HTTP response status codes means that the server is temporarily unable to handle requests due to technical reasons?</h3>
+  <ul>
+    <li>200</li>
+    <li>304</li>
+    <li>403</li>
+    <li>404</li>
+    <li>500</li>
+    <li><strong>503</strong></li>
+    <li>504</li>
+    <li>there is no correct answer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. Which type of API is the most common today?</h3>
+  <ul>
+    <li>ADT</li>
+    <li><strong>REST</strong></li>
+    <li>SOAP</li>
+    <li>RPC</li>
+  </ul>
+</article>

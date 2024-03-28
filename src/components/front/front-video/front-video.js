@@ -42,6 +42,7 @@ frontVideo.elemSection = createElemSection(frontVideo.elements);
 export default function showFrontVideo() {
   const elementFrontVideo = document.querySelector('.front-video');
   if (elementFrontVideo) {
+    elementFrontVideo.innerHTML = '';
     elementFrontVideo.append(frontVideo.mainNav);
     elementFrontVideo.append(frontVideo.elemSection);
   }

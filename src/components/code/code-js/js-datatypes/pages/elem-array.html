@@ -842,6 +842,11 @@ Array.fromAsync(asyncIterable).then((array) => console.log(array));
   <code>[1, 2, 3, 4].includes(2, 2); // false</code>
   <p>При отрицательном значении индекса, он отсчитывается с конца массива</p>
   <code>[1, 2, 3, 4].includes(3, -2); // true</code>
+
+  <h3>Метод includes(). Особенности</h3>
+  <p>Это более новый и улучшенный метод чем indexOf(). Позволяет найти NaN в массиве</p>
+  <code>[1, 2, NaN].includes(NaN); // true</code>
+  <code>[1, 2, NaN].indexOf(NaN); // -1</code>
 </article>
 
 
@@ -862,6 +867,12 @@ Array.fromAsync(asyncIterable).then((array) => console.log(array));
   <code>[1, 2, 3, 4].indexOf(2, 2); // -1</code>
   <p>При отрицательном значении индекса, он отсчитывается с конца массива</p>
   <code>[1, 2, 3, 4].indexOf(3, -2); // 2</code>
+
+  <h3>Метод indexOf(). Особенности</h3>
+  <p>Не находит NaN</p>
+  <code>[1, 2, NaN].indexOf(NaN); // -1</code>
+  <p>Почему так происходит? Потому что метод indexOf() для поиска использует ===, а как известно</p>
+  <code>NaN === NaN; // false</code>
 </article>
 
 

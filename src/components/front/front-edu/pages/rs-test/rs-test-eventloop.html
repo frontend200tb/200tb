@@ -1,0 +1,485 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] Event Loop & Animation</h1>
+
+  <strong>33 вопроса. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Based on the provided code, what would the correct call stack sequence be?</h3>
+<pre>function multiply(a, b) {
+  return a * b;
+}
+
+function square(n) {
+  return multiply(n, n);
+}
+
+function printSquare() {
+  console.log(square(42));
+}
+
+printSquare();</pre>
+
+  <ul>
+    <li>printSquare, multiply, square</li>
+    <li><strong>printSquare, square, multiply</strong></li>
+    <li>square, multiply, printSquare</li>
+    <li>square, printSquare, multiply</li>
+    <li>printSquare</li>
+    <li>multiply, square, printSquare</li>
+    <li>multiply, printSquare, square</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Bezier curves are used for creating: (checkbox)</h3>
+  <ul>
+    <li><strong>graphics on Canvas</strong></li>
+    <li>raster graphics</li>
+    <li><strong>SVG format</strong></li>
+    <li><strong>fonts</strong></li>
+    <li><strong>describing the path and speed of animation in CSS animation</strong></li>
+    <li><strong>vector graphics</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. How does the setInterval() method function in JavaScript?</h3>
+  <ul>
+    <li><strong>Repeatedly calls a function or executes a code snippet, with a fixed time delay between each call</strong></li>
+    <li>Calls a function once after a specified time interval</li>
+    <li>Sets a delay for the entire program's execution</li>
+    <li>Executes a code snippet immediately, then at fixed intervals</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. How does the "setTimeout(function timeout() {}, 5000);" method function?</h3>
+  <ul>
+    <li>Multiple times, as defined by the second argument</li>
+    <li><strong>Once, after a specified period of time</strong></li>
+    <li>Immediately, without any delay</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. How is the refresh rate of a display quantified? (checkbox)</h3>
+  <ul>
+    <li><strong>fps</strong></li>
+    <li><strong>1/s</strong></li>
+    <li><strong>Hz</strong></li>
+    <li>s</li>
+    <li><strong>s^(-1)</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. How many threads are there in JS?</h3>
+  <ul>
+    <li>Dependent on the number of cores in the CPU</li>
+    <li><strong>1</strong></li>
+    <li>As many as specified in the webpack configuration</li>
+    <li>2</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Select the keyframes snippet correctly representing the given leaf animation or both if they are equal. (checkbox)</h3>
+  <ul>
+    <li><strong>(1)</strong>
+<pre>@keyframes leaf_anim {
+  0% {}
+  90% {}
+  100% {}
+}
+</pre>
+    </li>
+    <li><strong>(2)</strong>
+<pre>@keyframes leaf_anim {
+  from {}
+  90% {}
+  to {}
+}
+</pre>
+    </li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. The "animation-fill-mode" property:</h3>
+  <ul>
+    <li>sets whether an animation running or paused</li>
+    <li>sets the number of times an animation sequence should be played before stopping</li>
+    <li><strong>sets how a CSS animation applies styles to its target before and after its execution</strong></li>
+    <li>specifies the amount of time to wait from applying the animation to an element before beginning to perform the animation</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. The animation property is a shorthand for: (checkbox)</h3>
+  <ul>
+    <li><strong>animation-timing-function</strong></li>
+    <li><strong>animation-duration</strong></li>
+    <li><strong>animation-delay</strong></li>
+    <li>animation-repeat</li>
+    <li><strong>animation-name</strong></li>
+    <li><strong>animation-iteration-count</strong></li>
+    <li><strong>animation-fill-mode</strong></li>
+    <li>animation-timestamp</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. The console output would be the following:</h3>
+<pre>function first() {
+  console.log("First function");
+}
+
+function second() {
+  first();
+  console.log("Second function");
+}
+
+function third() {
+  second();
+  console.log("Third function");
+}
+
+third();</pre>
+
+  <ul>
+    <li><strong>First function, Second function, Third function</strong></li>
+    <li>First function, Third function, Second function</li>
+    <li>Second function, First function, Third function</li>
+    <li>Third function, Second function, First function</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. The duration of an animation created with the .animate() method is measured in:</h3>
+  <ul>
+    <li>light-years per snail pace</li>
+    <li><strong>milliseconds</strong></li>
+    <li>the method allows to specify either milliseconds or seconds</li>
+    <li>seconds</li>
+    <li>ticks</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. The ease-in-out built-in curve represents CSS animation that is:</h3>
+  <ul>
+    <li>starts abruptly, but progressively slows down towards the end</li>
+    <li>begins slowly, increases in speed towards the end, and stops abruptly</li>
+    <li><strong>starts slowly, accelerates in the middle and and decelerates towards the end</strong></li>
+    <li>maintains a consistent speed throughout the animation</li>
+    <li>starts abruptly, slows down in the middle and finishes sharply</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. The minimum number of points to create the Bezier curve presented on the pic are:</h3>
+  <ul>
+    <li><strong>four points and the name of such curve is cubic</strong></li>
+    <li>two points and the name of such curve is parabolic</li>
+    <li>three points and the name of such curve is parabolic</li>
+    <li>four points and the name of such curve is parabolic</li>
+    <li>three points and the name of such curve is cubic</li>
+    <li>two points and the name of such curve is cubic</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. The possible steps of the rendering waterfall while animating CSS properties: (checkbox)</h3>
+  <ul>
+    <li><strong>reflow</strong></li>
+    <li><strong>composition</strong></li>
+    <li>rerender</li>
+    <li><strong>repaint</strong></li>
+    <li><strong>recalculate style</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. To apply the following ⚓ animation (assuming that the picture's element aspect-ratio property is 1 / 1) - the transform-origin property should be set to:</h3>
+  <ul>
+    <li>center</li>
+    <li>bottom left</li>
+    <li>bottom right</li>
+    <li><strong>top center</strong></li>
+    <li>top left</li>
+    <li>top right</li>
+    <li>bottom center</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. What are the available rendering contexts for the HTML canvas element? (checkbox)</h3>
+  <ul>
+    <li>CanvasRenderingContext3D</li>
+    <li><strong>CanvasRenderingContext2D</strong></li>
+    <li><strong>WebGLRenderingContext</strong></li>
+    <li>ImageBitmapRenderingContext</li>
+    <li>GPUCanvasContext</li>
+    <li>CPUCanvasContext</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. What are the correct descriptions of the code execution behavior for "setTimeout(func, 0)"? (checkbox)</h3>
+  <ul>
+    <li><strong>Executes after processing calls from the call stack and the microtasks queue</strong></li>
+    <li>Calls "func" every second</li>
+    <li>Executes "func" first, irrespective of the tasks in the code</li>
+    <li><strong>Offers no 100% guarantee that func will be called exactly in 0 seconds</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. What is going to happen if we run this code?</h3>
+<pre>function foo() {
+  return foo();
+}
+
+foo();</pre>
+
+  <ul>
+    <li>The code executes successfully without causing the application to crash or throwing any errors</li>
+    <li>Stack overflow resulting in a ReferenceError exception</li>
+    <li><strong>Stack overflow resulting in a RangeError exception</strong></li>
+    <li>Stack overflow resulting in a TypeError exception</li>
+    <li>The code is a specific case that places the "foo" function into the macrotasks queue</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. What is the Call Stack in JavaScript?</h3>
+  <ul>
+    <li>A location in a computer's RAM where functions are stored</li>
+    <li>Simply a designated space in browser memory</li>
+    <li><strong>A data structure and mechanism utilized by the JavaScript engine to manage function calls, record their positions within a program, and handle execution contexts</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. What is the execution order of microtasks and macrotasks?</h3>
+  <ul>
+    <li><strong>After executing each macrotask, the engine checks for any microtasks and executes them before moving on to the next macrotask, UI rerendering, or other operations</strong></li>
+    <li>The engine first executes all macrotasks, then proceeds to execute all microtasks</li>
+    <li>All tasks are executed sequentially, regardless of their type</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. What is the "Heap" in the context of JavaScript?</h3>
+  <ul>
+    <li><strong>A large, mostly unstructured, dynamically allocated region of memory</strong></li>
+    <li>An unordered version of the Call Stack</li>
+    <li>A principle governing the storage and execution of functions within the Call Stack</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What principle governs the order of operations within the Call Stack?</h3>
+  <ul>
+    <li>queue</li>
+    <li>Random</li>
+    <li>Priority Queue</li>
+    <li>FIFO</li>
+    <li><strong>LIFO</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What will be the output of this code?</h3>
+<pre>console.log("start 🚗");
+
+setTimeout(function () {
+  console.log("🍾🏆");
+}, 1000);
+
+setTimeout(function () {
+  console.log("finish 🏁");
+}, 100);
+
+Promise.resolve().then(function () {
+  console.log("pit-stop");
+});
+
+console.log("let's go");</pre>
+
+  <ul>
+    <li>start 🚗, let's go, pit-stop, 🍾🏆, finish 🏁</li>
+    <li><strong>start 🚗, let's go, pit-stop, finish 🏁, 🍾🏆</strong></li>
+    <li>let's go, start 🚗, pit-stop, finish 🏁, 🍾🏆</li>
+    <li>pit-stop, let's go, start 🚗, finish 🏁, 🍾🏆</li>
+    <li>start 🚗, let's go,🍾🏆, finish 🏁, pit-stop</li>
+    <li>pit-stop, let's go, start 🚗, 🍾🏆, finish 🏁</li>
+    <li>start 🚗, 🍾🏆, finish 🏁, pit-stop, let's go</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What will be the output of this code?</h3>
+<pre>console.log("hey");
+
+setTimeout(() => {
+  console.log("RSSchool crew");
+}, 5000);
+
+console.log("there");</pre>
+
+  <ul>
+    <li><strong>hey, there, RSSchool crew</strong></li>
+    <li>there, somewhere, lost in code, the RSSchool crew</li>
+    <li>there, hey, RSSchool crew</li>
+    <li>hey, RSSchool crew, there</li>
+    <li>there, RSSchool crew, hey</li>
+    <li>RSSchool crew, hey, there</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. Which method is used to establish a drawing context on a canvas element?</h3>
+  <ul>
+    <li>setContext()</li>
+    <li>defineContext()</li>
+    <li><strong>getContext()</strong></li>
+    <li>summonContext()</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. Which of the following are considered macrotasks in the JavaScript event loop? (checkbox)</h3>
+  <ul>
+    <li>Event handlers (addEventListener)</li>
+    <li>XMLHttpRequest</li>
+    <li>initiateSelfDestruct()</li>
+    <li>console.log()</li>
+    <li>fetch</li>
+    <li><strong>setTimeout()</strong></li>
+    <li>onload</li>
+    <li>queueMicrotask()</li>
+    <li><strong>setInterval()</strong></li>
+    <li>await expressions in async functions</li>
+    <li>mousemove</li>
+    <li>Promise</li>
+    <li>I/O operations (file reading / writing)</li>
+    <li>onclick</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. Which of the following events triggers when the CSS animation finishes?</h3>
+  <ul>
+    <li>transitionend</li>
+    <li>onEnd</li>
+    <li><strong>animationend</strong></li>
+    <li>animationfinish</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. Which of the following is a widely used garbage collection algorithm?</h3>
+  <ul>
+    <li>mark and delete</li>
+    <li><strong>mark and sweep</strong></li>
+    <li>mark and hide</li>
+    <li>mark and remove</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. Which of the following is considered a Microtask in JavaScript? (checkbox)</h3>
+  <ul>
+    <li><strong>Promise</strong></li>
+    <li>synchronous code</li>
+    <li>setTimeout()</li>
+    <li><strong>queueMicrotask()</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. Which of the following statements accurately describe the Event Loop in JavaScript? (checkbox)</h3>
+  <ul>
+    <li><strong>Creates a new context for a function called within another function, storing the previous context in the Call Stack</strong></li>
+    <li><strong>Transfers tasks from the task queue to the call stack when the latter is empty</strong></li>
+    <li><strong>Enables the execution of asynchronous code in JavaScript</strong></li>
+    <li><strong>Its call stack has a maximum size determined by the browser or runtime environment</strong></li>
+    <li><strong>Continuously checks the callback queue and the call stack</strong></li>
+    <li>Prioritizes execution of long-running operations to optimize performance.</li>
+    <li>Sends an SOS signal to external APIs when overloaded with callbacks, hoping for backup</li>
+    <li>Comprises macrotasks, synchronous code, and microtasks, each adhering to the principles of stack, queue, and list, respectively</li>
+    <li><strong>Automatically removes a function from the call stack upon its return or the end of its scope</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. Which properties are condensed into the shorthand "transition" CSS property? (checkbox)</h3>
+  <ul>
+    <li>transition-direction</li>
+    <li><strong>transition-timing-function</strong></li>
+    <li><strong>transition-duration</strong></li>
+    <li>transition-time-property</li>
+    <li>transition-mood-swings</li>
+    <li><strong>transition-delay</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which types of layers are recognized in a web page's rendering process by Chrome? (checkbox)</h3>
+  <ul>
+    <li><strong>GraphicsLayer</strong></li>
+    <li>CSSLayer</li>
+    <li>ScrollLayer</li>
+    <li><strong>RenderLayer</strong></li>
+    <li>DOMLayer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. Why is it better to move an element with the translate() property rather than with the position: absolute? (checkbox)</h3>
+  <ul>
+    <li><strong>the animation looks smoother with more fluid motion</strong></li>
+    <li>the animation quality doesn't depend on CSS properties</li>
+    <li><strong>the animation speed increases</strong></li>
+    <li><strong>the browser better optimizes element animation rendering</strong></li>
+    <li>allows to make the position adjustments without affecting the layout of other elements</li>
+    <li>the translate() property calculates the coordinates of the animated element more precisely</li>
+  </ul>
+</article>
