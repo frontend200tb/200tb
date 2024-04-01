@@ -3,7 +3,25 @@
 
   <h1>[St2] Event Loop & Animation</h1>
 
-  <strong>33 вопроса. Выполнил на 0 баллов из 100</strong>
+  <strong>33 вопроса. Выполнил на 88 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+<h3>Based on the provided code execution diagram, what is the correct order of execution?
+</h3>
+<pre>setTimeout(() => alert("timeout"));
+
+Promise.resolve().then(() => alert("promise"));
+
+alert("code");</pre>
+
+<ul>
+  <li>timeout, promise, code</li>
+  <li>code, timeout, promise</li>
+  <li>promise, code, timeout</li>
+  <li><strong>code, promise, timeout</strong></li>
+</ul>
 </article>
 
 
@@ -49,6 +67,29 @@ printSquare();</pre>
 
 
 <article class="article">
+  <h3>For what purpose is the "cubic-bezier()" function used in CSS?</h3>
+  <ul>
+    <li>To adjust an element's horizontal movement</li>
+    <li>To enlarge an element upon clicking</li>
+    <li><strong>To define a custom Bezier curve for animations</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>How does setting "animation-direction: alternate-reverse"; affect the playback of an animation?</h3>
+  <ul>
+    <li>In reverse order, starting from the end</li>
+    <li>Randomly choosing the direction at the start of each cycle to increase unpredictability</li>
+    <li>Starting forward for the first iteration, then alternating direction with each cycle</li>
+    <li><strong>Starting in reverse for the first iteration, then alternating direction with each cycle</strong></li>
+    <li>Like a confused commuter deciding whether to go to work or home, then switching at every stop</li>
+    <li>In the original forward direction</li>
+  </ul>
+</article>
+
+
+<article class="article">
   <h3>3. How does the setInterval() method function in JavaScript?</h3>
   <ul>
     <li><strong>Repeatedly calls a function or executes a code snippet, with a fixed time delay between each call</strong></li>
@@ -88,6 +129,18 @@ printSquare();</pre>
     <li><strong>1</strong></li>
     <li>As many as specified in the webpack configuration</li>
     <li>2</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Pick the default (initial) value of the timing function:</h3>
+  <ul>
+    <li>easy-peasy</li>
+    <li>ease-out</li>
+    <li>ease-in</li>
+    <li><strong>ease</strong></li>
+    <li>ease-in-out</li>
   </ul>
 </article>
 
@@ -164,6 +217,30 @@ third();</pre>
     <li>First function, Third function, Second function</li>
     <li>Second function, First function, Third function</li>
     <li>Third function, Second function, First function</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>The console output would be the following:
+  </h3>
+<pre>let callback = () => console.log("just regular timeout callback has run");
+
+let urgentCallback = () => console.log("an urgent callback has run 😱");
+
+console.log("main program started");
+
+setTimeout(callback, 0);
+
+queueMicrotask(urgentCallback);
+
+console.log("main program exiting");</pre>
+
+  <ul>
+    <li><strong>main program started, main program exiting, an urgent callback has run 😱, just regular timeout callback has run</strong></li>
+    <li>main program started, just regular timeout callback has run, an urgent callback has run 😱, main program exiting</li>
+    <li>main program started, an urgent callback has run 😱, just regular timeout callback has run, main program exiting</li>
+    <li>main program started, main program exiting, just regular timeout callback has run, an urgent callback has run 😱</li>
   </ul>
 </article>
 
@@ -304,6 +381,16 @@ foo();</pre>
 
 
 <article class="article">
+  <h3>What is the most effective method to achieve smooth JavaScript animations?</h3>
+  <ul>
+    <li>a custom user-defined animation function</li>
+    <li><strong>requestAnimationFrame()</strong></li>
+    <li>setInterval()</li>
+  </ul>
+</article>
+
+
+<article class="article">
   <h3>22. What principle governs the order of operations within the Call Stack?</h3>
   <ul>
     <li>queue</li>
@@ -311,6 +398,40 @@ foo();</pre>
     <li>Priority Queue</li>
     <li>FIFO</li>
     <li><strong>LIFO</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>What will be the console output?</h3>
+<pre>setTimeout(() => {
+  console.log("First");
+}, 1000);
+
+Promise.resolve().then(() => console.log("Second"));
+
+Promise.resolve(console.log("Third"));
+
+Promise.resolve().then(() =>
+  setTimeout(() => {
+    console.log("Fourth");
+  }, 0)
+);
+
+setTimeout(() => {
+  console.log("Fifth");
+}, 0);
+
+console.log("Last");
+</pre>
+
+  <ul>
+    <li>First, Second, Third, Fourth, Fifth, Last</li>
+    <li>Last, Second, Third, Fourth, First, Fifth</li>
+    <li>Third, Last, Second, Fourth, First, Fifth</li>
+    <li>Third, Last, Second, First, Fourth, Fifth</li>
+    <li>Last, Second, Third, First, Fourth, Fifth</li>
+    <li><strong>Third, Last, Second, Fifth, Fourth, First</strong></li>
   </ul>
 </article>
 
@@ -367,6 +488,18 @@ console.log("there");</pre>
 
 
 <article class="article">
+  <h3>Which CSS feature enables the gradual change of an element's properties over a specified period from initial to final state with no intermediate steps?</h3>
+  <ul>
+    <li>CSS KeyFrames</li>
+    <li>CSS Transform</li>
+    <li><strong>CSS Transition</strong></li>
+    <li>CSS Animation</li>
+    <li>CSS Gradual Change</li>
+  </ul>
+</article>
+
+
+<article class="article">
   <h3>25. Which method is used to establish a drawing context on a canvas element?</h3>
   <ul>
     <li>setContext()</li>
@@ -392,7 +525,7 @@ console.log("there");</pre>
     <li>await expressions in async functions</li>
     <li>mousemove</li>
     <li>Promise</li>
-    <li>I/O operations (file reading / writing)</li>
+    <li><strong>I/O operations (file reading / writing)</strong></li>
     <li>onclick</li>
   </ul>
 </article>

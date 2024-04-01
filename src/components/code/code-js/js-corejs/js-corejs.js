@@ -1,12 +1,12 @@
 /** *******************
-Скрипт из файла js-objects.js
-Функция showJsObjects показывает страницу js-objects
+Скрипт из файла js-corejs.js
+Функция showJsCorejs показывает страницу js-corejs
 ******************** */
-import './element-js-objects';
+import './element-js-corejs';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Date',  'Math', 'Regexp'];
+const asideThemes = ['globalThis', 'Date',  'Math', 'Promise', 'Regexp'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
@@ -21,7 +21,7 @@ for (const theme of asideThemes) {
 
   function createId(str) {
     // удалить всё, кроме букв и цифр
-    return `objects-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
+    return `corejs-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
   }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
@@ -36,7 +36,7 @@ for (const theme of asideThemes) {
   });
 }
 
-export default function showJsObjects() {
+export default function showJsCorejs() {
   const aside = document.querySelector('.aside');
 
   // 4. Показываем нужный aside

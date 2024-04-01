@@ -2,7 +2,7 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ****************** */
 import showJsDatatypes from './js-datatypes/js-datatypes';
-import showJsObjects from './js-objects/js-objects';
+import showJsCorejs from './js-corejs/js-corejs';
 import showJsWebApi from './js-webapi/js-webapi';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
@@ -20,12 +20,12 @@ export default function pageLink() {
     });
   }
 
-  const navObjects = document.getElementById('js-2');
-  if (navObjects) {
-    navObjects.addEventListener('click', (e) => {
+  const navCorejs = document.getElementById('js-2');
+  if (navCorejs) {
+    navCorejs.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<js-objects></js-objects>';
-      showJsObjects();
+      currentContent.innerHTML = '<js-corejs></js-corejs>';
+      showJsCorejs();
     });
   }
 

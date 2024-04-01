@@ -21,7 +21,7 @@ import pageLink from './pages';
 
 // 1. Создадим контент для #main-nav
 // 1.1 Создаем массив categories с категориями
-const categories = ['Типы данных', 'Встроенные объекты', 'Web API', 'Теория', 'Практика', 'Codewars'];
+const categories = ['Типы данных', 'CoreJS', 'Web API', 'Теория', 'Практика', 'Codewars'];
 
 // 1.2 Создаем массив mainNav для элементов nav меню
 const mainNav = [];

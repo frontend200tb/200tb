@@ -1,0 +1,150 @@
+<h1>globalThis (Глобальный объект)</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+    <p><a href="#function">function</a></p>
+    <p><a href="#var">var</a></p>
+    <p><a href="#let-const">let и const</a></p>
+    <p><a href="#polyfil">Полифил для globalThis</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/globalThis">developer.mozilla.org</a> globalThis</p>
+  <p><a href="https://open.zeba.academy/globalthis-javascript/">open.zeba.academy</a> GlobalThis в JavaScript</p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Глобальное свойство globalThis содержит значение глобального this, который является глобальным объектом.</p>
+  <p>Исторически, для доступа к глобальному объекту использовался разный синтаксис в разных средах JavaScript. В веб браузере вы могли использовать window, self или frames, но в Web Worker можно использовать только self. В Node.js ничего из этого не работает, поэтому вы должны использовать global.</p>
+  <p>Свойство globalThis предоставляет доступ к глобальному значению this в любых средах. Он гарантированно работает в веб браузере, в Web Worker и в Node.js.</p>
+</article>
+
+
+<!-- function -->
+<article class="article">
+  <div class="anchor" id="function"></div>
+  <h2>function</h2>
+
+  <p>Функции, объявленные в глобальной области видимости как function declaration становятся методами глобального объекта</p>
+
+  <p>Объявим функцию в глобальной области видимости</p>
+  <code>function fn() {return 'result'};</code>
+  <p>В глобальном объекте появился новый метод</p>
+  <code>globalThis.fn; // ƒ fn() {return 'result'}</code>
+  <p>Это один и тот же объект</p>
+  <code>fn === globalThis.fn; // true</code>
+  <code>Object.is(fn, globalThis.fn); // true</code>
+  <p>Они дадут одинаковый результат</p>
+  <code>fn(); // 'result'</code>
+  <code>globalThis.fn(); // 'result'</code>
+</article>
+
+
+<!-- var -->
+<article class="article">
+  <div class="anchor" id="var"></div>
+  <h2>var</h2>
+
+  <p>Переменные, объявленные с использованием var, автоматически становятся частью глобального объекта.</p>
+
+  <p>Объявим переменную в глобальной области видимости и запишев в нее число</p>
+  <code>var a = 10;</code>
+  <p>В глобальном объекте появилось новое свойство</p>
+  <code>globalThis.a; // 10</code>
+
+  <p>Объявим переменную в глобальной области видимости и запишем в нее функцию</p>
+  <code>var b = function() {return '20'};</code>
+  <code>var c = () => '30';</code>
+  <p>В глобальном объекте появилось новое свойство</p>
+  <code>globalThis.b; // ƒ () {return '20'}</code>
+  <code>globalThis.c; // () => '30'</code>
+  <p>Такие функции можно вызвать из глобального объекта</p>
+  <code>globalThis.b(); // '20'</code>
+  <code>globalThis.c(); // '30'</code>
+
+  <p>До появления строгого режима strict mode можно было еще объявить переменную без ключевого слова и она тоже становилась частью глобального объекта.</p> 
+  <code>d = 40;</code>
+  <code>globalThis.d; // 40</code>
+  <code>e = function() {return '50'};</code>
+  <code>globalThis.e; // ƒ () {return '50'}</code>
+  <code>globalThis.e(); // '50'</code>
+  <code>f = () => '60';</code>
+  <code>globalThis.f; // () => '60'</code>
+  <code>globalThis.f(); // '60'</code>
+
+  <p>В строгом режиме нельзя объявить переменную без ключевого слова var, let или const.</p>
+  <code>'use strict'
+  <br>g = 70;</code>
+  <code>Uncaught ReferenceError: g is not defined</code>
+</article>
+
+
+<!-- let и const -->
+<article class="article">
+  <div class="anchor" id="let-const"></div>
+  <h2>let и const</h2>
+
+  <p>Использование let и const делает ваш код более безопасным и предсказуемым, поскольку они ограничивают область видимости переменных блоком, в котором они были объявлены, и не позволяют случайно создать глобальную переменную.</p>
+
+  <p>Объявим переменную в глобальной области видимости и запишев в нее число</p>
+  <code>let aa = 80;</code>
+  <code>const bb = 90;</code>
+  <p>В глобальном объекте не появилось новое свойство</p>
+  <code>globalThis.aa; // undefined</code>
+  <code>globalThis.bb; // undefined</code>
+
+  <p>Объявим переменную в глобальной области видимости и запишем в нее функцию</p>
+  <code>let cc = function() {return '100'};</code>
+  <code>let dd = () => '110';</code>
+  <code>const ee = function() {return '120'};</code>
+  <code>const ff = () => '130';</code>
+  <p>В глобальном объекте не появилось новое свойство</p>
+  <code>globalThis.cc; // undefined</code>
+  <code>globalThis.dd; // undefined</code>
+  <code>globalThis.ee; // undefined</code>
+  <code>globalThis.ff; // undefined</code>
+</article>
+
+
+<!-- Полифил для globalThis -->
+<article class="article">
+  <div class="anchor" id="polyfil"></div>
+  <h2>Полифил для globalThis</h2>
+
+  <p>Язык JavaScript описывается стандартом ECMAScript. Язык JavaScript не выполняется сам по себе в пустом пространстве. Когда мы запускаем JS, то он выполняется только в среде выполнения. CoreJS это все возможности языка JS, описанные в стандарте ECMAScript и не зависят от среды выполнения. Среда выполнения, например браузер или node.js, дают дополнительные возможности (объекты, свойства и методы) для языка JS. И при написании кода JS мы можем использовать те возможности, которые нам предоставляет среда выполнения.</p>
+  <p>Например, браузер предоставляет глобальный объект window, а node.js предоставляет глобальный объект global. При написании программ для разных сред нужно было это учитывать.</p>
+  <p>В ES2020 появилось глобальное свойство globalThis, которое ссылается на глобальный объект в любой среде выполнения. До появления этого свойства, для того чтобы код выполнялся на разных платформах, нужно было писать полифил</p>
+<pre>var getGlobal = function () { 
+  if (typeof self !== 'undefined') { return self; } 
+  if (typeof window !== 'undefined') { return window; } 
+  if (typeof global !== 'undefined') { return global; } 
+  throw new Error('no global object found'); 
+}; 
+
+var globals = getGlobal(); </pre>
+
+<p>Теперь свойство globals позволяло обращаться к глобальному объекту в таких средах выполнения как браузер (глобальный объект window), Web Worker (глобальный объект self), node.js (глобальный объект global).</p>
+</article>
+

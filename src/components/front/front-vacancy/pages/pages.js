@@ -1,118 +1,58 @@
-import htmlPostcross from './elem-postcross.html';
+/*
+Скрипт из файла page.js
+Функция pageLink вешает обработчик клика на элементы asideMenu
+*/
+
+// Aside
+import htmlVacancy from './elem-vacancy.html';
+import htmlEpam from './elem-epam.html';
+import htmlDsr from './elem-dsr.html';
+import htmlNeoflex from './elem-neoflex.html';
+import htmlYandex from './elem-yandex.html';
+import htmlOzon from './elem-ozon.html';
+import htmlAvito from './elem-avito.html';
+import htmlTinkoff from './elem-tinkoff.html';
+import htmlSber from './elem-sber.html';
 import htmlInterview from './elem-interview.html';
+import htmlPostcross from './elem-postcross.html';
+import htmlInvite from './elem-invite.html';
+import htmlRefuse from './elem-refuse.html';
+import htmlSkills from './elem-skills.html';
 import htmlTask from './elem-task.html';
-import htmlMetalampFrontend1 from './elem-metalamp-frontend1.html';
-import htmlMetalampFrontend2 from './elem-metalamp-frontend2.html';
-import htmlMetalampFrontend3 from './elem-metalamp-frontend3.html';
-import htmlMetalampFrontend4 from './elem-metalamp-frontend4.html';
-import htmlMetalampFrontend5 from './elem-metalamp-frontend5.html';
-import htmlMetalampFaq from './elem-metalamp-faq.html';
-import htmlMetalampErrors from './elem-metalamp-errors.html';
-import htmlMetalampEmployment from './elem-metalamp-employment.html';
-import htmlMetalampIntro from './elem-metalamp-intro.html';
 
-// ссылки для aside menu
-export function pageLink() {
+// массив страниц из aside menu
+const aside = [
+  htmlVacancy,
+  htmlEpam,
+  htmlDsr,
+  htmlNeoflex,
+  htmlYandex,
+  htmlOzon,
+  htmlAvito,
+  htmlTinkoff,
+  htmlSber,
+  htmlInterview,
+  htmlPostcross,
+  htmlInvite,
+  htmlRefuse,
+  htmlSkills,
+  htmlTask,
+];
+
+// Функция pageLink вешает обработчик клика на элементы asideMenu
+export default function pageLink() {
   const currentContent = document.querySelector('#vacancy');
 
-  const asideInterview = document.getElementById('vacancy-interview');
-  if (asideInterview) {
-    asideInterview.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlInterview;
-    });
-  }
+  // собрать все ссылки в aside menu
+  const asideItems = document.querySelectorAll('.aside a');
 
-  const asideTask = document.getElementById('vacancy-task');
-  if (asideTask) {
-    asideTask.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlTask;
-    });
-  }
-
-  const asidePostcross = document.getElementById('vacancy-postcross');
-  if (asidePostcross) {
-    asidePostcross.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlPostcross;
-    });
-  }
-}
-
-// ссылки для страницы metlamp
-export function metalampLinks() {
-  const currentContent = document.querySelector('#vacancy');
-
-  const metalampFrontend1 = document.getElementById('metalamp-frontend1');
-  if (metalampFrontend1) {
-    metalampFrontend1.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFrontend1;
-    });
-  }
-
-  const metalampFrontend2 = document.getElementById('metalamp-frontend2');
-  if (metalampFrontend2) {
-    metalampFrontend2.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFrontend2;
-    });
-  }
-
-  const metalampFrontend3 = document.getElementById('metalamp-frontend3');
-  if (metalampFrontend3) {
-    metalampFrontend3.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFrontend3;
-    });
-  }
-
-  const metalampFrontend4 = document.getElementById('metalamp-frontend4');
-  if (metalampFrontend4) {
-    metalampFrontend4.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFrontend4;
-    });
-  }
-
-  const metalampFrontend5 = document.getElementById('metalamp-frontend5');
-  if (metalampFrontend5) {
-    metalampFrontend5.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFrontend5;
-    });
-  }
-
-  const metalampFaq = document.getElementById('metalamp-faq');
-  if (metalampFaq) {
-    metalampFaq.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampFaq;
-    });
-  }
-
-  const metalampErrors = document.getElementById('metalamp-errors');
-  if (metalampErrors) {
-    metalampErrors.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampErrors;
-    });
-  }
-
-  const metalampEmployment = document.getElementById('metalamp-employment');
-  if (metalampEmployment) {
-    metalampEmployment.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampEmployment;
-    });
-  }
-
-  const metalampIntro = document.getElementById('metalamp-intro');
-  if (metalampIntro) {
-    metalampIntro.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = htmlMetalampIntro;
-    });
+  // если ссылки в aside menu есть, то по клику показывать нужную страницу
+  if (asideItems) {
+    asideItems.forEach((elem, index) => {
+      elem.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentContent.innerHTML = aside[index];
+      });
+    })
   }
 }

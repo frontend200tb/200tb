@@ -66,7 +66,7 @@
     const data = getData() // делаем асинхронную операцию: запрос в БД, API, etc.
     resolve(data) // переводим промис в состояние fulfilled. Результатом выполнения будет объект data
   })
-  
+
   const errorPromise = new Promise(function (resolve, reject) {
     reject(new Error('ошибка')) // переводим промис в состояние rejected. Результатом выполнения будет объект Error
   })
@@ -101,7 +101,7 @@
     renderList(movies)
   })</pre>
   <p>В коде выше, асинхронная функция fetch() возвращает промис, к которому применяется метод then. При его выполнении в переменной movies будет ответ сервера.</p>
-  
+
   <h3>catch</h3>
   <p>Метод catch() используют, чтобы выполнить код в случае ошибки при выполнении асинхронной операции.</p>
   <p>Например, мы запросили у сервера список фильмов и хотим показать экран обрыва соединения, если произошла ошибка. В этом случае:</p>
@@ -134,7 +134,7 @@
 <pre>const url1 = 'https://api.ru/name';
 const url2 = 'https://api.ru/adress';
 const url3 = 'https://api.ru/phone';</pre>
-<p>Рассмотрим функцию request которая позволит нам делать эти запросы. Наша функция request принимает три параметра:</p> 
+<p>Рассмотрим функцию request которая позволит нам делать эти запросы. Наша функция request принимает три параметра:</p>
   <ol>
     <li>url типа строка, это ссылка по которой надо сделать запрос</li>
     <li>success - это callback-функция, которая будет обрабатывать положительный результат</li>
@@ -143,14 +143,14 @@ const url3 = 'https://api.ru/phone';</pre>
 <pre>function request(url, success, error) {
 
   // создаем объект встроенного в браузер класса XMLHttpRequest
-  const xhr = new XMLHttpRequest(); 
+  const xhr = new XMLHttpRequest();
 
   xhr.open('GET', url); // инициализация запроса (async)
   xhr.send(); // отправка запроса
 
   // функция, которая обработает положительный результат
   // когда-то в будущем
-  xhr.onload = () => { 
+  xhr.onload = () => {
     if (xhr.status !== 200) {
       return xhr.statusText;
     } else {
@@ -168,10 +168,10 @@ const url3 = 'https://api.ru/phone';</pre>
 }</pre>
   <p>Создадим функцию getInfo, которая сделает запрос по первому url</p>
 <pre>function getInfo() {
-  request(url1, 
+  request(url1,
     (result) => {
       console.log(result);
-    }, 
+    },
     (err) => {
       console.error(err);
     }
@@ -179,20 +179,20 @@ const url3 = 'https://api.ru/phone';</pre>
 }</pre>
   <p>Модифицируем функцию getInfo так, чтобы в случае успеха, она производила второй запрос по второму url</p>
 <pre>function getInfo() {
-  request(url1, 
+  request(url1,
     (result) => {
       console.log(result);
 
-      request(url2, 
+      request(url2,
       (result2) => {
         console.log(result2);
-      }, 
+      },
       (err2) => {
         console.error(err2);
       }
     );
-  
-    }, 
+
+    },
     (err) => {
       console.error(err);
     }
@@ -200,29 +200,29 @@ const url3 = 'https://api.ru/phone';</pre>
 }</pre>
   <p>Модифицируем функцию getInfo так, чтобы в случае успеха, она производила еще и третий запрос по третьему url</p>
 <pre>function getInfo() {
-  request(url1, 
+  request(url1,
     (result) => {
       console.log(result);
 
-      request(url2, 
+      request(url2,
       (result2) => {
         console.log(result2);
 
-        request(url3, 
+        request(url3,
         (result3) => {
           console.log(result3);
-        }, 
+        },
         (err3) => {
           console.error(err3);
         }
-  
-      }, 
+
+      },
       (err2) => {
         console.error(err2);
       }
     );
-  
-    }, 
+
+    },
     (err) => {
       console.error(err);
     }
@@ -282,7 +282,7 @@ newGetInfo().then((result) => {
     <li>
       <a href="#promise-all-settled">Promise.allSettled()</a>
       <br>Принимает массив промисов (или перебираемый объект)
-      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled когда все переданные промисы перешли в любое состояние fulfilled или rejected. 
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled когда все переданные промисы перешли в любое состояние fulfilled или rejected.
     </li>
     <li>
       <a href="#promise-any">Promise.any()</a>
@@ -302,7 +302,7 @@ newGetInfo().then((result) => {
     <li>
       <a href="#promise-race">Promise.race()</a>
       <br>Принимает массив промисов (или перебираемый объект)
-      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled или rejected когда первый из переданных промисов перешел в состояние fulfilled или rejected 
+      <br>Возвращает новый промис со статусом pending. Перейдет в состояние fulfilled или rejected когда первый из переданных промисов перешел в состояние fulfilled или rejected
     </li>
     <li>
       <a href="#promise-reject">Promise.reject()</a>
@@ -336,7 +336,7 @@ newGetInfo().then((result) => {
   <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
   <br><strong>Возвращает</strong> новый промис со статусом pending
   <p>Новый промис перейдет в состояние fulfilled если все переданные промисы перешли в состояние fulfilled.</p>
-  <p>Новый промис перейдет в состояние rejected если хотя бы один из переданных промисов перейдет в состояние rejected.</p> 
+  <p>Новый промис перейдет в состояние rejected если хотя бы один из переданных промисов перейдет в состояние rejected.</p>
   <p>Его новый промис перешел в состояние fulfilled, то его результатом будет массив результатов переданных промисов, сохраняя порядок оригинального массива, но не порядок выполнения.</p>
 
   <h3>Задачи на метод Promise.all()</h3>
@@ -547,7 +547,7 @@ Promise.race([slow, fast, theFastest])
   <h3>8. Метод Promise.resolve(value)</h3>
   <strong>Появился</strong> в es2015
   <br><strong>Принимает</strong> результат с каким выполнится промис
-  <br><strong>Возвращает</strong> выполненный пропис с указанным результатом
+  <br><strong>Возвращает</strong> выполненный промис с указанным результатом
 
   <h3>Задачи на метод Promise.resolve()</h3>
   <p>Создадим промис, который должен выполниться и вернуть результат value</p>

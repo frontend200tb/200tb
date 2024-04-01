@@ -1,4 +1,4 @@
-class JsObjects extends HTMLElement {
+class JsCorejs extends HTMLElement {
   constructor() {
     super();
   }
@@ -7,11 +7,11 @@ class JsObjects extends HTMLElement {
     this.innerHTML = `
     <section class="main__aside">
       <aside class="aside"></aside>
-      <main class="main" id="objects"></main>
+      <main class="main" id="corejs"></main>
     </section>
     `;
-    this.className = 'js-objects';
+    this.className = 'js-corejs';
   }
 }
 
-customElements.define('js-objects', JsObjects);
+customElements.define('js-corejs', JsCorejs);
