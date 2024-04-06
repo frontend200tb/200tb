@@ -3,7 +3,6 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
 import htmlStructure from './elem-structure.html';
-import htmlAlgorithm from './elem-algorithm.html';
 import htmlPrinciple from './elem-principle.html';
 import htmlPattern from './elem-pattern.html';
 import htmlOop from './elem-oop.html';
@@ -13,7 +12,6 @@ import htmlFp from './elem-fp.html';
 export default function pageLink() {
   const aside = [
     htmlStructure,
-    htmlAlgorithm,
     htmlPrinciple,
     htmlPattern,
     htmlOop,

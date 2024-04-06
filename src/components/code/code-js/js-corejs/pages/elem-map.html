@@ -1,0 +1,164 @@
+<h1>Map</h1>
+
+
+<!-- links -->
+<article class="article">
+  <h2>links</h2>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">developer.mozilla.org</a></p>
+  <p><a href="https://learn.javascript.ru/map-set">learn.javascript.ru/map-set</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#about">about</a></p>
+  <p><a href="#create">Создание объекта Map</a></p>
+  <p><a href="#iterate">Перебор объекта Map</a></p>
+  <p><a href="#properties">Свойства Map</a></p>
+  <p><a href="#methods">Методы Map</a></p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Map – это коллекция ключ/значение, как и Object. Но основное отличие в том, что Map позволяет использовать ключи любого типа.</p>
+</article>
+
+
+<!-- Создание объекта Map -->
+<article class="article">
+  <div class="anchor" id="create"></div>
+  <h2>Создание объекта Map</h2>
+
+  <p>Создадим новую пустую коллекцию nums, в который потом можно будет добавлять элементы в виде пар ключ-значение.</p>
+  <code>const nums = new Map();</code>
+
+  <p>Создадим новую коллекцию month</p>
+  <code>const month = new Map([[1, 'januar'], [2, 'februar']]); // Map(2) {1 => 'januar', 2 => 'februar'}</code>
+  <code></code>
+</article>
+
+
+<!-- Перебор объекта Map -->
+<article class="article">
+  <div class="anchor" id="iterate"></div>
+  <h2>Перебор объекта Map</h2>
+
+  <p>Для перебора коллекции Map есть 3 метода:</p>
+  <ol>
+    <li>map.keys() – возвращает итерируемый объект по ключам,</li>
+    <li>map.values() – возвращает итерируемый объект по значениям,</li>
+    <li>map.entries() – возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for..of.</li>
+    <li>map.forEach() - выполняет callback-функцию для каждого элемента коллекции</li>
+  </ol>
+</article>
+
+
+<!-- Свойства Map -->
+<article class="article">
+  <div class="anchor" id="properties"></div>
+  <h2>Свойства Map</h2>
+  
+  <p>После создания любая коллекция имеет два свойства</p>
+  <ol>
+    <li><a href="#map-constructor">constructor</a> возвращает функцию конструктор коллекции <strong>function Map() { [native code] }</strong></li>
+    <li><a href="#map-size">size</a> возвращает количество элементов в коллекции</li>
+  </ol>
+  <p>Еще одно свойство есть у объекта Map:</p>
+  <ol>
+    <li><a href="#map-prototype">Map.prototype</a> возвращает ссылку на объект Map.prototype. Позволяет добавлять новые свойства и методы к объекту Map()</li>
+  </ol>
+</article>
+
+
+<!-- Свойство size -->
+<article class="article">
+  <div class="anchor" id="set-size"></div>
+  <h3>Свойство size</h3>
+
+  <p>Коллекции Map имеют только одно свойство - size.</p>
+  <p>Значение size является целым числом, которое показывает как много записей имеет объект Map. Функция для установки size равна undefined; вы не можете изменить это свойство.</p>
+
+  <code>const month = new Map([[1, 'januar'], [2, 'februar']]); // Map(2) {1 => 'januar', 2 => 'februar'}</code>
+  <code>month.size; // 2</code>
+</article>
+
+
+<!-- Методы Map -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы Map</h2>
+
+  <p>Методы объекта Map, записанные в его прототипе Map.prototype.</p>
+  <ol>
+    <li>
+      <a href="#map-clear">clear()</a>
+      <br>Изменяет исходную коллекцию
+      <br>Не принимает параметры
+      <br>Возвращает undefined. Удаляет все элементы из коллекции
+    </li>
+    <li>
+      <a href="#map-delete">delete()</a>
+      <br>Изменяет исходную коллекцию
+      <br>Принимает значение ключа, по которому удаляет элемент из коллекции
+      <br>Возвращает true, если элемент был успешно удален, иначе false
+    </li>
+    <li>
+      <a href="#map-entries">entries()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Не принимает параметры
+      <br>Возвращает новый Итератор, который содержит пары [ключ, значение] для каждого элемента в коллекции в порядке их добавления
+    </li>
+    <li>
+      <a href="#map-forEach">forEach()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Принимает callback-функцию, которая будет выполнена для каждого элемента
+      <br>Возвращает undefined
+    </li>
+    <li>
+      <a href="#map-get">get()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Принимает ключ, по которому ищется значение
+      <br>Возвращает значение по принятому ключу или undefined если такого ключа нет
+    </li>
+    <li>
+      <a href="#map-groupBy">Map.groupBy()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Принимает итерируемый объект и callback-функцию
+      <br>Возвращает новую коллекцию
+    </li>
+    <li>
+      <a href="#map-has">has()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Принимает ключ, которое нужно проверить на наличие в коллекции
+      <br>Возвращает true, если по указанному ключу значение есть в коллекции, иначе false
+    </li>
+    <li>
+      <a href="#map-keys">keys()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Не принимает параметры
+      <br>Возвращает новый итератор со значениями всех ключей коллекции
+    </li>
+    <li>
+      <a href="#map-set">set()</a>
+      <br>Изменяет исходную коллекцию
+      <br>Принимает пару ключ-значение, которую нужно добавить или обновить в коллекции
+      <br>Возвращает исходную коллекцию с добавленным новым значением
+    </li>
+    <li>
+      <a href="#map-values">values()</a>
+      <br>Не изменяет исходную коллекцию
+      <br>Не принимает параметры
+      <br>Возвращает новый итератор, который содержит значения из исходной коллекции в порядке их добавления в коллекцию
+    </li>
+  </ol>
+</article>
+
+
+
+

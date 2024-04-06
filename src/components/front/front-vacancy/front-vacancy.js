@@ -6,10 +6,18 @@ import './element-front-vacancy';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Vacancy', 'Epam', 'DSR', 'Neoflex', 'Yandex', 'Ozon', 'Avito', 'Tinkoff', 'Sber', 'Interview', 'Postcross', 'Invite', 'Refuse', 'Skills', 'Task'];
+const asideThemes = ['Vacancy', 'Epam', 'DSR', 'Neoflex', 'Yandex', 'Ozon', 'Avito', 'Tinkoff', 'Sber', 'Interview', 'Postcross', 'Приглашения', 'Отказы', 'Без ответа', 'Skills', 'Task'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
+
+// Функция создает id для элемента меню
+let idNameSuffix = 1;
+function createId(str) {
+  str = idNameSuffix;
+  idNameSuffix++;
+  return `vacancy-${str}`;
+}
 
 
 // 3. Для каждой темы из массива asideThemes
@@ -19,11 +27,6 @@ for (const theme of asideThemes) {
   elementAside.href = '#';
   elementAside.innerHTML = theme;
   elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `webapi-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);

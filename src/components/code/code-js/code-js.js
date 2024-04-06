@@ -21,11 +21,18 @@ import pageLink from './pages';
 
 // 1. Создадим контент для #main-nav
 // 1.1 Создаем массив categories с категориями
-const categories = ['Типы данных', 'CoreJS', 'Web API', 'Теория', 'Практика', 'Codewars'];
+const categories = ['Типы данных', 'CoreJS', 'Web API', 'Теория', 'Практика', 'Codewars', 'Coderun', 'Leetcode'];
 
 // 1.2 Создаем массив mainNav для элементов nav меню
 const mainNav = [];
-  let idNameSuffix = 1;
+
+// Функция создает id для элемента меню
+let idNameSuffix = 1;
+function createId(str) {
+  str = idNameSuffix;
+  idNameSuffix++;
+  return `js-${str}`;
+}
 
 // 1.3 Для каждой категории из массива categories
 for (const category of categories) {
@@ -34,12 +41,6 @@ for (const category of categories) {
   elementNav.href = '#';
   elementNav.innerHTML = category;
   elementNav.id = createId(category);
-
-  function createId(str) {
-    str = idNameSuffix;
-    idNameSuffix++;
-    return `js-${str}`;
-  }
 
   // 1.3.2 Добавляем элемент elementNav в массив mainNav
   mainNav.push(elementNav);

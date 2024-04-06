@@ -7,6 +7,8 @@ import showJsWebApi from './js-webapi/js-webapi';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
 import showJsCodewars from './js-codewars/js-codewars';
+import showJsCoderun from './js-coderun/js-coderun';
+import showJsLeetcode from './js-leetcode/js-leetcode';
 
 export default function pageLink() {
   const currentContent = document.querySelector('#js');
@@ -62,6 +64,24 @@ export default function pageLink() {
       e.preventDefault();
       currentContent.innerHTML = '<js-codewars></js-codewars>';
       showJsCodewars();
+    });
+  }
+
+  const navCoderun = document.getElementById('js-7');
+  if (navCoderun) {
+    navCoderun.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<js-coderun></js-coderun>';
+      showJsCoderun();
+    });
+  }
+
+  const navLeetcode = document.getElementById('js-8');
+  if (navLeetcode) {
+    navLeetcode.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<js-leetcode></js-leetcode>';
+      showJsLeetcode();
     });
   }
 

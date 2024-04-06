@@ -2,6 +2,7 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ****************** */
 import showFrontBase from './../front-base/front-base';
+import showAlgorithm from './../algorithm/algorithm';
 import showFrontFramework from './../front-framework/front-framework';
 import showFrontTools from './../front-tools/front-tools';
 import showFrontNet from './../front-net/front-net';
@@ -19,7 +20,16 @@ export default function pageLink() {
     });
   }
 
-  const navFramework = document.getElementById('offline-framework');
+  const navAlgorithm = document.getElementById('offline-2');
+  if (navAlgorithm) {
+    navAlgorithm.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<base-algorithm></base-algorithm>';
+      showAlgorithm();
+    });
+  }
+
+  const navFramework = document.getElementById('offline-3');
   if (navFramework) {
     navFramework.addEventListener('click', (e) => {
       e.preventDefault();
@@ -28,7 +38,7 @@ export default function pageLink() {
     });
   }
 
-  const navTools = document.getElementById('offline-tools');
+  const navTools = document.getElementById('offline-4');
   if (navTools) {
     navTools.addEventListener('click', (e) => {
       e.preventDefault();
@@ -37,7 +47,7 @@ export default function pageLink() {
     });
   }
 
-  const navNet = document.getElementById('offline-net');
+  const navNet = document.getElementById('offline-5');
   if (navNet) {
     navNet.addEventListener('click', (e) => {
       e.preventDefault();
@@ -46,7 +56,7 @@ export default function pageLink() {
     });
   }
 
-  const navArticles = document.getElementById('offline-articles');
+  const navArticles = document.getElementById('offline-6');
   if (navArticles) {
     navArticles.addEventListener('click', (e) => {
       e.preventDefault();

@@ -2,7 +2,6 @@
 Скрипт из файла page.js
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
-
 // Aside
 import htmlCodewars01 from './elem-codewars-01.html';
 import htmlCodewars02 from './elem-codewars-02.html';

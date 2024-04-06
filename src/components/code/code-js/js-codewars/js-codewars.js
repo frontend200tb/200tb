@@ -11,6 +11,14 @@ const asideThemes = ['Codewars1', 'Codewars2', 'Codewars3', 'Codewars'];
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
 
+// Функция создает id для элемента меню
+let idNameSuffix = 1;
+function createId(str) {
+  str = idNameSuffix;
+  idNameSuffix++;
+  return `codewars-${str}`;
+}
+
 // 3. Для каждой темы из массива asideThemes
 for (const theme of asideThemes) {
   // 3.1 Создаем элемент elementAside
@@ -18,11 +26,6 @@ for (const theme of asideThemes) {
   elementAside.href = '#';
   elementAside.innerHTML = theme;
   elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `codewars-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);

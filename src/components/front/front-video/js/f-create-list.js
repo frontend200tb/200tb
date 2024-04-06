@@ -33,9 +33,9 @@ export default function createList(data) {
 
     // 5.1 Свойство time объекта video содержит время в часах и минутах
     if (data[i].time_h_m) {
-      video.time = `Время ${data[i].time_h_m[0] ? `${data[i].time_h_m[0]}ч` : ''} ${data[i].time_h_m[1] ? `${data[i].time_h_m[1]}м` : ''}`;
+      video.time = `${data[i].time_h_m[0] ? `${data[i].time_h_m[0]}ч` : ''} ${data[i].time_h_m[1] ? `${data[i].time_h_m[1]}м` : ''}`;
     } else {
-      video.time = `Время ${data[i].time}`;
+      video.time = `${data[i].time}`;
     }
 
     // 6.1 Свойство link объекта video содержит ссылки на видео
@@ -49,7 +49,7 @@ export default function createList(data) {
     elementLi.innerHTML = `
     <strong>[${data[i].year}] ${data[i].title}</strong>
     <div>${data[i].author} ${data[i].name}</div>
-    <div>${data[i].numberLessons} видео. ${video.time} Размер ${data[i].size}</div>
+    <div>${data[i].numberLessons}. Время ${video.time}. Размер ${data[i].size}</div>
     <div>${video.link}</div>
     <div>Изучено ${data[i].isLearned}</div>`;
 

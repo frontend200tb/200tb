@@ -6,10 +6,18 @@ import './element-js-corejs';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['globalThis', 'Date',  'Math', 'Promise', 'Regexp'];
+const asideThemes = ['globalThis', 'Date', 'Map', 'Math', 'Promise', 'Regexp', 'Set'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
+
+// Функция создает id для элемента меню
+let idNameSuffix = 1;
+function createId(str) {
+  str = idNameSuffix;
+  idNameSuffix++;
+  return `corejs-${str}`;
+}
 
 // 3. Для каждой темы из массива asideThemes
 for (const theme of asideThemes) {
@@ -18,11 +26,6 @@ for (const theme of asideThemes) {
   elementAside.href = '#';
   elementAside.innerHTML = theme;
   elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `corejs-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);

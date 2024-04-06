@@ -6,9 +6,11 @@
 // Aside
 import htmlGlobalthis from './elem-globalthis.html';
 import htmlDate from './elem-date.html';
+import htmlMap from './elem-map.html';
 import htmlMath from './elem-math.html';
 import htmlPromise from './elem-promise.html';
 import htmlRegexp from './elem-regexp.html';
+import htmlSet from './elem-set.html';
 
 // Promise
 import htmlPromiseTask from './elem-promise-task.html';
@@ -17,9 +19,11 @@ import htmlPromiseTask from './elem-promise-task.html';
 const aside = [
   htmlGlobalthis,
   htmlDate,
+  htmlMap,
   htmlMath,
   htmlPromise,
   htmlRegexp,
+  htmlSet,
 ];
 
 // массив страниц со страницы Promise

@@ -17,6 +17,7 @@ import htmlInterview from './elem-interview.html';
 import htmlPostcross from './elem-postcross.html';
 import htmlInvite from './elem-invite.html';
 import htmlRefuse from './elem-refuse.html';
+import htmlNoanswer from './elem-noanswer.html';
 import htmlSkills from './elem-skills.html';
 import htmlTask from './elem-task.html';
 
@@ -35,6 +36,7 @@ const aside = [
   htmlPostcross,
   htmlInvite,
   htmlRefuse,
+  htmlNoanswer,
   htmlSkills,
   htmlTask,
 ];

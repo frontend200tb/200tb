@@ -1,0 +1,86 @@
+<h1>Leetcode</h1>
+
+<!-- Содержание -->
+<div class="article">
+  <h3>Содержание</h3>
+  <p><a href="#task-532">LeetCode 532. K-diff Pairs in an Array</a></p>
+  <p><a href="#task-658">LeetCode 658. Find K Closest Elements</a></p>
+</div>
+
+
+<!-- LeetCode 532. K-diff Pairs in an Array -->
+<article class="article">
+  <div class="anchor" id="task-532"></div>
+  <h2>LeetCode 532. K-diff Pairs in an Array</h2>
+
+  <h4>Description</h4>
+  <p>Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array.</p>
+  <p>A k-diff pair is an integer pair (nums[i], nums[j]), where the following are true:</p>
+  <code>0 &lt;= i, j &lt; nums.length</code>
+  <code>i != j</code>
+  <code>|nums[i] - nums[j]| == k</code>
+  <p>Notice that |val| denotes the absolute value of val.</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: nums = [3,1,4,1,5], k = 2</code>
+  <code>Output: 2</code>
+  <p>Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5). Although we have two 1s in the input, we should only return the number of unique pairs.</p>
+
+  <h4>Example 2:</h4>
+  <code>Input: nums = [1,2,3,4,5], k = 1</code>
+  <code>Output: 4</code>
+  <p>Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).</p>
+
+  <h4>Example 3:</h4>
+  <code>Input: nums = [1,3,1,5,4], k = 0</code>
+  <code>Output: 1</code>
+  <p>Explanation: There is one 0-diff pair in the array, (1, 1).</p>
+</article>
+
+
+<!-- LeetCode 658. Find K Closest Elements -->
+<article class="article">
+  <div class="anchor" id="task-658"></div>
+  <h2>LeetCode 658. Find K Closest Elements</h2>
+
+  <h4>Description</h4>
+  <p>Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.</p>
+  <p>An integer a is closer to x than an integer b if:</p>
+  <code>|a - x| &lt; |b - x|, or</code>
+  <code>|a - x| == |b - x| and a &lt; b</code>
+
+  <h4>Example 1:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = 3</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = -1</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function findClosestElements(arr, k, x) {
+  isClosest = (a, b) => {
+    const aDiff = Math.abs(a-x);
+    const bDiff = Math.abs(b-x);
+    return aDiff &lt; bDiff || (aDiff === bDiff && a &lt; b);
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (right - left + 1 &gt; k) {
+    if (isClosest(arr[left], arr[right])) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+
+  return arr.slice(left, right + 1);
+}</pre>
+  </details>
+</article>
+
+
+
