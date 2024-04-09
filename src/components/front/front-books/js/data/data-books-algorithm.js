@@ -831,6 +831,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 62,
+    year: 2020,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы и жизнеритмы на языке ДРАКОН',
+    author: 'Паронджанов',
+    authorName: 'Владимир',
+    pages: '376',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 63,
     year: 2020,
     category: 'основы',

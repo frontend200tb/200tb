@@ -11,6 +11,13 @@ _social-icons.scss
   border-radius: 4px;
 }
 
+@media (max-width: 580px) {
+  .social {
+    text-align: center;
+  }
+}
+/*---------------*/
+
 .social a:hover {
   opacity: .6;
 }

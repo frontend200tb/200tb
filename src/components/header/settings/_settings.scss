@@ -1,11 +1,6 @@
 /*********************
 settings
 *********************/
-
-.settings {
-  text-align: right;
-}
-
 .set-up-btn {
   display: flex;
   flex-direction: row;
@@ -14,10 +9,24 @@ settings
   margin: 0 0 10px auto;
 }
 
+@media (max-width: 580px) {
+  .set-up-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 580px) {
+  .set-section {
+    justify-content: center;
+  }
+}
+/*---------------*/
+
 /* Конец settings */
 
 @import 'set-btn/set-btn';
 @import 'set-color/set-color';
+@import 'set-view/set-view';
 @import 'theme/_theme';
 @import 'snow/_snow';
 @import 'search-btn/search-btn';

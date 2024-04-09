@@ -4,6 +4,7 @@
 import './style.scss';
 // Стили
 
+import './components/main/main';
 import './components/header/header';
 import './components/nav/nav';
 import './components/footer/footer';

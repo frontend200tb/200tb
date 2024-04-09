@@ -2,6 +2,13 @@
   margin-bottom: 10px;
 }
 
+@media (max-width: 580px) {
+  .set-color {
+    text-align: center;
+  }
+}
+/*---------------*/
+
 #select-red {
   width: 20px;
   height: 20px;

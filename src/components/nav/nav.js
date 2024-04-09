@@ -5,9 +5,8 @@ Code HTML CSS JS TS C# Markdown Pug Sass Php Pascal
 Frontend Books Edu Learned Node Offline Vacancy Video Youtube
 ****************** */
 
-import {
-  dataNavCode, dataNavFront,
-} from './data-nav';
+import './element-nav';
+import {dataNavCode, dataNavFront} from './data-nav';
 import { endUrl } from '../header/header-nav/header-nav';
 
 const nav = document.getElementById('nav');

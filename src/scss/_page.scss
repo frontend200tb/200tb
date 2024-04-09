@@ -2,6 +2,16 @@
 Page
 *********************/
 
+
+/* глобальные константы */
+:root {
+  --num-desktop: 1440;
+  --num-tablet: 600px;
+  --num-mobile: 300px;
+}
+
+
+/* правила для всех страниц */
 .page {
   display: flex;
   flex-direction: column;
@@ -11,6 +21,13 @@ Page
   min-height: 100vh;
   min-width: 400px;
 }
+
+@media (max-width: 580px) {
+  .page {
+    padding-top: 0;
+  }
+}
+/*---------------*/
 
 .container {
   margin: 10px auto 0;
@@ -76,7 +93,7 @@ code {
   margin: .5em;
   padding: .5em;
   background-color: #f5f2f0;
-
+  overflow-x: scroll;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }

@@ -6275,20 +6275,6 @@ const dataFrontYtRus = [
   {
     id: 449,
     theme: 'frontend',
-    title: 'Войти в IT к 30',
-    author: 'Владислав',
-    city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@enterIT30/videos',
-    site: '',
-    dateFirstVideo: '2020.11.24',
-    dateLastVideo: '2022.08.29',
-    amountVideos: 17,
-  },
-
-  {
-    id: 450,
-    theme: 'frontend',
     title: 'На вершину IT',
     author: '',
     city: '',
@@ -6301,7 +6287,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 451,
+    id: 450,
     theme: 'frontend',
     title: 'CosyFrontend',
     author: 'Настя',
@@ -6315,7 +6301,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 452,
+    id: 451,
     theme: 'frontend',
     title: 'ВебСтудио',
     author: '',
@@ -6329,7 +6315,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 453,
+    id: 452,
     theme: 'frontend',
     title: 'bem.info',
     author: '',
@@ -6343,7 +6329,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 454,
+    id: 453,
     theme: 'frontend',
     title: 'codefocus',
     author: 'Наташа Жиркова',
@@ -6353,6 +6339,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2018.12.02',
     dateLastVideo: '2020.01.22',
+    amountVideos: 15,
+  },
+
+  {
+    id: 454,
+    theme: 'frontend',
+    title: 'Helio',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@helio404/videos',
+    site: '',
+    dateFirstVideo: '2022.09.14',
+    dateLastVideo: '2023.01.07',
     amountVideos: 15,
   },
 
@@ -6443,6 +6443,34 @@ const dataFrontYtRus = [
   {
     id: 461,
     theme: 'frontend',
+    title: 'Денис Игнатенко',
+    author: 'Денис Игнатенко',
+    city: 'Москва',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@midlifecode/videos',
+    site: '',
+    dateFirstVideo: '2023.11.19',
+    dateLastVideo: '2023.12.30',
+    amountVideos: 15,
+  },
+
+  {
+    id: 462,
+    theme: 'frontend',
+    title: 'Саша Лукин',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@sashalukin/videos',
+    site: '',
+    dateFirstVideo: '2020.06.08',
+    dateLastVideo: '2023.07.22',
+    amountVideos: 15,
+  },
+
+  {
+    id: 463,
+    theme: 'frontend',
     title: 'BAD FRONTEND (Alexandra Bochenina)',
     author: '',
     city: '',
@@ -6455,7 +6483,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 462,
+    id: 464,
     theme: 'frontend',
     title: 'Dehavilland',
     author: '',
@@ -6469,7 +6497,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 463,
+    id: 465,
     theme: 'frontend',
     title: 'Gleb.proger',
     author: '',
@@ -6483,7 +6511,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 464,
+    id: 466,
     theme: 'frontend',
     title: 'GramsCode',
     author: '',
@@ -6497,21 +6525,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 465,
-    theme: 'frontend',
-    title: 'Helio',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@helio404/videos',
-    site: '',
-    dateFirstVideo: '2022.09.14',
-    dateLastVideo: '2023.01.07',
-    amountVideos: 14,
-  },
-
-  {
-    id: 466,
+    id: 467,
     theme: 'frontend',
     title: 'LISA WEBGIRL',
     author: 'Лиза',
@@ -6525,7 +6539,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 467,
+    id: 468,
     theme: 'frontend',
     title: 'makecsx',
     author: 'Лом-Али (Лев) Гуржиханов',
@@ -6539,7 +6553,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 468,
+    id: 469,
     theme: 'frontend',
     title: 'techno future',
     author: 'Роман Шевченко',
@@ -6553,7 +6567,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 469,
+    id: 470,
     theme: 'frontend',
     title: 'Vladislav Griga',
     author: '',
@@ -6563,20 +6577,6 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2018.04.13',
     dateLastVideo: '2019.04.15',
-    amountVideos: 14,
-  },
-
-  {
-    id: 470,
-    theme: 'frontend',
-    title: 'Александр Лукин',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@sashalukin/videos',
-    site: '',
-    dateFirstVideo: '2020.06.08',
-    dateLastVideo: '2023.07.22',
     amountVideos: 14,
   },
 
@@ -6597,20 +6597,6 @@ const dataFrontYtRus = [
   {
     id: 472,
     theme: 'frontend',
-    title: 'Денис Игнатенко',
-    author: 'Денис Игнатенко',
-    city: 'Москва',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@midlifecode/videos',
-    site: '',
-    dateFirstVideo: '2023.11.19',
-    dateLastVideo: '2023.12.30',
-    amountVideos: 14,
-  },
-
-  {
-    id: 473,
-    theme: 'frontend',
     title: 'Роман Шайнуров',
     author: '',
     city: '',
@@ -6623,7 +6609,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 474,
+    id: 473,
     theme: 'frontend',
     title: 'Саня об IT',
     author: '',
@@ -6637,7 +6623,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 475,
+    id: 474,
     theme: 'frontend',
     title: 'Сергей Володин',
     author: 'Сергей Володин',
@@ -6651,7 +6637,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 476,
+    id: 475,
     theme: 'frontend',
     title: 'frontendgirl',
     author: 'Таня',
@@ -6665,7 +6651,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 477,
+    id: 476,
     theme: 'frontend',
     title: 'JSNavigator',
     author: '',
@@ -6679,7 +6665,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 478,
+    id: 477,
     theme: 'frontend',
     title: 'Merrick',
     author: '',
@@ -6693,7 +6679,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 479,
+    id: 478,
     theme: 'frontend',
     title: 'Northern Lights',
     author: '',
@@ -6707,7 +6693,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 480,
+    id: 479,
     theme: 'frontend',
     title: 'Ros',
     author: '',
@@ -6717,6 +6703,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2015.03.23',
     dateLastVideo: '2015.09.03',
+    amountVideos: 13,
+  },
+
+  {
+    id: 480,
+    theme: 'frontend',
+    title: 'Войти в IT к 30',
+    author: 'Владислав',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@enterIT30/videos',
+    site: '',
+    dateFirstVideo: '2020.11.24',
+    dateLastVideo: '2022.08.29',
     amountVideos: 13,
   },
 
@@ -7101,20 +7101,6 @@ const dataFrontYtRus = [
   {
     id: 508,
     theme: 'frontend',
-    title: 'Egor Repnikov',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@egorguru/videos',
-    site: '',
-    dateFirstVideo: '2019.09.21',
-    dateLastVideo: '2024.02.06',
-    amountVideos: 9,
-  },
-
-  {
-    id: 509,
-    theme: 'frontend',
     title: 'IT Fast',
     author: '',
     city: '',
@@ -7127,7 +7113,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 510,
+    id: 509,
     theme: 'frontend',
     title: 'ITshechka',
     author: '',
@@ -7141,7 +7127,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 511,
+    id: 510,
     theme: 'frontend',
     title: 'sazonov-dev',
     author: '',
@@ -7155,7 +7141,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 512,
+    id: 511,
     theme: 'frontend',
     title: 'The Code - Всё о коде, если это Javascript',
     author: '',
@@ -7169,7 +7155,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 513,
+    id: 512,
     theme: 'frontend',
     title: 'Yuriy Bogomolov',
     author: '',
@@ -7183,7 +7169,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 514,
+    id: 513,
     theme: 'frontend',
     title: 'Алексей Вавилов',
     author: '',
@@ -7197,7 +7183,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 515,
+    id: 514,
     theme: 'frontend',
     title: 'Аня Coding Girl',
     author: 'Аня',
@@ -7207,6 +7193,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2022.11.23',
     dateLastVideo: '2023.05.10',
+    amountVideos: 9,
+  },
+
+  {
+    id: 515,
+    theme: 'frontend',
+    title: 'Евгений Ращупкин',
+    author: 'Евгений Ращупкин',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@eugenern_dev/videos',
+    site: '',
+    dateFirstVideo: '2023.12.20',
+    dateLastVideo: '2024.04.04',
     amountVideos: 9,
   },
 
@@ -7339,20 +7339,6 @@ const dataFrontYtRus = [
   {
     id: 525,
     theme: 'frontend',
-    title: 'Mikhail Zhitin',
-    author: 'Михаил Житин',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@mikhailzhitin42/videos',
-    site: '',
-    dateFirstVideo: '2017.05.12',
-    dateLastVideo: '2017.06.07',
-    amountVideos: 8,
-  },
-
-  {
-    id: 526,
-    theme: 'frontend',
     title: 'talk_IT',
     author: 'Сергей Шалыгин',
     city: 'Москва',
@@ -7365,7 +7351,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 527,
+    id: 526,
     theme: 'frontend',
     title: 'Прокашев Даниил',
     author: 'Даниил Прокашев',
@@ -7379,7 +7365,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 528,
+    id: 527,
     theme: 'frontend',
     title: 'Dmitrii Fokeev',
     author: 'Дмитрий Фокеев',
@@ -7393,7 +7379,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 529,
+    id: 528,
     theme: 'frontend',
     title: 'Frontend JS',
     author: '',
@@ -7407,7 +7393,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 530,
+    id: 529,
     theme: 'frontend',
     title: 'ITscapism',
     author: '',
@@ -7421,7 +7407,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 531,
+    id: 530,
     theme: 'frontend',
     title: 'Vanguard Coding',
     author: '',
@@ -7435,7 +7421,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 532,
+    id: 531,
     theme: 'frontend',
     title: 'WebbeW',
     author: '',
@@ -7449,7 +7435,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 533,
+    id: 532,
     theme: 'frontend',
     title: 'Руслан Гильмуллин',
     author: 'Руслан Гильмуллин',
@@ -7463,7 +7449,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 534,
+    id: 533,
     theme: 'frontend',
     title: 'Aiba TV',
     author: 'Айбол',
@@ -7477,7 +7463,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 535,
+    id: 534,
     theme: 'frontend',
     title: 'Alexey Shaykov',
     author: 'Алексей Шайков',
@@ -7491,7 +7477,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 536,
+    id: 535,
     theme: 'frontend',
     title: 'Andrey Kudinov',
     author: '',
@@ -7505,7 +7491,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 537,
+    id: 536,
     theme: 'frontend',
     title: 'EPAM Training Center',
     author: '',
@@ -7519,7 +7505,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 538,
+    id: 537,
     theme: 'frontend',
     title: 'itt - Архитектура для Профессионалов',
     author: '',
@@ -7533,7 +7519,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 539,
+    id: 538,
     theme: 'frontend',
     title: 'jsCoding',
     author: '',
@@ -7547,7 +7533,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 540,
+    id: 539,
     theme: 'frontend',
     title: 'Koakoalla',
     author: '',
@@ -7561,7 +7547,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 541,
+    id: 540,
     theme: 'frontend',
     title: 'Mikail Aziev',
     author: 'Михаил Азиев',
@@ -7575,7 +7561,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 542,
+    id: 541,
     theme: 'frontend',
     title: 'Pushtuk',
     author: '',
@@ -7589,7 +7575,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 543,
+    id: 542,
     theme: 'frontend',
     title: 'Rutina dev',
     author: '',
@@ -7603,7 +7589,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 544,
+    id: 543,
     theme: 'frontend',
     title: 'Think JS',
     author: '',
@@ -7617,7 +7603,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 545,
+    id: 544,
     theme: 'frontend',
     title: 'ULTIMA team',
     author: '',
@@ -7631,7 +7617,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 546,
+    id: 545,
     theme: 'frontend',
     title: 'Мультипарадигмал',
     author: 'Артем',
@@ -7645,7 +7631,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 547,
+    id: 546,
     theme: 'frontend',
     title: 'Полина про Frontend',
     author: '',
@@ -7659,7 +7645,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 548,
+    id: 547,
     theme: 'frontend',
     title: 'Сергей на фрилансе',
     author: 'Сергей Жарков',
@@ -7670,6 +7656,20 @@ const dataFrontYtRus = [
     dateFirstVideo: '2015.05.31',
     dateLastVideo: '2020.05.15',
     amountVideos: 6,
+  },
+
+  {
+    id: 548,
+    theme: 'frontend',
+    title: 'Bulkin Denis',
+    author: 'Денис Булкин',
+    city: '',
+    country: 'Казахстан',
+    link: 'https://www.youtube.com/@denidenx/videos',
+    site: '',
+    dateFirstVideo: '2022.02.24',
+    dateLastVideo: '2022.09.07',
+    amountVideos: 5,
   },
 
   {
@@ -7731,6 +7731,20 @@ const dataFrontYtRus = [
   {
     id: 553,
     theme: 'frontend',
+    title: 'itche',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@itche/videos',
+    site: '',
+    dateFirstVideo: '2024.02.03',
+    dateLastVideo: '2024.02.24',
+    amountVideos: 5,
+  },
+
+  {
+    id: 554,
+    theme: 'frontend',
     title: 'myStoryLoft',
     author: '',
     city: '',
@@ -7743,7 +7757,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 554,
+    id: 555,
     theme: 'frontend',
     title: 'OkoloJS',
     author: '',
@@ -7757,7 +7771,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 555,
+    id: 556,
     theme: 'frontend',
     title: 'ridiculous inc',
     author: '',
@@ -7771,7 +7785,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 556,
+    id: 557,
     theme: 'frontend',
     title: 'Roman Boiarchuk',
     author: '',
@@ -7785,7 +7799,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 557,
+    id: 558,
     theme: 'frontend',
     title: 'SNIEDA PROGRAMMING',
     author: '',
@@ -7799,7 +7813,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 558,
+    id: 559,
     theme: 'frontend',
     title: 'TomskJS',
     author: '',
@@ -7813,7 +7827,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 559,
+    id: 560,
     theme: 'frontend',
     title: 'Абсолютное Зло',
     author: '',
@@ -7827,7 +7841,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 560,
+    id: 561,
     theme: 'frontend',
     title: 'КРАСНОГЛАЗ',
     author: '',
@@ -7841,7 +7855,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 561,
+    id: 562,
     theme: 'frontend',
     title: 'Станислав Агафонов',
     author: 'Станислав Агафонов',
@@ -7855,7 +7869,21 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 562,
+    id: 563,
+    theme: 'frontend',
+    title: 'Фронтендер Мишаня',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@iMkhl/videos',
+    site: '',
+    dateFirstVideo: '2023.12.13',
+    dateLastVideo: '2024.03.03',
+    amountVideos: 5,
+  },
+
+  {
+    id: 564,
     theme: 'frontend',
     title: 'Andrei Auchynnikau',
     author: 'Андрей Овчинников',
@@ -7869,7 +7897,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 563,
+    id: 565,
     theme: 'frontend',
     title: 'Art Code',
     author: '',
@@ -7883,7 +7911,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 564,
+    id: 566,
     theme: 'frontend',
     title: 'Code\'n Fun',
     author: '',
@@ -7897,7 +7925,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 565,
+    id: 567,
     theme: 'frontend',
     title: 'Cursor Frontend Accademy',
     author: '',
@@ -7911,7 +7939,21 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 566,
+    id: 568,
+    theme: 'frontend',
+    title: 'Egor Repnikov',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@egorguru/videos',
+    site: '',
+    dateFirstVideo: '2019.09.21',
+    dateLastVideo: '2024.02.06',
+    amountVideos: 4,
+  },
+
+  {
+    id: 569,
     theme: 'frontend',
     title: 'frontender',
     author: '',
@@ -7925,7 +7967,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 567,
+    id: 570,
     theme: 'frontend',
     title: 'It is Pum4ik',
     author: '',
@@ -7939,21 +7981,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 568,
-    theme: 'frontend',
-    title: 'itche',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@itche/videos',
-    site: '',
-    dateFirstVideo: '2024.02.03',
-    dateLastVideo: '2024.02.24',
-    amountVideos: 4,
-  },
-
-  {
-    id: 569,
+    id: 571,
     theme: 'frontend',
     title: 'Juravlik (Alisher)',
     author: '',
@@ -7967,7 +7995,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 570,
+    id: 572,
     theme: 'frontend',
     title: 'Mr. Camelot',
     author: '',
@@ -7981,7 +8009,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 571,
+    id: 573,
     theme: 'frontend',
     title: 'SALTEIN #Scriptus',
     author: '',
@@ -7995,7 +8023,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 572,
+    id: 574,
     theme: 'frontend',
     title: 'Sergey Cherepanov',
     author: 'Сергей Черепанов',
@@ -8009,7 +8037,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 573,
+    id: 575,
     theme: 'frontend',
     title: 'USE WEB',
     author: '',
@@ -8023,21 +8051,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 574,
-    theme: 'frontend',
-    title: 'Фронтендер Мишаня',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@iMkhl/videos',
-    site: '',
-    dateFirstVideo: '2023.12.13',
-    dateLastVideo: '2024.03.03',
-    amountVideos: 4,
-  },
-
-  {
-    id: 575,
+    id: 576,
     theme: 'frontend',
     title: 'ЯваСкрипт',
     author: '',
@@ -8048,20 +8062,6 @@ const dataFrontYtRus = [
     dateFirstVideo: '2024.02.08',
     dateLastVideo: '2024.02.29',
     amountVideos: 4,
-  },
-
-  {
-    id: 576,
-    theme: 'frontend',
-    title: 'Bulkin Denis',
-    author: 'Денис Булкин',
-    city: '',
-    country: 'Казахстан',
-    link: 'https://www.youtube.com/@denidenx/videos',
-    site: '',
-    dateFirstVideo: '2022.02.24',
-    dateLastVideo: '2022.09.07',
-    amountVideos: 3,
   },
 
   {
@@ -8095,6 +8095,20 @@ const dataFrontYtRus = [
   {
     id: 579,
     theme: 'frontend',
+    title: 'TeaСoder',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@TeaCoder/videos',
+    site: '',
+    dateFirstVideo: '2023.10.07',
+    dateLastVideo: '2023.12.29',
+    amountVideos: 3,
+  },
+
+  {
+    id: 580,
+    theme: 'frontend',
     title: 'Александр Стародубцев',
     author: '',
     city: '',
@@ -8107,7 +8121,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 580,
+    id: 581,
     theme: 'frontend',
     title: 'Алексей Пастушенко',
     author: 'Алексей Пастушенко',
@@ -8121,7 +8135,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 581,
+    id: 582,
     theme: 'frontend',
     title: 'Как стать программистом (Андрей)',
     author: 'Андрей',
@@ -8135,7 +8149,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 582,
+    id: 583,
     theme: 'frontend',
     title: 'Кирилл Панюшин',
     author: 'Кирилл Панюшин',
@@ -8149,7 +8163,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 583,
+    id: 584,
     theme: 'frontend',
     title: 'Коля Павельев',
     author: 'Коля Павельев',
@@ -8163,7 +8177,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 584,
+    id: 585,
     theme: 'frontend',
     title: 'Максим Синяков',
     author: 'Максим Синяков',
@@ -8177,7 +8191,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 585,
+    id: 586,
     theme: 'frontend',
     title: 'Однорукий клакёр',
     author: '',
@@ -8191,7 +8205,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 586,
+    id: 587,
     theme: 'frontend',
     title: 'Павел Васильев',
     author: 'Павел Васильев',
@@ -8205,9 +8219,9 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 587,
+    id: 588,
     theme: 'frontend',
-    title: 'Станислав Мартыщенко',
+    title: 'Станіслав',
     author: 'Станислав Мартыщенко',
     city: '',
     country: '',
@@ -8219,7 +8233,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 588,
+    id: 589,
     theme: 'frontend',
     title: 'crutch and bike',
     author: '',
@@ -8233,7 +8247,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 589,
+    id: 590,
     theme: 'frontend',
     title: 'Danil Kasianenko',
     author: 'Данил Касьяненко',
@@ -8247,7 +8261,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 590,
+    id: 591,
     theme: 'frontend',
     title: "Evgen's Gang",
     author: '',
@@ -8261,7 +8275,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 591,
+    id: 592,
     theme: 'frontend',
     title: 'GrandpaJS',
     author: '',
@@ -8275,7 +8289,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 592,
+    id: 593,
     theme: 'frontend',
     title: 'JavaScript с нуля',
     author: '',
@@ -8289,7 +8303,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 593,
+    id: 594,
     theme: 'frontend',
     title: 'Pete Pearl',
     author: '',
@@ -8303,7 +8317,7 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 594,
+    id: 595,
     theme: 'frontend',
     title: 'Road to Senior',
     author: 'Леонид',
@@ -8313,20 +8327,6 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2021.02.11',
     dateLastVideo: '2021.02.15',
-    amountVideos: 2,
-  },
-
-  {
-    id: 595,
-    theme: 'frontend',
-    title: 'TeaСoder',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@TeaCoder/videos',
-    site: '',
-    dateFirstVideo: '2023.10.07',
-    dateLastVideo: '2023.12.29',
     amountVideos: 2,
   },
 

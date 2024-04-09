@@ -21,8 +21,8 @@ Aside
 }
 
 
-//мобильная версия
-@media (max-width: 580px) {
+// планшетная версия
+@media (max-width: 800px) {
   .aside {
     min-width: 132px;
 
@@ -33,5 +33,13 @@ Aside
     }
   }
 }
+
+
+//мобильная версия
+// @media (max-width: 580px) {
+//   .aside {
+//     display: none;
+//   }
+// }
 
 /* Конец Aside */

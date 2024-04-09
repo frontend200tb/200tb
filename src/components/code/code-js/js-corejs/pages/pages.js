@@ -6,6 +6,7 @@
 // Aside
 import htmlGlobalthis from './elem-globalthis.html';
 import htmlDate from './elem-date.html';
+import htmlError from './elem-error.html';
 import htmlMap from './elem-map.html';
 import htmlMath from './elem-math.html';
 import htmlPromise from './elem-promise.html';
@@ -19,6 +20,7 @@ import htmlPromiseTask from './elem-promise-task.html';
 const aside = [
   htmlGlobalthis,
   htmlDate,
+  htmlError,
   htmlMap,
   htmlMath,
   htmlPromise,

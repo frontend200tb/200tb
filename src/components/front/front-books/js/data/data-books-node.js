@@ -149,6 +149,19 @@ const dataBooksNode = [
 
   {
     id: 13,
+    year: 2022,
+    category: 'framework',
+    theme: 'node',
+    title: 'JavaScript и Node.js для веб-разработчиков',
+    author: 'Прохоренок, Дронов',
+    authorName: '',
+    pages: '767',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
     year: 2023,
     category: 'framework',
     theme: 'node',

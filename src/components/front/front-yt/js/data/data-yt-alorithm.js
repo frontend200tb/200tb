@@ -227,6 +227,20 @@ const dataYtAlgorithm = [
   {
     id: 17,
     theme: 'Алгоритмы',
+    title: 'Александр Павлов',
+    author: 'Александр Павлов',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@pavlovalex/videos',
+    site: '',
+    dateFirstVideo: '2015.05.15',
+    dateLastVideo: '2024.04.07',
+    amountVideos: 125,
+  },
+
+  {
+    id: 18,
+    theme: 'Алгоритмы',
     title: 'Niyaz Nigmatullin',
     author: '',
     city: '',
@@ -239,7 +253,7 @@ const dataYtAlgorithm = [
   },
 
   {
-    id: 18,
+    id: 19,
     theme: 'Алгоритмы',
     title: 'ACM MIET',
     author: '',
