@@ -24,25 +24,24 @@ List
     box-shadow: 4px 6px;
   }
 
+  & ol,
+  & ul {
+    padding: 0;
+  }
+
   & ol>li {
-    margin: 10px;
-    padding: 10px;
     list-style-position: inside;
-    border-radius: 20px;
-    box-shadow: 4px 6px;
   }
 
   & ul>li {
-    margin: 10px;
-    padding: 10px;
     list-style: none;
-    border-radius: 20px;
-    box-shadow: 4px 6px;
   }
 
   & li {
-    margin: 0;
-    padding: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 4px 6px;
   }
 
   & li:nth-child(odd) {

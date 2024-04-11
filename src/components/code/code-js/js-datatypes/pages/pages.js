@@ -12,7 +12,6 @@ import htmlUndefined from './elem-undefined.html';
 import htmlBigint from './elem-bigint.html';
 import htmlSymbol from './elem-symbol.html';
 import htmlObject from './elem-object.html';
-import htmlArray from './elem-array.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -24,7 +23,6 @@ const aside = [
   htmlBigint,
   htmlSymbol,
   htmlObject,
-  htmlArray,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

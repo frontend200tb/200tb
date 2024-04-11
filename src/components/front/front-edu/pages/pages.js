@@ -83,6 +83,7 @@ import htmlRsTestWebsecurity from './rs-test/rs-test-websecurity.html';
 import htmlRsTestRestful from './rs-test/rs-test-restful.html';
 import htmlRsTestEventloop from './rs-test/rs-test-eventloop.html';
 import htmlRsTestTesting from './rs-test/rs-test-testing.html';
+import htmlRsTestError from './rs-test/rs-test-error.html';
 
 // Neoflex test
 import htmlNftest from './neoflex/nf-test.html';
@@ -128,7 +129,7 @@ htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
 htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
 htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
 htmlRsTestWebstorage, htmlRsTestFp, htmlRsTestAsyncjs, htmlRsTestWebsecurity,
-htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting];
+htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting, htmlRsTestError];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {

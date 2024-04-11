@@ -1,27 +1,19 @@
-<h1>Промисы</h1>
+<h1>Объект Promise</h1>
 
 <article class="article">
   <p><a href="elem-promise-tasks" class="promise-links">Задачи на Promise</a></p>
 </article>
 
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
-
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div>
-    <p><a href="#links">links</a></p>
-    <p><a href="#about">about</a></p>
-    <p><a href="#problem">Какую проблему решают промисы</a></p>
-    <p><a href="#methods">Методы объекта Promise</a></p>
-  </div>
-
-</div>
+  <p><a href="#links">links</a></p>
+  <p><a href="#about">about</a></p>
+  <p><a href="#problem">Какую проблему решают промисы</a></p>
+  <p><a href="#methods">Методы объекта Promise</a></p>
+</article>
 
 
 <!-- links -->
@@ -421,8 +413,8 @@ Promise.allSettled(promises)
   <h3>3. Метод Promise.any()</h3>
   <br><strong>Принимает</strong> массив промисов (или перебираемый объект)
   <br><strong>Возвращает</strong> новый промис со статусом pending
-  <p>Перейдет в состояние fulfilled любой из переданных промисов перешел в состояние fulfilled.</p>
-  <p>Перейдет в состояние rejected когда все переданные промисы перешли в состояние rejected</p>
+  <p>Перейдет в состояние fulfilled когда любой из переданных промисов перешел в состояние fulfilled.</p>
+  <p>Когда все переданные промисы перейдут в состояние rejected, новый промис будет отклонен (перейдет в состояние rejected) со значением массива, содержащим причины ошибка или с ошибкой AggregateError.</p>
   <p>Возвращает значение первого успешно выполнившегося промиса.</p>
   <p>Метод полезен, когда нужно вернуть первый исполненный промис. После того как один из промисов будет исполнен, метод не будет дожидаться исполнения остальных</p>
   <p>Метод будет игнорировать исполнение промисов с ошибкой(rejection) вплоть до первого исполненного успешно (fulfilment).</p>

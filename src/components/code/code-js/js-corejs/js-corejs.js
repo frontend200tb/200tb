@@ -6,7 +6,7 @@ import './element-js-corejs';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['globalThis', 'Date', 'Error', 'Map', 'Math', 'Promise', 'Regexp', 'Set'];
+const asideThemes = ['globalThis', 'Array', 'Date', 'Error', 'Map', 'Math', 'Number', 'Object', 'Promise', 'Regexp', 'Set', 'String'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

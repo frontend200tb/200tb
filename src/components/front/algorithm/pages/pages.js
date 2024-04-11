@@ -11,6 +11,7 @@ import htmlTrain2 from './elem-train2.html';
 import htmlTrain3 from './elem-train3.html';
 import htmlTrain4 from './elem-train4.html';
 import htmlTrain5 from './elem-train5.html';
+import htmlTask2019 from './elem-task2019.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -23,7 +24,8 @@ export default function pageLink() {
     htmlTrain2,
     htmlTrain3,
     htmlTrain4,
-    htmlTrain5
+    htmlTrain5,
+    htmlTask2019,
   ];
   
   const currentContent = document.querySelector('#algorithm');

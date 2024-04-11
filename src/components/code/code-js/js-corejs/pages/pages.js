@@ -5,13 +5,17 @@
 
 // Aside
 import htmlGlobalthis from './elem-globalthis.html';
+import htmlArray from './elem-array.html';
 import htmlDate from './elem-date.html';
 import htmlError from './elem-error.html';
 import htmlMap from './elem-map.html';
 import htmlMath from './elem-math.html';
+import htmlNumber from './elem-number.html';
+import htmlObject from './elem-object.html';
 import htmlPromise from './elem-promise.html';
 import htmlRegexp from './elem-regexp.html';
 import htmlSet from './elem-set.html';
+import htmlString from './elem-string.html';
 
 // Promise
 import htmlPromiseTask from './elem-promise-task.html';
@@ -19,13 +23,17 @@ import htmlPromiseTask from './elem-promise-task.html';
 // массив страниц из aside menu
 const aside = [
   htmlGlobalthis,
+  htmlArray,
   htmlDate,
   htmlError,
   htmlMap,
   htmlMath,
+  htmlNumber,
+  htmlObject,
   htmlPromise,
   htmlRegexp,
   htmlSet,
+  htmlString,
 ];
 
 // массив страниц со страницы Promise

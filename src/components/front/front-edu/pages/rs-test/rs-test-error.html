@@ -1,0 +1,416 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>[St2] Error handling</h1>
+
+  <strong>35 вопросов. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Can a catch block be without an 'err' argument?</h3>
+  <ul>
+    <li><strong>yes, if we don't need error details</strong></li>
+    <li>no, it's a syntax error</li>
+    <li>yes, if there is no error in the try block</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. Can the finally block be used after the try block (without catch)?</h3>
+  <ul>
+    <li><strong>yes</strong></li>
+    <li>no</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Can the name 'err' be changed to another name in the code try { ... } catch(err) { ... }?</h3>
+  <ul>
+    <li><strong>yes</strong></li>
+    <li>no</li>
+    <li>on 'error' only</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Can we catch an exception with try...catch statement if it occurred in setTimeout()?</h3>
+  <ul>
+    <li>yes</li>
+    <li>no</li>
+    <li><strong>only if we put try...catch block inside the callback for setTimeout()</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Choose the ways to handle errors with promises: (checkbox)</h3>
+  <ul>
+    <li><strong>try...catch with async/await</strong></li>
+    <li>.catch() method</li>
+    <li>.then() method</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. For all built-in errors, the error object has properties: (checkbox)</h3>
+  <ul>
+    <li><strong>name</strong></li>
+    <li>fileName</li>
+    <li><strong>message</strong></li>
+    <li>stack</li>
+    <li>lineNumber</li>
+    <li>errors</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. How is the try...catch...finally statement executed if there is a return in the finally block? (checkbox)</h3>
+  <ul>
+    <li>if there is a return in the try block, it will be executed, and the return in the finally block will be ignored</li>
+    <li>if there is a return in the catch block, it will be executed, and the return in the finally block will be ignored</li>
+    <li><strong>the return in the try and catch blocks are ignored, and return in the finally block will be executed</strong></li>
+    <li>the exceptions thrown inside of the catch block, and return in the finally block will be executed</li>
+    <li><strong>the exceptions thrown inside of the catch block are ignored, and return in the finally block will be executed</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. How many native error types exist in JS according to ECMAScript specification?</h3>
+  <ul>
+    <li>6</li>
+    <li>5</li>
+    <li>7</li>
+    <li>1</li>
+    <li><strong>more than 7</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Is it necessary to use the 'new' keyword to create a new Error object?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+    <li>it's necessary only for custom errors</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. Is it possible to handle syntactically incorrect code from a try block in a catch block?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+    <li>depends on the syntax error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Is it required to have a finally block?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+    <li>only if there is no catch block</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. Is there a way (according to the specification) to respond to a fatal error that occurred outside the try...catch block and caused the script to crash?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. Select required parameters of the Error() constructor: (checkbox)</h3>
+  <ul>
+    <li>message</li>
+    <li>options</li>
+    <li>cause</li>
+    <li>fileName</li>
+    <li>lineNumber</li>
+    <li><strong>no parameters required</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Select the correct statement regarding the finally block:</h3>
+  <ul>
+    <li>will be executed only if there is no error occurs in the try block, after the try block</li>
+    <li>will be executed only if there is no error occurs in the try block, after the catch block</li>
+    <li>will be executed only if there is no catch block</li>
+    <li>will be executed only if the catch block has not handled an error</li>
+    <li><strong>will be executed no matter if there is an error in try/catch or not</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Select the correct statements regarding the error event on a Window object: (checkbox)</h3>
+  <ul>
+    <li><strong>window.onerror receives more than one argument</strong></li>
+    <li><strong>callback in window.addEventListener() receives a single ErrorEvent object</strong></li>
+    <li>window.onerror can cancel the event's default behavior by returning false</li>
+    <li><strong>window.onerror can cancel the event's default behavior by returning true</strong></li>
+    <li><strong>the event object is a UIEvent instance if it was generated from a user interface element, or an Event instance otherwise</strong></li>
+    <li>if you cancel the default behaviour of the error event of Window, the script will not stop executing</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Select the correct statements related to throw: (checkbox)</h3>
+  <ul>
+    <li>ends function execution and specifies a value to be returned to the function caller</li>
+    <li><strong>throws a user-defined exception</strong></li>
+    <li>terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration</li>
+    <li><strong>catches the error and executes the code to handle it</strong></li>
+    <li><strong>you may throw any expression, not just expressions of a specific type</strong></li>
+    <li><strong>the statements after throw won't be executed</strong></li>
+    <li>the syntax forbids line terminators between the throw keyword and the expression to be thrown</li>
+    <li>you may throw only Error object</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. Select the native Error types: (checkbox)</h3>
+  <ul>
+    <li><strong>RangeError</strong></li>
+    <li><strong>SyntaxError</strong></li>
+    <li><strong>EvalError</strong></li>
+    <li><strong>URIError</strong></li>
+    <li><strong>AggregateError</strong></li>
+    <li><strong>ReferenceError</strong></li>
+    <li><strong>InternalError</strong></li>
+    <li><strong>TypeError</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Select the standard properties and methods of the Error prototype object: (checkbox)</h3>
+  <ul>
+    <li><strong>.constructor</strong></li>
+    <li><strong>.name</strong></li>
+    <li>.stack</li>
+    <li><strong>.message</strong></li>
+    <li><strong>.toString( )</strong></li>
+    <li>.fileName</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. The 'message' property of Error object:</h3>
+  <ul>
+    <li>represents the name for the type of error</li>
+    <li>contains the path to the file that raised this error</li>
+    <li><strong>contains a brief description of the error if one is available or has been set</strong></li>
+    <li>offers a trace of which functions were called, and in what order</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. The 'name' property of Error object:</h3>
+  <ul>
+    <li><strong>represents the name for the type of error</strong></li>
+    <li>contains the path to the file that raised this error</li>
+    <li>contains a brief description of the error if one is available or has been set</li>
+    <li>offers a trace of which functions were called, and in what order</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. The try...catch statement is...</h3>
+  <ul>
+    <li><strong>synchronous</strong></li>
+    <li>asynchronous</li>
+    <li>try asynchronous, catch synchronous</li>
+    <li>catch asynchronous, try synchronous</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. What can be an error object in the syntax 'throw &lt;error object&gt;'?</h3>
+  <ul>
+    <li>number</li>
+    <li>string</li>
+    <li><strong>object</strong></li>
+    <li>boolean</li>
+    <li>all of the above</li>
+    <li>none of the above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. What is the correct order of blocks? (checkbox)</h3>
+  <ul>
+    <li><strong>try...catch</strong></li>
+    <li>catch...try</li>
+    <li>finally...try</li>
+    <li><strong>try...finally</strong></li>
+    <li><strong>try...catch...finally</strong></li>
+    <li>try...finally...catch</li>
+    <li><strong>try...catch...catch...finally</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. What is the difference between AggregateError and other types of errors?</h3>
+  <ul>
+    <li>AggregateError is not a subclass of Error object</li>
+    <li>AggregateError does not inherits instance properties from Error object</li>
+    <li><strong>AggregateError has a specific 'errors' property</strong></li>
+    <li>AggregateError is non-standard error</li>
+    <li>differ only in name</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. What is the try...catch statement used for?</h3>
+  <ul>
+    <li>allows to execute the code and if an error occurs, the script will stop its execution</li>
+    <li>allows to execute the code and if an error occurs, the script will not stop its execution, and goes to the catch block, then the error can be handled outside this block</li>
+    <li><strong>allows to execute the code and if an error occurs, the script will not stop its execution, and goes to the catch block, where you can handle the error</strong></li>
+    <li>allows to execute the code and if an error occurs, the script will not stop its execution, and in the try block you can handle the error</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>26. What should we do with errors in the catch block that are not handled in this block?</h3>
+  <ul>
+    <li>output to console</li>
+    <li><strong>rethrow</strong></li>
+    <li>ignore</li>
+    <li>notify developer</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>27. What type of error occurs if you pass a value that is out of the function parameters range?</h3>
+  <ul>
+    <li>TypeError</li>
+    <li>URIError</li>
+    <li><strong>RangeError</strong></li>
+    <li>ReferenceError</li>
+    <li>SyntaxError</li>
+    <li>EvalError</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>28. What type of error occurs when all promises passed to Promise.any() are rejected?</h3>
+  <ul>
+    <li>RangeError</li>
+    <li><strong>AggregateError</strong></li>
+    <li>ReferenceError</li>
+    <li>TypeError</li>
+    <li>InternalError</li>
+    <li>EvalError</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>29. What type of error occurs when there are grammar mistakes in the code?</h3>
+  <ul>
+    <li>ReferenceError</li>
+    <li>TypeError</li>
+    <li>URIError</li>
+    <li>EvalError</li>
+    <li><strong>SyntaxError</strong></li>
+    <li>RangeError</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>30. What type of error occurs when you try to access a variable that doesn't exist?</h3>
+  <ul>
+    <li>RangeError</li>
+    <li>EvalError</li>
+    <li>URIError</li>
+    <li>SyntaxError</li>
+    <li>TypeError</li>
+    <li><strong>ReferenceError</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>31. What type of error occurs when you try to read a property or call a method of an undefined object?</h3>
+  <ul>
+    <li>RangeError</li>
+    <li>URIError</li>
+    <li>TypeError</li>
+    <li><strong>ReferenceError</strong></li>
+    <li>SyntaxError</li>
+    <li>EvalError</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>32. Which of the following (depending on the set properties) can err.toString() return? (checkbox)</h3>
+  <ul>
+    <li><strong>`${err.name}`</strong></li>
+    <li><strong>`${err.name}: ${err.message}`</strong></li>
+    <li>`${err.stack}`</li>
+    <li><strong>`${err.message}`</strong></li>
+    <li>`${err.name}: ${err.message}, ${err.lineNumber}`</li>
+    <li>''</li>
+    <li>`${err.name}: ${err.message}, ${err.fileName}`</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>33. Will the catch block execute if no errors occurred in the try block?</h3>
+  <ul>
+    <li>yes</li>
+    <li><strong>no</strong></li>
+    <li>depends on the code inside the catch block</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>34. Will the catch block execute if there is a 'return' in the try block?</h3>
+  <ul>
+    <li>yes</li>
+    <li>no</li>
+    <li><strong>depends on the code inside the try block</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+<h3>35. Will the finally block execute if there is a return in the try block?</h3>
+<ul>
+  <li><strong>yes</strong></li>
+  <li>no</li>
+  <li>it depends on the condition inside the try block</li>
+</ul>
+</article>
