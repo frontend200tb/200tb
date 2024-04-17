@@ -1,0 +1,331 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>Яндекс. Фронтенд Квиз 17 сентября 2023</h1>
+
+  <strong>25 вопросов. Верных ответов 15 из 25</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. Как поместить функцию fn в очередь микрозадач? (checkbox)</h3>
+  <ul>
+    <li>fn() </li>
+    <li>setTimeout(fn) </li>
+    <li><strong>queueMicrotask(fn) </strong></li>
+    <li>setMicrotask(fn) </li>
+    <li>fn.call() </li>
+    <li><strong>Promise.resolve().then(fn)</strong></li>
+  </ul>
+</article>
+	
+	
+<article class="article">
+	<p>2. К верстке</p>
+<pre>
+&lt;div id="one"&gt;
+  &lt;div id="two"&gt;
+    &lt;div id="three"&gt;&lt;/did&gt;
+  &lt;/div&gt;
+  &lt;div id="four"&gt;&lt;/did&gt;
+&lt;/div&gt;
+</pre>
+  <p>Применен скрипт</p>
+<pre>
+document.querySelectorAll('div').forEach(node => {
+  node.addEventListener('click', (e) => console.log(e.currentTarget.id))
+})
+</pre>
+	<p>Что выведется в консоль, если нажать на div#three?</p>
+  <ul>
+    <li>three</li>
+    <li>one two three</li>
+    <li><strong>three two one</strong></li>
+    <li>one</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. Чем отличается localstorage от sessionstorage?</h3>
+  <ul>
+    <li>Для localstorage можно выставить время хранения, а sessionstorage сохраняется только в рамках текущей сессии (вкладки)</li>
+    <li>К localstorage можно получить доступ из соседней вкладки на том же домене, а к sessionstorage — нельзя</li>
+    <li>localstorage позволяет хранить произвольный тип данных, а sessionstorage — только строки</li>
+    <li>localstorage позволяет перезаписывать данные, а sessionstorage — не позволяет (применяется для избежания гонки запросов на изменение в соседних вкладках)</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>4. Чем реляционные базы данных отличаются от нереляционных?</h3>
+  <ul>
+    <li>Реляционные позволяют легко горизонтально масштабироваться, а нереляционные - вертикально</li>
+    <li>Реляционные имеют множество способов обращения к данным, а нереляционные используют язык структурированных запросов</li>
+    <li>Реляционные позволяют добиться надежности в выполнении транзакций, а нереляционные выбрать тип хранилища под конкретную задачу</li>
+    <li>Реляционные соблюдают CAP-теорему (consistency-availability-partition tolerance), а нереляционные обладают только 2 из 3 пунктов</li>
+    <li>Реляционные базы позволяют храненить данные большого объема данных без фиксированной структуры, а нереляционные позволяют хранить данные по строгим заданным схемам</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Какой порт использует https по умолчанию?</h3>
+  <ul>
+    <li>80</li>
+    <li>8080</li>
+    <li><strong>443</strong></li>
+    <li>22</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Зачем нужен паттерн фасад?</h3>
+  <ul>
+    <li>Спрятать сложность взаимодействия с бэкендом</li>
+    <li>Уменьшить связанность системы</li>
+    <li>Сделать здание более эстетичным</li>
+    <li>Распределить доступы по доменной модели</li>
+  </ul>
+</article>
+
+
+<article class="article">
+<h3>7. Какой из предложенных вариантов выведет true? (checkbox)</h3>
+  <ul>
+    <li>`[] === []`</li>
+    <li>`NaN === NaN` </li>
+    <li><strong>`(function (){})() === (function (){})()`</strong></li>
+    <li>`new String('a') === new String('a')`</li>
+    <li>`{ a: 1 } === { a: 1 }`</li>
+  </ul>
+</article>
+
+
+<article class="article">
+	<h3>8. Как получить доступ к переменной окружения?</h3>
+	<ul>
+    <li>process.[VARIABLE_NAME]</li>
+    <li>prosess.enviroment.[VARIABLE_NAME]</li>
+    <li>env.[VARIABLE_NAME]</li>
+    <li>process.env.[VARIABLE_NAME]</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Что из этого поможет понять что Websocket готов к работе? (checkbox)</h3>
+  <ul>
+    <li>socket.send('ready')</li>
+    <li>socket.onopen</li>
+    <li>socket.message</li>
+    <li>socket.onready</li>
+    <li>socket.readyState</li>
+  </ul>
+</article>
+
+
+<article class="article">
+<h3>10. Какие техники помогут при DDOS атаке? (checkbox)</h3>
+  <ul>
+    <li>Кэшировать ответы от бэкенда </li>
+    <li>Увеличить количество фронтовых приложений (горизонтальное масштабирование) </li>
+    <li>Увеличить производительность фронта (вертикальное масштабирование) </li>
+    <li>Добавить капчу на фронте </li>
+    <li>Скрестить пальцы и надеяться на лучшее</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. Как лучше стандартными методами с веб приложения отправить несколько файлов из формы на странице на сервер?</h3>
+  <ul>
+    <li>через FormData</li>
+    <li>через Json</li>
+    <li>через Websocket</li>
+    <li>через Proxy</li>
+    <li>через FileUpload</li>
+  </ul>
+</article>
+
+
+<article class="article">
+<pre>
+&lt;div id="parent"&gt;
+  &lt;div class="children"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+  <p>12. В верстке у элемента div#parent постоянно добавляются или удаляются элементы div.children. По нажатию на div.children должно происходить определенное событие. Как правильно повесить обработчик события?</p>
+  <ul>
+    <li>document.querySelectorAll('.children').forEach(node => { node.addEventListener('click', e => { // code }); });</li>
+    <li>document .getElementById('parent') .getElementsByClassName('children') .forEach(node => node.addEventListener('click', e => { // code }))</li>
+    <li>document.getElementById('parent').addEventListener('click', e => { if (e.currentTarget.classList.contains('children')) { // code } })</li>
+    <li>document.getElementById('parent').addEventListener('click', e => { if (e.target.classList.contains('children')) { // code } })</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. Почему 'display:inline-block' так называется?</h3>
+  <ul>
+    <li>Вокруг себя создает блочный контекст форматирования, а сам ведет себя как строчный</li>
+    <li>Вокруг себя создает строчный контекст форматирования, и сам ведет себя как строчный</li>
+    <li>Вокруг себя создает блочный контекст форматирования, и сам ведет себя как блочный</li>
+    <li>Вокруг себя создает строчный контекст форматирования, а сам ведет себя как блочный</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Какие значения выведет console.log?</h3>
+<pre>
+var obj = {a: 1};
+function f2(o) {
+  o = {hello: 1};
+}
+f2(obj);
+console.log(obj);
+</pre>
+  <ul>
+    <li>{ hello: 1 }</li>
+    <li><strong>{ a: 1 }</strong></li>
+    <li>{ a: 1, hello: 1 }</li>
+    <li>undefined</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Что означает function*?</h3>
+  <ul>
+    <li>Это особая функция, вызов которой не гарантирует ее завершение</li>
+    <li>Это функция высшего порядка</li>
+    <li>Это функция, которая всплывает при инициализации</li>
+    <li>Это устаревшее обозначение для функций, сейчас оно не используется</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Что такое обфускация?</h3>
+  <ul>
+    <li>Минификация кода в процессе сборки проекта</li>
+    <li>Приведение кода к сложносочитаемому для отладки виду, не теряющему своей функциональности</li>
+    <li>Разбиение кода сборщиком на отдельные файлы</li>
+    <li>Реверс-инжиниринг с целью выявления особенностей работы программы</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>17. От какого типа атаки невозможно защититься полностью?</h3>
+  <ul>
+    <li>Человек по середине</li>
+    <li>Распределенный отказ в обслуживании</li>
+    <li>SQL-инъекция</li>
+    <li>Межсайтовый скриптинг</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Что из перечисленного является пре/постпроцессором для css? (checkbox)</h3>
+  <ul>
+    <li><strong>scss</strong></li>
+    <li><strong>postCSS</strong></li>
+    <li>lastCSS</li>
+    <li><strong>sass</strong></li>
+    <li>SaaS</li>
+    <li>scsi</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>19. Что будет выведено в консоль?</h3>
+<pre>
+let a = '';
+for (let i=0; i&lt;10; i+=2) {
+  a += i;
+}
+</pre>
+  <ul>
+    <li>45</li>
+    <li>20</li>
+    <li><strong>"02468"</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>20. От какого типа атаки защищает использование SSL/HTTPS?</h3>
+  <ul>
+    <li>SQL-injection</li>
+    <li><strong>Man in the middle</strong></li>
+    <li>Cross - site request forgery</li>
+    <li>Cross-site scripting</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>21. Как можно объединить все коммиты в один? (checkbox)</h3>
+  <ul>
+    <li>git reset --soft HEAD~[Количество коммитов] && git commit </li>
+    <li>git rebase -i HEAD~[Количество коммитов] И проставить ключи 's' </li>
+    <li>git cherry-pick [хэш коммита] && git commit </li>
+    <li>git checkout [хэш коммита] && git commit </li>
+    <li>git commit -s [хэши коммита]</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>22. Зачем нужен докер?</h3>
+  <ul>
+    <li>Для сборки проектов</li>
+    <li>Для виртуализации приложений</li>
+    <li>Для разгрузки контейнеров</li>
+    <li>Для загрузки кораблей</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>23. Что из перечисленного является сетевым(и) протоколом(ами) взаимодействия? (checkbox)</h3>
+  <ul>
+    <li>HDD</li>
+    <li>REST</li>
+    <li>DDD</li>
+    <li>RGB</li>
+    <li>WEBSOCKET</li>
+    <li>SOAP</li>
+    <li>OLED</li>
+    <li>IPC</li>
+    <li>RPC</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>24. Время жизни cookie?</h3>
+  <ul>
+    <li>До закрытия вкладки</li>
+    <li>Регламентируется параметром expires</li>
+    <li>Регламентируется параметром max-age</li>
+    <li>Бессрочно</li>
+    <li>Регламентируется параметром expires и max-age</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>25. Чем бандл отличается от чанка?</h3>
+  <ul>
+    <li>Чанки могут разбиваться на отдельные бандлы</li>
+    <li>Уменьшение размера бандла не ведет к уменьшению размера чанков</li>
+    <li>Бандлы могут разбиваться на отдельные чанки</li>
+    <li>Бандлы - это артефакты, которые появляются после сборки приложения, а чанки - это исходный декомпозированный код приложения для последующей сборки бандла</li>
+  </ul>
+</article>

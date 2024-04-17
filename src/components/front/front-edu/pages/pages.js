@@ -89,6 +89,9 @@ import htmlRsTestError from './rs-test/rs-test-error.html';
 import htmlNftest from './neoflex/nf-test.html';
 import htmlEftest1 from './neoflex/ef-test1.html';
 
+// Яндекс test
+import htmlYaFront from './yandex/ya-front.html';
+
 // hh.ru test
 import htmlHhGit1 from './hh/hh-git1.html';
 import htmlHhGit2 from './hh/hh-git2.html';
@@ -114,6 +117,9 @@ const htmlDsrExams = [htmlDsrExam];
 
 // Создаем массив страниц с тестом Neoflex
 const htmlNeoflex = [htmlNftest, htmlEftest1];
+
+// Создаем массив страниц с тестом Яндекс
+const htmlYandex = [htmlYaFront];
 
 // Создаем массив страниц с тестом hh.ru
 const htmlHh = [htmlHhGit1, htmlHhGit2, htmlHhEng];
@@ -236,6 +242,19 @@ function quizLinks() {
         e.preventDefault();
         if (htmlNeoflex[i]) {
           currentContent.innerHTML = htmlNeoflex[i];
+          backToQuiz();
+        }
+      });
+    }
+  }
+
+  const yandexTest = document.querySelectorAll('.yandex-test');
+  if (yandexTest) {
+    for (let i = 0; i < yandexTest.length; i++) {
+      yandexTest[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (yandexTest[i]) {
+          currentContent.innerHTML = htmlYandex[i];
           backToQuiz();
         }
       });

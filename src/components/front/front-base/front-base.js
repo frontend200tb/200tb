@@ -39,7 +39,7 @@ for (const theme of asideThemes) {
   });
 }
 
-export default function showFrontCode() {
+export default function showFrontBase() {
   const aside = document.querySelector('.aside');
 
   // 4. Показываем нужный aside

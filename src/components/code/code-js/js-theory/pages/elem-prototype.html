@@ -1,21 +1,26 @@
 <h1>Прототипы</h1>
 
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
 <!-- Заголовок -->
 <div class="article">
   <div class="anchor" id="content"></div>
   <h2>Содержание</h2>
-</div>
 
-<!-- Содержание -->
-<div class="article article__content">
+  <p><a href="#links">links</a></p>
+  <p><a href="#test">Тест из 10 вопросов</a></p>
+  <p><a href="#proto1">Свойство __proto__ есть у всех объектов</a></p>
+  <p><a href="#proto2">__proto__ это объект</a></p>
+  <p><a href="#proto3">Любой объект создается при помощи функции-конструктора</a></p>
+  <p><a href="#prototype">Любой класс и любая функция имеет prototype</a></p>
+  <p><a href="#proto4">__proto__ vs prototype</a></p>
+</article>
 
-  <div>
-    <p><a href="#links">links</a></p>
-  </div>
 
-</div>
-
-<!-- links-->
+<!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
   <h2>links</h2>
@@ -24,3 +29,286 @@
     <br>Прототипы в JS и малоизвестные факты (2020.09.09)</p>
 </article>
 
+
+<!-- Тест из 10 вопросов -->
+<article class="article">
+  <div class="anchor" id="test"></div>
+  <h3>Тест из 10 вопросов</h3>
+
+  <p>Если уже разбираешься в теме то быстро ответь что будет в консоли. Пройди тест из десяти вопросов.</p>
+  <ol>
+    <li>
+      <code>console.log( ({}).prototype === ({}).__proto__)</code>
+    </li>
+    <li>
+<pre>function ITKamasutra() {}
+console.log( ITKamasutra.prototype === ITKamasutra.__proto__)
+</pre>
+    </li>
+    <li>
+<pre>function ITIncubator() {}
+function ITKamasutra() {}  
+console.log( ITIncubator.__proto__ === ITKamasutra.__proto__)
+</pre>
+    </li>
+    <li>
+      <code>console.log( ITIncubator.prototype === ITKamasutra.prototype)</code>
+    </li>
+    <li>
+<pre>let Component = (props) => {
+  return `<div>I don't know Prototype</div>`
+}
+console.log( Component.prototype === Object.prototype)
+</pre>
+    </li>
+    <li>
+<pre>let age = 18;
+console.log( age.prototype === Number.prototype)
+</pre>
+    </li>
+    <li>
+      <code>console.log( age.__proto__ === Number.prototype)</code>
+    </li>
+    <li>
+<pre>class Hacker {}
+console.log( Hacker.__proto__ === Function.prototype)
+</pre>
+    </li>
+    <li>
+<pre>function ITIncubator()
+console.log( ITIncubator.__proto__ )
+</pre>
+    </li>
+    <li>
+<pre>const count = 12
+console.log( count.__proto__ )
+</pre>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Свойство __proto__ есть у всех объектов -->
+<article class="article">
+  <div class="anchor" id="proto1"></div>
+  <h3>Свойство __proto__ есть у всех объектов</h3>
+
+  <p>И __proto__ и prototype это свойства объектов. Выясним у каких объектов есть свойство __proto__, а у каких prototype.</p> 
+  
+  <ol>
+    <li>
+      man это объект, значит у него есть __proto__
+      <code>let man = {} // man.__proto__</code>
+    </li>
+    <li>
+      users это массив, а массив это объект, значит у него есть __proto__
+      <code>let users = [] // users.__proto__</code>
+    </li>
+    <li>
+      age это примитив, это не объект. Но если мы к примитиву ставим точку, то в памяти временно примитив оборачивается в объект и это становится объект, значит у него есть __proto__
+      <code>let age = 18 // age.__proto__</code>
+    </li>
+    <li>
+      Аналогично строка.
+      <code>let age = 18 // age.__proto__</code>
+    </li>
+    <li>
+      Аналогично булевое значение.
+      <code>let isMan = true // isMan.__proto__</code>
+    </li>
+    <li>
+      Когда мы создаем функцию с ключевым словом function при помощи function declaration, создается объект
+      <code>function run() {} // run.__proto__</code>
+    </li>
+    <li>
+      Когда мы создаем анонимную функцию с ключевым словом function при помощи function expression, создается переменная, которая ссылается на объект
+      <code>const eat = function() {} // eat.__proto__</code>
+    </li>
+    <li>
+      Когда мы создаем стрелочную функцию, создается переменная, которая ссылается на объект
+      <code>const jump = () => {} // jump.__proto__</code>
+    </li>
+    <li>
+      Класс это функция, а функция это объект
+      <code>class person {} // person.__proto__</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- __proto__ это объект -->
+<article class="article">
+  <div class="anchor" id="proto2"></div>
+  <h3>__proto__ это объект</h3>
+
+  <p>Свойство __proto__ у однотипных объектов ссылаются на один и тот же объект</p>
+
+  <ol>
+    <li>
+      Объекты, созданные при помощи литерала объекта
+<pre>
+const man1 = {};
+const man2 = {};
+console.log(man1.__proto__ === man2.__proto__) // true
+</pre>
+    </li>
+    <li>
+      Массивы, созданные при помощи литерала массива
+<pre>
+const users = [];
+const cars = [];
+console.log(users.__proto__ === users.__proto__) // true
+</pre>
+    </li>
+    <li>
+      Числа, созданные при помощи литерала числа
+<pre>
+const num1 = 18;
+const num2 = 100;
+console.log(num1.__proto__ === num2.__proto__) // true
+</pre>
+    </li>
+    <li>
+      Строки, созданные при помощи литерала строки
+<pre>
+const str1 = 'asdf';
+const str2 = 'qwer';
+console.log(str1.__proto__ === str2.__proto__) // true
+</pre>
+    </li>
+    <li>
+      Булевые переменные, созданные при помощи литерала
+<pre>
+const bul1 = true;
+const bul2 = false;
+console.log(bul1.__proto__ === bul2.__proto__) // true
+</pre>
+    </li>
+    <li>
+      Все функции и классы и меют один __proto__
+<pre>
+function run() {};
+const eat = function() {};
+const jump = () => {};
+class person {};
+console.log(run.__proto__ === eat.__proto__) // true
+console.log(jump.__proto__ === person.__proto__) // true
+</pre>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Любой объект создается при помощи функции-конструктора -->
+<article class="article">
+  <div class="anchor" id="proto3"></div>
+  <h3>Любой объект создается при помощи функции-конструктора</h3>
+
+  <p>Любой объект создается при помощи функции-конструктора и ключевого слова new или при помощи класса. Если мы этого не видим, то все равно это происходит под капотом. Если мы создаем объект явно при помощи слова new, то в свойство __proto__ созданного объекта попадет функция-конструктор (тоже объект), с помощью которой он создан.</p>
+  <p>Когда мы создаем примитив, то он не создается при помощи ключевого слова new. Но когда мы к нему обращаемся через точку, то временно происходит создание объекта при помощи слова new</p>
+  <ol>
+    <li>
+      <code>let promise = new Promise(() => {}) // new Promise(...)</code>
+    </li>
+    <li>
+      <code>let man = {} // new Object(...)</code>
+    </li>
+    <li>
+      <code>let users = [] // new Array(...)</code>
+    </li>
+    <li>
+      <code>let num = 18 // new Number(...)</code>
+    </li>
+    <li>
+      <code>let str = 'asdf' // new String(...)</code>
+    </li>
+    <li>
+      <code>let bul = true // new Boolean(...)</code>
+    </li>
+    <li>
+      <code>function run() {} // new Function(...)</code>
+      <code>const eat = function() {} // new Function(...)</code>
+      <code>const jump = () => {} // new Function(...)</code>
+      <code>class person {} // new Function(...)</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Любой класс и любая функция имеет prototype -->
+<article class="article">
+  <div class="anchor" id="prototype"></div>
+  <h3>Любой класс и любая функция имеет prototype</h3>
+
+  <p>Любой класс и функция, созданная с ключевым слово function имеет прототип. Прототипы разных классов и функций это разные объекты со своими свойствами и методами и они не равны друг другу.</p>
+<pre>
+class Person {}
+function Run() {}
+const Eat = function() {}
+
+console.log(Person.prototype)
+console.log(Run.prototype)
+console.log(Eat.prototype)
+
+console.log(Object.prototype)
+console.log(Array.prototype)
+console.log(Function.prototype)
+console.log(Number.prototype)
+console.log(String.prototype)
+console.log(Boolean.prototype)
+console.log(Promise.prototype)
+</pre>
+</article>
+
+
+<!-- __proto__ vs prototype -->
+<article class="article">
+  <div class="anchor" id="proto4"></div>
+  <h3>__proto__ vs prototype</h3>
+
+  <ol>
+    <li>__proto__ есть у любого объекта</li>
+    <li>любой объект создается с помощью class или function</li>
+    <li>prototype есть только у class или function</li>
+    <li>__proto__ любого объекта ссылается на prototype класса (или функции-конструктора), с помощью которого он был создан</li>
+    <li>__proto__ и prototype это свойства объекта</li>
+  </ol>
+
+  <ol>
+    <li>
+      <code>let promise = new Promise(() => {}) // new Promise(...)</code>
+      <code>promise.__proto__ === Promise.prototype</code>
+    </li>
+    <li>
+      <code>let man = {} // new Object(...)</code>
+      <code>man.__proto__ === Object.prototype</code>
+    </li>
+    <li>
+      <code>let users = [] // new Array(...)</code>
+      <code>users.__proto__ === Array.prototype</code>
+    </li>
+    <li>
+      <code>let num = 18 // new Number(...)</code>
+      <code>num.__proto__ === Number.prototype</code>
+    </li>
+    <li>
+      <code>let str = 'asdf' // new String(...)</code>
+      <code>str.__proto__ === String.prototype</code>
+    </li>
+    <li>
+      <code>let bul = true // new Boolean(...)</code>
+      <code>bul.__proto__ === Boolean.prototype</code>
+    </li>
+    <li>
+      <code>function run() {} // new Function(...)</code>
+      <code>run.__proto__ === Function.prototype</code>
+      <code>const eat = function() {} // new Function(...)</code>
+      <code>eat.__proto__ === Function.prototype</code>
+      <code>const jump = () => {} // new Function(...)</code>
+      <code>jump.__proto__ === Function.prototype</code>
+      <code>class person {} // new Function(...)</code>
+      <code>person.__proto__ === Function.prototype</code>
+    </li>
+  </ol>
+
+</article>
