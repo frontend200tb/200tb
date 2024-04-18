@@ -112,8 +112,8 @@ const dataVideoAlgorithm = [
     time_h_m: [14, 34],
     size: '2.2 gb',
     link: '',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.04.18 чт',
   },
 
   {

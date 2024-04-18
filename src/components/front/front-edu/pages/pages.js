@@ -84,6 +84,7 @@ import htmlRsTestRestful from './rs-test/rs-test-restful.html';
 import htmlRsTestEventloop from './rs-test/rs-test-eventloop.html';
 import htmlRsTestTesting from './rs-test/rs-test-testing.html';
 import htmlRsTestError from './rs-test/rs-test-error.html';
+import htmlRsTestDp from './rs-test/rs-test-dp.html';
 
 // Neoflex test
 import htmlNftest from './neoflex/nf-test.html';
@@ -127,15 +128,16 @@ const htmlHh = [htmlHhGit1, htmlHhGit2, htmlHhEng];
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
 htmlRsTestJsBasics, htmlRsTestJsTypes, htmlRsTestJsScope, htmlRsTestJsEvolution,
-htmlRsTestHtmlBasics, htmlRsTestCssBasics, htmlRsTestCssflexbox, htmlRsTestCssGrid,
-htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
+htmlRsTestHtmlBasics, htmlRsTestCssBasics, htmlRsTestCssflexbox,
+htmlRsTestCssGrid, htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
 htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
 htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
 htmlRsTestModules, htmlRsTestBundlers, htmlRsTestChrome, htmlRsTestClient,
 htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
 htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
 htmlRsTestWebstorage, htmlRsTestFp, htmlRsTestAsyncjs, htmlRsTestWebsecurity,
-htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting, htmlRsTestError];
+htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting, htmlRsTestError,
+htmlRsTestDp];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {

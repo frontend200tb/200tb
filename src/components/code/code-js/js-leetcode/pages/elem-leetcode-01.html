@@ -3,9 +3,90 @@
 <!-- Содержание -->
 <div class="article">
   <h3>Содержание</h3>
+  <p><a href="#task-1">LeetCode 1. Two Sum</a></p>
+  <p><a href="#task-9">LeetCode 9. Palindrome Number</a></p>
   <p><a href="#task-532">LeetCode 532. K-diff Pairs in an Array</a></p>
   <p><a href="#task-658">LeetCode 658. Find K Closest Elements</a></p>
 </div>
+
+
+<!-- LeetCode 1. Two Sum -->
+<article class="article">
+  <div class="anchor" id="task-1"></div>
+  <h2>LeetCode 1. Two Sum</h2>
+
+  <p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+  <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+  <p>You can return the answer in any order.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: nums = [3,2,4], target = 6
+Output: [1,2]</pre>
+
+  <h4>Example 3:</h4>
+<pre>Input: nums = [3,3], target = 6
+Output: [0,1]</pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>var twoSum = function(nums, target) {
+  let dict = {};
+  for (let i = 0; i &lt; nums.length; i++) {
+      if (target - nums[i] in dict) {
+          return [dict[target - nums[i]], i];
+      }
+      dict[nums[i]] = i;
+  }
+};</pre>
+  </details>
+</article>
+
+
+<!-- LeetCode 9. Palindrome Number -->
+<article class="article">
+  <div class="anchor" id="task-9"></div>
+  <h2>LeetCode 9. Palindrome Number</h2>
+
+  <p>Given an integer x, return true if x is a palindrome, and false otherwise.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</pre>
+
+  <h4>Example 3:</h4>
+<pre>Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>var isPalindrome = function(x) {
+  let str = x.toString();
+  let left = 0;
+  let right = str.length - 1;
+  while (left &lt; right) {
+      if (str[left] !== str[right]) {
+          return false;
+      }
+      left++;
+      right--;
+  }
+  return true;
+};</pre>
+  </details>
+
+</article>
 
 
 <!-- LeetCode 532. K-diff Pairs in an Array -->
