@@ -2,6 +2,8 @@
 Скрипт из файла page.js
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
+import {main} from './../js/f-create-aside';
+
 // Aside
 import htmlEduRss2024stage2 from './elem-edu-rss2024-stage2.html';
 import htmlEduCourses from './elem-edu-courses.html';
@@ -140,29 +142,24 @@ htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting, htmlRsTestError,
 htmlRsTestDp];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
-export default function pageLink() {
-  const currentContent = document.querySelector('#edu');
+export default function pageLink(asideItems) {
+  const currentContent = main;
 
   // собрать все ссылки в aside menu
-  const asideItems = document.querySelectorAll('.aside a');
-
-  // если ссылки в aside menu есть, то по клику показывать нужную страницу
-  if (asideItems) {
-    asideItems.forEach((elem, index) => {
-      elem.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentContent.innerHTML = htmlPages[index];
-        switch (htmlPages[index]) {
-          case htmlEduDsr2023net:
-            dsrLinks();
-            break;
-          case htmlEduQuiz:
-            quizLinks();
-            break;
-        }
-      });
-    })
-  }
+  asideItems.forEach((elem, index) => {
+    elem.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlPages[index];
+      switch (htmlPages[index]) {
+        case htmlEduDsr2023net:
+          dsrLinks();
+          break;
+        case htmlEduQuiz:
+          quizLinks();
+          break;
+      }
+    });
+  })
 }
 
 function dsrLinks() {

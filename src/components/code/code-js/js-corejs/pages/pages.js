@@ -51,8 +51,10 @@ export default function pageLink() {
     asideItems.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
         e.preventDefault();
-        currentContent.innerHTML = aside[index];
-        switch (aside[index]) {
+        if (currentContent) {
+          currentContent.innerHTML = aside[index];
+        }
+          switch (aside[index]) {
           case htmlPromise:
             pageLinkPromise();
             break;
@@ -73,7 +75,9 @@ function pageLinkPromise() {
     linksPromise.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
           e.preventDefault();
-          currentContent.innerHTML = promiseLinks[index];
+          if (currentContent) {
+            currentContent.innerHTML = promiseLinks[index];
+          }
           backToPromise();
         });
     })
@@ -86,7 +90,9 @@ function backToPromise() {
   if (linkToPromise) {
     linkToPromise.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = htmlPromise;
+      if (currentContent) {
+        currentContent.innerHTML = htmlPromise;
+      }
       pageLinkPromise();
     });
   }

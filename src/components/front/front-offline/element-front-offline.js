@@ -5,12 +5,11 @@ class FrontOffline extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <div class="front-offline" id="front-offline">
-      <h1>Frontend справочник</h1>
-      <nav class="nav" id="main-nav"></nav>
-      <div id="offline"></div>
-    </div>
+    <h1>Frontend справочник</h1>
+    <nav class="nav" id="main-nav"></nav>
+    <div id="offline"></div>
     `;
+    this.className = 'front-offline';
   }
 }
 

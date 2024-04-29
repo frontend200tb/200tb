@@ -24,7 +24,9 @@ export default function pageLink() {
   function createAsideMenu(elem, index) {
     elem.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = aside[index];
-    });
+      if (currentContent) {
+        currentContent.innerHTML = aside[index];
+      }
+  });
   }
 }

@@ -192,15 +192,23 @@
     </li>
     <li>
       <a href="#number-to-locale-string">toLocaleString()</a>
+      <br>Принимает опционально два параметра locales и options, которые определяют язык и правила форматирования результата
+      <br>Возвращает строку с языкозависимым представлением числа
     </li>
     <li>
       <a href="#number-to-precision">toPrecision()</a>
+      <br>Принимает опционально целое число от 1 до 100, определяющее количество значащих цифр
+      <br>Возвращает строковое представление объекта Number с фиксированной запятой округленный до заданного количества значащих цифр
     </li>
     <li>
       <a href="#number-to-string">toString()</a>
+      <br>Принимает опционально целое число от 2 до 36, определяющее основание системы счисления
+      <br>Возвращает строковое представление объекта Number
     </li>
     <li>
       <a href="#number-value-of">valueOf()</a>
+      <br>Не принимает параметры
+      <br>Возвращает примитивное значение объекта Number
     </li>
   </ol>
 </article>
@@ -210,12 +218,15 @@
 <article class="article">
   <div class="anchor" id="number-is-finite"></div>
   <h3>1. Number.isFinite()</h3>
+  <br>Появился в ES6
   <br>Принимает значение, и проверяет является ли это значение коненым числом
   <br>Возвращает true если передано конечное число, иначе возвращает false
-  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false
+  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false. Этим отличается от глобальной функции isFinite(), которая сначала преобразует значение в число, а затем проверяет
 
   <h3>Задачи на метод Number.isFinite()</h3>
+  <code>Number.isFinite(25); // true</code>
   <code>Number.isFinite(0); // true</code>
+  <code>Number.isFinite(-1.22); // true</code>
   <code>Number.isFinite(Infinity); // false</code>
   <code>Number.isFinite(NaN); // false</code>
   <code>Number.isFinite('10'); // false</code>
@@ -226,12 +237,15 @@
 <article class="article">
   <div class="anchor" id="number-is-integer"></div>
   <h3>2. Number.isInteger()</h3>
+  <br>Появился в ES6
   <br>Принимает значение, и проверяет является ли это значение целым числом
   <br>Возвращает true если передано целое число, иначе возвращает false
   <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false
 
   <h3>Задачи на метод Number.isInteger()</h3>
+  <code>Number.isInteger(25); // true</code>
   <code>Number.isInteger(0); // true</code>
+  <code>Number.isInteger(-50); // true</code>
   <code>Number.isInteger(Infinity); // false</code>
   <code>Number.isInteger(NaN); // false</code>
   <code>Number.isInteger('10'); // false</code>
@@ -245,9 +259,10 @@
 <article class="article">
   <div class="anchor" id="number-is-nan"></div>
   <h3>3. Number.isNaN()</h3>
+  <br>Появился в ES6
   <br>Принимает значение, и проверяет является ли это значение NaN
   <br>Возвращает true если передано число со значением NaN, иначе возвращает false
-  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false. Это более надёжная версия оригинальной глобальной функции isNaN().
+  <br>Здесь не происходит преобразования типов. Если пришло не число, то сразу же возвращается false. Этим отличается от глобальной функции isNaN(), которая сначала преобразует значение в число, а затем проверяет
 
   <h3>Задачи на метод Number.isNaN()</h3>
   <p>Эти значения будут true и для проверки isNaN()</p>
@@ -258,6 +273,8 @@
   <code>Number.isNaN(true); // false</code>
   <code>Number.isNaN(null); // false</code>
   <code>Number.isNaN(37); // false</code>
+  <code>Number.isNaN(0); // false</code>
+  <code>Number.isNaN(-50); // false</code>
 
   <h3>Метод Number.isNaN(). Особенности</h3>
   <p>Это более надежная версия оригинальной глобальной функции isNaN()</p>
@@ -273,8 +290,132 @@
 <article class="article">
   <div class="anchor" id="number-is-safe-integer"></div>
   <h3>4. Number.isSafeInteger()</h3>
+  <br>Появился в ES6
   <br>Принимает значение, и проверяет является ли это значение безопасным целым числом
   <br>Возвращает true если передано безопасное целое число, иначе возвращает false
+  <p>Безопасное целое число может быть представлено как число двойной точности (от 2^53 - 1 до -2^53 - 1)</p>
+
+  <h3>Задачи на метод Number.isSafeInteger()</h3>
+  <code>Number.isSafeInteger(25); // true</code>
+  <code>Number.isSafeInteger(0); // true</code>
+  <code>Number.isSafeInteger(-100); // true</code>
+  <code>Number.isSafeInteger(0.25); // false</code>
+  <code>Number.isSafeInteger('55'); // false</code>
+  <code>Number.isSafeInteger(Math.pow(2, 53)); // false</code>
+  <code>Number.isSafeInteger(Math.pow(2, 53) - 1); // true</code>
+  <code>Number.isSafeInteger(false); // false</code>
+  <code>Number.isSafeInteger(Infinity); // false</code>
+  <code>Number.isSafeInteger(25 / 0); // false</code>
 </article>
 
+
+<!-- 5. Number.parseFloat() -->
+<article class="article">
+  <div class="anchor" id="number-parse-float"></div>
+  <h3>5. Number.parseFloat()</h3>
+  <br>Появился в ES6
+  <br>Принимает строку
+  <br>Возвращает <strong>дробное число</strong>, иначе <strong>NaN</strong> если нельзя преобразовать в число
+
+</article>
+
+
+<!-- 6. Number.parseInt() -->
+<article class="article">
+  <div class="anchor" id="number-parse-int"></div>
+  <h3>6. Number.parseInt()</h3>
+  <br>Появился в ES6
+  <br>Принимает строку и опционально целое число от 2 до 36, представляющее основание системы счисления
+  <br>Возвращает <strong>целое число</strong>, иначе <strong>NaN</strong> если нельзя преобразовать в число
+
+</article>
+
+
+<!-- 7. toExponential() -->
+<article class="article">
+  <div class="anchor" id="number-to-exp"></div>
+  <h3>7. toExponential()</h3>
+  <br>Появился в ES3
+  <br>Принимает опционально целое число от 0 до 20, определяющее количество цифр после запятой. По умолчанию, показывает столько цифр, сколько необходимо для представления
+  <br>Возвращает <strong>число</strong> - объект Number в экспоненциальной записи с одной цифрой перед запятой.
+  
+  <h3>Задачи на метод toExponential()</h3>
+  <code>let num = 2.26519;</code>
+  <code>num.toExponential(3); // 2.265e+0</code>
+</article>
+
+
+<!-- 8. toFixed() -->
+<article class="article">
+  <div class="anchor" id="number-to-fixed"></div>
+  <h3>8. toFixed()</h3>
+  <br>Появился в ES3
+  <br>Принимает опционально целое число от 0 до 20, определяющее количество цифр после запятой. По умолчанию равно 0
+  <br>Возвращает <strong>число</strong> - объект Number без экспоненциальной записи с указанным количеством цифр после запятой.
+
+  <h3>Задачи на метод toFixed()</h3>
+  <code>let num = 2.26519;</code>
+  <code>num.toFixed(); // 2</code>
+  <code>num.toFixed(8); // 2.26519000</code>
+</article>
+
+
+<!-- 9. toLocaleString() -->
+<article class="article">
+  <div class="anchor" id="number-to-locale-string"></div>
+  <h3>9. toLocaleString()</h3>
+  <br>Принимает опционально два параметра locales и options, которые определяют язык и правила форматирования результата
+  <br>Возвращает строку с языкозависимым представлением числа
+
+</article>
+
+
+<!-- 10. toPrecision() -->
+<article class="article">
+  <div class="anchor" id="number-to-precision"></div>
+  <h3>10. toPrecision()</h3>
+  <br>Появился в ES3
+  <br>Принимает опционально целое число от 1 до 100, определяющее количество значащих цифр
+  <br>Возвращает в виде строки объект Number с фиксированной запятой округленный до заданного количества значащих цифр. Если необходимо, добавляется запятая и нули до указанной длины
+
+  <h3>Задачи на метод toPrecision()</h3>
+  <p>Без параметров возвращает число без форматирования</p>
+  <code>let num = 15.3525;</code>
+  <code>num.toPrecision(); // 15.3525</code>
+  <code>num.toPrecision(2); // 15</code>
+  <code>num.toPrecision(7); // 15.35250</code>
+  <code>let num = 0.002839;</code>
+  <code>num.toPrecision(2); // 0.0028</code>
+</article>
+
+
+<!-- 11. toString() -->
+<article class="article">
+  <div class="anchor" id="number-to-string"></div>
+  <h3>11. toString()</h3>
+  <br>Появился в ES1
+  <br>Принимает опционально целое число от 2 до 36, определяющее основание системы счисления
+  <br>Возвращает строковое представление объекта Number
+
+  <h3>Задачи на метод toString()</h3>
+  <code>let num = 25;</code>
+  <code>num.toString(); // 25</code>
+  <code>num.toString(2); // 11001</code>
+  <code>num.toString(8); // 31</code>
+  <code>num.toString(16); // 19</code>
+</article>
+
+
+<!-- 12. valueOf() -->
+<article class="article">
+  <div class="anchor" id="number-value-of"></div>
+  <h3>12. valueOf()</h3>
+  <br>Появился в ES1
+  <br>Не принимает параметры
+  <br>Возвращает примитивное значение объекта Number
+  
+  <h3>Задачи на метод valueOf()</h3>
+  <code>let num = 25;</code>
+  <code>num.valueOf(); // 25</code>
+</article>
 

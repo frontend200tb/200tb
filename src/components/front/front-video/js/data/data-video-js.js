@@ -817,6 +817,22 @@ const dataVideoJs = [
   },
 
   {
+    id: 44,
+    year: 2022,
+    date: '2022-11-13',
+    category: 'code',
+    theme: 'javascript',
+    title: 'Мастер-класс по архитектуре JavaScript-приложений и фреймворков',
+    author: 'Владимир Шевчук',
+    name: 'javascript.ru',
+    numberLessons: '2',
+    time_h_m: [15, 19],
+    size: '1.2 gb',
+    isLearned: true,
+    dateLearned: '2024.04.25 чт',
+  },
+
+  {
     id: 45,
     year: 2023,
     date: '',

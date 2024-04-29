@@ -1,7 +1,7 @@
-/*
-Скрипт из файла page.js
+/******************
 Функция pageLink вешает обработчик клика на элементы asideMenu
-*/
+*******************/
+import {main} from './../js/f-create-aside';
 
 // Aside
 import htmlVacancy from './elem-vacancy.html';
@@ -19,7 +19,6 @@ import htmlInvite from './elem-invite.html';
 import htmlRefuse from './elem-refuse.html';
 import htmlNoanswer from './elem-noanswer.html';
 import htmlSkills from './elem-skills.html';
-import htmlTask from './elem-task.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -38,23 +37,20 @@ const aside = [
   htmlRefuse,
   htmlNoanswer,
   htmlSkills,
-  htmlTask,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
-export default function pageLink() {
-  const currentContent = document.querySelector('#vacancy');
+export default function pageLink(asideItems) {
+  const currentContent = main;
 
-  // собрать все ссылки в aside menu
-  const asideItems = document.querySelectorAll('.aside a');
+  asideItems.forEach((elem, index) => {
+    createAsideMenu(elem, index);
+  })
 
-  // если ссылки в aside menu есть, то по клику показывать нужную страницу
-  if (asideItems) {
-    asideItems.forEach((elem, index) => {
-      elem.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentContent.innerHTML = aside[index];
-      });
-    })
+  function createAsideMenu(elem, index) {
+    elem.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = aside[index];
+    });
   }
 }

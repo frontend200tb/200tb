@@ -10,7 +10,7 @@ import {dataNavCode, dataNavFront} from './data-nav';
 import { endUrl } from '../header/header-nav/header-nav';
 
 const nav = document.getElementById('nav');
-const main = document.getElementById('main');
+const main = document.getElementById('maincomponent');
 
 /** **************
 1. nav для страниц code
@@ -72,6 +72,7 @@ export default function createNav() {
       nav.appendChild(el.elem);
       el.elem.classList.remove('active');
     });
+    dataNavCode[0].elem.classList.add('active');
   }
 
   // 2.2 Добавим ссылки navFront в nav если адрес index.html

@@ -44,8 +44,10 @@ export default function showJsDatatypes() {
   const aside = document.querySelector('.aside');
 
   // 4. Показываем нужный aside
-  aside.innerHTML = '';
-  aside.append(...asideDiv);
+  if (aside) {
+    aside.innerHTML = '';
+    aside.append(...asideDiv);
+  }
 
   // 5. Вешаем обработчики кликов по aside
   pageLink();

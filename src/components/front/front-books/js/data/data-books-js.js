@@ -574,7 +574,7 @@ const dataBooksJs = [
     category: 'code',
     theme: 'javascript',
     title: 'Выразительный JavaScript (3е)',
-    author: 'Хавербек',
+    author: 'Хавербеке',
     authorName: 'Марейн',
     pages: 482,
     isLearned: false,
@@ -834,6 +834,19 @@ const dataBooksJs = [
   },
 
   {
+    id: 42,
+    year: 2021,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Выразительный JavaScript (3е)',
+    author: 'Хавербеке',
+    authorName: 'Марейн',
+    pages: 480,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 61,
     year: 2021,
     category: 'code',
@@ -1030,6 +1043,19 @@ const dataBooksJs = [
     author: 'Янцев',
     authorName: 'Валерий',
     pages: 175,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 75,
+    year: 2023,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Refactor like a superhero',
+    author: 'Беспоясов',
+    authorName: 'Алекс',
+    pages: 296,
     isLearned: false,
     dateLearned: '',
   },

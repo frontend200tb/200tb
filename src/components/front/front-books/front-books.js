@@ -13,7 +13,7 @@
 7. Экспортируем функцию showFrontBooks()
 */
 
-import './element-front-books';
+import './js/element-front-books';
 import createInput from './js/f-create-input';
 import createCategory from './js/f-create-category';
 import createElements from './js/f-create-elements';

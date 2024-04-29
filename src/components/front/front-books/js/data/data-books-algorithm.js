@@ -92,6 +92,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 7,
+    year: 2003,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмические трюки для программистов',
+    author: 'Уоррен',
+    authorName: 'Генри',
+    pages: '286',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 8,
     year: 2004,
     category: 'основы',

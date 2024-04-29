@@ -40,8 +40,10 @@ export default function pageLink() {
     asideItems.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
         e.preventDefault();
-        currentContent.innerHTML = aside[index];
-        switch (aside[index]) {
+        if (currentContent) {
+          currentContent.innerHTML = aside[index];
+        }
+          switch (aside[index]) {
           case htmlEventloop:
             pageLinkEventloop();
             break;
@@ -62,7 +64,9 @@ function pageLinkEventloop() {
     linksEventloop.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
           e.preventDefault();
-          currentContent.innerHTML = eventloopLinks[index];
+          if (currentContent) {
+            currentContent.innerHTML = eventloopLinks[index];
+          }
           backToEventloop();
         });
     })
@@ -75,7 +79,9 @@ function backToEventloop() {
   if (linkToEventloop) {
     linkToEventloop.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = htmlEventloop;
+      if (currentContent) {
+        currentContent.innerHTML = htmlEventloop;
+      }
       pageLinkEventloop();
     });
   }

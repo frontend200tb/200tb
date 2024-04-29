@@ -1,0 +1,346 @@
+<h1>Markdown</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#links">links</a></p>
+    <p><a href="#about">about</a></p>
+  </div>
+
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://www.markdownguide.org/basic-syntax/">markdownguide.org/basic-syntax</a></p>
+  <p><a href="https://skillbox.ru/media/code/yazyk-razmetki-markdown-shpargalka-po-sintaksisu-s-primerami/">skillbox.ru</a> Язык разметки Markdown: шпаргалка по синтаксису с примерами (2023.02.10)</p>
+  <p><a href="https://www.markdownguide.org/">markdownguide.org</a></p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>В Markdown с помощью разметки можно создать следующие элементы</p>
+  <ol>
+    <li><a href="#md-headings">Заголовки (Headings)</a></li>
+    <li><a href="#md-paragraphs">Параграфы (Paragraphs)</a></li>
+    <li><a href="#md-br">Перенос строки (Line Breaks)</a></li>
+    <li><a href="#md-hr">Горизонтальная черта (Horizontal Rules)</a></li>
+    <li><a href="#md-bold">Жирный текст (Bold)</a></li>
+    <li><a href="#md-italic">Курсивный текст (Italic)</a></li>
+    <li><a href="#md-bolditalic">Жирный и курсивный текст (Bold and Italic)</a></li>
+    <li><a href="#md-strike">Зачеркнутый текст (Strikethrough)</a></li>
+    <li><a href="#md-under">Подчёркнутый текст (Underline)</a></li>
+    <li><a href="#md-links">Ссылки (Links)</a></li>
+    <li><a href="#md-images">Картинки (Images)</a></li>
+    <li><a href="#md-imagelink">Картинка-ссылка (Image-Link)</a></li>
+    <li><a href="#md-ol">Нумерованный список (Ordered List)</a></li>
+    <li><a href="#md-ul">Маркированный список (Unordered List)</a></li>
+    <li><a href="#md-nested">Вложенный список (Nested List)</a></li>
+    <li><a href="#md-checkbox">Чекбоксы (Checkboxes)</a></li>
+    <li><a href="#md-blockquotes">Цитаты (Blockquotes)</a></li>
+    <li><a href="#md-code">Вставка кода (Code)</a></li>
+    <li><a href="#md-tables">Таблицы (Tables)</a></li>
+    <li><a href="#md-reference">Сноски (Reference)</a></li>
+    <li><a href="#md-escape">Экранирование (Escaping Characters)</a></li>
+  </ol>
+</article>
+
+
+<!-- Заголовки (Headings) -->
+<article class="article">
+  <div class="anchor" id="md-headings"></div>
+  <h2>Заголовки (Headings)</h2>
+
+  <p>Заголовоки h1-h6 выделяются с помощью решетки #</p>      
+<pre># Заголовок 1
+## Заголовок 2
+### Заголовок 3
+#### Заголовок 4
+##### Заголовок 5
+###### Заголовок 6</pre>
+  <p>Решетку # можно поставить с двух сторон</p>
+<pre># Заголовок 1 #
+## Заголовок 2 ##
+### Заголовок 3 ###
+#### Заголовок 4 ####
+##### Заголовок 5 #####
+###### Заголовок 6 ######</pre>
+  <p>Заголовок h1 можно выделить если на следующей строке указать любое количество знаков «равно» =</p>
+<pre>Заголовок 1
+===</pre>
+  <p>Заголовок h2 можно выделить если на следующей строке указать любое количество знаков «минус» -</p>
+<pre>Заголовок 2
+--</pre>
+</article>
+
+
+<!-- Параграфы (Paragraphs) -->
+<article class="article">
+  <div class="anchor" id="md-paragraphs"></div>
+  <h2>Параграфы (Paragraphs)</h2>
+
+  <p>Абзац создается при помощи пустой строки. Если вокруг текста сверху и снизу есть пустые строки, то текст превращается в абзац.</p>
+<pre>Paragraph1
+
+Paragraph2</pre>
+</article>
+
+
+<!-- Перенос строки (Line Breaks) -->
+<article class="article">
+  <div class="anchor" id="md-br"></div>
+  <h2>Перенос строки (Line Breaks)</h2>
+
+  <p>Перенос строки. Чтобы сделать перенос строки вместо абзаца, нужно поставить два пробела в конце предыдущей строки.</p>
+<pre>String1  
+string2
+</pre>
+</article>
+
+
+<!-- Горизонтальная черта (Horizontal Rules) -->
+<article class="article">
+  <div class="anchor" id="md-hr"></div>
+  <h2>Горизонтальная черта (Horizontal Rules)</h2>
+
+  <p>Для горизонтальной черты используются три или более звездочки * или тире - или подчеркивания _.</p>
+  <code>***</code>
+  <code>---</code>
+  <code>___</code>
+</article>
+
+
+<!-- Жирный текст (Bold) -->
+<article class="article">
+  <div class="anchor" id="md-bold"></div>
+  <h2>Жирный текст (Bold)</h2>
+
+  <p>Для выделения <strong>жирным текстом</strong> надо добавить две звездочки * или два подчеркивания _ перед и после фразы, слова или буквы.</p>
+  <code>**жирный текст**</code>
+  <code>__жирный текст__</code>
+</article>
+
+
+<!-- Курсивный текст (Italic) -->
+<article class="article">
+  <div class="anchor" id="md-italic"></div>
+  <h2>Курсивный текст (Italic)</h2>
+
+  <p>Для выделения <em>курсивным текстом</em> надо добавить одну звездочку * или одно подчеркивание _ перед и после фразы, слова или буквы.</p>
+  <code>*курсивный текст*</code>
+  <code>_курсивный текст_</code>
+</article>
+
+
+<!-- Жирный и курсивный текст (Bold and Italic) -->
+<article class="article">
+  <div class="anchor" id="md-bolditalic"></div>
+  <h2>Жирный и курсивный текст (Bold and Italic)</h2>
+
+  <p>Для выделения <strong><em>жирным и курсивным текстом</em></strong> надо добавить три звездочки * или три подчеркивания _ перед и после фразы, слова или буквы.</p>
+  <code>***жирный и курсивный текст***</code>
+  <code>___жирный и курсивный текст___</code>
+</article>
+
+
+<!-- Зачеркнутый текст (Strikethrough) -->
+<article class="article">
+  <div class="anchor" id="md-strike"></div>
+  <h2>Зачеркнутый текст (Strikethrough)</h2>
+
+  <p>Для выделения зачеркнутым текстом надо добавить две тильды ~ перед и после фразы, слова или буквы.</p>
+  <code>~~зачеркнутый текст~~</code>
+</article>
+
+
+<!-- Подчёркнутый текст (Underline) -->
+<article class="article">
+  <div class="anchor" id="md-under"></div>
+  <h2>Подчёркнутый текст (Underline)</h2>
+
+  <p>В синтаксисе Markdown нет встроенного способа подчеркнуть текст. Но если ваш редактор поддерживает HTML, то можно использовать теги u:</p>
+  <code>&lt;u&gt;подчёркнутый текст&lt;/u&gt;</code>
+</article>
+
+
+<!-- Ссылки (Links) -->
+<article class="article">
+  <div class="anchor" id="md-links"></div>
+  <h2>Ссылки (Links)</h2>
+
+  <p>Самый лёгкий способ поместить ссылку в Markdown — заключить её в угловые скобки.</p>
+  <code>&lt;https://frontend200tb.ru/&gt;</code>
+  <p>Чтобы оформить ссылкой часть текста, используется такой синтаксис: [текст](ссылка). Можно сделать всплывающую подсказку при наведении курсора. Для этого в круглых скобках после ссылки нужно поставить пробел и написать текст подсказки в кавычках.</p>
+  <code>[google.com](https://google.com) без подсказки</code>
+  <code>[google.com](https://google.com "Всплывающая подсказка") с подсказкой</code>
+</article>
+
+
+<!-- Картинки (Images) -->
+<article class="article">
+  <div class="anchor" id="md-images"></div>
+  <h2>Картинки (Images)</h2>
+
+  <p>Для картинки используется такой синтаксис: ![текст](путь к изображению). Можно сделать всплывающую подсказку при наведении курсора. Для этого в круглых скобках после ссылки на картинку нужно поставить пробел и написать текст подсказки в кавычках.</p>
+  <code>![Изображение](https://www.google.com/images/google.png) без подсказки</code>
+  <code>![Изображение](https://www.google.com/images/google.png "Всплывающая подсказка") с подсказкой</code>
+</article>
+
+
+<!-- Картинка-ссылка (Image-Link) -->
+<article class="article">
+  <div class="anchor" id="md-imagelink"></div>
+  <h2>Картинка-ссылка (Image-Link)</h2>
+
+  <code>[![текст тега alt](https://pictures.com/foto.jpg "текст тега title")](https://pictures.com)</code>
+</article>
+
+
+<!-- Нумерованный список (Ordered List) -->
+<article class="article">
+  <div class="anchor" id="md-ol"></div>
+  <h2>Нумерованный список (Ordered List)</h2>
+
+  <p>Для создания нумерованного списка перед пунктами нужно поставить число с точкой и пробел. При этом нумерация в разметке ленивая. Неважно, какие именно числа вы напишете: Markdown пронумерует список автоматически.</p>
+<pre>1. Первый пункт
+2. Второй пункт
+3. Третий пункт</pre>
+  <p>Список можно начинать и не с единицы. Для нумерации важно только число, которое стоит перед первым пунктом.</p>
+<pre>27. Первый пункт
+27. Второй пункт
+27. Третий пункт</pre>
+  <p>Между двумя нумерованными списками, идущими подряд, нужно отбить две пустые строки. Если отбить только одну, то Markdown воспримет два списка как один. Некоторые редакторы в таком случае увеличивают интервал между пунктами.</p>
+<pre>1. Первый пункт
+  2. Второй пункт
+  3. Третий пункт
+  
+  1. Четвёртый пункт
+  2. Пятый пункт
+  3. Шестой пункт</pre>
+</article>
+
+
+<!-- Маркированный список (Unordered List) -->
+<article class="article">
+  <div class="anchor" id="md-ul"></div>
+  <h2>Маркированный список (Unordered List)</h2>
+
+  <p>Для создания маркированного списка нужно поставить перед каждым пунктом звёздочку *, дефис - или плюс +.</p>
+<pre>* Первый пункт
+* Второй пункт
+* Третий пункт
+- Первый пункт
+- Второй пункт
+- Третий пункт
++ Первый пункт
++ Второй пункт
++ Третий пункт</pre>
+</article>
+
+
+<!-- Вложенный список (Nested List) -->
+<article class="article">
+  <div class="anchor" id="md-nested"></div>
+  <h2>Вложенный список (Nested List)</h2>
+
+  <p>Чтобы создать вложенный список, нужно поставить перед его пунктами табуляцию или несколько пробелов. В Markdown одна табуляция соответствует четырём пробелам.</p>
+  <p>Список одного вида можно вкладывать в любой другой.</p>
+<pre>1. Пункт
+	1. Подпункт
+		1. Подподпункт</pre>
+<pre>- Пункт
+	- Подпункт
+		- Подподпункт</pre>
+</article>
+
+
+<!-- Чекбоксы (checkboxes) -->
+<article class="article">
+  <div class="anchor" id="md-checkbox"></div>
+  <h2>Чекбоксы (checkboxes)</h2>
+
+  <p>Чтобы сделать чекбоксы, нужно использовать маркированный список, но между маркером и текстом поставить [x] для отмеченного пункта и [] — для неотмеченного.</p>
+<pre>- [x] Отмеченный пункт
+- [ ] Неотмеченный пункт</pre>
+</article>
+
+
+<!-- Цитаты (Blockquotes) -->
+<article class="article">
+  <div class="anchor" id="md-blockquotes"></div>
+  <h2>Цитаты (Blockquotes)</h2>
+
+  <p>Чтобы параграф отобразился как цитата, нужно поставить перед ним закрывающую угловую скобку &gt;</p>
+<pre>&gt; Оформление цитатой
+последовательных строк
+внутри одного параграфа</pre>
+  <p>Внутрь одного блока цитаты можно поместить сразу несколько параграфов. Чтобы сделать это, нужно поместить закрывающую угловую скобку перед началом каждой строки.</p>
+<pre>&gt; # Заголовок
+&gt; Первый параграф
+&gt;
+&gt; Второй параграф
+&gt;
+&gt; &gt; Вложенная цитата</pre>
+</article>
+
+
+<!-- Вставка кода (Code) -->
+<article class="article">
+  <div class="anchor" id="md-code"></div>
+  <h2>Вставка кода (Code)</h2>
+
+  <p>Исходный код пишут с помощью обратных кавычек. Инлайн код выделяют одиночными обратными кавычками. Блок кода - тройными</p>
+<pre>\`let a = 5;\`</pre>
+<pre>\`\`\`let a = 5;
+let b = a +5;\`\`\`</pre>
+</article>
+
+
+<!-- Таблицы (Tables) -->
+<article class="article">
+  <div class="anchor" id="md-tables"></div>
+  <h2>Таблицы (Tables)</h2>
+
+  <p>Таблица. Для таблиц используют вертикальную черту и дефис. Столбцы разделяются вертикальными линиями |, а строка с шапкой отделяется от остальных дефисами -, которых можно ставить сколько угодно.</p>
+<pre>цвет | rgb | hex
+:----|:----:|------:
+красный | 255,0,0 | ff0000
+зеленый | 0,255,0 | 00ff00
+синий   | 0,0,255 | 0000ff</pre>
+</article>
+
+
+<!-- Сноски (Reference) -->
+<article class="article">
+  <div class="anchor" id="md-reference"></div>
+  <h2>Сноски (Reference)</h2>
+
+  <p>Сноска состоит из метки и непосредственно текста сноски (содержимого).</p>
+<pre>Сноска первая [^1] и сноска вторая [^2]
+[^1]: Текст сноски 1
+[^2]: Текст сноски 2</pre>
+</article>
+
+
+<!-- Экранирование (Escaping Characters) -->
+<article class="article">
+  <div class="anchor" id="md-escape"></div>
+  <h2>Экранирование (Escaping Characters)</h2>
+  
+  <p>Чтобы спецсимволы не исчезали и не влияли на оформление, нужно использовать экранирование. Как и во многих других языках программирования, этим целям служит обратная косая черта (бэкслеш).</p>
+  <p>Список символов, которые нужно экранировать \`*_{}[]&lt;&gt;()#+-.! |</p>
+</article>

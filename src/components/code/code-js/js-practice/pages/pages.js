@@ -4,10 +4,14 @@
 */
 // Aside
 import htmlTask from './elem-task.html';
+import htmlObject from './elem-object.html';
+import htmlString from './elem-string.html';
 
 // массив страниц из aside menu
 const aside = [
   htmlTask,
+  htmlObject,
+  htmlString,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
@@ -22,8 +26,10 @@ export default function pageLink() {
     asideItems.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
         e.preventDefault();
-        currentContent.innerHTML = aside[index];
-      });
+        if (currentContent) {
+          currentContent.innerHTML = aside[index];
+        }
+        });
     })
   }
 }

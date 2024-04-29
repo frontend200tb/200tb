@@ -1,14 +1,11 @@
 // code
+import showAlgorithm from '../code/algorithm/algorithm';
 import showCodeHtml from '../code/code-html/code-html';
 import showCodeCss from '../code/code-css/code-css';
 import showCodeJs from '../code/code-js/code-js';
 import showCodeTs from '../code/code-ts/code-ts';
-import showCodeCsharp from '../code/code-csharp/code-csharp';
-import showCodeMarkdown from '../code/code-markdown/code-markdown';
-import showCodePug from '../code/code-pug/code-pug';
-import showCodeSass from '../code/code-sass/code-sass';
-import showCodePhp from '../code/code-php/code-php';
 import showCodePascal from '../code/code-pascal/code-pascal';
+import showCodeOther from '../code/code-other/code-other';
 
 // front
 import showFrontBooks from '../front/front-books/front-books';
@@ -22,6 +19,14 @@ import showFrontYt from '../front/front-yt/front-yt';
 
 // code
 export const dataNavCode = [
+  {
+    url: 'algorithm.html',
+    text: 'Алгоритмы',
+    content: '<base-algorithm></base-algorithm>',
+    act() {
+      showAlgorithm();
+    },
+  },
   {
     url: 'code-html.html',
     text: 'HTML',
@@ -55,51 +60,19 @@ export const dataNavCode = [
     },
   },
   {
-    url: 'code-csharp.html',
-    text: 'C#',
-    content: '<code-csharp></code-csharp>',
-    act() {
-      showCodeCsharp();
-    },
-  },
-  {
-    url: 'code-markdown.html',
-    text: 'Markdown',
-    content: '<code-markdown></code-markdown>',
-    act() {
-      showCodeMarkdown();
-    },
-  },
-  {
-    url: 'code-pug.html',
-    text: 'Pug',
-    content: '<code-pug></code-pug>',
-    act() {
-      showCodePug();
-    },
-  },
-  {
-    url: 'code-sass.html',
-    text: 'SASS',
-    content: '<code-sass></code-sass>',
-    act() {
-      showCodeSass();
-    },
-  },
-  {
-    url: 'code-php.html',
-    text: 'Php',
-    content: '<code-php></code-php>',
-    act() {
-      showCodePhp();
-    },
-  },
-  {
     url: 'code-pascal.html',
     text: 'Pascal',
     content: '<code-pascal></code-pascal>',
     act() {
       showCodePascal();
+    },
+  },
+  {
+    url: 'code-other.html',
+    text: 'Other',
+    content: '<code-other></code-other>',
+    act() {
+      showCodeOther();
     },
   },
 ];

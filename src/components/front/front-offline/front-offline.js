@@ -1,64 +1,46 @@
 /** **************
 Скрипт из файла front-offline.js
-Функция showFrontOffline показывает страницу front-offline
+Навигация по теме Offline
+основы framework tools net articles
 ****************** */
 import './element-front-offline';
-import pageLink from './pages';
+import {dataOfflineNav} from './data-offline-nav';
 
-// 1. Создадим контент для #main-nav
-// 1.1 Создаем массив categories с категориями
-const categories = ['основы', 'алгоритмы', 'framework', 'tools', 'net', 'articles'];
 
-// 1.2 Создаем массив mainNav для элементов nav меню
-const mainNav = [];
+// Создаем ссылки для меню mainnav
+createMainNav(dataOfflineNav);
 
-// Функция создает id для элемента меню
-let idNameSuffix = 1;
-function createId(str) {
-  str = idNameSuffix;
-  idNameSuffix++;
-  return `offline-${str}`;
+function createMainNav(navCode) {
+  navCode.forEach((el) => {
+    el.elem = document.createElement('a');
+    el.elem.href = '';
+    el.elem.innerHTML = el.text;
+    el.elem.addEventListener('click', (event) => {
+      const offline = document.getElementById('offline');
+      event.preventDefault();
+      // добавим class="active"
+      classActive(navCode, el.elem);
+      offline.innerHTML = el.content;
+      el.act();
+    });
+  });
 }
 
-// 1.3 Для каждой категории из массива categories
-for (const category of categories) {
-  // 1.3.1 Создаем элемент elementNav
-  const elementNav = document.createElement('a');
-  elementNav.href = '#';
-  elementNav.innerHTML = category;
-  elementNav.id = createId(category);
-
-  // 1.3.2 Добавляем элемент elementNav в массив mainNav
-  mainNav.push(elementNav);
-
-  // 1.3.3 По клику на элемент elementNav
-  elementNav.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    // 1.3.3.1 добавим ему class="active"
-    classActive(mainNav, elementNav);
+function classActive(menu, activElem) {
+  menu.forEach((el) => {
+    el.elem.classList.remove('active');
   });
+  activElem.classList.add('active');
 }
 
 export default function showFrontOffline() {
-  const elemMainNav = document.querySelector('#main-nav');
-
-  // 4. Показываем нужный main-nav
+  const elemMainNav = document.getElementById('main-nav');
   elemMainNav.innerHTML = '';
-  elemMainNav.append(...mainNav);
-
-  // 5. Вешаем обработчики кликов по main-nav
-  pageLink();
-
+  dataOfflineNav.forEach((el) => {
+    elemMainNav.appendChild(el.elem);
+    el.elem.classList.remove('active');
+  });
   // 6. Создадим и вызовем событие click на первом main-nav эелементе
   const eventClick = new Event('click');
-  mainNav[0].dispatchEvent(eventClick);
-}
-
-// Ставим class="active" выбранному элементу меню и убираем с остальных
-function classActive(elementOl, elementLi) {
-  elementOl.forEach((li) => {
-    li.classList.remove('active');
-  });
-  elementLi.classList.add('active');
+  dataOfflineNav[0].elem.dispatchEvent(eventClick);
 }

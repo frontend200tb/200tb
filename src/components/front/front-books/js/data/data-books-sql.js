@@ -116,6 +116,18 @@ const dataBooksSql = [
   },
 
   {
+    id: 9,
+    year: 2003,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'PostgreSQL Для профессионалов',
+    author: 'Уорсли',
+    pages: '498',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 2004,
     category: 'tools',
@@ -137,6 +149,19 @@ const dataBooksSql = [
     author: 'Вьейра',
     authorName: 'Роберт',
     pages: '800',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2004,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'MySQL',
+    author: 'Ульман',
+    authorName: 'Ларри',
+    pages: '352',
     isLearned: false,
     dateLearned: '',
   },

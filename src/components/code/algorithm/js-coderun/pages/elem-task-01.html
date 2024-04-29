@@ -1,0 +1,391 @@
+<h1>Задачи на алгоритмы</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task-1">1. Palindrome</a></p>
+  <p><a href="#task-2">2. FizzBuzz</a></p>
+  <p><a href="#task-3">3. FindVowels</a></p>
+  <p><a href="#task-4">4. Anagram</a></p>
+  <p><a href="#task-5">5. Reverse words in sentence</a></p>
+  <p><a href="#task-6">6. Sort names by height</a></p>
+  <p><a href="#task-7">7. Сумма чисел, которые делятся на 3 или 5 или 7</a></p>
+  <p><a href="#task-8">8. Строка с максимальным количеством слов</a></p>
+  <p><a href="#task-9">9. Все символы в строке сделать маленькими</a></p>
+  <p><a href="#task-10">10. Fibonacci</a></p>
+</article>
+
+
+<!-- 1. Palindrome -->
+<article class="article">
+  <div class="anchor" id="task-1"></div>
+  <h2>1. Palindrome</h2>
+
+  <p>Палиндром это строка которая в обе стороны читается одинаково. Написать функцию, которая принимает строку и возвращает true если эта строка палиндром, иначе false</p>
+
+  <p>Примеры</p>
+  <code>palindrome('racecar'); // true</code>
+  <code>palindrome('table'); // false</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Когда нужно сравнить все символы строки, то можно ее перевернуть и сравнить с исходной строкой. Разобьем строку на массив символов. Перевернем массив. Соберем массив в строку. Сравним с исходной строкой.</p>
+<pre>function palindrome(str) {
+  return str === str.split('').reverse().join('');
+}</pre>
+  </details>
+
+  <p>Усложним задачу. Пусть регистр символов будет не важен</p>
+  <code>palindrome('Anna'); // true</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Сначала приведем все символы строки к одному регистру, например нижнему.</p>
+<pre>function palindrome(str) {
+  str = str.toLowerCase();
+  return str === str.split('').reverse().join('');
+}</pre>
+  </details>
+
+  <p>Усложним задачу. Не учитывать пробелы.</p>
+  <code>('А роза упала на лапу Азора'); // true</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Заменим все пробелы на пустую строку с помощью регулярного выражения.</p>
+<pre>function palindrome(str) {
+  str = str.toLowerCase().replace(/\s/g,'');
+  return str === str.split('').reverse().join('');
+}</pre>
+  </details>
+
+  <details>
+    <summary>Решение двумя указателями</summary>
+<pre>function palindrome(str) {
+  let left = 0;
+  let right = str.length - 1;
+  while (left &lt; right) {
+    if (!str[left].match(/a-zа-я0-9/)) {
+      left++;
+    } else if (!str[right].match(/a-zа-я0-9/)) {
+      right--;
+    } else if (str[left].toLowerCase() !== str[right].toLowerCase()) {
+      return false;
+    } else {
+      left++;
+      right--;
+    }
+  }
+  return true;
+}</pre>
+<pre>function isPalindrome(str) {
+  let start = 0;
+  let end = str.length - 1;
+  while (end &gt; start) {
+    if (str[start].match(/[a-zа-я0-9]/i)) {
+      if (str[end].match(/[a-zа-я0-9]/i)){
+        if (str[start].toLowerCase() !== str[end].toLowerCase()){
+          return false;
+        } else {
+          start++;
+          end--;
+        }
+      } else {
+        end--;
+      }
+    } else {
+      start++;
+    }    
+  }
+  return true;
+}</pre>
+  </details>
+</article>
+
+
+<!-- 2. FizzBuzz -->
+<article class="article">
+  <div class="anchor" id="task-2"></div>
+  <h2>2. FizzBuzz</h2>
+
+  <p>Написать функцию которая принимает целое число N и выводит в консоль все числа от 1 до N, причем если число делится на 3, то вместо него выводим fizz, если на 5 то buzz, если и на 3 и на 5 то fizzbuzz</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function fizzBuzz(num) {
+  for (let i = 1; i &lt;= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('fizzbuzz');
+    } else if (i % 3 === 0) {
+      console.log('fizz');
+    } else if (i % 5 === 0) {
+      console.log('buzz');
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+fizzBuzz(16);</pre>
+  </details>
+</article>
+
+
+<!-- 3. FindVowels -->
+<article class="article">
+  <div class="anchor" id="task-3"></div>
+  <h2>3. FindVowels</h2>
+
+  <p>Написать функцию, которая принимает строку и возвращает количество гласных букв в ней. Гласными считаются буквы a, e, i, o, u.</p>
+
+  <p>Примеры</p>
+  <code>findVowels('hello'); // 2</code>
+  <code>findVowels('why'); // 0</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function findVowels(str) {
+  let count = 0;
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+  return count;
+}</pre>
+<pre>function findVowels(str) {
+  const matched = str.match(/[aeiou]/gi);
+  return matched ? matched.length : 0;
+}</pre>
+  </details>
+</article>
+
+
+<!-- 4. Anagram -->
+<article class="article">
+  <div class="anchor" id="task-4"></div>
+  <h2>3. Anagram</h2>
+
+  <p>Написать функцию проверки являются ли две строки анаграмами. Анаграмы это слова, которые состоят из одних и тех же букв.</p>
+
+  <p>Примеры</p>
+  <code>anagram('friend', 'Finder'); // true</code>
+  <code>anagram('hello', 'bye'); // false</code>
+
+  <details>
+    <summary>Решение в одну строку O(NlogN)</summary>
+<code>const anagram = (a,b) => [...a.toLowerCase()].sort().toString() === [...b.toLowerCase()].sort().toString();</code>
+  </details>
+  
+  <details>
+    <summary>Решение</summary>
+    <p>Создадим словарь. Запишем в него ключами буквы, а значениями - сколько раз они встретились.</p>
+<pre>function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  const dict = {};
+  for (let char of str1.toLowerCase()) {
+    if (!dict[char]) {
+      dict[char] = 0;
+    }
+    dict[char]++;
+  }
+  for (let char of str2.toLowerCase()) {
+    if (dict[char] &gt; 0) {
+      dict[char]--;
+      if (dict[char] === 0) {
+        delete dict[char];
+      }
+    } else {
+      return false
+    }
+  }
+  if (Object.keys(dict)[0]) {
+    return false;
+  }
+  retur</pre>
+  </details>
+</article>
+
+
+<!-- 5. Reverse words in sentence -->
+<article class="article">
+  <div class="anchor" id="task-5"></div>
+  <h2>5. Reverse words in sentence</h2>
+
+  <p>Дано предложение (строка). Нужно перевернуть порядок букв в словах, оставляя слова на своем месте.</p>
+  <p>Вопрос: какие символы могут составлять слова, которые надо переворачивать и какие символы нужно оставлять на своем месте?</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Создадим массив из всех слов строки разделенных по пробелу. Пройдем циклом по этим словам и каждое слово преобразуем в массив символов, перевернем этот массив и преобразуем обратно в строку и запишем все перевернутые слова в новый массив. Соединим новый массив в строку по пробелу.</p>
+    <p>Недостаток этого решения, что знаки препинания не остаются на месте.</p>
+<pre>function reverseWords(str) {
+  const arr = str.split(' ');
+  const newArr = arr.map(el => el.split('').reverse().join(''));
+  return newArr.join(' ');
+}</pre>
+
+<pre>function reverseWords(str) {
+  let result = '';
+  let arr = [];
+  for (let i = 0; i &lt; str.length; i++) {
+    if (str[i] !== ' ') {
+      arr.push(str[i]);
+      if (i === str.length - 1) {
+        result += arr.reverse().join('');
+      }
+    } else {
+      result += arr.reverse().join('') + str[i];
+      arr = [];
+    }
+  }
+  return result;
+}</pre>
+  </details>
+</article>
+
+
+<!-- 6. Sort names by height -->
+<article class="article">
+  <div class="anchor" id="task-6"></div>
+  <h2>6. Sort names by height</h2>
+
+  <p>Написать функцию, которая принимает два массива. В певром имена людей, во втором их рос. Нужно отсортировать имена людей по их росту, начиная с самого высокого.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Создадим новый массив, элементами которого будут массивы с именем и ростом. Отсортируем новый массив по росту. Вернем из отсортированного массива новый массив с одними именами.</p>
+<pre>function sortNames(names, heights) {
+  let arr = names.map((item, i) => [item, heights[i]]);
+  arr.sort((a, b) => b[1] - a[1]);
+  return arr.map(el => el[0]);
+}
+
+let w1 = ['Mary', 'John', 'Emma', 'Ben'];
+let w2 = [180, 164, 170, 185];
+
+console.log(sortNames(w1, w2));</pre>
+  </details>
+</article>
+
+
+<!-- 7. Сумма чисел, которые делятся на 3 или 5 или 7 -->
+<article class="article">
+  <div class="anchor" id="task-7"></div>
+  <h2>7. Сумма чисел, которые делятся на 3 или 5 или 7</h2>
+
+  <p>Написать функцию, которая на вход принимает одно целое положительное число N. И возвращает сумму всех чисел от 1 до N которые делятся на 3 или 5 или 7</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function getSum(n) {
+  let sum = 0;
+  for (let i = 1; i &lt;= n; i++) {
+    if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}</pre>
+  </details>
+</article>
+
+
+<!-- 8. Строка с максимальным количеством слов -->
+<article class="article">
+  <div class="anchor" id="task-8"></div>
+  <h2>8. Строка с максимальным количеством слов</h2>
+
+  <p>Написать функцию, которая принимает массив строк. Каждая строка это предложение. Найти предложение с максимальным количеством слов и вернуть это количество слов.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function getMax(arr) {
+  let max = 0;
+  let count = 0;
+  arr.forEach(str => {
+    count = str.split(' ').length;
+    if ( count > max) {
+      max = count;
+    }
+  })
+  return max;
+}</pre>
+  </details>
+</article>
+
+
+<!-- 9. Все символы в строке сделать маленькими -->
+<article class="article">
+  <div class="anchor" id="task-9"></div>
+  <h2>9. Все символы в строке сделать маленькими</h2>
+
+  <p>Приходит строка из ASCII символов. Перевести все символы в нижний регистр</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Согласно ASCII таблице символы в верхнем регистре начинаются с A - 65 и до Z - 90. Код символов в нижнем регистре отличаются от символов в верхнем на 32. От a - 97 и до z 122.</p> 
+    <p>Заведем массив для добавления символов из строки. Пройдем по всем символам строки и если код символа находится в диапазоне от 65 до 90 прибавим к нему 32 и добавим в массив, иначе добавим символ в массив без преобразования его кода. Переведем полученный массив в строку и вернем ее.</p>
+<pre>function toLower(str) {
+  let arr =[];
+  for (i = 0; i &lt; str.length; i++) {
+    if (str.charCodeAt(i) &gt; 64 && str.charCodeAt(i) &lt; 91) {
+      arr.push(String.fromCharCode(str.charCodeAt(i) + 32))
+    } else {
+      arr.push(str[i]);
+    }
+  }
+  return arr.join('');
+}
+
+let w1 = 'AaBCD L UGU  H  XYZ d';
+
+console.log(toLower(w1));</pre>
+  </details>
+</article>
+
+
+<!-- 10. Fibonacci -->
+<article class="article">
+  <div class="anchor" id="task-10"></div>
+  <h2>10. Fibonacci</h2>
+
+  <p>Числа Фибоначчи начинаются с двух 1 и каждое следующее число является суммой двух предыдущих.</p>
+  <p>Написать функцию, которая принимает целое положительное число и возвращает число Фибоначчи по его номеру в последовательности.</p>
+
+  <details>
+    <summary>Решение с циклом</summary>
+<pre>function fibonacci(num) {
+  if (num &lt; 3) {
+    return 1;
+  }
+  let fib1 = 1;
+  let fib2 = 1;
+  let fib;
+  for (let i = 3; i &lt;= num; i++) {
+    fib = fib1 + fib2;
+    fib2 = fib1;
+    fib1 = fib;
+  }
+  return fib;
+}</pre>
+  </details>
+
+  <details>
+    <summary>Решение с рекурсией</summary>
+    <p>Это неэффективное и медленное решение.</p>
+<pre>function fibonacci(num) {
+  if (num &lt; 2) {
+    return num;
+  }
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}</pre>
+  </details>
+</article>
+
+
