@@ -3,13 +3,15 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
 import htmlCss from './elem-css.html';
-import htmlSel from './elem-sel.html';
+import htmlCssSel from './elem-css-sel.html';
+import htmlCssProp from './elem-css-prop.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
   const aside = [
     htmlCss,
-    htmlSel
+    htmlCssSel,
+    htmlCssProp,
   ];  
   
   const currentContent = document.querySelector('#code');

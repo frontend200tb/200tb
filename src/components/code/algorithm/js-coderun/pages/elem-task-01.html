@@ -15,6 +15,7 @@
   <p><a href="#task-8">8. Строка с максимальным количеством слов</a></p>
   <p><a href="#task-9">9. Все символы в строке сделать маленькими</a></p>
   <p><a href="#task-10">10. Fibonacci</a></p>
+  <p><a href="#task-11">11. Факториал</a></p>
 </article>
 
 
@@ -388,4 +389,34 @@ console.log(toLower(w1));</pre>
   </details>
 </article>
 
+
+<!-- 11. Факториал -->
+<article class="article">
+  <div class="anchor" id="task-11"></div>
+  <h2>11. Факториал</h2>
+
+  <p>Факториал числа это произведение всех чисел от 1 до этого числа. Напишем функцию поиска факториала числа</p>
+
+  <details>
+    <summary>Факториал с циклом</summary>
+<pre>function factorial(n) {
+  let result = 1;
+  for (let i = 1; i &lt;= n; i++) {
+    result *= n;
+  }
+  return result;
+}</pre>
+  </details>
+
+  <details>
+    <summary>Факториал с рекурсией</summary>
+<pre>function factorial(n) {
+  if (n &lt;= 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}</pre>
+  </details>
+</article>
 

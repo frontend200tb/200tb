@@ -21,8 +21,8 @@ const dataBooksJs = [
     author: 'Мэрдок',
     authorName: 'Келли',
     pages: 285,
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024-05-04 сб',
   },
 
   {

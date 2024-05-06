@@ -1,21 +1,24 @@
 <h1>SASS</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div>
-    <p><a href="#links">links</a></p>
-  </div>
+  <p><a href="#links">links</a></p>
+  <p><a href="#install">Установка</a></p>
+  <p><a href="#variable">Переменные</a></p>
+  <p><a href="#nest">Вложенность</a></p>
+  <p><a href="#fragment">Фрагментирование</a></p>
+  <p><a href="#import">Импорт</a></p>
+  <p><a href="#mixin">Миксины</a></p>
+  <p><a href="#extend">Наследование</a></p>
+  <p><a href="#math">Математические операторы</a></p>
+  <p><a href="#comment">Комментарии</a></p>
+</article>
 
-</div>
 
-<!-- links-->
+<!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
   <h2>links</h2>
@@ -23,3 +26,261 @@
   <p><a href="https://sass-scss.ru/">https://sass-scss.ru/</a></p>
   <p><a href="https://sass-lang.com/">https://sass-lang.com/</a></p>
 </article>
+
+
+<!-- Установка -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>Установка</h2>
+
+  <h4>Глобальная установка npm пакета sass</h4>
+  <code>npm install -g sass</code>
+  <p>После установки появится папка</p>
+  <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\sass\</code>
+  <p>Проверим установленную версию</p>
+  <code>sass --version</code>
+  <code>1.75.0 compiled with dart2js 3.3.3</code>
+  <p>Получим информацию по использованию sass</p>
+  <code>sass --help</code>
+
+  <h4>Компиляция файла scss в css</h4>
+  <p>Создадим файл style.scss</p>
+<pre>nav {
+  ul {
+    li {
+      margin: 0;
+    }
+  }
+}</pre>
+  <p>Преобразуем его в файл style.css</p>
+  <code>sass style.scss style.css</code>
+  <p>Компилятор sass создаст новый файл style.css</p>
+<pre>nav ul li {
+  margin: 0;
+}</pre>
+
+  <h4>Компиляция файлов scss в css</h4>
+  <p>Создадим папку src, а в ней папку scss. Преобразуем все файлы scss из папки src/scss в папку dist/css. Для этого достаточно указать пути и разделить их двоеточием.</p>
+  <code>sass src/scss:dist/css</code>
+
+  <h4>Следить за изменениями файлов sass</h4>
+  <p>Можно изспользовать флаг --watch чтобы следить за изменениями и производить компиляцию после сохранения измененных файлов.</p>
+  <code>sass –watch style.scss style.css</code>
+  <p>Можно указать папки для отслеживания изменений и куда сохранять компилированные CSS файлы.</p>
+  <code>sass --watch src/scss:dist/css</code>
+</article>
+
+
+<!-- Переменные -->
+<article class="article">
+  <div class="anchor" id="variable"></div>
+  <h2>Переменные</h2>
+
+  <p>В переменных можно хранить цвета, шрифты и другие значения css. Чтобы создать переменную надо использовать символ $.</p>
+<pre>$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}</pre>
+
+  <p>Значения переменных $font-stack и $primary-color вставятся там где они встречаются.</p>
+<pre>body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}</pre>
+</article>
+
+
+<!-- Вложенность -->
+<article class="article">
+  <div class="anchor" id="nest"></div>
+  <h2>Вложенность</h2>
+
+  <h4>В sass можно вкладывать селекторы</h4>
+<pre>nav {
+  ul {
+    li {
+      margin: 0;
+    }
+  }
+}</pre>
+  <p>Получится</p>
+<pre>nav ul li {
+  margin: 0;
+}</pre>
+
+  <h4>Ссылка на родителя селектора</h4>
+<pre>a {
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  body.firefox & {
+    font-weight: normal;
+  }
+}</pre>
+  <p>Получится</p>
+<pre>a {
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+body.firefox a {
+  font-weight: normal;
+}</pre>
+  <p>Символ & будет заменен на родительский селектор, каким он компилируется в CSS. Это означает, что если у вас есть глубоко вложенное правило, родительский селектор будет полностью вычислен до символа & и подставится вместо него.</p>
+  <p>Символ & должен быть указан в начале составного селектора, также он может содержать последующий суффикс, который будет добавлен к родительскому селектору. Например:</p>
+<pre>#main {
+  color: black;
+
+  &-sidebar {
+    border: 1px solid;
+  }
+}</pre>
+  <p>Получится</p>
+<pre>#main {
+  color: black;
+}
+#main-sidebar {
+  border: 1px solid;
+}</pre>
+</article>
+
+
+<!-- Фрагментирование -->
+<article class="article">
+  <div class="anchor" id="fragment"></div>
+  <h2>Фрагментирование</h2>
+
+  <p>Вы можете создавать фрагменты Sass-файла, которые будут содержать в себе небольшие отрывки CSS, которые можно будет использовать в других Sass-файлах. Это отличный способ сделать ваш CSS модульным, а также облегчить его обслуживание. Фрагмент — это простой Sass-файл, имя которого начинается с нижнего подчеркивания, например, _partial.scss. Нижнее подчеркивание в имени Sass-файла говорит компилятору о том, что это только фрагмент и он не должен компилироваться в CSS. Фрагменты Sass подключаются при помощи директивы @import.</p>
+</article>
+
+
+<!-- Импорт -->
+<article class="article">
+  <div class="anchor" id="import"></div>
+  <h2>Импорт</h2>
+
+  <p>CSS имеет возможность импорта, которая позволяет разделить ваш CSS-файл на более мелкие. Директива @import в CSS создает еще один HTTP-запрос. Sass берет идею импорта файлов через директиву @import, но вместо создания отдельного HTTP-запроса Sass импортирует указанный в директиве файл в тот, где он вызывается, т.е. на выходе получается один CSS-файл, скомпилированный из нескольких фрагментов.</p>
+  <p>Файл _reset.scss с кусочком кода</p>
+<pre>body {
+  margin: 0;
+  padding: 0;
+}</pre>
+  <p>Файл base.scss куда нужно сделать импорт</p>
+<pre>@import 'reset';
+
+body {
+  font-family: Helvetica;
+  background-color: #efefef;
+}</pre>
+  <p>Получиттся один файл base.css</p>
+<pre>body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica;
+  background-color: #efefef;
+}</pre>
+  <p>Мы используем @import 'reset'; в base.scss файле. Когда вы импортируете файл, то не нужно указывать _ в начале имени и расширение .scss. Sass — умный язык и он сам догадается.</p>
+</article>
+
+
+<!-- Миксины -->
+<article class="article">
+  <div class="anchor" id="mixin"></div>
+  <h2>Миксины</h2>
+
+  <p>Миксины позволяют создавать группы деклараций CSS, которые можно использовать по нескольку раз. Можно передавать переменные в миксины, чтобы сделать их более гибкими. Так же хорошо использовать миксины для вендорных префиксов. Пример для transform:</p>
+<pre>@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+.box { @include transform(rotate(30deg)); }</pre>
+  <p>Получится</p>
+<pre>.box {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}</pre>
+</article>
+
+
+<!-- Наследование -->
+<article class="article">
+  <div class="anchor" id="extend"></div>
+  <h2>Наследование</h2>
+
+  <p>Используя директиву @extend можно наследовать наборы свойств CSS от одного селектора другому.</p>
+<pre>%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}</pre>
+  <p>Получится</p>
+<pre>.error, .success, .message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}</pre>
+</article>
+
+
+<!-- Математические операторы -->
+<article class="article">
+  <div class="anchor" id="math"></div>
+  <h2>Математические операторы</h2>
+
+  <p>Использовать математику в CSS очень полезно. Sass имеет несколько стандартных математических операторов, таких как +, -, *, / и %.</p>
+<pre>div {
+  width: 100px + 200px * 2 - 300px;
+}</pre>
+  <p>Получится</p>
+<pre>div {
+  width: 200px;
+}</pre>
+</article>
+
+
+<!-- Комментарии -->
+<article class="article">
+  <div class="anchor" id="comment"></div>
+  <h2>Комментарии</h2>
+
+  <p>Стандартный многострочный CSS комментарий, обозначаемый /* */ сохранится на выходе в файле CSS</p>
+  <p>Однострочный комментарий, обозначаемый // в выходной файл CSS не попадет</p>
+</article>
+
+

@@ -11,9 +11,10 @@
 
   <div>
     <p><a href="#links">links</a></p>
-    <p><a href="#about">Тема 1. Область видимости. Замыкания</a></p>
-    <p><a href="#this">Тема2. Контекст (this)</a></p>
-    <p><a href="#eventloop">Тема3. Цикл событий. Event loop. Promise. setTimeout</a></p>
+    <p><a href="#type">Тема 1. Приведение типов</a></p>
+    <p><a href="#scope">Тема 2. Область видимости. Замыкания</a></p>
+    <p><a href="#this">Тема 3. Контекст (this)</a></p>
+    <p><a href="#eventloop">Тема 4. Цикл событий. Event loop. Promise. setTimeout</a></p>
   </div>
 
 </div>
@@ -26,10 +27,51 @@
 </article>
 
 
-<!-- Тема 1. Область видимости. Замыкания -->
+<!-- Тема 1. Приведение типов -->
 <article class="article">
-  <div class="anchor" id="about"></div>
-  <h2>Тема 1. Область видимости (Scope). Замыкание (Closure)</h2>
+  <div class="anchor" id="type"></div>
+  <h2>Тема 1. Приведение типов</h2>
+
+  <h4>Оператор +</h4>
+
+  <p>Унарный оператор + приводит к числу</p>
+  <code>+ [] // 0</code>
+  <code>+ {} // NaN</code>
+
+  <p>Фигурные скобки {} в начале строки ни на что не влияют, потому что воспринимаются не как значение, а как пустой блок кода</p>
+  <code>{} + [] // 0</code>
+  <code>{} + {} // NaN</code>
+
+  <h4>Конкатенация</h4>
+
+  <p>При сложении пустой массив преобразовался к пустой строке '', а пустой объект к строке '[object Object]'</p>
+  <code>[] + [] // ''</code>
+  <code>[] + {} // '[object Object]'</code>
+
+  <p>Первое слагаемое преобразовывается к числу, остальные к строке</p>
+  <code>+ [] + [] // '0'</code>
+  <code>+ [] + {} // '0[object Object]'</code>
+  <code>+ {} + [] // 'NaN'</code>
+  <code>+ {} + {} // 'NaN[object Object]'</code>
+
+  <h4>Оператор -</h4>
+
+  <p>Унарный оператор - приводит к числу и меняет его знак</p>
+  <code>- [] // -0</code>
+  <code>- {} // NaN</code>
+
+  <p>Оператор - возвращает число, как результат математической операции над числами, преобразовав какждый операнд в число</p>
+  <code>[] - [] // 0</code>
+  <code>- [] - [] // -0</code>
+  <code>[] - {} // NaN</code>
+  <code>- [] - {} // NaN</code>
+</article>
+
+
+<!-- Тема 2. Область видимости. Замыкания -->
+<article class="article">
+  <div class="anchor" id="scope"></div>
+  <h2>Тема 2. Область видимости (Scope). Замыкание (Closure)</h2>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>let a = [];
@@ -39,10 +81,15 @@ for (var i = 0; i &lt; 3; i ++) {
 for (var j = 0; j &lt; 3; j++) {
   a[j]()
 }</pre>
-  <p>Ответ. Переменная, объявленная через var видна за пределами блока и равна 3 после окончания первого цикла for</p>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Переменная, объявленная через var видна за пределами блока и равна 3 после окончания первого цикла for</p>
 <pre>i equal: 3
 i equal: 3
-i equal: 3</pre>
+i equal: 3</pre>  
+  </details>
+
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>let a = [];
@@ -52,36 +99,50 @@ for (let i = 0; i &lt; 3; i ++) {
 for (var j = 0; j &lt; 3; j++) {
   a[j]()
 }</pre>
-  <p>Ответ. Переменная, объявленная через let не видна за пределами блока, поэтому в созданной функции она видна через замыкание и равна 0, 1, 2 для каждой итерации первого цикла for</p>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Переменная, объявленная через let не видна за пределами блока, поэтому в созданной функции она видна через замыкание и равна 0, 1, 2 для каждой итерации первого цикла for</p>
 <pre>i equal: 0
 i equal: 1
-i equal: 2</pre>
+i equal: 2</pre>  
+  </details>
+
 
   <h3>Задача 2. Что будет в консоли?</h3>
 <pre>for (let i = []; i.length &lt; 3; i.push(1)) {
   setTimeout(() => console.log('array i:', i), 500);
 }</pre>
-  <p>Ответ. Код внутри setTimeout выполнится после окончания цикла. Цикл закончится, когда i.length = 3, при этом i = [1, 1, 1].</p>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Код внутри setTimeout выполнится после окончания цикла. Цикл закончится, когда i.length = 3, при этом i = [1, 1, 1].</p>
 <pre>array i: [ 1, 1, 1 ]
 array i: [ 1, 1, 1 ]
 array i: [ 1, 1, 1 ]</pre>
+  </details>
+
 
   <h3>Задача 2. Что будет в консоли?</h3>
 <pre>for (let i = []; i.length &lt; 3; i.push(1)) {
   let j = [...i];
   setTimeout(() => console.log('array j:', j), 500);
 }</pre>
-  <p>Ответ. Код внутри setTimeout выполнится после окончания цикла. Поскольку на каждой итерации цикла создается своя переменная j, то она запоминается в callback-функции через замыкание.</p>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Код внутри setTimeout выполнится после окончания цикла. Поскольку на каждой итерации цикла создается своя переменная j, то она запоминается в callback-функции через замыкание.</p>
 <pre>array j: []
-  array j: [ 1 ]
-  array j: [ 1, 1 ]</pre>
+array j: [ 1 ]
+array j: [ 1, 1 ]</pre>
+  </details>
 </article>
 
 
-<!-- Тема 2. Контекст (this) -->
+<!-- Тема 3. Контекст (this) -->
 <article class="article">
   <div class="anchor" id="this"></div>
-  <h2>Тема 2. Контекст (Context). Ключевое слово this</h2>
+  <h2>Тема 3. Контекст (Context). Ключевое слово this</h2>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>var spiderMan = {
@@ -97,8 +158,12 @@ var hello = (person) => {
 }
 
 hello(spiderMan);</pre>
-  <p>Ответ. Функция, объявленная как function declaration сохраняет свой контекст</p>
-  <code>Spiderman says:  My name is Peter Parker</code>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Функция, объявленная как function declaration сохраняет свой контекст</p>
+    <code>Spiderman says:  My name is Peter Parker</code>
+  </details>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>var spiderMan = {
@@ -114,15 +179,19 @@ var hello = (person) => {
 }
 
 hello(spiderMan);</pre>
-  <p>Ответ. Стрелочная функция не имеет контекста и this = undefined</p>
-  <code>Spiderman says:  My name is undefined undefined</code>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Стрелочная функция не имеет контекста и this = undefined</p>
+    <code>Spiderman says:  My name is undefined undefined</code>
+  </details>
 </article>
 
 
-<!-- Тема3. Цикл событий (Event loop) -->
+<!-- Тема 4. Цикл событий (Event loop) -->
 <article class="article">
   <div class="anchor" id="eventloop"></div>
-  <h2>Тема3. Цикл событий (Event loop)</h2>
+  <h2>Тема 4. Цикл событий (Event loop)</h2>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>setTimeout(() => {
@@ -145,10 +214,13 @@ promise
       console.log('Rejected: ' + error);
     }
   );</pre>
-  <p>Ответ</p>
+
+  <details>
+    <summary>Ответ</summary>
 <pre>Асинхронный код исполнился без промиса
 Асинхронный код исполнился в промисе
 Fulfilled: result</pre>
+  </details>
 
   <h3>Задача 2. Что будет в консоли?</h3>
 <pre>console.log('start');
@@ -158,11 +230,15 @@ setTimeout(() => console.log('setTimeout executed'), 0)
 new Promise((resolve) => {resolve()}).then(() => console.log('Promise executed'));
 
 console.log('end');</pre>
-  <p>Ответ</p>
+
+  <details>
+    <summary>Ответ</summary>
 <pre>start
 end
 Promise executed
 setTimeout executed</pre>
+  </details>
+
 
   <h3>Задача 3. Что будет в консоли?</h3>
 <pre>function first() {
@@ -180,14 +256,18 @@ function second() {
 first();
 second();
 console.log('5');</pre>
-  <p>Ответ</p>
+
+  <details>
+    <summary>Ответ</summary>
 <pre>2
 3
 5
 4
 1</pre>
+  </details>
 
-  <h3>Задача 3. Что будет в консоли?</h3>
+
+  <h3>Задача 4. Что будет в консоли?</h3>
 <pre>console.log('script start');
 
 setTimeout(function() {
@@ -201,10 +281,13 @@ Promise.resolve().then(function() {
 });
 
 console.log('script end');</pre>
-  <p>Ответ</p>
+
+  <details>
+    <summary>Ответ</summary>
 <pre>script start
 script end
 promise1
 promise2
 setTimeout</pre>
+  </details>
 </article>

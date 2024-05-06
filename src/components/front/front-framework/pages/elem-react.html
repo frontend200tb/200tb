@@ -1,23 +1,35 @@
 <h1>React</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div>
-    <p><a href="#links">links</a></p>
-    <p><a href="#about">about</a></p>
-    <p><a href="#install">install</a></p>
-    <p><a href="#create">Старт проекта на реакте create-react-app</a></p>
-    <p><a href="#q">Вопросы по реакту</a></p>
-  </div>
-
-</div>
+  <p><a href="#links">links</a></p>
+  <p><a href="#about">about</a></p>
+  <p><a href="#install">install</a></p>
+  <ol>
+    <li><a href="#install-1">Вариант 1. Тег script</a></li>
+    <li><a href="#install-2">Вариант 2. npm i react react-dom</a></li>
+    <li><a href="#install-3">Вариант 3. npx create-react-app .</a></li>
+    <li><a href="#install-4">Вариант 4. npx create vite@latest</a></li>
+  </ol>
+  <p><a href="#component">Создание компонента</a></p>
+  <ol>
+    <li><a href="#comp-class">Классовый компонент</a></li>
+    <li><a href="#comp-func">Функциональный компонент</a></li>
+  </ol>
+  <p><a href="#lifecycle">Жизненный цикл компонента</a></p>
+  <ol>
+    <li><a href="#lifecycle-mount">Инициализация (mount)</a></li>
+    <li><a href="#lifecycle-change-props">Изменение параметров</a></li>
+    <li><a href="#lifecycle-change-state">Изменение состояния</a></li>
+    <li><a href="#lifecycle-unmount">Удаление (unmount)</a></li>
+  </ol>
+  <p><a href="#comp-fool">Глупые компоненты</a></p>
+  <p><a href="#comp-smart">Умные компоненты</a></p>
+  <p><a href="#q">Вопросы по реакту</a></p>
+</article>
 
 
 <!-- links -->
@@ -28,11 +40,16 @@
   <p><a href="https://ru.legacy.reactjs.org/">ru.legacy.reactjs.org</a> Этот сайт больше не обновляется. Перейдите на react.dev</p>
   <p><a href="https://react.dev/">react.dev</a> The library for web and native user interfaces</p>
   <p><a href="https://create-react-app.dev/">https://create-react-app.dev</a> Set up a modern web app by running one command</p>
-  <p><a href="https://npmjs.com/package/create-react-app/">https://npmjs.com/package/create-react-app</a></p>
   <p><a href="https://max-frontend.gitbook.io/react-course-ru/">https://max-frontend.gitbook.io/react-course-ru/</a> Максим Пацианский 2016</p>
   <p><a href="https://max-frontend.gitbook.io/react-course-ru-v2/">https://max-frontend.gitbook.io/react-course-ru-v2/</a> Максим Пацианский 2018</p>
   <p><a href="https://metanit.com/web/react/">metanit.com/web/react</a> Руководство по React (Последнее обновление: 29.10.2022)</p>
   <p><a href="https://metanit.com/web/react/2.1.php">metanit.com/web/react/2.1.php</a> Читаю Глава 2 Основы React Рендеринг элементов</p>
+
+  <h3>npm репозитории</h3>
+  <p><a href="https://npmjs.com/package/create-react-app/">https://npmjs.com/package/create-react-app</a></p>
+  <p><a href="https://www.npmjs.com/package/react">https://www.npmjs.com/package/react</a></p>
+  <p><a href="https://www.npmjs.com/package/react-router-dom">https://www.npmjs.com/package/react-router-dom</a></p>
+  <p><a href="https://react-icons.github.io/react-icons/">react-icons.github.io/react-icons/</a></p>
 
   <h3>Статьи на habr</h3>
 
@@ -59,16 +76,22 @@
   <div class="anchor" id="install"></div>
   <h2>install</h2>
 
-  <p>Рассмотрим два варианта установки и работы с React</p>
+  <p>Рассмотрим три варианта установки и работы с React</p>
+</article>
 
-  <h3>Вариант 1. Подключаем React на страницу index.html с помощью тега script</h3>
+
+<!-- Вариант 1. Тег script -->
+<article class="article">
+  <div class="anchor" id="install-1"></div>
+  <h3>Вариант 1. Тег script</h3>
 
   <p>На странице index.html подключаем следующие файлы</p>
 <pre>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
 &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</pre>
-  
-  <p>Тогда index.html может выглядеть так</p>
+
+  <details>
+    <summary>Тогда index.html может выглядеть так</summary>
 <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -76,7 +99,7 @@
   &lt;title&gt;Hello React&lt;/title&gt;
   &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
   &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;                  
+  &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div id="app"&gt; &lt;/div&gt;
@@ -91,40 +114,392 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-  
-  <h3>Вариант 2. Подключаем React через npm</h3>
-
-  <p>Чтобы создать новый проект с названием first, нужно в терминале ввести команду</p>
-  <code>npx create-react-app first</code>
-
-  <p>Эта команда сделает следующее:</p>
-  <ol>
-    <li>создаст папку first</li>
-    <li>внутри папки first создаст папку node_modules</li>
-    <li>скачает из интернета все зависимости для react приложения и положит их в папку node_modules</li>
-    <li>создаст и настроит 4 файла для начального демонстрационного проекта на react:
-      <ul>
-        <li>.gitignore</li>
-        <li>package.json</li>
-        <li>package-lock.json</li>
-        <li>README.md</li>
-      </ul>
-    </li>
-    <li>создаст еще 2 папки public и src в которых будет начальный демонстрационный проект на react</li>
-  </ol>
-
-  <p>Теперь открываетм папку first в редакторе кода и все готово к тому, чтобы начать разрабатывать свой проект</p>
+  </details>
 </article>
 
 
-<!-- Старт проекта на реакте create-react-app -->
+<!-- Вариант 2. npm i react react-dom -->
 <article class="article">
-  <div class="anchor" id="create"></div>
-  <h2>Старт проекта на реакте create-react-app</h2>
+  <div class="anchor" id="install-2"></div>
+  <h3>Вариант 2. npm i react react-dom</h3>
 
-  <p><a href="https://create-react-app.dev/">https://create-react-app.dev</a> Set up a modern web app by running one command</p>
+  <p>Откроем VSCode. Откроем нужную пустую папку, в которой будем создавать проект</p>
+  <ol>
+    <li>
+      <p>React is a JavaScript library for creating user interfaces.</p>
+      <code>npm install react</code>
+      <p>Эта команда создаст папку node_modules и два файла package.json и package-lock.json. В файле package.json будет:</p>
+<pre>{
+  "dependencies": {
+    "react": "^18.3.1"
+  }
+}</pre>
+    </li>
+    <li>
+      <p>It is typically used together with a React renderer like react-dom for the web, or react-native for the native environments.</p>
+      <code>npm install react react-dom</code>
+      <p>В файле package.json будет:</p>
+<pre>{
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}</pre>
+    </li>
+    <li>
+      <p>The react-router package is the heart of React Router and provides all the core functionality for both react-router-dom and react-router-native. If you're using React Router, you should never import anything directly from the react-router package, but you should have everything you need in either react-router-dom or react-router-native. Both of those packages re-export everything from react-router.</p>
+      <code>npm i react-router-dom</code>
+      <p>В файле package.json будет:</p>
+<pre>{
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.0"
+  }
+}</pre>
+    </li>
+    <li>
+      <p>Для работы с препроцессором SASS нужно его подключить</p>
+      <code>npm i sass</code>
+      <p>В файле package.json будет:</p>
+<pre>{
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.0",
+    "sass": "^1.76.0"
+  }
+}</pre>
+</li>
+  </ol>
+</article>
+
+
+<!-- Вариант 3. npx create-react-app . -->
+<article class="article">
+  <div class="anchor" id="install-3"></div>
+  <h3>Вариант 3. npx create-react-app .</h3>
+
   <p>Когда стартуете новый проект. На react, angular или vue, какая-то вещь помогает это сделать. Если вы стартуете новый проект на React то может помощь инструмент create-react-app. React это библиотека. Но в эту библиотеку добавляем дополнительные библиотеки, сборочные инструменты, роутеры, то React уже можно назвать фреймворком.</p>
   <p>В отличие от React, у Angular и Vue есть свои CLI для старта проекта, создания компонентов и т.д.</p>
+
+  <p>Чтобы создать новый проект в текущей папке, нужно в терминале ввести команду. Точка в конце означает текущую папку.</p>
+  <code>npx create-react-app .</code>
+
+  <p>Чтобы в текущей папке создпть папку с именем first, а в папке first создать новый проект, нужно в терминале ввести команду</p>
+  <code>npx create-react-app first</code>
+
+  <ol>
+    <li>
+      <h4>Создадим новый проект в текущей папке</h4>
+      <code>npx create-react-app .</code>
+      <p>Эта команда сделает следующее:</p>
+      <ol>
+        <li>создаст папку first</li>
+        <li>внутри папки first создаст папку node_modules</li>
+        <li>скачает из интернета все зависимости для react приложения и положит их в папку node_modules</li>
+        <li>создаст и настроит 4 файла для начального демонстрационного проекта на react:
+          <ul>
+            <li>.gitignore</li>
+            <li>package.json</li>
+            <li>package-lock.json</li>
+            <li>README.md</li>
+          </ul>
+        </li>
+        <li>создаст еще 2 папки public и src в которых будет начальный демонстрационный проект на react</li>
+      </ol>
+    </li>
+    <li>
+      <h4>Для настройки маршрутизации на страницах подключим react-router-dom</h4>
+      <code>npm i react-router-dom</code>
+    </li>
+    <li>
+      <h4>Для работы с препроцессором SASS подключим sass</h4>
+      <code>npm i sass</code>
+    </li>
+    <li>
+      <h4>Запустим в разработку созданный проект</h4>
+      <code>npm start</code>
+    </li>
+    <li>
+      <h4>В файле package.json оставим записи:</h4>
+<pre>"dependencies": {
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.23.0",
+  "react-scripts": "5.0.1",
+  "sass": "^1.76.0",
+},
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+},</pre>
+    </li>
+    <li>
+      <h4>В папке src оставим файлы</h4>
+      <ul>
+        <li>App.css</li>
+        <li>App.js</li>
+        <li>index.css</li>
+        <li>index.js</li>
+      </ul>
+    </li>
+    <li>
+      <h4>В папке public оставим файлы</h4>
+      <ul>
+        <li>favicon.png</li>
+        <li>index.html</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Для VSCode установим расширение ES7+ React/Redux/React-Native snippets.</h4>
+
+      <p>Автор dsznajder. 11,393,116 скачиваний. Эти сниппеты помогут быстро создавать реакт компоненты.</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Вариант 4. npx create vite@latest -->
+<article class="article">
+  <div class="anchor" id="install-4"></div>
+  <h3>Вариант 4. npx create vite@latest</h3>
+</article>
+
+
+<!-- Создание компонента -->
+<article class="article">
+  <div class="anchor" id="component"></div>
+  <h2>Создание компонента</h2>
+</article>
+
+
+<!-- Классовый компонент -->
+<article class="article">
+  <div class="anchor" id="comp-class"></div>
+  <h2>Классовый компонент</h2>
+
+  <p>Создадим классовый компонент, поместим его в переменную для того чтобы его можно было переиспользовать и выведем на страницу.</p>
+<pre>const HelloWorld = React.createClass({
+  render: function() {
+    return &lt;h1&gt;Hello world&lt;/h1&gt;
+  }
+});
+
+ReactDOM.render(
+  &lt;HelloWorld /&gt;,
+  document.getElementById('root')
+);</pre>
+
+  <p>В функцию createClass нужно передавать объект, который обязательно должен содержать метод render. Метод render возвращает то что будет отображаться на странице - JSX разметка, которая будет преобразована в js код, или сразу писать js код.</p>
+  <code>&lt;h1&gt;Hello world&lt;/h1&gt;</code>
+  <code>React.createElement(h1, null, "Hello world");</code>
+
+  <p>В ReactDOM.render() первым параметром нужно передать то что нужно отобразить, вторым параметром - где надо отобразить. Если нужно отобразить несколько элементов, то все их надо обернуть в один общий элемент.</p>
+<pre>ReactDOM.render(  
+  &lt;div&gt;
+    &lt;HelloWorld /&gt;
+    &lt;HelloWorld /&gt;
+  &lt;/div&gt;,
+  document.getElementById('root')
+);</pre>
+  
+  <p>В компонент можно передавать параметры</p>
+<pre>const MyName = React.createClass({
+  render: function() {
+    return &lt;h1&gt;My name is {this.props.name}&lt;/h1&gt;
+  }
+});
+
+ReactDOM.render(
+  &lt;div&gt;
+    &lt;HelloWorld name="Nastya"/&gt;
+    &lt;HelloWorld name="Ivan"/&gt;
+  &lt;/div&gt;,
+  document.getElementById('root')
+);</pre>
+</article>
+
+
+<!-- Функциональный компонент -->
+<article class="article">
+  <div class="anchor" id="comp-func"></div>
+  <h2>Функциональный компонент</h2>
+
+  <p>В папке src создадим новый файл Header.jsx. Название файла с большой буквы потому что это название будущего компонента. Все компоненты называются с большой буквы, чтобы они отличались от обычных тегов html. Расширение файла jsx это особый синтаксис, который позволяет писать html в js.</p>
+  <p>В файле Header.jsx наберем команду сниппета reactFunctionalExportComponent</p>
+  <code>rfce</code>
+  <p>Развернется новый компонент</p>
+<pre>import React from 'react';
+
+function Header() {
+  return (
+    &lt;div&gt;Header&lt;/div&gt;
+  )
+}
+
+export default Header;</pre>
+
+  <p>Подключим его в файле App.js</p>
+<pre>import './App.css';
+import Header from './Header';
+
+function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;Header /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</pre>
+</article>
+
+
+<!-- Жизненный цикл компонента -->
+<article class="article">
+  <div class="anchor" id="lifecycle"></div>
+  <h2>Жизненный цикл компонента</h2>
+</article>
+
+
+<!-- Инициализация (mount) -->
+<article class="article">
+  <div class="anchor" id="lifecycle-mount"></div>
+  <h2>Инициализация (mount)</h2>
+
+  <p>При инициализации компонента будут вызваны методы:</p>
+  <ol>
+    <li>
+      <h4>getDefaultProps</h4>
+      <p>Метод отвечает за значение параметров по уполчанию. Он вызывается один раз при инициализации класса.</p>
+<pre>getDefaultProps: function() {
+  return {
+    name: '',
+    age: 0
+  };
+}</pre>
+    </li>
+    <li>
+      <h4>getInitialState</h4>
+      <p>Метод отвечает за первоначальное значение состояния.</p>
+<pre>getInitialState: function() {
+  return {
+    isOpened: true,
+  };
+}</pre>
+    </li>
+    <li>
+      <h4>componentWillMount</h4>
+    </li>
+    <li>
+      <h4>render</h4>
+    </li>
+    <li>
+      <h4>componentDidMount</h4>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Изменение параметров -->
+<article class="article">
+  <div class="anchor" id="lifecycle-change-props"></div>
+  <h2>Изменение параметров</h2>
+
+  <p>Когда происходит изменение параметров компонента (props change), которые приходят к компоненту от родительского, порядок вызова методов такой:</p>
+  <ol>
+    <li>
+      <h4>componentWillReceiveProps</h4>
+      <code>componentWillReceiveProps: function(nextProps){}</code>
+    </li>
+    <li>
+      <h4>shouldComponentUpdate</h4>
+      <p>Этот метод возвращает true если компонент нужно перерисовать и false если не нужно.</p>
+<pre>shouldComponentUpdate: function(nextProps, nextState) {
+  return next.props.id !== this.props.id;
+}</pre>
+    </li>
+    <li>
+      <h4>componentWillUpdate</h4>
+      <p>Если компонент нужно перерисовать, то следующим вызывается этот метод, который принимает следующее свойство и следующее состояние.</p>
+      <code>componentWillUpdate: function(nextProps, nextState){}</code>
+    </li>
+    <li>
+      <h4>render</h4>
+    </li>
+    <li>
+      <h4>componentDidUpdate</h4>
+      <p>Этот метод принимает предыдущее свойство и предыдущее состояние.</p>
+      <code>componentWillUpdate: function(prevProps, prevState){}</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Изменение состояния -->
+<article class="article">
+  <div class="anchor" id="lifecycle-change-state"></div>
+  <h2>Изменение состояния</h2>
+
+  <p>Похожая цепочка методов вызывается при изменении состояния.</p>
+  <ol>
+    <li>
+      <h4>shouldComponentUpdate</h4>
+    </li>
+    <li>
+      <h4>componentWillUpdate</h4>
+    </li>
+    <li>
+      <h4>render</h4>
+    </li>
+    <li>
+      <h4>componentDidUpdate</h4>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Удаление (unmount) -->
+<article class="article">
+  <div class="anchor" id="lifecycle-unmount"></div>
+  <h2>Удаление (unmount)</h2>
+
+  <p>Удаление из DOM дерева. Тут только один метод</p>
+  <h4>componentWillUnmount</h4>
+  <p>Метод вызывается прямо перед тем как компонент будет удален из DOM дерева. Обычно убирают события, очищают ссылки.</p>
+</article>
+
+
+<!-- Глупые компоненты -->
+<article class="article">
+  <div class="anchor" id="comp-fool"></div>
+  <h2>Глупые компоненты</h2>
+
+  <ol>
+    <li>Отвечают за внешний вид</li>
+    <li>Могут содержать как умные, так и глупые компоненты</li>
+    <li>Не знают, как происходит взаимодействие с данными</li>
+    <li>Не взаимодействуют с flux</li>
+    <li>Получают данные и колбеки через props</li>
+    <li>Обычно не имеют состояния (но если имеют, то это состояние, которое касается отображения)</li>
+  </ol>
+</article>
+
+
+<!-- Умные компоненты -->
+<article class="article">
+  <div class="anchor" id="comp-smart"></div>
+  <h2>Умные компоненты</h2>
+
+  <ol>
+    <li>Отвечают за обработку данных, бизнес логику</li>
+    <li>Могут содержать как умные, так и глупые компоненты</li>
+    <li>Передают данные другим компонентам</li>
+    <li>Взаимодействуют с flux</li>
+    <li>Имеют состояние</li>
+    <li>Обычно не имеют стилей</li>
+  </ol>
 </article>
 
 

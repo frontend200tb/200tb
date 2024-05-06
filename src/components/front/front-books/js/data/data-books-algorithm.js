@@ -1180,6 +1180,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 87,
+    year: 2024,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы с нуля',
+    author: 'Киселев',
+    authorName: '',
+    pages: '258',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 88,
     year: 2024,
     category: 'основы',

@@ -1375,6 +1375,19 @@ const dataBooksCsharp = [
     dateLearned: '',
   },
 
+  {
+    id: 96,
+    year: 2023,
+    category: 'code',
+    theme: 'c# .net',
+    title: 'Паттерны проектирования на C#',
+    author: 'Рыбанов',
+    authorName: 'Александр',
+    pages: '98',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

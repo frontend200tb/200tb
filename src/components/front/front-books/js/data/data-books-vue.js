@@ -7,7 +7,7 @@ const dataBooksVue = [
     theme: 'vue',
     title: 'Vue.js в действии',
     author: 'Хэнчетт',
-    author: 'Эрик',
+    authorName: 'Эрик',
     pages: '306',
     isLearned: false,
     dateLearned: '',

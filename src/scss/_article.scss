@@ -31,6 +31,12 @@ Article
   border-radius: 20px;
   background-color: tan;
 
+  & div {
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
   & p {
     line-height: 20px;
   }

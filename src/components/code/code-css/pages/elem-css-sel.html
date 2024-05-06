@@ -1,0 +1,576 @@
+<h1>CSS селекторы</h1>
+
+
+<!-- Список всех CSS селекторов -->
+<article class="article">
+  <h2>Список всех CSS селекторов</h2>
+  
+  <ol>
+    <li>
+      <h4><a href="#sel-all">Универсальный селектор</a></h4>
+      <p>Выбирает все элементы на странице</p>
+    </li>
+    <li>
+      <h4><a href="#sel-tag">Селектор типов</a></h4>
+      <p>Выбирает все элементы одного тега HTML</p>
+    </li>
+    <li>
+      <h4><a href="#sel-class">Селектор по классу</a></h4>
+      <p>Выбирает все элементы одного класса class</p>
+    </li>
+    <li>
+      <h4><a href="#sel-id">Селектор по id</a></h4>
+      <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице</p>
+    </li>
+    <li>
+      <h4><a href="#sel-group">Групповой селектор</a></h4>
+      <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
+    </li>
+    <li>
+      <h4><a href="#sel-attr">Селектор атрибутов</a></h4>
+      <p>Выбирает все элементы с одинаковым атрибутом</p>
+    </li>
+    <li>
+      <h4><a href="#sel-attr2">Селектор атрибутов по значению</a></h4>
+      <p>Выбирает все элементы с одинаковым значением указанного атрибута</p>
+    </li>
+  </ol>
+  <p>Можно использовать несколько селекторов разделив их запятыми в одном правиле CSS.</p>
+</article>
+
+
+<!-- Список всех CSS комбинаторов -->
+<article class="article">
+  <h2>Список всех CSS комбинаторов</h2>
+
+  <p>Комбинаторы позволяют объединить несколько селекторов для выбора элементов на основе их положения на веб-странице или отношения к другим элементам. Два селектора могут быть соединены путем добавления комбинатора между ними. Комбинаторы позволяют выбирать элементы более гибко.</p>
+
+  <ol>
+    <li>
+      <h4><a href="#komb-child">Комбинатор потомков</a></h4>
+      <p>div p Выбирает все элементы p, которые являются потомками любого уровня родительского элемента div</p>
+    </li>
+    <li>
+      <h4><a href="#komb-child2">Комбинатор прямых потомков</a></h4>
+      <p>div &gt; p Выбирает все элементы p, которые являются прямыми потомками элемента div</p>
+    </li>
+    <li>
+      <h4><a href="#komb-sibl">Комбинатор соседнего родства</a></h4>
+      <p>h1 + div Выбирает один элемент div который находится непосредственно после элемента h1 на одном уровне иерархии</p>
+    </li>
+    <li>
+      <h4><a href="#komb-sibl2">Комбинатор общего родства</a></h4>
+      <p>h1 ~ div Выбирает все элементы div которые находятся после элемента h1 и у которых общий родитель</p>
+    </li>
+  </ol>
+  <p>Можно использовать несколько комбинаторов в одном правиле CSS</p>
+</article>
+
+
+<!-- Сложные селекторы -->
+<article class="article">
+  <h2>Сложные селекторы</h2>
+
+  <p>Как читать и записывать сложные селекторы? Лучше всего читать справа налево.</p>
+
+  <p>Выберем все параграфы в первом элементе div который идет сразу после h1 на одном с ним уровне вложенности</p>
+  <code>h1 + div p</code>
+
+  <p>Запишем все ссылки a, которые находятся после элемента с атрибутом [data-menu], который идет непосредственно после тега h2, который является прямым потомком элемента с class="header", который вложен в тег с id="page"</p>
+  <code>#page .header > h2 + [data-menu] ~ a</code>
+<pre>&lt;div class="page"&gt;
+  &lt;header class="header"&gt;
+    &lt;h2&gt;My page&lt;/h2&gt;
+    &lt;p data-menu=""&gt;List of links&lt;/p&gt;
+    &lt;a href=""&gt;link 1&lt;/a&gt;
+    &lt;a href=""&gt;link 2&lt;/a&gt;
+    &lt;a href=""&gt;link 3&lt;/a&gt;
+  &lt;/header&gt;
+&lt;/div&gt;</pre>
+</article>
+
+
+<article class="article">
+  <h2>Краткая таблица селекторов</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Селектор</th>
+      <th>Пример</th>
+      <th>Описание примера</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>*</th>
+      <td><var>*</var></td>
+      <td>Все элементы.</td>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <td><var>p</var></td>
+      <td>Все <var>&lt;p&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <th>.class</th>
+      <td><var>.intro</var></td>
+      <td>Все элементы с <var>class="intro"</var>.</td>
+    </tr>
+    <tr>
+      <th>#id</th>
+      <td><var>#firstname</var></td>
+      <td>Элемент с <var>id="firstname"</var>.</td>
+    </tr>
+    <tr>
+      <th>tag, tag</th>
+      <td><var>div, p</var></td>
+      <td>Все <var>&lt;div&gt;</var> и все <var>&lt;p&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <th>[attribute]</th>
+      <td><var>[target]</var></td>
+      <td>Все элементы с <var>target="что-либо"</var>.</td>
+    </tr>
+    <tr>
+      <th>[attribute = value]</th>
+      <td><var>[target=_blank]</var></td>
+      <td>Все элементы с <var>target="_blank"</var>.</td>
+    </tr>
+    <tr>
+      <th>.class1.class2</th>
+      <td><var>.name1.name2</var></td>
+      <td>Все элементы с <var>class="name1 name2"</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#class-selector" rel="nofollow"><var>.class1 .class2</var></a></td>
+      <td><var>.name1 .name2</var></td>
+      <td>Все элементы с <var>class="name2"</var> у которых родитель с <var>class="name1"</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#class-selector" rel="nofollow"><var>tag.class</var></a></td>
+      <td><var>p.intro</var></td>
+      <td>Все <var>&lt;p&gt;</var> элементы с <var>class="intro"</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#space" rel="nofollow"><var>tag tag</var></a></td>
+      <td><var>div p</var></td>
+      <td>Все <var>&lt;p&gt;</var> внутри всех <var>&lt;div&gt;</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#gt" rel="nofollow"><var>tag > tag</var></a></td>
+      <td><var>div > p</var></td>
+      <td>Все <var>&lt;p&gt;</var> прямой родитель которых <var>&lt;div&gt;</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#plus" rel="nofollow"><var>tag + tag</var></a></td>
+      <td><var>div + p</var></td>
+      <td><var>&lt;p&gt;</var> который находятся сразу после <var>&lt;div&gt;</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#tilde" rel="nofollow"><var>tag ~ tag</var></a></td>
+      <td><var>div ~ p</var></td>
+      <td>Все <var>&lt;p&gt;</var> которые находятся после <var>&lt;div&gt;</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#attr-start-value" rel="nofollow"><var>[attribute ^= value]</var></a></td>
+      <td><var>a[href^="https"]</var></td>
+      <td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого начинается с "https".</td>
+    </tr>
+    <tr>
+      <td><a href="#attr-end-value" rel="nofollow"><var>[attribute $= value]</var></a></td>
+      <td><var>a[href$=".pdf"]</var></td>
+      <td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого заканчивается ".pdf".</td>
+    </tr>
+    <tr>
+      <td><a href="#attr-float-value" rel="nofollow"><var>[attribute *= value]</var></a></td>
+      <td><var>a[href*="w3schools"]</var></td>
+      <td>Каждый <var>&lt;a&gt;</var> атрибут <var>href</var> которого содержит подстроку "w3schools".</td>
+    </tr>
+    <tr>
+      <td><a href="#attr-oneof-value" rel="nofollow"><var>[attribute ~= value]</var></a></td>
+      <td><var>[title~=flower]</var></td>
+      <td>Все элементы в атрибуте <var>title</var> которых есть слово "flower".</td>
+    </tr>
+    <tr>
+      <td><a href="#attr-start-equal" rel="nofollow"><var>[attribute |= value]</var></a></td>
+      <td><var>[lang|=en]</var></td>
+      <td>Все элементы атрибут <var>lang</var> которых начинается с "en".</td>
+    </tr>
+    <tr>
+      <td><a href="#link" rel="nofollow"><var>:active</var></a></td>
+      <td><var>a:active</var></td>
+      <td>Активная ссылка.</td>
+    </tr>
+    <tr>
+      <td><a href="#after" rel="nofollow"><var>::after</var></a></td>
+      <td><var>p::after</var></td>
+      <td>Вставляет псевод-элемент в начале каждого <var>&lt;p&gt;</var> элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#before" rel="nofollow"><var>::before</var></a></td>
+      <td><var>p::before</var></td>
+      <td>Вставляет псевод-элемент в конце каждого <var>&lt;p&gt;</var> элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#checked" rel="nofollow"><var>:checked</var></a></td>
+      <td><var>input:checked</var></td>
+      <td>Все выбранные <var>&lt;input type="checkbox"&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <td><a href="#default" rel="nofollow"><var>:default</var></a></td>
+      <td><var>input:default</var></td>
+      <td>Все <var>&lt;input&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <td><a href="#disabled" rel="nofollow"><var>:disabled</var></a></td>
+      <td><var>input:disabled</var></td>
+      <td>Все <var>&lt;input disabled&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <td><a href="#empty" rel="nofollow"><var>:empty</var></a></td>
+      <td><var>p:empty</var></td>
+      <td>Все пустые <var>&lt;p&gt;</var>, в которых нет пробелом, текста или других элементов.</td>
+    </tr>
+    <tr>
+      <td><a href="#enabled" rel="nofollow"><var>:enabled</var></a></td>
+      <td><var>input:enabled</var></td>
+      <td>Все активные (не disabled) элементы <var>&lt;input&gt;</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#first-child" rel="nofollow"><var>:first-child</var></a></td>
+      <td><var>p:first-child</var></td>
+      <td>Первый элемент в списке родительского элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#first-of-type" rel="nofollow"><var>:first-of-type</var></a></td>
+      <td><var>p:first-of-type</var></td>
+      <td>Первый <var>&lt;p&gt;</var> элемент в списке родительского элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#first-letter" rel="nofollow"><var>::first-letter</var></a></td>
+      <td><var>p::first-letter</var></td>
+      <td>Первая буква каждого <var>&lt;p&gt;</var> элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#first-letter" rel="nofollow"><var>::first-line</var></a></td>
+      <td><var>p::first-line</var></td>
+      <td>Первая линия каждого <var>&lt;p&gt;</var> элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#focus" rel="nofollow"><var>:focus</var></a></td>
+      <td><var>input:focus</var></td>
+      <td><var>&lt;input&gt;</var> в котором находится курсор.</td>
+    </tr>
+    <tr>
+      <td><a href="#focus-visible" rel="nofollow"><var>:focus-visible</var></a></td>
+      <td><var>a:focus-visible</var></td>
+      <td>Фокус сработает, только если на кнопку перешли с клавиатуры через TAB.</td>
+    </tr>
+    <tr>
+      <td><a href="#focus-within" rel="nofollow"><var>:focus-within</var></a></td>
+      <td><var>div:focus-within</var></td>
+      <td>Сработает на блоке, когда его внутренний элемент находится в фокусе.</td>
+    </tr>
+    <tr>
+      <td><a href="#hover" rel="nofollow"><var>:hover</var></a></td>
+      <td><var>a:hover</var></td>
+      <td>Сслыка на которую наведена мышка.</td>
+    </tr>
+    <tr>
+      <td><var>:in-range</var></td>
+      <td><var>input:in-range</var></td>
+      <td>Все <var>&lt;input&gt;</var> со значением в пределах указанного диапазона.</td>
+    </tr>
+    <tr>
+      <td><var>:indeterminate</var></td>
+      <td><var>input:indeterminate</var></td>
+      <td>Все <var>&lt;input&gt;</var> в статусе indeterminate.</td>
+    </tr>
+    <tr>
+      <td><var>:invalid</var></td>
+      <td><var>input:invalid</var></td>
+      <td>Все <var>&lt;input&gt;</var> с недопустимым значением.</td>
+    </tr>
+    <tr>
+      <td><var>:lang(language)</var></td>
+      <td><var>p:lang(it)</var></td>
+      <td>Все <var>&lt;p&gt;</var> с <var>lang="it"</var>.</td>
+    </tr>
+    <tr>
+      <td><a href="#last-child" rel="nofollow"><var>:last-child</var></a></td>
+      <td><var>p:last-child</var></td>
+      <td>Последний элемент в списке родительского элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#first-of-type" rel="nofollow"><var>:last-of-type</var></a></td>
+      <td><var>p:last-of-type</var></td>
+      <td>Последний <var>&lt;p&gt;</var> в списке родительского элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#link" rel="nofollow"><var>:link</var></a></td>
+      <td><var>a:link</var></td>
+      <td>Все непосещенные ссылки.</td>
+    </tr>
+    <tr>
+      <td><a href="#not-selector" rel="nofollow"><var>:not(selector)</var></a></td>
+      <td><var>:not(p)</var></td>
+      <td>Все не <var>&lt;p&gt;</var> элементы.</td>
+    </tr>
+    <tr>
+      <td><a href="#not-only-child" rel="nofollow"><var>:not(:only-child)</var></a></td>
+      <td><var>div:not(:only-child)</var></td>
+      <td>Все <var>&lt;div&gt;</var> внутри которых больше одного элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#nth-child" rel="nofollow"><var>:nth-child(n)</var></a></td>
+      <td><var>p:nth-child(2)</var></td>
+      <td>Второй элемент в списке родительского элемента.</td>
+    </tr>
+    <tr>
+      <td><a href="#nth-of-type" rel="nofollow"><var>:nth-of-type(n)</var></a></td>
+      <td><var>p:nth-of-type(2)</var></td>
+      <td>Второй <var>&lt;p&gt;</var> в списке родительского элемента.</td>
+    </tr>
+  <tr>
+  <td><a href="#nth-last-child" rel="nofollow"><var>:nth-last-child(n)</var></a></td>
+  <td><var>p:nth-last-child(2)</var></td>
+  <td>Второй элемент в списке родительского элемента (счет идет с конца).</td>
+  </tr>
+  <tr>
+  <td><a href="#nth-last-of-type" rel="nofollow"><var>:nth-last-of-type(n)</var></a></td>
+  <td><var>p:nth-last-of-type(2)</var></td>
+  <td>Второй <var>&lt;p&gt;</var> в списке родительского элемента (счет идет с конца).</td>
+  </tr>
+  <tr>
+  <td><a href="#only-child" rel="nofollow"><var>:only-child</var></a></td>
+  <td><var>p:only-child</var></td>
+  <td>Единственный <var>&lt;p&gt;</var> у родителя (других элементов быть не может).</td>
+  </tr>
+  <tr>
+  <td><a href="#only-of-type" rel="nofollow"><var>:only-of-type</var></a></td>
+  <td><var>p:only-of-type</var></td>
+  <td>Один <var>&lt;p&gt;</var> у родителя (других элементы могут быть).</td>
+  </tr>
+  <tr>
+  <td><var>:optional</var></td>
+  <td><var>input:optional</var></td>
+  <td>Все <var>&lt;input&gt;</var> у которых нет артибута "required".</td>
+  </tr>
+  <tr>
+  <td><var>:required</var></td>
+  <td><var>input:required</var></td>
+  <td>Все <var>&lt;input&gt;</var> у которых указан атрибут "required".</td>
+  </tr>
+  <tr>
+  <td><var>:out-of-range</var></td>
+  <td><var>input:out-of-range</var></td>
+  <td>Все <var>&lt;input&gt;</var> со значением выходящим за указанный рэндж.</td>
+  </tr>
+  <tr>
+  <td><var>::placeholder</var></td>
+  <td><var>input::placeholder</var></td>
+  <td>Все <var>&lt;input&gt;</var> у которых указан атрибут "placeholder".</td>
+  </tr>
+  <tr>
+  <td><var>:read-only</var></td>
+  <td><var>input:read-only</var></td>
+  <td>Все <var>&lt;input&gt;</var> у которых указан атрибут "readonly".</td>
+  </tr>
+  <tr>
+  <td><var>:read-write</var></td>
+  <td><var>input:read-write</var></td>
+  <td>Все <var>&lt;input&gt;</var> у которых не указан атрибут "readonly".</td>
+  </tr>
+  <tr>
+  <td><var>:root</var></td>
+  <td><var>:root</var></td>
+  <td>Корень документа.</td>
+  </tr>
+  <tr>
+  <td><var>::selection</var></td>
+  <td><var>::selection</var></td>
+  <td>Выберет текущее выделение текста мышкой.</td>
+  </tr>
+  <tr>
+  <td><a href="#target" rel="nofollow"><var>:target</var></a></td>
+  <td><var>#news:target</var></td>
+  <td>Выберет элемент с <var>id="news"</var> когда к нему пришли по клику.</td>
+  </tr>
+  <tr>
+  <td><var>:valid</var></td>
+  <td><var>input:valid</var></td>
+  <td>Все <var>&lt;input&gt;</var> с валидным значением.</td>
+  </tr>
+  <tr>
+  <td><a href="#link" rel="nofollow"><var>:visited</var></a></td>
+  <td><var>a:visited</var></td>
+  <td>Все посещенные ссылки.</td>
+  </tr>
+  </tbody>
+  </table>
+</article>
+
+
+<!-- Универсальный селектор -->
+<article class="article">
+  <div class="anchor" id="sel-all"></div>
+  <h2>Универсальный селектор</h2>
+
+  <p>Селектор *. Выбирает все элементы на странице.</p>
+  <p>Обычно используют для обнуления отступов и изменения box модели на всей странице.</p>
+<pre>* {}
+  margin: 0;
+  padding: 0;
+  box-sizong: border-box;
+</pre>
+</article>
+
+
+<!-- Селектор типов -->
+<article class="article">
+  <div class="anchor" id="sel-tag"></div>
+  <h2>Селектор типов</h2>
+
+  <p>Селектор с именем тега. Выбирает все элементы одного типа.</p>
+  <p>Обычно используют для стилизации всех ссылок. Уберем со всех ссылок подчеркивание и поставим заголовки h1 по центру.</p>
+<pre>a {
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+}</pre>
+</article>
+
+
+<!-- Селектор по классу -->
+<article class="article">
+  <div class="anchor" id="sel-class"></div>
+  <h2>Селектор по классу</h2>
+
+  <p>Селектор начинается с точки, за которой идет имя класса. Выбирает все элементы одного класса class</p>
+  <p>Уберем со страницы все элементы с классом none и всем элементам с классом red зададим цвет фона красный</p>
+<pre>.none {
+  display: none;
+}
+
+.red {
+  background-color: red;
+}</pre>
+</article>
+
+
+<!-- Селектор по id -->
+<article class="article">
+  <div class="anchor" id="sel-id"></div>
+  <h2>Селектор по id</h2>
+
+  <p>Селектор начинается с #, за которой идет id.</p> 
+  <p>Увеличим шрифт элементу с id="heading" и сделаем его жирным</p>
+<pre>#heading {
+  font-size: 20px;
+  font-weight: 700;
+}</pre>
+  <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице. Элементы с id должны быть уникальные. Они могут быть на разных страницах, но не могут быть на одной.</p>
+</article>
+
+
+<!-- Групповой селектор -->
+<article class="article">
+  <div class="anchor" id="sel-group"></div>
+  <h2>Групповой селектор</h2>
+
+  <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
+  <p>Увеличим шрифт элементам с id="heading", заголовкам h2 и параграфам и сделаем их жирными</p>
+<pre>#heading,
+h2,
+p {
+  font-size: 20px;
+  font-weight: 700;
+}</pre>
+</article>
+
+
+<!-- Селектор атрибутов -->
+<article class="article">
+  <div class="anchor" id="sel-attr"></div>
+  <h2>Селектор атрибутов</h2>
+
+  <p>Селектор заключается в квадратные скобки. Выбирает все элементы с одинаковым атрибутом</p>
+  <p>Изменим цвет фона всем элементам с атрибутом data-category на зеленый</p>
+<pre>[data-category] {
+  background-color: green;  
+}</pre>
+</article>
+
+
+<!-- Селектор атрибутов по значению -->
+<article class="article">
+  <div class="anchor" id="sel-attr2"></div>
+  <h2>Селектор атрибутов по значению</h2>
+
+  <p>Селектор заключается в квадратные скобки. Выбирает все элементы с одинаковым значением указанного атрибута</p>
+  <p>Изменим цвет фона всем элементам с атрибутом data-category='main' на зеленый</p>
+<pre>[data-category='main'] {
+  background-color: green;  
+}</pre>
+
+  <p>Селектор атрибутов чувствителен к регистру. Но можно указать параметр i, что сделает значение атрибута нечувсвительным к регистру</p>
+<pre>[data-category='main' i] {
+  background-color: green;  
+}</pre>
+</article>
+
+
+<!-- Комбинатор потомков -->
+<article class="article">
+  <div class="anchor" id="komb-child"></div>
+  <h2>Комбинатор потомков</h2>
+
+  <p>Пробел между селекторами - это комбинатор потомков. Два селектора с пробелом между ними. div p Выбирает все элементы p, которые являются потомками любого уровня родительского элемента div</p>
+  <p>Изменим цвет текста на красный всем параграфам, которые вложены в div на любом уровне</p>
+<pre>div p {
+  color: red;
+}</pre>
+</article>
+
+
+<!-- Комбинатор прямых потомков -->
+<article class="article">
+  <div class="anchor" id="komb-child2"></div>
+  <h2>Комбинатор прямых потомков</h2>
+
+  <p>Знак &gt; между селекторами - это комбинатор прямых потомков. Два селектора со знаком &gt; между ними. div &gt; p Выбирает все элементы p, которые являются прямыми потомками элемента div</p>
+  <p>Изменим фон на зеленый всем параграфам, которые вложены в div на первом уровне</p>
+<pre>div &gt; p {
+  background-color: green;
+}</pre>
+</article>
+
+
+<!-- Комбинатор соседнего родства -->
+<article class="article">
+  <div class="anchor" id="komb-sibl"></div>
+  <h2>Комбинатор соседнего родства</h2>
+
+  <p>Знак + между селекторами - это комбинатор соседнего родства. Два селектора со знаком + между ними. h1 + div Выбирает элемент div который находится непосредственно после элемента h1 на одном уровне иерархии</p>
+  <p>Изменим размер шрифта в блоке div который идет сразу после заголовка h1</p>
+<pre>h1 + div {
+  font-size: 20px;
+}</pre>
+</article>
+
+
+<!-- Комбинатор общего родства -->
+<article class="article">
+  <div class="anchor" id="komb-sibl2"></div>
+  <h2>Комбинатор общего родства</h2>
+
+  <p>Знак ~ между селекторами - это комбинатор общего родства. Два селектора со знаком ~ между ними. h1 ~ div Выбирает все элементы div которые находятся после элемента h1 и у которых общий родитель</p>
+  <p>Изменим толщину шрифта во всех блоках div которые идут после заголовка h1 на одном уровне вложенности</p>
+<pre>h1 ~ div {
+  font-weight: 700;
+}</pre>
+</article>
+
+

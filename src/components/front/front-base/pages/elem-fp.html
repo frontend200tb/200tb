@@ -84,4 +84,17 @@ const Isolenta = curry(sum);
 const PlusTwo = Isolenta(1); // sum(1, b, c)
 
 console.log(PlusTwo(2, 3)); // 6</pre>
+
+  <h4>Пример 2</h4>
+<pre>function curry(fn) {
+  function fnWithCurry(...args) {
+    if (args.length >= fn.length) {
+      return fn(...args);
+    }
+    return function(...args2) {
+      return fnWithCurry(...args.concat(args2));
+    }
+  }
+  return fnWithCurry;
+}</pre>
 </article>

@@ -1044,6 +1044,18 @@ const dataBooksPython = [
     dateLearned: '',
   },
 
+  {
+    id: 88,
+    year: 2024,
+    category: 'code',
+    theme: 'python',
+    title: 'Рецепты Python',
+    author: 'Юн Цуй',
+    pages: '544',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

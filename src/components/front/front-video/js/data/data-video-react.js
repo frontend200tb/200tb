@@ -2,6 +2,22 @@ const dataVideoReact = [
 
   {
     id: 1,
+    year: 2016,
+    date: '',
+    category: 'framework',
+    theme: 'react',
+    title: 'ReactJS Essential',
+    author: 'Екатерина Поршнева',
+    name: 'ITVDN',
+    numberLessons: '7 уроков',
+    time_h_m: [5, 1],
+    size: '1.1 gb',
+    isLearned: true,
+    dateLearned: '2024-05-06 пн',
+  },
+
+  {
+    id: 1,
     year: 2017,
     date: '',
     category: 'framework',

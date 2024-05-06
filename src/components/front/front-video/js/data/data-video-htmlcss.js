@@ -992,6 +992,22 @@ const dataVideoHtmlcss = [
     dateLearned: '2023-08-29 вт',
   },
 
+  {
+    id: 51,
+    year: 2024,
+    date: '',
+    category: 'code',
+    theme: 'html css',
+    title: 'Полный Курс по CSS',
+    author: 'Богдан Стащук',
+    name: '',
+    numberLessons: '160 уроков',
+    time_h_m: [12, 56],
+    size: '13.5 gb',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];
