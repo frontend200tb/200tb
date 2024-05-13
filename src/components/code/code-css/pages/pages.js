@@ -5,6 +5,8 @@
 import htmlCss from './elem-css.html';
 import htmlCssSel from './elem-css-sel.html';
 import htmlCssProp from './elem-css-prop.html';
+import htmlCssPx from './elem-css-px.html';
+import htmlCssColors from './elem-css-colors.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
@@ -12,6 +14,8 @@ export default function pageLink() {
     htmlCss,
     htmlCssSel,
     htmlCssProp,
+    htmlCssPx,
+    htmlCssColors,
   ];  
   
   const currentContent = document.querySelector('#code');

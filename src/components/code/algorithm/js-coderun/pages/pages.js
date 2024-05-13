@@ -7,6 +7,8 @@ import htmlCoderun01 from './elem-coderun-01.html';
 import htmlYandex01 from './elem-yandex-01.html';
 import htmlContest01 from './elem-contest-01.html';
 import htmlTask01 from './elem-task-01.html';
+import htmlContest2019 from './elem-ya-contest2019.html';
+import htmlContest2024 from './elem-ya-contest2024.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -14,6 +16,8 @@ const aside = [
   htmlYandex01,
   htmlContest01,
   htmlTask01,
+  htmlContest2019,
+  htmlContest2024,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

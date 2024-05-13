@@ -3389,6 +3389,20 @@ const dataFrontYtRus = [
   },
 
   {
+    id: 248,
+    theme: 'frontend',
+    title: 'Rusurano',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@Rusurano/videos',
+    site: '',
+    dateFirstVideo: '2023.04.20',
+    dateLastVideo: '2023.07.21',
+    amountVideos: 72,
+  },
+
+  {
     id: 243,
     theme: 'frontend',
     title: 'Saint Code Bootcamp',
@@ -3455,20 +3469,6 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2020.02.25',
     dateLastVideo: '2021.10.11',
-    amountVideos: 71,
-  },
-
-  {
-    id: 248,
-    theme: 'frontend',
-    title: 'Rusurano',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@Rusurano/videos',
-    site: '',
-    dateFirstVideo: '2023.04.20',
-    dateLastVideo: '2023.07.21',
     amountVideos: 71,
   },
 
@@ -3847,6 +3847,20 @@ const dataFrontYtRus = [
     site: '',
     dateFirstVideo: '2023.07.26',
     dateLastVideo: '2023.11.18',
+    amountVideos: 57,
+  },
+
+  {
+    id: 275,
+    theme: 'frontend',
+    title: 'Эмир',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@EmirChannel2805/videos',
+    site: '',
+    dateFirstVideo: '2024.01.12',
+    dateLastVideo: '2024.05.06',
     amountVideos: 57,
   },
 

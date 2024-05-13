@@ -1,4 +1,4 @@
-<h1>Справочник по CSS свойствам</h1>
+<h1>Справочник по CSS</h1>
 
 
 <!-- Содержание -->
@@ -8,9 +8,11 @@
   <p><a href="#links">links</a></p>
   <p><a href="#info">info</a></p>
   <p><a href="#add">Подключение CSS на страницу</a></p>
+  <p><a href="#fonts">Подключение шрифтов</a></p>
   <p><a href="#syntax">Синтаксис CSS</a></p>
   <p><a href="#spec">Специфичность</a></p>
   <p><a href="#box">Блочная модель</a></p>
+  <p><a href="#pseudo-elem">Псевдоэлементы</a></p>
 </article>
 
 
@@ -18,7 +20,7 @@
 <article class="article">
   <div class="anchor" id="links"></div>
   <h2>links</h2>
-  <h2>css</h2>
+
   <p><a href="https://g-soft.info/notes/1922/npm-sozdanie-paketa-dlya-offlayn-ustanovki/">g-soft.info</a> npm: создание пакета для оффлайн установки</p>
   <p><a href="https://msiter.ru/references/css-reference">msiter.ru/references/css-reference</a> CSS свойства</p>
   <p><a href="https://html5book.ru/css-spravochnik.html">html5book.ru/css-spravochnik.html</a> CSS справочник</p>
@@ -30,7 +32,7 @@
   <h3>Статьи</h3>
   <p><a href="https://web-standards.ru/articles/position-sticky/">Как на са­мом деле ра­бо­та­ет position: sticky в CSS</a> (ЭЛАД ШЕХТЕР 2019-01-31)</p>
 
-  <h2>Онлайн игры для обучения CSS</h2>
+  <h3>Онлайн игры для обучения CSS</h3>
   <p><strong>Flexbox Froggy</strong><br><a href="https://flexboxfroggy.com/">flexboxfroggy.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></p>
   <p><strong>Grid Garden</strong><br><a href="https://cssgridgarden.com/">cssgridgarden.com</a><br>Разработчик Thomas Park<br><a href="https://codepip.com/">codepip.com</a></p>
   <p><strong>Grid Critters</strong><br><a href="https://gridcritters.com/">gridcritters.com</a><br>Разработчик Dave Geddes<br><a href="https://mastery.games/">mastery.games</a></p>
@@ -40,6 +42,15 @@
   <p><strong>Flexbox Defense</strong><br><a href="http://www.flexboxdefense.com/">flexboxdefense.com</a><br>Разработчик Channing Allen</p>
   <p><strong>CSS Battle</strong><br><a href="https://cssbattle.dev/">cssbattle.dev</a><br>Разработчик Kushagra Gour</p>
   <p><strong>Roadmap (Дорожная карта)</strong><br><a href="http://victordarras.fr/cssgame/">victordarras.fr</a><br>Разработчик Victor Darras</p>
+
+  <h3>Fonts (шрифты)</h3>
+  <p><a href="https://fonts.google.com">fonts.google.com</a><br>шрифты google</p>
+  <p><a href="https://gwfh.mranftl.com/fonts">gwfh.mranftl.com/fonts</a><br>google-webfonts-helper скачать и подключить
+  </p>
+  <p><a href="https://fontstorage.com/ru/">fontstorage.com</a><br>шрифты fontstorage</p>
+  <p><a href="https://www.font2web.com/">font2web.com</a><br>шрифты font2web</p>
+  <p><a href="https://webfonts.pro">webfonts.pro</a><br>шрифты webfonts</p>
+  <p><a href="https://icomoon.io/">icomoon.io</a><br>иконочные шрифты</p>
 </article>
 
 
@@ -103,23 +114,59 @@
 </article>
 
 
+<!-- Подключение шрифтов -->
+<article class="article">
+  <div class="anchor" id="fonts"></div>
+  <h2>Подключение шрифтов</h2>
+
+  <p>При отображении страницы браузер выбирает шрифт по-умолчанию. Разные браузеры выбирают разные шрифты. Чтобы страницы выглядели одинаково, можно самому подключить нужный шрифт. Для этого нужно добавить ссылки на шрифты в HTML файл. После этого можно изменять шрифт используя свойство font-family. Обычно указывают несколько шрифтов в одной строчке один за одним. Тогда если первый шрифт недоступен, то будет использоваться следующий и так далее. Последним указывают семейство шрифтов из которого браузер сам выбирает доступный шрифт.</p>
+
+  <p>К HTML файлу подключают шрифты с помощью тега link, который добавляют внутрь тега head.</p>
+<pre>&lt;head&gt;
+  &lt;link rel="stylesheet" href="https://fonts.googleapis.com/"&gt;
+&lt;/head&gt;</pre>
+  
+</article>
+
+
 <!-- Синтаксис CSS -->
 <article class="article">
   <div class="anchor" id="syntax"></div>
   <h2>Синтаксис CSS</h2>
 
-  <p>CSS правило</p>
-  <code>h1 { color: red; }</code>
-  <p>В одном файле CSS может быть много CSS правил. Файлы CSS состоят из CSS правил.</p>
-  <p>Каждое правило имеет селектор. Селектор определяет элемент, к которому применяются стили. После селектора ставится открывающая фигурная скобка { , а в конце правила закрывающая }.</p>
-  <code>h1</code>
-  <p>Между фигурными скобками находятся пары свойство: значение. После свойства ставится двоеточие, после значения - точка с запятой. Пара свойство и значение называется объявление.</p>
-  <p>CSS свойство</p>
-  <code>color</code>
-  <p>Значение</p>
-  <code>red</code>  
-  <p>В одном правиле можно использовать несколько селекторов, разделив их запятой, и несколько объявлений.</p>
-  <p>Можно использовать однострочный и многострочный комментарий, заключив его между /* */. Комментарии игнорируются браузерами и используются для объяснения кода или скрытия кода от браузера.</p>
+  <p>В синтаксе CSS есть 6 понятий</p>
+  <ol>
+    <li>
+      <h4>Правило</h4>
+      <code>h1 { color: red; }</code>
+      <p>В одном файле CSS может быть много CSS правил. Файлы CSS состоят из CSS правил.</p>
+    </li>
+    <li>
+      <h4>Селектор</h4>
+      <code>h1</code>
+      <p>Каждое правило начинается с селектора. Селектор определяет элемент, к которому применяются правила. В одном правиле можно использовать несколько селекторов, разделив их запятой</p>
+    </li>
+    <li>
+      <h4>Объявление</h4>
+      <code>{ color: red; }</code>
+      <p>После селектора ставятся фигурные скобки. Между фигурными скобками записывают объявления. Это пары свойство: значение. В одном правиле можно использовать несколько объявлений</p>
+    </li>
+    <li>
+      <h4>Свойство</h4>
+      <code>color:</code>
+      <p>Первым в объявлении пишется свойство, после которого ставится двоеточие.</p>
+    </li>
+    <li>
+      <h4>Значение</h4>
+      <code>red;</code>  
+      <p>Вторым в объявлении пишется значение, после которого ставится точка с запятой.</p>
+    </li>
+    <li>
+      <h4>Комментарий</h4>
+      <code>/* комментарий */</code>
+      <p>Можно использовать однострочный и многострочный комментарий, заключив его между /* */. Комментарии игнорируются браузерами и используются для объяснения кода или скрытия кода от браузера.</p>
+    </li>
+  </ol>
 </article>
 
 
@@ -174,5 +221,22 @@
   </ol>
 </article>
 
+
+<!-- Псевдоэлементы -->
+<article class="article">
+  <div class="anchor" id="pseudo-elem"></div>
+  <h2>Псевдоэлементы</h2>
+
+  <p>Псевдоэлементы - это ключевые слова, которые позволяют стилизовать части выбранного элемента.</p>
+
+  <p>Стилизация первой буквы. Для всех элементов p первая буква станет зеленая.</p>
+  <code>p::first-letter { color: green; }</code>
+
+  <p>Стилизация маркеров в списке. Во всех списках маркеры станут зеленые и примут вид стрелки =>.</p>
+  <code>li::marker { color: green; content: '\21D2' }</code>
+
+  <p>Стилизация плейсхолдера в текстовом поле ввода. Во всех текстовых полях ввода плейсхолдер станет зеленый и курсивный.</p>
+  <code>input::placeholder { color: green; font-style: italic }</code>
+</article>
 
 

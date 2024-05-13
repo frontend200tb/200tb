@@ -1,24 +1,18 @@
 <h1>Задачи на Event Loop</h1>
 
+
 <article class="article">
   <div id="link-to-eventloop" class="btn-back">назад</div>
 </article>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div>
-    <p><a href="#links">links</a></p>
-    <p><a href="#about">about</a></p>
-  </div>
-
-</div>
+  <p><a href="#links">links</a></p>
+  <p><a href="#about">about</a></p>
+</article>
 
 
 <!-- links -->
@@ -33,6 +27,7 @@
   <div class="anchor" id="about"></div>
   <h2>about</h2>
 
+
   <h3>Задача 1</h3>
 <pre>Promise.resolve(1)
   .then((x) => x + 1)
@@ -44,38 +39,44 @@
   .then((x) => Promise.resolve(1))
   .catch((err) => console.log(err))
   .then((x) => console.log(x));</pre>
-  <p>Ответ</p>
-<pre>2
-1</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>2, 1</code>
+  </details>
+
 
   <h3>Задача 2</h3>
 <pre>Promise
   .resolve(1)
   .resolve(2)
   .then(console.log);</pre>
-  <p>Ответ</p>
-  <code>TypeError: Promise.resolve(...).resolve is not a function</code>
 
+  <details>
+    <summary>Ответ</summary>
+    <code>TypeError: Promise.resolve(...).resolve is not a function</code>
+  </details>
+
+  
   <h3>Задача 3</h3>
 <pre>console.log('apple');
 
-  setTimeout(() => console.log('pear'), 0);
-  
-  Promise.resolve('melon').then((res) => console.log(res));
-  
-  new Promise((resolve, reject) => {
-    console.log('orange');
-    resolve('pineapple');
-  }).then((res) => console.log(res));
-  
-  console.log('lime');</pre>
-  <p>Ответ</p>
-<pre>apple
-orange
-lime
-melon
-pineapple
-pear</pre>
+setTimeout(() => console.log('pear'), 0);
+
+Promise.resolve('melon').then((res) => console.log(res));
+
+new Promise((resolve, reject) => {
+  console.log('orange');
+  resolve('pineapple');
+}).then((res) => console.log(res));
+
+console.log('lime');</pre>
+
+<details>
+  <summary>Ответ</summary>
+  <code>apple, orange, lime, melon, pineapple, pear</code>
+</details>
+
 
   <h3>Задача 4</h3>
 <pre>Promise.resolve(13)
@@ -85,10 +86,13 @@ pear</pre>
   .then(result2 => {
     console.log(result2)
   });</pre>
-  <p>Ответ</p>
-<pre>13
-undefined</pre>
 
+  <details>
+    <summary>Ответ</summary>
+    <code>13, undefined</code>
+  </details>
+
+  
   <h3>Задача 5</h3>
 <pre>console.log('script start');
 
@@ -107,11 +111,9 @@ new Promise((resolve) => {
 });
 
 console.log('script end');</pre>
-  <p>Ответ</p>
-<pre>script start
-promise3
-script end
-promise1
-promise2
-setTimeout</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>script start, promise3, script end, promise1, promise2, setTimeout</code>
+  </details>
 </article>

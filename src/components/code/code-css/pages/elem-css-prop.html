@@ -1,4 +1,4 @@
-<h1>Справочник по CSS свойствам</h1>
+<h1>CSS свойства</h1>
 
 <!-- Заголовок -->
 <div class="article">
@@ -13,32 +13,58 @@
     <p><a href="#important">!important</a></p>
     <br>
     <p><a href="#box">Блочная модель</a></p>
+    <p><a href="#css-display">display</a></p>
+    <p><a href="#css-box-sizing">box-sizing</a></p>
     <p><a href="#css-width">width</a></p>
+    <p><a href="#css-max-width">max-width</a></p>
+    <p><a href="#css-min-width">min-width</a></p>
     <p><a href="#css-height">height</a></p>
+    <p><a href="#css-max-height">max-height</a></p>
+    <p><a href="#css-min-height">min-height</a></p>
     <p><a href="#css-border">border</a></p>
     <p><a href="#css-border-radius">border-radius</a></p>
     <p><a href="#css-padding">padding</a></p>
     <p><a href="#css-margin">margin</a></p>
+    <br>
   </div>
+
+  <div>
+    <p><a href="#background">Фон</a></p>
+    <p><a href="#css-background">background</a></p>
+    <p><a href="#css-background-attachment">background-attachment</a></p>
+    <p><a href="#css-background-blend-mode">background-blend-mode</a></p>
+    <p><a href="#css-background-clip">background-clip</a></p>
+    <p><a href="#css-background-color">background-color</a></p>
+    <p><a href="#css-background-image">background-image</a></p>
+    <p><a href="#css-background-origin">background-origin</a></p>
+    <p><a href="#css-background-position">background-position</a></p>
+    <p><a href="#css-background-repeat">background-repeat</a></p>
+    <p><a href="#css-background-size">background-size</a></p>
+  </div>
+
+  <div>
+    <p><a href="#text">Текст</a></p>
+    <p><a href="#css-color">color</a></p>
+    <p><a href="#css-line-height">line-height</a></p>
+    <p><a href="#css-text-align">text-align</a></p>
+    <p><a href="#css-text-decoration">text-decoration</a></p>
+    <p><a href="#css-text-transform">text-transform</a></p>
+  </div>
+
   <div>
     <p><a href="#property-font">Шрифт</a></p>
     <p><a href="#css-font-face">@font-face</a></p>
     <p><a href="#css-font">font</a></p>
-    <p><a href="#css-font-family">font-family</a></p>
     <p><a href="#css-font-feature-settings">font-feature-settings</a></p>
     <p><a href="#css-font-kerning">font-kerning</a></p>
-    <p><a href="#css-font-size">font-size</a></p>
     <p><a href="#css-font-size-adjust">font-size-adjust</a></p>
     <p><a href="#css-font-stretch">font-stretch</a></p>
-    <p><a href="#css-font-style">font-style</a></p>
     <p><a href="#css-font-synthesis">font-synthesis</a></p>
-    <p><a href="#css-font-variant">font-variant</a></p>
     <p><a href="#css-font-variant-caps">font-variant-caps</a></p>
     <p><a href="#css-font-variant-east-asian">font-variant-east-asian</a></p>
     <p><a href="#css-font-variant-ligatures">font-variant-ligatures</a></p>
     <p><a href="#css-font-variant-numeric">font-variant-numeric</a></p>
     <p><a href="#css-font-variant-position">font-variant-position</a></p>
-    <p><a href="#css-font-weight">font-weight</a></p>
   </div>
 
   <div>
@@ -86,20 +112,6 @@
     <p><a href="#css-order">order</a></p>
   </div>
 
-  <div>
-    <p><a href="#property-background">Фон</a></p>
-    <p><a href="#css-background">background</a></p>
-    <p><a href="#css-background-attachment">background-attachment</a></p>
-    <p><a href="#css-background-blend-mode">background-blend-mode</a></p>
-    <p><a href="#css-background-clip">background-clip</a></p>
-    <p><a href="#css-background-color">background-color</a></p>
-    <p><a href="#css-background-image">background-image</a></p>
-    <p><a href="#css-background-origin">background-origin</a></p>
-    <p><a href="#css-background-position">background-position</a></p>
-    <p><a href="#css-background-repeat">background-repeat</a></p>
-    <p><a href="#css-background-size">background-size</a></p>
-  </div>
-
 </div>
 
 
@@ -114,6 +126,83 @@
 <article class="article">
   <div class="anchor" id="box"></div>
   <h2>Блочная модель</h2>
+
+  <p>К блочной модели относится 12 свойств</p>
+  <ol>
+    <li><a href="#css-display">display</a></li>
+    <li><a href="#css-box-sizing">box-sizing</a></li>
+    <li><a href="#css-width">width</a></li>
+    <li><a href="#css-max-width">max-width</a></li>
+    <li><a href="#css-min-width">min-width</a></li>
+    <li><a href="#css-height">height</a></li>
+    <li><a href="#css-max-height">max-height</a></li>
+    <li><a href="#css-min-height">min-height</a></li>
+    <li><a href="#css-border">border</a></li>
+    <li><a href="#css-border-radius">border-radius</a></li>
+    <li><a href="#css-padding">padding</a></li>
+    <li><a href="#css-margin">margin</a></li>
+  </ol>
+</article>
+
+
+<!-- display -->
+<article class="article">
+  <div class="anchor" id="css-display"></div>
+  <h2>display</h2>
+
+  <p>Каждый элемент является прямоугольным блоком. Свойство <strong>display</strong> контролирует как этот блок отображается на странице. Все элементы делятся на три группы.</p>
+  <ol>
+    <li>
+      <p>Блочные элементы (h1, h2, div, section, ...) имеют значение</p>
+      <code>display: block;</code>
+      <p>Блочные элементы начинаются с новой строки, занимают всю доступную ширину внутри родительского элемента. Им можно задать свойства width, height, margin.</p>
+    </li>
+    <li>
+      <p>Строчные элементы (span, strong, em, img, ... ) имеют значение</p>
+      <code>display: inline;</code>
+      <p>Строчные элементы появляются в одном ряду при наличии свободного места и имеют тот же разммер, что и их контент. Они игнорируют свойства width, height, верхний и нижний margin.</p>
+      <p>Примечание: можно задавать ширину и высоту изображений для тега img, при этом размер строчного элемента img будет принимать размер его содержимого, то есть будет изменяться вместе с размером изображения. Если задать только ширину или высоту, то второе свойство будет рассчитано автоматически, чтобы сохранить пропорцию изображения.</p>
+    </li>
+    <li>
+      <p>Блочно-строчные элементы (button, input, select) имеют значение</p>
+      <code>display: inline-block;</code>
+      <p>Блочно-строчные (inline-block) элементы появляются в одном ряду при наличии свободного места. Им можно задать свойства width, height, margin.</p>
+    </li>
+  </ol>
+
+  <p>Свойство display может принимать одно из 5 значений</p>
+  <ol>
+    <li><h4>block</h4></li>
+    <li><h4>inline</h4></li>
+    <li><h4>inline-block</h4></li>
+    <li><h4>flex</h4></li>
+    <li><h4>grid</h4></li>
+  </ol>
+</article>
+
+
+<!-- box-sizing -->
+<article class="article">
+  <div class="anchor" id="css-box-sizing"></div>
+  <h2>box-sizing</h2>
+
+  <p>Свойство <strong>box-sizing</strong> задает блочную модель элементу и может принимать одно из двух значений.</p>
+  <ol>
+    <li><h4>content-box</h4></li>
+    <li><h4>border-box</h4></li>
+  </ol>
+
+  <p>Значение по-умолчанию</p>
+  <code>box-sizing: content-box;</code>
+
+  <p>В модели <strong>content-box</strong> свойства <strong>width</strong> и <strong>height</strong> это ширина и высота <strong>контента</strong>. Таким образом элемент на странице может занимать больше места, чем указано в свойствах <strong>width</strong> и <strong>height</strong>.</p> 
+  <p>Ширина элемента = левая граница + левый внутренний отступ + контент + правый внутренний отступ + правая граница.</p>
+  <p>Высота элемента = верхняя граница + верхний внутренний отступ + контент + нижний внутренний отступ + нижняя граница.</p>
+
+  <p>Второе значение</p>
+  <code>box-sizing: border-box;</code>
+
+  <p>В модели <strong>border-box</strong> свойства <strong>width</strong> и <strong>height</strong> это ширина и высота <strong>элемента</strong>. Таким образом элемент на странице занимает ровно столько места, сколько указано в свойствах <strong>width</strong> и <strong>height</strong>.</p> 
 </article>
 
 
@@ -121,6 +210,9 @@
 <article class="article">
   <div class="anchor" id="css-width"></div>
   <h2>width</h2>
+
+  <p>Свойство <strong>width</strong> задает ширину элемента.</p>
+  <code>width: 100px;</code>
 </article>
 
 
@@ -128,6 +220,9 @@
 <article class="article">
   <div class="anchor" id="css-height"></div>
   <h2>height</h2>
+
+  <p>Свойство <strong>height</strong> задает высоту элемента.</p>
+  <code>height: 50px;</code>
 </article>
 
 
@@ -136,72 +231,52 @@
   <div class="anchor" id="css-border"></div>
   <h2>border</h2>
 
-  <p>По-умолчанию у элемента нет границы. Чтобы задать границу надо использовать свойство border</p>
+  <p>Группа свойств <strong>border</strong> состоит из 20 свойств</p>
+
+  <ol>
+    <li><h4>border</h4></li>
+    <li><h4>border-width</h4></li>
+    <li><h4>border-style</h4></li>
+    <li><h4>border-color</h4></li>
+    <li><h4>border-top</h4></li>
+    <li><h4>border-top-width</h4></li>
+    <li><h4>border-top-style</h4></li>
+    <li><h4>border-top-color</h4></li>
+    <li><h4>border-right</h4></li>
+    <li><h4>border-right-width</h4></li>
+    <li><h4>border-right-style</h4></li>
+    <li><h4>border-right-color</h4></li>
+    <li><h4>border-bottom</h4></li>
+    <li><h4>border-bottom-width</h4></li>
+    <li><h4>border-bottom-style</h4></li>
+    <li><h4>border-bottom-color</h4></li>
+    <li><h4>border-left</h4></li>
+    <li><h4>border-left-width</h4></li>
+    <li><h4>border-left-style</h4></li>
+    <li><h4>border-left-color</h4></li>
+  </ol>
+
+  <p>По-умолчанию у элемента нет границы. Чтобы задать границу надо использовать свойство <strong>border</strong>. Зададим границу толщиной 2px, сплошной линией, черного цвета</p>
   <code>border: 2px solid black;</code>
 
-  <p>border это сокращенное свойство для трех свойств</p>
+  <p><strong>border</strong> это сокращенное свойство для трех свойств</p>
+  <code>border-width: 2px;</code>
+  <code>border-style: solid;</code>
+  <code>border-color: black;</code>
+
+  <p><strong>border-style</strong> (стиль границы) может принимать одно из 8 значений:</p>
   <ol>
-    <li>
-      <h4>border-width</h4>
-      <code>border-width: 2px;</code>
-    </li>
-    <li>
-      <h4>border-style</h4>
-      <code>border-style: solid;</code>
-    </li>
-    <li>
-      <h4>border-color</h4>
-      <code>border-color: black;</code>
-    </li>
+    <li><strong>solid</strong></li>
+    <li><strong>dotted</strong></li>
+    <li><strong>dashed</strong></li>
+    <li><strong>double</strong></li>
+    <li><strong>ridge</strong></li>
+    <li><strong>groove</strong></li>
+    <li><strong>inset</strong></li>
+    <li><strong>outset</strong></li>
   </ol>
 
-  <p>border-style (стиль границы) может принимать значение:</p>
-  <ol>
-    <li>solid</li>
-    <li>dotted</li>
-    <li>dashed</li>
-    <li>double</li>
-    <li>ridge</li>
-    <li>groove</li>
-    <li>inset</li>
-    <li>outset</li>
-  </ol>
-
-  <p>Для каждой из 4 сторон границы можно задать отдельное свойство, которое будет сокращением из трех свойств</p>
-  <ol>
-    <li>
-      <h4>border-top</h4>
-      <ol>
-        <li><h4>border-top-width</h4></li>
-        <li><h4>border-top-style</h4></li>
-        <li><h4>border-top-color</h4></li>
-      </ol>
-    </li>
-    <li>
-      <h4>border-right</h4>
-      <ol>
-        <li><h4>border-right-width</h4></li>
-        <li><h4>border-right-style</h4></li>
-        <li><h4>border-right-color</h4></li>
-      </ol>
-    </li>
-    <li>
-      <h4>border-bottom</h4>
-      <ol>
-        <li><h4>border-bottom-width</h4></li>
-        <li><h4>border-bottom-style</h4></li>
-        <li><h4>border-bottom-color</h4></li>
-      </ol>
-    </li>
-    <li>
-      <h4>border-left</h4>
-      <ol>
-        <li><h4>border-left-width</h4></li>
-        <li><h4>border-left-style</h4></li>
-        <li><h4>border-left-color</h4></li>
-      </ol>      
-    </li>
-  </ol>
+  <p>Для каждой из 4 сторон границы можно задать отдельное свойство, которое будет сокращением из трех свойств.</p>
 </article>
 
 
@@ -209,6 +284,16 @@
 <article class="article">
   <div class="anchor" id="css-border-radius"></div>
   <h2>border-radius</h2>
+
+  <p>Группа свойств <strong>border-radius</strong> состоит из 5 свойств</p>
+
+  <ol>
+    <li><h4>border-radius</h4></li>
+    <li><h4>border-top-left-radius</h4></li>
+    <li><h4>border-top-right-radius</h4></li>
+    <li><h4>border-bottom-right-radius</h4></li>
+    <li><h4>border-bottom-left-radius</h4></li>
+  </ol>
 
   <p>По-умолчанию граница имеет прямые углы. Чтобы их скруглить нужно использовать свойство border-radius</p>
   <code>border-radius: 25px;</code>
@@ -234,6 +319,16 @@
 <article class="article">
   <div class="anchor" id="css-padding"></div>
   <h2>padding</h2>
+
+  <p>Группа свойств <strong>padding</strong> состоит из 5 свойств</p>
+
+  <ol>
+    <li><h4>padding</h4></li>
+    <li><h4>padding-top</h4></li>
+    <li><h4>padding-right</h4></li>
+    <li><h4>padding-bottom</h4></li>
+    <li><h4>padding-left</h4></li>
+  </ol>
 
   <p>По-умолчанию у элемента нет внутреннего отступа. Чтобы его задать надо использовать свойство padding.</p>
   <p>padding это сокращенное свойство для внутренних отступов всех четырех сторон</p>
@@ -261,7 +356,17 @@
   <div class="anchor" id="css-margin"></div>
   <h2>margin</h2>
 
-  <p>По-умолчанию у элемента нет внешнего отступа. Чтобы его задать надо использовать свойство margin.</p>
+  <p>Группа свойств <strong>margin</strong> состоит из 5 свойств</p>
+
+  <ol>
+    <li><h4>margin</h4></li>
+    <li><h4>margin-top</h4></li>
+    <li><h4>margin-right</h4></li>
+    <li><h4>margin-bottom</h4></li>
+    <li><h4>margin-left</h4></li>
+  </ol>
+
+  <p>По-умолчанию некоторые элементы имеют внешний отступ, но не все. Чтобы его задать или убрать надо использовать свойство margin.</p>
   <p>margin это сокращенное свойство для внешних отступов всех четырех сторон</p>
   <code>margin: 25px;</code>
 
@@ -282,41 +387,344 @@
 </article>
 
 
+<!-- Фон -->
+<article class="article">
+  <div class="anchor" id="background"></div>
+  <h2>Фон</h2>
+
+  <p>К фону относится 10 свойств.</p>
+  <ol>
+    <li><a href="#css-background">background</a></li>
+    <li><a href="#css-background-attachment">background-attachment</a></li>
+    <li><a href="#css-background-blend-mode">background-blend-mode</a></li>
+    <li><a href="#css-background-clip">background-clip</a></li>
+    <li><a href="#css-background-color">background-color</a></li>
+    <li><a href="#css-background-image">background-image</a></li>
+    <li><a href="#css-background-origin">background-origin</a></li>
+    <li><a href="#css-background-position">background-position</a></li>
+    <li><a href="#css-background-repeat">background-repeat</a></li>
+    <li><a href="#css-background-size">background-size</a></li>
+  </ol>
+
+  <p>В блочной модели элементы имеют фон, который занимает контент элемента и внутренний отступ.</p>
+</article>
+
+
+<!-- background -->
+<article class="article">
+  <div class="anchor" id="css-background"></div>
+  <h3>background</h3>
+  <p><strong>background</strong> это сокращенное свойство</p>
+</article>
+
+
+<!-- background-attachment -->
+<article class="article">
+  <div class="anchor" id="css-background-attachment"></div>
+  <h3>background-attachment</h3>
+  <p>Свойство <strong>background-attachment</strong> определяет, будет ли фоновое изображение зафиксировано, или оно будет прокручиваться вместе с остальным содержимым страницы</p>
+</article>
+
+
+<!-- background-blend-mode -->
+<article class="article">
+  <div class="anchor" id="css-background-blend-mode"></div>
+  <h3>background-blend-mode</h3>
+  <p>Свойство <strong>background-blend-mode</strong> определяет режим наложения фонового изображения элемента на фоны других элементов.</p>
+</article>
+
+
+<!-- background-clip -->
+<article class="article">
+  <div class="anchor" id="css-background-clip"></div>
+  <h3>background-clip</h3>
+  <p>Свойство <strong>background-clip</strong> определяет область прорисовки фонового изображения</p>
+</article>
+
+
+<!-- background-color -->
+<article class="article">
+  <div class="anchor" id="css-background-color"></div>
+  <h3>background-color</h3>
+  <p>Свойство <strong>background-color</strong> определяет цвет фона</p>
+  <code>background-color: green;</code>
+</article>
+
+
+<!-- background-image -->
+<article class="article">
+  <div class="anchor" id="css-background-image"></div>
+  <h3>background-image</h3>
+  <p>Свойство <strong>background-image</strong> определяет путь к картинке</p>
+  <code>background-image: url('https://picsum/id/46/200');</code>
+</article>
+
+
+<!-- background-origin -->
+<article class="article">
+  <div class="anchor" id="css-background-origin"></div>
+  <h3>background-origin</h3>
+  <p>Свойство <strong>background-origin</strong> определяет область позиционирования фонового изображения</p>
+</article>
+
+
+<!-- background-position -->
+<article class="article">
+  <div class="anchor" id="css-background-position"></div>
+  <h3>background-position</h3>
+  <p>Свойство <strong>background-position</strong> определяет начальное положение фонового изображения в пределах содержащего его элемента</p>
+</article>
+
+
+<!-- background-repeat -->
+<article class="article">
+  <div class="anchor" id="css-background-repeat"></div>
+  <h3>background-repeat</h3>
+  <p>Свойство <strong>background-repeat</strong> определяет, как будет повторяться картинка, заданная свойством background-image, если ее размер меньше размера элемента.</p>
+  <p>Свойство <strong>background-repeat</strong> может принимать одно из 4 значений</p>
+  <ol>
+    <li>
+      <h4>repeat</h4>
+      <p>Картинка повторяется так чтобы занять все свободное пространство, по караям обрезается</p>
+    </li>
+    <li>
+      <h4>no-repeat</h4>
+      <p>Картинка не повторяется, а свободное пространство заполняется цветом фона, если он задан</p>
+    </li>
+    <li>
+      <h4>round</h4>
+      <p>Картинка масштабируется и повторяется без обрезки, чтобы заполнить свободное пространство</p>
+    </li>
+    <li>
+      <h4>space</h4>
+      <p>Картинка повторяется столько раз, сколько возможно без обрезки с добавлением отступов чтобы заполнить свободное пространство</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- background-size -->
+<article class="article">
+  <div class="anchor" id="css-background-size"></div>
+  <h3>background-size</h3>
+
+  <p>Размер картинкок зависит от их фактической ширины и высоты.</p>
+  <p>Свойство <strong>background-size</strong> переопределяет размер, который займет картинка. Картинки могут быть растянуты, чтобы заполнить весь фон элемента или ограничены, чтобы вписаться в границы элемента без обрезки.</p>
+
+  <p>Свойство <strong>background-size</strong> может принимать одно из 4 значений</p>
+  <ol>
+    <li>
+      <h4>contain</h4>
+      <p>Картинка вписывается в свободное пространство с сохранением соотношения сторон. Картинка повторяется с обрезкой, если остается свободное место</p>
+    </li>
+    <li>
+      <h4>cover</h4>
+      <p>Картинка заполняет все свободное пространство и для этого она может быть обрезана или растянута</p>
+    </li>
+    <li>
+      <h4>background-size: 50% 200px;</h4>
+      <p>Можно отдельно задать два значения - первое для ширины, второе для высоты картинки. Картинка может потерять пропорции. Проценты берутся от размера свободного пространства.</p>
+    </li>
+    <li>background-size: 200px;</li>
+    <p>Можно задать одно значение для ширины. Высота будет рассчитана автоматически с сохранением пропорции</p>
+  </ol>
+</article>
+
+
+<!-- Текст -->
+<article class="article">
+  <div class="anchor" id="text"></div>
+  <h2>Текст</h2>
+</article>
+
+
+<!-- color -->
+<article class="article">
+  <div class="anchor" id="css-color"></div>
+  <h2>color</h2>
+
+  <p>Свойство <strong>color</strong> определяет цвет текста.</p>
+  <code>color: red;</code>
+</article>
+
+
+<!-- line-height -->
+<article class="article">
+  <div class="anchor" id="css-line-height"></div>
+  <h2>line-height</h2>
+
+  <p>Свойство <strong>line-height</strong> определяет высоту строки текста.</p>
+  <code>line-height: 1.8;</code>
+  <p>Нужно умножить размер шрифта на значение свойства <strong>line-height</strong> чтобы получить высоту строки.</p>
+</article>
+
+
+<!-- text-align -->
+<article class="article">
+  <div class="anchor" id="css-text-align"></div>
+  <h2>text-align</h2>
+
+  <p>Свойство <strong>text-align</strong> выравнивает текст относительно родительского блока и принимает одно из 4 значений</p>
+  <ol>
+    <li>left</li>
+    <li>center</li>
+    <li>right</li>
+    <li>justify</li>
+  </ol>
+</article>
+
+
+<!-- text-decoration -->
+<article class="article">
+  <div class="anchor" id="css-text-decoration"></div>
+  <h2>text-decoration</h2>
+
+  <p>Свойство <strong>text-decoration</strong> определяет подчеркивание или перечеркивание текста</p>
+  <p>Свойство <strong>text-decoration</strong> это сокращенное свойство для 4 свойств</p>
+  <ol>
+    <li>
+      <h4>text-decoration-line</h4>
+      <p>Свойство <strong>text-decoration-line</strong> определяет положение линии и может принимать одно из 2 значений.</p>
+      <ol>
+        <li>underline</li>
+        <li>line-through</li>
+      </ol>
+    </li>
+    <li>
+      <h4>text-decoration-style</h4>
+      <p>Свойство <strong>text-decoration-style</strong> определяет стиль линии и может принимать одно из 5 значений.</p>
+      <ol>
+        <li>solid</li>
+        <li>dotted</li>
+        <li>dashed</li>
+        <li>double</li>
+        <li>wavy</li>
+      </ol>
+    </li>
+    <li>
+      <h4>text-decoration-color</h4>
+      <p>Свойство <strong>text-decoration-color</strong> определяет цвет линии.</p>
+      <code>text-decoration-color: violet;</code>
+    </li>
+    <li>
+      <h4>text-decoration-thickness</h4>
+      <p>Свойство <strong>text-decoration-thickness</strong> определяет толщину линии.</p>
+      <code>text-decoration-thickness: 3px;</code>
+    </li>
+  </ol>
+
+  <p>Свойство <strong>text-decoration</strong></p>
+  <code>text-decoration: underline;</code>
+  <code>text-decoration: underline red;</code>
+  <code>text-decoration: line-through wavy;</code>
+  <code>text-decoration: line-through double yellow;</code>
+  <code>text-decoration: line-through double yellow 2px;</code>
+</article>
+
+
+<!-- text-transform -->
+<article class="article">
+  <div class="anchor" id="css-text-transform"></div>
+  <h2>text-transform</h2>
+
+  <p>Свойство <strong>text-transform</strong> определяет регистр текста и может принимать одно из 3 значений.</p>
+  <ol>
+    <li>uppercase</li>
+    <li>lowercase</li>
+    <li>capitalize</li>
+  </ol>
+</article>
+
+
 <!-- Font (Шрифт) -->
 <article class="article">
   <div class="anchor" id="property-font"></div>
-  <h2>Font (Шрифт) (17)</h2>
+  <h2>Font (Шрифт)</h2>
 
-  <p><a href="#css-font-face">@font-face</a>
-  <a href="#css-font">font</a>
-  <a href="#css-font-family">font-family</a>
-  <a href="#css-font-feature-settings">font-feature-settings</a>
-  <a href="#css-font-kerning">font-kerning</a>
-  <a href="#css-font-size">font-size</a>
-  <a href="#css-font-size-adjust">font-size-adjust</a>
-  <a href="#css-font-stretch">font-stretch</a>
-  <a href="#css-font-style">font-style</a>
-  <a href="#css-font-synthesis">font-synthesis</a>
-  <a href="#css-font-variant">font-variant</a>
-  <a href="#css-font-variant-caps">font-variant-caps</a>
-  <a href="#css-font-variant-east-asian">font-variant-east-asian</a>
-  <a href="#css-font-variant-ligatures">font-variant-ligatures</a>
-  <a href="#css-font-variant-numeric">font-variant-numeric</a>
-  <a href="#css-font-variant-position">font-variant-position</a>
-  <a href="#css-font-weight">font-weight</a></p>
+  <p>К шрифту относятся 17 свойств</p>
+  <ol>
+    <li><a href="#css-font-face">@font-face</a></li>
+    <li><a href="#css-font">font</a></li>
+    <li><a href="#css-font-family">font-family</a></li>
+    <li><a href="#css-font-feature-settings">font-feature-settings</a></li>
+    <li><a href="#css-font-kerning">font-kerning</a></li>
+    <li><a href="#css-font-size">font-size</a></li>
+    <li><a href="#css-font-size-adjust">font-size-adjust</a></li>
+    <li><a href="#css-font-stretch">font-stretch</a></li>
+    <li><a href="#css-font-style">font-style</a></li>
+    <li><a href="#css-font-synthesis">font-synthesis</a></li>
+    <li><a href="#css-font-variant">font-variant</a></li>
+    <li><a href="#css-font-variant-caps">font-variant-caps</a></li>
+    <li><a href="#css-font-variant-east-asian">font-variant-east-asian</a></li>
+    <li><a href="#css-font-variant-ligatures">font-variant-ligatures</a></li>
+    <li><a href="#css-font-variant-numeric">font-variant-numeric</a></li>
+    <li><a href="#css-font-variant-position">font-variant-position</a></li>
+    <li><a href="#css-font-weight">font-weight</a></p></li>
+  </ol>
 </article>
 
+
+<!-- @font-face -->
 <article class="article">
   <div class="anchor" id="css-font-face"></div>
   <h3>@font-face</h3>
   <p>Позволяет определить настройки шрифтов, а также загрузить специфичный шрифт на компьютер пользователя</p>
 </article>
 
+
+<!-- font -->
 <article class="article">
   <div class="anchor" id="css-font"></div>
   <h3>font</h3>
-  <p>Краткая запись свойств шрифта. Позволяет установить все значения свойств шрифта в одном объявлении</p>
+
+  <p>Свойство <strong>font</strong> это сокращение для 6 свойств</p>
+  <ol>
+    <li>
+      <h4>font-style</h4>
+      <p>Свойство <strong>font-style</strong> определяет стиль начертания шрифта и принимает одно из 2 значений</p>
+      <ol>
+        <li>normal</li>
+        <li>italic</li>
+      </ol>
+    </li>
+    <li>
+      <h4>font-variant</h4>
+      <p>Before CSS3, this property accepted one of two possible values: normal (how text is rendered by default) and small-caps. The font-variant CSS shorthand property allows you to set all the font variants for a font. Краткая запись для рендеринга шрифтов. Определяет, как следует представлять строчные буквы - делать их все прописными уменьшенного размера или оставить без изменений</p>
+    </li>
+    <li>
+      <h4>font-weight</h4>
+        <p>Свойство <strong>font-weight</strong> определяет вес (толщину) шрифта и задается цифровым значением или именем</p>
+        <ol>
+          <li>100 thin</li>
+          <li>200 extraLight</li>
+          <li>300 light</li>
+          <li>400 regular</li>
+          <li>500 medium</li>
+          <li>600 semiBold</li>
+          <li>700 bold</li>
+          <li>800 extraBold</li>
+          <li>900 black</li>
+          <li>950 extraBlack</li>
+        </ol>
+    </li>
+    <li>
+      <h4>font-size</h4>
+      <p>Свойство <strong>font-size</strong> определяет размер шрифта</p>
+      <code>font-size: 20px;</code>
+    </li>
+    <li>
+      <h4>line-height</h4>
+    </li>
+    <li>
+      <h4>font-family</h4>
+      <p>Задает семейство шрифта, которое будет использоваться для оформления текста содержимого</p>
+      <code>font-family: 'Josefin Sans', sans-srif;</code>
+    </li>
+  </ol>
+
+  <p>В свойстве <strong>font</strong> 6 свойств идут в следующем порядке</p>
   <code>font: [font-style||font-variant||font-weight] font-size [/line-height] font-family | inherit</code>
+
   <p>В качестве обязательных значений свойства font указывается размер шрифта и его семейство. Остальные значения являются опциональными и задаются при желании. Любые не указанные значения сбрасываются до дефолтных. Хотя значения для свойств font-size-adjust и font-kerning не могут быть указаны внутри шортката font, они тоже сбрасываются до дефолтных.</p>
   <p>Пример краткой записи:</p>
   <code>p { font: 12px sans-serif; }</code>
@@ -334,12 +742,6 @@
 </article>
 
 <article class="article">
-  <div class="anchor" id="css-font-family"></div>
-  <h3>font-family</h3>
-  <p>Задает семейство шрифта, которое будет использоваться для оформления текста содержимого</p>
-</article>
-
-<article class="article">
   <div class="anchor" id="css-font-feature-settings"></div>
   <h3>font-feature-settings</h3>
   <p>Низкоуровневое управление настройками шрифтов</p>
@@ -349,12 +751,6 @@
   <div class="anchor" id="css-font-kerning"></div>
   <h3>font-kerning</h3>
   <p>Кернинг</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-font-size"></div>
-  <h3>font-size</h3>
-  <p>Размер шрифта</p>
 </article>
 
 <article class="article">
@@ -370,21 +766,9 @@
 </article>
 
 <article class="article">
-  <div class="anchor" id="css-font-style"></div>
-  <h3>font-style</h3>
-  <p>Устанавливает стиль начертания шрифта - обычное, курсивное или наклонное</p>
-</article>
-
-<article class="article">
   <div class="anchor" id="css-font-synthesis"></div>
   <h3>font-synthesis</h3>
   <p>Управление синтезом шрифтов</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-font-variant"></div>
-  <h3>font-variant</h3>
-  <p>Before CSS3, this property accepted one of two possible values: normal (how text is rendered by default) and small-caps. The font-variant CSS shorthand property allows you to set all the font variants for a font. Краткая запись для рендеринга шрифтов. Определяет, как следует представлять строчные буквы - делать их все прописными уменьшенного размера или оставить без изменений</p>
 </article>
 
 <article class="article">
@@ -415,24 +799,6 @@
   <div class="anchor" id="css-font-variant-position"></div>
   <h3>font-variant-position</h3>
   <p>Подстрочные и надстрочные формы</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-font-weight"></div>
-  <h3>font-weight</h3>
-  <p>Толщина шрифта задается цифровым значением или именем</p>
-  <ol>
-    <li>100 thin</li>
-    <li>200 extraLight</li>
-    <li>300 light</li>
-    <li>400 regular</li>
-    <li>500 medium</li>
-    <li>600 semiBold</li>
-    <li>700 bold</li>
-    <li>800 extraBold</li>
-    <li>900 black</li>
-    <li>950 extraBlack</li>
-  </ol>
 </article>
 
 <article class="article">
@@ -695,81 +1061,4 @@
   <div class="anchor" id="css-order"></div>
   <h3>order</h3>
   <p>Определяет порядок вывода флекс-элементов внутри флекс-контейнера</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="property-background"></div>
-  <h2>Background (Фон) (10)</h2>
-  <p>
-    <a href="#css-background">background</a>
-    <a href="#css-background-attachment">background-attachment</a>
-    <a href="#css-background-blend-mode">background-blend-mode</a>
-    <a href="#css-background-clip">background-clip</a>
-    <a href="#css-background-color">background-color</a>
-    <a href="#css-background-image">background-image</a>
-    <a href="#css-background-origin">background-origin</a>
-    <a href="#css-background-position">background-position</a>
-    <a href="#css-background-repeat">background-repeat</a>
-    <a href="#css-background-size">background-size</a>
-  </p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background"></div>
-  <h3>background</h3>
-  <p>Короткое свойство, устанавливающее все свойства фона элемента за одну декларацию</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-attachment"></div>
-  <h3>background-attachment</h3>
-  <p>Определяет, будет ли фоновое изображение зафиксировано, или оно будет прокручиваться вместе с остальным содержимым страницы</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-blend-mode"></div>
-  <h3>background-blend-mode</h3>
-  <p>Устанавливает режим наложения фонового изображения элемента на фоны других элементов.</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-clip"></div>
-  <h3>background-clip</h3>
-  <p>Устанавливает область прорисовки фонового изображения</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-color"></div>
-  <h3>background-color</h3>
-  <p>Определяет фоновый цвет элемента</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-image"></div>
-  <h3>background-image</h3>
-  <p>Определяет фоновое изображение элемента</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-origin"></div>
-  <h3>background-origin</h3>
-  <p>Устанавливает область позиционирования фонового изображения</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-position"></div>
-  <h3>background-position</h3>
-  <p>Задает начальное положение фонового изображения в пределах содержащего его элемента</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-repeat"></div>
-  <h3>background-repeat</h3>
-  <p>Определяет, как будет повторяться фоновое изображение, установленное с помощью параметра background-image</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-background-size"></div>
-  <h3>background-size</h3>
-  <p>Устанавливает размер фонового изображения</p>
 </article>

@@ -356,36 +356,58 @@ console.log(toLower(w1));</pre>
   <div class="anchor" id="task-10"></div>
   <h2>10. Fibonacci</h2>
 
-  <p>Числа Фибоначчи начинаются с двух 1 и каждое следующее число является суммой двух предыдущих.</p>
-  <p>Написать функцию, которая принимает целое положительное число и возвращает число Фибоначчи по его номеру в последовательности.</p>
+  <p>Числа Фибоначчи начинаются с двух 1 и каждое следующее число является суммой двух предыдущих (0, 1, 1, 2, 3, 5, 8, ...).</p>
+  <p>Написать функцию, которая принимает целое число n &ge; 0 и возвращает число Фибоначчи по его номеру в последовательности.</p>
 
-  <details>
-    <summary>Решение с циклом</summary>
-<pre>function fibonacci(num) {
-  if (num &lt; 3) {
-    return 1;
-  }
-  let fib1 = 1;
-  let fib2 = 1;
-  let fib;
-  for (let i = 3; i &lt;= num; i++) {
-    fib = fib1 + fib2;
-    fib2 = fib1;
-    fib1 = fib;
-  }
-  return fib;
-}</pre>
-  </details>
+  <h4>Пример</h4>
+  <code>input 0 // output 0</code>
+  <code>input 1 // output 1</code>
+  <code>input 2 // output 1</code>
+  <code>input 3 // output 2</code>
 
   <details>
     <summary>Решение с рекурсией</summary>
-    <p>Это неэффективное и медленное решение.</p>
-<pre>function fibonacci(num) {
-  if (num &lt; 2) {
-    return num;
+    <p>Сложность O(n^2). Это неэффективное и медленное решение. Потому что делается много лишних (одинаковых) вычислений</p>
+<pre>function fibonacci(n) {
+  if (n &lt; 2) {
+    return n;
   }
-  return fibonacci(num - 1) + fibonacci(num - 2);
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }</pre>
+    <p>Для больших чисел (для n больше 45) стек вызовов не справляется и программа зависает</p>
+  </details>
+
+  <details>
+    <summary>Решение с рекурсией и мемоизацией</summary>
+    <p>Сложность O(n). Мемоизация это сохранение результата выполнения функции для предотвращения повторных вычислений.</p>
+<pre>function memoFib(n) {
+  const mem = [];
+  return fib(n, mem);
+  function fib(n, mem) {
+    if (mem[n]) {
+      return mem[n];
+    }
+    if (n &lt; 2) {
+      return n;
+    }
+    mem[n] = fib(n - 1, mem) + fib(n - 2, mem);
+    return mem[n]
+  }
+}</pre>
+    <p>Создаем пустой массив mem = [] для сохранения результатов. Будем сохранять каждое вычисленное значение для числа n в n-ом элементе массива mem[n]. Вначале каждого вызова функции подсчета числа Фибоначи проверяем, если результат уже есть, то вернуть его. Если результата нет, то вычислить его, записать в массив mem[n] и вернуть.</p>
+  </details>
+
+  <details>
+    <summary>Решение с циклом</summary>
+    <p>Сложность O(n). Это хорошее быстрое решение.</p> 
+<pre>function fibonacci(n) {
+  const arr = [0, 1];
+  for (let i = 2; i &lt;= n; i++) {
+    arr[i] = arr[i - 1] + arr[i - 2];
+  }
+  return arr[n];
+}</pre>
+    <p>Для больших чисел (для n больше 78) надо использовать тип данных bigint, то есть объявлять массив как [0n, 1n]</p>
   </details>
 </article>
 

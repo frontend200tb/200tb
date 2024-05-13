@@ -3,11 +3,13 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
 // Aside
-import htmlLeetcode01 from './elem-leetcode-01.html';
+import htmlLcEasy01 from './elem-lc-easy-01.html';
+import htmlLcMedium01 from './elem-lc-medium-01.html';
 
 // массив страниц из aside menu
 const aside = [
-  htmlLeetcode01,
+  htmlLcEasy01,
+  htmlLcMedium01,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

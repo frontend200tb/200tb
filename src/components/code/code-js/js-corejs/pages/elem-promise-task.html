@@ -91,22 +91,22 @@
   <div class="anchor" id="task1-1"></div>
   <h2>Задачи на .then Задача 1. Случаи, когда .then возвращает или не возвращает значение</h2>
 
-  <pre>Promise.resolve("1")
-    // Promise.resolve вернул "1"
-    .then(data => {
-        console.log(data); // => "1"
-    })
+<pre>Promise.resolve("1")
+  // Promise.resolve вернул "1"
+  .then(data => {
+    console.log(data); // => "1"
+  })
 
-    // .then ничего не вернул
-    .then(data => {
-        console.log(data); // => "undefined"
-        return "2";
-    })
+  // .then ничего не вернул
+  .then(data => {
+    console.log(data); // => "undefined"
+    return "2";
+  })
 
-    // .then вернул "2"
-    .then(data => {
-        console.log(data); // => "2"
-    })</pre>
+  // .then вернул "2"
+  .then(data => {
+    console.log(data); // => "2"
+  })</pre>
 </article>
 
 
@@ -116,27 +116,26 @@
   <h2>Задачи на .then Задача 2. Второй аргумент .then</h2>
 
   <p>Первая задача</p>
-  <pre>Promise.reject(1)
-    // skip
-    // обработать reject можно только в .catch
-    .then(data => {
-        console.log(data);
-    })
+<pre>Promise.reject(1)
+  // skip
+  // обработать reject можно только в .catch
+  .then(data => {
+    console.log(data);
+  })
 
-    // второй аргумент .then вместо .catch
-    .then(null, data => console.log(data)) // => 1
+  // второй аргумент .then вместо .catch
+  .then(null, data => console.log(data)) // => 1
 
-    // после обработки ошибки попадаем в .then
-    // => "ok"
-    .then(() => console.log('ok'));</pre>
+  // после обработки ошибки попадаем в .then
+  .then(() => console.log('ok')); // => "ok"</pre>
 
-    <p>Вторая задача</p>
-    <pre>Promise.reject()
-      // используем колбэки для .then и для .catch
-      .then(
-          data => console.log('ok'),   // => skip
-          data => console.log('error') // => "error"
-      )</pre>
+  <p>Вторая задача</p>
+<pre>Promise.reject()
+  // используем колбэки для .then и для .catch
+  .then(
+    data => console.log('ok'),   // => skip
+    data => console.log('error') // => "error"
+  )</pre>
 </article>
 
 
@@ -352,15 +351,13 @@ foo();</pre>
   <h2>Задача №1: Конструктор Promise</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-  console.log('start');
+<pre>console.log('start');
 
-  const promise1 = new Promise((resolve, reject) => {
-    console.log(1)
-  })
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1)
+})
 
-  console.log('end');
-  </pre>
+console.log('end');</pre>
 
   <h3> Анализ</h3>
   <p>С первой задачей справиться легко.</p>
@@ -370,8 +367,10 @@ foo();</pre>
     <li>Когда мы вызываем new Promise(callback), функция коллбэка будет выполнена сразу же.</li>
   </ul>
 
-  <h3>Результат</h3>
-  <p>Итак, этот код должен последовательно выводить start, 1, end.</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, 1, end</code>
+  </details>
 </article>
 
 
@@ -381,8 +380,7 @@ foo();</pre>
   <h2>Задача №2: .then()</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-console.log('start');
+<pre>console.log('start');
 
 const promise1 = new Promise((resolve, reject) => {
   console.log(1)
@@ -393,16 +391,17 @@ promise1.then(res => {
   console.log(res)
 })
 
-console.log('end');
-  </pre>
+console.log('end');</pre>
 
   <h3>Анализ</h3>
   <p>Это фрагмент асинхронного кода. То есть коллбэк-функция в .then().</p>
   <p>Помните о том, что интерпретатор JavaScript всегда сначала выполняет синхронный код, а затем асинхронный.</p>
   <p>При столкновении с этой проблемой нам нужно только различать синхронный и асинхронный код.</p>
 
-  <h3>Результат</h3>
-  <p>Итак, выводом будет start , 1 , end и 2 .</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, 1, end, 2</code>
+  </details>
 </article>
 
 
@@ -412,8 +411,7 @@ console.log('end');
   <h2>Задача №3: resolve()</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-console.log('start');
+<pre>console.log('start');
 
 const promise1 = new Promise((resolve, reject) => {
   console.log(1)
@@ -425,15 +423,16 @@ promise1.then(res => {
   console.log(res)
 })
 
-console.log('end');
-  </pre>
+console.log('end');</pre>
 
   <h3>Анализ</h3>
   <p>Этот фрагмент кода почти такой же, как и предыдущий; единственная разница в том, что после resolve(2) есть console.log(3).</p>
   <p>Помните, что метод resolve не прерывает выполнение функции. Код, стоящий за ним, по-прежнему будет выполняться.</p>
 
-  <h3>Результат</h3>
-  <p>Таким образом, выходным результатом будет start , 1 , 3 , end и 2 .</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, 1, 3, end, 2</code>
+  </details>
   <p>Я неоднократно сталкивался с мнением, будто resolve прервет выполнение функции, поэтому я подчеркиваю этот момент здесь.</p>
 </article>
 
@@ -444,8 +443,7 @@ console.log('end');
   <h2>Задача №4: resolve() не вызывается</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-console.log('start');
+<pre>console.log('start');
 
 const promise1 = new Promise((resolve, reject) => {
   console.log(1)
@@ -455,14 +453,15 @@ promise1.then(res => {
   console.log(2)
 })
 
-console.log('end');
-  </pre>
+console.log('end');</pre>
 
   <h3>Анализ</h3>
   <p>В этом коде метод resolve никогда не вызывался, поэтому promise1 всегда находится в состоянии ожидания (pending). Так что promise1.then(…) никогда не выполнялся. 2 не выводится в консоли.</p>
 
-  <h3>Результат</h3>
-  <p>Выходным результатом станет start , 1 , end .</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, 1, end</code>
+  </details>
 </article>
 
 
@@ -471,8 +470,7 @@ console.log('end');
   <div class="anchor" id="task2-5"></div>
   <h2>Задача №5: Нечто, сбивающее с толку</h2>
 
-  <pre>
-console.log('start')
+<pre>console.log('start')
 
 const fn = () => (new Promise((resolve, reject) => {
   console.log(1);
@@ -485,8 +483,8 @@ fn().then(res => {
   console.log(res)
 })
 
-console.log('end')
-  </pre>
+console.log('end')</pre>
+
   <p>Каким будет вывод этого фрагмента кода?</p>
 
   <h3>Анализ</h3>
@@ -495,8 +493,10 @@ console.log('end')
   <p>Сначала выполняется синхронный код, а затем асинхронный.</p>
   <p>Синхронный код выполняется в том порядке, в котором он был вызван.</p>
 
-  <h3>Результат</h3>
-  <p>Выходным результатом будет start , middle, 1 , end и success.</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, middle, 1, end, success</code>
+  </details>
 </article>
 
 
@@ -506,8 +506,7 @@ console.log('end')
   <h2>Задача №6: с Fulfilling Promise</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-console.log('start')
+<pre>console.log('start')
 
 Promise.resolve(1).then((res) => {
   console.log(res)
@@ -517,12 +516,16 @@ Promise.resolve(2).then((res) => {
   console.log(res)
 })
 
-console.log('end')
-  </pre>
+console.log('end')</pre>
 
   <h3>Анализ</h3>
   <p>Здесь Promise.resolve(1) вернет объект Promise, состояние которого fulfilled, а результат равен 1 . Это синхронный код.</p>
-  <p>Выходным результатом будет start , end , 1 и 2.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <code>start, end, 1, 2</code>
+  </details>
+
   <p>Ну что, думаете, это незначительные трудности?</p>
   <p>Это только начало. Сложность Promise проявляется, когда он используется с setTimeout. Следующие задачи будут сложнее.</p>
   <p>Готовы? Продолжим.</p>
@@ -535,8 +538,7 @@ console.log('end')
   <h2>Задача №7: setTimeout vs Promise</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-console.log('start')
+<pre>console.log('start')
 
 setTimeout(() => {
   console.log('setTimeout')
@@ -546,8 +548,7 @@ Promise.resolve().then(() => {
   console.log('resolve')
 })
 
-console.log('end')
-  </pre>
+console.log('end')</pre>
 
   <h3>Анализ</h3>
   <p></p>Обратите внимание, это сложный вопрос. Если вы сможете правильно ответить на него и объяснить причину, то можно считать, что ваше понимание асинхронного программирования в JavaScript достигло среднего уровня.
@@ -572,22 +573,11 @@ console.log('end')
     <li>Задачи с более низким приоритетом называются макрозадачами. Например: setTimeout, setInterval и XHR.</li>
   </ul>
   <p>Хотя setTimeout и Promise.resolve() выполняются одновременно, и даже код setTimeout еще впереди, но из-за низкого приоритета относящаяся к нему коллбэк-функция выполняется позже.</p>
-  <pre>
-console.log('start')
-console.log('end')
-// start, end
-  </pre>
-  <pre>
-console.log('resolve')
-// resolve
-  </pre>
-  <pre>
-console.log('setTimeout')
-// setTimeout
-  </pre>
 
-  <h3>Результат</h3>
-  <p>Выходным результатом будет start , end , resolve и setTimeout.</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, end, resolve, setTimeout</code>
+  </details>
 </article>
 
 
@@ -597,8 +587,7 @@ console.log('setTimeout')
   <h2>Задача №8: Микрозадачи смешиваются с макрозадачами</h2>
 
   <p>Каким будет вывод этого фрагмента кода?</p>
-  <pre>
-const promise = new Promise((resolve, reject) => {
+<pre>const promise = new Promise((resolve, reject) => {
   console.log(1);
   setTimeout(() => {
     console.log("timerStart");
@@ -612,8 +601,7 @@ promise.then((res) => {
   console.log(res);
 });
 
-console.log(4);
-  </pre>
+console.log(4);</pre>
 
   <h3>Анализ</h3>
   <p>Эту задачу легко выполнить, если вы поняли предыдущий код.</p>
@@ -624,8 +612,7 @@ console.log(4);
     <li>Найти код макрозадачи.</li>
   </ol>
   <p>Сначала выполните синхронный код:</p>
-  <pre>
-console.log(1);
+<pre>console.log(1);
 setTimeout(() => {
   console.log("timerStart");
   resolve("success");
@@ -633,32 +620,30 @@ setTimeout(() => {
 }, 0);
 console.log(2);
 console.log(4);
-// 1, 2, 3
-  </pre>
+// 1, 2, 3</pre>
   <p>Выведется 1 , 2  и 4 .</p>
+
   <p>Затем выполните микрозадачу:</p>
-  <pre>
-promise.then((res) => {
+<pre>promise.then((res) => {
   console.log(res);
-});
-  </pre>
+});</pre>
   <p>Но вот ловушка: поскольку текущий Promise все еще находится в состоянии ожидания (pending), код в данный момент выполняться не будет.</p>
+  
   <p>Затем выполните макрозадачу:</p>
-  <pre>
-console.log("timerStart");
+<pre>console.log("timerStart");
 resolve("success");
 console.log("timerEnd");
-// timerStart, timerEnd
-  </pre>
+// timerStart, timerEnd</pre>
   <p>И состояние promise становится fulfilled .</p>
+  
   <p>Затем с помощью Event Loop снова выполните микрозадачу:</p>
-  <pre>
-console.log(res);
-// success
-  </pre>
+<pre>console.log(res);
+// success</pre>
 
-  <h3>Результат</h3>
-  <p>Выходным результатом будет 1 , 2, 4, timeStart, timeEnd, success</p>
+  <details>
+    <summary>Результат</summary>
+    <code>1, 2, 4, timeStart, timeEnd, success</code>
+  </details>
 </article>
 
 
@@ -669,8 +654,7 @@ console.log(res);
 
   <p>Прежде чем мы определим приоритет между микрозадачами и макрозадачами, здесь мы рассмотрим случай поочередного выполнения микрозадач и макрозадач.</p>
   <p>Что выводит этот фрагмент кода?</p>
-  <pre>
-const timer1 = setTimeout(() => {
+<pre>const timer1 = setTimeout(() => {
   console.log('timer1');
 
   const promise1 = Promise.resolve().then(() => {
@@ -680,8 +664,7 @@ const timer1 = setTimeout(() => {
 
 const timer2 = setTimeout(() => {
   console.log('timer2')
-}, 0)
-  </pre>
+}, 0)</pre>
 
   <h3>Анализ</h3>
   <p>Некоторые могут подумать, что микрозадачи и макрозадачи выполняются так:</p>
@@ -700,11 +683,13 @@ const timer2 = setTimeout(() => {
     <li>Цикл повторяется / Цикл завершается.</li>
   </ol>
   <p>Так:</p>
-  <p>microtesk1, microtask2, macrotask1, microtask3, microtask4, macrotask2, microtask5, microtask6</p>
+  <p>microtask1, microtask2, macrotask1, microtask3, microtask4, macrotask2, microtask5, microtask6</p>
   <p>Таким образом, в приведенном выше коде коллбэк-функция Promise.then будет выполняться перед коллбэк-функцией второго setTimeout, потому что это микрозадача, и она была врезана в последовательность задач.</p>
 
-  <h3>Результат</h3>
-  <p>Выходным результатом будет timer1, promise1, timer2</p>
+  <details>
+    <summary>Результат</summary>
+    <code>timer1, promise1, timer2</code>
+  </details>
 </article>
 
 
@@ -715,8 +700,7 @@ const timer2 = setTimeout(() => {
 
   <p>Что ж, это наша последняя задача. Если вы сможете правильно определить вывод этого кода, то ваше понимание Promise уже на высоком уровне. И однотипные вопросы на собеседовании точно не станут для вас трудностью.</p>
   <p>Что выводит этот фрагмент кода?</p>
-  <pre>
-console.log('start');
+<pre>console.log('start');
 
 const promise1 = Promise.resolve().then(() => {
   console.log('promise1');
@@ -732,8 +716,7 @@ const timer1 = setTimeout(() => {
   })
 }, 0)
 
-console.log('end');
-  </pre>
+console.log('end');</pre>
 
   <h3>Анализ</h3>
   <p>Эта задача является более суровой версией предыдущей задачи, но основной принцип остается прежним.</p>
@@ -748,47 +731,39 @@ console.log('end');
   <p>Итак:</p>
   <ol>
     <li>Выполним весь синхронный код:
-      <pre>
-console.log('start');
+<pre>console.log('start');
 console.log('end');
-// start, end
-      </pre>
+// start, end</pre>
     </li>
     <li>Выполним все микрозадачи:
-      <pre>
-console.log('promise1');
+<pre>console.log('promise1');
 const timer2 = setTimeout(() => {
   console.log('timer2')
 }, 0)
-// promise1
-      </pre>
+// promise1</pre>
     </li>
     <li>Выполним первую макрозадачу:
-      <pre>
-console.log('timer1')
+<pre>console.log('timer1')
 const promise2 = Promise.resolve().then(() => {
   console.log('promise2')
 })
-// timer1
-      </pre>
+// timer1</pre>
       <p>Примечание. На этом шаге макрозадача добавляет в очередь задач новую микрозадачу.</p>
     </li>
     <li>4. Выполним все вновь добавленные микрозадачи:
-      <pre>
-console.log('promise2')
-// promise2
-      </pre>
+<pre>console.log('promise2')
+// promise2</pre>
     </li>
     <li>5. Выполним следующую макрозадачу:
-      <pre>
-console.log('timer2')
-// timer2
-      </pre>
+<pre>console.log('timer2')
+// timer2</pre>
     </li>
   </ol>
 
-  <h3>Результат</h3>
-  <p>Вывод будет таким start, end, promise1, timer1, promise2, timer2</p>
+  <details>
+    <summary>Результат</summary>
+    <code>start, end, promise1, timer1, promise2, timer2</code>
+  </details>
 
   <h3>Заключение</h3>
   <p>Для всех подобных вопросов нужно просто запомнить три правила:</p>

@@ -92,7 +92,7 @@ let c = Object.create({}, {language: {value: 'javascript'}})
     <li>
       <a href="#object-from-entries">Object.fromEntries()</a>
       <br>Принимает итерируемый объект (Array, Map и другие)
-      <br>Возвращает <strong>новый объект</strong> с свойствами в указанными в принятом объекте
+      <br>Возвращает <strong>новый объект</strong> со свойствами указанными в принятом объекте
     </li>
     <li>
       <a href="#object-get-own-prop-descr">Object.getOwnPropertyDescriptor()</a>
@@ -349,7 +349,7 @@ delete a.c // свойство c не удалится
   <h2>7. Object.fromEntries(iterable)</h2>
   <strong>Принимает</strong> итерируемый объект (Array, Map и другие)
   <br>Не изменяет исходный объект
-  <br><strong>Возвращает</strong> новый объект с свойствами в указанными в принятом объекте
+  <br><strong>Возвращает</strong> новый объект со свойствами указанными в принятом объекте
   <code>Object.fromEntries([['0','a'], ['1','b'],['2','c']]); // {0: 'a', 1: 'b', 2: 'c'}</code>
   <code>Object.fromEntries([['a','0'], ['b','1'],['c','1']]); // {a: '0', b: '1', c: '1'}</code>
 <pre>const map = new Map([

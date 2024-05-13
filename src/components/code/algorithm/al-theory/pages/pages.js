@@ -13,8 +13,9 @@ import htmlTrain2 from './elem-train2.html';
 import htmlTrain3 from './elem-train3.html';
 import htmlTrain4 from './elem-train4.html';
 import htmlTrain5 from './elem-train5.html';
-import htmlContest2019 from './elem-ya-contest2019.html';
-import htmlContest2024 from './elem-ya-contest2024.html';
+import htmlYaWeOffer from './elem-ya-we-offer.html';
+import htmlYaKurs1 from './elem-ya-alg-kurs-free.html';
+import htmlYaKurs2 from './elem-ya-alg-kurs-pay.html';
 
 const aside = [
   htmlAlgorithm,
@@ -26,8 +27,9 @@ const aside = [
   htmlTrain3,
   htmlTrain4,
   htmlTrain5,
-  htmlContest2019,
-  htmlContest2024,
+  htmlYaWeOffer,
+  htmlYaKurs1,
+  htmlYaKurs2,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

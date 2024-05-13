@@ -6,7 +6,7 @@ import './element-js-leetcode';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Leetcode1'];
+const asideThemes = ['Leetcode Easy 1', 'Leetcode Medium 1'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

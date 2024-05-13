@@ -7,7 +7,7 @@ const dataVideoBase = [
     category: 'основы',
     theme: 'Программирование',
     title: 'Курсы информационных технологий. 1 набор',
-    author: '',
+    author: 'Виктор Ашик',
     name: 'Яндекс',
     numberLessons: '8 уроков',
     time_h_m: [14, 50],

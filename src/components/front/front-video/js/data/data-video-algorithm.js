@@ -35,6 +35,22 @@ const dataVideoAlgorithm = [
 
   {
     id: 1,
+    year: 2018,
+    date: '',
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы и Структуры Данных',
+    author: '',
+    name: 'alishev',
+    numberLessons: '10 уроков',
+    time_h_m: [3, 6],
+    size: '384 mb',
+    isLearned: true,
+    dateLearned: '2024.05.08 ср',
+  },
+
+  {
+    id: 1,
     year: 2019,
     date: '',
     category: 'основы',
