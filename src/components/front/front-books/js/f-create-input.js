@@ -23,6 +23,7 @@ import dataBooksOpsys from './data/data-books-opsys';
 import dataBooksInformatika from './data/data-books-inform';
 import dataBooksOop from './data/data-books-oop';
 import dataBooksMath from './data/data-books-math';
+import dataBooksTest from './data/data-books-test';
 
 // Framework
 import dataBooksNode from './data/data-books-node';
@@ -59,7 +60,7 @@ const dataArray = [
   // Base
   dataBooksBase, dataBooksAlgorithm, dataBooksComp, dataBooksBios,
   dataBooksOpsys, dataBooksNetworks, dataBooksInformatika, dataBooksOop,
-  dataBooksMath,
+  dataBooksMath, dataBooksTest,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue,
   dataBooksBootstrap, dataBooksJquery,

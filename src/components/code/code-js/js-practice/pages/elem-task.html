@@ -1,35 +1,20 @@
 <h1>Задачи на Javascript</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
-
-  <div>
-    <p><a href="#links">links</a></p>
-    <p><a href="#type">Тема 1. Приведение типов</a></p>
-    <p><a href="#scope">Тема 2. Область видимости. Замыкания</a></p>
-    <p><a href="#this">Тема 3. Контекст (this)</a></p>
-    <p><a href="#eventloop">Тема 4. Цикл событий. Event loop. Promise. setTimeout</a></p>
-  </div>
-
-</div>
-
-
-<!-- links -->
 <article class="article">
-  <div class="anchor" id="links"></div>
-  <h2>links</h2>
+  <h2>Содержание</h2>
+
+  <p><a href="#tema1">Тема 1. Приведение типов</a></p>
+  <p><a href="#tema2">Тема 2. Операторы && (и), || (или)</a></p>
+  <p><a href="#tema3">Тема 3. Область видимости. Замыкания</a></p>
+  <p><a href="#tema4">Тема 4. Контекст (this)</a></p>
 </article>
 
 
 <!-- Тема 1. Приведение типов -->
 <article class="article">
-  <div class="anchor" id="type"></div>
+  <div class="anchor" id="tema1"></div>
   <h2>Тема 1. Приведение типов</h2>
 
   <h4>Оператор +</h4>
@@ -65,13 +50,46 @@
   <code>- [] - [] // -0</code>
   <code>[] - {} // NaN</code>
   <code>- [] - {} // NaN</code>
+
+  <h3>Задача 1. Что будет в консоли?</h3>
+<pre>var o = {};
+var a = [];
+
+console.warn(o == a);
+console.warn(o === a);
+console.warn(typeof o == typeof a);
+console.warn(typeof o === typeof a);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>false
+false
+true
+true</pre>
+  </details>
 </article>
 
 
-<!-- Тема 2. Область видимости. Замыкания -->
+<!-- Тема 2. Операторы && (и), || (или) -->
 <article class="article">
-  <div class="anchor" id="scope"></div>
-  <h2>Тема 2. Область видимости (Scope). Замыкание (Closure)</h2>
+  <div class="anchor" id="tema2"></div>
+  <h2>Тема 2. Операторы && (и), || (или)</h2>
+
+  <p>Оператор && (и) возвращает первое ложное значение или последнее истинное, если ложных нет</p>
+  <code>undefined && 4 && 7 // undefined</code>
+
+  <p>Оператор || (или) возвращает первое истинное значение или последнее ложное, если истинных нет</p>
+  <code>undefined || 7 || 8 // 7</code>
+
+  <p>При одновременном использовании операторов && (и) и || (или) сначала выполнятся все операторы && (и).</p>
+  <code>7 && 8 || 6 // 8</code>
+</article>
+
+
+<!-- Тема 3. Область видимости. Замыкания -->
+<article class="article">
+  <div class="anchor" id="tema3"></div>
+  <h2>Тема 3. Область видимости (Scope). Замыкание (Closure)</h2>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>let a = [];
@@ -136,13 +154,69 @@ array i: [ 1, 1, 1 ]</pre>
 array j: [ 1 ]
 array j: [ 1, 1 ]</pre>
   </details>
+
+  <h3>Задача 3. Что будет в консоли?</h3>
+<pre>console.log(typeof f1);
+console.log(typeof f2);
+console.log(typeof f3);
+
+function f1() {}
+var f2 = function() {}
+let f3 = function() {}</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>function
+undefined
+ReferenceError: Cannot access 'f3' before initialization</pre>
+  </details>
+
+  
+  <h3>Задача 4. Что будет в консоли?</h3>
+<pre>var o = {};
+var i = 0;
+
+(function () {
+  o.a = 'a';
+  i++;
+})();
+console.log(o, i);
+
+(function (o,i) {
+  o.b = 'b';
+  i++;
+})(o, i);
+console.log(o, i);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>{ a: 'a' } 1</code>
+    <code>{ a: 'a', b: 'b' } 1</code>
+  </details>
+
+  
+  <h3>Задача 4. Что будет в консоли?</h3>
+<pre>function Constructor1() {};
+var Constructor2 = function () {};
+var Constructor3 = () => {};
+
+console.warn( new Constructor1() );
+console.warn( new Constructor2() );
+console.warn( new Constructor3() );</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>Constructor1 {}
+Constructor2 {}
+TypeError: Constructor3 is not a constructor</pre>
+  </details>
 </article>
 
 
-<!-- Тема 3. Контекст (this) -->
+<!-- Тема 4. Контекст (this) -->
 <article class="article">
-  <div class="anchor" id="this"></div>
-  <h2>Тема 3. Контекст (Context). Ключевое слово this</h2>
+  <div class="anchor" id="tema4"></div>
+  <h2>Тема 4. Контекст (Context). Ключевое слово this</h2>
 
   <h3>Задача 1. Что будет в консоли?</h3>
 <pre>var spiderMan = {
@@ -185,109 +259,44 @@ hello(spiderMan);</pre>
     <p>Стрелочная функция не имеет контекста и this = undefined</p>
     <code>Spiderman says:  My name is undefined undefined</code>
   </details>
-</article>
-
-
-<!-- Тема 4. Цикл событий (Event loop) -->
-<article class="article">
-  <div class="anchor" id="eventloop"></div>
-  <h2>Тема 4. Цикл событий (Event loop)</h2>
-
-  <h3>Задача 1. Что будет в консоли?</h3>
-<pre>setTimeout(() => {
-  console.log('Асинхронный код исполнился без промиса')
-}, 1000);
-
-let promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log('Асинхронный код исполнился в промисе');
-    resolve('result');
-  }, 2000);
-});
-
-promise
-  .then(
-    result => {
-      console.log('Fulfilled: ' + result);
-    },
-    error => {
-      console.log('Rejected: ' + error);
-    }
-  );</pre>
-
-  <details>
-    <summary>Ответ</summary>
-<pre>Асинхронный код исполнился без промиса
-Асинхронный код исполнился в промисе
-Fulfilled: result</pre>
-  </details>
-
-  <h3>Задача 2. Что будет в консоли?</h3>
-<pre>console.log('start');
-
-setTimeout(() => console.log('setTimeout executed'), 0)
-
-new Promise((resolve) => {resolve()}).then(() => console.log('Promise executed'));
-
-console.log('end');</pre>
-
-  <details>
-    <summary>Ответ</summary>
-<pre>start
-end
-Promise executed
-setTimeout executed</pre>
-  </details>
-
 
   <h3>Задача 3. Что будет в консоли?</h3>
-<pre>function first() {
-  setTimeout(() => console.log('1'), 0);
+<pre>function foo() {
+  const x = 10;
+  return {
+    x: 20,
+    bar: () => {
+      console.log(this.x);
+    },
+    baz: function () {
+      console.log(this.x);
+    }
+  };
 }
 
-function second() {
-  console.log('2');
-  return new Promise((res) => {
-    res();
-    console.log('3');
-  }).then(() => console.log('4'));
-}
+const obj1 = foo();
+obj1.bar(); // ?
+obj1.baz(); // ?
 
-first();
-second();
-console.log('5');</pre>
+const obj2 = foo.call({ x: 30 });
+
+let y = obj2.bar;
+let z = obj2.baz;
+y(); // ?
+z(); // ?
+
+obj2.bar(); // ?
+obj2.baz(); // ?</pre>
 
   <details>
     <summary>Ответ</summary>
-<pre>2
-3
-5
-4
-1</pre>
-  </details>
-
-
-  <h3>Задача 4. Что будет в консоли?</h3>
-<pre>console.log('script start');
-
-setTimeout(function() {
-  console.log('setTimeout');
-}, 0);
-
-Promise.resolve().then(function() {
-  console.log('promise1');
-}).then(function() {
-  console.log('promise2');
-});
-
-console.log('script end');</pre>
-
-  <details>
-    <summary>Ответ</summary>
-<pre>script start
-script end
-promise1
-promise2
-setTimeout</pre>
+<pre>undefined
+20
+30
+undefined
+30
+20</pre>
   </details>
 </article>
+
+

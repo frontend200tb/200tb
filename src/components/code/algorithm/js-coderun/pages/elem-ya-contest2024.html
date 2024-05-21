@@ -1,11 +1,32 @@
-<h1>Тестовая задача с Яндекс.Контест на Weekend Offer 2024</h1>
+<h1>Яндекс Frontend Weekend Offer 18-19 мая 2024</h1>
 
 
 <!-- Содержание -->
 <article class="article">
   <h2>Содержание</h2>
   <p><a href="#links">links</a></p>
-  <p><a href="#b">B. Сборочная линия</a></p>
+  <ol>
+    <li>
+      Отборочный контест
+      <ol>
+        <li><a href="#b">B. Сборочная линия</a></li>
+      </ol>
+    </li>
+    <li>
+      Секция 1. Платформа
+      <ol>
+        <li><a href="#task1">Задача 1. Убрать falsy значения</a></li>
+        <li><a href="#task2">Задача 2. Три асинхронные функции выполнить по порядку</a></li>
+      </ol>
+    </li>
+    <li>
+      Секция 2. Технические навыки
+      <ol>
+        <li><a href="#task3">Задача 3. Эффект постепенного вывода текста</a></li>
+        <li><a href="#task4">Задача 4. Калькулятор выражений в обратной польской нотации</a></li>
+      </ol>
+    </li>
+  </ol>
 </article>
 
 
@@ -188,6 +209,73 @@ module.exports = { AssemblyLineScheduler };</pre>
   </details>
 
   <details>
+    <summary>Ответ</summary>
+<pre>class AssemblyLineScheduler {
+
+  constructor(n) {
+    this.n = n;
+    this.jobs = [];
+  }
+
+  appendJob(job) {
+    this.jobs.push(job);
+  }
+
+  async start() {
+    this.lines = [];
+    console.log('Начало дня')
+    this.jobs.sort((a,b) => a.priority - b.priority);
+
+    for (let i = 0; i &lt; this.n; i++) {
+      this.lines[i] = [0,0,[],0];
+    }
+
+    // выполнить одну задачу на одной линии
+    async function runTask(task, line) {
+      let time1 = Date.now();
+      await task.execute().then(() => {
+        console.log('fulfilled');
+        line[0]++;
+      }).catch(() => {
+        console.log('rejected');
+        line[1]++;
+      }).finally(() => {
+        line[2].push(task['id']);
+        let time2 = Date.now();
+        let time = time2 - time1;
+        line[3] += time;
+        console.log('Время выполнения', time)
+      })
+    }
+
+    const runJobs = async () => {
+      return Promise.allSettled(this.lines.map(async (line) => {
+        if (this.jobs.length) {
+          const task = this.jobs.pop();
+          await runTask(task, line).then(async () => {
+            while (this.jobs.length) {
+              const task = this.jobs.pop();
+              await runTask(task, line);
+            }
+          });
+        }
+      }))
+    }
+
+    await runJobs()
+      for (let i = 0; i &lt; this.n; i++) {
+        console.log(`Конец дня, выполнено на ${i} линии`, this.lines[i])
+      }
+
+    return this.lines;
+  }
+}
+
+module.exports = { AssemblyLineScheduler };
+</pre>
+  </details>
+
+  <details>
     <summary>Решение</summary>
     <p>Разобьем задачу на шаги</p>
     <ol>
@@ -310,48 +398,286 @@ module.exports = { AssemblyLineScheduler };</pre>
         <code>return this.lines;</code>
         <p>И вернет массив со статистикой использования каждой линии</p>
       </li>
+  </details>
+</article>
 
-<pre>async start() {
-  this.lines = [];
-  this.jobs.sort((a,b) => a.priority - b.priority);
 
-  for (let i = 0; i &lt; this.n; i++) {
-    this.lines[i] = [0,0,[],0];
-  }
+<!-- Задача 1. Убрать falsy значения -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h2>Задача 1. Убрать falsy значения</h2>
 
-  async function runTask(task, line) {
-    let time1 = Date.now();
-    await task.execute().then(() => {
-      line[0]++;
-    }).catch(() => {
-      line[1]++;
-    }).finally(() => {
-      line[2].push(task['id']);
-      let time2 = Date.now();
-      let time = time2 - time1;
-      line[3] += time;
-    })
-  }
+  <p>Необходимо написать функцию, которая на вход принимает объект с максимальной глубиной вложенности 2 и убирает из него все falsy значения</p>
+  <p>falsy значение - это такое значение value, для которого Boolean(value) === false считаем, что obj - результат выполнения JSON.parse, то есть plain object</p>
 
-  const runJobs = async () => {
-    return Promise.allSettled(this.lines.map(async (line) => {
-      if (this.jobs.length) {
-        const task = this.jobs.pop();
-        await runTask(task, line).then(async () => {
-          while (this.jobs.length) {
-            const task = this.jobs.pop();
-            await runTask(task, line);
+  <h4>Примеры</h4>
+  <code>[null, 0, false, 1] // [1]</code>
+  <code>{ 'a': null, 'b': [false, 1] } // { 'b': [1] }</code>
+  <code>[null, 0, 5, [0], [false, 16]] // [5, [], [16]]</code>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>function filterFalsy(obj) {
+  if (Array.isArray(obj)) {
+    // обрабатываем массив
+    let result = [];
+    filterResult = obj.filter(elem => Boolean(elem) );
+
+    result = filterResult.map(elem => {
+      if (Array.isArray(elem)) {
+        let innerResult = elem.filter(innerElem => {
+          return Boolean(innerElem);
+        })
+        return innerResult;
+      } else if (typeof elem === 'object' && elem !== null) {
+        let innerResult = {};
+        for (let key in elem) {
+          if (Boolean(elem[key])) {
+            innerResult[key] = elem[key];
           }
-        });
+        }
+        return innerResult;
+      } else {
+        return elem;
       }
-    }))
+    })
+
+    return result;
+
+  } else {
+    // обрабатываем объект
+    let result = {};
+
+    for (let key in obj) {
+      if (Array.isArray(obj[key])) {
+        let innerResult = obj[key].filter(innerElem => {
+          return Boolean(innerElem);
+        });
+        result[key] = innerResult;
+      } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+          let innerObj = {};
+        for (let innerKey in obj[key]) {
+          if (Boolean(obj[key][innerKey])) {
+            innerObj[innerKey] = obj[key][innerKey];
+          }
+        }
+        result[key] = innerObj;
+      } else {
+        if (Boolean(obj[key])) {
+          result[key] = obj[key];
+        };
+      }
+    }
+
+    return result;
   }
+}</pre>
+  </details>
+</article>
 
-  await runJobs();
 
-  return this.lines;
+<!-- Задача 2. Три асинхронные функции выполнить по порядку -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h2>Задача 2. Три асинхронные функции выполнить по порядку</h2>
+
+  <p>Даны 3 асинхронные функции со случайным setTimeout. Нужно написать код, который выведет в консоль:</p>
+<pre>A
+B
+C</pre>
+
+<pre>function foo(callback) {
+  setTimeout(function() {
+      callback('A');
+  }, Math.random()*100);
+}
+
+function bar(callback) {
+  setTimeout(function() {
+      callback('B');
+  }, Math.random()*100);
+}
+
+function baz(callback) {
+  setTimeout(function() {
+      callback('C');
+  }, Math.random()*100);
 }</pre>
 
+  <details>
+    <summary>Ответ</summary>
+<pre>let a = new Promise((res, rej) => {
+  foo(res);
+})
+
+let b = new Promise((res, rej) => {
+  bar(res);
+})
+
+let c = new Promise((res, rej) => {
+  baz(res);
+})
+
+let result = Promise.allSettled([
+  a,b,c //
+]);
+
+result.then(arr => arr.forEach(elem => console.log(elem.value)));</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3. Эффект постепенного вывода текста -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h2>Задача 3. Эффект постепенного вывода текста</h2>
+
+  <p>Нужно сделать эффект постепенного вывода текста.</p>
+  <p>Пример: https://yastatic.net/s3/taxi-front/tasks/task-matrix.html</p>
+  <p>Напишите функцию typeWriter(delay, outputChar), возвращающую функцию writeText(text). writeText(text) далее вызывается несколько раз в разные моменты времени и должна вызывать outputChar поочерёдно для каждого символа строки text с задержкой в delay миллисекунд.</p>
+<pre>writeText('ab')
+writeText('CD')     writeText('ef')               writeText('xy')
+           │                   │                             │
+           ▼         250ms     ▼            750ms            ▼
+           ├───────┬───────┬───┴───┬───────┬───────┬─────────┼───────┐
+           ▲ 100ms ▲ 100ms ▲ 100ms ▲ 100ms ▲ 100ms ▲  500ms  ▲ 100ms ▲
+           │       │       │       │       │       │         │       │
+outputChar('a')    'b'     'C'     'D'     'e'     'f'       'x'     'y'</pre>
+
+  <code>type OutputChar = (char: string) => void;</code>
+  <code>type WriteText = (text: string) => void;</code>
+  <code>function typeWriter(delay: number, outputText: OutputChar): WriteText;</code>
+
+  <h4>Дополнительно:</h4>
+  <p>Решение должно быть линейным по сложности и «отпускать» ссылку на строку сразу же после того, как последний символ строки был выведен.</p>
+
+<pre>outputChar('a') 0: a
+100ms
+outputChar('b') 100: b
+...
+outputChar('y') 1100: y</pre>
+
+<pre>function runTest() {
+  console.clear();
+
+  let start = Date.now();
+
+  function outputChar(char) {
+      console.log(`${Date.now() - start}: ${char}`);
+  }
+
+  const writeText = typeWriter(100, outputChar);
+  writeText('ab');
+  writeText('CD');
+  setTimeout(() => writeText('ef'), 250);
+  setTimeout(() => writeText('xy'), 1000);
+}
+
+runTest();</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>function typeWriter(delay, outputChar) {
+  let lastPromise = Promise.resolve();
+
+  return function f(str) {
+      let arr = str.split('');
+
+      let arrP = arr.map(elem => {
+          return function innerF() {
+              return new Promise((res, rej) => {
+                  outputChar(elem);
+                  setTimeout(() => {
+                      res();
+                  }, delay)
+              })
+          }
+      })
+
+      for (let elem of arrP) {
+          lastPromise = lastPromise.then(() => elem())
+      }
+  }
+}</pre>
+  </details>
+</article>
+
+
+<!-- Задача 4. Калькулятор выражений в обратной польской нотации -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h2>Задача 4. Калькулятор выражений в обратной польской нотации</h2>
+
+  <p>Написать калькулятор выражений в обратной польской нотации.</p>
+  <h4>Польская нотация:</h4>
+  <ol>
+    <li>Выражение состоит из операндов: чисел и знаков операций +, -, *, /</li>
+    <li>Выражение читается слева направо</li>
+    <li>Операнды в выражении разделяются пробелами</li>
+    <li>Когда в выражении встречается знак операции, выполняется соответствующая операция
+  *   над двумя последними встретившимися перед ним операндами в порядке их записи</li>
+    <li>Результатом вычисления выражения становится результат последней вычисленной операции</li>
+  </ol>
+  <p>Нужно вернуть результат вычисления или сообщение об ошибке.</p>
+
+<pre>console.clear()
+check('7 2 * 3 +', 17)
+check('7 2 3 * -', 1)
+check('7 2 3 1 + * -', -1)
+check('7 2 3 1 + * - 0 +', -1)
+check('11 -12 -', 23)
+check('7 2 3 1 * - - 3 5 + -', 0)
+check('1 1 + +', 'Error in Syntax')
+check('1 2 2 *', 'Error in Syntax')
+check('1 b + c -', 'Error in Operands')
+
+console.log(`Tests finished`);
+
+function check(example, expected) {
+  const input = calc(example)
+  console.assert(
+      input === expected,
+      `Test case %o: expected %o, but got %o`,
+      example, expected, input
+  );
+}</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>const OPERATIONS = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '/': (a, b) => a / b,
+  '*': (a, b) => a * b,
+}
+
+function calc(str) {
+  let arr = str.split(' ');
+  const stack = [];
+
+  for (let i = 0; i &lt; arr.length; i++) {
+      if (arr[i] in OPERATIONS) {
+          if (stack.length &lt; 2) {
+              return 'Error in Syntax';
+          }
+          let first = stack.pop();
+          let second = stack.pop();
+          let result = OPERATIONS[arr[i]](second, first);
+          stack.push(result);
+      } else {
+          if (!Number.isNaN(+arr[i])) {
+              stack.push(+arr[i])
+          } else {
+              return 'Error in Operands';
+          }
+      }
+  }
+
+  if (stack.length &gt; 1) {
+      return 'Error in Syntax';
+  }
+  return stack.pop();
+}</pre>
   </details>
 </article>
 

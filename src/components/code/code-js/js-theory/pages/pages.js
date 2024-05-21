@@ -11,8 +11,8 @@ import htmlScope from './elem-scope.html';
 import htmlAscii from './elem-ascii.html';
 import htmlUnicode from './elem-unicode.html';
 
-// Event Loop
-import htmlEventloopTask from './elem-eventloop-task.html';
+// Scope
+import htmlScopeTask from './elem-scope-task.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -24,8 +24,8 @@ const aside = [
   htmlUnicode,
 ];
 
-// массив страниц со страницы Event Loop
-const eventloopLinks = [htmlEventloopTask];
+// массив страниц со страницы Scope
+const scopeLinks = [htmlScopeTask];
 
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
@@ -44,8 +44,8 @@ export default function pageLink() {
           currentContent.innerHTML = aside[index];
         }
           switch (aside[index]) {
-          case htmlEventloop:
-            pageLinkEventloop();
+          case htmlScope:
+            pageLinkScope();
             break;
         }
       });
@@ -53,36 +53,37 @@ export default function pageLink() {
   }
 }
 
-// Функция pageLinkEventloop вешает обработчик клика на ссылки со страницы Event Loop
-function pageLinkEventloop() {
-  const currentContent = document.querySelector('#theory');
-  // собрать все ссылки на странице Event Loop
-  const linksEventloop = document.querySelectorAll('.eventloop-links');
 
-  // если ссылки на странице Event Loop есть, то по клику показывать нужную страницу
-  if (linksEventloop) {
-    linksEventloop.forEach((elem, index) => {
+// Функция pageLinkScope вешает обработчик клика на ссылки со страницы Scope
+function pageLinkScope() {
+  const currentContent = document.querySelector('#theory');
+  // собрать все ссылки на странице Scope
+  const linksScope = document.querySelectorAll('.scope-links');
+
+  // если ссылки на странице Scope есть, то по клику показывать нужную страницу
+  if (linksScope) {
+    linksScope.forEach((elem, index) => {
       elem.addEventListener('click', (e) => {
           e.preventDefault();
           if (currentContent) {
-            currentContent.innerHTML = eventloopLinks[index];
+            currentContent.innerHTML = scopeLinks[index];
           }
-          backToEventloop();
+          backToScope();
         });
     })
   }
 }
 
-function backToEventloop() {
+function backToScope() {
   const currentContent = document.querySelector('#theory');
-  const linkToEventloop = document.getElementById('link-to-eventloop');
-  if (linkToEventloop) {
-    linkToEventloop.addEventListener('click', (e) => {
+  const linkToScope = document.getElementById('link-to-scope');
+  if (linkToScope) {
+    linkToScope.addEventListener('click', (e) => {
       e.preventDefault();
       if (currentContent) {
-        currentContent.innerHTML = htmlEventloop;
+        currentContent.innerHTML = htmlScope;
       }
-      pageLinkEventloop();
+      pageLinkScope();
     });
   }
 }

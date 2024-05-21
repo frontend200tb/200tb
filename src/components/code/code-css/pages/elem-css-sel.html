@@ -1,30 +1,34 @@
 <h1>CSS селекторы</h1>
 
 
+<article class="article">
+  <h2>Специфичность селекторов</h2>
+
+  <p>Вес селектора складывается из трех цифр</p>
+  <ul>
+    <li>1000 Селекторы по идентификатору (id)</li>
+    <li>100 Селекторы по классу (class), по псевдоклассу, по аттрибуту</li>
+    <li>10 Селекторы по элементу, по псевдоэлементу</li>
+  </ul>
+</article>
+
+
 <!-- Список всех CSS селекторов -->
 <article class="article">
   <h2>Список всех CSS селекторов</h2>
   
   <ol>
     <li>
-      <h4><a href="#sel-all">Универсальный селектор</a></h4>
-      <p>Выбирает все элементы на странице</p>
-    </li>
-    <li>
-      <h4><a href="#sel-tag">Селектор типов</a></h4>
-      <p>Выбирает все элементы одного тега HTML</p>
+      <h4><a href="#sel-id">Селектор по id</a></h4>
+      <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице</p>
     </li>
     <li>
       <h4><a href="#sel-class">Селектор по классу</a></h4>
       <p>Выбирает все элементы одного класса class</p>
     </li>
     <li>
-      <h4><a href="#sel-id">Селектор по id</a></h4>
-      <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице</p>
-    </li>
-    <li>
-      <h4><a href="#sel-group">Групповой селектор</a></h4>
-      <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
+      <h4><a href="#sel-pseudoclass">Селектор по псевдоклассу</a></h4>
+      <p>Выбирает все элементы псевдокласса</p>
     </li>
     <li>
       <h4><a href="#sel-attr">Селектор атрибутов</a></h4>
@@ -33,6 +37,22 @@
     <li>
       <h4><a href="#sel-attr2">Селектор атрибутов по значению</a></h4>
       <p>Выбирает все элементы с одинаковым значением указанного атрибута</p>
+    </li>
+    <li>
+      <h4><a href="#sel-tag">Селектор по элементу</a></h4>
+      <p>Выбирает все элементы одного тега HTML</p>
+    </li>
+    <li>
+      <h4><a href="#sel-pseudoelem">Селектор по псевдоэлементу</a></h4>
+      <p>Выбирает псевдоэлементы одного тега HTML</p>
+    </li>
+    <li>
+      <h4><a href="#sel-all">Универсальный селектор</a></h4>
+      <p>Выбирает все элементы на странице</p>
+    </li>
+    <li>
+      <h4><a href="#sel-group">Групповой селектор</a></h4>
+      <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
     </li>
   </ol>
   <p>Можно использовать несколько селекторов разделив их запятыми в одном правиле CSS.</p>
@@ -411,35 +431,18 @@
 </article>
 
 
-<!-- Универсальный селектор -->
+<!-- Селектор по id -->
 <article class="article">
-  <div class="anchor" id="sel-all"></div>
-  <h2>Универсальный селектор</h2>
+  <div class="anchor" id="sel-id"></div>
+  <h2>Селектор по id</h2>
 
-  <p>Селектор *. Выбирает все элементы на странице.</p>
-  <p>Обычно используют для обнуления отступов и изменения box модели на всей странице.</p>
-<pre>* {}
-  margin: 0;
-  padding: 0;
-  box-sizong: border-box;
-</pre>
-</article>
-
-
-<!-- Селектор типов -->
-<article class="article">
-  <div class="anchor" id="sel-tag"></div>
-  <h2>Селектор типов</h2>
-
-  <p>Селектор с именем тега. Выбирает все элементы одного типа.</p>
-  <p>Обычно используют для стилизации всех ссылок. Уберем со всех ссылок подчеркивание и поставим заголовки h1 по центру.</p>
-<pre>a {
-  text-decoration: none;
-}
-
-h1 {
-  text-align: center;
+  <p>Селектор начинается с #, за которой идет id.</p> 
+  <p>Увеличим шрифт элементу с id="heading" и сделаем его жирным</p>
+<pre>#heading {
+  font-size: 20px;
+  font-weight: 700;
 }</pre>
+  <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице. Элементы с id должны быть уникальные. Они могут быть на разных страницах, но не могут быть на одной.</p>
 </article>
 
 
@@ -460,34 +463,176 @@ h1 {
 </article>
 
 
-<!-- Селектор по id -->
+<!-- Селектор по псевдоклассу -->
 <article class="article">
-  <div class="anchor" id="sel-id"></div>
-  <h2>Селектор по id</h2>
+  <div class="anchor" id="sel-pseudoclass"></div>
+  <h2>Селектор по псевдоклассу (:)</h2>
 
-  <p>Селектор начинается с #, за которой идет id.</p> 
-  <p>Увеличим шрифт элементу с id="heading" и сделаем его жирным</p>
-<pre>#heading {
-  font-size: 20px;
-  font-weight: 700;
-}</pre>
-  <p>Выбирает элемент с указанным атрибутом id, который может быть только один на странице. Элементы с id должны быть уникальные. Они могут быть на разных страницах, но не могут быть на одной.</p>
-</article>
-
-
-<!-- Групповой селектор -->
-<article class="article">
-  <div class="anchor" id="sel-group"></div>
-  <h2>Групповой селектор</h2>
-
-  <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
-  <p>Увеличим шрифт элементам с id="heading", заголовкам h2 и параграфам и сделаем их жирными</p>
-<pre>#heading,
-h2,
-p {
-  font-size: 20px;
-  font-weight: 700;
-}</pre>
+  <ol>
+    <li>
+      <h4>:active</h4>
+      <p>Кнопка в нажатом состоянии</p>
+      <code>button:active { border: 2px solid black };</code>    
+    </li>
+    <li>
+      <h4>:any-link</h4>
+      <p>Любые элементы, которые могут иметь аттрибут href (например, a, area, link)</p>
+      <code>:any-link { color: green };</code>    
+    </li>
+    <li>
+      <h4>:checked</h4>
+      <p>Применяется к элементам, состояние которых меняется аттрибутом checked</p>
+      <code>:checked { color: green };</code>    
+    </li>
+    <li>
+      <h4>:default</h4>
+      <p>Применяется к элементам, у которых можно задать начальное состояние (например, input type="radio", input type="checkbox", option button)</p>
+      <code>:default { border: none };</code>    
+    </li>
+    <li>
+      <h4>:disabled</h4>
+      <p>Находит элементы формы по состоянию их аттрибута disabled. Кнопка в отключенном состоянии</p>
+      <code>button:disabled { border: none };</code>    
+    </li>
+    <li>
+      <h4>:dir</h4>
+      <p>Находит элементы по направлению текста в них</p>
+      <code>span:dir { color: green };</code>    
+    </li>
+    <li>
+      <h4>:empty</h4>
+      <p>Элементы, внутри которых нет других элементов или текста</p>
+      <code>:empty { border: 1px solid black };</code>    
+    </li>
+    <li>
+      <h4>:enabled</h4>
+      <p>Находит элементы формы по состоянию их аттрибута disabled. Кнопка в нормальном состоянии</p>
+      <code>button:enabled { border: 1px solid black };</code>    
+    </li>
+    <li>
+      <h4>:first-child</h4>
+      <p>Первый дочерний элемент своего родительского элемента</p>
+      <code>li:first-child { color: green; }</code>    
+    </li>
+    <li>
+      <h4>:focus</h4>
+      <p>Элемент в фокусе</p>
+      <code>input:focus { color: lightblue; }</code>    
+    </li>
+    <li>
+      <h4>:focus-within</h4>
+      <p>Элемент, внутри которого есть элемент в фокусе</p>
+      <code>form:focus-within { background-color: lightblue; }</code>    
+    </li>
+    <li>
+      <h4>:fullscreen</h4>
+      <p>Документ развернули на все окно с помощью javascript</p>
+      <code>.player:fullscreen .controls { display: none; }</code>    
+    </li>
+    <li>
+      <h4>:has</h4>
+      <p>Уточнает основной селектор дополнительным. Ссылки, которые содержат изображения</p>
+      <code>a:has(img) { color: red; }</code>    
+    </li>
+    <li>
+      <h4>:hover</h4>
+      <p>Наведение указателя мыши на элемент</p>
+      <code>h1:hover { color: red; }</code>    
+    </li>
+    <li>
+      <h4>:in-range</h4>
+      <p>Применяется для input у которого определены аттрибуты min и max и введенное значение соответствует этому диапазону</p>
+      <code>input:in-range { color: red; }</code>
+    </li>
+     <li>
+      <h4>:invalid</h4>
+      <p>Когда данные в поле ввода не валидны</p>
+      <code>input:invalid { color: red; }</code>
+    </li>
+    </li>
+      <h4>:is</h4>
+      <p>При группировке селекторов можно сократить и упростить написание</p>
+      <code>:is(h1, h2, h3, h4) a { color: red; }</code>
+      <p>Выберает дочерние элементы элемента с классом product, которые имеют классы title, price или sum</p>
+      <code>.product :is(.title, .price, .sum) { color: red; }</code>
+    </li>
+    <li>
+      <h4>:lang</h4>
+      <p>Селектор по языку содержимого</p>
+      <code>:lang(Array) { color: blue; }</code>    
+    </li>
+    <li>
+      <h4>:last-child</h4>
+      <p>Последний дочерний элемент своего родительского элемента</p>
+      <code>li:last-child { color: blue; }</code>    
+    </li>
+    <li>
+      <h4>:link</h4>
+      <p>Непосещенные ссылки</p>
+      <code>:link { color: blue; }</code>    
+    </li>
+    <li>
+      <h4>:not(.default)</h4>
+      <p>Псевокласс отрицания. Выбирем элементы h1, у которых нет класса с именем default</p>
+      <code>h1:not(.default) { color: darkmagenta; }</code>
+    </li>
+    <li>
+      <h4>:nth-child(2)</h4>
+      <p>Второй дочерний элемент своего родительского элемента</p>
+      <code>li:nth-child(2) { color: red; }</code>    
+    </li>
+    <li>
+      <h4>:nth-child(even)</h4>
+      <p>Все четные элементы своего родительского элемента</p>
+      <code>tr:nth-child(even) { background-color: gray; }</code>    
+    </li>
+    <li>
+      <h4>:nth-child(odd)</h4>
+      <p>Все нечетные элементы своего родительского элемента</p>
+      <code>tr:nth-child(odd) { background-color: white; }</code>    
+    </li>
+    <li>
+      <h4>:optional</h4>
+      <p>Находит любой input у которого не установлен аттрибут required</p>
+      <code>input:optional { color: blue; }</code>
+    </li>
+    <li>
+      <h4>:out-of-range</h4>
+      <p>Применяется для input у которого определены аттрибуты min и max и введенное значение не соответствует этому диапазону</p>
+      <code>input:out-of-range { color: blue; }</code>
+    </li>
+    <li>
+      <h4>:read-only</h4>
+      <p>Элементы недоступные для редактирования</p>
+    </li>
+    <li>
+      <h4>:read-write</h4>
+      <p>Элементы доступные для редактирования</p>
+    </li>
+    <li>
+      <h4>:required</h4>
+      <p>Находит любой input у которого есть аттрибут required</p>
+      <code>input:required { color: blue; }</code>
+    </li>
+    <li>
+      <h4>:root</h4>
+      <p>Корневой тег документа. Для HTML это html, для SVG это svg.</p>
+    </li>
+    <li>
+      <h4>:target</h4>
+      <p>При переходе по ссылке внутри страницы</p>
+    </li>
+    <li>
+      <h4>:valid</h4>
+      <p>Когда данные в поле ввода валидны</p>
+      <code>input:valid { color: green; }</code>
+    </li>
+    <li>
+      <h4>:visited</h4>
+      <p>Посещенные ссылки</p>
+      <code>:visited { color: orange; }</code>
+    </li>
+  </ol>
 </article>
 
 
@@ -518,6 +663,99 @@ p {
   <p>Селектор атрибутов чувствителен к регистру. Но можно указать параметр i, что сделает значение атрибута нечувсвительным к регистру</p>
 <pre>[data-category='main' i] {
   background-color: green;  
+}</pre>
+</article>
+
+
+<!-- Селектор по элементу -->
+<article class="article">
+  <div class="anchor" id="sel-tag"></div>
+  <h2>Селектор по элементу</h2>
+
+  <p>Селектор с именем тега. Выбирает все элементы одного типа.</p>
+  <p>Обычно используют для стилизации всех ссылок. Уберем со всех ссылок подчеркивание и поставим заголовки h1 по центру.</p>
+<pre>a {
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+}</pre>
+</article>
+
+
+<!-- Селектор по псевдоэлементу -->
+<article class="article">
+  <div class="anchor" id="sel-pseudoelem"></div>
+  <h2>Селектор по псевдоэлементу (::)</h2>
+
+  <ol>
+    <li>
+      <h4>::after</h4>
+      <p>Располагается после элемента. Добавим текст 'пока' после текста в span</p>
+      <code>span::after { content: 'пока' }</code>    
+    </li>
+    <li>
+      <h4>::before</h4>
+      <p>Располагается перед элементом. Добавим текст 'привет' перед текстом в span</p>
+      <code>span::before { content: 'привет' }</code>    
+    </li>
+    <li>
+      <h4>::first-letter</h4>
+      <p>Стилизация первой буквы. Для всех элементов p первая буква станет зеленая.</p>
+      <code>p::first-letter { color: green; }</code>    
+    </li>
+    <li>
+      <h4>::first-line</h4>
+      <p>Первая строка. Для всех элементов p первая строка станет зеленая.</p>
+      <code>p::first-line { color: green; }</code>    
+    </li>
+    <li>
+      <h4>::marker</h4>
+      <p>Стилизация маркеров в списке. Во всех списках маркеры станут зеленые и примут вид стрелки =>.</p>
+      <code>li::marker { color: green; content: '\21D2' }</code>    
+    </li>
+    <li>
+      <h4>::placeholder</h4>
+      <p>Стилизация плейсхолдера в текстовом поле ввода. Во всех текстовых полях ввода плейсхолдер станет зеленый и курсивный.</p>
+      <code>input::placeholder { color: green; font-style: italic }</code>    
+    </li>
+    <li>
+      <h4>::selection</h4>
+      <p>Стилизация выделенного текста. При выделении мышью, текст станет зеленый и курсивный.</p>
+      <code>input::selection { color: green; font-style: italic }</code>    
+    </li>
+  </ol>
+</article>
+
+
+<!-- Универсальный селектор -->
+<article class="article">
+  <div class="anchor" id="sel-all"></div>
+  <h2>Универсальный селектор</h2>
+
+  <p>Селектор *. Выбирает все элементы на странице.</p>
+  <p>Обычно используют для обнуления отступов и изменения box модели на всей странице.</p>
+<pre>* {}
+  margin: 0;
+  padding: 0;
+  box-sizong: border-box;
+</pre>
+</article>
+
+
+<!-- Групповой селектор -->
+<article class="article">
+  <div class="anchor" id="sel-group"></div>
+  <h2>Групповой селектор</h2>
+
+  <p>В одном правиле CSS можно использовать несколько селекторов, разделяя их запятыми</p>
+  <p>Увеличим шрифт элементам с id="heading", заголовкам h2 и параграфам и сделаем их жирными</p>
+<pre>#heading,
+h2,
+p {
+  font-size: 20px;
+  font-weight: 700;
 }</pre>
 </article>
 

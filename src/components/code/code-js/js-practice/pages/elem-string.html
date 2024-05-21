@@ -6,7 +6,8 @@
   <h2>Содержание</h2>
 
     <p><a href="#links">links</a></p>
-    <p><a href="#t-1">Тема 1. Определить что подстрока является частью строки</a></p>
+    <p><a href="#t1">1. Определить что подстрока является частью строки</a></p>
+    <p><a href="#t2">2. Переставить буквы в строке</a></p>
 
 
 </article>
@@ -19,10 +20,10 @@
 </article>
 
 
-<!-- Тема 1. Объединить два объекта -->
+<!-- 1. Определить что подстрока является частью строки -->
 <article class="article">
-  <div class="anchor" id="t-1"></div>
-  <h3>Тема 1. Определить что подстрока является частью строки</h3>
+  <div class="anchor" id="t1"></div>
+  <h3>1. Определить что подстрока является частью строки</h3>
 
   <p>Как можно проверить что подстрока является частью строки. Есть три способа.</p>
 <pre>const s = 'crossroad';
@@ -43,4 +44,36 @@ const sub = 'road';
 const e = regExp.test(s);</pre>
 </article>
 
+
+<!-- 2. Переставить буквы в строке -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>2. Переставить буквы в строке</h3>
+
+  <p>Написать функцию, которая принимает строку и массив целых положительных чисел из всех индексов этой строки. Возвращает новую строку, в которой буквы стоят в той последовательности, какая указана в массиве.</p>
+
+  <h4>Примеры</h4>
+  <code>домик, [4,1,0,3,2] // кодим</code>
+  <code>украл, [1,4,3,2,0] // клару</code>
+
+  <details>
+    <summary>Решение через for</summary>
+<pre>function restore(str, arr) {
+  const result = [];
+
+  for (let i = 0; i &lt; str.length; i++) {
+    result.push(str[arr[i]]);
+  }
+
+  return result.join('');
+}</pre>
+  </details>
+
+  <details>
+    <summary>Решение через reduce</summary>
+<pre>function restoreReduce(str, arr) {
+  return arr.reduce((acc, next) => acc + str[next], '');
+}</pre>
+  </details>
+</article>
 

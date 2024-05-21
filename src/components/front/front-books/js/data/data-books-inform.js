@@ -61,7 +61,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: '8 класс',
     category: 'основы',
     theme: 'Информатика',
@@ -73,7 +73,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: '9 класс',
     category: 'основы',
     theme: 'Информатика',
@@ -85,7 +85,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: '9 класс',
     category: 'основы',
     theme: 'Информатика',
@@ -97,7 +97,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: '9 класс',
     category: 'основы',
     theme: 'Информатика',
@@ -109,7 +109,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -121,7 +121,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -133,7 +133,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -145,7 +145,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -157,7 +157,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -169,7 +169,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: '9 класс ОГЭ',
     category: 'основы',
     theme: 'Информатика',
@@ -181,7 +181,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 9,
+    id: 16,
     year: '10 класс 2013',
     category: 'основы',
     theme: 'Информатика',
@@ -193,7 +193,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 10,
+    id: 17,
     year: '10 класс 2013',
     category: 'основы',
     theme: 'Информатика',
@@ -205,7 +205,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 11,
+    id: 18,
     year: '10 класс 2015',
     category: 'основы',
     theme: 'Информатика',
@@ -217,7 +217,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 12,
+    id: 19,
     year: '10-11 класс 2015',
     category: 'основы',
     theme: 'Информатика',
@@ -229,7 +229,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 13,
+    id: 20,
     year: '11 класс 2016',
     category: 'основы',
     theme: 'Информатика',
@@ -241,7 +241,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 14,
+    id: 21,
     year: '11 класс 2014',
     category: 'основы',
     theme: 'Информатика',
@@ -253,7 +253,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 15,
+    id: 22,
     year: '11 класс 2013',
     category: 'основы',
     theme: 'Информатика',
@@ -265,7 +265,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 16,
+    id: 23,
     year: '11 класс 2013',
     category: 'основы',
     theme: 'Информатика',
@@ -277,7 +277,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 17,
+    id: 24,
     year: '11 класс 2013',
     category: 'основы',
     theme: 'Информатика',
@@ -289,7 +289,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 25,
     year: '11 класс ЕГЭ 2020',
     category: 'основы',
     theme: 'Информатика',
@@ -301,7 +301,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 26,
     year: '2002',
     category: 'основы',
     theme: 'Информатика',
@@ -313,7 +313,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 27,
     year: '2002',
     category: 'основы',
     theme: 'Информатика',
@@ -325,7 +325,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 28,
     year: '2004',
     category: 'основы',
     theme: 'Информатика',
@@ -338,7 +338,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 29,
     year: '2004',
     category: 'основы',
     theme: 'Информатика',
@@ -351,7 +351,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 30,
     year: '2005',
     category: 'основы',
     theme: 'Информатика',
@@ -363,7 +363,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 31,
     year: '2007',
     category: 'основы',
     theme: 'Информатика',
@@ -375,7 +375,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 32,
     year: '2008',
     category: 'основы',
     theme: 'Информатика',
@@ -387,7 +387,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 33,
     year: '2010',
     category: 'основы',
     theme: 'Информатика',
@@ -400,7 +400,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 34,
     year: '2011',
     category: 'основы',
     theme: 'Информатика',
@@ -412,7 +412,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 35,
     year: '2011',
     category: 'основы',
     theme: 'Информатика',
@@ -424,7 +424,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 36,
     year: '2011',
     category: 'основы',
     theme: 'Информатика',
@@ -436,7 +436,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 37,
     year: '2012',
     category: 'основы',
     theme: 'Информатика',
@@ -449,7 +449,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 19,
+    id: 38,
     year: '2016',
     category: 'основы',
     theme: 'Информатика',
@@ -462,7 +462,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 20,
+    id: 39,
     year: '2017',
     category: 'основы',
     theme: 'Информатика',
@@ -475,7 +475,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 20,
+    id: 40,
     year: '2022',
     category: 'основы',
     theme: 'Информатика',
@@ -487,7 +487,7 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 20,
+    id: 41,
     year: '2022',
     category: 'основы',
     theme: 'Информатика',
@@ -500,7 +500,20 @@ const dataBooksInformatika = [
   },
 
   {
-    id: 18,
+    id: 42,
+    year: '2022',
+    category: 'основы',
+    theme: 'Информатика',
+    title: 'Введение в информатику. Базовый курс',
+    author: 'Титовская',
+    authorName: 'Наталья',
+    pages: '330',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 43,
     year: '2023',
     category: 'основы',
     theme: 'Информатика',

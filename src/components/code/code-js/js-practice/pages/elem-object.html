@@ -6,8 +6,11 @@
   <h2>Содержание</h2>
 
   <p><a href="#links">links</a></p>
-  <p><a href="#t-1">Объединить два объекта</a></p>
-  <p><a href="#t-2">Дан массив двух объектов, вернуть объект со свойствами из этих объектов</a></p>
+  <p><a href="#t1">1. Объединить два объекта</a></p>
+  <p><a href="#t2">2. Дан массив двух объектов, вернуть объект со свойствами из этих объектов</a></p>
+  <p><a href="#t3">3. Реализовать свой класс Set</a></p>
+  <p><a href="#t4">4. Дан массив объектов, вернуть строку из свойств value</a></p>
+  <p><a href="#t5">5. Объект со свойствами, зеркальными ключу</a></p>
 
 </article>
 
@@ -19,10 +22,10 @@
 </article>
 
 
-<!-- Тема 1. Объединить два объекта -->
+<!-- 1. Объединить два объекта -->
 <article class="article">
-  <div class="anchor" id="t-1"></div>
-  <h3>Тема 1. Объединить два объекта</h3>
+  <div class="anchor" id="t1"></div>
+  <h3>1. Объединить два объекта</h3>
 
   <p>Нужно объединить два объекта. При этом исходные объекты изменяться не будут. На выходе будем получать новый с объединенными свойствами. Рассмотрим три способа - spread оператор, Object.assign(), конструкцию for in.</p>
 <pre>const a = {
@@ -65,10 +68,10 @@ for (let prop in b) {
 </article>
 
 
-<!-- Тема 2. Дан массив двух объектов, вернуть объект со свойствами из этих объектов -->
+<!-- 2. Дан массив двух объектов, вернуть объект со свойствами из этих объектов -->
 <article class="article">
-  <div class="anchor" id="t-2"></div>
-  <h3>Тема 2. Дан массив двух объектов, вернуть объект со свойствами из этих объектов</h3>
+  <div class="anchor" id="t2"></div>
+  <h3>2. Дан массив двух объектов, вернуть объект со свойствами из этих объектов</h3>
 
   <p>Написать функцию, которая на вход получает массив объектов</p>
 <pre>let arr = [
@@ -90,5 +93,135 @@ for (let prop in b) {
 }</pre>
   </details>
 </article>
+
+
+<!-- 3. Дан массив двух объектов, вернуть объект со свойствами из этих объектов -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>3. Реализовать свой класс Set</h3>
+
+  <p>Написать свою реализацию класса Set. Если в экземпляр объекта класса Set передать массив, то он оставит у себя только уникальные значения. Реализовать методы add() добавить значение, has() проверить есть ли значение, delete() удалить значение</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>class Set {
+  constructor(items) {
+    this.elems = {};
+    items.forEach(item => this.add(item));
+  }
+
+  add(item) {
+    if (!this.elems[item]) {
+      this.elems[item] = true;
+    }
+  }
+
+  has(item) {
+    if (item in this.elems) {
+      return true;
+    }
+    return false;
+  }
+
+  delete(item) {
+    if (item in this.elems) {
+      delete this.elems[item];
+    }
+  }
+}</pre>
+  </details>
+</article>
+
+
+<!-- 4. Дан массив объектов, вернуть строку из свойств value -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>4. Дан массив объектов, вернуть строку из свойств value</h3>
+
+  <p>Написать функцию, которая принимает массив объектов и возвращает результат следующих условий.</p> 
+  <ul>
+    <li>Результат есть строка из сконкатенированных value, расположенных в обратном порядке букв</li>
+    <li>Результат собирается только из непросроченных записей и конкатенируется в порядке возрастания order</li>
+    <li>Результат не содержит одинаковых букв</li>
+  </ul>
+
+  <h4>Пример</h4>
+<pre>const input =[
+  { value: 'abcd', order: 4, expired: false },
+  { value: 'qwer', order: 2, expired: true },
+  { value: 'xyz1', order: 1, expired: false },
+  { value: 'abx2', order: 3, expired: false },
+];</pre>
+  <code>Output: '1zyx2badc'</code>
+
+  <details>
+    <summary>Решение</summary>
+    <ol>
+      <li>Создадим переменную для результата и положим в нее пустой массив
+        <code>const result = [];</code>
+      </li>
+      <li>Отфильтруем в массиве input просроченные записи по полю expired
+        <code>input.filter(elem => elem.expired === false)</code>
+      </li>
+      <li>Отсортируем в массиве input объекты по полю order
+        <code>.toSorted((a, b) => a.order - b.order)</code>
+      </li>
+      <li>Для каждого элемента массива разобьем на символы и перевернем значение value
+        <code>let arr = next.value.split('').reverse();</code>
+      </li>
+      <li>Каждый полученный символ проверим есть ли он в результате и если нет то добавим
+        <code>if (!result.includes(el)) result.push(el);</code>
+      </li>
+    </ol>
+<pre>function getValue(input) {
+  let result = [];
+  
+  input
+      .filter(elem => elem.expired === false)
+      .toSorted((a, b) => a.order - b.order)
+      .forEach(next => {
+        let arr = next.value.split('').reverse();
+        arr.forEach(el => {
+          if (!result.includes(el)) {
+            result.push(el);
+          }
+        })
+      })
+
+  return result.join('');
+}</pre>
+  </details>
+</article>
+
+
+<!-- 5. Объект со свойствами, зеркальными ключу -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>5. Объект со свойствами, зеркальными ключу</h3>
+
+  <p>Дан объект со свойствами без значений</p>
+<pre>abc: undefined
+arara: undefined
+xyz: undefined</pre>
+
+  <p>Верните новый объект, у которого есть свойства с его зеркальными ключами</p>
+<pre>abc: 'cba'
+arara: 'arara'
+xyz: 'zyx'</pre>
+  
+  <details>
+    <summary>Ответ</summary>
+<pre>function mirror(obj) {
+  const result = {};
+
+  for (let key in obj) {
+    result[key] = key.split('').reverse().join('');
+  }
+
+  return result;
+}</pre>
+  </details>
+</article>
+
 
 

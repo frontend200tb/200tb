@@ -10,11 +10,11 @@
 <div class="article article__contents">
 
   <div>
-    <p><a href="#important">!important</a></p>
-    <br>
     <p><a href="#box">Блочная модель</a></p>
     <p><a href="#css-display">display</a></p>
     <p><a href="#css-box-sizing">box-sizing</a></p>
+    <p><a href="#css-margin">margin</a></p>
+    <p><a href="#css-padding">padding</a></p>
     <p><a href="#css-width">width</a></p>
     <p><a href="#css-max-width">max-width</a></p>
     <p><a href="#css-min-width">min-width</a></p>
@@ -23,9 +23,6 @@
     <p><a href="#css-min-height">min-height</a></p>
     <p><a href="#css-border">border</a></p>
     <p><a href="#css-border-radius">border-radius</a></p>
-    <p><a href="#css-padding">padding</a></p>
-    <p><a href="#css-margin">margin</a></p>
-    <br>
   </div>
 
   <div>
@@ -66,19 +63,28 @@
     <p><a href="#css-font-variant-numeric">font-variant-numeric</a></p>
     <p><a href="#css-font-variant-position">font-variant-position</a></p>
   </div>
+  
+  <div>
+    <p><a href="#property-transition">Переходы</a></p>
+    <p><a href="#css-transition">transition</a></p>
+    <p><a href="#css-transition-delay">transition-delay</a></p>
+    <p><a href="#css-transition-duration">transition-duration</a></p>
+    <p><a href="#css-transition-property">transition-property</a></p>
+    <p><a href="#css-transition-timing-function">transition-timing-function</a></p>
+  </div>
 
   <div>
     <p><a href="#property-animation">Анимация</a></p>
     <p><a href="#css-keyframes">@keyframes</a></p>
     <p><a href="#css-animation">animation</a></p>
+    <p><a href="#css-animation-name">animation-name</a></p>
+    <p><a href="#css-animation-duration">animation-duration</a></p>
+    <p><a href="#css-animation-tf">animation-timing-function</a></p>
     <p><a href="#css-animation-delay">animation-delay</a></p>
     <p><a href="#css-animation-direction">animation-direction</a></p>
-    <p><a href="#css-animation-duration">animation-duration</a></p>
     <p><a href="#css-animation-fill-mode">animation-fill-mode</a></p>
     <p><a href="#css-font-animation-iteration-count">animation-iteration-count</a></p>
-    <p><a href="#css-animation-name">animation-name</a></p>
     <p><a href="#css-animation-play-state">animation-play-state</a></p>
-    <p><a href="#css-animation-timing-function">animation-timing-function</a></p>
   </div>
 
   <div>
@@ -89,11 +95,6 @@
     <p><a href="#css-transform">transform</a></p>
     <p><a href="#css-transform-origin">transform-origin</a></p>
     <p><a href="#css-transform-style">transform-style</a></p>
-    <p><a href="#css-transition">transition</a></p>
-    <p><a href="#css-transition-delay">transition-delay</a></p>
-    <p><a href="#css-transition-duration">transition-duration</a></p>
-    <p><a href="#css-transition-property">transition-property</a></p>
-    <p><a href="#css-transition-timing-function">transition-timing-function</a></p>
   </div>
 
   <div>
@@ -112,14 +113,15 @@
     <p><a href="#css-order">order</a></p>
   </div>
 
+  <div>
+    <p><a href="#property-position">Позиционирование</a></p>
+    <p><a href="#css-position">position</a></p>
+    <hr>
+    <p><a href="#property-overflow">Переполнение</a></p>
+    <p><a href="#css-overflow">overflow</a></p>
+  </div>
+
 </div>
-
-
-<!-- !important -->
-<article class="article">
-  <div class="anchor" id="important"></div>
-  <h2>!important</h2>
-</article>
 
 
 <!-- Блочная модель -->
@@ -131,6 +133,8 @@
   <ol>
     <li><a href="#css-display">display</a></li>
     <li><a href="#css-box-sizing">box-sizing</a></li>
+    <li><a href="#css-margin">margin</a></li>
+    <li><a href="#css-padding">padding</a></li>
     <li><a href="#css-width">width</a></li>
     <li><a href="#css-max-width">max-width</a></li>
     <li><a href="#css-min-width">min-width</a></li>
@@ -139,8 +143,6 @@
     <li><a href="#css-min-height">min-height</a></li>
     <li><a href="#css-border">border</a></li>
     <li><a href="#css-border-radius">border-radius</a></li>
-    <li><a href="#css-padding">padding</a></li>
-    <li><a href="#css-margin">margin</a></li>
   </ol>
 </article>
 
@@ -206,6 +208,78 @@
 </article>
 
 
+<!-- margin -->
+<article class="article">
+  <div class="anchor" id="css-margin"></div>
+  <h2>margin</h2>
+
+  <p>Группа свойств <strong>margin</strong> состоит из 5 свойств</p>
+
+  <ol>
+    <li><h4>margin</h4></li>
+    <li><h4>margin-top</h4></li>
+    <li><h4>margin-right</h4></li>
+    <li><h4>margin-bottom</h4></li>
+    <li><h4>margin-left</h4></li>
+  </ol>
+
+  <p>По-умолчанию некоторые элементы имеют внешний отступ, но не все. Чтобы его задать или убрать надо использовать свойство margin.</p>
+  <p>margin это сокращенное свойство для внешних отступов всех четырех сторон</p>
+  <code>margin: 25px;</code>
+
+  <p>margin сверху и снизу 10px, справа и слева 20px</p>
+  <code>margin: 10px 20px;</code>
+
+  <p>margin сверху 10px, справа и слева 20px, снизу 30px</p>
+  <code>margin: 10px 20px 30px;</code>
+
+  <p>margin разный для четырех сторон по часовой стрелке, начиная с верхней стороны</p>
+  <code>margin: 10px 20px 30px 40px;</code>
+
+  <p>margin для каждой стороны можно задать отдельным свойством</p>
+  <code>margin-top: 10px;</code>
+  <code>margin-right: 20px;</code>
+  <code>margin-bottom: 30px;</code>
+  <code>margin-left: 40px;</code>
+</article>
+
+
+<!-- padding -->
+<article class="article">
+  <div class="anchor" id="css-padding"></div>
+  <h2>padding</h2>
+
+  <p>Группа свойств <strong>padding</strong> состоит из 5 свойств</p>
+
+  <ol>
+    <li><h4>padding</h4></li>
+    <li><h4>padding-top</h4></li>
+    <li><h4>padding-right</h4></li>
+    <li><h4>padding-bottom</h4></li>
+    <li><h4>padding-left</h4></li>
+  </ol>
+
+  <p>По-умолчанию у элемента нет внутреннего отступа. Чтобы его задать надо использовать свойство padding.</p>
+  <p>padding это сокращенное свойство для внутренних отступов всех четырех сторон</p>
+  <code>padding: 25px;</code>
+
+  <p>padding сверху и снизу 10px, справа и слева 20px</p>
+  <code>padding: 10px 20px;</code>
+
+  <p>padding сверху 10px, справа и слева 20px, снизу 30px</p>
+  <code>padding: 10px 20px 30px;</code>
+
+  <p>padding разный для четырех сторон по часовой стрелке, начиная с верхней стороны</p>
+  <code>padding: 10px 20px 30px 40px;</code>
+
+  <p>padding для каждой стороны можно задать отдельным свойством</p>
+  <code>padding-top: 10px;</code>
+  <code>padding-right: 20px;</code>
+  <code>padding-bottom: 30px;</code>
+  <code>padding-left: 40px;</code>
+</article>
+
+
 <!-- width -->
 <article class="article">
   <div class="anchor" id="css-width"></div>
@@ -231,29 +305,49 @@
   <div class="anchor" id="css-border"></div>
   <h2>border</h2>
 
-  <p>Группа свойств <strong>border</strong> состоит из 20 свойств</p>
+  <p>Группа свойств <strong>border</strong> состоит из 20 свойств. Это 5 свойств, которые являются сокращениями для 3 свойств каждое.</p>
 
   <ol>
-    <li><h4>border</h4></li>
-    <li><h4>border-width</h4></li>
-    <li><h4>border-style</h4></li>
-    <li><h4>border-color</h4></li>
-    <li><h4>border-top</h4></li>
-    <li><h4>border-top-width</h4></li>
-    <li><h4>border-top-style</h4></li>
-    <li><h4>border-top-color</h4></li>
-    <li><h4>border-right</h4></li>
-    <li><h4>border-right-width</h4></li>
-    <li><h4>border-right-style</h4></li>
-    <li><h4>border-right-color</h4></li>
-    <li><h4>border-bottom</h4></li>
-    <li><h4>border-bottom-width</h4></li>
-    <li><h4>border-bottom-style</h4></li>
-    <li><h4>border-bottom-color</h4></li>
-    <li><h4>border-left</h4></li>
-    <li><h4>border-left-width</h4></li>
-    <li><h4>border-left-style</h4></li>
-    <li><h4>border-left-color</h4></li>
+    <li>
+      <h4>border</h4>
+      <ol>
+        <li><h4>border-width</h4></li>
+        <li><h4>border-style</h4></li>
+        <li><h4>border-color</h4></li>
+      </ol>
+    </li>
+    <li>
+      <h4>border-top</h4>
+      <ol>
+        <li><h4>border-top-width</h4></li>
+        <li><h4>border-top-style</h4></li>
+        <li><h4>border-top-color</h4></li>
+      </ol>
+    </li>
+    <li>
+      <h4>border-right</h4>
+      <ol>
+        <li><h4>border-right-width</h4></li>
+        <li><h4>border-right-style</h4></li>
+        <li><h4>border-right-color</h4></li>
+      </ol>
+    </li>
+    <li>
+      <h4>border-bottom</h4>
+      <ol>
+        <li><h4>border-bottom-width</h4></li>
+        <li><h4>border-bottom-style</h4></li>
+        <li><h4>border-bottom-color</h4></li>
+      </ol>
+    </li>
+    <li>
+      <h4>border-left</h4>
+      <ol>
+        <li><h4>border-left-width</h4></li>
+        <li><h4>border-left-style</h4></li>
+        <li><h4>border-left-color</h4></li>
+      </ol>
+    </li>
   </ol>
 
   <p>По-умолчанию у элемента нет границы. Чтобы задать границу надо использовать свойство <strong>border</strong>. Зададим границу толщиной 2px, сплошной линией, черного цвета</p>
@@ -315,82 +409,10 @@
 </article>
 
 
-<!-- padding -->
-<article class="article">
-  <div class="anchor" id="css-padding"></div>
-  <h2>padding</h2>
-
-  <p>Группа свойств <strong>padding</strong> состоит из 5 свойств</p>
-
-  <ol>
-    <li><h4>padding</h4></li>
-    <li><h4>padding-top</h4></li>
-    <li><h4>padding-right</h4></li>
-    <li><h4>padding-bottom</h4></li>
-    <li><h4>padding-left</h4></li>
-  </ol>
-
-  <p>По-умолчанию у элемента нет внутреннего отступа. Чтобы его задать надо использовать свойство padding.</p>
-  <p>padding это сокращенное свойство для внутренних отступов всех четырех сторон</p>
-  <code>padding: 25px;</code>
-
-  <p>padding сверху и снизу 10px, справа и слева 20px</p>
-  <code>padding: 10px 20px;</code>
-
-  <p>padding сверху 10px, справа и слева 20px, снизу 30px</p>
-  <code>padding: 10px 20px 30px;</code>
-
-  <p>padding разный для четырех сторон по часовой стрелке, начиная с верхней стороны</p>
-  <code>padding: 10px 20px 30px 40px;</code>
-
-  <p>padding для каждой стороны можно задать отдельным свойством</p>
-  <code>padding-top: 10px;</code>
-  <code>padding-right: 20px;</code>
-  <code>padding-bottom: 30px;</code>
-  <code>padding-left: 40px;</code>
-</article>
-
-
-<!-- margin -->
-<article class="article">
-  <div class="anchor" id="css-margin"></div>
-  <h2>margin</h2>
-
-  <p>Группа свойств <strong>margin</strong> состоит из 5 свойств</p>
-
-  <ol>
-    <li><h4>margin</h4></li>
-    <li><h4>margin-top</h4></li>
-    <li><h4>margin-right</h4></li>
-    <li><h4>margin-bottom</h4></li>
-    <li><h4>margin-left</h4></li>
-  </ol>
-
-  <p>По-умолчанию некоторые элементы имеют внешний отступ, но не все. Чтобы его задать или убрать надо использовать свойство margin.</p>
-  <p>margin это сокращенное свойство для внешних отступов всех четырех сторон</p>
-  <code>margin: 25px;</code>
-
-  <p>margin сверху и снизу 10px, справа и слева 20px</p>
-  <code>margin: 10px 20px;</code>
-
-  <p>margin сверху 10px, справа и слева 20px, снизу 30px</p>
-  <code>margin: 10px 20px 30px;</code>
-
-  <p>margin разный для четырех сторон по часовой стрелке, начиная с верхней стороны</p>
-  <code>margin: 10px 20px 30px 40px;</code>
-
-  <p>margin для каждой стороны можно задать отдельным свойством</p>
-  <code>margin-top: 10px;</code>
-  <code>margin-right: 20px;</code>
-  <code>margin-bottom: 30px;</code>
-  <code>margin-left: 40px;</code>
-</article>
-
-
 <!-- Фон -->
 <article class="article">
   <div class="anchor" id="background"></div>
-  <h2>Фон</h2>
+  <h2>Background (Фон)</h2>
 
   <p>К фону относится 10 свойств.</p>
   <ol>
@@ -414,6 +436,7 @@
 <article class="article">
   <div class="anchor" id="css-background"></div>
   <h3>background</h3>
+
   <p><strong>background</strong> это сокращенное свойство</p>
 </article>
 
@@ -801,31 +824,168 @@
   <p>Подстрочные и надстрочные формы</p>
 </article>
 
+
+<article class="article">
+  <div class="anchor" id="property-transition"></div>
+  <h2>Transition (Переходы)</h2>
+
+  <p>К переходам относятся 5 свойств.</p>
+  <ol>
+    <li>
+      <a href="#css-font-transition">transition</a>
+      <ol>
+        <li><a href="#css-transition-property">transition-property</a></li>
+        <li><a href="#css-transition-duration">transition-duration</a></li>
+        <li><a href="#css-transition-timing-function">transition-timing-function</a></li>
+        <li><a href="#css-transition-delay">transition-delay</a></li>
+      </ol>
+    </li>
+  </ol>
+  <p>Позволяет делать плавные переходы между двумя значениями какого-либо CSS свойства</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition"></div>
+  <h3>transition</h3>
+
+  <p>Свойство transition это сокращение для 4 свойств</p>
+  <ol>
+    <li><a href="#css-transition-property">transition-property</a></li>
+    <li><a href="#css-transition-duration">transition-duration</a></li>
+    <li><a href="#css-transition-timing-function">transition-timing-function</a></li>
+    <li><a href="#css-transition-delay">transition-delay</a></li>
+  </ol>
+
+  <p>Запишем сокращенное свойство четырех свойств</p>
+  <code>transition: all 0.8s linear 2s;</code>
+  <ul>
+    <li>all - для всех свойств</li>
+    <li>0.8s - длительность перехода 0.8 секунд</li>
+    <li>linear - линейная функция</li>
+    <li>2s - задержка 2 секунды перед переходом</li>
+  </ul>
+
+  <p>Запишем сокращенное свойство трех свойств</p>
+  <code>transition: all 0.8s linear;</code>
+  <ul>
+    <li>all - для всех свойств</li>
+    <li>0.8s - длительность перехода 0.8 секунд</li>
+    <li>linear - линейная функция</li>
+    <li>по-умолчанию задержка перед переходом 0 секунд</li>
+  </ul>
+
+  <p>Запишем сокращенное свойство двух свойств</p>
+  <code>transition: all 0.8s;</code>
+  <ul>
+    <li>all - для всех свойств</li>
+    <li>0.8s - длительность перехода 0.8 секунд</li>
+    <li>по-умолчанию ease функция</li>
+    <li>по-умолчанию задержка перед переходом 0 секунд</li>
+  </ul>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-property"></div>
+  <h3>transition-property</h3>
+  <p>Определяет CSS свойство, для которого будет применён эффект перехода. Это могут быть такие свойства как background-color, color или width</p>
+  <code>transition-property: background-color;</code>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-duration"></div>
+  <h3>transition-duration</h3>
+  <p>Устанавливает продолжительность анимации перехода</p>
+  <code>transition-duration: 0.8s;</code>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-timing-function"></div>
+  <h3>transition-timing-function</h3>
+  <p>Определяет кривую скорости для анимации перехода</p>
+  <code>transition-timing-function: linear;</code>
+  <p>Свойство transition-timing-function может принимать значения:</p>
+  <ul>
+    <li>
+      <h4>linear</h4>
+      <p>Одинаковая скорость от начала до конца</p>
+    </li>
+    <li>
+      <h4>ease (по умолчанию)</h4>
+      <p>Увеличение скорости к середине и замедление к концу</p>
+    </li>
+    <li>
+      <h4>ease-in</h4>
+      <p>Начинается медленно, ускоряется к концу</p>
+    </li>
+    <li>
+      <h4>ease-out</h4>
+      <p>Противоположность ease-in. Начинается быстро, замедляется к концу</p>
+    </li>
+    <li>
+      <h4>ease-in-out</h4>
+      <p>Начинается медленно с ускорением посередине и замедлением к концу</p>
+    </li>
+  </ul>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-transition-delay"></div>
+  <h3>transition-delay</h3>
+  <p>По умолчанию переход начинается сразу. Но можно добавить задержку до начала перехода.</p>
+  <code>transition-delay: 2s;</code>
+</article>
+
 <article class="article">
   <div class="anchor" id="property-animation"></div>
   <h2>Animation (Анимация) (10)</h2>
   <p><a href="#css-keyframes">@keyframes</a>
   <a href="#css-animation">animation</a>
+  <a href="#css-animation-name">animation-name</a>
+  <a href="#css-animation-duration">animation-duration</a>
+  <a href="#css-animation-tf">animation-timing-function</a></p>
   <a href="#css-animation-delay">animation-delay</a>
   <a href="#css-font-animation-direction">animation-direction</a>
-  <a href="#css-animation-duration">animation-duration</a>
   <a href="#css-animation-fill-mode">animation-fill-mode</a>
   <a href="#css-font-animation-iteration-count">animation-iteration-count</a>
-  <a href="#css-animation-name">animation-name</a>
   <a href="#css-animation-play-state">animation-play-state</a>
-  <a href="#css-animation-timing-function">animation-timing-function</a></p>
 </article>
 
 <article class="article">
   <div class="anchor" id="css-keyframes"></div>
   <h3>@keyframes</h3>
   <p>Устанавливает ключевые кадры при анимации элемента.</p>
+  <pre>@keyframes move {
+    from {
+      translate: 0px 0px;
+    }
+    to {
+      translate: 200px 200px;
+    }
+  }</pre>
 </article>
 
 <article class="article">
   <div class="anchor" id="css-animation"></div>
   <h3>animation</h3>
   <p>Краткая запись свойств анимации. Позволяет установить все значения свойств анимации в одном объявлении.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-name"></div>
+  <h3>animation-name</h3>
+  <p>Определяет список имен анимаций, которые должны быть применены к выбранному элементу</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-duration"></div>
+  <h3>animation-duration</h3>
+  <p>Устанавливает время (в секундах или миллисекундах), одного цикла анимации</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-animation-tf"></div>
+  <h3>animation-timing-function</h3>
+  <p>Определяет кривую скорости для анимации</p>
 </article>
 
 <article class="article">
@@ -838,12 +998,6 @@
   <div class="anchor" id="css-animation-direction"></div>
   <h3>animation-direction</h3>
   <p>Устанавливает направление движения анимации</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-animation-duration"></div>
-  <h3>animation-duration</h3>
-  <p>Устанавливает время (в секундах или миллисекундах), одного цикла анимации</p>
 </article>
 
 <article class="article">
@@ -865,22 +1019,11 @@
 </article>
 
 <article class="article">
-  <div class="anchor" id="css-animation-name"></div>
-  <h3>animation-name</h3>
-  <p>Определяет список имен анимаций, которые должны быть применены к выбранному элементу</p>
-</article>
-
-<article class="article">
   <div class="anchor" id="css-animation-play-state"></div>
   <h3>animation-play-state</h3>
   <p>Определяет, проигрывать анимацию или поставить её на паузу</p>
 </article>
 
-<article class="article">
-  <div class="anchor" id="css-animation-timing-function"></div>
-  <h3>animation-timing-function</h3>
-  <p>Определяет кривую скорости для анимации</p>
-</article>
 
 <article class="article">
   <div class="anchor" id="property-transform"></div>
@@ -899,6 +1042,7 @@
     <a href="#css-transition-timing-function">transition-timing-function</a>
   </p>
 </article>
+
 
 <article class="article">
   <div class="anchor" id="css-backface-visibility"></div>
@@ -942,89 +1086,221 @@
   <p>Определяет, как дочерние элементы будут отображаться в 3D-пространстве</p>
 </article>
 
-<article class="article">
-  <div class="anchor" id="css-transition"></div>
-  <h3>transition</h3>
-  <p>Позволяет делать плавные переходы между двумя значениями какого-либо CSS свойства</p>
-</article>
 
+<!-- Flexbox -->
 <article class="article">
-  <div class="anchor" id="css-transition-delay"></div>
-  <h3>transition-delay</h3>
-  <p>Устанавливает продолжительность задержки перед началом анимации перехода</p>
-</article>
+  <div class="anchor" id="property-flex"></div>
+  <h2>Flexbox (12)</h2>
 
-<article class="article">
-  <div class="anchor" id="css-transition-duration"></div>
-  <h3>transition-duration</h3>
-  <p>Устанавливает продолжительность анимации перехода</p>
-</article>
+  <p>Flexbox позволяет располагать элементы в рядах или колонках.</p>
+  <p>Flexbox не позволяет располагать элементы одновременно в рядах и колонках.</p>
+  <p>С помощью Flexbox можно очень легко расположить элементы в контейнере в горизонтальном или вертикальном направлении</p>
+  <p>Flex свойства применяются либо к родительскому элементу, который называется Flex контейнером, либо к прямым дочерним элементам, которые называются Flex элементы.</p>
+  <p>Сойства родительского элемента упорядочивают дочерние элементы как группу в flexbox.</p>
+  <p>Свойства дочерних элементов управляют размерами дочерних элементов, их ростом и уменьшением.</p>
 
-<article class="article">
-  <div class="anchor" id="css-transition-property"></div>
-  <h3>transition-property</h3>
-  <p>Определяет CSS свойство, для которого будет применён эффект перехода</p>
-</article>
+  <h4>Свойства Flex контейнера</h4>
+  <ol>
+    <li>display</li>
+    <li><a href="#css-flex-direction">flex-direction</a></li>
+    <li><a href="#css-justify-content">justify-content</a></li>
+    <li><a href="#css-align-items">align-items</a></li>
+    <li><a href="#css-flex-wrap">flex-wrap</a></li>
+    <li><a href="#css-gap">gap</a></li>
+  </ol>
 
-<article class="article">
-  <div class="anchor" id="css-transition-timing-function"></div>
-  <h3>transition-timing-function</h3>
-  <p>Определяет кривую скорости для анимации перехода</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="property-transform"></div>
-  <h2>Flex (12)</h2>
+  <h4>Свойства Flex элементов</h4>
+  <ol>
+    <li><a href="#css-align-self">align-self</a></li>
+    <li><a href="#css-flex-grow">flex-grow</a></li>
+    <li><a href="#css-flex-shrink">flex-shrink</a></li>
+    <li><a href="#css-flex-basis">flex-basis</a></li>
+  </ol>
   <p>
-  <a href="#css-align-content">align-content</a>
-  <a href="#css-align-items">align-items</a>
-  <a href="#css-align-self">align-self</a>
-  <a href="#css-flex">flex</a>
-  <a href="#css-flex-basis">flex-basis</a>
-  <a href="#css-flex-direction">flex-direction</a>
-  <a href="#css-flex-flow">flex-flow</a>
-  <a href="#css-flex-grow">flex-grow</a>
-  <a href="#css-flex-shrink">flex-shrink</a>
-  <a href="#css-flex-wrap">flex-wrap</a>
-  <a href="#css-justify-content">justify-content</a>
+  <a href="#css-align-content">align-content</a>  
+  <a href="#css-flex">flex</a>  
+  <a href="#css-flex-flow">flex-flow</a>  
   <a href="#css-order">order</a>
-</p>
+  </p>
+
+  <h4>Как создать Flex контейнер</h4>
+  <p>Зададим свойство display элементу который станет flex контейнером</p>
+  <code>display: flex;</code>
+
+  <h4>Как создать Flex элементы</h4>
+  <p>Все вложенные в контейнер элементы первого уровня становятся flex элементами.</p>
+</article>
+
+
+<!-- flex-direction -->
+<article class="article">
+  <div class="anchor" id="css-flex-direction"></div>
+  <h3>flex-direction</h3>
+  <p>Определяет направление главной оси во флекс-контейнере</p>
+  <p>По умолчанию flex элементы располагаются горизонтально в ряд в начале контейнера.</p>
+
+  <h4>Главная ось (main axis)</h4>
+  <p>Главная ось это направление, в котором располагаются flex элементы. У главной оси есть начало (main-start) и конец (main-end)</p>
+
+  <h4>Поперечная ось (cross axis)</h4>
+  <p>Поперечная ось проходит перпендикулярно главной оси. У поперечной оси есть начало (cross-start) и конец (cross-end)</p>
+
+  <p>Свойство flex-direction может принимать одно из 2 значений</p>
+  <ol>
+    <li>
+      <h4>flex-direction: row; (по-умолчанию)</h4>
+    </li>
+    <li>
+      <h4>flex-direction: column;</h4>
+    </li>
+  </ol>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-justify-content"></div>
+  <h3>justify-content</h3>
+  <p>Выравнивает флекс-элементы по главной оси</p>
+  <p>Свойство justify-content может принимать одно из 5 значений</p>
+  <ol>
+    <li>
+      <h4>justify-content: flex-start; (по-умолчанию)</h4>
+      <p>Выравнивает flex элементы от начала главной оси</p>
+    </li>
+    <li>
+      <h4>justify-content: flex-end;</h4>
+      <p>Выравнивает flex элементы от концу главной оси</p>
+    </li>
+    <li>
+      <h4>justify-content: flex-center;</h4>
+      <p>Выравнивает flex элементы по центру главной оси</p>
+    </li>
+    <li>
+      <h4>justify-content: space-between;</h4>
+      <p>Выравнивает flex элементы по всей ширине контейнера с равными отступами между элементами</p>      
+    </li>
+    <li>
+      <h4>justify-content: space-around;</h4>
+      <p>Одинаковые отступы между элементами и в два раза меньше отступы от начала и конца контейнера</p>            
+    </li>
+    <li>
+      <h4>justify-content: space-evenly;</h4>
+      <p>Одинаковые отступы между элементами и от начала и конца контейнера</p>            
+    </li>
+  </ol>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-align-items"></div>
+  <h3>align-items</h3>
+  <p>Выравнивает flex элементы по поперечной оси</p>
+  <p>Свойство align-items может принимать одно из 5 значений</p>
+  <ol>
+    <li>
+      <h4>align-items: stretch; (по-умолчанию)</h4>
+      <p>Элементы растягиваются по поперечной оси и занимают всю высоту flex контейнера.</p>
+    </li>
+    <li>
+      <h4>align-items: flex-start;</h4>
+      <p>Элементы выравниваются по началу поперечной оси.</p>
+    </li>
+    <li>
+      <h4>align-items: flex-end;</h4>
+      <p>Элементы выравниваются по концу поперечной оси.</p>
+    </li>
+    <li>
+      <h4>align-items: flex-center;</h4>
+      <p>Элементы выравниваются по центру поперечной оси.</p>
+    </li>
+  </ol>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-wrap"></div>
+  <h3>flex-wrap</h3>
+  <p>По-умолчанию flex элементы выходят за рамки flex контейнера, если они не помещаются в нем. Свойство flex-wrap разрешает или нет перенос в следующий ряд.</p>
+
+  <p>Свойство flex-wrap может принимать одно из 2 значений</p>
+  <ol>
+    <li>
+      <h4>flex-wrap: no-wrap; (по-умолчанию)</h4>
+    </li>
+    <li>
+      <h4>flex-wrap: wrap;</h4>
+    </li>
+  </ol>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-gap"></div>
+  <h3>gap</h3>
+  <p>Свойство gap добавляет промежуток между элементами.</p>
 </article>
 
 <article class="article">
   <div class="anchor" id="css-align-content"></div>
   <h3>align-content</h3>
   <p>Выравнивает строки флекс-элементов по вертикали внутри флекс-контейнера</p>
+  <code>gap: 10px;</code>
+  <p>Если записано одно значение, то оно применится между рядами и между элементами.</p>
+
+  <code>gap: 10px 20px;</code>
+  <p>Если записано два значения, то первое применится между рядами, а второе между элементами.</p>
 </article>
 
 <article class="article">
-  <div class="anchor" id="css-align-items"></div>
-  <h3>align-items</h3>
-  <p>Выравнивает флекс-элементы внутри контейнера по высоте</p>
+  <div class="anchor" id="css-flex-grow"></div>
+  <h3>flex-grow</h3>
+  <p>Flex элементы могут увеличиваться в ширину или высоту, если на главной оси есть дополнительное пространство.</p>
+  <p>Свойство flex-grow применяется к конкретным flex элементам и определяет, сколько дополнительного пространства они могут занимать.</p>
+  <p>Значение flex-grow это число, которое определяет коэффициент увеличения ширины флекс-элемента относительно других флекс-элементов</p>
+  <p>Flex элементы растут в ширину, если flex направление это ряд, и в высоту, если flex направление это столбец.</p>
+
+  <code>flex-grow: 0; (по-умолчанию)</code>
+  <p>Если есть свободное место, то элементы не увеличиваются в ширину.</p>
+
+  <code>flex-grow: 3;</code>
+  <p>Элемент будет расти в 3 раза быстрее, чем элементы с flex-grow: 1; при появлении свободного места.</p>
+</article>
+
+<article class="article">
+  <div class="anchor" id="css-flex-shrink"></div>
+  <h3>flex-shrink</h3>
+  <p>Flex элементы могут уменьшаться по ширине или высоте, если размер flex контейнера меньше, чам суммарный размер элементов на главной оси.</p>
+  <p>Свойство flex-shrink применяется к конкретным flex элементам и определяет, насколько каждый элемент может сжаться, чтобы вписаться в контейнер.</p>
+  <p>Значение flex-shrink это число, которое определяет коэффициент уменьшения ширины флекс-элемента относительно других флекс-элементов</p>
+  <p>Flex элементы сжимаются по ширине, если flex направление это ряд, и по высоте, если flex направление это столбец.</p>
+
+  <code>flex-shrink: 1; (по-умолчанию)</code>
+  <p>Если уменьшается контейнер, то элементы одинаково уменьшаются в ширину.</p>
+
+  <code>flex-shrink: 3;</code>
+  <p>Элемент будет сжиматься в 3 раза быстрее, чем элементы с flex-shrink: 1; если уменьшается контейнер.</p>
 </article>
 
 <article class="article">
   <div class="anchor" id="css-align-self"></div>
   <h3>align-self</h3>
   <p>Устанавливает выравнивание по высоте отдельно взятого флекс-элемента</p>
+  <p>Переопределяет свойство align-items контейнера</p>
+  <code>align-self: flex-start;</code>
+</article>
+
+
+<!-- flex-basis -->
+<article class="article">
+  <div class="anchor" id="css-flex-basis"></div>
+  <h3>flex-basis</h3>
+  <p>Начальный размер flex элемента до его увеличения и сжатия.</p>
+  <code>flex-basis: 150px;</code>
+  <p>Свойство flex-basis задает начальную ширину, если flex направление это ряд, и высоту, если flex направление это столбец.</p>
+  <p>Элементы могут становиться больше первоначального размера, занимая свободное место на главной оси, или уменьшаться, чтобы поместиться в flex контейнер.</p>
+  <p>Свойство flex-basis переопределяет свойство width или height в зависимости от направления flex-direction</p>
 </article>
 
 <article class="article">
   <div class="anchor" id="css-flex"></div>
   <h3>flex</h3>
-  <p>Универсальное свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-flex-basis"></div>
-  <h3>flex-basis</h3>
-  <p>Устанавливает базовую ширину флекс-элемента</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-flex-direction"></div>
-  <h3>flex-direction</h3>
-  <p>Определяет направление главной оси во флекс-контейнере</p>
+  <p>Универсальное свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство.</p>
 </article>
 
 <article class="article">
@@ -1034,31 +1310,39 @@
 </article>
 
 <article class="article">
-  <div class="anchor" id="css-flex-grow"></div>
-  <h3>flex-grow</h3>
-  <p>Определяет коэффициент увеличения ширины флекс-элемента относительно других флекс-элементов</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-flex-shrink"></div>
-  <h3>flex-shrink</h3>
-  <p>Определяет коэффициент уменьшения ширины флекс-элемента относительно других флекс-элементов</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-flex-wrap"></div>
-  <h3>flex-wrap</h3>
-  <p>Разрешает или нет перенос на другую строку</p>
-</article>
-
-<article class="article">
-  <div class="anchor" id="css-justify-content"></div>
-  <h3>justify-content</h3>
-  <p>Выравнивает флекс-элементы по ширине флекс-контейнера</p>
-</article>
-
-<article class="article">
   <div class="anchor" id="css-order"></div>
   <h3>order</h3>
   <p>Определяет порядок вывода флекс-элементов внутри флекс-контейнера</p>
+</article>
+
+
+<!-- Позиционирование -->
+<article class="article">
+  <div class="anchor" id="property-position"></div>
+  <h3>Позиционирование</h3>
+
+  <p>Позиционирование элемента задается свойством position</p>
+</article>
+
+
+<!-- position -->
+<article class="article">
+  <div class="anchor" id="css-position"></div>
+  <h3>position</h3>
+</article>
+
+
+<!-- Переполнение -->
+<article class="article">
+  <div class="anchor" id="property-overflow"></div>
+  <h3>Переполнение</h3>
+
+  <p>Позиционирование элемента задается свойством position</p>
+</article>
+
+
+<!-- overflow -->
+<article class="article">
+  <div class="anchor" id="css-overflow"></div>
+  <h3>overflow</h3>
 </article>

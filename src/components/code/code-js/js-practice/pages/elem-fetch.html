@@ -1,0 +1,50 @@
+<h1>Задачи на Javascript. fetch()</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#t1">Задача 1</a></p>
+  <p><a href="#t2">Задача 2</a></p>
+</article>
+
+
+<!-- Задача 1 -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Задача 1. Что будет происходить?</h3>
+
+<pre>fetch('https://speedtest.net')
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
+while (true) console.log(1);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Сначала отправится запрос на сервер. Отправка запроса методом fetch() это синхронная операция. Потом будет бесконечно выводиться console.log(1) потому что это тоже синхронная операция. Обработки результата запроса не будет, поскольку он попадает в очередь микротасков и будет ждать когда закончится синхронный код.</p>
+  </details>
+</article>
+
+
+<!-- Задача 2 -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задача 2. Что вернет вызов функции fetchData() ?</h3>
+
+<pre>const fetchData = async () => {
+  const result = await doSomething(getDelay()) 
+  return result;
+}
+fetchData();</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Функция fetchData() вернет промис. А вообще этот код не запустится. ReferenceError: doSomething is not defined</p>
+  </details>
+</article>

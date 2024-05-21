@@ -1,0 +1,164 @@
+<h1>Задачи на Javascript. Промисы</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#tema1">1. Реализовать свою функцию allSettled()</a></p>
+  Цепочка промисов
+  <ol>
+    <li><a href="#t1">Задача 1</a></li>
+    <li><a href="#t2">Задача 2</a></li>
+    <li><a href="#t3">Задача 3</a></li>
+    <li><a href="#t4">Задача 4</a></li>
+    <li><a href="#t5">Задача 5</a></li>
+  </ol>
+</article>
+
+
+<!-- 1. Реализовать свою функцию allSettled() -->
+<article class="article">
+  <div class="anchor" id="tema1"></div>
+  <h3>1. Реализовать свою функцию allSettled()</h3>
+
+  <p>Реализовать свою функцию allSettled(). Принимает на вход массив промисов. Возвращает массив объекто со свойствами status и value.</p>
+
+  <h4>Пример</h4>
+  <code>function allSettled(promises) {}</code>
+<pre>allSettled([
+  new Promise((resolve) => setTimeout(() => resolve(1), 1000)),
+  Promise.reject(2),
+  Promise.resolve(3),
+]).then(console.log)</pre>
+  <p>Ответ</p>
+<pre>[
+  { "status": "fulfilled", "value": 1 },
+  { "status": "rejected", "value": 2 },
+  { "status": "fulfilled", "value": 3 }
+]</pre>
+
+  <h4>Подсказка</h4>
+  <p>Можно использовать promiseAll(). Подумать как сделать чтобы промис не завершился ошибкой в любом случае. Нам на вход приходит массив промисов. Некоторые из них упадут, а некоторые нет. Как сделать чтобы никто не упал. Посмотрим как можно обработать упавший промис</p>
+  <code>const a = Promise.reject(1);</code>
+<pre>a
+  .then(() => console.log(1))
+  .catch(() => console.log(2))
+  .then(() => console.log(3))</pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function allSettled(promises) {
+  let resolvePromises = promises.map(
+    p => p
+          .then(res => { return { "status": "fulfilled", "value": res }})
+          .catch(rej => { return { "status": "rejected", "reason": rej }})
+  );
+  return Promise.all(resolvePromises);
+}</pre>
+  </details>
+</article>
+
+
+<!-- Задача 1 -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Задача 1</h3>
+
+<pre>Promise.resolve(13)
+  .then(result1 => {
+    console.log(result1)
+  })
+  .then(result2 => {
+    console.log(result2)
+  });</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>13, undefined</code>
+  </details>
+</article>
+
+
+<!-- Задача 2 -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задача 2</h3>
+
+<pre>Promise.resolve(1)
+  .then((x) => x + 1)
+  .then((x) => {
+    throw x;
+  })
+  .then((x) => console.log(x))
+  .catch((err) => console.log(err))
+  .then((x) => Promise.resolve(1))
+  .catch((err) => console.log(err))
+  .then((x) => console.log(x));</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>2, 1</code>
+  </details>
+</article>
+
+
+<!-- Задача 3 -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>Задача 3</h3>
+
+<pre>Promise
+  .resolve(1)
+  .resolve(2)
+  .then(console.log);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>TypeError: Promise.resolve(...).resolve is not a function</code>
+  </details>
+</article>
+
+
+<!-- Задача 4 -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>Задача 4</h3>
+
+<pre>Promise
+  .reject('a')
+  .catch(p => p + 'b')
+  .catch(p => p + 'c')
+  .then(p => p + 'd')
+  .finally(p => p + 'e')
+  .then(p => console.log(p)) // ?</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Во второй catch ничего не попадает. finally сработает уже после последнего then и принимает undefined, то что он возвращает из колбека никуда не идет, он просто отрабатывает.</p>
+    <code>abd</code>
+  </details>
+</article>
+
+
+<!-- Задача 5 -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>Задача 5</h3>
+
+<pre>Promise.reject('a') // 
+  .then(p => p + '1', p => p + '2') // 
+  .catch(p => p + 'b') // 
+  .catch(p => p + 'c') // 
+  .then(p => p + 'd1') // 
+  .then('d2') // 
+  .then(p => p + 'd3') // 
+  .finally(p => p + 'e') //
+  .then(p => console.log(p)) // ?</pre>
+
+  <details>
+    <summary>Ответ</summary>
+  <p>В задаче используется второй аргумент метода then() и проваливание промисов.</p>
+  <code>a2d1d3</code>
+  </details>
+</article>

@@ -1,0 +1,50 @@
+<h1>Задачи на Scope</h1>
+
+
+<article class="article">
+  <div id="link-to-scope" class="btn-back">назад</div>
+</article>
+
+
+<article class="article">
+
+
+  <h3>Задача 3. Что будет в консоли?</h3>
+<pre>console.log(typeof f1);
+console.log(typeof f2);
+console.log(typeof f3);
+
+function f1() {}
+var f2 = function() {}
+let f3 = function() {}</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>function
+undefined
+ReferenceError: Cannot access 'f3' before initialization</pre>
+  </details>
+
+  
+  <h3>Задача 4. Что будет в консоли?</h3>
+<pre>var o = {};
+var i = 0;
+
+(function () {
+  o.a = 'a';
+  i++;
+})();
+console.log(o, i);
+
+(function (o,i) {
+  o.b = 'b';
+  i++;
+})(o, i);
+console.log(o, i);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>{ a: 'a' } 1</code>
+    <code>{ a: 'a', b: 'b' } 1</code>
+  </details>
+</article>

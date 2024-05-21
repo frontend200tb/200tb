@@ -2135,6 +2135,32 @@ const dataBooksBase = [
     year: 2024,
     category: 'основы',
     theme: 'Программирование',
+    title: 'Чистый дизайн. Практика эмпирического проектирования ПО.',
+    author: 'Бек',
+    authorName: 'Кент',
+    pages: '176',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 166,
+    year: 2024,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Жемчужины разработки. Чему мы научились за 50 лет создания ПО.',
+    author: 'Вигерс',
+    authorName: 'Карл',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 167,
+    year: 2024,
+    category: 'основы',
+    theme: 'Программирование',
     title: 'Чистый Agile. Основы гибкости',
     author: 'Мартин',
     authorName: 'Роберт',
@@ -2144,7 +2170,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 166,
+    id: 168,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',
@@ -2157,7 +2183,20 @@ const dataBooksBase = [
   },
 
   {
-    id: 167,
+    id: 169,
+    year: 2024,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Эволюционная архитектура. Автоматизированное управление программным обеспечением.',
+    author: 'Форд',
+    authorName: 'Нил',
+    pages: '272',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 170,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',

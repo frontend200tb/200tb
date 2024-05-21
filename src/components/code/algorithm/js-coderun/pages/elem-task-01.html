@@ -16,6 +16,8 @@
   <p><a href="#task-9">9. Все символы в строке сделать маленькими</a></p>
   <p><a href="#task-10">10. Fibonacci</a></p>
   <p><a href="#task-11">11. Факториал</a></p>
+  <p><a href="#task-12">12. Повторяющиеся элементы массива</a></p>
+  <p><a href="#task-13">13. Вернуть из объекта значение по ключу x.y.z.</a></p>
 </article>
 
 
@@ -441,4 +443,98 @@ console.log(toLower(w1));</pre>
 }</pre>
   </details>
 </article>
+
+
+<!-- 12. Повторяющиеся элементы массива -->
+<article class="article">
+  <div class="anchor" id="task-12"></div>
+  <h2>12. Повторяющиеся элементы массива</h2>
+
+  <p>Дан массив чисел. Нужно найти числа, которые повторяются</p>
+
+  <h4>Пример</h4>
+  <code>[1, 2, 3, 4, 2, 3, 2] // [2, 3]</code>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>function getDouble(nums) {
+  const dict = {};
+  const result = [];
+
+  nums.forEach(num => {
+    if (!dict[num]) {
+      dict[num] = 0;
+    }
+    dict[num] += 1;
+  });
+
+  for (key in dict) {
+    if (dict[key] > 1) {
+      result.push(+key);
+    }
+  }
+
+  return result;
+}</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <ol>
+      <li>Функция возвращает массив, заведем переменную для результата и положим в нее пустой массив
+        <code>const result = [];</code>
+      </li>
+      <li>Создадим пустой словарь
+        <code>const dict = {};</code>
+      </li>
+      <li>В цикле пройдем по всем числам в массиве nums. В словаре dict будем создавать ключи с этими числами, а как значение - сколько раз они встречаются</li>
+      <li>В цикле пройдем по всем ключам словаря dict и если значение больше 1, то добавим эти ключи в массив result</li>
+      <li>Поскольку ключи в объекте это строки, то перед добавлением надо преобразовать строку в число</li>
+    </ol>
+  </details>
+</article>
+
+
+<!-- 13. Вернуть из объекта значение по ключу x.y.z. -->
+<article class="article">
+  <div class="anchor" id="task-13"></div>
+  <h3>13. Вернуть из объекта значение по ключу x.y.z.</h3>
+
+  <p>Напишите функцию get, принимающую последовательность ключей и возвращающее значение в объекте произвольной вложенности</p>
+
+  <h4>Пример 1</h4>
+  <code>input: 'red.big.apple', { red: { big: { apple: 'something' } } }</code>
+  <code>output: something</code>
+
+  <h4>Пример 2</h4>
+  <code>input: 'red.fast.fancy.car', { red: { slow: 'something' } }</code>
+  <code>output: undefined</code>
+
+  <details>
+    <summary>Решение</summary>
+    <ol>
+      <li>Создадим массив keys и запишев в него вложенный селектор
+        <code>const keys = key.split('.');</code>
+      </li>
+      <li>Создадим ссылку на текущий объект
+        <code>let cur = obj;</code>
+      </li>
+      <li>Циклом пройдем по массиву keys и для каждого ключа будем проверять значение во входном объекте. Если значние есть, то будем обновлять ссылку на текущий объект. Если нет вернем undefined</li>
+    </ol>
+<pre>function get(key, obj) {
+  const keys = key.split('.');
+  let cur = obj;
+
+  for (i = 0; i &lt; keys.length; i++) {
+    if (cur[keys[i]]) {
+      cur = cur[keys[i]];
+    } else {
+      return undefined;
+    }
+  }
+  return cur;
+}</pre>
+  </details>
+</article>
+
 

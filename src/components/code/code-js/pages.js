@@ -6,6 +6,7 @@ import showJsCorejs from './js-corejs/js-corejs';
 import showJsWebApi from './js-webapi/js-webapi';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
+import showJsInterview from './js-interview/js-interview';
 
 export default function pageLink() {
   const currentContent = document.querySelector('#js');
@@ -52,6 +53,15 @@ export default function pageLink() {
       e.preventDefault();
       currentContent.innerHTML = '<js-practice></js-practice>';
       showJsPractice();
+    });
+  }
+
+  const navInterview = document.getElementById('js-6');
+  if (navInterview) {
+    navInterview.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<js-interview></js-interview>';
+      showJsInterview();
     });
   }
 

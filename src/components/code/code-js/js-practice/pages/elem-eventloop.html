@@ -1,0 +1,342 @@
+<article class="article">
+  <h1>Тема 4. Цикл событий. Event loop. Promise. setTimeout</h1>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#t1">Задача 1</a></p>
+  <p><a href="#t2">Задача 2</a></p>
+  <p><a href="#t3">Задача 3</a></p>
+  <p><a href="#t4">Задача 4</a></p>
+  <p><a href="#t5">Задача 5</a></p>
+  <p><a href="#t6">Задача 6</a></p>
+  <p><a href="#t7">Задача 7</a></p>
+  <p><a href="#t8">Задача 8</a></p>
+  <p><a href="#t9">Задача 9</a></p>
+  <p><a href="#t10">Задача 10</a></p>
+</article>
+
+
+<!-- Задача 1 -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Задача 1</h3>
+  
+<pre>setTimeout(function() {
+  console.log('macrotask');
+}, 0);
+
+Promise.resolve()
+  .then(() => {
+    console.log('microtask');
+  })
+  .then(() => {
+    console.log('microtask');
+  });
+
+console.log('1');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>1 microtask microtask macrotask</code>
+  </details>
+</article>
+
+
+<!-- Задача 2 -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задача 2</h3>
+
+<pre>console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
+
+Promise.resolve().then(function() {
+  console.log('promise1');
+}).then(function() {
+  console.log('promise2');
+});
+
+console.log('script end');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>script start
+script end
+promise1
+promise2
+setTimeout</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3 -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>Задача 3</h3>
+  
+<pre>console.log('apple');
+
+setTimeout(() => console.log('pear'), 0);
+
+Promise.resolve('melon').then((res) => console.log(res));
+
+new Promise((resolve, reject) => {
+  console.log('orange');
+  resolve('pineapple');
+}).then((res) => console.log(res));
+
+console.log('lime');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>apple, orange, lime, melon, pineapple, pear</code>
+  </details>
+</article>
+
+
+<!-- Задача 4 -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>Задача 4</h3>
+  
+<pre>console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
+
+Promise.resolve().then(function() {
+  console.log('promise1');
+}).then(function() {
+  console.log('promise2');
+});
+
+new Promise((resolve) => {
+  console.log('promise3');
+});
+
+console.log('script end');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>script start, promise3, script end, promise1, promise2, setTimeout</code>
+  </details>
+</article>
+
+
+<!-- Задача 5 -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>Задача 5</h3>
+
+<pre>console.log('start');
+
+setTimeout(() => console.log('setTimeout executed'), 0)
+
+new Promise((resolve) => {resolve()}).then(() => console.log('Promise executed'));
+
+console.log('end');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <ol>
+      <li>Отработает console.log('start');</li>
+      <li>Отработает setTimeout и отправит свой первый параметр - callback-функцию в очередь макрозадач</li>
+      <li>Создание промиса который сразу разрешился. Метод then() отправит свой первый параметр в очередь микрозадач</li>
+      <li>Отработает console.log('end');</li>
+      <li>Синхронный код закончился, выполнится задача из очереди микрозадач</li>
+      <li>Очередь микрозадач закончилась. js возьмет одну задачу из очереди макрозадач и выполнит ее</li>
+    </ol>
+<pre>start
+end
+Promise executed
+setTimeout executed</pre>
+  </details>
+</article>
+
+
+<!-- Задача 6 -->
+<article class="article">
+  <div class="anchor" id="t6"></div>
+  <h3>Задача 6</h3>
+
+<pre>setTimeout(() => {
+  console.log('Асинхронный код исполнился без промиса')
+}, 1000);
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('Асинхронный код исполнился в промисе');
+    resolve('result');
+  }, 2000);
+});
+
+promise
+  .then(
+    result => {
+      console.log('Fulfilled: ' + result);
+    },
+    error => {
+      console.log('Rejected: ' + error);
+    }
+  );</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <ol>
+      <li>Выполнится функция setTimeout и отправит свой первый параметр - callback-функцию в очередь макрозадач</li>
+      <li>Объявление переменной и присваивание ей промиса. При создании промиса сразу выполнится callback-функция, которая запустит setTimeout, который отправит свой первый параметр - callback-функцию в очередь макрозадач</li>
+      <li>Метод then() у промиса будет ждать разрешение промиса</li>
+      <li>Синхронный код закончился, очередь микрозадач пуста. js возьмет одну задачу из очереди макрозадач и мы увидим 'Асинхронный код исполнился без промиса'</li>
+      <li>js возьмет вторую задачу из очереди макрозадач и мы увидим 'Асинхронный код исполнился в промисе'</li>
+      <li>Промис успешно разрешился и в очередь микрозадач попадет первый параметр метода then(), который выполнится и мы увидим 'Fulfilled: result'</li>
+    </ol>
+<pre>Асинхронный код исполнился без промиса
+Асинхронный код исполнился в промисе
+Fulfilled: result</pre>
+  </details>
+</article>
+
+
+<!-- Задача 7 -->
+<article class="article">
+  <div class="anchor" id="t7"></div>
+  <h3>Задача 7</h3>
+
+<pre>function first() {
+  setTimeout(() => console.log('1'), 0);
+}
+
+function second() {
+  console.log('2');
+  return new Promise((res) => {
+    res();
+    console.log('3');
+  }).then(() => console.log('4'));
+}
+
+first();
+second();
+console.log('5');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>2
+3
+5
+4
+1</pre>
+  </details>
+</article>
+
+
+<!-- Задача 8 -->
+<article class="article">
+  <div class="anchor" id="t8"></div>
+  <h3>Задача 8</h3>
+
+<pre>setTimeout(() => {
+  console.log("timeout1");
+}, 0)
+
+console.log('log1');
+
+new Promise(resolve => {
+  console.log("promise");
+  setTimeout(() => {
+    console.log("timeout2");
+    resolve();
+  }, 0)
+}).then(() => {
+  console.log("then1");
+}).then(() => {
+  console.log("then2");
+})
+
+console.log('log2');
+
+setTimeout(() => {
+  console.log("timeout3");
+}, 0)</pre>
+
+  <details>
+    <summary>Ответ</summary>
+<pre>log1
+promise
+log2
+timeout1
+timeout2
+then1
+then2
+timeout3</pre>
+  </details>
+</article>
+
+
+<!-- Задача 9 -->
+<article class="article">
+  <div class="anchor" id="t9"></div>
+  <h3>Задача 9</h3>
+
+<pre>console.log(1);
+
+setTimeout(() => console.log(2));
+
+Promise.resolve().then(() => console.log(3));
+
+Promise.resolve().then(() => setTimeout(() => console.log(4)));
+
+Promise.resolve().then(() => console.log(5));
+
+setTimeout(() => console.log(6));
+
+console.log(7);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>1 7 3 5 2 6 4</code>
+  </details>
+</article>
+
+
+<!-- Задача 10 -->
+<article class="article">
+  <div class="anchor" id="t10"></div>
+  <h3>Задача 10</h3>
+
+<pre>setTimeout(function timeout() {
+  console.log('console 1');
+}, 0);
+
+let p = new Promise(function(resolve, reject) {
+  console.log('console 2');
+  resolve();
+});
+
+p.then(function() {
+  console.log('console 3');
+});
+
+console.log('console 4');</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Функция setTimeout выполнится и отправит первый параметр - callback-функцию timeout в очередь макротасков</p>
+    <p>Объявление переменной и присваивание ей промиса. При создании промиса первый параметр - callback-функция выполнится сразу и мы увидим console 2</p>
+    <p>Метод then() у промиса отправит первый параметр - callback-функцию в очередь микротасков</p>
+    <p>console.log выведет console 4</p>
+    <p>Синхронный код закончился. js переходит к очереди микрозадач и мы увидем console 3</p>
+    <p>Очередь микрозадач закончилась. js берет одну задачу из очереди макрозадач и мы увидим console 1</p>
+<pre>console 2
+  console 4
+  console 3
+  console 1</pre>
+  </details>
+</article>

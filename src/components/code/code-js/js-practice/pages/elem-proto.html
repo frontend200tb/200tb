@@ -1,0 +1,61 @@
+<h1>Задачи на Javascript. __proto__ и prototype</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#t1">Задача 1</a></p>
+  <p><a href="#t2">Задача 2</a></p>
+
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+</article>
+
+
+<!-- Задача 1 -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Задачa 1</h3>
+
+<pre>function Constructor() {};
+var o = new Constructor();
+
+console.warn( o.__proto__ === Constructor.prototype );</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>true</code>
+  </details>
+</article>
+
+
+<!-- Задача 2 -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задачa 2</h3>
+
+<pre>const a = { x: 1 };
+
+  console.log(a.__proto__ === Object.prototype); // ?
+  console.log(a.hasOwnProperty('x')); // ?
+  
+  console.log(a.hasOwnProperty('__proto__')); // ?
+  console.log(a.__proto__.hasOwnProperty('__proto__')); // ?</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Свойство __proto__ это сеттер-геттер. Оно находится в прототипе и само на себя показывает. А в каждом экземпляре объекта есть скрытое свойство [[Prototype]], которое указывает на __proto__</p>
+<pre>true
+true
+false
+true</pre>
+  </details>
+</article>
+

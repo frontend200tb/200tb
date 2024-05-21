@@ -4,14 +4,22 @@
 */
 // Aside
 import htmlTask from './elem-task.html';
-import htmlObject from './elem-object.html';
+import htmlEventloop from './elem-eventloop.html';
 import htmlString from './elem-string.html';
+import htmlObject from './elem-object.html';
+import htmlProto from './elem-proto.html';
+import htmlPromise from './elem-promise.html';
+import htmlFetch from './elem-fetch.html';
 
 // массив страниц из aside menu
 const aside = [
   htmlTask,
-  htmlObject,
+  htmlEventloop,
   htmlString,
+  htmlObject,
+  htmlProto,
+  htmlPromise,
+  htmlFetch,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

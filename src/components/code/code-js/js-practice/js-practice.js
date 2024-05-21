@@ -6,7 +6,7 @@ import './element-js-practice';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Task', 'Объекты', 'Строки'];
+const asideThemes = ['Task', 'Event Loop', 'Строки', 'Объекты', 'Прототипы', 'Промисы', 'fetch'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
