@@ -1,5 +1,13 @@
 <h1>globalThis (Глобальный объект)</h1>
 
+<article class="article">
+  <p>Существует две основные разновидности объектов</p>
+  <ol>
+    <li>Собственные объекты языка. Определяются стандартом ECMAScript.</li>
+    <li>Объекты окружения. Определяются средой выполнения (например, браузером)</li>
+  </ol>
+</article>
+
 
 <!-- Содержание -->
 <article class="article">
@@ -29,9 +37,28 @@
   <div class="anchor" id="about"></div>
   <h2>about</h2>
 
-  <p>Глобальное свойство globalThis содержит значение глобального this, который является глобальным объектом.</p>
+  <p>Глобальное свойство <strong>globalThis</strong> содержит значение глобального this, который является глобальным объектом.</p>
   <p>Исторически, для доступа к глобальному объекту использовался разный синтаксис в разных средах JavaScript. В веб браузере вы могли использовать window, self или frames, но в Web Worker можно использовать только self. В Node.js ничего из этого не работает, поэтому вы должны использовать global.</p>
   <p>Свойство globalThis предоставляет доступ к глобальному значению this в любых средах. Он гарантированно работает в веб браузере, в Web Worker и в Node.js.</p>
+  <ol>
+    <li>
+      <h4>globalThis в браузере</h4>
+      На глобальный объект Window ссылаются 5 переменных
+      <code>globalThis === window // true</code>
+      <code>globalThis === self // true</code>
+      <code>globalThis === frames // true</code>
+      <code>globalThis === parent // true</code>
+      <code>globalThis === top // true</code>
+    </li>
+    <li>
+      <h4>globalThis в node.js</h4>
+      <p>На глобальный объект ссылаются 2 переменные: globalThis, global</p>
+    </li>
+    <li>
+      <h4>globalThis в Web Worker</h4>
+      <p>На глобальный объект ссылаются 2 переменные: globalThis, self</p>
+    </li>
+  </ol>
 </article>
 
 

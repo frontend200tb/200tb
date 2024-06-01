@@ -82,6 +82,19 @@ const dataBooksTs = [
     },
   },
 
+  {
+    id: 6,
+    year: 2024,
+    category: 'code',
+    theme: 'typescript',
+    title: 'Основы TypeScript',
+    author: 'Фримен',
+    authorName: 'Адам',
+    pages: '578',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

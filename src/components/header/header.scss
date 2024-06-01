@@ -1,18 +1,20 @@
-.header-stick {
+.header-fixed {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 100%;
-  padding: 0 10px;
+  left: 0;
+  width: 100vw;
 }
 
 @media (max-width: 580px) {
-  .header-stick {
+  .header-fixed {
     position: static;
-    padding: 0;
   }
 }
 
+.header {
+  margin: 0;
+  padding: 0;
+}
 
 /*********************
 header__1
@@ -22,8 +24,10 @@ header__1
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  padding: 0 10px;
+  height: 3rem;
   font-family: monospace, sans-serif;
 }
 
@@ -78,8 +82,9 @@ header__2
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
-  font-family: monospace, sans-serif;
+  padding: 5px 10px;
 }
 
 @media (max-width: 580px) {

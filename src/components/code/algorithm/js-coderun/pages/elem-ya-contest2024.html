@@ -266,7 +266,7 @@ module.exports = { AssemblyLineScheduler };</pre>
       for (let i = 0; i &lt; this.n; i++) {
         console.log(`Конец дня, выполнено на ${i} линии`, this.lines[i])
       }
-
+    
     return this.lines;
   }
 }
@@ -547,10 +547,10 @@ outputChar('a')    'b'     'C'     'D'     'e'     'f'       'x'     'y'</pre>
   <code>type OutputChar = (char: string) => void;</code>
   <code>type WriteText = (text: string) => void;</code>
   <code>function typeWriter(delay: number, outputText: OutputChar): WriteText;</code>
-
+  
   <h4>Дополнительно:</h4>
   <p>Решение должно быть линейным по сложности и «отпускать» ссылку на строку сразу же после того, как последний символ строки был выведен.</p>
-
+  
 <pre>outputChar('a') 0: a
 100ms
 outputChar('b') 100: b
@@ -609,7 +609,7 @@ runTest();</pre>
   <h2>Задача 4. Калькулятор выражений в обратной польской нотации</h2>
 
   <p>Написать калькулятор выражений в обратной польской нотации.</p>
-  <h4>Польская нотация:</h4>
+  <h4>Польская нотация:</h4> 
   <ol>
     <li>Выражение состоит из операндов: чисел и знаков операций +, -, *, /</li>
     <li>Выражение читается слева направо</li>

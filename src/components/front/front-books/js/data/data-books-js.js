@@ -34,8 +34,8 @@ const dataBooksJs = [
     author: 'Дунаев',
     authorName: 'Вадим',
     pages: 402,
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024-06-01 сб',
   },
 
   {
@@ -182,6 +182,19 @@ const dataBooksJs = [
   },
 
   {
+    id: 14,
+    year: 2014,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Быстрое прототипирование с JS',
+    author: 'Мардан',
+    authorName: 'Азат',
+    pages: 239,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 15,
     year: 2014,
     category: 'code',
@@ -228,6 +241,19 @@ const dataBooksJs = [
     author: 'Закас',
     authorName: 'Николас',
     pages: 960,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 18,
+    year: 2015,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Секреты JavaScript ниндзя (1е)',
+    author: 'Резиг',
+    authorName: 'Джон',
+    pages: 418,
     isLearned: false,
     dateLearned: '',
   },

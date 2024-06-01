@@ -8,7 +8,7 @@
 **************************** */
 
 const page = document.querySelector('#page');
-const stick = document.querySelector('.header-stick');
+const stick = document.querySelector('.header-fixed');
 
 class SetColor extends HTMLElement {
   constructor() {

@@ -476,6 +476,19 @@ const dataBooksInformatika = [
 
   {
     id: 40,
+    year: '2021',
+    category: 'основы',
+    theme: 'Информатика',
+    title: 'Информатика. Введение в архитектуру ЭВМ и программирование на языке ассемблера',
+    author: 'Бабичев',
+    authorName: 'Сергей',
+    pages: '77',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 40,
     year: '2022',
     category: 'основы',
     theme: 'Информатика',

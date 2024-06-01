@@ -835,6 +835,22 @@ const dataVideoJs = [
   {
     id: 53,
     year: 2022,
+    date: '',
+    category: 'code',
+    theme: 'javascript',
+    title: 'Полный Курс По JavaScript',
+    author: 'Богдан Стащук',
+    name: '',
+    numberLessons: '110 видео',
+    time_h_m: [23, 32],
+    size: '20.7 gb',
+    isLearned: true,
+    dateLearned: '2024.05.31 пт',
+  },
+
+  {
+    id: 54,
+    year: 2022,
     date: '2022-11-13',
     category: 'code',
     theme: 'javascript',
@@ -849,7 +865,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 54,
+    id: 55,
     year: 2023,
     date: '',
     category: 'code',
@@ -865,7 +881,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 55,
+    id: 56,
     year: 2023,
     date: '',
     category: 'code',
@@ -881,7 +897,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 56,
+    id: 57,
     year: 2023,
     date: '2023-02-13',
     category: 'code',
@@ -897,7 +913,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 57,
+    id: 58,
     year: 2023,
     date: '2023-06-27',
     category: 'code',

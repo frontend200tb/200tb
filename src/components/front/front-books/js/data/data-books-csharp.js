@@ -1388,6 +1388,19 @@ const dataBooksCsharp = [
     dateLearned: '',
   },
 
+  {
+    id: 97,
+    year: 2024,
+    category: 'code',
+    theme: 'c# .net',
+    title: 'C# для начинающих на практике',
+    author: 'Сакутин',
+    authorName: 'Роман',
+    pages: '375',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

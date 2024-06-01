@@ -7,6 +7,7 @@ class Header extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = html;
+    this.className = 'header-fixed page_dodgerblue';
   }
 }
 

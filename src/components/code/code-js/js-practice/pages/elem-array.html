@@ -1,0 +1,85 @@
+<h1>Задачи на Javascript. Массивы</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#t1">1. Копирование массива</a></p>
+  <p><a href="#t2">2. Создание массива из строки</a></p>
+</article>
+
+
+<!-- 1. Копирование массива -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>1. Копирование массива</h3>
+  
+  <hr>
+
+  <h3>Поверхностное копирование</h3>
+  <p>Создается новая ссылка на новую область памяти, куда записывается новый массив с элементами из старого массива. Если в нем есть вложенные объекты, то они ссылаются на старые вложенные объекты.</p>
+  <ol>
+    <li>
+      <h4>1 способ. Оператор spread</h4>
+      <code>const arr = [1,2,3];</code>
+      <code>const newArr = [ ...arr ];</code>
+    </li>
+    <li>
+      <h4>2 способ. Метод concat()</h4>
+      <code>const arr = [1,2,3];</code>
+      <code>const newArr = [].concat(arr);</code>
+    </li>
+    <li>
+      <h4>3 способ. Метод Array.from()</h4>
+      <code>const arr = [1,2,3];</code>
+      <code>const newArr = Array.from(arr);</code>
+    </li>
+    <li>
+      <h4>4 способ. Метод slice()</h4>
+      <code>const arr = [1,2,3];</code>
+      <code>const newArr = arr.slice();</code>
+    </li>
+  </ol>
+
+  <hr>
+
+  <h3>Глубокое копирование</h3>
+  <ol>
+    <li>
+      <h4>1 способ. JSON</h4>
+      <code>const arr = [1,2,3];</code>
+      <code>const newArr = JSON.parse(JSON.stringify(arr));</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- 2. Создание массива из строки -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>2. Создание массива из строки</h3>
+  
+  <p>По строке можно итерироваться. На каждой итерации будет следующий символ строки</p>
+  <ol>
+    <li>
+      <h4>1 способ. Оператор spread</h4>
+      <code>const str = 'asdfg';</code>
+      <code>const arr = [ ...str ];</code>
+    </li>
+    <li>
+      <h4>2 способ. Метод Array.from()</h4>
+      <code>const str = 'asdfg';</code>
+      <code>const arr = Array.from(str);</code>
+    </li>
+    <li>
+      <h4>3 способ. Метод split()</h4>
+      <code>const str = 'asdfg';</code>
+      <code>const arr = str.split('');</code>
+    </li>
+  </ol>
+</article>
+
+
+
+

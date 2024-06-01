@@ -7,7 +7,7 @@
 */
 
 const page = document.querySelector('#page');
-const stick = document.querySelector('.header-stick');
+const stick = document.querySelector('.header-fixed');
 
 // 1. Создаем касс ThemeBtn
 class ThemeBtn extends HTMLElement {

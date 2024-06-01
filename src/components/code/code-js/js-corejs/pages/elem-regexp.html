@@ -5,39 +5,43 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#links">links</a></p>
-  <p><a href="#regexp">Создание регулярного выражения</a></p>
+  <p><a href="#create">Создание регулярного выражения</a></p>
   <p><a href="#flag">Флаги регулярного выражения</a></p>
   <p><a href="#pattern">Шаблоны регулярного выражения</a></p>
+  <p><a href="#props">Свойства регулярного выражения</a></p>
+  <p><a href="#methods">Методы регулярного выражения</a></p>
 </article>
 
 
-<!-- links -->
+<!-- Создание регулярного выражения -->
 <article class="article">
-  <div class="anchor" id="links"></div>
-  <h2>links</h2>
-
-</article>
-
-
-<!-- Регулярные выражения -->
-<article class="article">
-  <div class="anchor" id="regexp"></div>
-  <h2>Регулярные выражения</h2>
+  <div class="anchor" id="create"></div>
+  <h2>Создание регулярного выражения</h2>
 
   <p>Регулярное выражение можно создать двумя способами:</p>
   <ol>
     <li>Через литерал
       <code>/pattern/flags</code>
-      <code>let reg = /[a-z]i/;</code>
-      <p>Компиляция регулярного выражения, созданного через литерал, проиходит при анализе скрипа. Чтобы увеличисть производительность пользуйтесь этим способом если регулярное выражение постоянно.</p>
+      <p>Компиляция регулярного выражения, созданного через литерал, проиходит при анализе скрипта. Чтобы увеличить производительность пользуйтесь этим способом если регулярное выражение постоянно.</p>
       <p>В литеральной записи шаблон и флаги не надо заключать в кавычки</p>
+
+      <h4>Пример</h4>
+      <p>Создадим регулярное выражение для латинских букв алфавита любого регистра</p>
+      <code>let reg = /[a-z]/i;</code>
+      <p>Посмотрим на переменную reg</p>
+      <code>typeof reg // object</code>
+      <code>reg instanceof RegExp // true</code>
+      <code>reg.__proto__ === RegExp.prototype // true</code>
     </li>
+
     <li>Через функцию конструктор объекта RegExp
       <code>new RegExp(pattern, flags)</code>
-      <code>let reg = new RegExp('ab');</code>
       <p>Компиляция регулярного выражения, созданного через конструктор, проиходит во время выполнения скрипта. Пользуйтесь этим способом, только если шаблон заранее неизвестен или регулярное выражение может изменяться.</p>
       <p>В записи функции конструктора шаблон и флаги записывают в кавычках</p>
+
+      <h4>Пример</h4>
+      <p>Создадим регулярное выражение для латинских букв алфавита любого регистра</p>
+      <code>let reg = new RegExp('a-z', 'i');</code>
     </li>
   </ol>
 </article>
@@ -53,23 +57,27 @@
       <h4>d результат помещается в массив, который содержит дополнительную информацию о регулярном выражении</h4>
     </li>
     <li>
-      <h4>g глобальный поиск</h4>
+      <h4>g глобальный поиск (global)</h4>
       <p>Ищет не первое совпадение, а все совпадения</p>
     </li>
     <li>
-      <h4>i игнорировать регистр</h4>
+      <h4>i игнорировать регистр (ignore)</h4>
       <p>Ищет и по нижнему и по верхнему регистру</p>
     </li>
     <li>
-      <h4>m поиск по нескольким строкам</h4>
+      <h4>m поиск по нескольким строкам (multiline)</h4>
       <p>Символы начала и конца (^ и $) работают с началом и концом каждой строки (разделенной символами \n или \r) а не со всей введенной строкой целиком</p>
+      <code>/^def/.test('abc\ndef\nxyz') // false</code>
+      <code>/^def/m.test('abc\ndef\nxyz') // true</code>
+      <code>/def$/.test('abc\ndef\nxyz') // false</code>
+      <code>/def$/m.test('abc\ndef\nxyz') // true</code>
     </li>
     <li>
-      <h4>s включает режим datall</h4>
-      <p>В режиме dotall точка может соответствовать символу перевода строки \n</p>
+      <h4>s включает режим dotAll</h4>
+      <p>В режиме dotAll точка может соответствовать символу перевода строки \n</p>
     </li>
     <li>
-      <h4>u включает поддержку Юникода</h4>
+      <h4>u включает поддержку Юникода (unicode)</h4>
       <p>Это нужно для корректной обработки суррогатных пар</p>
     </li>
     <li>
@@ -89,13 +97,20 @@
     <li>
       <h4>. (точка) любой символ</h4>
       <p>Любой символ кроме символов новой строки \n и \r (\u2028 и \u2029)</p>
+      <code>/./.test('some') // true</code>
+      <code>/./.test('') // false</code>
+    </li>
+    <li>
+      <h4>\. символ точка</h4>
+      <code>/\./.test('some.ru') // true</code>
+      <code>/\./.test('someru') // false</code>
     </li>
     <li>
       <h4>\d любая цифра в латинском алфавите</h4>
       <p>Выражения /\d/ и /[0-9]/ эквивалентны</p>
     </li>
     <li>
-      <h4>\D все кроме цыфры в латинском алфавите</h4>
+      <h4>\D все кроме цифр в латинском алфавите</h4>
       <p>Выражения /\D/ и /[^0-9]/ эквивалентны</p>
     </li>
     <li>
@@ -153,7 +168,97 @@
     <li>
       <h4>$ поиск только последнего символа</h4>
     </li>
+    <li>
+      <h4>? или есть или нет предыдущий символ</h4>
+      <code>/ab?c/.test('abc') // true</code>
+      <code>/ab?c/.test('ac') //true</code>
+    </li>
+    <li>
+      <h4>+ один или более предыдущий символ</h4>
+      <p>Выражения /ab+c/ и /ab{1,} эквивалентны</p>
+      <code>/ab+c/.test('abc') // true</code>
+      <code>/ab+c/.test('abbbbbc') //true</code>
+      <code>/ab+c/.test('ac') //false</code>
+    </li>
+    <li>
+      <h4>* ни одного или много предыдущего символа</h4>
+      <p>Выражения /ab*c/ и /ab{1,} эквивалентны</p>
+      <code>/ab*c/.test('ac') // true</code>
+      <code>/ab*c/.test('abbbbbc') //true</code>
+    </li>
+    <li>
+      <h4>{num} количество подряд идущего последнего символа</h4>
+      <code>/ab{2}c/.test('abbc') // true</code>
+      <code>/ab{2}c/.test('abc') // false</code>
+    </li>
+    <li>
+      <h4>{min,max} диапазон от min до max количества подряд идущего последнего символа</h4>
+      <code>/ab{2,4}c/.test('abbc') // true</code>
+      <code>/ab{2,4}c/.test('abc') // false</code>
+    </li>
+    <li>
+      <h4>() переменная. Внутренняя и внешняя. Внутреннюю можно использовать в этом же выражении. Внешнюю можно использовать вне его</h4>
+      <code>/(['"])[^'"]*\1/.test('"asdfg"') // true</code>
+      <code>"12BnM".replace(/^(\d+)([a-z]+)$/i, "$2-$1") // BnM-12</code>
+      <code>const s = "Smith, John\nDow, Mike\nLee, Steve"</code>
+      <code>s.replace(/([a-z]+), ([a-z]+)/ig, "$2 $1") // 'John Smith\nMike Dow\nSteve Lee'</code>
+      <code>"frontend200tb@mail.ru".match(/([a-z0-9]+)@([a-z]+)\.([a-z]{2,})/i)</code>
+      <code>['frontend200tb@mail.ru', 'frontend200tb', 'mail', 'ru']</code>
+    </li>
   </ol>
 </article>
+
+
+<!-- Свойства регулярного выражения -->
+<article class="article">
+  <div class="anchor" id="props"></div>
+  <h2>Свойства регулярного выражения</h2>
+
+  <ol>
+    <li>
+      <a href="#dotAll">dotAll</a>
+      Возвращает true если установлен флаг s, иначе false
+    </li>
+    <li>
+      <a href="#flags">flags</a>
+      Возвращает true если установлен флаг i, иначе false
+    </li>
+    <li>
+      <a href="#global">global</a>
+      Возвращает true если установлен флаг g, иначе false
+    </li>
+    <li><a href="#hasIndices">hasIndices</a></li>
+    <li>
+      <a href="#ignoreCase">ignoreCase</a>
+      Возвращает true если установлен флаг i, иначе false
+    </li>
+    <li><a href="#multiline">multiline</a></li>
+    <li><a href="#source">source</a></li>
+    <li><a href="#sticky">sticky</a></li>
+    <li>
+      <a href="#unicode">unicode</a>
+      Возвращает true если установлен флаг u, иначе false
+    </li>
+    <li><a href="#unicodeSets">unicodeSets</a></li>
+  </ol>
+</article>
+
+
+<!-- Методы регулярного выражения -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы регулярного выражения</h2>
+
+  <ol>
+    <li><a href="#compile">compile</a></li>
+    <li><a href="#exec">exec</a></li>
+    <li>
+      <a href="#test">test</a>
+      Принимает строку. Возвращает true если регулярное выражение содержится в строке, иначе false
+    </li>
+    <li><a href="#toString">toString</a></li>
+  </ol>
+</article>
+
 
 

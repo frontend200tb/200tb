@@ -1004,8 +1004,8 @@ const dataVideoHtmlcss = [
     numberLessons: '160 уроков',
     time_h_m: [12, 56],
     size: '13.5 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.05.22 ср',
   },
 
   {},

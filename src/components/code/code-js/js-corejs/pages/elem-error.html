@@ -7,6 +7,7 @@
 
   <p><a href="#links">links</a></p>
   <p><a href="#about">about</a></p>
+  <p><a href="#try">try catch</a></p>
   8 встроенных видов ошибок
   <ol>
     <li><a href="#error-aggregate">AggregateError</a></li>
@@ -36,6 +37,22 @@
   <div class="anchor" id="about"></div>
   <h2>about</h2>
   <p>JavaScript умеет обрабатывать некорректный код и сообщать об ошибке в коде. Существует семь встроенных видов ошибок, также можно создать свои собственные. Встроенные ошибки генерируются самим движком JavaScript при выполнении программы, а пользовательские — создаются с помощью конструктора Error. Оба типа ошибок можно ловить в конструкции try...catch.</p>
+</article>
+
+
+<!-- try catch -->
+<article class="article">
+  <div class="anchor" id="try"></div>
+  <h2>try catch</h2>
+
+  <p>Для отслеживания ошибок нужно использовать блок try catch</p>
+<pre>try {
+  let x = y // возникнет ошибка, поскольку переменная y не определена
+} catch {
+  console.log('отловили ошибку')
+}
+console.log('продолжаем программу')
+</pre>
 </article>
 
 

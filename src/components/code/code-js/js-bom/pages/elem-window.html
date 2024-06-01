@@ -1,0 +1,651 @@
+<h1>window</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#window">Объект window</a></p>
+  <p><a href="#props">Свойства объекта window</a></p>
+  <p><a href="#methods">Методы объекта window</a></p>
+  <p><a href="#events">События объекта window</a></p>
+  <p><a href="#objects">Встроенные объекты объекта window</a></p>
+</article>
+
+
+<!-- Объект window -->
+<article class="article">
+  <div class="anchor" id="window"></div>
+  <h2>Объект window</h2>
+
+  <p>Объект window содержит коллекцию frames всех фреймов, заданных в HTML документе с помощью контейнернго тега frameset. Объект window имеет свойства, методы, события и дочерние объекты</p>
+  <code>typeof window // object</code>
+  <code>window instanceof Window // true</code>
+  <code>window.__proto__ === Window.prototype // true</code>
+  <code>typeof Window // function</code>
+  <code>Window instanceof Function // true</code>
+  <code>window.__proto__ // EventTarget</code>
+</article>
+
+
+<!-- Свойства объекта window -->
+<article class="article">
+  <div class="anchor" id="props"></div>
+  <h2>Свойства объекта window</h2>
+  <ol>
+    <li><a href="#caches">caches</a></li>
+    <li><a href="#chrome">chrome</a></li>
+    <li><a href="#clientInformation">clientInformation</a></li>
+    <li><a href="#closed">closed</a></li>
+    <li><a href="#cookieStore">cookieStore</a></li>
+    <li><a href="#credentialless">credentialless</a></li>
+    <li><a href="#crossOriginIsolated">crossOriginIsolated</a></li>
+    <li><a href="#crypto">crypto</a></li>
+    <li><a href="#customElements">customElements</a></li>
+    <li><a href="#devicePixelRatio">devicePixelRatio</a></li>
+    <li><a href="#document">document</a></li>
+    <li><a href="#documentPictureInPicture">documentPictureInPicture</a></li>
+    <li><a href="#external">external</a></li>
+    <li><a href="#frameElement">frameElement</a></li>
+    <li><a href="#frames">frames</a></li>
+    <li><a href="#history">history</a></li>
+    <li><a href="#indexedDB">indexedDB</a></li>
+    <li><a href="#innerHeight">innerHeight</a></li>
+    <li><a href="#innerWidth">innerWidth</a></li>
+    <li><a href="#isSecureContext">isSecureContext</a></li>
+    <li><a href="#launchQueue">launchQueue</a></li>
+    <li><a href="#length">length</a></li>
+    <li><a href="#localStorage">localStorage</a></li>
+    <li><a href="#location">location</a></li>
+    <li><a href="#locationbar">locationbar</a></li>
+    <li><a href="#menubar">menubar</a></li>
+    <li><a href="#name">name</a></li>
+    <li><a href="#navigation">navigation</a></li>
+    <li><a href="#navigator">navigator</a></li>
+    <li><a href="#opener">opener</a></li>
+    <li><a href="#origin">origin</a></li>
+    <li><a href="#originAgentCluster">originAgentCluster</a></li>
+    <li><a href="#outerHeight">outerHeight</a></li>
+    <li><a href="#outerWidth">outerWidth</a></li>
+    <li><a href="#pageXOffset">pageXOffset</a></li>
+    <li><a href="#pageYOffset">pageYOffset</a></li>
+    <li><a href="#parent">parent</a></li>
+    <li><a href="#performance">performance</a></li>
+    <li><a href="#personalbar">personalbar</a></li>
+    <li><a href="#scheduler">scheduler</a></li>
+    <li><a href="#screen">screen</a></li>
+    <li><a href="#screenLeft">screenLeft</a></li>
+    <li><a href="#screenTop">screenTop</a></li>
+    <li><a href="#screenX">screenX</a></li>
+    <li><a href="#screenY">screenY</a></li>
+    <li><a href="#scrollX">scrollX</a></li>
+    <li><a href="#scrollY">scrollY</a></li>
+    <li><a href="#scrollbars">scrollbars</a></li>
+    <li><a href="#self">self</a></li>
+    <li><a href="#sessionStorage">sessionStorage</a></li>
+    <li><a href="#speechSynthesis">speechSynthesis</a></li>
+    <li><a href="#status">status</a></li>
+    <li><a href="#statusbar">statusbar</a></li>
+    <li><a href="#styleMedia">styleMedia</a></li>
+    <li><a href="#toolbar">toolbar</a></li>
+    <li><a href="#top">top</a></li>
+    <li><a href="#trustedTypes">trustedTypes</a></li>
+    <li><a href="#visualViewport">visualViewport</a></li>
+    <li><a href="#webkitCancelAnimationFrame">webkitCancelAnimationFrame</a></li>
+    <li><a href="#webkitRequestAnimationFrame">webkitRequestAnimationFrame</a></li>
+    <li><a href="#webkitRequestFileSystem">webkitRequestFileSystem</a></li>
+    <li><a href="#webkitResolveLocalFileSystemURL">webkitResolveLocalFileSystemURL</a></li>
+    <li><a href="#window">window</a></li>
+  </ol>
+</article>
+
+
+<!-- Методы объекта window -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы объекта window</h2>
+  <ol>
+    <li><a href="#alert">f alert()</a></li>
+    <li><a href="#atob">f atob()</a></li>
+    <li><a href="#blur">f blur()</a></li>
+    <li><a href="#btoa">f btoa()</a></li>
+    <li><a href="#cancelAnimationFrame">ƒ cancelAnimationFrame()</a></li>
+    <li><a href="#cancelIdleCallback">ƒ cancelIdleCallback()</a></li>
+    <li><a href="#captureEvents">ƒ captureEvents()</a></li>
+    <li><a href="#clearInterval">ƒ clearInterval()</a></li>
+    <li><a href="#clearTimeout">ƒ clearTimeout()</a></li>
+    <li><a href="#close">ƒ close()</a></li>
+    <li><a href="#confirm">ƒ confirm()</a></li>
+    <li><a href="#createImageBitmap">ƒ createImageBitmap()</a></li>
+    <li><a href="#fetch">ƒ fetch()</a></li>
+    <li><a href="#find">ƒ find()</a></li>
+    <li><a href="#focus">ƒ focus()</a></li>
+    <li><a href="#getComputedStyle">ƒ getComputedStyle()</a></li>
+    <li><a href="#getScreenDetails">ƒ getScreenDetails()</a></li>
+    <li><a href="#getSelection">ƒ getSelection()</a></li>
+    <li><a href="#matchMedia">ƒ matchMedia()</a></li>
+    <li><a href="#moveBy">ƒ moveBy()</a></li>
+    <li><a href="#moveTo">ƒ moveTo()</a></li>
+    <li><a href="#open">ƒ open()</a></li>
+    <li><a href="#postMessage">ƒ postMessage()</a></li>
+    <li><a href="#print">ƒ print()</a></li>
+    <li><a href="#prompt">ƒ prompt()</a></li>
+    <li><a href="#queryLocalFonts">ƒ queryLocalFonts()</a></li>
+    <li><a href="#queueMicrotask">ƒ queueMicrotask()</a></li>
+    <li><a href="#closereleaseEventsd">ƒ releaseEvents()</a></li>
+    <li><a href="#reportError">ƒ reportError()</a></li>
+    <li><a href="#requestAnimationFrame">ƒ requestAnimationFrame()</a></li>
+    <li><a href="#requestIdleCallback">ƒ requestIdleCallback()</a></li>
+    <li><a href="#resizeBy">ƒ resizeBy()</a></li>
+    <li><a href="#resizeTo">ƒ resizeTo()</a></li>
+    <li><a href="#scroll">ƒ scroll()</a></li>
+    <li><a href="#scrollBy">ƒ scrollBy()</a></li>
+    <li><a href="#ƒ scrollTo()">ƒ scrollTo()</a></li>
+    <li><a href="#setInterval">ƒ setInterval()</a></li>
+    <li><a href="#setTimeout">ƒ setTimeout()</a></li>
+    <li><a href="#showDirectoryPicker">ƒ showDirectoryPicker()</a></li>
+    <li><a href="#showOpenFilePicker">ƒ showOpenFilePicker()</a></li>
+    <li><a href="#showSaveFilePicker">ƒ showSaveFilePicker()</a></li>
+    <li><a href="#stop">ƒ stop()</a></li>
+    <li><a href="#structuredClone">ƒ structuredClone()</a></li>
+  </ol>
+</article>
+
+
+<!-- События объекта window -->
+<article class="article">
+  <div class="anchor" id="events"></div>
+  <h2>События объекта window</h2>
+
+  <ol>
+    <li><a href="#onabort">onabort</a></li>
+    <li><a href="#onafterprint">onafterprint</a></li>
+    <li><a href="#onanimationend">onanimationend</a></li>
+    <li><a href="#onanimationiteration">onanimationiteration</a></li>
+    <li><a href="#onanimationstart">onanimationstart</a></li>
+    <li><a href="#onappinstalled">onappinstalled</a></li>
+    <li><a href="#onauxclick">onauxclick</a></li>
+    <li><a href="#onbeforeinput">onbeforeinput</a></li>
+    <li><a href="#onbeforeinstallprompt">onbeforeinstallprompt</a></li>
+    <li><a href="#onbeforematch">onbeforematch</a></li>
+    <li><a href="#onbeforeprint">onbeforeprint</a></li>
+    <li><a href="#onbeforetoggle">onbeforetoggle</a></li>
+    <li><a href="#onbeforeunload">onbeforeunload</a></li>
+    <li><a href="#onbeforexrselect">onbeforexrselect</a></li>
+    <li><a href="#onblur">onblur</a></li>
+    <li><a href="#oncancel">oncancel</a></li>
+    <li><a href="#oncanplay">oncanplay</a></li>
+    <li><a href="#oncanplaythrough">oncanplaythrough</a></li>
+    <li><a href="#onchange">onchange</a></li>
+    <li><a href="#onclick">onclick</a></li>
+    <li><a href="#onclose">onclose</a></li>
+    <li><a href="#oncontentvisibilityautostatechange">oncontentvisibilityautostatechange</a></li>
+    <li><a href="#oncontextlost">oncontextlost</a></li>
+    <li><a href="#oncontextmenu">oncontextmenu</a></li>
+    <li><a href="#oncontextrestored">oncontextrestored</a></li>
+    <li><a href="#oncuechange">oncuechange</a></li>
+    <li><a href="#ondblclick">ondblclick</a></li>
+    <li><a href="#ondevicemotion">ondevicemotion</a></li>
+    <li><a href="#ondeviceorientation">ondeviceorientation</a></li>
+    <li><a href="#ondeviceorientationabsolute">ondeviceorientationabsolute</a></li>
+    <li><a href="#ondrag">ondrag</a></li>
+    <li><a href="#ondragend">ondragend</a></li>
+    <li><a href="#ondragenter">ondragenter</a></li>
+    <li><a href="#ondragleave">ondragleave</a></li>
+    <li><a href="#ondragover">ondragover</a></li>
+    <li><a href="#ondragstart">ondragstart</a></li>
+    <li><a href="#ondrop">ondrop</a></li>
+    <li><a href="#ondurationchange">ondurationchange</a></li>
+    <li><a href="#onemptied">onemptied</a></li>
+    <li><a href="#onended">onended</a></li>
+    <li><a href="#onerror">onerror</a></li>
+    <li><a href="#onfocus">onfocus</a></li>
+    <li><a href="#onformdata">onformdata</a></li>
+    <li><a href="#ongotpointercapture">ongotpointercapture</a></li>
+    <li><a href="#onhashchange">onhashchange</a></li>
+    <li><a href="#oninput">oninput</a></li>
+    <li><a href="#oninvalid">oninvalid</a></li>
+    <li><a href="#onkeydown">onkeydown</a></li>
+    <li><a href="#onkeypress">onkeypress</a></li>
+    <li><a href="#onkeyup">onkeyup</a></li>
+    <li><a href="#onlanguagechange">onlanguagechange</a></li>
+    <li><a href="#onload">onload</a></li>
+    <li><a href="#onloadeddata">onloadeddata</a></li>
+    <li><a href="#onloadedmetadata">onloadedmetadata</a></li>
+    <li><a href="#onloadstart">onloadstart</a></li>
+    <li><a href="#onlostpointercapture">onlostpointercapture</a></li>
+    <li><a href="#onmessage">onmessage</a></li>
+    <li><a href="#onmessageerror">onmessageerror</a></li>
+    <li><a href="#onmousedown">onmousedown</a></li>
+    <li><a href="#onmouseenter">onmouseenter</a></li>
+    <li><a href="#onmouseleave">onmouseleave</a></li>
+    <li><a href="#onmousemove">onmousemove</a></li>
+    <li><a href="#onmouseout">onmouseout</a></li>
+    <li><a href="#onmouseover">onmouseover</a></li>
+    <li><a href="#onmouseup">onmouseup</a></li>
+    <li><a href="#onmousewheel">onmousewheel</a></li>
+    <li><a href="#onoffline">onoffline</a></li>
+    <li><a href="#ononline">ononline</a></li>
+    <li><a href="#onpagehide">onpagehide</a></li>
+    <li><a href="#onpageshow">onpageshow</a></li>
+    <li><a href="#onpause">onpause</a></li>
+    <li><a href="#onplay">onplay</a></li>
+    <li><a href="#onplaying">onplaying</a></li>
+    <li><a href="#onpointercancel">onpointercancel</a></li>
+    <li><a href="#onpointerdown">onpointerdown</a></li>
+    <li><a href="#onpointerenter">onpointerenter</a></li>
+    <li><a href="#onpointerleave">onpointerleave</a></li>
+    <li><a href="#onpointermove">onpointermove</a></li>
+    <li><a href="#onpointerout">onpointerout</a></li>
+    <li><a href="#onpointerover">onpointerover</a></li>
+    <li><a href="#onpointerrawupdate">onpointerrawupdate</a></li>
+    <li><a href="#onpointerup">onpointerup</a></li>
+    <li><a href="#onpopstate">onpopstate</a></li>
+    <li><a href="#onprogress">onprogress</a></li>
+    <li><a href="#onratechange">onratechange</a></li>
+    <li><a href="#onrejectionhandled">onrejectionhandled</a></li>
+    <li><a href="#onreset">onreset</a></li>
+    <li><a href="#onresize">onresize</a></li>
+    <li><a href="#onscroll">onscroll</a></li>
+    <li><a href="#onscrollend">onscrollend</a></li>
+    <li><a href="#onsearch">onsearch</a></li>
+    <li><a href="#onsecuritypolicyviolation">onsecuritypolicyviolation</a></li>
+    <li><a href="#onseeked">onseeked</a></li>
+    <li><a href="#onseeking">onseeking</a></li>
+    <li><a href="#onselect">onselect</a></li>
+    <li><a href="#onselectionchange">onselectionchange</a></li>
+    <li><a href="#onselectstart">onselectstart</a></li>
+    <li><a href="#onslotchange">onslotchange</a></li>
+    <li><a href="#onstalled">onstalled</a></li>
+    <li><a href="#onstorage">onstorage</a></li>
+    <li><a href="#onsubmit">onsubmit</a></li>
+    <li><a href="#onsuspend">onsuspend</a></li>
+    <li><a href="#ontimeupdate">ontimeupdate</a></li>
+    <li><a href="#ontoggle">ontoggle</a></li>
+    <li><a href="#ontransitioncancel">ontransitioncancel</a></li>
+    <li><a href="#ontransitionend">ontransitionend</a></li>
+    <li><a href="#ontransitionrun">ontransitionrun</a></li>
+    <li><a href="#ontransitionstart">ontransitionstart</a></li>
+    <li><a href="#onunhandledrejection">onunhandledrejection</a></li>
+    <li><a href="#onunload">onunload</a></li>
+    <li><a href="#onvolumechange">onvolumechange</a></li>
+    <li><a href="#onwaiting">onwaiting</a></li>
+    <li><a href="#onwebkitanimationend">onwebkitanimationend</a></li>
+    <li><a href="#onwebkitanimationiteration">onwebkitanimationiteration</a></li>
+    <li><a href="#onwebkitanimationstart">onwebkitanimationstart</a></li>
+    <li><a href="#onwebkittransitionend">onwebkittransitionend</a></li>
+    <li><a href="#onwheel">onwheel</a></li>
+  </ol>
+</article>
+
+
+<!-- Встроенные объекты объекта window -->
+<article class="article">
+  <div class="anchor" id="objects"></div>
+  <h2>Встроенные объекты (классы, функции-конструкторы) объекта window</h2>
+  <ol>
+    <li><a href="#Infinity">Infinity</a></li>
+    <li><a href="#AbortController">ƒ AbortController()</a></li>
+  </ol>
+</article>
+
+
+<!-- caches -->
+<article class="article">
+  <div class="anchor" id="caches"></div>
+  <h2>caches</h2>
+
+  <code>typeof caches // object</code>
+  <code>caches.constructor === CacheStorage // true</code>
+  <code>caches instanceof CacheStorage // true</code>
+  <code>caches.__proto__ === CacheStorage.prototype // true</code>
+</article>
+
+
+<!-- chrome -->
+<article class="article">
+  <div class="anchor" id="chrome"></div>
+  <h2>chrome</h2>
+
+  <code>typeof chrome // object</code>
+  <code>chrome.constructor === Object // true</code>
+  <code>chrome instanceof Object // true</code>
+  <code>chrome.__proto__ === Object.prototype // true</code>
+</article>
+
+
+<!-- clientInformation -->
+<article class="article">
+  <div class="anchor" id="clientInformation"></div>
+  <h2>clientInformation</h2>
+
+  <p>Возвращат объект навигатора браузеру</p>
+  <code>typeof clientInformation // object</code>
+  <code>clientInformation.constructor === Navigator // true</code>
+  <code>clientInformation instanceof Navigator // true</code>
+  <code>clientInformation.__proto__ === Navigator.prototype // true</code>
+</article>
+
+
+<!-- closed -->
+<article class="article">
+  <div class="anchor" id="closed"></div>
+  <h2>closed</h2>
+
+  <p>Сообщает если окно закрыто</p>
+  <code>typeof closed // boolean</code>
+  <code>closed.__proto__ === Boolean.prototype // true</code>
+</article>
+
+
+<!-- document -->
+<article class="article">
+  <div class="anchor" id="document"></div>
+  <h2>document</h2>
+
+  <p>Ссылка только для чтения на объект окна document</p>
+  <code>typeof document // object</code>
+  <code>document.constructor === HTMLDocument // true</code>
+  <code>document instanceof HTMLDocument // true</code>
+  <code>document.__proto__ === HTMLDocument.prototype // true</code>
+  <code>HTMLDocument.__proto__ === Document // true</code>
+</article>
+
+
+<!-- history -->
+<article class="article">
+  <div class="anchor" id="history"></div>
+  <h2>history</h2>
+
+  <p>Ссылка только для чтения на объект окна history</p>
+  <code>typeof history // object</code>
+  <code>history.constructor === History // true</code>
+  <code>history instanceof History // true</code>
+  <code>history.__proto__ === History.prototype // true</code>
+</article>
+
+
+<!-- location -->
+<article class="article">
+  <div class="anchor" id="location"></div>
+  <h2>location</h2>
+
+  <p>Ссылка только для чтения на объект окна location</p>
+  <code>typeof location // object</code>
+  <code>location.constructor === Location // true</code>
+  <code>location instanceof Location // true</code>
+  <code>location.__proto__ === Location.prototype // true</code>
+</article>
+
+
+<!-- name -->
+<article class="article">
+  <div class="anchor" id="name"></div>
+  <h2>name</h2>
+
+  <p>Название окна</p>
+  <code>typeof name // string</code>
+  <code>name.__proto__ === String.prototype // true</code>
+</article>
+
+
+<!-- navigator -->
+<article class="article">
+  <div class="anchor" id="navigator"></div>
+  <h2>navigator</h2>
+
+  <p>Ссылка только для чтения на объект окна navigator</p>
+  <code>typeof navigator // object</code>
+  <code>navigator.constructor === Navigator // true</code>
+  <code>navigator instanceof Navigator // true</code>
+  <code>navigator.__proto__ === Navigator.prototype // true</code>
+</article>
+
+
+<!-- opener -->
+<article class="article">
+  <div class="anchor" id="opener"></div>
+  <h2>opener</h2>
+
+  <p>Окно, создаваемое текущим. Возвращает null если окна не создавались</p>
+</article>
+
+
+<!-- parent -->
+<article class="article">
+  <div class="anchor" id="parent"></div>
+  <h2>parent</h2>
+
+  <p>Возвращает родительское для текущего окно</p>
+</article>
+
+
+<!-- screen -->
+<article class="article">
+  <div class="anchor" id="screen"></div>
+  <h2>screen</h2>
+
+  <p>Ссылка только для чтения на глобальный объект screen</p>
+  <code>typeof screen // object</code>
+  <code>screen.constructor === Screen // true</code>
+  <code>screen instanceof Screen // true</code>
+  <code>screen.__proto__ === Screen.prototype // true</code>
+</article>
+
+
+<!-- self -->
+<article class="article">
+  <div class="anchor" id="self"></div>
+  <h2>self</h2>
+
+  <p>Возвращает ссылку на текущее окно</p>
+</article>
+
+
+<!-- status -->
+<article class="article">
+  <div class="anchor" id="status"></div>
+  <h2>status</h2>
+
+  <p>Текст, показываемый в строке состояния браузера</p>
+  <code>typeof status // string</code>
+</article>
+
+
+<!-- top -->
+<article class="article">
+  <div class="anchor" id="top"></div>
+  <h2>top</h2>
+
+  <p>Возвращает ссылку на главное окно</p>
+</article>
+
+
+<!-- Методы объекта window -->
+<!-- alert -->
+<article class="article">
+  <div class="anchor" id="alert"></div>
+  <h2>alert()</h2>
+
+  <p>Показывает модальное окно с сообщением и кнопкой OK</p>
+</article>
+
+
+<!-- blur -->
+<article class="article">
+  <div class="anchor" id="blur"></div>
+  <h2>blur()</h2>
+
+  <p>Убирает фокус с текущей страницы. Соответствует событию onblur</p>
+</article>
+
+
+<!-- clearInterval -->
+<article class="article">
+  <div class="anchor" id="clearInterval"></div>
+  <h2>clearInterval()</h2>
+
+  <p>Обнуляет таймер заданный методом setInterval</p>
+</article>
+
+
+<!-- clearTimeout -->
+<article class="article">
+  <div class="anchor" id="clearTimeout"></div>
+  <h2>clearTimeout()</h2>
+
+  <p>Обнуляет таймер заданный методом setTimeout</p>
+</article>
+
+
+<!-- close -->
+<article class="article">
+  <div class="anchor" id="close"></div>
+  <h2>close()</h2>
+
+  <p>Закрывает окно браузера, открытое из текущего окна</p>
+  <p>Откроем новое окно и присвоим его переменной</p>
+  <code>let w = open()</code>
+  <p>Теперь мы можем это окно закрыть</p>
+  <code>w.close()</code>
+</article>
+
+
+<!-- confirm -->
+<article class="article">
+  <div class="anchor" id="confirm"></div>
+  <h2>confirm()</h2>
+
+  <p>Показывает модальное окно с сообщением и кнопками OK и Cancel</p>
+</article>
+
+
+<!-- focus -->
+<article class="article">
+  <div class="anchor" id="focus"></div>
+  <h2>focus()</h2>
+
+  <p>Устанавливает фокус на страницу. Соответствует событию onfocus</p>
+</article>
+
+
+<!-- open -->
+<article class="article">
+  <div class="anchor" id="open"></div>
+  <h2>open()</h2>
+
+  <p>Открывает новое окно браузера</p>
+  <code>open(url, name)</code>
+  <p>url - адрес новой страницы. name -  имя нового окна</p>
+</article>
+
+
+<!-- prompt -->
+<article class="article">
+  <div class="anchor" id="prompt"></div>
+  <h2>prompt()</h2>
+
+  <p>Показывает модальное окно с сообщением, полем ввода текста и кнопками OK и Cancel</p>
+</article>
+
+
+<!-- scroll -->
+<article class="article">
+  <div class="anchor" id="scroll"></div>
+  <h2>scroll()</h2>
+
+  <p>Разворачивает окно на заданные ширину и высоту</p>
+</article>
+
+
+<!-- setInterval -->
+<article class="article">
+  <div class="anchor" id="setInterval"></div>
+  <h2>setInterval()</h2>
+
+  <p>Периодически выполняет переданную callback функцию с интервалом, заданным в миллисекундах</p>
+</article>
+
+
+<!-- setTimeout -->
+<article class="article">
+  <div class="anchor" id="setTimeout"></div>
+  <h2>setTimeout()</h2>
+
+  <p>Выполняет переданную callback функцию однократно после задержки, заданной в миллисекундах</p>
+</article>
+
+
+<!-- onbeforeunload -->
+<article class="article">
+  <div class="anchor" id="onbeforeunload"></div>
+  <h2>onbeforeunload</h2>
+
+  <p>Событие - перед закрытием страницы. Что позволяет сохранить данные. Событие происходит перед загрузкой новой страницы или перед закрытием окна браузера.</p>
+</article>
+
+
+<!-- onblur -->
+<article class="article">
+  <div class="anchor" id="onblur"></div>
+  <h2>onblur</h2>
+
+  <p>Событие - выход окна из фокуса. Когда пользователь переключается между открытыми страницами, переводя фокус с одной страницы на другую. Действие пользователя вызывает событие onblur.Событие onblur также можно вызвать программным способом, используя метод blur.</p>
+</article>
+
+
+<!-- onerror -->
+<article class="article">
+  <div class="anchor" id="onerror"></div>
+  <h2>onerror</h2>
+
+  <p>Событие - ошибка при передаче. Если происходит ошибка при загрузке страницы или ее элемента, происходит событие onerror. Можно использовать это событие в программе, чтобы попытаться еще раз загрузить страницу или изменить дальнейшие действия.</p>
+</article>
+
+
+<!-- onfocus -->
+<article class="article">
+  <div class="anchor" id="onfocus"></div>
+  <h2>onfocus</h2>
+
+  <p>Событие - окно становится активным. Когда пользователь переключается между открытыми страницами, переводя фокус с одной страницы на другую. Действие пользователя вызывает событие onfocus.Событие onfocus также можно вызвать программным способом, используя метод focus.</p>
+</article>
+
+
+<!-- onload -->
+<article class="article">
+  <div class="anchor" id="onload"></div>
+  <h2>onload</h2>
+
+  <p>Событие - страница полностью загружена</p>
+</article>
+
+
+<!-- onresize -->
+<article class="article">
+  <div class="anchor" id="onresize"></div>
+  <h2>onresize</h2>
+
+  <p>Событие - изменение размеров окна</p>
+</article>
+
+
+<!-- onscroll -->
+<article class="article">
+  <div class="anchor" id="onscroll"></div>
+  <h2>onscroll</h2>
+
+  <p>Событие - прокрутка окна</p>
+</article>
+
+
+<!-- onunload -->
+<article class="article">
+  <div class="anchor" id="onunload"></div>
+  <h2>onunload</h2>
+
+  <p>Событие - непосредственно перед закрытием страницы</p>
+</article>
+
+
+

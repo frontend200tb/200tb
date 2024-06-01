@@ -3,7 +3,7 @@
 ****************** */
 import showJsDatatypes from './js-datatypes/js-datatypes';
 import showJsCorejs from './js-corejs/js-corejs';
-import showJsWebApi from './js-webapi/js-webapi';
+import showJsBom from './js-bom/js-bom';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
 import showJsInterview from './js-interview/js-interview';
@@ -29,12 +29,12 @@ export default function pageLink() {
     });
   }
 
-  const navWebApi = document.getElementById('js-3');
-  if (navWebApi) {
-    navWebApi.addEventListener('click', (e) => {
+  const navBom = document.getElementById('js-3');
+  if (navBom) {
+    navBom.addEventListener('click', (e) => {
       e.preventDefault();
-      currentContent.innerHTML = '<js-webapi></js-webapi>';
-      showJsWebApi();
+      currentContent.innerHTML = '<js-bom></js-bom>';
+      showJsBom();
     });
   }
 

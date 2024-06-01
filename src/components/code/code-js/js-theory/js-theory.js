@@ -6,8 +6,7 @@ import './element-js-theory';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Js', 'Eventloop', 'Prototype', 'Scope',
-'Ascii', 'Unicode'];
+const asideThemes = ['Js', 'Eventloop', 'Prototype', 'Scope', 'Приоритет операций', 'Keywords', 'Ascii', 'Unicode'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

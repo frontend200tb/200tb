@@ -8,6 +8,8 @@ import htmlJs from './elem-js.html';
 import htmlEventloop from './elem-eventloop.html';
 import htmlPrototype from './elem-prototype.html';
 import htmlScope from './elem-scope.html';
+import htmlPriority from './elem-priority.html';
+import htmlKeywords from './elem-keywords.html';
 import htmlAscii from './elem-ascii.html';
 import htmlUnicode from './elem-unicode.html';
 
@@ -20,6 +22,8 @@ const aside = [
   htmlEventloop,
   htmlPrototype,
   htmlScope,
+  htmlPriority,
+  htmlKeywords,
   htmlAscii,
   htmlUnicode,
 ];

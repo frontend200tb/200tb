@@ -650,6 +650,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 50,
+    year: 2019,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Лекции по алгоритмам и структурам данных',
+    author: 'Бабичев',
+    authorName: 'Сергей',
+    pages: '344',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 51,
     year: 2019,
     category: 'основы',
@@ -1012,6 +1025,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 50,
+    year: 2022,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Лекции по алгоритмам и структурам данных',
+    author: 'Бабичев',
+    authorName: 'Сергей',
+    pages: '349',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 79,
     year: 2022,
     category: 'основы',
@@ -1020,8 +1046,8 @@ const dataBooksAlgorithm = [
     author: 'Бхаргава',
     authorName: 'Адитья',
     pages: '288',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.05.31 пт',
   },
 
   {
