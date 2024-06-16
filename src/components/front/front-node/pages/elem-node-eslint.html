@@ -48,21 +48,17 @@
   <div class="anchor" id="install"></div>
   <h2>install</h2>
 
-  <ol>
-    <li>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb
-      <code>npm i -D eslint eslint-config-airbnb</code>
-    </li>
-    <li>Появится папка node_modules, файл package-lock.json, а в файл package.json добавятся зависимости
-<pre>
+  <p>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb</p>
+  <code>npm i -D eslint eslint-config-airbnb</code>
+
+  <p>В файл package.json добавятся зависимости для разработки. Вручную добавим скрипт для запуска проверки</p>
+<pre>"scripts": {
+  "lint": "eslint ./src",
+},
 "devDependencies": {
   "eslint": "^8.49.0",
   "eslint-config-airbnb": "^19.0.4",
 }</pre>
-    </li>
-    <li>Создадим файл .eslintrc.js в котором будут настройки для eslint
-      <code>touch .eslintrc.js</code>
-    </li>
-  </ol>
 </article>
 
 
@@ -71,9 +67,11 @@
   <div class="anchor" id="eslintrc"></div>
   <h2>.eslintrc.js</h2>
 
-  <p>Из файла .eslintrc.js будем экспортировать объект, со свойством preset-env</p>
-  <pre>
-module.exports = {
+  <p>Создадим файл .eslintrc.js в котором будут настройки для eslint</p>
+  <code>touch .eslintrc.js</code>
+
+  <p>Из файла .eslintrc.js будем экспортировать объект</p>
+<pre>module.exports = {
   env: {
     commonjs: true,
     es6: true,
@@ -93,6 +91,5 @@ module.exports = {
   rules: {
     'no-console': 0,
   },
-}
-  </pre>
+}</pre>
 </article>

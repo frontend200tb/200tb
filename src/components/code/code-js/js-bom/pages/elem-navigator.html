@@ -22,7 +22,19 @@
     <li><a href="#cookieEnabled">cookieEnabled</a></li>
     <li><a href="#deviceMemory">deviceMemory</a></li>
     <li><a href="#doNotTrack">doNotTrack</a></li>
-    <li><a href=""></a></li>
+    <li><a href="#hardwareConcurrency">hardwareConcurrency</a></li>
+    <li><a href="#language">language</a></li>
+    <li><a href="#languages">languages</a></li>
+    <li><a href="#maxTouchPoints">maxTouchPoints</a></li>
+    <li><a href="#onLine">onLine</a></li>
+    <li><a href="#pdfViewerEnabled">pdfViewerEnabled</a></li>
+    <li><a href="#platform">platform</a></li>
+    <li><a href="#product">product</a></li>
+    <li><a href="#productSub">productSub</a></li>
+    <li><a href="#userAgent">userAgent</a></li>
+    <li><a href="#vendor">vendor</a></li>
+    <li><a href="#vendorSub">vendorSub</a></li>
+    <li><a href="#webdriver">webdriver</a></li>
   </ol>
 </article>
 
@@ -31,6 +43,115 @@
 <article class="article">
   <div class="anchor" id="methods"></div>
   <h2>Методы window.navigator</h2>
+
+  <ol>
+    <li><a href="#canShare">canShare()</a></li>
+    <li><a href="#clearAppBadge">clearAppBadge()</a></li>
+    <li><a href="#getBattery">getBattery()</a></li>
+    <li><a href="#getGamepads">getGamepads()</a></li>
+    <li><a href="#getIRA">getInstalledRelatedApps()</a></li>
+    <li><a href="#getUserMedia">getUserMedia()</a></li>
+    <li><a href="#javaEnabled">javaEnabled()</a></li>
+    <li><a href="#registerPH">registerProtocolHandler()</a></li>
+    <li><a href="#sendBeacon">sendBeacon()</a></li>
+    <li><a href="#setAppBadge">setAppBadge()</a></li>
+    <li><a href="#share">share()</a></li>
+    <li><a href="#unregisterPH">unregisterProtocolHandler()</a></li>
+    <li><a href="#vibrate">vibrate()</a></li>
+    <li><a href="#webkitGetUserMedia">webkitGetUserMedia()</a></li>
+  </ol>
 </article>
 
+
+<!-- Объекты window.navigator  -->
+<article class="article">
+  <div class="anchor" id="objects"></div>
+  <h2>Объекты window.navigator</h2>
+
+  <ol>
+    <li><a href="#bluetooth">bluetooth</a></li>
+    <li><a href="#clipboard">clipboard</a></li>
+    <li><a href="#connection">connection</a></li>
+    <li><a href="#credentials">credentials</a></li>
+    <li><a href="#geolocation">geolocation</a></li>
+    <li><a href="#gpu">gpu</a></li>
+    <li><a href="#hid">hid</a></li>
+    <li><a href="#ink">ink</a></li>
+    <li><a href="#keyboard">keyboard</a></li>
+    <li><a href="#locks">locks</a></li>
+    <li><a href="#login">login</a></li>
+    <li><a href="#managed">managed</a></li>
+    <li><a href="#mediaCapabilities">mediaCapabilities</a></li>
+    <li><a href="#mediaDevices">mediaDevices</a></li>
+    <li><a href="#mediaSession">mediaSession</a></li>
+    <li><a href="#mimeTypes">mimeTypes</a></li>
+    <li><a href="#permissions">permissions</a></li>
+    <li><a href="#plugins">plugins</a></li>
+    <li><a href="#presentation">presentation</a></li>
+    <li><a href="#scheduling">scheduling</a></li>
+    <li><a href="#serial">serial</a></li>
+    <li><a href="#serviceWorker">serviceWorker</a></li>
+    <li><a href="#storage">storage</a></li>
+    <li><a href="#storageBuckets">storageBuckets</a></li>
+    <li><a href="#usb">usb</a></li>
+    <li><a href="#userActivation">userActivation</a></li>
+    <li><a href="#userAgentData">userAgentData</a></li>
+    <li><a href="#virtualKeyboard">virtualKeyboard</a></li>
+    <li><a href="#wakeLock">wakeLock</a></li>
+    <li><a href="#webkitPS">webkitPersistentStorage</a></li>
+    <li><a href="#webkitTS">webkitTemporaryStorage</a></li>
+    <li><a href="#windowCO">windowControlsOverlay</a></li>
+    <li><a href="#xr">xr</a></li>
+  </ol>
+</article>
+
+
+<!-- navigator.geolocation  -->
+<article class="article">
+  <div class="anchor" id="geolocation"></div>
+  <h2>navigator.geolocation</h2>
+
+  <ol>
+    <li>
+      <h4>getCurrentPosition()</h4>
+      <p>getCurrentPosition() - это асинхронный метод, который принимает три параметра.</p>
+      <p>Первый - callback функция, которая запустится после того как браузер получит местоположение. Она принимает один параметр - объект, содержащий два свойства timestamp и coords. coords это объект со свойствами latitude - широта, longitude - долгота, accuracy - точность.</p>
+      <p>Второй - callback функция, которая запустится если будет ошибка. Она принимает два параметра - message сообщение и code код ошибки. Код ошибки: 1 - нет разрешения, 2 - техническая ошибка, 3- превышено время ожидания.</p>
+      <p>Третий это объект с дополнительными опциями enableHighAccuracy, timeout, maximumAge.</p>
+<pre>function success(position) {
+  console.log(
+    position.timestamp,
+    position.coords.latitude,
+    position.coords.longitude,
+    position.coords.accuracy
+  )
+}
+
+function error(err) {
+  let s = '';
+  switch(err) {
+    case 1: s = 'Нет разрешения'; break;
+    case 2: s = 'Техническая ошибка'; break;
+    case 3: s = 'Превышено время ожидания'; break;
+    default: s = 'Неизвестная ошибка'
+  }
+  console.log(s);
+}
+
+let params = {
+  enableHighAccuracy = true,
+  timeout = 10000,
+  maximumAge = 0
+}
+
+navigator.geolocation.getCurrentPosition(success, error, params)</pre>
+    </li>
+    <li>
+      <h4>watchPosition()</h4>
+    </li>
+    <li>
+      <h4>clearWatch()</h4>
+    </li>
+  </ol>
+</article>
 

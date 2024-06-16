@@ -15,12 +15,13 @@
 5. Вешаем обработчики кликов по aside
 6. Создадим и вызовем событие click на первом aside эелементе
 */
+import './scss/code-js.scss';
 import './element-code-js';
 import pageLink from './pages';
 
 // 1. Создадим контент для #main-nav
 // 1.1 Создаем массив categories с категориями
-const categories = ['Типы данных', 'CoreJS', 'BOM', 'Теория', 'Практика', 'Interview'];
+const categories = ['Типы данных', 'CoreJS', 'BOM', 'DOM', 'Теория', 'Практика', 'Interview'];
 
 // 1.2 Создаем массив mainNav для элементов nav меню
 const mainNav = [];

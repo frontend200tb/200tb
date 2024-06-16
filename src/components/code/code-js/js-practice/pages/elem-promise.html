@@ -5,22 +5,15 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#tema1">1. Реализовать свою функцию allSettled()</a></p>
-  Цепочка промисов
-  <ol>
-    <li><a href="#t1">Задача 1</a></li>
-    <li><a href="#t2">Задача 2</a></li>
-    <li><a href="#t3">Задача 3</a></li>
-    <li><a href="#t4">Задача 4</a></li>
-    <li><a href="#t5">Задача 5</a></li>
-  </ol>
+  <p><a href="#t1">1. Полифил allSettled()</a></p>
+  <p><a href="#t2">2. Последовательная загрузка картинок</a></p>
 </article>
 
 
-<!-- 1. Реализовать свою функцию allSettled() -->
+<!-- 1. Полифил allSettled() -->
 <article class="article">
-  <div class="anchor" id="tema1"></div>
-  <h3>1. Реализовать свою функцию allSettled()</h3>
+  <div class="anchor" id="t1"></div>
+  <h3>1. Полифил allSettled()</h3>
 
   <p>Реализовать свою функцию allSettled(). Принимает на вход массив промисов. Возвращает массив объекто со свойствами status и value.</p>
 
@@ -60,105 +53,84 @@
 </article>
 
 
-<!-- Задача 1 -->
-<article class="article">
-  <div class="anchor" id="t1"></div>
-  <h3>Задача 1</h3>
-
-<pre>Promise.resolve(13)
-  .then(result1 => {
-    console.log(result1)
-  })
-  .then(result2 => {
-    console.log(result2)
-  });</pre>
-
-  <details>
-    <summary>Ответ</summary>
-    <code>13, undefined</code>
-  </details>
-</article>
-
-
-<!-- Задача 2 -->
+<!-- 2. Последовательная загрузка картинок -->
 <article class="article">
   <div class="anchor" id="t2"></div>
-  <h3>Задача 2</h3>
+  <h3>2. Последовательная загрузка картинок</h3>
 
-<pre>Promise.resolve(1)
-  .then((x) => x + 1)
-  .then((x) => {
-    throw x;
-  })
-  .then((x) => console.log(x))
-  .catch((err) => console.log(err))
-  .then((x) => Promise.resolve(1))
-  .catch((err) => console.log(err))
-  .then((x) => console.log(x));</pre>
+  <p>Написать последовательную загрузку картинок по url адресам. Следующая картинка загружается когда уже загрузилась предыдущая.</p>
+
+  <p>Сначала напишем вспомогательную функцию loadImage, которая принимает url и возвращает Promise внутри которого создается картинка. Промис разрешится когда картинка будет загружена.</p>
 
   <details>
-    <summary>Ответ</summary>
-    <code>2, 1</code>
+    <summary>Решение на callback-ах</summary>
+<pre>const url1 = 'https://picture.com/1.img';
+const url2 = 'https://picture.com/2.img';
+const url3 = 'https://picture.com/3.img';
+
+function loadImage(url, callback) {
+  const image = document.createElement('img');
+  image.height = 200;
+  image.src = url;
+  document.body.appendChild(image);
+  image.addEventListener('load', () => {
+    console.log('картинка загружена');
+    if (callback) {
+      callback();
+    }
+  });
+}
+
+loadImage(url1, () => {
+  loadImage(url2, () => {
+    loadImage(url3, () => {
+      console.log('все картинки загружены');
+    });
+  });
+});
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение на промисах</summary>
+<pre>const url1 = 'https://picture.com/1.img';
+const url2 = 'https://picture.com/2.img';
+const url3 = 'https://picture.com/3.img';
+
+function loadImage(url) {
+  return new Promise(resolve => {
+    const image = document.createElement('img');
+    image.height = 200;
+    image.src = url;
+    document.body.appendChild(image);
+    image.addEventListener('load', () => {
+      resolve();
+    });
+  });
+}
+
+loadImage(url1)
+  .then(() => {
+    console.log('картинка 1 загружена');
+    loadImage(url2)
+      .then(() => {
+        console.log('картинка 2 загружена');
+        loadImage(url3)
+          .then(() => {
+            console.log('картинка 3 загружена');
+          });
+      });
+  });</pre>
+  </details>
+  
+  <details>
+    <summary>Решение на промисах с методом then()</summary>
+<pre>
+loadImage(url1)
+  .then(() => loadImage(url2))
+  .then(() => loadImage(url3))
+  .then(() => console.log('все картинки загружены'))
+</pre>
   </details>
 </article>
 
-
-<!-- Задача 3 -->
-<article class="article">
-  <div class="anchor" id="t3"></div>
-  <h3>Задача 3</h3>
-
-<pre>Promise
-  .resolve(1)
-  .resolve(2)
-  .then(console.log);</pre>
-
-  <details>
-    <summary>Ответ</summary>
-    <code>TypeError: Promise.resolve(...).resolve is not a function</code>
-  </details>
-</article>
-
-
-<!-- Задача 4 -->
-<article class="article">
-  <div class="anchor" id="t4"></div>
-  <h3>Задача 4</h3>
-
-<pre>Promise
-  .reject('a')
-  .catch(p => p + 'b')
-  .catch(p => p + 'c')
-  .then(p => p + 'd')
-  .finally(p => p + 'e')
-  .then(p => console.log(p)) // ?</pre>
-
-  <details>
-    <summary>Ответ</summary>
-    <p>Во второй catch ничего не попадает. finally сработает уже после последнего then и принимает undefined, то что он возвращает из колбека никуда не идет, он просто отрабатывает.</p>
-    <code>abd</code>
-  </details>
-</article>
-
-
-<!-- Задача 5 -->
-<article class="article">
-  <div class="anchor" id="t5"></div>
-  <h3>Задача 5</h3>
-
-<pre>Promise.reject('a') // 
-  .then(p => p + '1', p => p + '2') // 
-  .catch(p => p + 'b') // 
-  .catch(p => p + 'c') // 
-  .then(p => p + 'd1') // 
-  .then('d2') // 
-  .then(p => p + 'd3') // 
-  .finally(p => p + 'e') //
-  .then(p => console.log(p)) // ?</pre>
-
-  <details>
-    <summary>Ответ</summary>
-  <p>В задаче используется второй аргумент метода then() и проваливание промисов.</p>
-  <code>a2d1d3</code>
-  </details>
-</article>

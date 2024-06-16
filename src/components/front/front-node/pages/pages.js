@@ -10,6 +10,7 @@ import htmlNodeEslint from './elem-node-eslint.html';
 import htmlNodeGulp from './elem-node-gulp.html';
 import htmlNodeVite from './elem-node-vite.html';
 import htmlNodeWebpack from './elem-node-webpack.html';
+import htmlNodeWebpackDevServer from './elem-node-webpack-dev-server.html';
 import htmlNodeTailwind from './elem-node-tailwind.html';
 import htmlNodeNodejs from './elem-node-nodejs.html';
 
@@ -21,6 +22,7 @@ const aside = [
   htmlNodeGulp,
   htmlNodeVite,
   htmlNodeWebpack,
+  htmlNodeWebpackDevServer,
   htmlNodeTailwind,
   htmlNodeNodejs,
 ];

@@ -1,28 +1,21 @@
 <h1>JavaScript</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div>
-    <p><a href="#links">links</a></p>
-    <p><a href="#es">ECMAScript</a></p>
-    <p><a href="#expression">Выражение (expression)</a></p>
-    <p><a href="#variable">Переменная</a></p>
-    <p><a href="#typeof">Типы данных</a></p>
-    <p><a href="#func">Функции</a></p>
-    <p><a href="#error">Обработка ошибок</a></p>
-    <p><a href="#statement">Инструкция (statement)</a></p>
-    <p><a href="#if">Условие (if, switch)</a></p>
-    <p><a href="#for">Цикл (for, while)</a></p>
-  </div>
-
-</div>
+  <p><a href="#links">links</a></p>
+  <p><a href="#es">ECMAScript</a></p>
+  <p><a href="#expression">Выражение (expression)</a></p>
+  <p><a href="#variable">Переменная</a></p>
+  <p><a href="#typeof">Типы данных</a></p>
+  <p><a href="#func">Функции</a></p>
+  <p><a href="#error">Обработка ошибок</a></p>
+  <p><a href="#statement">Инструкция (statement)</a></p>
+  <p><a href="#if">Условие (if, switch)</a></p>
+  <p><a href="#for">Цикл (for, while)</a></p>
+</article>
 
 <!-- links -->
 <article class="article">
@@ -100,12 +93,14 @@
   <td>Июнь 1997</td>
   <td>First edition</td>
   </tr>
+  <tr class="tr-space"></tr>
   <tr>
   <td>ES2</td>
   <td>ECMAScript 2</td>
   <td>Июнь 1998</td>
   <td>Editorial changes</td>
   </tr>
+  <tr class="tr-space"></tr>
   <tr>
   <td>ES3</td>
   <td>ECMAScript 3 (1999)</td>
@@ -115,6 +110,7 @@
   Added switch<br>
   Added do-while</td>
   </tr>
+  <tr class="tr-space"></tr>
   <tr>
   <td>ES4</td>
   <td>ECMAScript 4</td>
@@ -677,7 +673,7 @@ for (let key in arr) {
   <p>Но так делать не рекомендуется. Рекомендуется использовать forEach - родной метод массива.</p>
 
   <h3>Цикл for of</h3>
-  <p>Цмко for of перебирает итерируемые объекты.</p>
+  <p>Оператор for of выполняет цикл обхода итерируемых объектов. Например, Array, Map, Set, String, arguments.</p>
 <pre>for (element of iterable) {
   // блок кода
 }</pre>

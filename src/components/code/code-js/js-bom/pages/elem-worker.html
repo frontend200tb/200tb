@@ -1,0 +1,92 @@
+<h1>Worker</h1>
+
+
+<!-- Содержание -->
+<article class="article article__content">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#about">about</a></p>
+  <p><a href="#methods">Методы объекта Worker</a></p>
+  <p><a href="#events">События объекта Worker</a></p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <h3>Ссылки на habr</h3>
+  <p><a href="https://habr.com/ru/companies/ruvds/articles/348424/">Как работает JS: веб-воркеры и пять сценариев их использования</a> (2018.02.07)</p>
+  <p><a href="https://habr.com/ru/articles/767494/">Web Workers в JavaScript: Параллельные вычисления и улучшение производительности</a> (2023.10.15)</p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Web Worker - это API, которое позволяет выполнять кусочки кода вне основного потока, не блокируя при этом основной поток. В воркере на глобальный контекст ссылается переменная self. Веб-воркер создается в основном потоке.</p>
+  <p>Чтобы создать воркер, надо использовать конструктор, которому передается в качестве параметра url адрес скрипта.</p>
+  <code>let worker = new Worker('worker.js');</code>
+  После загрузки скрипта воркера создается отдельный поток, в котором выполнится скрипт воркера. Создание воркера считается тяжелой операцией, потому что для каждому потоку выделяется собственный экземпляр движка JavaScript.
+  <p>Потоки могут общаться между собой через отправку сообщений. Отправка сообщений происходит через функцию postMessage().</p>
+  <code>worker.postMessage(100);</code>
+
+  <p>Чтобы принять сообщение надо использовать обработчик onmessage(). Надо записать функцию в onmessage</p>
+  <code>onmessage = function(event) {console.log(event.data)}</code>
+  
+  <p>Если может произойти ошибка, то надо использовать обработчик onerror(). Надо записать функцию в onerror</p>
+  <code>onerror = function(error) {console.log(error.message)}</code>
+
+  <p>После завершения работы созданного воркера, его надо уничтожить методом terminate</p>
+  <code>worker.terminate();</code>
+
+  <h4>Пример</h4>
+  <p>Для фоновых вычислений нужно создать отдельный файл worker.js.</p>
+  <pre>// worker.js
+onmessage = function(event) {
+  postMessage('Принял ' + event.data)
+}</pre>
+  <p>После этого мы можем создать объект воркера.</p>
+  <code>let worker = new Worker('worker.js')</code>
+  <p>Передадим число 100, как сообщение, в worker.</p>
+  <code>worker.postMessage(100)</code>
+  <p>И выведем полученный ответ в консоль</p>
+<pre>let worker = new Worker('worker.js');
+worker.postMessage(100);
+worker.onmessage = function(event) {
+  console.log(event.data);
+}
+worker.onerror = function(error) {
+  console.log(error.message);
+}</pre>
+</article>
+
+
+<!-- Методы объекта Worker -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы объекта Worker</h2>
+
+  <ol>
+    <li><a href="#postMessage">postMessage()</a></li>
+    <li><a href="#terminate">terminate()</a></li>
+  </ol>
+</article>
+
+
+<!-- События объекта Worker -->
+<article class="article">
+  <div class="anchor" id="events"></div>
+  <h2>События объекта Worker</h2>
+
+  <ol>
+    <li><a href="#onerror">onerror()</a></li>
+    <li><a href="#onmessage">onmessage()</a></li>
+  </ol>
+</article>
+
+

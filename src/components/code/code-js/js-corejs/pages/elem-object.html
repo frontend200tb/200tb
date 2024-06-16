@@ -212,10 +212,10 @@ let c = Object.create({}, {language: {value: 'javascript'}})
 </article>
 
 
-<!-- Object.assign() -->
+<!-- 1. Object.assign() -->
 <article class="article">
   <div class="anchor" id="object-assign"></div>
-  <h2>1. Object.assign(target, source)</h2>
+  <h3>1. Метод Object.assign(target, source)</h3>
   <strong>Принимает</strong> целевой объект и исходный объект (объекты)
   <br>Изменяет целевой объект.
   <br><strong>Возвращает</strong> целевой объект.
@@ -231,10 +231,10 @@ console.log(returnedTarget === target); // true</pre>
 </article>
 
 
-<!-- Object.create() -->
+<!-- 2. Object.create() -->
 <article class="article">
   <div class="anchor" id="object-create"></div>
-  <h2>2. Object.create(proto[, properties])</h2>
+  <h3>2. Метод Object.create(proto[, properties])</h3>
   <strong>Появился</strong> в es5
   <br><strong>Принимает</strong> объект, который станет прототипом созданного объекта и опционально свойства.
   <br><strong>Возвращает</strong> новый объект с заданным прототипом и свойствами.
@@ -251,10 +251,10 @@ console.log(returnedTarget === target); // true</pre>
 </article>
 
 
-<!-- Object.defineProperties() -->
+<!-- 3. Object.defineProperties() -->
 <article class="article">
   <div class="anchor" id="object-defineProperties"></div>
-  <h2>3. Object.defineProperties(obj, props)</h2>
+  <h3>3. Метод Object.defineProperties(obj, props)</h3>
   <strong>Принимает</strong> два параметра
   <ol>
     <li><strong>obj</strong> - исходный объект, на котором определяются новые или изменяются существующие свойства.</li>
@@ -280,10 +280,10 @@ console.log(d); // {language: 'typescript'}</pre>
 </article>
 
 
-<!-- Object.defineProperty() -->
+<!-- 4. Object.defineProperty() -->
 <article class="article">
   <div class="anchor" id="object-defineProperty"></div>
-  <h2>4. Object.defineProperty(obj, prop, descriptor)</h2>
+  <h3>4. Метод Object.defineProperty(obj, prop, descriptor)</h3>
   <p><strong>Принимает</strong> три параметра:</p>
   <ol>
     <li><strong>obj</strong> Объект, на котором определяется свойство.</li>
@@ -311,10 +311,10 @@ console.log(a); // {language: 'typescript'}</pre>
 </article>
 
 
-<!-- Object.entries() -->
+<!-- 5. Object.entries() -->
 <article class="article">
   <div class="anchor" id="object-entries"></div>
-  <h2>5. Object.entries(obj)</h2>
+  <h3>5. Метод Object.entries(obj)</h3>
   <strong>Принимает</strong> объект, чьи перечислимые свойства будут возвращены в виде массива [key, value].
   <br><strong>Возвращает</strong> массив перечислений собственных свойств объекта с парами [key, value], в том же порядке, что и в цикле for...in.
 <pre>let obj = {a:1,b:2,c:3};
@@ -323,10 +323,10 @@ Object.entries(obj); // [['a',1],['b',2],['c',3]]
 </article>
 
 
-<!-- Object.freeze() -->
+<!-- 6. Object.freeze() -->
 <article class="article">
   <div class="anchor" id="object-freeze"></div>
-  <h2>6. Object.freeze(obj)</h2>
+  <h3>6. Метод Object.freeze(obj)</h3>
   <strong>Принимает</strong> исходный объект
   <br>Изменяет исходный объект
   <br><strong>Возвращает</strong> исходный объект, заморозив добавление, изменение и удаление свойств в объекте
@@ -343,10 +343,10 @@ delete a.c // свойство c не удалится
 </article>
 
 
-<!-- Object.fromEntries() -->
+<!-- 7. Object.fromEntries() -->
 <article class="article">
   <div class="anchor" id="object-from-entries"></div>
-  <h2>7. Object.fromEntries(iterable)</h2>
+  <h3>7. Метод Object.fromEntries(iterable)</h3>
   <strong>Принимает</strong> итерируемый объект (Array, Map и другие)
   <br>Не изменяет исходный объект
   <br><strong>Возвращает</strong> новый объект со свойствами указанными в принятом объекте
@@ -360,10 +360,10 @@ Object.fromEntries(map); // { foo: "bar", baz: 42 }</pre>
 </article>
 
 
-<!-- Object.getOwnPropertyDescriptor() -->
+<!-- 8. Object.getOwnPropertyDescriptor() -->
 <article class="article">
   <div class="anchor" id="object-get-own-prop-descr"></div>
-  <h2>8. Object.getOwnPropertyDescriptor(obj, prop)</h2>
+  <h3>8. Метод Object.getOwnPropertyDescriptor(obj, prop)</h3>
   <strong>Принимает</strong> два параметра - объект, в котором ищется свойство и имя свойства, чье описание будет возвращено
   <br>Не изменяет исходный объект
   <br><strong>Возвращает</strong> дескриптор собственного свойства указанного объекта
@@ -374,10 +374,10 @@ Object.getOwnPropertyDescriptor(b, 'bar'); // {set: undefined, enumerable: true,
 </article>
 
 
-<!-- Object.getOwnPropertyDescriptors() -->
+<!-- 9. Object.getOwnPropertyDescriptors() -->
 <article class="article">
   <div class="anchor" id="object-get-own-prop-descr"></div>
-  <h2>9. Object.getOwnPropertyDescriptors(obj)</h2>
+  <h3>9. Метод Object.getOwnPropertyDescriptors(obj)</h3>
   <strong>Появился</strong> в ES2017
   <strong>Принимает</strong> исходный объект, для которого нужно получить все собственные дескрипторы свойств
   <br>Не изменяет исходный объект
@@ -385,30 +385,30 @@ Object.getOwnPropertyDescriptor(b, 'bar'); // {set: undefined, enumerable: true,
 </article>
 
 
-<!-- Object.getOwnPropertyNames() -->
+<!-- 10. Object.getOwnPropertyNames() -->
 <article class="article">
   <div class="anchor" id="object-get-own-prop-names"></div>
-  <h2>10. Object.getOwnPropertyNames(obj)</h2>
+  <h3>10. Метод Object.getOwnPropertyNames(obj)</h3>
   <strong>Принимает</strong> исходный объект, чьи перечисляемые и неперечисляемые собственные свойства будут возвращены
   <br>Не изменяет исходный объект
   <br><strong>Возвращает</strong> массив строк, который соответствует свойствам, найденным непосредственно в данном объекте
 </article>
 
 
-<!-- Object.getOwnPropertySymbols() -->
+<!-- 11. Object.getOwnPropertySymbols() -->
 <article class="article">
   <div class="anchor" id="object-get-own-prop-sym"></div>
-  <h2>11. Object.getOwnPropertySymbols(obj)</h2>
+  <h3>11. Метод Object.getOwnPropertySymbols(obj)</h3>
   <strong>Принимает</strong> исходный объект, чьи символьные свойства будут возвращены
   <br>Не изменяет исходный объект
   <br><strong>Возвращает</strong> массив всех свойств символа, найденных прямо на данном объекте
 </article>
 
 
-<!-- Object.getPrototypeOf() -->
+<!-- 12. Object.getPrototypeOf() -->
 <article class="article">
   <div class="anchor" id="object-get-own-prop-sym"></div>
-  <h2>12. Object.getPrototypeOf(obj)</h2>
+  <h3>12. Метод Object.getPrototypeOf(obj)</h3>
   <strong>Принимает</strong> исходный объект, чей прототип будет возвращён
   <br><strong>Возвращает</strong> прототип (то есть, внутреннее свойство [[Prototype]]) указанного объекта
   <h3>Задачи на метод Object.getPrototypeOf()</h3>
@@ -420,128 +420,128 @@ Object.getPrototypeOf(b) === a; // true</pre>
 </article>
 
 
-<!-- Object.groupBy() -->
+<!-- 13. Object.groupBy() -->
 <article class="article">
   <div class="anchor" id="object-group-by"></div>
-  <h2>13. Object.groupBy(items, callback)</h2>
+  <h3>13. Метод Object.groupBy(items, callback)</h3>
   <strong>Принимает</strong> два параметра - итерируемые элементы и callback-функцию
   <br><strong>Возвращает</strong> новый объект
 </article>
 
 
-<!-- Object.hasOwn() -->
+<!-- 14. Object.hasOwn() -->
 <article class="article">
   <div class="anchor" id="object-has-own"></div>
-  <h2>14. Object.hasOwn(obj, prop)</h2>
+  <h3>14. Метод Object.hasOwn(obj, prop)</h3>
   <strong>Принимает</strong> исходный объект и свойство
   <br><strong>Возвращает</strong> true если свойство принадлежит объекту, иначе возвращает false если такого свойства нет или оно унаследовано
 </article>
 
 
-<!-- hasOwnProperty() -->
+<!-- 15 hasOwnProperty() -->
 <article class="article">
   <div class="anchor" id="object-has-own-prop"></div>
-  <h2>15. hasOwnProperty()</h2>
+  <h3>15. Метод hasOwnProperty()</h3>
   <strong>Принимает</strong> свойство, которое будет проверяться у объекта
   <br><strong>Возвращает</strong> true если исходный объект соделжит указанное свойство, иначе возвращает false
 </article>
 
 
-<!-- Object.is() -->
+<!-- 16. Object.is() -->
 <article class="article">
   <div class="anchor" id="object-is"></div>
-  <h2>16. Object.is(val1, val2)</h2>
+  <h3>16. Метод Object.is(val1, val2)</h3>
   <strong>Принимает</strong> два значения
   <br><strong>Возвращает</strong> true если указанные два значения одинаковые
 </article>
 
 
-<!-- Object.isExtensible() -->
+<!-- 17. Object.isExtensible() -->
 <article class="article">
   <div class="anchor" id="object-is-ext"></div>
-  <h2>17. Object.isExtensible(obj)</h2>
+  <h3>17. Метод Object.isExtensible(obj)</h3>
   <strong>Принимает</strong> исходный объект
   <br><strong>Возвращает</strong> true если исходный объект расширяемый (то есть, можно ли к нему добавлять новые свойства).
 </article>
 
 
-<!-- Object.isFrozen() -->
+<!-- 18. Object.isFrozen() -->
 <article class="article">
   <div class="anchor" id="object-is-frozen"></div>
-  <h2>18. Object.isFrozen()</h2>
+  <h3>18. Метод Object.isFrozen()</h3>
   <strong>Принимает</strong> исходный объект
   <br><strong>Возвращает</strong> true если исходный объект заморожен
 </article>
 
 
-<!-- isPrototypeOf() -->
+<!-- 19. isPrototypeOf() -->
 <article class="article">
   <div class="anchor" id="object-is-prototype-of"></div>
-  <h2>19. isPrototypeOf(obj)</h2>
+  <h3>19. Метод isPrototypeOf(obj)</h3>
   <strong></strong>Принимает объект, в чьей цепочке прототипов производится поиск
   <br><strong>Возвращает</strong> true если исходный объект входит в цепочку прототипов указанного в параметре объекта
 </article>
 
 
-<!-- Object.isSealed() -->
+<!-- 20. Object.isSealed() -->
 <article class="article">
   <div class="anchor" id="object-is-sealed"></div>
-  <h2>20. Object.isSealed(obj)</h2>
+  <h3>20. Метод Object.isSealed(obj)</h3>
   <strong>Принимает</strong> исходный объект
   <br><strong>Возвращает</strong> true если исходный объект запечатанный
 </article>
 
 
-<!-- Object.keys() -->
+<!-- 21. Object.keys() -->
 <article class="article">
   <div class="anchor" id="object-keys"></div>
-  <h2>21. Object.keys(obj)</h2>
+  <h3>21. Метод Object.keys(obj)</h3>
   <strong>Принимает</strong> исходный объект, чьи собственные перечисляемые свойства будут возвращены
   <br><strong>Возвращает</strong> массив из собственных перечисляемых свойств исходного объекта
 </article>
 
 
-<!-- Object.preventExtensions() -->
+<!-- 22. Object.preventExtensions() -->
 <article class="article">
   <div class="anchor" id="object-prevent-ext"></div>
-  <h2>22. Object.preventExtensions(obj)</h2>
+  <h3>22. Метод Object.preventExtensions(obj)</h3>
   <strong>Принимает</strong> исходный объект, который нужно сделать нерасширяемым
   <br><strong>Возвращает</strong> исходный объект, который делается нерасширяемым
 </article>
 
 
-<!-- propertyIsEnumerable() -->
+<!-- 23. propertyIsEnumerable() -->
 <article class="article">
   <div class="anchor" id="object-prop-is-enum"></div>
-  <h2>23. propertyIsEnumerable(prop)</h2>
+  <h3>23. Метод propertyIsEnumerable(prop)</h3>
   <strong>Принимает</strong> имя проверяемого свойства
   <br><strong>Возвращает</strong> true если указанное свойство является перечисляемым
 </article>
 
 
-<!-- Object.seal() -->
+<!-- 24. Object.seal() -->
 <article class="article">
   <div class="anchor" id="object-seal"></div>
-  <h2>24. Object.seal(obj)</h2>
+  <h3>24. Метод Object.seal(obj)</h3>
   <strong>Принимает</strong> исходный объект который надо запечатать
   <br><strong>Возвращает</strong> запечатанный исходный объект, предотвращая добавление новых свойств к объекту и делая все существующие свойства не настраиваемыми
   <p>Значения представленных свойств всё ещё могут изменяться, поскольку они остаются записываемыми.</p>
 </article>
 
 
-<!-- Object.setPrototypeOf() -->
+<!-- 25. Object.setPrototypeOf() -->
 <article class="article">
   <div class="anchor" id="object-set-prototype-of"></div>
-  <h2>25. Object.setPrototypeOf(obj, prototype)</h2>
+  <h3>25. Метод Object.setPrototypeOf(obj, prototype)</h3>
   <strong>Принимает</strong> два параметра - исходный объект, которому устанавливается прототип и новый прототип объекта
   <br><strong>Возвращает</strong> исходный объект с установленным прототипом
 </article>
 
 
-<!-- toLocaleString() -->
+<!-- 26. toLocaleString() -->
 <article class="article">
   <div class="anchor" id="object-to-locale-string"></div>
-  <h2>26. toLocaleString()</h2>
+  <h3>26. Метод toLocaleString()</h3>
   <strong>Не принимает параметры</strong>
   <br><strong>Возвращает</strong> строку, представляющую исходный объект
   <p>Метод toLocaleString объекта Object возвращает результат вызова метода toString()</p>
@@ -554,28 +554,29 @@ Object.getPrototypeOf(b) === a; // true</pre>
 </article>
 
 
-<!-- toString() -->
+<!-- 27. toString() -->
 <article class="article">
   <div class="anchor" id="object-to-string"></div>
-  <h2>27. toString()</h2>
+  <h3>27. Метод toString()</h3>
   <strong>Не принимает параметры</strong>
   <br><strong>Возвращает</strong> строку, представляющую исходный объект
 </article>
 
 
-<!-- valueOf() -->
+<!-- 28. valueOf() -->
 <article class="article">
   <div class="anchor" id="object-value-of"></div>
-  <h2>28. valueOf()</h2>
+  <h3>28. Метод valueOf()</h3>
   <strong>Не принимает параметры</strong>
   <br><strong>Возвращает</strong> примитивное значение исходного объекта
 </article>
 
 
-<!-- Object.values() -->
+<!-- 29. Object.values() -->
 <article class="article">
   <div class="anchor" id="object-values"></div>
-  <h2>29. Object.values()</h2>
-  <strong>Принимает</strong> исходный объект, чьи значения перечисляемых свойств будут возвращены
+  <h3>29. Метод Object.values()</h3>
+  <strong>Появился</strong> в es2017
+  <br><strong>Принимает</strong> исходный объект, чьи значения перечисляемых свойств будут возвращены
   <br><strong>Возвращает</strong> массив значений перечисляемых свойств объекта
 </article>

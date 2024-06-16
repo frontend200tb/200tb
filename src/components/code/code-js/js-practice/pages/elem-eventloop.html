@@ -17,6 +17,11 @@
   <p><a href="#t8">Задача 8</a></p>
   <p><a href="#t9">Задача 9</a></p>
   <p><a href="#t10">Задача 10</a></p>
+  <p><a href="#t11">Задача 11</a></p>
+  <p><a href="#t12">Задача 12</a></p>
+  <p><a href="#t13">Задача 13</a></p>
+  <p><a href="#t14">Задача 14</a></p>
+  <p><a href="#t15">Задача 15</a></p>
 </article>
 
 
@@ -311,6 +316,27 @@ console.log(7);</pre>
   <div class="anchor" id="t10"></div>
   <h3>Задача 10</h3>
 
+<pre>Promise.resolve(13)
+  .then(result1 => {
+    console.log(result1)
+  })
+  .then(result2 => {
+    console.log(result2)
+  });</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>13, undefined</code>
+  </details>
+</article>
+
+
+
+<!-- Задача 11 -->
+<article class="article">
+  <div class="anchor" id="t11"></div>
+  <h3>Задача 11</h3>
+
 <pre>setTimeout(function timeout() {
   console.log('console 1');
 }, 0);
@@ -338,5 +364,89 @@ console.log('console 4');</pre>
   console 4
   console 3
   console 1</pre>
+  </details>
+</article>
+
+
+<!-- Задача 12 -->
+<article class="article">
+  <div class="anchor" id="t12"></div>
+  <h3>Задача 12</h3>
+
+<pre>Promise.resolve(1)
+  .then((x) => x + 1)
+  .then((x) => {
+    throw x;
+  })
+  .then((x) => console.log(x))
+  .catch((err) => console.log(err))
+  .then((x) => Promise.resolve(1))
+  .catch((err) => console.log(err))
+  .then((x) => console.log(x));</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>2, 1</code>
+  </details>
+</article>
+
+
+<!-- Задача 13 -->
+<article class="article">
+  <div class="anchor" id="t13"></div>
+  <h3>Задача 13</h3>
+
+<pre>Promise
+  .resolve(1)
+  .resolve(2)
+  .then(console.log);</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <code>TypeError: Promise.resolve(...).resolve is not a function</code>
+  </details>
+</article>
+
+
+<!-- Задача 14 -->
+<article class="article">
+  <div class="anchor" id="t14"></div>
+  <h3>Задача 14</h3>
+
+<pre>Promise
+  .reject('a')
+  .catch(p => p + 'b')
+  .catch(p => p + 'c')
+  .then(p => p + 'd')
+  .finally(p => p + 'e')
+  .then(p => console.log(p)) // ?</pre>
+
+  <details>
+    <summary>Ответ</summary>
+    <p>Во второй catch ничего не попадает. finally сработает уже после последнего then и принимает undefined, то что он возвращает из колбека никуда не идет, он просто отрабатывает.</p>
+    <code>abd</code>
+  </details>
+</article>
+
+
+<!-- Задача 15 -->
+<article class="article">
+  <div class="anchor" id="t15"></div>
+  <h3>Задача 15</h3>
+
+<pre>Promise.reject('a') // 
+  .then(p => p + '1', p => p + '2') // 
+  .catch(p => p + 'b') // 
+  .catch(p => p + 'c') // 
+  .then(p => p + 'd1') // 
+  .then('d2') // 
+  .then(p => p + 'd3') // 
+  .finally(p => p + 'e') //
+  .then(p => console.log(p)) // ?</pre>
+
+  <details>
+    <summary>Ответ</summary>
+  <p>В задаче используется второй аргумент метода then() и проваливание промисов.</p>
+  <code>a2d1d3</code>
   </details>
 </article>

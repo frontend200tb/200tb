@@ -48,7 +48,7 @@ export default function createList(data) {
     // 6. Запишем свойства фильма в элемент списка фильмов
     elementLi.innerHTML = `
     <strong>[${data[i].year}] ${data[i].title}</strong>
-    <div>${data[i].author} ${data[i].name}</div>
+    <div><em>${data[i].authorName ? data[i].authorName + ' ' : ''}${data[i].author}</em> ${data[i].name}</div>
     <div>${data[i].numberLessons}. Время ${video.time}. Размер ${data[i].size}</div>
     <div>${video.link}</div>
     <div>Изучено ${data[i].isLearned}</div>`;

@@ -248,6 +248,19 @@ const dataBooksAlgorithm = [
   },
 
   {
+    id: 19,
+    year: 2012,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование на алгоритмическом языке КуМир',
+    author: 'Анеликова',
+    authorName: 'Людмила',
+    pages: '49',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 20,
     year: 2013,
     category: 'основы',
@@ -1253,6 +1266,19 @@ const dataBooksAlgorithm = [
     author: 'Меджедович',
     authorName: 'Джейла',
     pages: '342',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 95,
+    year: 2024,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы компьютерной арифметики (4е)',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '288',
     isLearned: false,
     dateLearned: '',
   },

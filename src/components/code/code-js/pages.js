@@ -4,6 +4,7 @@
 import showJsDatatypes from './js-datatypes/js-datatypes';
 import showJsCorejs from './js-corejs/js-corejs';
 import showJsBom from './js-bom/js-bom';
+import showJsDom from './js-dom/js-dom';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
 import showJsInterview from './js-interview/js-interview';
@@ -38,7 +39,16 @@ export default function pageLink() {
     });
   }
 
-  const navTheory = document.getElementById('js-4');
+  const navDom = document.getElementById('js-4');
+  if (navDom) {
+    navDom.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<js-dom></js-dom>';
+      showJsDom();
+    });
+  }
+
+  const navTheory = document.getElementById('js-5');
   if (navTheory) {
     navTheory.addEventListener('click', (e) => {
       e.preventDefault();
@@ -47,7 +57,7 @@ export default function pageLink() {
     });
   }
 
-  const navPractice = document.getElementById('js-5');
+  const navPractice = document.getElementById('js-6');
   if (navPractice) {
     navPractice.addEventListener('click', (e) => {
       e.preventDefault();
@@ -56,7 +66,7 @@ export default function pageLink() {
     });
   }
 
-  const navInterview = document.getElementById('js-6');
+  const navInterview = document.getElementById('js-7');
   if (navInterview) {
     navInterview.addEventListener('click', (e) => {
       e.preventDefault();

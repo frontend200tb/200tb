@@ -1,0 +1,58 @@
+<h1>FileReader</h1>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <h4>Пример</h4>
+  <p>Создадим в index.html input для выбора файла и div для вывода текста из файла.</p>
+  <code>&lt;input type="file" id="myFile"&gt;</code>
+  <code>&lt;input type="file" id="myFiles" multiple&gt;</code>
+  <code>&lt;div id="content"&gt;&lt;/div&gt;</code>
+
+  <p>В index.js запишем код</p>
+<pre>const output = document.getElementById('content');
+
+// обработаем выбор одного файла
+document.getElementById('myFile').onchange = getFile;
+function getFile(e) {
+  const file = e.target.files[0];
+  console.log(file.name, file.type, file.size);
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    output.textContent = ev.target.result;
+  };
+  reader.readAsText(file);
+}
+
+// обработаем выбор нескольких файлов
+document.getElementById('myFiles').onchange = getFiles;
+function getFiles(e) {
+  const files = e.target.files;
+  for (let i = 0; i &lt; files.length; i++) {
+    const file = files[i];
+    console.log(file.name, file.type, file.size);
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      output.textContent += ev.target.result;
+    };
+    reader.readAsText(file);
+  }
+}</pre>
+</article>
+
+<!-- Методы FileReader -->
+<article class="article">
+  <div class="anchor" id="methods"></div>
+  <h2>Методы FileReader</h2>
+
+  <ol>
+    <li><a href="#readAsArrayBuffer">readAsArrayBuffer</a></li>
+    <li><a href="#readAsBinaryString">readAsBinaryString</a></li>
+    <li><a href="#readAsDataURL">readAsDataURL</a></li>
+    <li><a href="#readAsText">readAsText</a></li>
+  </ol>
+</article>
+

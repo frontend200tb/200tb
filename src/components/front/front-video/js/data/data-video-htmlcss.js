@@ -10,10 +10,10 @@ const dataVideoHtmlcss = [
     author: 'Андрей Алехин',
     name: '',
     numberLessons: '8 уроков',
-    time_h_m: [16, 0],
+    time_h_m: [14, 25],
     size: '2.7 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.13 чт',
   },
 
   {

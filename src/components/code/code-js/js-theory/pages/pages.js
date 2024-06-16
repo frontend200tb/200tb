@@ -10,6 +10,7 @@ import htmlPrototype from './elem-prototype.html';
 import htmlScope from './elem-scope.html';
 import htmlPriority from './elem-priority.html';
 import htmlKeywords from './elem-keywords.html';
+import htmlGenerator from './elem-generator.html';
 import htmlAscii from './elem-ascii.html';
 import htmlUnicode from './elem-unicode.html';
 
@@ -24,6 +25,7 @@ const aside = [
   htmlScope,
   htmlPriority,
   htmlKeywords,
+  htmlGenerator,
   htmlAscii,
   htmlUnicode,
 ];

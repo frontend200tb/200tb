@@ -8,6 +8,7 @@ import htmlPrinciple from './elem-principle.html';
 import htmlPattern from './elem-pattern.html';
 import htmlOop from './elem-oop.html';
 import htmlFp from './elem-fp.html';
+import htmlInfo from './elem-info.html';
 
 const aside = [
   htmlStructure,
@@ -15,6 +16,7 @@ const aside = [
   htmlPattern,
   htmlOop,
   htmlFp,
+  htmlInfo,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

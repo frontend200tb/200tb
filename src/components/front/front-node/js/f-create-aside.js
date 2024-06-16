@@ -4,7 +4,7 @@
 import pageLink from './../pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Node', 'Axios', 'Babel', 'Eslint', 'Gulp', 'Vite', 'Webpack', 'Tailwind', 'Nodejs'];
+const asideThemes = ['Node', 'Axios', 'Babel', 'Eslint', 'Gulp', 'Vite', 'Webpack', 'webpack-dev-server', 'Tailwind', 'Nodejs'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

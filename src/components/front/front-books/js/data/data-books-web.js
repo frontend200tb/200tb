@@ -144,7 +144,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -157,7 +157,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -170,7 +170,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -182,7 +182,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -195,7 +195,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -208,7 +208,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -221,7 +221,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2015,
     category: 'theme',
     theme: 'web',
@@ -234,7 +234,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 18,
+    id: 19,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -247,7 +247,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -259,7 +259,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -271,7 +271,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 21,
+    id: 22,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -283,7 +283,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 22,
+    id: 23,
     year: 2017,
     category: 'theme',
     theme: 'web',
@@ -296,7 +296,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 23,
+    id: 24,
     year: 2017,
     category: 'theme',
     theme: 'web',
@@ -308,7 +308,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 24,
+    id: 25,
     year: 2018,
     category: 'theme',
     theme: 'web',
@@ -320,7 +320,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 25,
+    id: 26,
     year: 2019,
     category: 'theme',
     theme: 'web',
@@ -333,7 +333,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 26,
+    id: 27,
     year: 2019,
     category: 'theme',
     theme: 'web',
@@ -346,7 +346,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 27,
+    id: 28,
     year: 2020,
     category: 'theme',
     theme: 'web',
@@ -359,7 +359,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 28,
+    id: 29,
     year: 2020,
     category: 'theme',
     theme: 'web',
@@ -371,7 +371,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 29,
+    id: 30,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -384,7 +384,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 29,
+    id: 31,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -397,7 +397,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 29,
+    id: 32,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -410,7 +410,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 30,
+    id: 33,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -423,7 +423,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 34,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -436,7 +436,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 35,
     year: 2022,
     category: 'theme',
     theme: 'web',
@@ -449,7 +449,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 36,
     year: 2022,
     category: 'theme',
     theme: 'web',
@@ -462,7 +462,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 37,
     year: 2023,
     category: 'theme',
     theme: 'web',
@@ -475,7 +475,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 38,
     year: 2023,
     category: 'theme',
     theme: 'web',
@@ -483,6 +483,19 @@ const dataBooksWeb = [
     author: 'Никулина',
     authorName: 'Ирина',
     pages: '275',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 39,
+    year: 2024,
+    category: 'theme',
+    theme: 'web',
+    title: 'Веб-разработчик. Легкий вход в профессию',
+    author: 'Чернышов',
+    authorName: 'Роман',
+    pages: '276',
     isLearned: false,
     dateLearned: '',
   },

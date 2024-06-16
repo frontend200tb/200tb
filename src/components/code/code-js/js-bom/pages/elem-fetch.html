@@ -7,6 +7,9 @@
 
   <p><a href="#links">links</a></p>
   <p><a href="#about">about</a></p>
+  <p><a href="#get">GET запрос</a></p>
+  <p><a href="#post">Post запрос</a></p>
+  <p><a href="#response">Response</a></p>
   <p><a href="#async">fetch с async/await</a></p>
 </article>
 
@@ -35,6 +38,14 @@
     <li>url – URL для отправки запроса.</li>
     <li>options – дополнительные параметры: метод, заголовки и так далее.</li>
   </ul>
+</article>
+
+
+<!-- GET запрос -->
+<article class="article">
+  <div class="anchor" id="get"></div>
+  <h2>GET запрос</h2>
+
   <p>Без options это простой GET-запрос, скачивающий содержимое по адресу url.</p>
   <p>Браузер сразу же начинает запрос и возвращает промис, который внешний код использует для получения результата.</p>
   <code>fetch('http://jsonplaceholder.typicode.com/posts');</code>
@@ -55,7 +66,49 @@
   <code>let data = promise.then((response) => response.json());</code>
 
   <p>Промисы можно чейнить</p>
-<pre>let data = fetch('http://jsonplaceholder.typicode.com/posts').then((response) => response.json());</pre>
+<pre>fetch('http://jsonplaceholder.typicode.com/posts')
+  .then((response) => response.json())
+  .then((data) => console.log(data));</pre>
+</article>
+
+
+<!-- POST запрос -->
+<article class="article">
+  <div class="anchor" id="post"></div>
+  <h2>POST запрос</h2>
+
+<pre>fetch('http://jsonplaceholder.typicode.com/posts', {
+  method: "POST",
+  body: JSON.stringify({name: 'Alex'}),
+  headers: {
+    'Content-type': 'application/json'
+  }
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));</pre>
+</article>
+
+
+<!-- Response -->
+<article class="article">
+  <div class="anchor" id="response"></div>
+  <h2>Response</h2>
+
+  <p>Результатом вызова fetch() будет Promise в состоянии pending. При любом ответе он перейдет в состояние fullfilled resolved в котором будет содержаться специальный объект ответа Response.</p>
+  <p>Свойства объекта Response</p>
+  <ol>
+    <li>body</li>
+    <li>bodyUsed - true или false</li>
+    <li>headers</li>
+    <li>ok — принимает состояние true или false и сообщает об успешности запроса;</li>
+    <li>redirected - true или false</li>
+    <li>status: 200</li>
+    <li>statusText: "OK"</li>
+    <li>type: "basic"</li>
+    <li>url: "http://jsonplaceholder.typicode.com/posts"</li>
+    <li>json — метод, вызов которого, возвращает результат запроса в виде json.</li>
+    <li>text — метод, вызов которого, возвращает результат запроса в виде текста.</li>
+  </ol>
 </article>
 
 
@@ -70,9 +123,14 @@
 <pre>async function getData() {
   // получаем объект ответа
   const response = await fetch("http://jsonplaceholder.typicode.com/posts");
-  // из объекта ответа извлекаем данные ответа
-  const responseData = await response.json();
-  console.log(responseData);
+  // если данные не пришли обработаем ошибку
+  if (!response.ok) {
+    throw new Error(`Could not fetch, status ${response.status}`);
+  } else {
+    // иначе извлекаем данные ответа
+    const responseData = await response.json();
+    console.log(responseData);
+  }
 }</pre>
 </article>
 

@@ -16,6 +16,7 @@ import htmlPromise from './elem-promise.html';
 import htmlRegexp from './elem-regexp.html';
 import htmlSet from './elem-set.html';
 import htmlString from './elem-string.html';
+import htmlSymbol from './elem-symbol.html';
 
 // Promise
 import htmlPromiseTask from './elem-promise-task.html';
@@ -34,6 +35,7 @@ const aside = [
   htmlRegexp,
   htmlSet,
   htmlString,
+  htmlSymbol,
 ];
 
 // массив страниц со страницы Promise

@@ -14,6 +14,7 @@ import dataVideoSass from './data/data-video-sass';
 
 // Base
 import dataVideoBase from './data/data-video-base';
+import dataVideoInfo from './data/data-video-info';
 import dataVideoAlgorithm from './data/data-video-algorithm';
 
 // Framework
@@ -58,7 +59,7 @@ const dataArray = [
   dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoCsharp,
   dataVideoPascal, dataVideoPug, dataVideoSass,
   // Base
-  dataVideoBase, dataVideoAlgorithm,
+  dataVideoBase, dataVideoInfo, dataVideoAlgorithm,
   // Framework
   dataVideoAngular, dataVideoReact, dataVideoVue, dataVideoNode,
   dataVideoElectron, dataVideoBootstrap, dataVideoNuxt, dataVideoRedux,

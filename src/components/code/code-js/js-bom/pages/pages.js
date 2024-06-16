@@ -9,12 +9,14 @@ import htmlWindow from './elem-window.html';
 import htmlDocument from './elem-document.html';
 import htmlConsole from './elem-console.html';
 import htmlFetch from './elem-fetch.html';
+import htmlFileReader from './elem-filereader.html';
 import htmlHistory from './elem-history.html';
 import htmlJson from './elem-json.html';
 import htmlLocation from './elem-location.html';
 import htmlNavigator from './elem-navigator.html';
 import htmlScreen from './elem-screen.html';
 import htmlStorage from './elem-storage.html';
+import htmlWorker from './elem-worker.html';
 import htmlXhr from './elem-xhr.html';
 
 // массив страниц из aside menu
@@ -24,12 +26,14 @@ const aside = [
   htmlDocument,
   htmlConsole,
   htmlFetch,
+  htmlFileReader,
   htmlHistory,
   htmlJson,
   htmlLocation,
   htmlNavigator,
   htmlScreen,
   htmlStorage,
+  htmlWorker,
   htmlXhr,
 ];
 

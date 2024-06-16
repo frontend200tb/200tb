@@ -42,6 +42,8 @@
     <li>8 kyu <a href="#task-23">transportation-on-vacation</a></li>
     <li>8 kyu <a href="#task-24">type-of-sum</a></li>
     <li>8 kyu <a href="#task-25">will-you-make-it</a></li>
+    <li>7 kyu <a href="#task-26">Возведение в квадрат каждой цифры</a></li>
+    <li>7 kyu <a href="#task-27">Чередующийся регистр</a></li>
   </ol>
 </div>
 
@@ -314,7 +316,7 @@ toBinary(11) /* should return 1011 */</pre>
     <code>const digits = n => `${n}`.length;</code>
     <code>const digits = n => (n + "").length;</code>
     <code>const digits = n => (Math.log10(n) | 0) + 1;</code>
-  </details>    
+  </details>
 </article>
 
 
@@ -322,7 +324,7 @@ toBinary(11) /* should return 1011 */</pre>
 <article class="article">
   <div class="anchor" id="task-12"></div>
   <h2>12. opposite-number</h2>
-  
+
   <p>8 kyu <a href="https://www.codewars.com/kata/opposite-number">https://www.codewars.com/kata/opposite-number</a></p>
 
   <h4>Description</h4>
@@ -348,7 +350,7 @@ toBinary(11) /* should return 1011 */</pre>
 <article class="article">
   <div class="anchor" id="task-13"></div>
   <h2>13. perimeter-sequence</h2>
-  
+
   <p>7 kyu <a href="https://www.codewars.com/kata/perimeter-sequence">https://www.codewars.com/kata/perimeter-sequence</a></p>
 
   <h4>Description</h4>
@@ -524,7 +526,7 @@ toBinary(11) /* should return 1011 */</pre>
   <p>When provided with a number between 0-9, return it in words.</p>
   <code>Input :: 1</code>
   <code>Output :: "One".</code>
-  
+
   <details>
     <summary>Solution</summary>
     <code>const switchItUp = n => ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"][n]</code>
@@ -547,7 +549,7 @@ toBinary(11) /* should return 1011 */</pre>
   return words[number];
 }</pre>
   </details>
-  
+
 </article>
 
 
@@ -650,6 +652,77 @@ toBinary(11) /* should return 1011 */</pre>
 </article>
 
 
+<!-- 26. Возведение в квадрат каждой цифры -->
+<article class="article">
+  <div class="anchor" id="task-26"></div>
+  <h2>26. Возведение в квадрат каждой цифры</h2>
+
+  <p>7 kyu</p>
+  <p>Возвести в квадрат каждую цифру числа и объединить их. Функция принимает целое число и возвращает целое число</p>
+
+  <h4>Пример 1</h4>
+  <code>input 9119</code>
+  <code>output 811181</code>
+
+  <h4>Пример 2</h4>
+  <code>input 765</code>
+  <code>output 493625</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function squareDigits(num) {
+  const arr = [];
+  while (num &gt; 0) {
+    arr.unshift((num % 10) ** 2);
+    num = Math.floor(num / 10);
+  }
+  return +arr.join('');
+}
+
+const a1 = 9119;
+const a2 = 765;
+
+console.log(squareDigits(a1));
+console.log(squareDigits(a2));</pre>
+  </details>
+</article>
+
+
+<!-- 27. Чередующийся регистр -->
+<article class="article">
+  <div class="anchor" id="task-27"></div>
+  <h2>27. Чередующийся регистр</h2>
+
+  <p>8 kyu</p>
+
+  <p>Добавить метод к методам строк таким образом, чтобы каждая строчная буква становилась заглавной, а заглавная - строчной.</p>
+
+  <h4>Пример</h4>
+  <code>Input asdQWEasd</code>
+  <code>Output ASDqweASD</code>
+  <details>
+    <summary>Решение</summary>
+<pre>String.prototype.toAlternatingCase = function() {
+  let s = this.toString();
+  const result = [];
+
+  for (let i = 0; i &lt; s.length; i++) {
+    if (s[i] === s[i].toUpperCase()) {
+      result.push(s[i].toLowerCase());
+    } else {
+      result.push(s[i].toUpperCase());
+    }
+  }
+  return result.join('');
+}
+
+const a1 = 'asdQWEasd';
+const a2 = 'ASDqweASD';
+
+console.log(a1.toAlternatingCase());
+console.log(a2.toAlternatingCase());</pre>
+  </details>
+</article>
 
 
 

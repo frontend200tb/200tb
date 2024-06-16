@@ -1,12 +1,12 @@
 /** *******************
 Скрипт из файла js-bom.js
-Функция showJsWebapi показывает страницу js-bom
+Функция showJsBom показывает страницу js-bom
 ******************** */
 import './element-js-bom';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['BOM', 'window', 'document', 'console', 'Fetch', 'History', 'JSON', 'Location', 'Navigator', 'Screen', 'Storage', 'XHR'];
+const asideThemes = ['BOM', 'window', 'document', 'console', 'Fetch', 'FileReader', 'History', 'JSON', 'Location', 'Navigator', 'Screen', 'Storage', 'Worker', 'XHR'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

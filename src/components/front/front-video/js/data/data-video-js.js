@@ -28,8 +28,8 @@ const dataVideoJs = [
     numberLessons: '35 уроков',
     time_h_m: [42, 26],
     size: '7.2 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.05 ср',
   },
 
   {
@@ -361,7 +361,7 @@ const dataVideoJs = [
     title: 'Комплексное обучение JavaScript',
     author: '',
     name: 'loftschool',
-    numberLessons: '',
+    numberLessons: '25 уроков',
     time_h_m: [38, 0],
     size: '5.7 gb',
     isLearned: false,
@@ -380,8 +380,8 @@ const dataVideoJs = [
     numberLessons: '',
     time_h_m: [21, 54],
     size: '4.4 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.10 пн',
   },
 
   {
@@ -838,8 +838,26 @@ const dataVideoJs = [
     date: '',
     category: 'code',
     theme: 'javascript',
+    title: 'Интенсив Promise API',
+    author: 'Кобец',
+    authorName: 'Андрей',
+    name: '',
+    numberLessons: '1 видео',
+    time_h_m: [3, 15],
+    size: '577 mb',
+    isLearned: true,
+    dateLearned: '2024.06.03 пн',
+  },
+
+  {
+    id: 54,
+    year: 2022,
+    date: '',
+    category: 'code',
+    theme: 'javascript',
     title: 'Полный Курс По JavaScript',
-    author: 'Богдан Стащук',
+    author: 'Стащук',
+    authorName: 'Богдан',
     name: '',
     numberLessons: '110 видео',
     time_h_m: [23, 32],
@@ -849,7 +867,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 54,
+    id: 55,
     year: 2022,
     date: '2022-11-13',
     category: 'code',
@@ -865,7 +883,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 55,
+    id: 56,
     year: 2023,
     date: '',
     category: 'code',
@@ -881,7 +899,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 56,
+    id: 57,
     year: 2023,
     date: '',
     category: 'code',
@@ -897,7 +915,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 57,
+    id: 58,
     year: 2023,
     date: '2023-02-13',
     category: 'code',
@@ -913,7 +931,7 @@ const dataVideoJs = [
   },
 
   {
-    id: 58,
+    id: 59,
     year: 2023,
     date: '2023-06-27',
     category: 'code',

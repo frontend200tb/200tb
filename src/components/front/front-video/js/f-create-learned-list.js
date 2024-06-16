@@ -43,7 +43,7 @@ export default function createLearnedList(data) {
     elementLi.innerHTML = `
     <span>${data[i].dateLearned}</span>
     <div><strong>[${data[i].year}] ${data[i].title}</strong></div>
-    <div><em>${data[i].author} ${data[i].name}</em></div>
+    <div><em>${data[i].authorName ? data[i].authorName + ' ' : ''}${data[i].author}</em> ${data[i].name}</div>
     <div>${data[i].numberLessons}. Время ${video.time}. Размер ${data[i].size}</div>
     <div>Изучено ${data[i].isLearned}</div>`;
 

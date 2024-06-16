@@ -286,6 +286,8 @@
   <ol>
     <li><a href="#Infinity">Infinity</a></li>
     <li><a href="#AbortController">ƒ AbortController()</a></li>
+    <li><a href="#FileReader">ƒ FileReader()</a></li>
+    <li><a href="#Worker">ƒ Worker()</a></li>
   </ol>
 </article>
 
@@ -645,6 +647,36 @@
   <h2>onunload</h2>
 
   <p>Событие - непосредственно перед закрытием страницы</p>
+</article>
+
+
+<!-- FileReader -->
+<article class="article">
+  <div class="anchor" id="FileReader"></div>
+  <h2>FileReader</h2>
+</article>
+
+
+<!-- Worker -->
+<article class="article">
+  <div class="anchor" id="Worker"></div>
+  <h2>Worker</h2>
+
+  <p>Для фоновых вычислений нужно создать отдельный файл worker.js.</p> 
+  <pre>// worker.js
+onmessage = function(event) {
+  postMessage('Принял ' + event.data)
+}</pre>
+  <p>После этого мы можем создать объект.</p>
+  <code>let worker = new Worker('worker.js')</code>
+  <p>Передадим число 100, как сообщение, в worker.</p>
+  <code>worker.postMessage(100)</code>
+  <p>И выведем полученный ответ в консоль</p>
+<pre>let worker = new Worker('worker.js');
+worker.postMessage(100);
+worker.onmessage = function(event) {
+  console.log(event.data);
+}</pre>
 </article>
 
 
