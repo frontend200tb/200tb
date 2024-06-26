@@ -2,16 +2,24 @@
 Скрипт из файла page.js
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
+import htmlAssembler from './elem-assembler.html';
 import htmlCsharp from './elem-csharp.html';
 import htmlMarkdown from './elem-markdown.html';
 import htmlPhp from './elem-php.html';
 import htmlPug from './elem-pug.html';
+import htmlPython from './elem-python.html';
 import htmlSass from './elem-sass.html';
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink() {
   const aside = [
-    htmlCsharp, htmlMarkdown, htmlPhp, htmlPug, htmlSass
+    htmlAssembler,
+    htmlCsharp,
+    htmlMarkdown,
+    htmlPhp,
+    htmlPug,
+    htmlPython,
+    htmlSass
   ];
   
   const currentContent = document.querySelector('#code');

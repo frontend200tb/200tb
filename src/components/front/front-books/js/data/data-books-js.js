@@ -47,8 +47,8 @@ const dataBooksJs = [
     author: 'Стефанов',
     authorName: 'Стоян',
     pages: 265,
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.18 вт',
   },
 
   {

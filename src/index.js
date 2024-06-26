@@ -4,10 +4,10 @@
 import './style.scss';
 // Стили
 
-import './components/main/main';
-import './components/header/header';
-import './components/nav/nav';
-import './components/footer/footer';
-import './components/btn-up/btn-up';
+import './components/Main/Main.component';
+import './components/Header/Header.component';
+import './components/Nav/Nav.component';
+import './components/Footer/Footer.component';
+import './components/BtnUp/BtnUp.component';
 
 console.log('200tb start');

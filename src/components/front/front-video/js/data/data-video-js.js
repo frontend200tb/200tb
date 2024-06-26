@@ -359,13 +359,13 @@ const dataVideoJs = [
     category: 'code',
     theme: 'javascript',
     title: 'Комплексное обучение JavaScript',
-    author: '',
+    author: 'Сергей Мелюков',
     name: 'loftschool',
     numberLessons: '25 уроков',
     time_h_m: [38, 0],
     size: '5.7 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.17 пн',
   },
 
   {
@@ -476,8 +476,8 @@ const dataVideoJs = [
     numberLessons: '',
     time_h_m: [6, 27],
     size: '3.2 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.18 вт',
   },
 
   {

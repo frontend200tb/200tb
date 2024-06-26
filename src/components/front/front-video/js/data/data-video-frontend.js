@@ -80,6 +80,22 @@ const dataVideoFrontend = [
     dateLearned: '',
   },
 
+  {
+    id: 6,
+    year: 2021,
+    date: '',
+    category: 'theme',
+    theme: 'frontend',
+    title: 'Профессия Frontend-разработчик PRO',
+    author: '',
+    name: 'SkillBox',
+    numberLessons: '',
+    time_h_m: [0, 0],
+    size: '64 gb',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

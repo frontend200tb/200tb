@@ -4,7 +4,7 @@
 Code Frontend
 ******************/
 import dataHeaderNav from './data-header-nav';
-import createNav from '../../nav/nav';
+import createNav from '../../Nav/Nav.component';
 
 const headerNav = document.getElementById('header__nav');
 const main = document.getElementById('maincomponent');

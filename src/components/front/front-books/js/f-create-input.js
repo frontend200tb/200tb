@@ -4,6 +4,7 @@
 
 // 1. Импортируем массивы из файлов data-books.js...
 // Code
+import dataBooksAssembler from './data/data-books-assembler';
 import dataBooksHtmlcss from './data/data-books-htmlcss';
 import dataBooksJs from './data/data-books-js';
 import dataBooksTs from './data/data-books-ts';
@@ -55,20 +56,17 @@ import dataBooksMl from './data/data-books-ml';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksCsharp, dataBooksC,
-  dataBooksPhp, dataBooksPython, dataBooksPascal,
+  dataBooksAssembler, dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksCsharp, dataBooksC, dataBooksPhp, dataBooksPython, dataBooksPascal,
   // Base
   dataBooksBase, dataBooksAlgorithm, dataBooksComp, dataBooksBios,
   dataBooksOpsys, dataBooksNetworks, dataBooksInformatika, dataBooksOop,
   dataBooksMath, dataBooksTest,
   // Framework
-  dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue,
-  dataBooksBootstrap, dataBooksJquery,
+  dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS
   dataBooksCms,
   // Tools
-  dataBooksAjax, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp,
-  dataBooksSql, 
+  dataBooksAjax, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp, dataBooksSql, 
   // Theme
   dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksSysadmin];
 
