@@ -8,6 +8,7 @@
     <p><a href="#links">links</a></p>
     <p><a href="#t1">1. Определить что подстрока является частью строки</a></p>
     <p><a href="#t2">2. Переставить буквы в строке</a></p>
+    <p><a href="#t3">3. Объединить две строки</a></p>
 
 
 </article>
@@ -76,4 +77,34 @@ const e = regExp.test(s);</pre>
 }</pre>
   </details>
 </article>
+
+
+<!-- 3. Объединить две строки -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>3. Объединить две строки</h3>
+
+  <p>Имеется несколько способов объединения строк</p>
+
+  <details>
+    <summary>1 способ. Оператор +</summary>
+    <code>str = 'a' + 'b';</code>
+  </details>
+
+  <details>
+    <summary>2 способ. Оператор +=</summary>
+    <code>str = 'a'; str += 'b';</code>
+  </details>
+
+  <details>
+    <summary>3 способ. Метод строки concat()</summary>
+    <code>str = 'a'; str = str.concat('b');</code>
+  </details>
+
+  <details>
+    <summary>4 способ. Метод массива join()</summary>
+    <code>str = ['a', 'b'].join('');</code>
+  </details>
+</article>
+
 

@@ -12,6 +12,7 @@ import htmlPriority from './elem-priority.html';
 import htmlKeywords from './elem-keywords.html';
 import htmlGenerator from './elem-generator.html';
 import htmlAscii from './elem-ascii.html';
+import htmlEscape from './elem-escape.html';
 import htmlUnicode from './elem-unicode.html';
 
 // Scope
@@ -27,6 +28,7 @@ const aside = [
   htmlKeywords,
   htmlGenerator,
   htmlAscii,
+  htmlEscape,
   htmlUnicode,
 ];
 

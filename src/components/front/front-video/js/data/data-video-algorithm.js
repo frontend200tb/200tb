@@ -140,6 +140,24 @@ const dataVideoAlgorithm = [
 
   {
     id: 9,
+    year: 2022,
+    date: '2022.08.02',
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Вебинар Алгоритмы и структуры данных',
+    author: 'Дзеранов',
+    authorName: 'Иосиф',
+    name: 'Stepik',
+    numberLessons: '1 видео',
+    time_h_m: [1, 51],
+    size: '273 mb',
+    link: '',
+    isLearned: true,
+    dateLearned: '2024.06.28 пт',
+  },
+
+  {
+    id: 10,
     year: 2023,
     date: '2023.03.10',
     category: 'основы',
@@ -157,7 +175,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2023,
     date: '2023.11.18',
     category: 'основы',
@@ -175,7 +193,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2024,
     date: '2024.03.29',
     category: 'основы',
@@ -193,7 +211,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2024,
     date: '2024.01.07',
     category: 'основы',

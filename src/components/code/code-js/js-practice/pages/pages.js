@@ -11,6 +11,7 @@ import htmlObject from './elem-object.html';
 import htmlProto from './elem-proto.html';
 import htmlPromise from './elem-promise.html';
 import htmlFetch from './elem-fetch.html';
+import htmlExamples from './elem-examples.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -22,6 +23,7 @@ const aside = [
   htmlProto,
   htmlPromise,
   htmlFetch,
+  htmlExamples,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

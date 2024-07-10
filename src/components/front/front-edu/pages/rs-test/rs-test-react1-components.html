@@ -1,0 +1,203 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>React. Test #1 React components</h1>
+
+  <strong>18 вопросов. Выполнил на 0 баллов из 100</strong>
+</article>
+
+
+<article class="article">
+  <h3>1. How to increment the value of the 'count' state prop by 1 in class components? (checkbox)</h3>
+  <ul>
+    <li>this.state.count = this.state.count + 1</li>
+    <li>this.setState({ count: this.state.count + 1 })</li>
+    <li>this.state.count++</li>
+    <li>this.setState((prevState) => ({ count: prevState.count + 1}))</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>2. How to properly implement method binding for a newly defined class method handleClick()?</h3>
+  <ul>
+    <li>this.handleClick = this.handleClick.bind(this)</li>
+    <li>this.handleClick.bind()</li>
+    <li>props.bind(handleClick)</li>
+    <li>this.handleClick.bind(this)</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>3. In what cases do you need to use 'super(props)' inside the constructor?</h3>
+  <ul>
+    <li>If you want to get access to this.props in the constructor.</li>
+    <li>In cases your component uses props.</li>
+    <li>Always when a constructor is declared in the class.</li>
+  </ul>
+  </article>
+
+
+<article class="article">
+  <h3>4. In what situations would you typically use the componentDidMount method?</h3>
+  <ul>
+    <li>To define the component's initial state.</li>
+    <li>To handle HTTP requests and set up subscriptions.</li>
+    <li>To update the component's props.</li>
+    <li>To trigger a re-render of the component.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>5. Is it a good idea to update the state in the 'render' method?</h3>
+  <ul>
+    <li>Yes, it's a valid practice and is commonly used to handle dynamic UI updates.</li>
+    <li>Updating the state in the render method is optional, and it depends on the specific requirements of the component.</li>
+    <li>No, because it may lead to an infinite loop of rendering.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>6. Is it allowed to directly modify props inside a React component?</h3>
+  <ul>
+    <li>Yes, absolutely.</li>
+    <li>Yes, only in some situations.</li>
+    <li>No, not in any circumstances.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>7. Is it possible to avoid method binding in the constructor? (checkbox)</h3>
+  <ul>
+    <li>Yes, you can use public class fields syntax.</li>
+    <li>Yes, you can use arrow functions in callbacks.</li>
+    <li>No, it's a required step in class components.</li>
+    <li>Method binding in the constructor is only necessary for functional components, not class components.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>8. Is it possible to migrate any class component into a functional component?</h3>
+  <ul>
+    <li>Yes, it's always possible to migrate any class component into a functional component.</li>
+    <li>No, it's not possible to migrate class components that rely heavily on state and lifecycle methods.</li>
+    <li>Yes, it's possible, but with some exceptions.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>9. Is setState() a synchronous or asynchronous method?</h3>
+  <ul>
+    <li>Synchronous.</li>
+    <li>Asynchronous.</li>
+    <li>Both synchronous and asynchronous.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>10. What is the main difference between PureComponent and Component?</h3>
+  <ul>
+    <li>PureComponent is a functional component, while Component is a class component.</li>
+    <li>PureComponent skips re-renders for same props and state, while Component always re-renders.</li>
+    <li>PureComponent can only be used in modern React applications, whereas Component is for legacy projects.</li>
+    <li>PureComponent has a different lifecycle compared to Component.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>11. What is the primary purpose of the shouldComponentUpdate method?</h3>
+  <ul>
+    <li>To control the initial rendering of a component.</li>
+    <li>To force a component to re-render.</li>
+    <li>To skip unnecessary re-renders by comparing current props and state with next props and state</li>
+    <li>To trigger child component re-renders</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>12. What is the recommended approach for defining React components as of the latest best practices?</h3>
+  <ul>
+    <li>Defining components as JavaScript classes.</li>
+    <li>Defining components as functions.</li>
+    <li>Mixing both JavaScript classes and functions.</li>
+    <li>Using only class components for new code.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>13. What is the suggested approach for migrating from class components to function components?</h3>
+  <ul>
+    <li>There is no way to migrate, you must rewrite everything from scratch.</li>
+    <li>Rewrite the entire application at once.</li>
+    <li>Gradually refactor class components into function components.</li>
+    <li>Use a third-party library for migration.</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>14. Which lifecycle method should be used to cancel any subscriptions or requests made in componentDidMount?</h3>
+  <ul>
+    <li>componentWillUnmount</li>
+    <li>componentDidUpdate</li>
+    <li>shouldComponentUpdate</li>
+    <li>componentWillUpdate</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>15. Which method is the only required method in a class component?</h3>
+  <ul>
+    <li>render</li>
+    <li>constructor</li>
+    <li>componentDidMount</li>
+    <li>componentDidUpdate</li>
+    <li>componentWillUnmount</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>16. Which of the following cannot be implemented/replaced using functional components?</h3>
+  <ul>
+    <li>PureComponent</li>
+    <li>Lifecycle methods</li>
+    <li>createRef function</li>
+    <li>Error boundary</li>
+    <li>All of the above</li>
+    <li>None of the above</li>
+  </ul>
+</article>
+
+
+<article class="article">
+<h3>17. Which of these ways of declaring class components are valid? (checkbox)</h3>
+<ul>
+  <li>function Button()</li>
+  <li>&lt;Button /&gt;</li>
+  <li>class Button extends Component</li>
+  <li>class Button extends PureComponent</li>
+</ul>
+</article>
+
+
+<article class="article">
+  <h3>18. Why in some cases it may be needed to pass a function instead of an object to setState?</h3>
+  <ul>
+    <li>Because it provides better encapsulation.</li>
+    <li>To prevent the state object from mutating.</li>
+    <li>To access the current value from the state.</li>
+    <li>Because it automatically updates a component.</li>
+  </ul>
+</article>

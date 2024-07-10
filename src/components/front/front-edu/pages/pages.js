@@ -5,19 +5,20 @@
 import {main} from './../js/f-create-aside';
 
 // Aside
-import htmlEduRss2024stage2 from './elem-edu-rss2024-stage2.html';
+import htmlEduRss2024stage3 from './elem-edu-rss2024-stage3-react.html';
+import htmlEduRss2024stage0 from './elem-edu-rss2024-stage0.html';
 import htmlEduCourses from './elem-edu-courses.html';
 import htmlEduCoursesLearned from './elem-edu-courseslearned.html';
 import htmlEduLearning from './elem-edu-learning.html';
 import htmlEduRss from './elem-edu-rss.html';
-import htmlEduRss2022stage0 from './elem-edu-rss2022-stage0.html';
-import htmlEduRss2022stage1 from './elem-edu-rss2022-stage1.html';
-import htmlEduRss2022stage3 from './elem-edu-rss2022-stage3-angular.html';
+import htmlEduRss2024stage2 from './elem-edu-rss2024-stage2.html';
+import htmlEduRss2023stage1 from './elem-edu-rss2023-stage1.html';
 import htmlEduDsr2023net from './elem-edu-dsr2023net.html';
 import htmlEduRss2023stage0 from './elem-edu-rss2023-stage0.html';
-import htmlEduRss2023stage1 from './elem-edu-rss2023-stage1.html';
+import htmlEduRss2022stage3 from './elem-edu-rss2022-stage3-angular.html';
+import htmlEduRss2022stage1 from './elem-edu-rss2022-stage1.html';
+import htmlEduRss2022stage0 from './elem-edu-rss2022-stage0.html';
 import htmlEduQuiz from './elem-edu-quiz.html';
-import htmlEduJsExamples from './elem-edu-jsexamples.html';
 
 // DSR
 import htmlDsrLec0 from './dsr/dsr2023net-lecture0.html';
@@ -47,12 +48,13 @@ import htmlDsrExam from './dsr/dsr-exam.html';
 import htmlRsTestRss from './rs-test/rs-test-rss.html';
 import htmlRsTestGit from './rs-test/rs-test-git.html';
 import htmlRsTestFundInternet from './rs-test/rs-test-fundinternet.html';
+import htmlRsTestHtmlBasics from './rs-test/rs-test-htmlbasics.html';
+import htmlRsTestCssBasics from './rs-test/rs-test-cssbasics.html';
+import htmlRsTestCssFlex from './rs-test/rs-test-cssflex.html';
 import htmlRsTestJsBasics from './rs-test/rs-test-jsbasics.html';
 import htmlRsTestJsTypes from './rs-test/rs-test-jstypes.html';
 import htmlRsTestJsScope from './rs-test/rs-test-jsscope.html';
 import htmlRsTestJsEvolution from './rs-test/rs-test-jsevolution.html';
-import htmlRsTestHtmlBasics from './rs-test/rs-test-htmlbasics.html';
-import htmlRsTestCssBasics from './rs-test/rs-test-cssbasics.html';
 import htmlRsTestCssflexbox from './rs-test/rs-test-cssflexbox.html';
 import htmlRsTestCssGrid from './rs-test/rs-test-cssgrid.html';
 import htmlRsTestSass from './rs-test/rs-test-sass.html';
@@ -88,6 +90,10 @@ import htmlRsTestTesting from './rs-test/rs-test-testing.html';
 import htmlRsTestError from './rs-test/rs-test-error.html';
 import htmlRsTestDp from './rs-test/rs-test-dp.html';
 
+// RS Test stage 3 React
+import htmlRsTest1Components from './rs-test/rs-test-react1-components.html';
+import htmlRsTest2Errboundary from './rs-test/rs-test-react2-errboundary.html';
+
 // Neoflex test
 import htmlNftest from './neoflex/nf-test.html';
 import htmlEftest1 from './neoflex/ef-test1.html';
@@ -101,10 +107,7 @@ import htmlHhGit2 from './hh/hh-git2.html';
 import htmlHhEng from './hh/hh-eng.html';
 
 // Создаем массив страниц с Aside меню
-const htmlPages = [htmlEduRss2024stage2, htmlEduCourses, htmlEduCoursesLearned,
-  htmlEduLearning, htmlEduRss, htmlEduRss2022stage0, htmlEduRss2022stage1,
-  htmlEduRss2022stage3, htmlEduDsr2023net, htmlEduRss2023stage1, htmlEduRss2023stage0,
-  htmlEduQuiz, htmlEduJsExamples];
+const htmlPages = [htmlEduRss2024stage3, htmlEduRss2024stage0, htmlEduCourses, htmlEduCoursesLearned, htmlEduLearning, htmlEduRss, htmlEduRss2024stage2, htmlEduRss2023stage1, htmlEduDsr2023net, htmlEduRss2023stage0, htmlEduRss2022stage3, htmlEduRss2022stage1, htmlEduRss2022stage0, htmlEduQuiz];
 
 // Создаем массив страниц с лекциями DSR
 const htmlDsrLec = [htmlDsrLec0, htmlDsrLec1, htmlDsrLec2, htmlDsrLec3,
@@ -129,8 +132,10 @@ const htmlHh = [htmlHhGit1, htmlHhGit2, htmlHhEng];
 
 // Создаем массив страниц с тестами RSSchool
 const htmlRsTest = [htmlRsTestRss, htmlRsTestGit, htmlRsTestFundInternet,
+htmlRsTestHtmlBasics, htmlRsTestCssBasics,
+htmlRsTestCssFlex,
 htmlRsTestJsBasics, htmlRsTestJsTypes, htmlRsTestJsScope, htmlRsTestJsEvolution,
-htmlRsTestHtmlBasics, htmlRsTestCssBasics, htmlRsTestCssflexbox,
+htmlRsTestCssflexbox,
 htmlRsTestCssGrid, htmlRsTestSass, htmlRsTestCssModules, htmlRsTestMediaqueries,
 htmlRsTestHtmlform, htmlRsTestDomapi, htmlRsTestDomevents, htmlRsTestGitgithub,
 htmlRsTestAlgorithms, htmlRsTestCleancode, htmlRsTestLinters,
@@ -139,7 +144,7 @@ htmlRsTestClasses, htmlRsTestOop, htmlRsTestFinal,
 htmlRsTestTsBasics, htmlRsTestTsAdvanced, htmlRsTestCodereview, htmlRsTestSpa,
 htmlRsTestWebstorage, htmlRsTestFp, htmlRsTestAsyncjs, htmlRsTestWebsecurity,
 htmlRsTestRestful, htmlRsTestEventloop, htmlRsTestTesting, htmlRsTestError,
-htmlRsTestDp];
+htmlRsTestDp, htmlRsTest1Components, htmlRsTest2Errboundary];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu
 export default function pageLink(asideItems) {

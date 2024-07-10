@@ -60,8 +60,8 @@ const dataBooksJs = [
     author: 'Закас',
     authorName: 'Николас',
     pages: 256,
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.06.29 сб',
   },
 
   {
