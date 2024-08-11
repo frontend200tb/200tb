@@ -320,6 +320,22 @@ const dataVideoReact = [
     dateLearned: '2023-10-06 пт',
   },
 
+  {
+    id: 20,
+    year: 2022,
+    date: '',
+    category: 'framework',
+    theme: 'react',
+    title: 'Уроки React JS с нуля',
+    author: 'Гоша Дударь',
+    name: 'Школа IT Proger',
+    numberLessons: '11 уроков',
+    time_h_m: [3, 5],
+    size: '477 mb',
+    isLearned: true,
+    dateLearned: '2024.07.22 пн',
+  },
+
   {},
 
 ];

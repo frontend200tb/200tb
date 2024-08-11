@@ -7,18 +7,29 @@
 
   <p><a href="#links">links</a></p>
   <p><a href="#about">about</a></p>
-  <p><a href="#install">install</a></p>
+  <p><a href="#stack">Типичный стэк React приложения</a></p>
+  <p><a href="#install">Создание React приложения</a></p>
   <ol>
     <li><a href="#install-1">Вариант 1. Тег script</a></li>
     <li><a href="#install-2">Вариант 2. npm i react react-dom</a></li>
-    <li><a href="#install-3">Вариант 3. npx create-react-app .</a></li>
+    <li><a href="#install-3">Вариант 3. npx create-react-app . (рекомендуется)</a></li>
     <li><a href="#install-4">Вариант 4. npx create vite@latest</a></li>
   </ol>
+  <p><a href="#element">Создание элемента</a></p>
+  <ol>
+    <li><a href="create-element">Вариант 1. React.createElement</a></li>
+    <li><a href="jsx">Вариант 2. JSX разметка (рекомендуется)</a></li>
+  </ol>
+  <p><a href="#render">Вывод элемента на страницу</a></p>
   <p><a href="#component">Создание компонента</a></p>
   <ol>
     <li><a href="#comp-class">Классовый компонент</a></li>
     <li><a href="#comp-func">Функциональный компонент</a></li>
   </ol>
+  <p><a href="#state">Состояние (state)</a></p>
+  <p><a href="#hooks">Хуки (hooks)</a></p>
+  <p><a href="#custom-hook">Кастомный хук</a></p>
+  <p><a href="#declaration">Декларативность</a></p>
   <p><a href="#lifecycle">Жизненный цикл компонента</a></p>
   <ol>
     <li><a href="#lifecycle-mount">Инициализация (mount)</a></li>
@@ -68,15 +79,115 @@
   <h2>About React</h2>
 
   <p>React (иногда React.js или ReactJS) — JavaScript-библиотека с открытым исходным кодом для разработки пользовательских интерфейсов. React разрабатывается и поддерживается Facebook, Instagram и сообществом отдельных разработчиков и корпораций. React может использоваться для разработки одностраничных и мобильных приложений. Его цель — предоставить высокую скорость разработки, простоту и масштабируемость. В качестве библиотеки для разработки пользовательских интерфейсов React часто используется с другими библиотеками, такими как MobX, Redux и GraphQL.</p>
+
+  <p>Для создания приложений одной только библиотеки react будет мало. Нужно использовать стэк программ для разработки.</p>
 </article>
 
 
-<!-- install -->
+<!-- Типичный стэк React приложения -->
+<article class="article">
+  <div class="anchor" id="stack"></div>
+  <h3>Типичный стэк React приложения</h3>
+
+  <ol>
+    <li>
+      <h4>Библиотека React</h4>
+      <ul>
+        <li>React (рекомендуется)</li>
+        <li>Preact (маленький размер в 3kb)</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Сборщик</h4>
+      <ul>
+        <li>Webpack (рекомендуется)</li>
+        <li>Rollup</li>
+        <li>Parcel</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Транспилятор</h4>
+      <ul>
+        <li>Typescript (рекомендуется)</li>
+        <li>Babel</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Статический анализатор кода</h4>
+      <ul>
+        <li>Typescript (рекомендуется)</li>
+        <li>Flow</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Стейт менеджер</h4>
+      <ul>
+        <li>Redux (ранее Flux)</li>
+        <li>Mobx</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Middleware и утилиты для state manager</h4>
+      <ul>
+        <li>Redux-Thunk</li>
+        <li>Redux-Saga</li>
+        <li>Redux-Devtools</li>
+        <li>Mobx-Utils</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Роутинг</h4>
+      <ul>
+        <li>React router</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Линтеры</h4>
+      <p>Линтеры следят за код стайлом</p>
+      <ul>
+        <li>ESLint (рекомендуется)</li>
+        <li>JSLint</li>
+        <li>TSLint (deprecated)</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Система контроля версий</h4>
+    </li>
+    <li>
+      <h4>Webserver (если SSR)</h4>
+      <ul>
+        <li>SSR можно делать в next.js</li>
+        <li>node express</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Тестирование</h4>
+      <ul>
+        <li>Jest (рекомендуется)</li>
+        <li>Ava (позволяет запускать тесты параллельно)</li>
+        <li>Jasmine</li>
+        <li>Mocha</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Другие утилиты</h4>
+      <ul>
+        <li>Axios (для отправки http запросов)</li>
+        <li>Classnames (для конкатенирования стилей)</li>
+        <li>ky (альтернатива axios)</li>
+        <li>Storybook (более удобная работа с компонентами)</li>
+        <li>React click outside</li>
+      </ul>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Создание React приложения -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>install</h2>
-
-  <p>Рассмотрим три варианта установки и работы с React</p>
+  <h3>Создание React приложения</h3>
+  </ol>
 </article>
 
 
@@ -85,36 +196,103 @@
   <div class="anchor" id="install-1"></div>
   <h3>Вариант 1. Тег script</h3>
 
-  <p>На странице index.html подключаем следующие файлы</p>
-<pre>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
-&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;</pre>
+  <p><a href="https://ru.legacy.reactjs.org/docs/add-react-to-a-website.html">ru.legacy.reactjs.org</a> здесь описано как добавить react с помощью тега script</p>
 
-  <details>
-    <summary>Тогда index.html может выглядеть так</summary>
+  <ol>
+    <li>
+      <h4>Создадим файл index.html. В нем подключим три скрипта</h4>
+      <ul>
+        <li>react</li>
+        <li>react-dom для работы с дом элементами в веб-приложениях</li>
+        <li>babel для работы с JSX</li>
+      </ul>
+
+      <p>Для разработки нужно подключить файлы с расширением development.js, а для деплоя на продакшн - production.min.js</p>
+
+      <h4>Для разработки</h4>
+<pre>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/@babel/standalone/babel.js"&gt;&lt;/script&gt;</pre>
+
+      <h4>Для деплоя</h4>
+<pre>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
+&lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;</pre>
+
+      <p>Благодаря такому подключению, в глобальной области видимости появятся объекты <strong>React</strong> и <strong>ReactDOM</strong>.</p>
+    </li>
+
+    <li>
+      <h4>На странице index.html создадим html элемент</h4>
+      <p>в который будет выводиться все react приложение, которое мы напишем. Таким образом, в html разметке мы передаем на клиент только один элемент. Дальше всю страницу будет отрисовывать react внутри этого элемента.</p>
+      <code>&lt;div id="app"&gt;&lt;/div&gt;</code>
+    </li>
+
+    <li>
+      <h4>Добавим свой script на страницу</h4>
+      <p>Есть два способа добавить свой script на страницу.</p>
+
+      <h4>Первый способ. Добавить script внутрь body</h4>
+
+      <p>Чтобы react понимал разметку JSX надо в теге script прописать аттрибут type="text/babel".</p>
+      <p>Тогда index.html может выглядеть так</p>
+      <details>
+        <summary>Code index.html</summary>
 <pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8" /&gt;
   &lt;title&gt;Hello React&lt;/title&gt;
-  &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;
-  &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+  &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+  &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/@babel/standalone/babel.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;div id="app"&gt; &lt;/div&gt;
 
-  &lt;script&gt;
-    const rootNode = document.getElementById("app");
-    const root = ReactDOM.createRoot(rootNode);
-    root.render(
-      &lt;h1&gt;Hello React&lt;/h1&gt;
-    );
+  &lt;div id="app"&gt;&lt;/div&gt;
+
+  &lt;script type="text/babel"&gt;
+    const element = &lt;h1&gt;Hello React&lt;/h1&gt;;
+    const app = document.getElementById('app');
+    ReactDOM.render(element, app);
   &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-  </details>
+      </details>
+
+      <h4>Второй способ. Подключить внешний файл со скиптом внутри head</h4>
+      <p>Если тег script подключает файл со скриптом, то надо запустить наше приложение на сервере (например, live server в VSCode)</p>
+      <p>Тогда index.html может выглядеть так</p>
+      <details>
+        <summary>Code index.html</summary>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Hello React&lt;/title&gt;
+  &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+  &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/@babel/standalone/babel.js"&gt;&lt;/script&gt;
+  &lt;script src="index.js" type="text/babel" defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div id="app"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </details>
+
+      <p>Тогда index.js может выглядеть так</p>
+      <details>
+        <summary>Code index.js</summary>
+<pre>const element = &lt;h1&gt;Hello React&lt;/h1&gt;;
+const app = document.getElementById('app');
+ReactDOM.render(element, app);</pre>
+      </details>
+    </li>
+  </ol>
 </article>
 
 
@@ -123,22 +301,20 @@
   <div class="anchor" id="install-2"></div>
   <h3>Вариант 2. npm i react react-dom</h3>
 
-  <p>Откроем VSCode. Откроем нужную пустую папку, в которой будем создавать проект</p>
   <ol>
     <li>
-      <p>React is a JavaScript library for creating user interfaces.</p>
-      <code>npm install react</code>
-      <p>Эта команда создаст папку node_modules и два файла package.json и package-lock.json. В файле package.json будет:</p>
-<pre>{
-  "dependencies": {
-    "react": "^18.3.1"
-  }
-}</pre>
+      Откроем VSCode. Откроем нужную пустую папку, в которой будем создавать проект. Откроем терминал и создадим новый проект
+      <code>npm init</code>
+      Эта команда создаст файл package.json, с которого начинаются все фронтенд-приложения
     </li>
     <li>
-      <p>It is typically used together with a React renderer like react-dom for the web, or react-native for the native environments.</p>
-      <code>npm install react react-dom</code>
-      <p>В файле package.json будет:</p>
+      Установим webpack
+      <code>npm i -D webpack webpack-cli</code>
+    </li>
+    <li>
+      Установим react
+      <code>npm i react react-dom</code>
+      <p>Эта команда создаст папку node_modules и два файла package.json и package-lock.json. В файле package.json будет:</p>
 <pre>{
   "dependencies": {
     "react": "^18.3.1",
@@ -147,30 +323,26 @@
 }</pre>
     </li>
     <li>
-      <p>The react-router package is the heart of React Router and provides all the core functionality for both react-router-dom and react-router-native. If you're using React Router, you should never import anything directly from the react-router package, but you should have everything you need in either react-router-dom or react-router-native. Both of those packages re-export everything from react-router.</p>
-      <code>npm i react-router-dom</code>
-      <p>В файле package.json будет:</p>
-<pre>{
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0"
-  }
-}</pre>
+      Установим typescript
+      <code>npm i -D typescript ts-loader</code>
     </li>
     <li>
-      <p>Для работы с препроцессором SASS нужно его подключить</p>
-      <code>npm i sass</code>
-      <p>В файле package.json будет:</p>
-<pre>{
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0",
-    "sass": "^1.76.0"
-  }
-}</pre>
-</li>
+      Создадим файл
+      <code>index.html</code>
+    </li>
+    <li>
+      Создадим git репозиторий
+      <code>git init</code>
+    </li>
+    <li>
+      Создадим файл
+      <code>.gitignore</code>
+      Запишев в него, то что не нужно тянуть за собой в git репозиторий
+      <code>node_modules</code>
+    </li>
+    <li>
+      Создадим папку src для исходных файлов проекта
+    </li>
   </ol>
 </article>
 
@@ -180,23 +352,17 @@
   <div class="anchor" id="install-3"></div>
   <h3>Вариант 3. npx create-react-app .</h3>
 
-  <p>Когда стартуете новый проект. На react, angular или vue, какая-то вещь помогает это сделать. Если вы стартуете новый проект на React то может помощь инструмент create-react-app. React это библиотека. Но в эту библиотеку добавляем дополнительные библиотеки, сборочные инструменты, роутеры, то React уже можно назвать фреймворком.</p>
+  <p>Когда стартуете новый проект. На react, angular или vue, какая-то вещь помогает это сделать. Если вы стартуете новый проект на React то может помочь инструмент create-react-app. React это библиотека. Но если добавляем дополнительные библиотеки, сборочные инструменты, роутеры, то React уже можно назвать фреймворком.</p>
   <p>В отличие от React, у Angular и Vue есть свои CLI для старта проекта, создания компонентов и т.д.</p>
-
-  <p>Чтобы создать новый проект в текущей папке, нужно в терминале ввести команду. Точка в конце означает текущую папку.</p>
-  <code>npx create-react-app .</code>
-
-  <p>Чтобы в текущей папке создпть папку с именем first, а в папке first создать новый проект, нужно в терминале ввести команду</p>
-  <code>npx create-react-app first</code>
 
   <ol>
     <li>
       <h4>Создадим новый проект в текущей папке</h4>
       <code>npx create-react-app .</code>
+      <p>Точка в конце означает текущую папку.</p>
       <p>Эта команда сделает следующее:</p>
       <ol>
-        <li>создаст папку first</li>
-        <li>внутри папки first создаст папку node_modules</li>
+        <li>внутри текущей папки создаст папку node_modules</li>
         <li>скачает из интернета все зависимости для react приложения и положит их в папку node_modules</li>
         <li>создаст и настроит 4 файла для начального демонстрационного проекта на react:
           <ul>
@@ -206,55 +372,77 @@
             <li>README.md</li>
           </ul>
         </li>
-        <li>создаст еще 2 папки public и src в которых будет начальный демонстрационный проект на react</li>
+        <li>создаст папку public для файлов которые не меняются и напрямую попадут в итоговую сборку</li>
+        <li>создаст папку src для исходных кодов, которые потом соберутся в новые файлы в итоговой сборке</li>
+        <li>в папках public и src будет начальный демонстрационный проект на react</li>
       </ol>
-    </li>
-    <li>
-      <h4>Для настройки маршрутизации на страницах подключим react-router-dom</h4>
-      <code>npm i react-router-dom</code>
-    </li>
-    <li>
-      <h4>Для работы с препроцессором SASS подключим sass</h4>
-      <code>npm i sass</code>
     </li>
     <li>
       <h4>Запустим в разработку созданный проект</h4>
       <code>npm start</code>
     </li>
+
     <li>
-      <h4>В файле package.json оставим записи:</h4>
+      <h4>Удалим лишние файлы</h4>
+      <p>В папке public оставим один файл</hp>
+      <code>index.html</code>
+      <p>В папке src оставим один файл</p>
+      <code>index.js</code>
+      <p>В корневой папке оставим два файла</p>
+<pre>package.json
+package-lock.json</pre>
+      <p>В файле package.json оставим записи:</p>
 <pre>"dependencies": {
   "react": "^18.3.1",
   "react-dom": "^18.3.1",
-  "react-router-dom": "^6.23.0",
   "react-scripts": "5.0.1",
-  "sass": "^1.76.0",
 },
 "scripts": {
   "start": "react-scripts start",
   "build": "react-scripts build",
 },</pre>
     </li>
-    <li>
-      <h4>В папке src оставим файлы</h4>
-      <ul>
-        <li>App.css</li>
-        <li>App.js</li>
-        <li>index.css</li>
-        <li>index.js</li>
-      </ul>
-    </li>
-    <li>
-      <h4>В папке public оставим файлы</h4>
-      <ul>
-        <li>favicon.png</li>
-        <li>index.html</li>
-      </ul>
-    </li>
+
     <li>
       <h4>Для VSCode установим расширение ES7+ React/Redux/React-Native snippets.</h4>
-
       <p>Автор dsznajder. 11,393,116 скачиваний. Эти сниппеты помогут быстро создавать реакт компоненты.</p>
+    </li>
+
+    <li>
+      <h4>Файл index.html</h4>
+      <p>В файле index.html оставим только вывод корневого элемента</p>
+      <details>
+        <summary>code</summary>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Hello React&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div id="app"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </details>
+    </li>
+    <li>
+      <h4>Файл index.js</h4>
+      <p>В файле index.js напишем корневой компонент App и передадим его в метод render</p>
+      <details>
+        <summary>Code index.js</summary>
+<pre>function App() {
+  return (
+    &lt;h1&gt;Hello React&lt;/h1&gt;
+  )
+}
+
+const app = document.getElementById("app");
+const root = ReactDOM.createRoot(app);
+root.render(&lt;App /&gt;);</pre>
+      </details>
     </li>
   </ol>
 </article>
@@ -267,10 +455,104 @@
 </article>
 
 
+<!-- Создание элемента -->
+<article class="article">
+  <div class="anchor" id="element"></div>
+  <h3>Создание элемента</h3>
+
+  <p>Рассмотрим два способа создания элемента. Первый - методом React.createElement(). Второй - JSX разметка.</p>
+</article>
+
+
+<!-- Вариант 1. React.createElement -->
+<article class="article">
+  <div class="anchor" id="create-element"></div>
+  <h3>Вариант 1. React.createElement</h3>
+
+  <p>Создадим элемент h1</p>
+  <code>const h1 = React.createElement('h1', null, 'Hello react');</code>
+  <p>Первым параметром передается имя тега. Второй параметр - объект с аттрибутами тега, если их нет - то передается null. Третий параметр - содержимое элемента.</p>
+
+  <p>Создадим элемент input</p>
+<pre>const input = React.createElement('input', {
+  placeholder: "text",
+  onClick: () => console.log("clicked"),
+});</pre>
+  <p>Первым параметром передается имя тега. Второй параметр -  объект со свойствами (аттрибутами) и функциями (обработчики событий). Третий параметр не передается если элемент не имеет закрывающего тега, а следовательно не имеет содержимого.</p>
+</article>
+
+
+<!-- Вариант 2. JSX разметка (рекомендуется) -->
+<article class="article">
+  <div class="anchor" id="jsx"></div>
+  <h3>Вариант 2. JSX разметка (рекомендуется)</h3>
+
+  <p>Создадим элемент h1</p>
+  <code>const h1 = &lt;h1&gt;Hello react&lt;/h1&gt;</code>
+
+  <p>Создадим элемент input</p>
+  <code>const input = &lt;input placeholder="text" onClick: () => console.log("clicked") /&gt;</code>
+</article>
+
+
+<!-- Вывод элемента на страницу -->
+<article class="article">
+  <div class="anchor" id="render"></div>
+  <h3>Вывод элемента на страницу</h3>
+
+  <p>В файле index.html в body должен находиться один элемент</p>
+  <code>&lt;div id="app"&gt;&lt;/div&gt;</code>
+
+  <p>Есть два способа вывести элемент на страницу.</p>
+
+  <h4>Первый способ (использовался до версии react 18)</h4>
+  <p>У объекта <strong>ReactDOM</strong> вызвать метод <strong>render()</strong> и передать в него два параметра</p>
+  <ol>
+    <li>html элемент который нужно вывести на страницу</li>
+    <li>html элемент в который нужно вывести новый элемент</li>
+  </ol>
+  <code>ReactDOM.render(&lt;h1&gt;Hello React&lt;/h1&gt;, document.getElementById('app'));</code>
+
+  <p>Обычно для этих параметров создают переменные</p>
+<pre>const element = &lt;h1&gt;Hello React&lt;/h1&gt;;
+const app = document.getElementById('app');
+ReactDOM.render(element, app);
+</pre>
+
+  <h4>Второй способ (рекомендуется использовать начиная с версии react 18)</h4>
+  <p>У объекта <strong>ReactDOM</strong> вызвать метод <strong>createRoot()</strong></p> 
+  <p>В метод <strong>createRoot() нужно передать html элемент, в котором будет отрисовываться наше react приложение.</strong></p> 
+  <p>Метод <strong>createRoot()</strong> возвращает объект, в котором будет содержаться наше react приложение. Чтобы этот объект вывести на страницу, нужно вызвать у него метод <strong>render()</strong>, который принимает корневой react компонент нашего приложения.</p>
+
+<pre>function App() {
+  return &lt;h1&gt;Привет&lt;/h1&gt;;
+}
+
+const app = document.getElementById("app");
+const root = ReactDOM.createRoot(app);
+root.render(&lt;App /&gt;);</pre>
+  </details>
+</article>
+
+
 <!-- Создание компонента -->
 <article class="article">
   <div class="anchor" id="component"></div>
   <h2>Создание компонента</h2>
+
+  <p>Обычно пишут компоненты, которые возвращают JSX разметку, которую передают в другие компоненты и элементы. Напишем корневой компонент App и передадим его в метод render</p>
+  <details>
+    <summary>Code index.js</summary>
+<pre>function App() {
+  return (
+    &lt;h1&gt;Hello React&lt;/h1&gt;
+  )
+}
+
+const app = document.getElementById("app");
+const root = ReactDOM.createRoot(app);
+root.render(&lt;App /&gt;);</pre>
+  </details>
 </article>
 
 
@@ -279,45 +561,83 @@
   <div class="anchor" id="comp-class"></div>
   <h2>Классовый компонент</h2>
 
-  <p>Создадим классовый компонент, поместим его в переменную для того чтобы его можно было переиспользовать и выведем на страницу.</p>
-<pre>const HelloWorld = React.createClass({
-  render: function() {
-    return &lt;h1&gt;Hello world&lt;/h1&gt;
+  <p>Создать классовый компонент можно двумя способами. Первый вариант - объявить класс и прописать в нем метод render(). Второй способ - метод React.createClass()</p>
+
+  <h4>1 вариант. Объявить класс (рекомендуется)</h4>
+  <p>Создавая классовый компонент, его можно унаследовать от <strong>React.Component</strong> или от <strong>React.PureComponent</strong></p>
+<pre>class Header extends React.Component {
+  render() {
+    return &lt;header&gt;Header Component&lt;/header&gt;
   }
-});
+}</pre>
+  <p>Класс является react компонентом если у него есть публичный метод <strong>render()</strong>, который возвращает <strong>JSX</strong>.</p>
+  <p>Компонент можно использовать внутри другого компонента или элемента</p>
+  <p>Создадим компонент App и положим внутри него компонент Header</p>
+<pre>class App extends React.Component {
+  render() {
+    return &lt;Header /&gt;
+  }
+}</pre>
 
-ReactDOM.render(
-  &lt;HelloWorld /&gt;,
-  document.getElementById('root')
-);</pre>
+  <p>При вызове компонента в него можно передавать параметры из родительского компонента</p>
+<pre>class Header extends React.Component {
+  render() {
+    return &lt;header&gt;{this.props.title}&lt;/header&gt;
+  }
+}
 
-  <p>В функцию createClass нужно передавать объект, который обязательно должен содержать метод render. Метод render возвращает то что будет отображаться на странице - JSX разметка, которая будет преобразована в js код, или сразу писать js код.</p>
-  <code>&lt;h1&gt;Hello world&lt;/h1&gt;</code>
-  <code>React.createElement(h1, null, "Hello world");</code>
-
-  <p>В ReactDOM.render() первым параметром нужно передать то что нужно отобразить, вторым параметром - где надо отобразить. Если нужно отобразить несколько элементов, то все их надо обернуть в один общий элемент.</p>
-<pre>ReactDOM.render(  
-  &lt;div&gt;
-    &lt;HelloWorld /&gt;
-    &lt;HelloWorld /&gt;
-  &lt;/div&gt;,
-  document.getElementById('root')
-);</pre>
+class App extends React.Component {
+  render() {
+    return &lt;Header title="Header Component" /&gt;
+  }
+}</pre>
   
-  <p>В компонент можно передавать параметры</p>
-<pre>const MyName = React.createClass({
+  <p>Чтобы вывести несколько элементов, их нужно обернуть в общий элемент, например div</p>
+<pre>class Header extends React.Component {
+  render() {
+    return &lt;header&gt;Header Component&lt;/header&gt;
+  }
+}
+
+class Main extends React.Component {
+  render() {
+    return &lt;main&gt;Main Component&lt;/main&gt;
+  }
+}
+
+class Footer extends React.Component {
+  render() {
+    return &lt;footer&gt;Footer Component&lt;/footer&gt;
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      &lt;div/&gt;
+        &lt;Header /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div/&gt;
+    )
+  }
+}</pre>
+
+  
+  <h4>2 вариант. Метод React.createClass()</h4>
+  <p>В функцию <strong>createClass()</strong> нужно передать объект, который обязательно должен содержать метод <strong>render()</strong>. Метод <strong>render()</strong> возвращает то что будет отображаться на странице - JSX разметка, которая будет преобразована в js код.</p>
+  <p>Создадим классовый компонент, поместим его в переменную для того чтобы его можно было переиспользовать и выведем на страницу.</p>
+<pre>const Header = React.createClass({
   render: function() {
-    return &lt;h1&gt;My name is {this.props.name}&lt;/h1&gt;
+    return &lt;header&gt;{this.props.title}&lt;/header&gt;
   }
 });
 
-ReactDOM.render(
-  &lt;div&gt;
-    &lt;HelloWorld name="Nastya"/&gt;
-    &lt;HelloWorld name="Ivan"/&gt;
-  &lt;/div&gt;,
-  document.getElementById('root')
-);</pre>
+const App = React.createClass({
+  render: function() {
+    return &lt;Header title="Header Component" /&gt;
+  }
+});</pre>
 </article>
 
 
@@ -326,40 +646,148 @@ ReactDOM.render(
   <div class="anchor" id="comp-func"></div>
   <h2>Функциональный компонент</h2>
 
-  <p>В папке src создадим новый файл Header.jsx. Название файла с большой буквы потому что это название будущего компонента. Все компоненты называются с большой буквы, чтобы они отличались от обычных тегов html. Расширение файла jsx это особый синтаксис, который позволяет писать html в js.</p>
-  <p>В файле Header.jsx наберем команду сниппета reactFunctionalExportComponent</p>
-  <code>rfce</code>
-  <p>Развернется новый компонент</p>
-<pre>import React from 'react';
-
-function Header() {
-  return (
-    &lt;div&gt;Header&lt;/div&gt;
-  )
+<pre>function Header() {
+  return &lt;header&gt;Header Component&lt;/header&gt;
 }
 
-export default Header;</pre>
+function App() {
+  return &lt;Header /&gt;
+}</pre>
 
-  <p>Подключим его в файле App.js</p>
-<pre>import './App.css';
-import Header from './Header';
+  <p>При вызове компонента в него можно передавать параметры из родительского компонента</p>
+<pre>function Header(props) {
+  return &lt;header&gt;{props.title}&lt;/header&gt;
+}
+
+function App() {
+  return &lt;Header title="Header Component" /&gt;
+}</pre>
+
+  <p>При передачи параметров, можно задать значение по умолчанию</p>
+<pre>function Header(props) {
+  return &lt;header&gt;{props.title}&lt;/header&gt;
+}
+
+Header.defaultProps = {
+  title: "Header Component"
+}
 
 function App() {
   return (
-    &lt;div className="App"&gt;
+    &lt;div&gt;
       &lt;Header /&gt;
+      &lt;Header title="Hello React" /&gt;
     &lt;/div&gt;
-  );
+  )
+}</pre>
+</article>
+
+
+<!-- Состояние (state) в react -->
+<article class="article">
+  <div class="anchor" id="state"></div>
+  <h3>Состояние (state) в react</h3>
+
+  <p>При изменении переменных в программе, информация на странице никак не меняется. Чтобы можно было динамически менять информацию на странице при изменении значаний переменных в программе, нужно использовать состояния (state). В конструкторе класса нужно задать начальное состояние в свойство this.state. Чтобы поменять состояние нужно использовать метод setState(). При нажатии на заголовок, его текст изменится.</p>
+
+<pre>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "Header Component",
+    }
+
+    this.headerClick = this.headerClick.bind(this);
+  }
+
+  render() {
+    return &lt;header onClick={headerClick} &gt;{this.state.text}&lt;/header&gt;
+  }
+
+  headerClick() {
+    this.setState({text: this.props.title})
+  }
 }
 
-export default App;</pre>
+class App extends React.Component {
+  render() {
+    return &lt;Header title="Hello React" /&gt;
+  }
+}</pre>
+
+  <h3>componentDidUpdate()</h3>
+  <p>Выполнется когда классовый компонент изменит свое состояние. Аналог хука useState() для функциональных компонентов</p>
+</article>
+
+
+<!-- Хуки (hooks) -->
+<article class="article">
+  <div class="anchor" id="hooks"></div>
+  <h3>Хуки (hooks)</h3>
+   
+  <h4>Хук useState()</h4>
+
+  <p>Мы рассмотрели как добаввить состояние (state) в классовый компонент.</p> 
+  <p>Чтобы добавить состояние (state) в функциональный компонент, используют хук <strong>useState()</strong>.</p> 
+  <p>useState() это функция, которая принимает начальное значение элемента и возвращает массив из двух элементов.</p> 
+  <ol>
+    <li>Первый - это текущее состояние элемента.</li>
+    <li>Второй - это функция, которая может изменить это состояние.</li>
+  </ol>
+<pre>function Header(props) {
+  const [value, setValue] = useState(0);
+  return &lt;header onClick={() => setValue(value + 1)}&gt;{props.title} {value}&lt;/header&gt;
+}
+
+function App() {
+  return &lt;Header /&gt;
+}</pre>
+
+  <h4>Хук useEffect()</h4>
+  <p>useEffect() это функция, которая принимает функцию, которая выполняется, когда будет функция setValue изменит состояние при использовании хука useState()</p>
+  <p>Здесь при клике на заголовок, будет увеличиваться счетчик за счет хука useState() и изменяться заголовок за счет хука useEffect()</p>
+<pre>function Header(props) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    document.title = 'Вы нажали ${value}'
+  })
+
+  return &lt;header onClick={() => setValue(value + 1)}&gt;{props.title} {value}&lt;/header&gt;
+}
+
+function App() {
+  return &lt;Header /&gt;
+}</pre>
+</article>
+
+
+<!-- Кастомный хук -->
+<article class="article">
+  <div class="anchor" id="custom-hook"></div>
+  <h3>Кастомный хук</h3>
+
+  <p>Хуки можно вызывать только в компонентах или в кастомных хуках. Нельзя использовать хуки внутри обычных функций.</p> 
+  <p>Порядок и количество вызовов реакт-хуков должны быть одинаковыми между всеми вызовами ререндерингов компонентов. Это значит что мы не можем вызывать хуки внутри условных конструкций и внутри циклов.</p>
+  <p>Чтобы упростить код компонента и вынести хуки за его пределы, нужно использовать кастомные хуки.</p>
+</article>
+
+
+<!-- Декларативность -->
+<article class="article">
+  <div class="anchor" id="declaration"></div>
+  <h3>Декларативность</h3>
+  <p>Императивность. Чтобы доехать до аэропорта мы говорим таксисту - включи первую передачу, нажми на газ, едь прямо, поверни направо, нажми на тормоз. Мы описываем какие дейстивя нужно совершить.</p>
+  <p>Декларативность. Чтобы доехать до аэропорта мы говорим таксисту - езжай в аэропорт. Таксист сам составляет маршрут, думает как переключать передачи. Мы описываем какой должен получиться результат.</p>
+  <p>Плюсы декларативного кода. Код проще. Можно мало знать и хорошо делать</p>
+  <p>Минусы декларативного кода. Меньше контроля. Качество зависит от реализации.</p>
+  <p>Декларативность не бинарна. Есть более декларативный код и менее декларативный код. Приходится применять и императивный код.</p>
 </article>
 
 
 <!-- Жизненный цикл компонента -->
 <article class="article">
   <div class="anchor" id="lifecycle"></div>
-  <h2>Жизненный цикл компонента</h2>
+  <h3>Жизненный цикл компонента</h3>
 </article>
 
 

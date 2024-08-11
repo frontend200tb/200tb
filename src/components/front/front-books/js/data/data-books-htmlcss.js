@@ -35,8 +35,8 @@ const dataBooksHtmlcss = [
     author: 'Гончаров',
     authorName: 'Алексей',
     pages: '242',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.07.26 пт',
   },
 
   {

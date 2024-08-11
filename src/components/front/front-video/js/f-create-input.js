@@ -7,6 +7,7 @@
 import dataVideoHtmlcss from './data/data-video-htmlcss';
 import dataVideoJs from './data/data-video-js';
 import dataVideoTs from './data/data-video-ts';
+import dataVideoCpp from './data/data-video-cpp';
 import dataVideoCsharp from './data/data-video-csharp';
 import dataVideoPascal from './data/data-video-pascal';
 import dataVideoPug from './data/data-video-pug';
@@ -56,8 +57,8 @@ import dataVideoVscode from './data/data-video-vscode';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoCsharp,
-  dataVideoPascal, dataVideoPug, dataVideoSass,
+  dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoCpp,
+  dataVideoCsharp, dataVideoPascal, dataVideoPug, dataVideoSass,
   // Base
   dataVideoBase, dataVideoInfo, dataVideoAlgorithm,
   // Framework
@@ -72,7 +73,7 @@ const dataArray = [
   // Theme
   dataVideoFrontend, dataVideoWeb, dataVideoFreelance,
 
-  dataVideoBem, dataVideoFigma, dataVideoInterview, dataVideoJson, 
+  dataVideoBem, dataVideoFigma, dataVideoInterview, dataVideoJson,
   dataVideoVscode,];
 
 // 3. Создаем массив с книгами dataVideo из массива dataArray

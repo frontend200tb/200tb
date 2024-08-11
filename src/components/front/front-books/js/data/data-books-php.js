@@ -1069,6 +1069,19 @@ const dataBooksPhp = [
     year: 2023,
     category: 'code',
     theme: 'php',
+    title: 'PHP и MYSQL. Серверная веб-разработка',
+    author: 'Дакетт',
+    authorName: 'Джон',
+    pages: '690',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 84,
+    year: 2023,
+    category: 'code',
+    theme: 'php',
     title: 'PHP 8. Наиболее полное руководство',
     author: 'Котеров',
     authorName: 'Дмитрий',
@@ -1078,7 +1091,7 @@ const dataBooksPhp = [
   },
 
   {
-    id: 84,
+    id: 85,
     year: 2023,
     category: 'code',
     theme: 'php',

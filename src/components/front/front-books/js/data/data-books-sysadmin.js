@@ -117,6 +117,32 @@ const dataBooksSysadmin = [
     dateLearned: '',
   },
 
+  {
+    id: 10,
+    year: 2021,
+    category: 'theme',
+    theme: 'Системный администратор',
+    title: 'Сетевое и системное администрирование (2е)',
+    author: 'Уймин',
+    authorName: 'Антон',
+    pages: '478',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2024,
+    category: 'theme',
+    theme: 'Системный администратор',
+    title: 'Самоучитель системного администратора (7е)',
+    author: 'Кенин',
+    authorName: 'Александр',
+    pages: '609',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

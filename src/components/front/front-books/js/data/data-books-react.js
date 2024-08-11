@@ -2,6 +2,18 @@ const dataBooksReact = [
 
   {
     id: 1,
+    year: 2018,
+    category: 'framework',
+    theme: 'react',
+    title: 'React.js для начинающих (1е)',
+    author: 'Пацианский',
+    pages: '91',
+    isLearned: true,
+    dateLearned: '2022-07-27 ср',
+  },
+
+  {
+    id: 2,
     year: 2017,
     category: 'framework',
     theme: 'react',
@@ -13,7 +25,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 2018,
     category: 'framework',
     theme: 'react',
@@ -25,7 +37,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2018,
     category: 'framework',
     theme: 'react',
@@ -37,7 +49,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 2018,
     category: 'framework',
     theme: 'react',
@@ -49,7 +61,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 2018,
     category: 'framework',
     theme: 'react',
@@ -61,7 +73,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 2018,
     category: 'framework',
     theme: 'react',
@@ -73,7 +85,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2019,
     category: 'framework',
     theme: 'react',
@@ -85,7 +97,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 2019,
     category: 'framework',
     theme: 'react',
@@ -97,7 +109,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2019,
     category: 'framework',
     theme: 'react',
@@ -109,7 +121,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2019,
     category: 'framework',
     theme: 'react',
@@ -145,7 +157,7 @@ const dataBooksReact = [
   },
 
   {
-    id: 12,
+    id: 14,
     year: 2023,
     category: 'framework',
     theme: 'react',
@@ -157,13 +169,25 @@ const dataBooksReact = [
   },
 
   {
-    id: 13,
+    id: 15,
     year: 2023,
     category: 'framework',
     theme: 'react',
     title: 'React. Быстрый старт (2е)',
     author: 'Стоян Стефанов',
     pages: '304',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
+    year: 2024,
+    category: 'framework',
+    theme: 'react',
+    title: 'React быстро',
+    author: 'Азат Мардан',
+    pages: '512',
     isLearned: false,
     dateLearned: '',
   },

@@ -26,6 +26,19 @@ const dataBooksMl = [
     dateLearned: '',
   },
 
+  {
+    id: 3,
+    year: 2023,
+    category: 'theme',
+    theme: 'Machine Learning',
+    title: 'Машинное обучение. Портфолио реальных проектов',
+    author: 'Григорьев',
+    authorName: 'Алексей',
+    pages: '496',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];
