@@ -564,6 +564,19 @@ const dataBooksSql = [
     dateLearned: '',
   },
 
+  {
+    id: 42,
+    year: 2024,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Основы инженерии данных',
+    author: 'Рис',
+    authorName: 'Джо',
+    pages: '466',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

@@ -1,9 +1,22 @@
-const dataBooksAjax = [
+const dataBooksTest = [
 
   {
     id: 1,
+    year: 2014,
+    category: 'theme',
+    theme: 'Тестирование',
+    title: 'Как тестируют в Google',
+    author: 'Уиттакер',
+    authorName: 'Джеймс',
+    pages: '320',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
     year: 2020,
-    category: 'основы',
+    category: 'theme',
     theme: 'Тестирование',
     title: 'Тестирование программного обеспечения. Базовый курс (3е)',
     author: 'Куликов',
@@ -14,9 +27,9 @@ const dataBooksAjax = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 2023,
-    category: 'основы',
+    category: 'theme',
     theme: 'Тестирование',
     title: 'Тестирование программного обеспечения. Базовый курс (3е)',
     author: 'Куликов',
@@ -27,9 +40,9 @@ const dataBooksAjax = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2024,
-    category: 'основы',
+    category: 'theme',
     theme: 'Тестирование',
     title: 'Сам себе тестировщик)',
     author: 'Чхави',
@@ -39,10 +52,8 @@ const dataBooksAjax = [
     dateLearned: '',
   },
 
-
-
   {},
 
 ];
 
-export default dataBooksAjax;
+export default dataBooksTest;

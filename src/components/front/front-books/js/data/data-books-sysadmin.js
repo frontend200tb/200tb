@@ -3,7 +3,7 @@ const dataBooksSysadmin = [
   {
     id: 1,
     year: 2006,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Системное администрирование на 100%',
     author: 'Бормотов',
@@ -16,7 +16,7 @@ const dataBooksSysadmin = [
   {
     id: 2,
     year: 2010,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Практическое руководство системного администратора',
     author: 'Кенин',
@@ -29,7 +29,7 @@ const dataBooksSysadmin = [
   {
     id: 3,
     year: 2012,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (3е)',
     author: 'Кенин',
@@ -42,7 +42,7 @@ const dataBooksSysadmin = [
   {
     id: 4,
     year: 2013,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Практическое руководство системного администратора (2е)',
     author: 'Кенин',
@@ -55,7 +55,7 @@ const dataBooksSysadmin = [
   {
     id: 5,
     year: 2016,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (4е)',
     author: 'Кенин',
@@ -68,7 +68,7 @@ const dataBooksSysadmin = [
   {
     id: 6,
     year: 2018,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Практика системного и сетевого администрирования. Том 1 (3е)',
     author: 'Лимончели',
@@ -81,7 +81,7 @@ const dataBooksSysadmin = [
   {
     id: 7,
     year: 2019,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (5е)',
     author: 'Кенин',
@@ -94,7 +94,7 @@ const dataBooksSysadmin = [
   {
     id: 8,
     year: 2021,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Основы администрирования информационных систем',
     author: 'Бобынцев',
@@ -107,7 +107,7 @@ const dataBooksSysadmin = [
   {
     id: 9,
     year: 2021,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (6е)',
     author: 'Кенин',
@@ -120,7 +120,7 @@ const dataBooksSysadmin = [
   {
     id: 10,
     year: 2021,
-    category: 'theme',
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Сетевое и системное администрирование (2е)',
     author: 'Уймин',
@@ -132,13 +132,52 @@ const dataBooksSysadmin = [
 
   {
     id: 11,
+    year: 2023,
+    category: 'основы',
+    theme: 'Системный администратор',
+    title: 'Сервер на Windows и Linux. Администрирование и виртуализация',
+    author: 'Левицкий',
+    authorName: 'Н.Д.',
+    pages: '546',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
     year: 2024,
-    category: 'theme',
+    category: 'основы',
+    theme: 'Системный администратор',
+    title: 'Современное системное администрирование',
+    author: 'Дэвис',
+    authorName: 'Дженнифер',
+    pages: '292',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2024,
+    category: 'основы',
     theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (7е)',
     author: 'Кенин',
     authorName: 'Александр',
     pages: '609',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
+    year: 2024,
+    category: 'основы',
+    theme: 'Системный администратор',
+    title: 'Справочник сисадмина. Все что нужно под рукой',
+    author: 'Левицкий',
+    authorName: 'Н.Д.',
+    pages: '610',
     isLearned: false,
     dateLearned: '',
   },

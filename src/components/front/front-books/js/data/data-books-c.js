@@ -15,6 +15,135 @@ const dataBooksC = [
 
   {
     id: 2,
+    year: 1988,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык программирования Си. Справочник',
+    author: 'Болски',
+    pages: '96',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 1988,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке Си',
+    author: 'Джехани',
+    authorName: 'Нарайян',
+    pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 1991,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке Си для ПК IBM PC',
+    author: 'Трой',
+    authorName: 'Дуглас',
+    pages: '433',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Том 1. Принципы программирования в машинной графике',
+    author: 'Аммерал',
+    authorName: 'Л.',
+    pages: '228',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Том 2. Машинная графика на ПК',
+    author: 'Аммерал',
+    authorName: 'Л.',
+    pages: '242',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Том 3. Интерактивная трехмерная машинная графика',
+    author: 'Аммерал',
+    authorName: 'Л.',
+    pages: '324',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Том 4. Программирование графики на Турбо Си',
+    author: 'Аммерал',
+    authorName: 'Л.',
+    pages: '228',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Энциклопедия языка Си',
+    author: 'Белецкий',
+    authorName: 'Ян',
+    pages: '689',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык программирования Си (2е)',
+    author: 'Керниган',
+    authorName: 'Брайан',
+    pages: '273',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 1992,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык Си для професионалов',
+    author: 'Шилдт',
+    authorName: 'Герберт',
+    pages: '321',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -27,7 +156,45 @@ const dataBooksC = [
   },
 
   {
-    id: 3,
+    id: 9,
+    year: 1994,
+    category: 'code',
+    theme: 'c',
+    title: 'Толковый словарь стандарта языка Си',
+    author: 'Жешке',
+    authorName: 'Рекс',
+    pages: '225',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 1994,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык Си. Книга ответов',
+    author: 'Тондо',
+    authorName: 'Кловис',
+    pages: '162',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 1996,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык Си в системе UNIX',
+    author: 'Богатырев',
+    pages: '346',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -40,7 +207,7 @@ const dataBooksC = [
   },
 
   {
-    id: 4,
+    id: 13,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -53,7 +220,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 14,
     year: 2000,
     category: 'code',
     theme: 'c',
@@ -66,7 +233,7 @@ const dataBooksC = [
   },
 
   {
-    id: 6,
+    id: 15,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -79,7 +246,7 @@ const dataBooksC = [
   },
 
   {
-    id: 7,
+    id: 16,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -90,8 +257,9 @@ const dataBooksC = [
     isLearned: false,
     dateLearned: '',
   },
+
   {
-    id: 8,
+    id: 17,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -104,7 +272,32 @@ const dataBooksC = [
   },
 
   {
-    id: 9,
+    id: 18,
+    year: 2002,
+    category: 'code',
+    theme: 'c',
+    title: 'Полный справочник по Си (4е)',
+    author: 'Шилдт',
+    authorName: 'Герберт',
+    pages: '691',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 2003,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык программирования Си. Курс лекций',
+    author: 'Васин',
+    pages: '89',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -117,7 +310,20 @@ const dataBooksC = [
   },
 
   {
-    id: 10,
+    id: 20,
+    year: 2003,
+    category: 'code',
+    theme: 'c',
+    title: 'Фундаментальные алгоритмы на Си (3е)',
+    author: 'Сэджвик',
+    authorName: 'Роберт',
+    pages: '1138',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 21,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -130,7 +336,7 @@ const dataBooksC = [
   },
 
   {
-    id: 11,
+    id: 22,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -143,7 +349,20 @@ const dataBooksC = [
   },
 
   {
-    id: 12,
+    id: 23,
+    year: 2004,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке Си (2е)',
+    author: 'Подбельский',
+    authorName: 'Вадим',
+    pages: '598',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 24,
     year: 2006,
     category: 'code',
     theme: 'c',
@@ -156,7 +375,7 @@ const dataBooksC = [
   },
 
   {
-    id: 13,
+    id: 25,
     year: 2006,
     category: 'code',
     theme: 'c',
@@ -168,7 +387,7 @@ const dataBooksC = [
   },
 
   {
-    id: 14,
+    id: 26,
     year: 2009,
     category: 'code',
     theme: 'c',
@@ -181,7 +400,33 @@ const dataBooksC = [
   },
 
   {
-    id: 15,
+    id: 26,
+    year: 2010,
+    category: 'code',
+    theme: 'c',
+    title: 'Введение в параллельные вычисления на языке Си',
+    author: 'Сальников',
+    authorName: 'Антон',
+    pages: '124',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 27,
+    year: 2015,
+    category: 'code',
+    theme: 'c',
+    title: 'Основы параллельного программирования (3е)',
+    author: 'Богачев',
+    authorName: 'Кирилл',
+    pages: '345',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 27,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -194,7 +439,7 @@ const dataBooksC = [
   },
 
   {
-    id: 16,
+    id: 28,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -207,7 +452,7 @@ const dataBooksC = [
   },
 
   {
-    id: 17,
+    id: 29,
     year: 2016,
     category: 'code',
     theme: 'c',
@@ -220,7 +465,7 @@ const dataBooksC = [
   },
 
   {
-    id: 18,
+    id: 30,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -233,7 +478,7 @@ const dataBooksC = [
   },
 
   {
-    id: 19,
+    id: 31,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -245,7 +490,7 @@ const dataBooksC = [
   },
 
   {
-    id: 20,
+    id: 32,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -258,7 +503,7 @@ const dataBooksC = [
   },
 
   {
-    id: 21,
+    id: 33,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -270,7 +515,7 @@ const dataBooksC = [
   },
 
   {
-    id: 22,
+    id: 34,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -282,7 +527,7 @@ const dataBooksC = [
   },
 
   {
-    id: 23,
+    id: 35,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -295,7 +540,20 @@ const dataBooksC = [
   },
 
   {
-    id: 24,
+    id: 36,
+    year: 2020,
+    category: 'code',
+    theme: 'c',
+    title: 'Основы программирования на языке Си',
+    author: 'Дорогов',
+    authorName: 'Виктор',
+    pages: '225',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
     year: 2021,
     category: 'code',
     theme: 'c',
@@ -308,7 +566,7 @@ const dataBooksC = [
   },
 
   {
-    id: 25,
+    id: 38,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -321,7 +579,7 @@ const dataBooksC = [
   },
 
   {
-    id: 26,
+    id: 39,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -334,7 +592,7 @@ const dataBooksC = [
   },
 
   {
-    id: 27,
+    id: 40,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -347,7 +605,20 @@ const dataBooksC = [
   },
 
   {
-    id: 28,
+    id: 41,
+    year: 2023,
+    category: 'code',
+    theme: 'c',
+    title: 'Лингвистические основы языка программирования Си',
+    author: 'Бурмашева',
+    authorName: 'Наталья',
+    pages: '90',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 42,
     year: 2023,
     category: 'code',
     theme: 'c',
@@ -360,7 +631,7 @@ const dataBooksC = [
   },
 
   {
-    id: 29,
+    id: 43,
     year: 2023,
     category: 'code',
     theme: 'c',

@@ -7,6 +7,7 @@
 import dataVideoHtmlcss from './data/data-video-htmlcss';
 import dataVideoJs from './data/data-video-js';
 import dataVideoTs from './data/data-video-ts';
+import dataVideoC from './data/data-video-c';
 import dataVideoCpp from './data/data-video-cpp';
 import dataVideoCsharp from './data/data-video-csharp';
 import dataVideoPascal from './data/data-video-pascal';
@@ -57,8 +58,8 @@ import dataVideoVscode from './data/data-video-vscode';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoCpp,
-  dataVideoCsharp, dataVideoPascal, dataVideoPug, dataVideoSass,
+  dataVideoHtmlcss, dataVideoJs, dataVideoTs, dataVideoC,
+  dataVideoCpp, dataVideoCsharp, dataVideoPascal, dataVideoPug, dataVideoSass,
   // Base
   dataVideoBase, dataVideoInfo, dataVideoAlgorithm,
   // Framework
