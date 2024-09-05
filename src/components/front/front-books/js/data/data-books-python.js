@@ -931,6 +931,7 @@ const dataBooksPython = [
     theme: 'python',
     title: 'Python. Искусственный интеллект',
     author: 'Дейтел',
+    authorName: 'Пол',
     pages: '864',
     isLearned: false,
     dateLearned: '',
@@ -1045,6 +1046,19 @@ const dataBooksPython = [
     year: 2020,
     category: 'code',
     theme: 'python',
+    title: 'Asyncio и конкурентное програмирование на Python',
+    author: 'Фаулер',
+    authorName: 'Мэттью',
+    pages: '400',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 83,
+    year: 2020,
+    category: 'code',
+    theme: 'python',
     title: 'Машинное обучение на Python',
     author: 'Харрисон',
     authorName: 'Мэтт',
@@ -1054,7 +1068,7 @@ const dataBooksPython = [
   },
 
   {
-    id: 83,
+    id: 84,
     year: 2021,
     category: 'code',
     theme: 'python',
@@ -1067,7 +1081,7 @@ const dataBooksPython = [
   },
 
   {
-    id: 84,
+    id: 85,
     year: 2021,
     category: 'code',
     theme: 'python',
@@ -1080,7 +1094,20 @@ const dataBooksPython = [
   },
 
   {
-    id: 85,
+    id: 86,
+    year: 2021,
+    category: 'code',
+    theme: 'python',
+    title: 'Python для всех',
+    author: 'Северанс',
+    authorName: 'Чарльз',
+    pages: '265',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 87,
     year: 2021,
     category: 'code',
     theme: 'python',
@@ -1093,7 +1120,137 @@ const dataBooksPython = [
   },
 
   {
-    id: 86,
+    id: 88,
+    year: 2022,
+    category: 'code',
+    theme: 'python',
+    title: 'Python. Полное руководство',
+    author: 'Кольцов',
+    authorName: 'Дмитрий',
+    pages: '482',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 89,
+    year: 2022,
+    category: 'code',
+    theme: 'python',
+    title: 'Python. Создаем программы и игры (3е)',
+    author: 'Кольцов',
+    authorName: 'Дмитрий',
+    pages: '434',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 90,
+    year: 2022,
+    category: 'code',
+    theme: 'python',
+    title: 'Разработка кроссплатформенных мобильных и настольных приложений на Python',
+    author: 'Постолит',
+    authorName: 'Анатолий',
+    pages: '771',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 91,
+    year: 2022,
+    category: 'code',
+    theme: 'python',
+    title: 'Структуры данных в Python',
+    author: 'Шихи',
+    authorName: 'Дональд',
+    pages: '188',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 92,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Разработка приложений с графическим пользовательским интерфейсом на языке Python',
+    author: 'Букунов',
+    authorName: 'Сергей',
+    pages: '90',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 93,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: '40 алгоритмов на Python',
+    author: 'Имран',
+    authorName: 'Ахмад',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 94,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Основы Python для Data Science',
+    author: 'Кеннеди',
+    authorName: 'Берман',
+    pages: '272',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 95,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Python и анализ данных (3е)',
+    author: 'Маккинни',
+    authorName: 'Уэс',
+    pages: '537',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 96,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Программирование. Основы Python для инженеров',
+    author: 'Никитина',
+    authorName: 'Татьяна',
+    pages: '155',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 97,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Математические алгоритмы для программистов. 3D-графика, машинное обучение и моделирование на Python',
+    author: 'Орланд',
+    authorName: 'Пол',
+    pages: '752',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 98,
     year: 2023,
     category: 'code',
     theme: 'python',
@@ -1106,7 +1263,7 @@ const dataBooksPython = [
   },
 
   {
-    id: 87,
+    id: 99,
     year: 2023,
     category: 'code',
     theme: 'python',
@@ -1119,7 +1276,20 @@ const dataBooksPython = [
   },
 
   {
-    id: 88,
+    id: 100,
+    year: 2023,
+    category: 'code',
+    theme: 'python',
+    title: 'Глубокое обучение на Python',
+    author: 'Шолле',
+    authorName: 'Франсуа',
+    pages: '576',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 101,
     year: 2024,
     category: 'code',
     theme: 'python',
@@ -1132,7 +1302,7 @@ const dataBooksPython = [
   },
 
   {
-    id: 89,
+    id: 102,
     year: 2024,
     category: 'code',
     theme: 'python',
@@ -1145,7 +1315,7 @@ const dataBooksPython = [
   },
 
   {
-    id: 90,
+    id: 103,
     year: 2024,
     category: 'code',
     theme: 'python',

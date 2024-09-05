@@ -140,6 +140,18 @@ const dataBooksBios = [
 
   {
     id: 12,
+    year: 2010,
+    category: 'основы',
+    theme: 'Bios',
+    title: 'Тонкая настройка компьютера с помощью BIOS',
+    author: 'Зозуля',
+    authorName: 'Юрий',
+    pages: '343',
+    isLearned: false,
+    dateLearned: '',
+  },
+  {
+    id: 13,
     year: 2013,
     category: 'основы',
     theme: 'Bios',

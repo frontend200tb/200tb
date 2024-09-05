@@ -6,7 +6,7 @@ import './element-code-other';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Ассемблер', 'Си', 'C++', 'C#', 'Markdown', 'Php', 'Pug', 'Python', 'SASS'];
+const asideThemes = ['Ассемблер', 'Linux', 'Си', 'C++', 'C#', 'Markdown', 'Php', 'Pug', 'Python', 'SASS'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

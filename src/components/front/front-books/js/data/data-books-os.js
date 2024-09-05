@@ -28,6 +28,19 @@ const dataBooksOs = [
 
   {
     id: 3,
+    year: 1991,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Персональный компьютер фирмы IBM и операционная система MS-DOS',
+    author: 'Нортон',
+    authorName: 'Питер',
+    pages: '418',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
     year: 1993,
     category: 'основы',
     theme: 'Операционные системы',
@@ -35,32 +48,6 @@ const dataBooksOs = [
     author: 'Данкан',
     authorName: 'Рей',
     pages: '514',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 4,
-    year: 2001,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Unix наглядный курс освоения операционной системы',
-    author: 'Белломо',
-    authorName: 'Майкл',
-    pages: '330',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 5,
-    year: 2003,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Операционная система Unix',
-    author: 'Робачевский',
-    authorName: 'Андрей',
-    pages: '524',
     isLearned: false,
     dateLearned: '',
   },
@@ -79,20 +66,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 5,
-    year: 2005,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Операционная система Linux',
-    author: 'Курячий',
-    authorName: 'Г.В.',
-    pages: '392',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 5,
+    id: 6,
     year: 2006,
     category: 'основы',
     theme: 'Операционные системы',
@@ -105,7 +79,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 3,
+    id: 7,
+    year: 2006,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Введение в операционные системы. Конспект лекций',
+    author: 'Столяров',
+    authorName: 'Андрей',
+    pages: '193',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 2006,
     category: 'основы',
     theme: 'Операционные системы',
@@ -118,7 +105,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
+    id: 9,
     year: 2007,
     category: 'основы',
     theme: 'Операционные системы',
@@ -131,7 +118,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
+    id: 10,
     year: 2008,
     category: 'основы',
     theme: 'Операционные системы',
@@ -144,7 +131,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
+    id: 11,
     year: 2008,
     category: 'основы',
     theme: 'Операционные системы',
@@ -157,7 +144,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
+    id: 12,
     year: 2009,
     category: 'основы',
     theme: 'Операционные системы',
@@ -170,7 +157,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
+    id: 13,
     year: 2010,
     category: 'основы',
     theme: 'Операционные системы',
@@ -183,33 +170,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 2,
-    year: 2010,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Операционная система Linux Курс лекций (2е)',
-    author: 'Курячий',
-    authorName: 'Георгий',
-    pages: '348',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 2,
-    year: 2010,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Операционная система UNIX (2е)',
-    author: 'Робачевский',
-    authorName: 'Андрей',
-    pages: '645',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 3,
+    id: 14,
     year: 2011,
     category: 'основы',
     theme: 'Операционные системы',
@@ -221,20 +182,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 3,
-    year: 2011,
-    category: 'основы',
-    theme: 'Операционные системы',
-    title: 'Ubuntu и Debian Linux для продвинутых',
-    author: 'Негус',
-    authorName: 'Кристофер',
-    pages: '354',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 4,
+    id: 15,
     year: 2014,
     category: 'основы',
     theme: 'Операционные системы',
@@ -247,7 +195,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 5,
+    id: 16,
     year: 2015,
     category: 'основы',
     theme: 'Операционные системы',
@@ -260,7 +208,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 5,
+    id: 17,
     year: 2019,
     category: 'основы',
     theme: 'Операционные системы',
@@ -273,7 +221,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 6,
+    id: 18,
     year: 2020,
     category: 'основы',
     theme: 'Операционные системы',
@@ -286,7 +234,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 6,
+    id: 19,
     year: 2020,
     category: 'основы',
     theme: 'Операционные системы',
@@ -299,7 +247,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 7,
+    id: 20,
     year: 2021,
     category: 'основы',
     theme: 'Операционные системы',
@@ -312,7 +260,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 7,
+    id: 21,
     year: 2021,
     category: 'основы',
     theme: 'Операционные системы',
@@ -325,7 +273,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 8,
+    id: 22,
     year: 2022,
     category: 'основы',
     theme: 'Операционные системы',

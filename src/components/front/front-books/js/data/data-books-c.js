@@ -53,6 +53,19 @@ const dataBooksC = [
 
   {
     id: 5,
+    year: 1991,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык Турбо Си',
+    author: 'Уинер',
+    authorName: 'Ричард',
+    pages: '385',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -65,7 +78,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -78,7 +91,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 8,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -91,7 +104,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 9,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -104,7 +117,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 10,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -117,7 +130,7 @@ const dataBooksC = [
   },
 
   {
-    id: 6,
+    id: 11,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -130,7 +143,7 @@ const dataBooksC = [
   },
 
   {
-    id: 7,
+    id: 12,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -143,7 +156,7 @@ const dataBooksC = [
   },
 
   {
-    id: 8,
+    id: 13,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -156,7 +169,7 @@ const dataBooksC = [
   },
 
   {
-    id: 9,
+    id: 14,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -169,7 +182,7 @@ const dataBooksC = [
   },
 
   {
-    id: 10,
+    id: 15,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -182,7 +195,7 @@ const dataBooksC = [
   },
 
   {
-    id: 11,
+    id: 16,
     year: 1996,
     category: 'code',
     theme: 'c',
@@ -194,7 +207,7 @@ const dataBooksC = [
   },
 
   {
-    id: 12,
+    id: 17,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -207,7 +220,7 @@ const dataBooksC = [
   },
 
   {
-    id: 13,
+    id: 18,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -220,7 +233,7 @@ const dataBooksC = [
   },
 
   {
-    id: 14,
+    id: 19,
     year: 2000,
     category: 'code',
     theme: 'c',
@@ -233,7 +246,7 @@ const dataBooksC = [
   },
 
   {
-    id: 15,
+    id: 20,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -246,7 +259,7 @@ const dataBooksC = [
   },
 
   {
-    id: 16,
+    id: 21,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -259,7 +272,20 @@ const dataBooksC = [
   },
 
   {
-    id: 17,
+    id: 22,
+    year: 2001,
+    category: 'code',
+    theme: 'c',
+    title: 'Основы программирования на языке Си',
+    author: 'Кучин',
+    authorName: 'Николай',
+    pages: '86',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 23,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -272,7 +298,7 @@ const dataBooksC = [
   },
 
   {
-    id: 18,
+    id: 24,
     year: 2002,
     category: 'code',
     theme: 'c',
@@ -285,7 +311,7 @@ const dataBooksC = [
   },
 
   {
-    id: 19,
+    id: 25,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -297,7 +323,7 @@ const dataBooksC = [
   },
 
   {
-    id: 20,
+    id: 26,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -310,7 +336,7 @@ const dataBooksC = [
   },
 
   {
-    id: 20,
+    id: 27,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -323,7 +349,7 @@ const dataBooksC = [
   },
 
   {
-    id: 21,
+    id: 28,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -336,7 +362,7 @@ const dataBooksC = [
   },
 
   {
-    id: 22,
+    id: 29,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -349,7 +375,7 @@ const dataBooksC = [
   },
 
   {
-    id: 23,
+    id: 30,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -362,7 +388,7 @@ const dataBooksC = [
   },
 
   {
-    id: 24,
+    id: 31,
     year: 2006,
     category: 'code',
     theme: 'c',
@@ -375,19 +401,33 @@ const dataBooksC = [
   },
 
   {
-    id: 25,
+    id: 32,
     year: 2006,
     category: 'code',
     theme: 'c',
     title: 'Проrраммирование на языкe Си для АVR и PIC микроконтроллеров',
     author: 'Шпак',
+    authorName: 'Ю.А.',
     pages: '258',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 26,
+    id: 33,
+    year: 2007,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке Си (3е)',
+    author: 'Кочан',
+    authorName: 'Стефан',
+    pages: '493',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 34,
     year: 2009,
     category: 'code',
     theme: 'c',
@@ -400,7 +440,7 @@ const dataBooksC = [
   },
 
   {
-    id: 26,
+    id: 35,
     year: 2010,
     category: 'code',
     theme: 'c',
@@ -413,7 +453,33 @@ const dataBooksC = [
   },
 
   {
-    id: 27,
+    id: 36,
+    year: 2013,
+    category: 'code',
+    theme: 'c',
+    title: 'Изучаем программирование на Си',
+    author: 'Гриффитс',
+    authorName: 'Дэвид',
+    pages: '625',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
+    year: 2014,
+    category: 'code',
+    theme: 'c',
+    title: 'Си для программистов',
+    author: 'Дейтел',
+    authorName: 'Пол',
+    pages: '546',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 38,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -426,7 +492,7 @@ const dataBooksC = [
   },
 
   {
-    id: 27,
+    id: 39,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -439,7 +505,7 @@ const dataBooksC = [
   },
 
   {
-    id: 28,
+    id: 40,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -452,7 +518,20 @@ const dataBooksC = [
   },
 
   {
-    id: 29,
+    id: 41,
+    year: 2015,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык программирования Си. Лекции и упражнения (6е)',
+    author: 'Прата',
+    authorName: 'Стивен',
+    pages: '926',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 42,
     year: 2016,
     category: 'code',
     theme: 'c',
@@ -465,7 +544,7 @@ const dataBooksC = [
   },
 
   {
-    id: 30,
+    id: 43,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -478,7 +557,7 @@ const dataBooksC = [
   },
 
   {
-    id: 31,
+    id: 44,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -490,7 +569,7 @@ const dataBooksC = [
   },
 
   {
-    id: 32,
+    id: 45,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -503,7 +582,7 @@ const dataBooksC = [
   },
 
   {
-    id: 33,
+    id: 46,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -515,7 +594,7 @@ const dataBooksC = [
   },
 
   {
-    id: 34,
+    id: 47,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -527,7 +606,7 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 48,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -540,7 +619,7 @@ const dataBooksC = [
   },
 
   {
-    id: 36,
+    id: 49,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -553,7 +632,20 @@ const dataBooksC = [
   },
 
   {
-    id: 37,
+    id: 50,
+    year: 2020,
+    category: 'code',
+    theme: 'c',
+    title: 'Язык С. Самое необходимое',
+    author: 'Прохоренок',
+    authorName: 'Николай',
+    pages: '482',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 51,
     year: 2021,
     category: 'code',
     theme: 'c',
@@ -566,7 +658,7 @@ const dataBooksC = [
   },
 
   {
-    id: 38,
+    id: 52,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -579,7 +671,7 @@ const dataBooksC = [
   },
 
   {
-    id: 39,
+    id: 53,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -592,7 +684,7 @@ const dataBooksC = [
   },
 
   {
-    id: 40,
+    id: 54,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -605,7 +697,7 @@ const dataBooksC = [
   },
 
   {
-    id: 41,
+    id: 55,
     year: 2023,
     category: 'code',
     theme: 'c',
@@ -618,7 +710,7 @@ const dataBooksC = [
   },
 
   {
-    id: 42,
+    id: 56,
     year: 2023,
     category: 'code',
     theme: 'c',
@@ -631,7 +723,7 @@ const dataBooksC = [
   },
 
   {
-    id: 43,
+    id: 57,
     year: 2023,
     category: 'code',
     theme: 'c',

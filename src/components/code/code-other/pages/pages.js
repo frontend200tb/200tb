@@ -3,6 +3,7 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 */
 import htmlAssembler from './elem-assembler.html';
+import htmlLinux from './elem-linux.html';
 import htmlC from './elem-c.html';
 import htmlCpp from './elem-cpp.html';
 import htmlCsharp from './elem-csharp.html';
@@ -16,6 +17,7 @@ import htmlSass from './elem-sass.html';
 export default function pageLink() {
   const aside = [
     htmlAssembler,
+    htmlLinux,
     htmlC,
     htmlCpp,
     htmlCsharp,

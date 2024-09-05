@@ -248,7 +248,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2012,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -261,7 +261,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2013,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -274,7 +274,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 21,
+    id: 22,
     year: 2013,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -287,7 +287,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 22,
+    id: 23,
     year: 2013,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -300,7 +300,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 23,
+    id: 24,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -313,7 +313,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 24,
+    id: 25,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -326,7 +326,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 25,
+    id: 26,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -339,20 +339,21 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 26,
+    id: 27,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
-    title: 'Структуры данных',
+    title: 'Структуры данных и проектирование программ',
     author: 'Круз',
     authorName: 'Роберт',
-    pages: '208',
+    pages: '767',
     isLearned: false,
     dateLearned: '',
   },
 
+
   {
-    id: 27,
+    id: 28,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -365,7 +366,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 28,
+    id: 29,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -378,7 +379,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 29,
+    id: 30,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -391,7 +392,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 30,
+    id: 31,
     year: 2014,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -404,7 +405,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 31,
+    id: 32,
     year: 2015,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -416,7 +417,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 32,
+    id: 33,
     year: 2015,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -429,7 +430,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 33,
+    id: 34,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -442,7 +443,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 34,
+    id: 35,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -455,7 +456,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 35,
+    id: 36,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -468,7 +469,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 36,
+    id: 37,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -481,7 +482,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 37,
+    id: 38,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -494,7 +495,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 38,
+    id: 39,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -507,7 +508,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 39,
+    id: 40,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -520,7 +521,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 40,
+    id: 41,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -533,7 +534,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 41,
+    id: 42,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -546,7 +547,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 42,
+    id: 43,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -559,7 +560,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 43,
+    id: 44,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -572,7 +573,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 44,
+    id: 45,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -585,7 +586,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 45,
+    id: 46,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -598,7 +599,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 46,
+    id: 47,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -611,7 +612,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 47,
+    id: 48,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -624,7 +625,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 48,
+    id: 49,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -637,7 +638,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 49,
+    id: 50,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -650,7 +651,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 50,
+    id: 51,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -663,7 +664,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 50,
+    id: 52,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -676,7 +677,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 51,
+    id: 53,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -689,7 +690,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 52,
+    id: 54,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -702,7 +703,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 53,
+    id: 55,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -715,7 +716,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 54,
+    id: 56,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -728,7 +729,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 55,
+    id: 57,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -740,7 +741,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 56,
+    id: 58,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -753,7 +754,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 57,
+    id: 59,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -766,7 +767,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 58,
+    id: 60,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -779,7 +780,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 59,
+    id: 61,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -792,7 +793,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 60,
+    id: 62,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -805,7 +806,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 61,
+    id: 63,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -818,7 +819,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 62,
+    id: 64,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -831,7 +832,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 63,
+    id: 65,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -844,7 +845,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 64,
+    id: 66,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -857,7 +858,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 65,
+    id: 67,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -870,7 +871,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 66,
+    id: 68,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -883,7 +884,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 67,
+    id: 69,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -896,7 +897,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 68,
+    id: 70,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -909,7 +910,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 69,
+    id: 71,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -922,7 +923,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 70,
+    id: 72,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -935,7 +936,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 71,
+    id: 73,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -948,7 +949,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 72,
+    id: 74,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -961,7 +962,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 73,
+    id: 75,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -973,7 +974,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 74,
+    id: 76,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -986,7 +987,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 75,
+    id: 77,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -999,7 +1000,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 76,
+    id: 78,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1012,7 +1013,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 77,
+    id: 79,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1025,7 +1026,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 78,
+    id: 80,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1038,7 +1039,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 50,
+    id: 81,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1051,7 +1052,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 79,
+    id: 82,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1064,7 +1065,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 80,
+    id: 83,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1076,7 +1077,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 81,
+    id: 84,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1089,7 +1090,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 82,
+    id: 85,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1102,7 +1103,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 83,
+    id: 86,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1115,7 +1116,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 84,
+    id: 87,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1128,7 +1129,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 85,
+    id: 88,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1141,7 +1142,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 86,
+    id: 89,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1154,7 +1155,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 87,
+    id: 90,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1167,7 +1168,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 88,
+    id: 91,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1180,7 +1181,20 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 89,
+    id: 92,
+    year: 2023,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмический тренинг. Решения практических задач на Python и С++',
+    author: 'Иванов',
+    authorName: 'Максим',
+    pages: '415',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 93,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1193,7 +1207,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 90,
+    id: 94,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1206,7 +1220,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 91,
+    id: 95,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1219,7 +1233,20 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 92,
+    id: 96,
+    year: 2024,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы. Аха!',
+    author: 'Аха',
+    authorName: 'Лей',
+    pages: '240',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 97,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1232,7 +1259,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 93,
+    id: 98,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1245,7 +1272,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 94,
+    id: 99,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1258,7 +1285,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 95,
+    id: 100,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1271,7 +1298,7 @@ const dataBooksAlgorithm = [
   },
 
   {
-    id: 95,
+    id: 101,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',

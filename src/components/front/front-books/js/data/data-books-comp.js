@@ -27,7 +27,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 1,
+    id: 3,
     year: 1989,
     category: 'основы',
     theme: 'Компьютер',
@@ -40,7 +40,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 2,
+    id: 4,
     year: 1990,
     category: 'основы',
     theme: 'Компьютер',
@@ -53,7 +53,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 3,
+    id: 5,
     year: 1990,
     category: 'основы',
     theme: 'Компьютер',
@@ -66,7 +66,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 1991,
     category: 'основы',
     theme: 'Компьютер',
@@ -79,7 +79,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 4,
+    id: 7,
     year: 1991,
     category: 'основы',
     theme: 'Компьютер',
@@ -92,33 +92,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 4,
-    year: 1991,
-    category: 'основы',
-    theme: 'Компьютер',
-    title: 'Персональный компьютер фирмы IBM и операционная система MS-DOS',
-    author: 'Нортон',
-    authorName: 'Питер',
-    pages: '418',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 5,
-    year: 1992,
-    category: 'основы',
-    theme: 'Компьютер',
-    title: 'Язык Ассемблера для IBM PC и программирования',
-    author: 'Абель',
-    authorName: 'Питер',
-    pages: '450',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 6,
+    id: 8,
     year: 1992,
     category: 'основы',
     theme: 'Компьютер',
@@ -130,7 +104,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 6,
+    id: 9,
     year: 1992,
     category: 'основы',
     theme: 'Компьютер',
@@ -143,7 +117,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 7,
+    id: 10,
     year: 1992,
     category: 'основы',
     theme: 'Компьютер',
@@ -155,7 +129,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 8,
+    id: 11,
     year: 1993,
     category: 'основы',
     theme: 'Компьютер',
@@ -168,7 +142,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 9,
+    id: 12,
     year: 1993,
     category: 'основы',
     theme: 'Компьютер',
@@ -180,7 +154,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 10,
+    id: 13,
     year: 1993,
     category: 'основы',
     theme: 'Компьютер',
@@ -192,7 +166,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 11,
+    id: 14,
     year: 1993,
     category: 'основы',
     theme: 'Компьютер',
@@ -204,7 +178,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 1994,
     category: 'основы',
     theme: 'Компьютер',
@@ -217,7 +191,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 13,
+    id: 16,
     year: 1994,
     category: 'основы',
     theme: 'Компьютер',
@@ -229,7 +203,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 14,
+    id: 17,
     year: 1998,
     category: 'основы',
     theme: 'Компьютер',
@@ -242,7 +216,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 15,
+    id: 18,
     year: 1999,
     category: 'основы',
     theme: 'Компьютер',
@@ -255,7 +229,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 16,
+    id: 19,
     year: 2000,
     category: 'основы',
     theme: 'Компьютер',
@@ -268,7 +242,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 17,
+    id: 20,
     year: 2000,
     category: 'основы',
     theme: 'Компьютер',
@@ -281,7 +255,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 18,
+    id: 21,
     year: 2001,
     category: 'основы',
     theme: 'Компьютер',
@@ -294,7 +268,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 19,
+    id: 22,
     year: 2002,
     category: 'основы',
     theme: 'Компьютер',
@@ -307,7 +281,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 20,
+    id: 23,
     year: 2002,
     category: 'основы',
     theme: 'Компьютер',
@@ -320,7 +294,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 21,
+    id: 24,
     year: 2002,
     category: 'основы',
     theme: 'Компьютер',
@@ -333,7 +307,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 22,
+    id: 25,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -345,7 +319,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 23,
+    id: 26,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -358,7 +332,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 24,
+    id: 27,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -371,7 +345,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 25,
+    id: 28,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -384,7 +358,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 26,
+    id: 29,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -397,7 +371,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 26,
+    id: 30,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -410,7 +384,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 27,
+    id: 31,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -423,7 +397,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 28,
+    id: 32,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -436,7 +410,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 29,
+    id: 33,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -449,7 +423,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 30,
+    id: 34,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -462,7 +436,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 31,
+    id: 35,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -475,7 +449,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 32,
+    id: 36,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -488,7 +462,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 33,
+    id: 37,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -501,7 +475,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 34,
+    id: 38,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -514,7 +488,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 34,
+    id: 39,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -527,7 +501,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 35,
+    id: 40,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -540,7 +514,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 36,
+    id: 41,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -553,7 +527,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 36,
+    id: 42,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -566,7 +540,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 37,
+    id: 43,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -579,7 +553,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 38,
+    id: 44,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -592,7 +566,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 39,
+    id: 45,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -605,7 +579,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 40,
+    id: 46,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -618,7 +592,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 41,
+    id: 47,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -631,7 +605,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 42,
+    id: 48,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -644,7 +618,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 42,
+    id: 49,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -657,7 +631,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 43,
+    id: 50,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -670,7 +644,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 44,
+    id: 51,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -682,7 +656,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 45,
+    id: 52,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -695,7 +669,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 46,
+    id: 53,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -708,7 +682,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 46,
+    id: 54,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -721,7 +695,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 47,
+    id: 55,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -734,7 +708,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 48,
+    id: 56,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -747,7 +721,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 49,
+    id: 57,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -760,7 +734,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 50,
+    id: 58,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -773,7 +747,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 51,
+    id: 59,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -786,7 +760,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 52,
+    id: 60,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -799,7 +773,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 53,
+    id: 61,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -812,7 +786,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 54,
+    id: 62,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
@@ -824,7 +798,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 55,
+    id: 63,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
@@ -837,7 +811,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 56,
+    id: 64,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
@@ -850,7 +824,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 57,
+    id: 65,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -863,7 +837,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 58,
+    id: 66,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -876,7 +850,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 59,
+    id: 67,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -889,7 +863,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 60,
+    id: 68,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -902,19 +876,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 61,
+    id: 69,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
     title: 'Железо 2010',
     author: 'Асмаков',
+    authorName: 'С.В.',
     pages: '415',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 62,
+    id: 70,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -927,20 +902,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 63,
+    id: 71,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
-    title: 'Тонкая настройка компьютера с помощью BIOS',
-    author: 'Зозуля',
-    authorName: 'Юрий',
-    pages: '343',
+    title: 'Архитектура ЭВМ (2е)',
+    author: 'Жмакин',
+    authorName: 'Анатолий',
+    pages: '348',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 64,
+    id: 72,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -953,7 +928,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 65,
+    id: 73,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -966,7 +941,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 66,
+    id: 74,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -979,7 +954,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 67,
+    id: 75,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -992,7 +967,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 68,
+    id: 76,
     year: 2011,
     category: 'основы',
     theme: 'Компьютер',
@@ -1005,7 +980,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 69,
+    id: 77,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -1018,7 +993,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 70,
+    id: 78,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -1031,7 +1006,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 71,
+    id: 79,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -1044,7 +1019,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 72,
+    id: 80,
     year: 2013,
     category: 'основы',
     theme: 'Компьютер',
@@ -1057,7 +1032,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 73,
+    id: 81,
     year: 2013,
     category: 'основы',
     theme: 'Компьютер',
@@ -1070,7 +1045,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 74,
+    id: 82,
     year: 2015,
     category: 'основы',
     theme: 'Компьютер',
@@ -1083,7 +1058,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 75,
+    id: 83,
     year: 2018,
     category: 'основы',
     theme: 'Компьютер',
@@ -1096,7 +1071,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 76,
+    id: 84,
     year: 2018,
     category: 'основы',
     theme: 'Компьютер',
@@ -1109,7 +1084,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 77,
+    id: 85,
     year: 2018,
     category: 'основы',
     theme: 'Компьютер',
@@ -1122,7 +1097,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 78,
+    id: 86,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1135,7 +1110,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 78,
+    id: 87,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1148,7 +1123,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 79,
+    id: 88,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1160,7 +1135,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 80,
+    id: 89,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1173,7 +1148,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 81,
+    id: 90,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1186,7 +1161,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 82,
+    id: 91,
     year: 2020,
     category: 'основы',
     theme: 'Компьютер',
@@ -1199,7 +1174,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 83,
+    id: 92,
     year: 2021,
     category: 'основы',
     theme: 'Компьютер',
@@ -1212,7 +1187,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 84,
+    id: 93,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1225,7 +1200,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 85,
+    id: 94,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1238,7 +1213,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 86,
+    id: 95,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1251,7 +1226,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 87,
+    id: 96,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1264,7 +1239,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 88,
+    id: 97,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1277,7 +1252,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 89,
+    id: 98,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',

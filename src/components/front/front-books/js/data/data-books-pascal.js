@@ -28,19 +28,32 @@ const dataBooksPascal = [
 
   {
     id: 3,
-    year: 1989,
+    year: 1988,
     category: 'code',
     theme: 'pascal',
-    title: 'Паскаль. Руководство для пользователя',
-    author: 'Йенсен, Вирт',
-    authorName: 'А.',
-    pages: '254',
+    title: 'Программирование на языке Паскаль',
+    author: 'Перминов',
+    authorName: 'Олег',
+    pages: '221',
     isLearned: false,
     dateLearned: '',
   },
 
   {
     id: 4,
+    year: 1989,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Паскаль. Руководство для пользователя',
+    author: 'Вирт',
+    authorName: 'Никлаус',
+    pages: '254',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
     year: 1989,
     category: 'code',
     theme: 'pascal',
@@ -53,7 +66,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 1991,
     category: 'code',
     theme: 'pascal',
@@ -66,7 +79,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 1993,
     category: 'code',
     theme: 'pascal',
@@ -79,7 +92,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 1995,
     category: 'code',
     theme: 'pascal',
@@ -92,7 +105,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 1998,
     category: 'code',
     theme: 'pascal',
@@ -105,7 +118,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 1999,
     category: 'code',
     theme: 'pascal',
@@ -118,7 +131,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2001,
     category: 'code',
     theme: 'pascal',
@@ -131,7 +144,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2001,
     category: 'code',
     theme: 'pascal',
@@ -144,7 +157,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 12,
+    id: 13,
+    year: 2002,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Основы программирования. Язык Паскаль',
+    author: 'Акулов',
+    authorName: 'Станислав',
+    pages: '423',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
     year: 2003,
     category: 'code',
     theme: 'pascal',
@@ -157,7 +183,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 13,
+    id: 15,
     year: 2003,
     category: 'code',
     theme: 'pascal',
@@ -170,7 +196,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 14,
+    id: 16,
     year: 2003,
     category: 'code',
     theme: 'pascal',
@@ -183,7 +209,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 15,
+    id: 17,
     year: 2004,
     category: 'code',
     theme: 'pascal',
@@ -196,7 +222,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 16,
+    id: 18,
     year: 2004,
     category: 'code',
     theme: 'pascal',
@@ -209,7 +235,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 17,
+    id: 19,
     year: 2004,
     category: 'code',
     theme: 'pascal',
@@ -222,7 +248,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 18,
+    id: 20,
     year: 2005,
     category: 'code',
     theme: 'pascal',
@@ -235,7 +261,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 19,
+    id: 21,
     year: 2005,
     category: 'code',
     theme: 'pascal',
@@ -248,7 +274,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 20,
+    id: 22,
     year: 2005,
     category: 'code',
     theme: 'pascal',
@@ -261,7 +287,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2006,
     category: 'code',
     theme: 'pascal',
@@ -274,7 +300,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2006,
     category: 'code',
     theme: 'pascal',
@@ -287,7 +313,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 23,
+    id: 25,
     year: 2006,
     category: 'code',
     theme: 'pascal',
@@ -300,7 +326,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2007,
     category: 'code',
     theme: 'pascal',
@@ -313,7 +339,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 25,
+    id: 27,
     year: 2008,
     category: 'code',
     theme: 'pascal',
@@ -326,7 +352,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 26,
+    id: 28,
     year: 2009,
     category: 'code',
     theme: 'pascal',
@@ -339,7 +365,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 27,
+    id: 29,
     year: 2009,
     category: 'code',
     theme: 'pascal',
@@ -352,7 +378,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 28,
+    id: 30,
     year: 2010,
     category: 'code',
     theme: 'pascal',
@@ -365,7 +391,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 29,
+    id: 31,
     year: 2010,
     category: 'code',
     theme: 'pascal',
@@ -378,7 +404,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 30,
+    id: 32,
     year: 2010,
     category: 'code',
     theme: 'pascal',
@@ -391,7 +417,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 31,
+    id: 33,
     year: 2010,
     category: 'code',
     theme: 'pascal',
@@ -404,7 +430,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 32,
+    id: 34,
     year: 2011,
     category: 'code',
     theme: 'pascal',
@@ -417,7 +443,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 33,
+    id: 35,
     year: 2011,
     category: 'code',
     theme: 'pascal',
@@ -430,7 +456,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 34,
+    id: 36,
     year: 2011,
     category: 'code',
     theme: 'pascal',
@@ -443,7 +469,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 35,
+    id: 37,
     year: 2012,
     category: 'code',
     theme: 'pascal',
@@ -456,7 +482,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 36,
+    id: 38,
     year: 2012,
     category: 'code',
     theme: 'pascal',
@@ -469,7 +495,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 37,
+    id: 39,
     year: 2012,
     category: 'code',
     theme: 'pascal',
@@ -482,7 +508,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 38,
+    id: 40,
+    year: 2013,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Основы алгоритмизации и программирования. Паскаль',
+    author: 'Семакин',
+    authorName: 'Игорь',
+    pages: '144',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 41,
     year: 2013,
     category: 'code',
     theme: 'pascal',
@@ -495,7 +534,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 39,
+    id: 42,
     year: 2014,
     category: 'code',
     theme: 'pascal',
@@ -508,7 +547,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 40,
+    id: 43,
+    year: 2014,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Паскаль для школьников (3е)',
+    author: 'Кашаев',
+    authorName: 'С.М.',
+    pages: '346',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 44,
     year: 2014,
     category: 'code',
     theme: 'pascal',
@@ -521,7 +573,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 41,
+    id: 45,
     year: 2015,
     category: 'code',
     theme: 'pascal',
@@ -534,9 +586,9 @@ const dataBooksPascal = [
   },
 
   {
-    id: 42,
+    id: 46,
     year: 2016,
-    category: 'основы',
+    category: 'code',
     theme: 'pascal',
     title: 'Информатика. Основы программирования на языке Паскаль',
     author: 'Акулов',
@@ -547,7 +599,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 43,
+    id: 47,
     year: 2016,
     category: 'code',
     theme: 'pascal',
@@ -560,7 +612,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 44,
+    id: 48,
     year: 2016,
     category: 'code',
     theme: 'pascal',
@@ -573,7 +625,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 45,
+    id: 49,
     year: 2017,
     category: 'code',
     theme: 'pascal',
@@ -586,7 +638,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 46,
+    id: 50,
     year: 2017,
     category: 'code',
     theme: 'pascal',
@@ -599,7 +651,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 47,
+    id: 51,
+    year: 2018,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Информатика. Основы программирования на языке Паскаль (2е)',
+    author: 'Авдеюк',
+    authorName: 'Оксана',
+    pages: '269',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 52,
     year: 2018,
     category: 'code',
     theme: 'pascal',
@@ -612,7 +677,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 48,
+    id: 53,
     year: 2018,
     category: 'code',
     theme: 'pascal',
@@ -625,7 +690,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 49,
+    id: 54,
     year: 2019,
     category: 'code',
     theme: 'pascal',
@@ -638,7 +703,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 50,
+    id: 55,
+    year: 2019,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Как ребята программировали игру Африка на языке Паскаль',
+    author: 'Романова',
+    authorName: 'Людмила',
+    pages: '112',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 56,
     year: 2020,
     category: 'code',
     theme: 'pascal',
@@ -651,7 +729,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 51,
+    id: 57,
     year: 2020,
     category: 'code',
     theme: 'pascal',
@@ -664,7 +742,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 52,
+    id: 58,
     year: 2020,
     category: 'code',
     theme: 'pascal',
@@ -677,7 +755,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 53,
+    id: 59,
     year: 2021,
     category: 'code',
     theme: 'pascal',
@@ -690,7 +768,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 54,
+    id: 60,
     year: 2022,
     category: 'code',
     theme: 'pascal',
@@ -703,7 +781,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 55,
+    id: 61,
     year: 2023,
     category: 'code',
     theme: 'pascal',
@@ -716,7 +794,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 56,
+    id: 62,
     year: 2023,
     category: 'code',
     theme: 'pascal',
