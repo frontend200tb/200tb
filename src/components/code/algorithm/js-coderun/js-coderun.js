@@ -6,7 +6,7 @@ import './element-js-coderun';
 import pageLink from './pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Coderun', 'Яндекс', 'Я.Контест', 'Задачи', 'Я.Контест 2019', 'Я.Контест 2024'];
+const asideThemes = ['Coderun', 'Яндекс', 'Я.Контест', 'Я.Контест 2019', 'Я.Контест 2024'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

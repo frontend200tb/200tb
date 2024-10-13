@@ -2,6 +2,58 @@ const dataBooksAssembler = [
 
   {
     id: 1,
+    year: 1976,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование на языке Ассемблера ЕС ЭВМ',
+    author: 'Брич',
+    authorName: 'Э.С.',
+    pages: '305',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 1984,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Мини-ЭВМ PDP-11. Программирование на языке ассемблера и организация машины',
+    author: 'Сингер',
+    authorName: 'Майкл',
+    pages: '275',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 1987,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Архитектура и программирование intel 80386',
+    author: 'Смит',
+    authorName: 'Б.Э.',
+    pages: '340',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 1988,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование микропроцессора 8088',
+    author: 'Дао',
+    authorName: 'Ленни',
+    pages: '362',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
     year: 1989,
     category: 'code',
     theme: 'assembler',
@@ -14,7 +66,46 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 2,
+    id: 6,
+    year: 1990,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Микропроцессор 80386 и его программирование',
+    author: 'Бpaмм',
+    authorName: 'Пенн',
+    pages: '450',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 1990,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Архитектура микропроцессора 80286',
+    author: 'Морс',
+    authorName: 'Стефен',
+    pages: '303',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 1991,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Персональные ЭВМ IBM PC и XT. Программирование на языке ассемблера (2е)',
+    author: 'Скэнлон',
+    authorName: 'Лео',
+    pages: '338',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 1992,
     category: 'code',
     theme: 'assembler',
@@ -27,7 +118,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 3,
+    id: 9,
+    year: 1992,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Компьютерные вирусы в MS DOS',
+    author: 'Касперский',
+    authorName: 'Евгений',
+    pages: '176',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
     year: 1992,
     category: 'code',
     theme: 'assembler',
@@ -40,7 +144,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 4,
+    id: 11,
     year: 1992,
     category: 'code',
     theme: 'assembler',
@@ -53,7 +157,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 5,
+    id: 12,
     year: 1993,
     category: 'code',
     theme: 'assembler',
@@ -66,7 +170,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 6,
+    id: 13,
     year: 1993,
     category: 'code',
     theme: 'assembler',
@@ -79,20 +183,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 7,
-    year: 1993,
+    id: 15,
+    year: 1994,
     category: 'code',
     theme: 'assembler',
-    title: 'Защищенный режим процессоров Intel 80286, 80386, 80486',
-    author: 'Фролов',
-    authorName: 'Александр',
-    pages: '203',
+    title: 'IBM PC и PS2. Руководство по программированию',
+    author: 'Нортон',
+    authorName: 'Питер',
+    pages: '339',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 8,
+    id: 16,
     year: 1996,
     category: 'code',
     theme: 'assembler',
@@ -105,7 +209,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 9,
+    id: 17,
     year: 1997,
     category: 'code',
     theme: 'assembler',
@@ -118,7 +222,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 10,
+    id: 18,
+    year: 1997,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программируем на языке ассемблера IBM PC (2е)',
+    author: 'Рудаков',
+    authorName: 'Петр',
+    pages: '586',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
     year: 1998,
     category: 'code',
     theme: 'assembler',
@@ -131,20 +248,59 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 11,
+    id: 19,
+    year: 1998,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Компьютерные вирусы. Что это такое и как с ними бороться',
+    author: 'Касперский',
+    authorName: 'Евгений',
+    pages: '286',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 1998,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Язык Ассемблер в программировании информационных и управляющих систем',
+    author: 'Пустоваров',
+    authorName: 'В.И.',
+    pages: '306',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 1999,
     category: 'code',
     theme: 'assembler',
     title: 'Ассемблер и программирование для IBM PC',
     author: 'Абель',
     authorName: 'Питер',
-    pages: '',
+    pages: '450',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 12,
+    id: 21,
+    year: 1999,
+    category: 'code',
+    theme: 'assembler',
+    title: '1999 Пильщиков - Программирование на языке ассемблера для IBM PC',
+    author: 'Пильщиков',
+    authorName: 'Владимир',
+    pages: '290',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
     year: 1999,
     category: 'code',
     theme: 'assembler',
@@ -157,7 +313,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 13,
+    id: 22,
+    year: 1999,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Assembler Учебный курс',
+    author: 'Юров',
+    authorName: 'В.',
+    pages: '672',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 23,
     year: 2000,
     category: 'code',
     theme: 'assembler',
@@ -170,7 +339,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 14,
+    id: 23,
+    year: 2000,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Ассемблер для DOS Windows и UNUX (2е)',
+    author: 'Зубков',
+    authorName: 'Сергей',
+    pages: '608',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 24,
     year: 2001,
     category: 'code',
     theme: 'assembler',
@@ -183,7 +365,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 15,
+    id: 24,
+    year: 2001,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование на аппаратном уровне',
+    author: 'Кулаков',
+    authorName: 'Владимир',
+    pages: '493',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 25,
     year: 2001,
     category: 'code',
     theme: 'assembler',
@@ -196,7 +391,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 16,
+    id: 26,
     year: 2001,
     category: 'code',
     theme: 'assembler',
@@ -209,7 +404,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 17,
+    id: 27,
     year: 2001,
     category: 'code',
     theme: 'assembler',
@@ -222,7 +417,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 18,
+    id: 28,
     year: 2002,
     category: 'code',
     theme: 'assembler',
@@ -235,7 +430,33 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 19,
+    id: 29,
+    year: 2002,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование дисковых подсистем',
+    author: 'Кулаков',
+    authorName: 'Владимир',
+    pages: '762',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
+    year: 2003,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование на аппаратном уровне (2е)',
+    author: 'Кулаков',
+    authorName: 'Владимир',
+    pages: '847',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2003,
     category: 'code',
     theme: 'assembler',
@@ -248,7 +469,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 20,
+    id: 32,
     year: 2003,
     category: 'code',
     theme: 'assembler',
@@ -261,7 +482,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 21,
+    id: 33,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -274,7 +495,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 22,
+    id: 34,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -287,7 +508,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 23,
+    id: 35,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -300,7 +521,46 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 24,
+    id: 36,
+    year: 2004,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование аппаратных средств в Windows',
+    author: 'Несвижский',
+    authorName: 'Всеволод',
+    pages: '865',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
+    year: 2005,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Компьютерные системы. Архитектура и программирование. Взгляд программиста',
+    author: 'Брайант',
+    authorName: 'Рэндал',
+    pages: '1090',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 38,
+    year: 2005,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Микропроцессоры Intel 8086 - Pentium 4 Архитектура, Программирование и Интерфейсы (6е)',
+    author: 'Брэй',
+    authorName: 'Барри',
+    pages: '1329',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 39,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -313,7 +573,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 25,
+    id: 40,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -326,20 +586,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 26,
+    id: 41,
     year: 2005,
     category: 'code',
     theme: 'assembler',
     title: 'Изучаем Ассемблер',
     author: 'Крупник',
     authorName: 'Александр',
-    pages: '249',
+    pages: '250',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 27,
+    id: 42,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -352,7 +612,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 28,
+    id: 43,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -365,7 +625,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 29,
+    id: 44,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -378,7 +638,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 30,
+    id: 45,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -391,7 +651,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 31,
+    id: 46,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -404,7 +664,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 32,
+    id: 47,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -417,20 +677,46 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 33,
+    id: 48,
+    year: 2008,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Искусство дизассемблирования',
+    author: 'Касперски',
+    authorName: 'Крис',
+    pages: '893',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 48,
     year: 2008,
     category: 'code',
     theme: 'assembler',
     title: 'Языки программирования Ассемблер. Конспект лекций',
     author: 'Титовский',
-    authorName: 'С.',
+    authorName: 'С.В.',
     pages: '132',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 34,
+    id: 48,
+    year: 2009,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Разработка приложений для платформы Win32 с использованием Flat Assembler',
+    author: 'Вахлаева',
+    authorName: 'Клавдия',
+    pages: '27',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 49,
     year: 2010,
     category: 'code',
     theme: 'assembler',
@@ -443,7 +729,20 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 35,
+    id: 49,
+    year: 2010,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Assembler. Учебник для вузов (2е)',
+    author: 'Юров',
+    authorName: 'Виктор',
+    pages: '640',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 50,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -456,10 +755,10 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 36,
+    id: 51,
     year: 2011,
     category: 'code',
-    theme6: 'assembler',
+    theme: 'assembler',
     title: 'Ассемблер - это просто. Учимся программировать (2е)',
     author: 'Калашников',
     authorName: 'Олег',
@@ -469,10 +768,10 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 37,
+    id: 52,
     year: 2011,
     category: 'code',
-    theme6: 'assembler',
+    theme: 'assembler',
     title: 'Написание собственной операционной системы',
     author: 'Макаров',
     authorName: '',
@@ -482,10 +781,10 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 38,
+    id: 53,
     year: 2011,
     category: 'code',
-    theme6: 'assembler',
+    theme: 'assembler',
     title: 'Программирование на языке ассемблера NASM для ОС UNIX',
     author: 'Столяров',
     authorName: 'Андрей',
@@ -495,10 +794,36 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 39,
+    id: 53,
+    year: 2012,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Разработка оконных приложений на FASM',
+    author: 'Норсеев',
+    authorName: 'Сергей',
+    pages: '249',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 53,
+    year: 2015,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Ассемблер для чайников',
+    author: 'Поляков',
+    authorName: 'Андрей',
+    pages: '53',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
     year: 2016,
     category: 'code',
-    theme6: 'assembler',
+    theme: 'assembler',
     title: 'Программирование. Введение в профессию. II. Низкоуровневое программирование',
     author: 'Столяров',
     authorName: 'Андрей',
@@ -508,7 +833,46 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 40,
+    id: 54,
+    year: 2017,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Основы программирования на Ассемблере для ОС Windows',
+    author: 'Черкасова',
+    authorName: 'Наталья',
+    pages: '84',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
+    year: 2017,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование на языке Ассемблер',
+    author: 'Якубович',
+    authorName: 'Денис',
+    pages: '191',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 55,
+    year: 2018,
+    category: 'code',
+    theme: 'assembler',
+    title: '20 уроков ассемблера под DOS',
+    author: 'Углев',
+    authorName: 'Семен',
+    pages: '56',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 56,
     year: 2021,
     category: 'code',
     theme: 'assembler',
@@ -520,7 +884,7 @@ const dataBooksAssembler = [
   },
 
   {
-    id: 41,
+    id: 57,
     year: 2021,
     category: 'code',
     theme: 'assembler',

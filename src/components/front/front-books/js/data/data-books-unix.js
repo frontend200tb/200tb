@@ -2,6 +2,19 @@ const dataBooksUnix = [
 
   {
     id: 1,
+    year: 1985,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Руководство по операционной системе UNIX',
+    author: 'Готье',
+    authorName: 'Ричард',
+    pages: '232',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1986,
     category: 'основы',
     theme: 'Unix',

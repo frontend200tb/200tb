@@ -25,7 +25,7 @@ import dataBooksBios from './data/data-books-bios';
 import dataBooksLinux from './data/data-books-linux';
 import dataBooksUnix from './data/data-books-unix';
 import dataBooksFreebsd from './data/data-books-freebsd';
-import dataBooksNetworks from './data/data-books-networks';
+import dataBooksNet from './data/data-books-net';
 import dataBooksSysadmin from './data/data-books-sysadmin';
 import dataBooksOop from './data/data-books-oop';
 import dataBooksInformatika from './data/data-books-inform';
@@ -65,7 +65,7 @@ const dataArray = [
   // Code
   dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksBasic,
   // Base
-  dataBooksBase, dataBooksAlgorithm, dataBooksComp, dataBooksOs, dataBooksBios, dataBooksLinux, dataBooksUnix, dataBooksFreebsd, dataBooksNetworks, dataBooksSysadmin, dataBooksOop, dataBooksInformatika,
+  dataBooksBase, dataBooksAlgorithm, dataBooksComp, dataBooksOs, dataBooksBios, dataBooksLinux, dataBooksUnix, dataBooksFreebsd, dataBooksNet, dataBooksSysadmin, dataBooksOop, dataBooksInformatika,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS

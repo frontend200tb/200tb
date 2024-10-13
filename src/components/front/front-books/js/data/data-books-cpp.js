@@ -169,6 +169,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 13,
+    year: 2001,
+    category: 'code',
+    theme: 'c++',
+    title: 'Занимательное программирование C++. Книга для детей, родителей и учителей',
+    author: 'Симонович',
+    authorName: 'Сергей',
+    pages: '370',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 14,
     year: 2001,
     category: 'code',
@@ -279,6 +292,19 @@ const dataBooksCpp = [
     author: 'Хаймен',
     authorName: 'Майкл',
     pages: '289',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 29,
+    year: 2002,
+    category: 'code',
+    theme: 'c++',
+    title: 'Программирование графики для WINDOWS',
+    author: 'Юань',
+    authorName: 'Фень',
+    pages: '1070',
     isLearned: false,
     dateLearned: '',
   },
@@ -407,7 +433,7 @@ const dataBooksCpp = [
     theme: 'c++',
     title: 'ООП в C++ (4е)',
     author: 'Лафоре',
-    authorName: 'Р.',
+    authorName: 'Роберт',
     pages: '924',
     isLearned: false,
     dateLearned: '',
@@ -815,6 +841,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 63,
+    year: 2008,
+    category: 'code',
+    theme: 'c++',
+    title: 'Как программировать на С++ (5е)',
+    author: 'Дейтел',
+    authorName: 'Пол и Харви',
+    pages: '1455',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 64,
     year: 2008,
     category: 'code',
@@ -891,6 +930,20 @@ const dataBooksCpp = [
     isLearned: false,
     dateLearned: '',
   },
+
+  {
+    id: 69,
+    year: 2009,
+    category: 'code',
+    theme: 'c++',
+    title: 'Си и C++ в задачах и примерах (2е)',
+    author: 'Культин',
+    authorName: 'Никита',
+    pages: '349',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {
     id: 70,
     year: 2009,
@@ -925,6 +978,19 @@ const dataBooksCpp = [
     author: 'Медведев',
     authorName: 'Владислав',
     pages: '444',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 72,
+    year: 2010,
+    category: 'code',
+    theme: 'c++',
+    title: 'Алгоритмы и программы на C++ Builder',
+    author: 'Федоренко',
+    authorName: 'Юрий',
+    pages: '544',
     isLearned: false,
     dateLearned: '',
   },
@@ -1592,6 +1658,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 123,
+    year: 2020,
+    category: 'code',
+    theme: 'c++',
+    title: 'Обратные вызовы в C++',
+    author: 'Ткаченко',
+    authorName: 'Виталий',
+    pages: '173',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 124,
     year: 2020,
     category: 'code',
@@ -1735,6 +1814,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 32,
+    year: 2022,
+    category: 'code',
+    theme: 'c++',
+    title: 'ООП в C++ (4е)',
+    author: 'Лафоре',
+    authorName: 'Роберт',
+    pages: '924',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 135,
     year: 2022,
     category: 'code',
@@ -1844,8 +1936,8 @@ const dataBooksCpp = [
     category: 'code',
     theme: 'c++',
     title: 'Реализация полезных алгоритмов на C++',
-    author: 'Дмитро',
-    authorName: 'Кедик',
+    author: 'Кедик',
+    authorName: 'Дмитро',
     pages: '1022',
     isLearned: false,
     dateLearned: '',

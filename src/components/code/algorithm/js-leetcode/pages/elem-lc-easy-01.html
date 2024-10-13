@@ -48,15 +48,29 @@ Output: [0,1]</pre>
 
   <details>
     <summary>Решение</summary>
-<pre>function twoSum(nums, target) {
-  let dict = {};
+    <p>Дан массив целых чисел и целое число. Вернуть индексы чисел в массиве которые в сумме дают заданное число</p>
+    <h4>Алгоритм</h4>
+    <ol>
+      <li>Заведем переменную dict для словаря. Добавляя элемент в словарь, ключем будет число, а значением будет его индекс в массиве
+        <code>const dict = {};</code>
+      </li>
+      <li>Циклом переберем массив
+        <code>for (let i = 0; i &lt; nums.length; i++)</code>
+      </li>
+      <li>Если в словаре есть число, равное target - nums[i], то возвращаем индексы этих чисел</li>
+      <li>Если нет, то добавляем число в словарь</li>
+    </ol>
+<pre>
+function twoSum(nums, target) {
+  const dict = {};
   for (let i = 0; i &lt; nums.length; i++) {
-      if (target - nums[i] in dict) {
-          return [dict[target - nums[i]], i];
-      }
-      dict[nums[i]] = i;
+    if (target - nums[i] in dict) {
+      return [dict[target - nums[i]], i];
+    }
+    dict[nums[i]] = i;
   }
-};</pre>
+}
+</pre>
   </details>
 </article>
 
@@ -85,19 +99,32 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</pre
 
   <details>
     <summary>Решение</summary>
-<pre>var isPalindrome = function(x) {
+    <h4>Алгоритм</h4>
+    <ol>
+      <li>Переведем число в строку
+        <code>const str = x.toString();</code>
+      </li>
+      <li>Заведем две переменные pl и pr для левого и правого указателя. Левый будет указывать на начало массива. Правый - на конец
+        <code>let pl = 0, pr = str.length - 1;</code>
+      </li>
+      <li>Пройдем циклом пока левый указатель меньше правого
+        <code>while (pl &lt; pr)</code>
+      </li>
+    </ol>
+<pre>
+function isPalindrome(x) {
   const str = x.toString();
-  let left = 0;
-  let right = str.length - 1;
-  while (left &lt; right) {
-      if (str[left] !== str[right]) {
-          return false;
-      }
-      left++;
-      right--;
+  let pl = 0, pr = str.length - 1;
+  while (pl &lt; pr) {
+    if (str[pl] !== str[pr]) {
+      return false;
+    }
+    pl++;
+    pr--;
   }
   return true;
-};</pre>
+}
+</pre>
   </details>
 </article>
 
@@ -164,6 +191,7 @@ M             1000</pre>
   <h2>(Easy) LeetCode 141. Linked List Cycle</h2>
 
   <p>Given head, the head of a linked list, determine if the linked list has a cycle in it.</p>
+  <p>Дана голова связного списка. Определить, есть ли цикл в связном списке</p>
   <p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.</p>
   <p>Return true if there is a cycle in the linked list. Otherwise, return false.</p>
 
@@ -190,18 +218,20 @@ M             1000</pre>
   <details>
     <summary>Решение</summary>
     <p>Решим методом двух указателей. Это самый популярный метод для списков. Заключается в том что второй указатель должен двигаться быстрее первого. Сначала напишем базовый случай выхода если голова указывает на null или указатель на следующий элемент указывает на null. Первый указатель slow будет медленный и показывать на голову списка. Второй указатель fast будет быстрый</p>
-<pre>function hasCycle(head) {
-  if(!head || !head.next) return false; 
+<pre>
+function hasCycle(head) {
+  if(!head || !head.next) return false;
   let slow = head;
   let fast = head.next;
   while(slow && fast) {
-      if(slow === fast) return true;
-      slow = slow.next;
-      if(!fast.next) return false;
-      fast = fast.next.next;   
-  } 
+    if(slow === fast) return true;
+    slow = slow.next;
+    if(!fast.next) return false;
+    fast = fast.next.next;
+  }
   return false;
-};</pre>
+}
+</pre>
   </details>
 </article>
 
@@ -296,7 +326,7 @@ MinStack.prototype.getMin = function() {
   <details>
     <summary>Решение</summary>
 <pre>function addDigits(num) {
-  return num &lt; 10 ? num : num % 9 === 0 ? 9 : num % 9; 
+  return num &lt; 10 ? num : num % 9 === 0 ? 9 : num % 9;
 };</pre>
   </details>
 </article>

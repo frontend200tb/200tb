@@ -3,19 +3,19 @@ const dataYtCpp = [
   {
     id: 1,
     theme: 'C++',
-    title: 'selfedu',
+    title: 'Alexander Semenko',
     author: '',
     city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@selfedu_rus/videos',
-    site: 'https://proproprogs.ru/',
-    dateFirstVideo: '2015.04.21',
-    dateLastVideo: '2022.11.08',
-    amountVideos: 1006,
+    country: '',
+    link: 'https://www.youtube.com/@AlexanderSemenko/videos',
+    site: '',
+    dateFirstVideo: '2019.07.20',
+    dateLastVideo: '2024.09.08',
+    amountVideos: 321,
   },
 
   {
-    id: 2,
+    id: 1,
     theme: 'C++',
     title: 'Изучаем C++ вместе',
     author: 'Илья',
@@ -29,7 +29,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 3,
+    id: 2,
     theme: 'C++',
     title: 'coder',
     author: '',

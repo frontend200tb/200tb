@@ -41,6 +41,19 @@ const dataBooksPascal = [
 
   {
     id: 4,
+    year: 1988,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Программирование на языке Паскаль',
+    author: 'Семашко',
+    authorName: 'Галина',
+    pages: '133',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
     year: 1989,
     category: 'code',
     theme: 'pascal',

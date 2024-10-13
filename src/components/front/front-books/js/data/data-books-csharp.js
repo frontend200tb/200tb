@@ -533,6 +533,19 @@ const dataBooksCsharp = [
   },
 
   {
+    id: 38,
+    year: 2013,
+    category: 'code',
+    theme: 'c# .net',
+    title: 'Measurement Studio. Практика разработки систем измерения и управления на C#',
+    author: 'Магда',
+    authorName: 'Юрий',
+    pages: '190',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 39,
     year: 2013,
     category: 'code',

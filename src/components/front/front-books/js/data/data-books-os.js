@@ -41,6 +41,45 @@ const dataBooksOs = [
 
   {
     id: 4,
+    year: 1991,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Операционная система MS-DOS. Том 1 Книга 3',
+    author: 'Фролов',
+    authorName: 'Александр',
+    pages: '224',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 1991,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Операционная система MS-DOS. Том 1 Книги 1,2 (2е)',
+    author: 'Фролов',
+    authorName: 'Александр',
+    pages: '240',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 1992,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Аппаратное обеспечение IBM PC. Том 2 Часть 1 (2е)',
+    author: 'Фролов',
+    authorName: 'Александр',
+    pages: '208',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
     year: 1993,
     category: 'основы',
     theme: 'Операционные системы',
@@ -53,7 +92,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 5,
+    id: 8,
+    year: 1993,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Защищенный режим процессоров Intel 80286, 80386, 80486. Том 6',
+    author: 'Фролов',
+    authorName: 'Александр',
+    pages: '203',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2004,
     category: 'основы',
     theme: 'Операционные системы',
@@ -66,7 +118,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 6,
+    id: 38,
+    year: 2005,
+    category: 'code',
+    theme: 'Операционные системы',
+    title: 'Системное программирование в среде Windows (3е)',
+    author: 'Харт',
+    authorName: 'Джонсон',
+    pages: '586',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
     year: 2006,
     category: 'основы',
     theme: 'Операционные системы',
@@ -79,7 +144,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 7,
+    id: 10,
+    year: 2006,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Системное программирование в Windows',
+    author: 'Побегайло',
+    authorName: 'Александр',
+    pages: '1056',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
     year: 2006,
     category: 'основы',
     theme: 'Операционные системы',
@@ -92,7 +170,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 8,
+    id: 12,
     year: 2006,
     category: 'основы',
     theme: 'Операционные системы',
@@ -105,7 +183,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 9,
+    id: 13,
+    year: 2007,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Программирование драйверов для Windows',
+    author: 'Комиссарова',
+    authorName: 'Валерия',
+    pages: '247',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
     year: 2007,
     category: 'основы',
     theme: 'Операционные системы',
@@ -118,7 +209,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 10,
+    id: 14,
     year: 2008,
     category: 'основы',
     theme: 'Операционные системы',
@@ -131,7 +222,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 11,
+    id: 15,
+    year: 2008,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Компьютер в домашней лаборатории',
+    author: 'Магда',
+    authorName: 'Юрий',
+    pages: '198',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
     year: 2008,
     category: 'основы',
     theme: 'Операционные системы',
@@ -144,7 +248,33 @@ const dataBooksOs = [
   },
 
   {
-    id: 12,
+    id: 15,
+    year: 2008,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Программирование аппаратных средств в Windows (2е)',
+    author: 'Несвижский',
+    authorName: 'Всеволод',
+    pages: '529',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
+    year: 2009,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Программирование последовательных интерфейсов',
+    author: 'Магда',
+    authorName: 'Юрий',
+    pages: '294',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
     year: 2009,
     category: 'основы',
     theme: 'Операционные системы',
@@ -157,7 +287,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 13,
+    id: 17,
     year: 2010,
     category: 'основы',
     theme: 'Операционные системы',
@@ -170,7 +300,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 14,
+    id: 18,
     year: 2011,
     category: 'основы',
     theme: 'Операционные системы',
@@ -182,7 +312,33 @@ const dataBooksOs = [
   },
 
   {
-    id: 15,
+    id: 18,
+    year: 2011,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Системное программирование в WIN API',
+    author: 'Марапулец',
+    authorName: 'Юрий',
+    pages: '202',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 18,
+    year: 2013,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Внутреннее устройство Windows (6е). Часть 1',
+    author: 'Руссинович',
+    authorName: 'Марк',
+    pages: '800',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
     year: 2014,
     category: 'основы',
     theme: 'Операционные системы',
@@ -195,7 +351,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 16,
+    id: 18,
+    year: 2014,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Внутреннее устройство Windows (6е). Часть 2 Основные подсистемы ОС',
+    author: 'Руссинович',
+    authorName: 'Марк',
+    pages: '673',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 2015,
     category: 'основы',
     theme: 'Операционные системы',
@@ -208,7 +377,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 17,
+    id: 18,
+    year: 2018,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Внутреннее устройство Windows (7е). Часть 1',
+    author: 'Руссинович',
+    authorName: 'Марк',
+    pages: '946',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 21,
     year: 2019,
     category: 'основы',
     theme: 'Операционные системы',
@@ -221,7 +403,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 18,
+    id: 22,
     year: 2020,
     category: 'основы',
     theme: 'Операционные системы',
@@ -234,7 +416,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 19,
+    id: 23,
     year: 2020,
     category: 'основы',
     theme: 'Операционные системы',
@@ -247,7 +429,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 20,
+    id: 24,
     year: 2021,
     category: 'основы',
     theme: 'Операционные системы',
@@ -260,7 +442,20 @@ const dataBooksOs = [
   },
 
   {
-    id: 21,
+    id: 24,
+    year: 2021,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Работа с ядром Windows',
+    author: 'Йосифович',
+    authorName: 'Павел',
+    pages: '400',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 25,
     year: 2021,
     category: 'основы',
     theme: 'Операционные системы',
@@ -273,7 +468,7 @@ const dataBooksOs = [
   },
 
   {
-    id: 22,
+    id: 26,
     year: 2022,
     category: 'основы',
     theme: 'Операционные системы',

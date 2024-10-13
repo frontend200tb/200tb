@@ -1,270 +1,240 @@
 <h1>Git</h1>
 
 
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">Links</p>
-  <p class="content__menu-link" id="content__menu-link2">Установка git и Git Bash</p>
-  <p class="content__menu-link" id="content__menu-link3">Первоначальная настройка Git</p>
-  <p class="content__menu-link" id="content__menu-link4">Создание репозитория</p>
-  <p class="content__menu-link" id="content__menu-link5">Требования к именам коммитов</p>
-  <p class="content__menu-link" id="content__menu-link6">О файле .gitignore</p>
-  <p class="content__menu-link" id="content__menu-link7">Команды консоли</p>
-  <p class="content__menu-link" id="content__menu-link8">workflow</p>
-  <p class="content__menu-link" id="content__menu-link9">Команды Git Bash</p>
-  <p class="content__menu-link" id="content__menu-link10">Переписывание истории</p>
-  <p class="content__menu-link" id="content__menu-link11">Текстовый редактор</p>
-</div>
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#install">install</a></p>
+  <p><a href="#setup">Первоначальная настройка Git</a></p>
+  <p><a href="#git-config">Команда git config</a></p>
+  <p><a href="#repo">Создание репозитория</a></p>
+  <p><a href="#gitignore">Файл .gitignore</a></p>
+  <p><a href="#workflow">workflow</a></p>
+  <p><a href="#commit-name">Требования к именам коммитов</a></p>
+  <p><a href="#history">Переписывание истории</a></p>
+  <p><a href="#text-editor">Текстовый редактор</a></p>
+  <p><a href="#git-bush">Команды Git Bash</a></p>
+  <p><a href="#console">Команды консоли</a></p>
+</article>
 
 
-<div class="content__items">
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h3>links</h3>
+
+  <p><a href="https://git-scm.com/book/ru/v2">git-scm.com/book</a></p>
+  <p><a href="https://smartiqa.ru/courses/git">smartiqa.ru/courses/git</a></p>
+  <p><a href="https://git-scm.com/">git-scm.com</a><br>git и Git Bush</p>
+  <p><a href="https://uleming.github.io/gitbook/index.html">uleming.github.io/gitbook</a><br>git хорошая документация</p>
+  <p><a href="https://www.evernote.com/shard/s368/client/snv?noteGuid=b1359883-2b9e-419a-b9de-dd959fc05f05&amp;noteKey=97c0f19486d851b3&amp;sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs368%2Fsh%2Fb1359883-2b9e-419a-b9de-dd959fc05f05%2F97c0f19486d851b3&amp;title=Git">evernote</a><br>Хороший конспект по git</p>
+  <p><a href="https://gitforwindows.org/">gitforwindows.org</a><br>git for windows</p>
+  <p><a href="https://www.sourcetreeapp.com/">sourcetreeapp.com</a><br>git окно</p>
+  <p><a href="https://githowto.com/ru">githowto.com/ru</a><br>Обучение git 51 урок</p>
+  <p><a href="https://git-scm.com/book/ru/v2">git-scm.com/book/ru/v2</a><br>Обучение git 10 уроков</p>
+  <p><a href="https://learngitbranching.js.org/">learngitbranching.js.org</a><br>Learn git branching</p>
+  <p><a href="https://www.atlassian.com/git">atlassian.com/git</a><br>Learn git</p>
+  <p><a href="https://pingvinus.ru/git">pingvinus.ru/git</a><br>Git в вопросах и ответах</p>
+  <p><a href="https://ymatuhin.ru/tools/git-default-editor/">ymatuhin.ru/tools/git-default-editor</a><br>Связывание текстового редактора с Git</p>
+</article>
 
 
-  <div class="content__item" id="content__item1">
-    <h2>Links</h2>
-    <ol>
-      <li><a href="https://git-scm.com/book/ru/v2">git-scm.com/book</a></li>
-      <li><a href="https://smartiqa.ru/courses/git">smartiqa.ru/courses/git</a></li>
-      <li><a href="https://git-scm.com/">git-scm.com</a><br>git и Git Bush</li>
-      <li><a href="https://uleming.github.io/gitbook/index.html">uleming.github.io/gitbook</a><br>git хорошая документация</li>
-      <li><a href="https://www.evernote.com/shard/s368/client/snv?noteGuid=b1359883-2b9e-419a-b9de-dd959fc05f05&amp;noteKey=97c0f19486d851b3&amp;sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs368%2Fsh%2Fb1359883-2b9e-419a-b9de-dd959fc05f05%2F97c0f19486d851b3&amp;title=Git">evernote</a><br>Хороший конспект по git</li>
-      <li><a href="https://gitforwindows.org/">gitforwindows.org</a><br>git for windows</li>
-      <li><a href="https://www.sourcetreeapp.com/">sourcetreeapp.com</a><br>git окно</li>
-      <li><a href="https://githowto.com/ru">githowto.com/ru</a><br>Обучение git 51 урок</li>
-      <li><a href="https://git-scm.com/book/ru/v2">git-scm.com/book/ru/v2</a><br>Обучение git 10 уроков</li>
-      <li><a href="https://learngitbranching.js.org/">learngitbranching.js.org</a><br>Learn git branching</li>
-      <li><a href="https://www.atlassian.com/git">atlassian.com/git</a><br>Learn git</li>
-      <li><a href="https://pingvinus.ru/git">pingvinus.ru/git</a><br>Git в вопросах и ответах</li>
-      <li><a href="https://ymatuhin.ru/tools/git-default-editor/">ymatuhin.ru/tools/git-default-editor</a><br>Связывание текстового редактора с Git</li>
-    </ol>
-  </div>
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>install</h3>
+
+  <ol>
+    <li>
+      <p>Установим Git и Git Bush с официального сайта</p>
+      <code><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></code>
+      <p>Выбираем версию Standalone</p>
+      <code>64-bit Git for Windows Setup</code>
+      <p>Скачаем и запустим файл</p>
+      <code>Git-2.46.1-64-bit.exe</code>
+      <p>Вместе с Git установится и Git Bash - командная строка для работы с Git</p>
+    </li>
+    <li>Запустим Git Bush и узнаем текущую версию git введя команду
+      <code>
+        git -v
+        <br>git version 2.42.0.windows.2
+      </code>
+      (сокращение от git --version)
+      </li>
+
+    <li>Получить информацию по командам
+    <code>git --help</code>
+    Получить информацию по команде
+    <code>git help команда</code></li>
+  </ol>
+</article>
 
 
-  <div class="content__item" id="content__item2">
-    <h2>Установка git и Git Bush</h2>
-    <ul>
-      <li>Переходим на сайт <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> и скачиваем последнюю версию Git-2.42.0-64-bit.exe. Устанавливаем и на рабочем столе появится иконка Git Bush. Это и есть командная строка для работы с git.</li>
+<!-- Первоначальная настройка Git -->
+<article class="article">
+  <div class="anchor" id="setup"></div>
+  <h3>Первоначальная настройка Git</h3>
 
-      <li>Запустим Git Bush и узнаем текущую версию git введя команду
-        <code>
-          git -v
-          <br>git version 2.42.0.windows.2
-        </code>
-        (сокращение от git --version)
-       </li>
+  <p>Теперь, когда Git установлен в вашей системе, самое время настроить среду для работы с Git под себя. Это нужно сделать только один раз — при обновлении версии Git настройки сохранятся. Но, при необходимости, вы можете поменять их в любой момент, выполнив те же команды снова.</p>
+  <p>В состав Git входит утилита git config, которая позволяет просматривать и настраивать параметры, контролирующие все аспекты работы Git, а также его внешний вид.</p>
+  <p>Для начала необходимо задать в глобальной конфигурации имя пользователя (frontend200tb), электронную почту (frontend200tb@mail.ru), имя начальной ветки (master) и текстовый редактор (notead++).</p>
+  <code>git config --global user.name frontend200tb</code>
+  <code>git config --global user.email frontend200tb@mail.ru</code>
+  <code>git config --global init.defaultBranch master</code>
+  <code>git config --global core.editor "'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
 
-      <li>Получить информацию по командам
-      <code>git --help</code>
-      Получить информацию по команде
-      <code>git help команда</code></li>
-    </ul>
-  </div>
+  <p>Проверим в глобальной конфигурации имя пользователя, электронную почту и имя начальной ветки.</p>
+  <code>git config --global user.name
+  <br>frontend200tb</code>
+  <code>git config --global user.email
+  <br>frontend200tb@mail.ru</code>
+  <code>git config --global init.defaultBranch
+  <br>master</code>
+  <code>git config --global core.editor
+  <br>'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin</code>
 
+  <h3>Уровни настроек Git</h3>
+  <p>В зависимости от области действия и места хранения в Git cуществуют 3 уровня настроек. Каждый из этих уровней (системный, глобальный, локальный) переопределяет значения предыдущего уровня.</p>
 
-  <div class="content__item" id="content__item3">
-    <article class="article">
-      <h2>Первоначальная настройка Git</h2>
-    </article>
-
-    <article class="article">
-      <p>Теперь, когда Git установлен в вашей системе, самое время настроить среду для работы с Git под себя. Это нужно сделать только один раз — при обновлении версии Git настройки сохранятся. Но, при необходимости, вы можете поменять их в любой момент, выполнив те же команды снова.</p>
-      <p>В состав Git входит утилита git config, которая позволяет просматривать и настраивать параметры, контролирующие все аспекты работы Git, а также его внешний вид.</p>
-      <p>Для начала необходимо задать в глобальной конфигурации имя пользователя (frontend200tb), электронную почту (frontend200tb@mail.ru), имя начальной ветки (master) и текстовый редактор (notead++).</p>
-      <code>git config --global user.name frontend200tb</code>
-      <code>git config --global user.email frontend200tb@mail.ru</code>
-      <code>git config --global init.defaultBranch master</code>
-      <code>git config --global core.editor "'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
-    </article>
-
-    <article class="article">
-      <p>Проверим в глобальной конфигурации имя пользователя, электронную почту и имя начальной ветки.</p>
-      <code>git config --global user.name
-      <br>frontend200tb</code>
-      <code>git config --global user.email
-      <br>frontend200tb@mail.ru</code>
-      <code>git config --global init.defaultBranch
-      <br>master</code>
-      <code>git config --global core.editor
-      <br>'c:/Portable/Notepad/notepad++.exe' -multiInst -notabbar -nosession -noPlugin</code>
-    </article>
-
-    <article class="article">
-      <p>В зависимости от области действия и места хранения в Git cуществуют 3 уровня настроек. Каждый из этих уровней (системный, глобальный, локальный) переопределяет значения предыдущего уровня.</p>
-    </article>
-
-    <article class="article">
-      <p>1. Системные. Представляют собой настройки на уровне всей системы, то есть они распространяются на всех пользователей. Файл с этими настройками хранится по следующему пути:</p>
+  <ol>
+    <li>
+      <h4>Системные</h4>
+      <p>Это настройки на уровне всей системы, то есть они распространяются на всех пользователей. Файл с этими настройками хранится по следующему пути:</p>
       <code>c:\Program Files\Git\etc\gitconfig</code>
       <p>Задать параметр системной конфигурации можно командой</p>
       <code>git config --system &lt;параметр&gt; &lt;значение&gt;</code>
       <p>Посмотреть значение параметра системной конфигурации можно командой</p>
       <code>git config --system &lt;параметр&gt;</code>
-    </article>
-    <article class="article">
-      <p>2. Глобальные. Эти настройки одинаковы для всех репозиториев, созданных под вашим пользователем. Среди них есть, например, имя ветки по умолчанию. Файл с этими параметрами хранятся по следующему адресу:</p>
+    </li>
+    <li>
+      <h4>Глобальные</h4>
+      <p>Эти настройки одинаковы для всех репозиториев, созданных под вашим пользователем. Среди них есть, например, имя ветки по умолчанию. Файл с этими параметрами хранятся по следующему адресу:</p>
       <code>c:\Users\имя пользователя\.gitconfig</code>
       <p>Задать параметр глобальной конфигурации можно командой</p>
       <code>git config --global &lt;параметр&gt; &lt;значение&gt;</code>
       <p>Посмотреть значение параметра глобальной конфигурации можно командой</p>
       <code>git config --global &lt;параметр&gt;</code>
-    </article>
-    <article class="article">
-      <p>3. Локальные. Это настройки на уровне репозитория, они не будут применяться к другим вашим проектам. Эти параметры хранятся в каждом вашем репозитории по адресу:</p>
+    </li>
+
+    <li>
+      <h4>Локальные</h4>
+      <p>Это настройки на уровне репозитория, они не будут применяться к другим вашим проектам. Эти параметры хранятся в каждом вашем репозитории по адресу:</p>
       <code>.git\config</code>
       <p>Задать параметр локальной конфигурации можно командой</p>
       <code>git config --local &lt;параметр&gt; &lt;значение&gt;</code>
       <p>Посмотреть значение параметра локальной конфигурации можно командой</p>
       <code>git config --local &lt;параметр&gt;</code>
-    </article>
-
-    <article class="article">
-      <p>Список возможных команд утилиты git config</p>
-      <code>git config --list</code>
-      <p>Посмотрим все установленные настройки и узнаем где именно они заданы</p>
-      <code>git config --list --show-origin</code>
-    </article>
-  </div>
+    </li>
+  </ol>
+</article>
 
 
-  <div class="content__item" id="content__item4">
-    <h2>Создание репозизтория</h2>
-    <ul>
-      <li>Начать работу с Git можно 2 способами
-        <p>1. Создать новый репозиторий на GitHub (если его еще нет)</p>
-        <p>2. Клонировать существующий репозиторий из GitHub на локальный компьютер</p>
-        или
-        <p>3. Создать новый проект на локальном компьютере</p>
-        <p>4. Создать репозиторий на локальном компьютере</p>
-        <p>5. Связать существующий репозиторий на локальном компьютере с новым репозиторием на GitHub</p>
-      </li>
-    </ul>
+<!-- Команда git config -->
+<article class="article">
+  <div class="anchor" id="git-config"></div>
+  <h3>Команда git config</h3>
 
-    <h3>1. Создать новый репозиторий на GitHub</h3>
-    <ul>
-      <li>Перейдите на https://github.com и войдите в свой аккаунт. Нажмите кнопку New repository (Новый репозиторий). На открывшейся странице введите имя репозитория (Repository name) и нажмите кнопку Create repository. Данная команда добавит удаленный репозиторий с именем origin, который указывает на ваш Github-репозиторий.</li>
-    </ul>
-
-    <h3>2. Клонировать существующий репозиторий из GitHub на локальный компьютер</h3>
-    <ul>
-      <li>Для получения копии существующего Git-репозитория, например, проекта, в который вы хотите внести свой вклад, необходимо использовать команду
-      <code>git clone &lt;url&gt;</code></li>
-
-      <li>Git получает копию практически всех данных, которые есть на сервере. При выполнении git clone с сервера забирается (pulled) каждая версия каждого файла из истории проекта. Фактически, если серверный диск выйдет из строя, вы можете использовать любой из клонов на любом из клиентов, для того, чтобы вернуть сервер в то состояние, в котором он находился в момент клонирования (вы можете потерять часть серверных хуков (server-side hooks) и т. п., но все данные, помещённые под версионный контроль, будут сохранены</li>
-
-      <li>Команда
-      <code>git clone https://github.com/frontend200tb/200tb.git</code>
-      создаёт каталог 200tb, инициализирует в нём подкаталог .git, скачивает все данные для этого репозитория и извлекает рабочую копию последней версии. Если вы перейдёте в только что созданный каталог 200tb, то увидите в нём файлы проекта, готовые для работы или использования. Для того, чтобы клонировать репозиторий в каталог с именем, отличающимся от 200tb, необходимо указать желаемое имя, как параметр командной строки
-      <code>git clone https://github.com/frontend200tb/200tb.git 400tb</code></li>
-
-      <li>Чтобы изменить URL удаленного репозитория на &lt;remote-repo&gt; нужно набрать команду
-        <code>git remote set-url origin &lt;remote-repo&gt;</code>
-        Убедитесь, что URL-адрес удаленного сервера был успешно изменен, перечислив удаленные соединения
-        <code>git remote -v</code>
-        Вывод должен выглядеть так
-        <code>origin	ssh://git@gitserver.com:user/repo_name.git (fetch)
-        <br>origin	ssh://git@gitserver.com:user/repo_name.git (push)</code>
-      </li>
-    </ul>
-
-    <h3>3. Создать новый проект на локальном компьютере</h3>
-    <ul>
-      <li>Создадим новый каталог, в котором будет проект, который нужно добавить под версионный контроль Git.</li>
-    </ul>
-
-    <h3>4. Создать репозиторий на локальном компьютере</h3>
-    <ul>
-      <li>Если уже есть проект в каталоге, который нужно добавить под версионный контроль Git. Нужно зайти в этот каталог и выполнить команду
-      <code>git init</code></li>
-
-      <li>Эта команда создаёт в текущем каталоге новый подкаталог с именем .git, содержащий все необходимые файлы репозитория — структуру Git репозитория. На этом этапе ваш проект ещё не находится под версионным контролем</li>
-
-      <li>Если вы хотите добавить под версионный контроль существующие файлы (в отличие от пустого каталога), вам стоит добавить их в индекс и осуществить первый коммит изменений.</li>
-    </ul>
-
-    <h3>5. Связать существующий репозиторий на локальном компьютере с новым репозиторием на GitHub</h3>
-    <ul>
-      <li>В верхней части нового репозитория на GitHub скопируйте URL-адрес удаленного репозитория.</li>
-      <li>Откройте GIT Bash.</li>
-      <li>Измените текущий рабочий каталог на локальный проект.</li>
-      <li>В командной строке добавьте URL-адрес удаленного репозитория, в который будет отправлен локальный репозиторий.
-        <code>$ git remote add origin &lt;REMOTE_URL&gt;
-        <br># Sets the new remote
-        <br>$ git remote -v
-        <br># Verifies the new remote URL</code>
-      </li>
-      <li>Отправьте изменения в локальном репозитории на GitHub.com. Для команды git push нужно указывать ветку и удаленный репозиторий.
-        <code>git push origin master</code>
-        Если ветка master не является отслеживаемой веткой, то нужно один раз выполнить команду с флагом -u (сокращение от --set-upstream) чтобы сделать удаленную ветку master репозитория origin отслеживаемой. Потом можно будет отправлять изменения лишь выполняя git push
-        <code>git push -u origin master</code>
-      </li>
-    </ul>
-  </div>
+  <p>Список возможных команд утилиты git config</p>
+  <code>git config --list</code>
+  <p>Посмотрим все установленные настройки и узнаем где именно они заданы</p>
+  <code>git config --list --show-origin</code>
+</article>
 
 
-  <div class="content__item" id="content__item5">
-    <h2>Требования к именам коммитов</h2>
-    <ul>
-      <li>- Названия коммитов должны быть согласно <a href="https://www.conventionalcommits.org/en/v1.0.0/">гайдлайну</a>
-      <br>- Тип коммита должен быть только в нижнием регистре (docs, feat, fix, init, refactor)
-      <br>- Должен использоваться present tense ("add feature" not "added feature")
-      <br>- Должен использоваться imperative mood ("move cursor to..." not "moves cursor to...")</li>
-    </ul>
+<!-- Создание репозизтория -->
+<article class="article">
+  <div class="anchor" id="repo"></div>
+  <h3>Создание репозизтория</h3>
 
-    <h3>Примеры имен коммитов</h3>
-    <ul>
-      <li>init: - используется для начала проекта/таска. Примеры:
-        <code>init: start youtube-task
-        <br>init: start mentor-dashboard task</code>
-      </li>
-      <li>feat: - это реализованная новая функциональность из технического задания (добавил поддержку зумирования, добавил footer, добавил карточку продукта). Примеры:
-        <code>feat: add basic page layout
-        <br>feat: implement search box
-        <br>feat: implement request to youtube API
-        <br>feat: implement swipe for horizontal list
-        <br>feat: add additional navigation button
-        <br>feat: add banner
-        <br>feat: add social links
-        <br>feat: add physical security section
-        <br>feat: add real social icons</code>
-      </li>
-      <li>fix: - исправил ошибку в ранее реализованной функциональности. Примеры:
-        <code>fix: implement correct loading data from youtube
-        <br>fix: change layout for video items to fix bugs
-        <br>fix: relayout header for firefox
-        <br>fix: adjust social links for mobile</code>
-      </li>
-      <li>refactor: - новой функциональности не добавлял / поведения не менял. Файлы в другие места положил, удалил, добавил. Изменил форматирование кода (white-space, formatting, missing semi-colons, etc). Улучшил алгоритм, без изменения функциональности. Примеры:
-        <code>refactor: change structure of the project
-        <br>refactor: rename vars for better readability
-        <br>refactor: apply eslint
-        <br>refactor: apply prettier</code>
-      </li>
-      <li>docs: - используется при работе с документацией/readme проекта. Примеры:
-        <code>docs: update readme with additional information
-        <br>docs: update description of run() method</code>
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li>Начать работу с Git можно 2 способами
+      <p>1. Создать новый репозиторий на GitHub (если его еще нет)</p>
+      <p>2. Клонировать существующий репозиторий из GitHub на локальный компьютер</p>
+      или
+      <p>3. Создать новый проект на локальном компьютере</p>
+      <p>4. Создать репозиторий на локальном компьютере</p>
+      <p>5. Связать существующий репозиторий на локальном компьютере с новым репозиторием на GitHub</p>
+    </li>
+  </ul>
+
+  <h3>1. Создать новый репозиторий на GitHub</h3>
+  <p>Перейдите на https://github.com и войдите в свой аккаунт. Нажмите кнопку New repository (Новый репозиторий). На открывшейся странице введите имя репозитория (Repository name) и нажмите кнопку Create repository. Данная команда добавит удаленный репозиторий с именем origin, который указывает на ваш Github-репозиторий.</p>
+
+  <h3>2. Клонировать существующий репозиторий из GitHub на локальный компьютер</h3>
+  <ul>
+    <li>Для получения копии существующего Git-репозитория, например, проекта, в который вы хотите внести свой вклад, необходимо использовать команду
+    <code>git clone &lt;url&gt;</code></li>
+
+    <li>Git получает копию практически всех данных, которые есть на сервере. При выполнении git clone с сервера забирается (pulled) каждая версия каждого файла из истории проекта. Фактически, если серверный диск выйдет из строя, вы можете использовать любой из клонов на любом из клиентов, для того, чтобы вернуть сервер в то состояние, в котором он находился в момент клонирования (вы можете потерять часть серверных хуков (server-side hooks) и т. п., но все данные, помещённые под версионный контроль, будут сохранены</li>
+
+    <li>Команда
+    <code>git clone https://github.com/frontend200tb/200tb.git</code>
+    создаёт каталог 200tb, инициализирует в нём подкаталог .git, скачивает все данные для этого репозитория и извлекает рабочую копию последней версии. Если вы перейдёте в только что созданный каталог 200tb, то увидите в нём файлы проекта, готовые для работы или использования. Для того, чтобы клонировать репозиторий в каталог с именем, отличающимся от 200tb, необходимо указать желаемое имя, как параметр командной строки
+    <code>git clone https://github.com/frontend200tb/200tb.git 400tb</code></li>
+
+    <li>Чтобы изменить URL удаленного репозитория на &lt;remote-repo&gt; нужно набрать команду
+      <code>git remote set-url origin &lt;remote-repo&gt;</code>
+      Убедитесь, что URL-адрес удаленного сервера был успешно изменен, перечислив удаленные соединения
+      <code>git remote -v</code>
+      Вывод должен выглядеть так
+      <code>origin	ssh://git@gitserver.com:user/repo_name.git (fetch)
+      <br>origin	ssh://git@gitserver.com:user/repo_name.git (push)</code>
+    </li>
+  </ul>
+
+  <h3>3. Создать новый проект на локальном компьютере</h3>
+  <p>Создадим новый каталог, в котором будет проект, который нужно добавить под версионный контроль Git.</p>
+
+  <h3>4. Создать репозиторий на локальном компьютере</h3>
+  <ul>
+    <li>Если уже есть проект в каталоге, который нужно добавить под версионный контроль Git. Нужно зайти в этот каталог и выполнить команду
+    <code>git init</code></li>
+
+    <li>Эта команда создаёт в текущем каталоге новый подкаталог с именем .git, содержащий все необходимые файлы репозитория — структуру Git репозитория. На этом этапе ваш проект ещё не находится под версионным контролем</li>
+
+    <li>Если вы хотите добавить под версионный контроль существующие файлы (в отличие от пустого каталога), вам стоит добавить их в индекс и осуществить первый коммит изменений.</li>
+  </ul>
+
+  <h3>5. Связать существующий репозиторий на локальном компьютере с новым репозиторием на GitHub</h3>
+  <ul>
+    <li>В верхней части нового репозитория на GitHub скопируйте URL-адрес удаленного репозитория.</li>
+    <li>Откройте GIT Bash.</li>
+    <li>Измените текущий рабочий каталог на локальный проект.</li>
+    <li>В командной строке добавьте URL-адрес удаленного репозитория, в который будет отправлен локальный репозиторий.
+      <code>$ git remote add origin &lt;REMOTE_URL&gt;
+      <br># Sets the new remote
+      <br>$ git remote -v
+      <br># Verifies the new remote URL</code>
+    </li>
+    <li>Отправьте изменения в локальном репозитории на GitHub.com. Для команды git push нужно указывать ветку и удаленный репозиторий.
+      <code>git push origin master</code>
+      Если ветка master не является отслеживаемой веткой, то нужно один раз выполнить команду с флагом -u (сокращение от --set-upstream) чтобы сделать удаленную ветку master репозитория origin отслеживаемой. Потом можно будет отправлять изменения лишь выполняя git push
+      <code>git push -u origin master</code>
+    </li>
+  </ul>
+</article>
 
 
-  <div class="content__item" id="content__item6">
-    <h2>О файле .gitignore</h2>
-    <ul>
-      <li>.gitignore нужен для скрытия файлов и папок от системы контроля версий Git. Обычно скрывают конфигурационные файлы (особенно с паролями), временные файли и папки. gitignore использует glob формат для выборки файлов.</li>
-      <li>Основной синтаксис:</li>
-      <li>Каждая строка - отдельный шаблон</li>
-      <li>Пустые строки игнорируются</li>
-      <li>Строки начинающиеся с # являются комментариями</li>
-      <li>Символ слеша "/" в начале строки указывает на текущую папку (где лежит .gitignore)</li>
-      <li>Звёздочка(*) заменяет любое количество символов</li>
-      <li>Две звёздочки(**) используются для указания всех подпапок.</li>
-      <li>Восклицательный знак(!) в начале строки инвертирует шаблон (используется для исключений)</li>
-      <li>Для экранирования спецсимволов используется обратный слэш "\". Для игнорирования всей директории, правило должно оканчиваться на слэш(/), в противном случае правило считается именем файла.</li>
-    </ul>
+<!-- Файл .gitignore -->
+<article class="article">
+  <div class="anchor" id="gitignore"></div>
+  <h3>Файл .gitignore</h3>
 
-    <h3>Пример .gitignore файла</h3>
-    <ul>
-    <li>
-    <pre>
+  <p>.gitignore нужен для скрытия файлов и папок от системы контроля версий Git. Обычно скрывают конфигурационные файлы (особенно с паролями), временные файли и папки. gitignore использует glob формат для выборки файлов.</p>
+  <p>Основной синтаксис:</p>
+  <p>Каждая строка - отдельный шаблон</p>
+  <p>Пустые строки игнорируются</p>
+  <p>Строки начинающиеся с # являются комментариями</p>
+  <p>Символ слеша "/" в начале строки указывает на текущую папку (где лежит .gitignore)</p>
+  <p>Звёздочка(*) заменяет любое количество символов</p>
+  <p>Две звёздочки(**) используются для указания всех подпапок.</p>
+  <p>Восклицательный знак(!) в начале строки инвертирует шаблон (используется для исключений)</p>
+  <p>Для экранирования спецсимволов используется обратный слэш "\". Для игнорирования всей директории, правило должно оканчиваться на слэш(/), в противном случае правило считается именем файла.</p>
+
+  <h3>Пример .gitignore файла</h3>
+  <pre>
 # В этом файле можно оставлять комментарии
 # Имя файла .gitignore
 # Файл нужно создать самостоятельно
@@ -294,542 +264,590 @@ foo.txt
 *.html
 # Но конкретно foo.html не игнорировать
 !foo.html
-    </pre>
-    </li>
-    </ul>
-  </div>
+  </pre>
+</article>
 
 
-  <div class="content__item" id="content__item7">
-    <h2>Команды консоли</h2>
-    <ul>
-      <li>Команды консоли будут работат и без установленной git.
-      <br>Очистить консоль
-      <code>clear или cls</code>
-      Перейдем на диск d
-      <code>cd d:</code>
-      Посмотреть список папок и файлов в текущем каталоге
-      <code>ls или dir</code>
-      Посмотреть в виде списка (-l), отображать скрытые (-a)
-      <code>ls -la</code>
-      Создадим каталог нового проекта
-      <code>mkdir learngit</code>
-      Перейдем в каталог нового проекта
-      <code>cd learngit</code>
-      Создадим файл index.html
-      <code>touch index.html</code>
-      Посмотреть файл index.html
-      <code>cat index.html</code>
-      </li>
-    </ul>
-  </div>
+<!-- workflow -->
+<article class="article">
+  <div class="anchor" id="workflow"></div>
+  <h3>workflow</h3>
 
+  <p>Репозиторий Git условно можно разделить на 4 составляющие:</p>
 
-  <div class="content__item" id="content__item8">
-    <h2>workflow</h2>
-    <ul>
-      <li>Репозиторий Git условно можно разделить на 4 составляющие:</li>
-    </ul>
-    <ol>
-      <li>Working directory. Рабочая директория - это файловая структура, с которой непосредственно работает пользователь в конкретный момент времени. Технически же - это копия определенной версии вашего проекта, которую вы извлекли из базы Git и в которую пытаетесь внести свои изменения. Чтобы внести изменения из working directory в staging area введите команду
+  <ol>
+    <li>
+      <h4>Working directory</h4>
+      <p>Рабочая директория - это файловая структура, с которой непосредственно работает пользователь в конкретный момент времени. Технически же - это копия определенной версии вашего проекта, которую вы извлекли из базы Git и в которую пытаетесь внести свои изменения. Чтобы внести изменения из working directory в staging area введите команду</p>
       <code>git add .</code>
-      </li>
-      <li>Staging area / index. Индекс или Область подготовленных файлов, где хранятся имена файлов и изменения в них, которые должны войти в следующий коммит. Технически индекс - это просто файл. Чтобы внести изменения из индекса в локальный репозиторий введите команду
-      <code>git commit -m ""</code></li>
-      <li>Local branch. Папка, в которой Git хранит все версии вашего проекта и также свои служебные файлы. Данная папка носит название .git и располагается в корневой директории вашего проекта. Чтобы изменения из локального репозитория попали в удаленный репозиторий введите команду
+    </li>
+    <li>
+      <h4>Staging area / index</h4>
+      <p>Индекс или Область подготовленных файлов, где хранятся имена файлов и изменения в них, которые должны войти в следующий коммит. Технически индекс - это просто файл. Чтобы внести изменения из индекса в локальный репозиторий введите команду</p>
+      <code>git commit -m ""</code>
+    </li>
+    <li>
+      <h4>Local branch</h4>
+      <p>Папка, в которой Git хранит все версии вашего проекта и также свои служебные файлы. Данная папка носит название .git и располагается в корневой директории вашего проекта. Чтобы изменения из локального репозитория попали в удаленный репозиторий введите команду</p>
       <code>git push</code>
-      Если выполнялась команда git reset HEAD~ при которой в локальной ветке изменялась история , то ввести команду
+      <p>Если выполнялась команда git reset HEAD~ при которой в локальной ветке изменялась история , то ввести команду</p>
       <code>git push --force</code>
-      Проверим что у нас актуальная версия
+      <p>Проверим что у нас актуальная версия</p>
       <code>git status</code></li>
-      <li>Remote branch. Хранится на github и к нему есть доступ у всех участников команды разработчиков вашего проекта</li>
-    </ol>
-
-    <h3>Порядок работы в команде с удаленным репозиторием</h3>
-    <ul>
-      <li>Перейти в каталог с локальными репозиториями
-      <code>cd d://git</code></li>
-      <li>Клонировать удаленный репозиторий. В каталоге git создастся каталог c репозиторием test
-      <code>git clone https://github.com/frontend200tb/test.git</code></li>
-      <li>Перейти в каталог репозитория test
-      <code>cd test</code></li>
-      <li>Если для текущего проекта надо создать user.name и user.email не такие как глобальные, то
-      <code>git config --local user.name "Name"
-      <br>fit config --local user.email name@google.com</code></li>
-      <li>Посмотрим какие ветки уже есть в проекте
-      <code>git branch</code></li>
-      <li>Создать новую ветку и переключиться на нее
-      <code>git checkout -b feature</code></li>
-      <li>Внесем изменения в новую ветку</li>
-      <li>Чтобы связать новую ветку с удаленным репозиторием
-      <code>git push --set-upstream origin feature</code></li>
-      <li>Если в ветке master произошли изменения, которых нет в ветке feature, то переключиться на ветку feature и забрать их
-      <code>git checkout feature
-      <br>git merge master</code>
-      или одной командой
-      <code>git merge master feature</code></li>
-      <li>Обязательно сразу отправить изменения на удаленный репозиторий
-      <code>git push</code></li>
-      <li>Другой метод забрать изменения из ветки master
-      <code>git checkout feature
-      <br>git rebase master</code>
-      При этом наша ветка feature будет брать свое начало уже с текущего положения ветки master</li>
-      <li>Обязательно сразу отправить изменения на удаленный репозиторий
-      <code>git push --force</code></li>
-    </ul>
-  </div>
-
-
-  <div class="content__item" id="content__item9">
-    <h2>Команды Git Bush</h2>
-    <ul>
-      <li>Все команды git начинаются со слова git и работают только при установленной git.</li>
-    </ul>
-
-    <h3>Создание локального репозитория git init</h3>
-    <ul>
-      <li>Создать новый репозиторий в текущей директории
-      <code>git init</code>
-      При этом создалась системная папка .git в корне текущей директории, в которой будет вся история репозитория.
-      </li>
-      <li>Создание репозитория в указанном каталоге
-      <code>git init <директория></code></li>
-    </ul>
-
-    <h3>Клонирование удаленного репозитория git clone</h3>
-    <ul>
-      <li>Клонирование удаленного репозитория в локальный каталог с именем по умолчанию
-      <code>git clone https://github.com/n0tb0dy/RemoreBranches.git</code></li>
-      <li>Клонирование удаленного репозитория в локальный каталог с указанным именем<code>git clone https://github.com/n0tb0dy/RemoreBranches.git LocalBranches</code></li>
-    </ul>
-
-    <h3>git remote</h3>
-    <ul>
-      <li>Посмотреть какие есть удаленные репозитории связанные с нашим локальным
-      <code>git remote
-      <br>origin</code></li>
-      <li>Посмотреть откуда мы получаем данные и куда мы их отправляем
-      <code>git remote -v
-      <br>origin git@github.com/myrepo.git (fetch)
-      <br>origin git@github.com/myrepo.git (push)</code></li>
-      <li>Посмотреть какая ссылка соотносится с удаленным репозиторием origin
-      <code>git remote get-url origin
-      <br>origin git@github.com/myrepo.git</code></li>
-      <li>Добавить новый удаленный репозиторий, который находится по указанному адресу. При этом на нашем компьютере к удаленному репозиторию мы будем обращаться по его названию
-      <code>remote add <название> <адрес></code></li>
-      <li>Удалить репозиторий с указанным названием
-      <code>remote remove <название></code></li>
-    </ul>
-
-    <h3>git status</h3>
-    <ul>
-      <li>Показать список измененных, добавленных и удаленных файлов
-      <code>git status</code></li>
-      <li>Файлы в рабочем каталоге могут быть
-      <code>tracked - под версионным контролем (отслеживаемые)</code>
-      <code>untracked - не под версионным контролем (не отслеживаемые)</code></li>
-      <li>tracked файлы могут быть
-      <code>modified (измененные)</code>
-      <code>staged (подготовленные к коммиту)</code>
-      <code>commited (добавленные в коммит)</code></li>
-    </ul>
-
-    <h3>git status -s</h3>
-    <ul>
-      <li>Показать список в сокращенном виде
-      <code>git status -s</code></li>
-    </ul>
-
-    <h3>git add</h3>
-    <ul>
-    <li>Переводит untracked и modified файлы в состояние staged
-    <br>Добавление файла index.html в репозиторий
-    <code>git add index.html</code></li>
-    <li>Добавим все измененные файлы
-    <code>git add -A или git add --all</code></li>
-    <li>Добавим все файлы в git
-    <code>git add .</code>
-    Добавленные файлы (новые или измененные) готовы к коммиту. Но если до коммита что-то изменить в этих файлах, то эти изменения нужно опять сперва добавить через команду add, чтобы новые изменения стали готовы к коммиту.</li>
-    </ul>
-
-    <h3>git commit -m "comment"</h3>
-    <ul>
-    <li>Зафиксировать в коммите все изменения (новые и измененные файлы, которые мы подготовили командой git add к коммиту), и добавить сообщение к коммиту
-    <code>git commit -m "feat: add basic files"
-    <br>[master (root-commit) 1aa7b43] feat: add basic files
-    <br>2 files changed, 12 insertions(+)
-    <br>create mode 100644 css/style.css
-    <br>create mode 100644 index.html</code>
-    где
-    <p>master это ветка, в которой мы создали commit, она у нас пока единственная</p>
-    <p>1aa7b43 это хэш коммита, его уникальный номер который указывает на состояние нашего репозитория в момент этого коммита</p>
-    <p>feat: add basic files это комментарий по которому мы сможем впоследствии найти нужный нам коммит</p>
-    </li>
-    </ul>
-
-    <h3>git commit -a</h3>
-    <ul>
-    <li>Последовательное выполнение git add . и git commit -m "message" можно заменить одной командой
-    <code>git commit -a -m "message"</code>
-    Единственное отличие - не добавляет в отслеживаемую зону (и в коммит) новые (untracked) файлы. Добавляет только измененные (modified) файлы</li>
-    </ul>
-
-    <h3>git commit --amend</h3>
-    <ul>
-    <li>Добавить изменения в последний коммит и изменить комментарий последнего коммита
-    <code>git commit --amend -m "new comment"</code>
-    Если комментарий изменять не нужно, то
-    <code>git commit --amend --no-edit</code></li>
-    </ul>
-
-    <h2>Урок 3. Создание, переключение и удаление веток. Команды branch, checkout, log, diff.</h2>
-    <ul>
     <li>
-    <h3>git branch</h3>
-    Посмотрим список веток и в какой ветке мы сейчас находимся
-    <code>git branch
-    <br>* master</code>
-    Мы находимся в ветке master . Она же пока и единственная, других веток нет
-
-    <h3>git branch -r</h3>
-    Посмотреть список только удаленных (remote - удаленный) веток
-    <code>git branch -r</code>
-
-    <h3>git branch -a</h3>
-    Посмотреть список и локальных и удаленных (all - все) веток
-    <code>git branch -a</code>
-
-    <h3>git branch <имя ветки></h3>
-    Создадим новую ветку test
-    <code>git branch test</code>Посмотрим список веток и в какой ветке мы сейчас находимся
-    <code>git branch
-    <br>* master
-    <br>test</code>
-    Видим что у нас две ветки: master и test. Мы находимся в ветке master
-
-    <h3>git branch -d <имя ветки></h3>
-    Удалим ветку test если она полностью слита с другой веткой
-    <code>git branch -d test</code>
-    Иначе git не удалит ветку и покажет предупреждение
-
-    <h3>git branch -D <имя ветки></h3>
-    Удалим ветку test даже если git показывает предупреждение
-    <code>git branch -D test</code>
-
-    <h3>git checkout <имя ветки></h3>
-    Нам нужно добавить новый функционал в проект - создать файл readme. Для создания нового функционала создадим новую ветку readme и будем в ней работать отдельно от основной ветки master
-    <code>branch readme</code>
-    Создав новую ветку readme, мы все еще находимся в ветке master
-    <code>git branch
-    <br>* master
-    <br>readme</code>
-    Чтобы переключиться на ветку readme, введем команду
-    <code>git checkout readme
-    Switched to branch 'readme'</code>
-    Посмотрим в какой ветке мы теперь находимся
-    <code>git branch
-    <br>master
-    <br>* readme</code>
-
-    <h3>git checkout -b <имя ветки></h3>
-    Теперь мы хотим одной командой создать новую ветку help и переключиться на нее
-    <code>git checkout -b help
-    <br>Switched to a new branch 'help'</code>
-    Посмотрим список всех веток и в какой мы находимся
-    <code>git branch
-    <br>* help
-    <br>master
-    <br>readme</code>
-
-    <h3>git checkout -</h3>
-    Вернемся обратно
-    <code>git checkout -</code>
-    Мы вернулись в ветку readme
-
-    <h3>Работа в ветке readme</h3>
-    Перейдем в ветку readme
-    <code>git checkout readme</code>
-    Создадим файл readme.md и добавим его
-    <code>git add .</code>
-    Теперь мы готовим создать комит первой версии к которой мы сможем потом вернуться в новой ветке readme
-    <code>git commit -m "init: craete readme.md"
-    <br>[readme 21e522a] init: create readme.md</code>
-    где
-    <p>readme это ветка, в которой мы создали commit, она отличается от основной ветки master</p>
-    <p>21e522a это хэш коммита, его уникальный номер который указывает на состояние нашего репозитория в момент этого коммита</p>
-    <p>init: create readme.md это комментарий по которому мы сможем впоследствии найти нужный нам коммит</p>
-
-    <h3>git log</h3>
-    Посмотрим историю коммитов локальной ветки
-    <code>git log</code>
-    Посмотрим историю последних двух коммитов локальной ветки
-    <code>git log -2</code>
-
-    <h3>git diff Разница</h3>
-    Посмотреть в чем разница между рабочим каталогом и последним сохраненным состоянием репозитория
-    <code>git diff</code>
-    Посмотреть в чем разница между текущим отслеживаемым состоянием и сохраненным состоянием
-    <code>git diff --staged</code>
-    Посмотреть разницу между рабочим каталогом и указанным сохраненным состоянием репозитория
-    <code>git diff commit_hash</code>
+      <h4>Remote branch</h4>
+      <p>Хранится на github и к нему есть доступ у всех участников команды разработчиков вашего проекта</p>
     </li>
-    </ul>
+  </ol>
 
-    <h2>Урок 4. Перемещение курсора и отмена изменений. Команды rm, restore, reset, revert.</h2>
-    <ul>
-    <li>
-    <h3>git rm</h3>
-    Создадим файл в рабочей директории
-    <code>touch sample.txt</code>
-    Удалим файл из рабочей директории
-    <code>rm sample.txt</code>
-    Создадим файл в рабочей директории и добавим его в индекс
-    <code>touch sample.txt
-    <br>add sample.txt</code>
-    Удалим файл из рабочей директории и из индекса
-    <code>rm sample.txt
-    <br>git add sample.txt</code>
-    Удалим файл sample.txt из рабочей директории и из индекса одной командой
-    <code>git rm sample.txt</code>
-    Команда git rm заменяет собой две команды
-    <code>rm sample.txt и git add sample.txt</code>
+  <h3>Порядок работы в команде с удаленным репозиторием</h3>
+  <ol>
+    <li>Перейти в каталог с локальными репозиториями
+    <code>cd d://git</code></li>
+    <li>Клонировать удаленный репозиторий. В каталоге git создастся каталог c репозиторием test
+    <code>git clone https://github.com/frontend200tb/test.git</code></li>
+    <li>Перейти в каталог репозитория test
+    <code>cd test</code></li>
+    <li>Если для текущего проекта надо создать user.name и user.email не такие как глобальные, то
+    <code>git config --local user.name "Name"
+    <br>fit config --local user.email name@google.com</code></li>
+    <li>Посмотрим какие ветки уже есть в проекте
+    <code>git branch</code></li>
+    <li>Создать новую ветку и переключиться на нее
+    <code>git checkout -b feature</code></li>
+    <li>Внесем изменения в новую ветку</li>
+    <li>Чтобы связать новую ветку с удаленным репозиторием
+    <code>git push --set-upstream origin feature</code></li>
+    <li>Если в ветке master произошли изменения, которых нет в ветке feature, то переключиться на ветку feature и забрать их
+    <code>git checkout feature
+    <br>git merge master</code>
+    или одной командой
+    <code>git merge master feature</code></li>
+    <li>Обязательно сразу отправить изменения на удаленный репозиторий
+    <code>git push</code></li>
+    <li>Другой метод забрать изменения из ветки master
+    <code>git checkout feature
+    <br>git rebase master</code>
+    При этом наша ветка feature будет брать свое начало уже с текущего положения ветки master</li>
+    <li>Обязательно сразу отправить изменения на удаленный репозиторий
+    <code>git push --force</code></li>
+  </ol>
+</article>
 
-    <h3>git rm --cached</h3>
-    Удалим файл sample.txt только из индекса. При этом в рабочей директории файл останется в статусе untracked
-    <code>git rm --cached sample.txt</code>
 
-    <h3>git rm -f или --forced</h3>
-    Форсированное удаление. Файл будет удален не смотря на все предупреждения
-    <code>git rm -f sample.txt</code>
+<!-- Требования к именам коммитов -->
+<article class="article">
+  <div class="anchor" id="commit-name"></div>
+  <h3>Требования к именам коммитов</h3>
 
-    <h3>git mv</h3>
-    Создадим файл в рабочей директории
-    <code>touch sample1.txt</code>
-    Переименуем файл в рабочей директории<code>mv sample1.txt sample2.txt</code>
-    Добавим изменения в индекс
-    <code>git add .</code>
-    Переименуем файл в рабочей директории и в индексе одной командой
-    <code>git mv sample1.txt sample2.txt</code>
-    Команда git mv заменяет собой две команды
-    <code>mv sample1.txt sample2.txt и git add .</code>
+  <ol>
+    <li>Названия коммитов должны быть согласно <a href="https://www.conventionalcommits.org/en/v1.0.0/">гайдлайну</a></li>
+    <li>Тип коммита должен быть только в нижнием регистре (docs, feat, fix, init, refactor)</li>
+    <li>Должен использоваться present tense ("add feature" not "added feature")</li>
+    <li>Должен использоваться imperative mood ("move cursor to..." not "moves cursor to...")</li>
+  </ol>
 
-    <h3>git restore</h3>
-    Если вы случайно удалили файл sample.txt из рабочей копии, то его можно восстановить из области индекса
-    <code>git restore sample.txt</code>
+  <h3>Примеры имен коммитов</h3>
+  <p>init: - используется для начала проекта/таска. Примеры:</p>
+  <code>init: start youtube-task
+  <br>init: start mentor-dashboard task</code>
 
-    <h3>git restore --source</h3>
-    Вернем файл sample.txt к определенному коммиту с хэшем 09c2240. При этом мы изменим только файл в рабочей копии, файл в области индекса не поменяется.
-    <code>git restore --source 09c2240 sample.txt</code>
+  <p>feat: - это реализованная новая функциональность из технического задания (добавил поддержку зумирования, добавил footer, добавил карточку продукта). Примеры:</p>
+  <code>feat: add basic page layout
+  <br>feat: implement search box
+  <br>feat: implement request to youtube API
+  <br>feat: implement swipe for horizontal list
+  <br>feat: add additional navigation button
+  <br>feat: add banner
+  <br>feat: add social links
+  <br>feat: add physical security section
+  <br>feat: add real social icons</code>
 
-    <h3>git restore --staged</h3>
-    Вернем файл sample.txt в индексе к состоянию последнего коммита (отменим все внесенные изменения или удалим файл, если в предыдущем коммите его не было), при этом изменения коснутся только индекса файла, рабочая копия не поменяется.
-    <code>git restore --staged sample.txt</code>
+  <p>fix: - исправил ошибку в ранее реализованной функциональности. Примеры:</p>
+  <code>fix: implement correct loading data from youtube
+  <br>fix: change layout for video items to fix bugs
+  <br>fix: relayout header for firefox
+  <br>fix: adjust social links for mobile</code>
 
-    <h3>git restore --staged --worktree</h3>
-    Сделаем то же, что и в предыдущем примере, но теперь изменения затронут и файл в рабочей копии.
-    <code>git restore --staged --worktree sample.txt</code>
+  <p>refactor: - новой функциональности не добавлял / поведения не менял. Файлы в другие места положил, удалил, добавил. Изменил форматирование кода (white-space, formatting, missing semi-colons, etc). Улучшил алгоритм, без изменения функциональности. Примеры:</p>
+  <code>refactor: change structure of the project
+  <br>refactor: rename vars for better readability
+  <br>refactor: apply eslint
+  <br>refactor: apply prettier</code>
 
-    <h3>git reset</h3>
-    Переносем указатель ветки вместе с указателем HEAD к указанному коммиту
-    <code>git reset</code>
-    Не отменяет изменения ни в индексе, ни в рабочей копии
-    <code>git reset --soft</code>
-    Удалит все изменения. Состояние индекса и рабочей копии полностью будут соответствовать состоянию выбранного коммита
-    <code>git reset --hard</code>
-    Откатить проект на один коммит назад
-    <code>git reset HEAD^ или git reset HEAD~1</code>
-    Откатить проект на два коммита назад
-    <code>git reset HEAD^^ или git reset HEAD~2</code>
-    Возвращает проект к указанному коммиту, при этом полностью удаляет все коммиты после указанного
-    <code>git reset --hard HEAD^</code>
-    Возвращает проект к указанному коммиту, при этом переводит все коммиты после указанного в неотслеживаемую (unstaged) зону. То есть все изменения после указанного коммита не удалились. Удалились только последующие коммиты.Изменения можно добавить (add) и закомиттить (commit)
-    <code>git reset --mixed HEAD^</code>
-    Возвращает проект к указанному коммиту, при этом переводит все коммиты после указанного в отслеживаемую (staged) зону. То есть все изменения после указанного коммита не удалились. Все последующие коммиты сохранились
-    <code>git reset --soft HEAD^</code>
-    Если использовать git reset без параметров, то мы вернемся к последнему коммиту
-    <code>git reset = git reset --mixed HEAD</code>
+  <p>docs: - используется при работе с документацией/readme проекта. Примеры:</p>
+  <code>docs: update readme with additional information
+  <br>docs: update description of run() method</code>
+</article>
 
-    <h3>git revert</h3>
-    Создадим новый коммит, который отменит изменения сделанные два коммита назад
-    <code>git revert HEAD~2</code>
 
-    <h3>git revert -n</h3>
-    Откат к предыдущему коммиту. Изменения коснутся только рабочей копии. Новый коммит не делается
-    <code>git revert -n</code>
+<!-- Переписывание истории -->
+<article class="article">
+  <div class="anchor" id="history"></div>
+  <h3>Переписывание истории</h3>
+
+  <p>Есть три механизма переписывания истории git commit --amend, git rebase, git reflog.</p>
+
+  <h3>Изменение последнего коммита: git commit --amend</h3>
+  <p>Команда git commit --amend — это удобный способ изменить последний коммит. Она позволяет объединить проиндексированные изменения с предыдущим коммитом без создания нового коммита. Ее можно использовать для редактирования комментария к предыдущему коммиту без изменения состояния кода в нем. Но такое изменение не только редактирует последний коммит, но и полностью его заменяет. То есть измененный коммит станет новой сущностью с отдельной ссылкой. Для Git он будет выглядеть как новый коммит.</p>
+
+  <h3>Изменение комментария в последнем коммите Git</h3>
+  <code>git commit --amend -m "new comment"</code>
+  <p>Допустим, при выполнении коммита вы допустили ошибку в комментарии к нему. Выполнение этой команды в отсутствие проиндексированных файлов позволяет отредактировать комментарий к предыдущему коммиту без изменения состояния кода.</p>
+
+  <p>В процессе разработки регулярно случаются преждевременные коммиты. Очень просто забыть проиндексировать файл или использовать неправильный формат комментария к коммиту. Флаг --amend позволяет удобно исправить эти небольшие ошибки.</p>
+
+  <h3>Изменение файлов в последнем коммите</h3>
+  <p>В следующем примере показан распространенный сценарий разработки с использованием Git. Допустим, вы отредактировали несколько файлов и хотите сделать коммит за одну операцию. Но потом выясняется, что вы забыли добавить один из файлов в самом начале. Для того чтобы исправить эту ошибку, достаточно проиндексировать другой файл и выполнить коммит с флагом --amend:</p>
+
+  <code># Edit hello.py and main.py
+  <br>git add hello.py
+  <br>git commit
+  <br># Realize you forgot to add the changes from main.py
+  <br>git add main.py
+  <br>git commit --amend --no-edit</code>
+
+  <p>Флаг --no-edit позволит внести изменения в коммит без изменения комментария к нему. Итоговый коммит заменит неполный коммит. При этом все будет выглядеть так, словно изменения в файлах hello.py и main.py были сделаны за один коммит</p>
+
+  <h3>Как изменить файлы в старом коммите (не последнем) в Git: git rebase -i</h3>
+
+  <p>1. Если вы уже изменили какие-либо файлы, то сначала нужно спрятать изменения. Для этого выполняем команду:</p>
+  <code>git stash</code>
+
+  <p>2. Посмотрим список коммитов:</p>
+  <code>git log --oneline</code>
+
+  <p>3. Выполняем команду git rebase -i и указываем ей коммит, который мы хотим изменить. В данном случае мы хотим изменить третий коммит (относительно HEAD).</p>
+  <code>git rebase -i HEAD~3</code>
+
+  <p>4. Откроется текстовый редактор со списком коммитов. Измените слово pick на edit (или просто на букву e) у коммита, который вы хотите изменить.</p>
+
+  <p>5. Сохраните изменения в файле. Вы снова окажетесь в командной строке.</p>
+
+  <p>6. Теперь внесите те изменения, которые вы хотели сделать с файлами. Если вы на первом шаге спрятали эти изменения, то сейчас их можно снова извлечь:</p>
+  <code>git stash pop</code>
+  <p>Или же просто отредактируйте файлы.</p>
+
+  <p>7. Добавьте отредактированные файлы в индекс:</p>
+  <code>git add myfile1 myfile2</code>
+
+  <p>8. Применим наши изменения к коммиту:</p>
+  <code>git commit --amend --no-edit</code>
+
+  <p>9. Завершим процесс ребейза:</p>
+  <code>git rebase --continue</code>
+  <p>Если все пройдет успешно, то появится сообщение вида:</p>
+  <code>Successfully rebased and updated refs/heads/master.</code>
+</article>
+
+
+<!-- Текстовый редактор -->
+<article class="article">
+  <div class="anchor" id="text-editor"></div>
+  <h3>Текстовый редактор</h3>
+
+  <p>При редактировании сообщений комита Git по умолчанию открывает Vim. Для тех кто с ним не знаком, это может стать серьезной проблемой. Хорошо что это поведение легко изменить выполнив одну команду в терминале.</p>
+
+  <h3>Связывание текстового редактора с Git</h3>
+  <h4>Visual Studio Code</h4>
+  <code>git config --global core.editor "code --wait"</code>
+
+  <h4>Atom</h4>
+  <code>git config --global core.editor "atom --wait"</code>
+
+  <h4>TextMate</h4>
+  <code>git config --global core.editor "mate -w"</code>
+
+  <h4>nano</h4>
+  <code>git config --global core.editor "nano -w"</code>
+
+  <h4>Text Wrangler (Mac)</h4>
+  <code>git config --global core.editor "edit -w"</code>
+
+  <h4>Sublime Text (Mac)</h4>
+  <code>git config --global core.editor "subl -n -w"</code>
+
+  <h4>Sublime Text (Win, x32)</h4>
+  <code>git config --global core.editor "'c:/program files (x86)/sublime text 3/sublime_text.exe' -w"</code>
+
+  <h4>Sublime Text (Win, x64)</h4>
+  <code>git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"</code>
+
+  <h4>Notepad++ (Win, x32)</h4>
+  <code>git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
+
+  <h4>Notepad++ (Win, x64)</h4>
+  <code>git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
+
+  <h4>Kate (Linux)</h4>
+  <code>git config --global core.editor "kate"</code>
+
+  <h4>Gedit (Linux)</h4>
+  <code>git config --global core.editor "gedit --wait --new-window"</code>
+
+  <h4>Scratch (Linux)</h4>
+  <code>git config --global core.editor "scratch-text-editor"</code>
+
+  <h4>emacs</h4>
+  <code>git config --global core.editor "emacs"</code>
+
+  <h4>vim</h4>
+  <code>git config --global core.editor "vim"</code>
+</article>
+
+
+<!-- Команды Git Bush -->
+<article class="article">
+  <div class="anchor" id="git-bush"></div>
+  <h3>Команды Git Bush</h3>
+
+  <p>Все команды git начинаются со слова git и работают только при установленной git.</p>
+
+  <h3>Создание локального репозитория git init</h3>
+  <ul>
+    <li>Создать новый репозиторий в текущей директории
+    <code>git init</code>
+    При этом создалась системная папка .git в корне текущей директории, в которой будет вся история репозитория.
     </li>
-    </ul>
+    <li>Создание репозитория в указанном каталоге
+    <code>git init <директория></code></li>
+  </ul>
 
-    <h2>Урок 5. Слияние изменений. Команды merge, cherry-pick, rebase.</h2>
-    <ul>
-    <li>
-    <h3>git merge Слиять ветки</h3>
-    Перейдем в ветку master
-    <code>git checkout master</code>
-    Сделаем слияние ветки master с веткой readme
-    <code>git merge readme</code>
-    Разработка в ветке readme закончилась ее слиянием с веткой master и теперь она нам больше не нужна. Удалим ветку readme
-    <code>git branch -D readme</code>
-    </li>
-    </ul>
+  <h3>Клонирование удаленного репозитория git clone</h3>
+  <ul>
+    <li>Клонирование удаленного репозитория в локальный каталог с именем по умолчанию
+    <code>git clone https://github.com/n0tb0dy/RemoreBranches.git</code></li>
+    <li>Клонирование удаленного репозитория в локальный каталог с указанным именем<code>git clone https://github.com/n0tb0dy/RemoreBranches.git LocalBranches</code></li>
+  </ul>
 
-    <h2>Урок 6. Работа с удаленным репозиторием. Команды push, pull, clean, show, fetch</h2>
-    <ul>
-    <li>
+  <h3>git remote</h3>
+  <ul>
+    <li>Посмотреть какие есть удаленные репозитории связанные с нашим локальным
+    <code>git remote
+    <br>origin</code></li>
+    <li>Посмотреть откуда мы получаем данные и куда мы их отправляем
+    <code>git remote -v
+    <br>origin git@github.com/myrepo.git (fetch)
+    <br>origin git@github.com/myrepo.git (push)</code></li>
+    <li>Посмотреть какая ссылка соотносится с удаленным репозиторием origin
+    <code>git remote get-url origin
+    <br>origin git@github.com/myrepo.git</code></li>
+    <li>Добавить новый удаленный репозиторий, который находится по указанному адресу. При этом на нашем компьютере к удаленному репозиторию мы будем обращаться по его названию
+    <code>remote add <название> <адрес></code></li>
+    <li>Удалить репозиторий с указанным названием
+    <code>remote remove <название></code></li>
+  </ul>
 
-    <h3>git push</h3>
-    Отправим локальный репозиторий на удаленный
-    <code>git push <название> <ветка>
-    <br>git push origin master</code>
+  <h3>git status</h3>
+  <ul>
+    <li>Показать список измененных, добавленных и удаленных файлов
+    <code>git status</code></li>
+    <li>Файлы в рабочем каталоге могут быть
+    <code>tracked - под версионным контролем (отслеживаемые)</code>
+    <code>untracked - не под версионным контролем (не отслеживаемые)</code></li>
+    <li>tracked файлы могут быть
+    <code>modified (измененные)</code>
+    <code>staged (подготовленные к коммиту)</code>
+    <code>commited (добавленные в коммит)</code></li>
+  </ul>
 
-    <h3>git pull</h3>
-    Получим обновления с удаленного репозитория
-    <code>git pull origin master</code>
+  <h3>git status -s</h3>
+  <ul>
+    <li>Показать список в сокращенном виде
+    <code>git status -s</code></li>
+  </ul>
 
-    <h3>git clean</h3>
-    Посмотреть untracked файлы которые будут удалены командой git clean
-    <code>git clean -n</code>
-    Удалить untracked файлы
-    <code>git clean -f</code>
+  <h3>git add</h3>
+  <ul>
+  <li>Переводит untracked и modified файлы в состояние staged
+  <br>Добавление файла index.html в репозиторий
+  <code>git add index.html</code></li>
+  <li>Добавим все измененные файлы
+  <code>git add -A или git add --all</code></li>
+  <li>Добавим все файлы в git
+  <code>git add .</code>
+  Добавленные файлы (новые или измененные) готовы к коммиту. Но если до коммита что-то изменить в этих файлах, то эти изменения нужно опять сперва добавить через команду add, чтобы новые изменения стали готовы к коммиту.</li>
+  </ul>
 
-    <h3>git show</h3>
-    Посмотреть изменения, внесенные определенным коммитом
-    <code>git show <commit></code>
+  <h3>git commit -m "comment"</h3>
+  <ul>
+  <li>Зафиксировать в коммите все изменения (новые и измененные файлы, которые мы подготовили командой git add к коммиту), и добавить сообщение к коммиту
+  <code>git commit -m "feat: add basic files"
+  <br>[master (root-commit) 1aa7b43] feat: add basic files
+  <br>2 files changed, 12 insertions(+)
+  <br>create mode 100644 css/style.css
+  <br>create mode 100644 index.html</code>
+  где
+  <p>master это ветка, в которой мы создали commit, она у нас пока единственная</p>
+  <p>1aa7b43 это хэш коммита, его уникальный номер который указывает на состояние нашего репозитория в момент этого коммита</p>
+  <p>feat: add basic files это комментарий по которому мы сможем впоследствии найти нужный нам коммит</p>
+  </li>
+  </ul>
 
-    <h3>git stash</h3>
-    Сохранить изменения, не добавляя их в коммит
-    <code>git stash</code>
-    Посмотреть список всех отложенных изменений
-    <code>git stash list</code>
-    Достать изменения из стека и вернуть их в рабочую копию
-    <code>git stash pop</code>
-    </li>
-    </ul>
-  </div>
+  <h3>git commit -a</h3>
+  <ul>
+  <li>Последовательное выполнение git add . и git commit -m "message" можно заменить одной командой
+  <code>git commit -a -m "message"</code>
+  Единственное отличие - не добавляет в отслеживаемую зону (и в коммит) новые (untracked) файлы. Добавляет только измененные (modified) файлы</li>
+  </ul>
+
+  <h3>git commit --amend</h3>
+  <ul>
+  <li>Добавить изменения в последний коммит и изменить комментарий последнего коммита
+  <code>git commit --amend -m "new comment"</code>
+  Если комментарий изменять не нужно, то
+  <code>git commit --amend --no-edit</code></li>
+  </ul>
+
+  <h2>Урок 3. Создание, переключение и удаление веток. Команды branch, checkout, log, diff.</h2>
+  <ul>
+  <li>
+  <h3>git branch</h3>
+  Посмотрим список веток и в какой ветке мы сейчас находимся
+  <code>git branch
+  <br>* master</code>
+  Мы находимся в ветке master . Она же пока и единственная, других веток нет
+
+  <h3>git branch -r</h3>
+  Посмотреть список только удаленных (remote - удаленный) веток
+  <code>git branch -r</code>
+
+  <h3>git branch -a</h3>
+  Посмотреть список и локальных и удаленных (all - все) веток
+  <code>git branch -a</code>
+
+  <h3>git branch <имя ветки></h3>
+  Создадим новую ветку test
+  <code>git branch test</code>Посмотрим список веток и в какой ветке мы сейчас находимся
+  <code>git branch
+  <br>* master
+  <br>test</code>
+  Видим что у нас две ветки: master и test. Мы находимся в ветке master
+
+  <h3>git branch -d <имя ветки></h3>
+  Удалим ветку test если она полностью слита с другой веткой
+  <code>git branch -d test</code>
+  Иначе git не удалит ветку и покажет предупреждение
+
+  <h3>git branch -D <имя ветки></h3>
+  Удалим ветку test даже если git показывает предупреждение
+  <code>git branch -D test</code>
+
+  <h3>git checkout <имя ветки></h3>
+  Нам нужно добавить новый функционал в проект - создать файл readme. Для создания нового функционала создадим новую ветку readme и будем в ней работать отдельно от основной ветки master
+  <code>branch readme</code>
+  Создав новую ветку readme, мы все еще находимся в ветке master
+  <code>git branch
+  <br>* master
+  <br>readme</code>
+  Чтобы переключиться на ветку readme, введем команду
+  <code>git checkout readme
+  Switched to branch 'readme'</code>
+  Посмотрим в какой ветке мы теперь находимся
+  <code>git branch
+  <br>master
+  <br>* readme</code>
+
+  <h3>git checkout -b <имя ветки></h3>
+  Теперь мы хотим одной командой создать новую ветку help и переключиться на нее
+  <code>git checkout -b help
+  <br>Switched to a new branch 'help'</code>
+  Посмотрим список всех веток и в какой мы находимся
+  <code>git branch
+  <br>* help
+  <br>master
+  <br>readme</code>
+
+  <h3>git checkout -</h3>
+  Вернемся обратно
+  <code>git checkout -</code>
+  Мы вернулись в ветку readme
+
+  <h3>Работа в ветке readme</h3>
+  Перейдем в ветку readme
+  <code>git checkout readme</code>
+  Создадим файл readme.md и добавим его
+  <code>git add .</code>
+  Теперь мы готовим создать комит первой версии к которой мы сможем потом вернуться в новой ветке readme
+  <code>git commit -m "init: craete readme.md"
+  <br>[readme 21e522a] init: create readme.md</code>
+  где
+  <p>readme это ветка, в которой мы создали commit, она отличается от основной ветки master</p>
+  <p>21e522a это хэш коммита, его уникальный номер который указывает на состояние нашего репозитория в момент этого коммита</p>
+  <p>init: create readme.md это комментарий по которому мы сможем впоследствии найти нужный нам коммит</p>
+
+  <h3>git log</h3>
+  Посмотрим историю коммитов локальной ветки
+  <code>git log</code>
+  Посмотрим историю последних двух коммитов локальной ветки
+  <code>git log -2</code>
+
+  <h3>git diff Разница</h3>
+  Посмотреть в чем разница между рабочим каталогом и последним сохраненным состоянием репозитория
+  <code>git diff</code>
+  Посмотреть в чем разница между текущим отслеживаемым состоянием и сохраненным состоянием
+  <code>git diff --staged</code>
+  Посмотреть разницу между рабочим каталогом и указанным сохраненным состоянием репозитория
+  <code>git diff commit_hash</code>
+  </li>
+  </ul>
+
+  <h2>Урок 4. Перемещение курсора и отмена изменений. Команды rm, restore, reset, revert.</h2>
+  <ul>
+  <li>
+  <h3>git rm</h3>
+  Создадим файл в рабочей директории
+  <code>touch sample.txt</code>
+  Удалим файл из рабочей директории
+  <code>rm sample.txt</code>
+  Создадим файл в рабочей директории и добавим его в индекс
+  <code>touch sample.txt
+  <br>add sample.txt</code>
+  Удалим файл из рабочей директории и из индекса
+  <code>rm sample.txt
+  <br>git add sample.txt</code>
+  Удалим файл sample.txt из рабочей директории и из индекса одной командой
+  <code>git rm sample.txt</code>
+  Команда git rm заменяет собой две команды
+  <code>rm sample.txt и git add sample.txt</code>
+
+  <h3>git rm --cached</h3>
+  Удалим файл sample.txt только из индекса. При этом в рабочей директории файл останется в статусе untracked
+  <code>git rm --cached sample.txt</code>
+
+  <h3>git rm -f или --forced</h3>
+  Форсированное удаление. Файл будет удален не смотря на все предупреждения
+  <code>git rm -f sample.txt</code>
+
+  <h3>git mv</h3>
+  Создадим файл в рабочей директории
+  <code>touch sample1.txt</code>
+  Переименуем файл в рабочей директории<code>mv sample1.txt sample2.txt</code>
+  Добавим изменения в индекс
+  <code>git add .</code>
+  Переименуем файл в рабочей директории и в индексе одной командой
+  <code>git mv sample1.txt sample2.txt</code>
+  Команда git mv заменяет собой две команды
+  <code>mv sample1.txt sample2.txt и git add .</code>
+
+  <h3>git restore</h3>
+  Если вы случайно удалили файл sample.txt из рабочей копии, то его можно восстановить из области индекса
+  <code>git restore sample.txt</code>
+
+  <h3>git restore --source</h3>
+  Вернем файл sample.txt к определенному коммиту с хэшем 09c2240. При этом мы изменим только файл в рабочей копии, файл в области индекса не поменяется.
+  <code>git restore --source 09c2240 sample.txt</code>
+
+  <h3>git restore --staged</h3>
+  Вернем файл sample.txt в индексе к состоянию последнего коммита (отменим все внесенные изменения или удалим файл, если в предыдущем коммите его не было), при этом изменения коснутся только индекса файла, рабочая копия не поменяется.
+  <code>git restore --staged sample.txt</code>
+
+  <h3>git restore --staged --worktree</h3>
+  Сделаем то же, что и в предыдущем примере, но теперь изменения затронут и файл в рабочей копии.
+  <code>git restore --staged --worktree sample.txt</code>
+
+  <h3>git reset</h3>
+  Переносем указатель ветки вместе с указателем HEAD к указанному коммиту
+  <code>git reset</code>
+  Не отменяет изменения ни в индексе, ни в рабочей копии
+  <code>git reset --soft</code>
+  Удалит все изменения. Состояние индекса и рабочей копии полностью будут соответствовать состоянию выбранного коммита
+  <code>git reset --hard</code>
+  Откатить проект на один коммит назад
+  <code>git reset HEAD^ или git reset HEAD~1</code>
+  Откатить проект на два коммита назад
+  <code>git reset HEAD^^ или git reset HEAD~2</code>
+  Возвращает проект к указанному коммиту, при этом полностью удаляет все коммиты после указанного
+  <code>git reset --hard HEAD^</code>
+  Возвращает проект к указанному коммиту, при этом переводит все коммиты после указанного в неотслеживаемую (unstaged) зону. То есть все изменения после указанного коммита не удалились. Удалились только последующие коммиты.Изменения можно добавить (add) и закомиттить (commit)
+  <code>git reset --mixed HEAD^</code>
+  Возвращает проект к указанному коммиту, при этом переводит все коммиты после указанного в отслеживаемую (staged) зону. То есть все изменения после указанного коммита не удалились. Все последующие коммиты сохранились
+  <code>git reset --soft HEAD^</code>
+  Если использовать git reset без параметров, то мы вернемся к последнему коммиту
+  <code>git reset = git reset --mixed HEAD</code>
+
+  <h3>git revert</h3>
+  Создадим новый коммит, который отменит изменения сделанные два коммита назад
+  <code>git revert HEAD~2</code>
+
+  <h3>git revert -n</h3>
+  Откат к предыдущему коммиту. Изменения коснутся только рабочей копии. Новый коммит не делается
+  <code>git revert -n</code>
+  </li>
+  </ul>
+
+  <h2>Урок 5. Слияние изменений. Команды merge, cherry-pick, rebase.</h2>
+  <ul>
+  <li>
+  <h3>git merge Слиять ветки</h3>
+  Перейдем в ветку master
+  <code>git checkout master</code>
+  Сделаем слияние ветки master с веткой readme
+  <code>git merge readme</code>
+  Разработка в ветке readme закончилась ее слиянием с веткой master и теперь она нам больше не нужна. Удалим ветку readme
+  <code>git branch -D readme</code>
+  </li>
+  </ul>
+
+  <h2>Урок 6. Работа с удаленным репозиторием. Команды push, pull, clean, show, fetch</h2>
+  <ul>
+  <li>
+
+  <h3>git push</h3>
+  Отправим локальный репозиторий на удаленный
+  <code>git push <название> <ветка>
+  <br>git push origin master</code>
+
+  <h3>git pull</h3>
+  Получим обновления с удаленного репозитория
+  <code>git pull origin master</code>
+
+  <h3>git clean</h3>
+  Посмотреть untracked файлы которые будут удалены командой git clean
+  <code>git clean -n</code>
+  Удалить untracked файлы
+  <code>git clean -f</code>
+
+  <h3>git show</h3>
+  Посмотреть изменения, внесенные определенным коммитом
+  <code>git show <commit></code>
+
+  <h3>git stash</h3>
+  Сохранить изменения, не добавляя их в коммит
+  <code>git stash</code>
+  Посмотреть список всех отложенных изменений
+  <code>git stash list</code>
+  Достать изменения из стека и вернуть их в рабочую копию
+  <code>git stash pop</code>
+  </li>
+  </ul>
+</article>
 
 
-  <div class="content__item" id="content__item10">
-    <article class="article">
-      <h2>Переписывание истории</h2>
-    </article>
+<!-- Команды консоли -->
+<article class="article">
+  <div class="anchor" id="console"></div>
+  <h3>Команды консоли</h3>
 
-    <article class="article">
-      <p>Есть три механизма переписывания истории git commit --amend, git rebase, git reflog.</p>
-    </article>
-
-    <article class="article">
-      <h3>Изменение последнего коммита: git commit --amend</h3>
-      <p>Команда git commit --amend — это удобный способ изменить последний коммит. Она позволяет объединить проиндексированные изменения с предыдущим коммитом без создания нового коммита. Ее можно использовать для редактирования комментария к предыдущему коммиту без изменения состояния кода в нем. Но такое изменение не только редактирует последний коммит, но и полностью его заменяет. То есть измененный коммит станет новой сущностью с отдельной ссылкой. Для Git он будет выглядеть как новый коммит.</p>
-    </article>
-
-    <article class="article">
-      <h3>Изменение комментария в последнем коммите Git</h3>
-      <code>git commit --amend -m "new comment"</code>
-      <p>Допустим, при выполнении коммита вы допустили ошибку в комментарии к нему. Выполнение этой команды в отсутствие проиндексированных файлов позволяет отредактировать комментарий к предыдущему коммиту без изменения состояния кода.</p>
-
-      <p>В процессе разработки регулярно случаются преждевременные коммиты. Очень просто забыть проиндексировать файл или использовать неправильный формат комментария к коммиту. Флаг --amend позволяет удобно исправить эти небольшие ошибки.</p>
-    </article>
-
-    <article class="article">
-      <h3>Изменение файлов в последнем коммите</h3>
-      <p>В следующем примере показан распространенный сценарий разработки с использованием Git. Допустим, вы отредактировали несколько файлов и хотите сделать коммит за одну операцию. Но потом выясняется, что вы забыли добавить один из файлов в самом начале. Для того чтобы исправить эту ошибку, достаточно проиндексировать другой файл и выполнить коммит с флагом --amend:</p>
-
-      <code># Edit hello.py and main.py
-      <br>git add hello.py
-      <br>git commit
-      <br># Realize you forgot to add the changes from main.py
-      <br>git add main.py
-      <br>git commit --amend --no-edit</code>
-
-      <p>Флаг --no-edit позволит внести изменения в коммит без изменения комментария к нему. Итоговый коммит заменит неполный коммит. При этом все будет выглядеть так, словно изменения в файлах hello.py и main.py были сделаны за один коммит</p>
-    </article>
-
-    <article class="article">
-      <h3>Как изменить файлы в старом коммите (не последнем) в Git: git rebase -i</h3>
-
-      <p>1. Если вы уже изменили какие-либо файлы, то сначала нужно спрятать изменения. Для этого выполняем команду:</p>
-      <code>git stash</code>
-
-      <p>2. Посмотрим список коммитов:</p>
-      <code>git log --oneline</code>
-
-      <p>3. Выполняем команду git rebase -i и указываем ей коммит, который мы хотим изменить. В данном случае мы хотим изменить третий коммит (относительно HEAD).</p>
-      <code>git rebase -i HEAD~3</code>
-
-      <p>4. Откроется текстовый редактор со списком коммитов. Измените слово pick на edit (или просто на букву e) у коммита, который вы хотите изменить.</p>
-
-      <p>5. Сохраните изменения в файле. Вы снова окажетесь в командной строке.</p>
-
-      <p>6. Теперь внесите те изменения, которые вы хотели сделать с файлами. Если вы на первом шаге спрятали эти изменения, то сейчас их можно снова извлечь:</p>
-      <code>git stash pop</code>
-      <p>Или же просто отредактируйте файлы.</p>
-
-      <p>7. Добавьте отредактированные файлы в индекс:</p>
-      <code>git add myfile1 myfile2</code>
-
-      <p>8. Применим наши изменения к коммиту:</p>
-      <code>git commit --amend --no-edit</code>
-
-      <p>9. Завершим процесс ребейза:</p>
-      <code>git rebase --continue</code>
-      <p>Если все пройдет успешно, то появится сообщение вида:</p>
-      <code>Successfully rebased and updated refs/heads/master.</code>
-    </article>
-  </div>
-
-
-  <div class="content__item" id="content__item11">
-    <article class="article">
-      <h2>Связывание текстового редактора с Git</h2>
-    </article>
-
-    <article class="article">
-      <p>При редактировании сообщений комита Git по умолчанию открывает Vim. Для тех кто с ним не знаком, это может стать серьезной проблемой. Хорошо что это поведение легко изменить выполнив одну команду в терминале.</p>
-
-      <h4>Visual Studio Code</h4>
-      <code>git config --global core.editor "code --wait"</code>
-
-      <h4>Atom</h4>
-      <code>git config --global core.editor "atom --wait"</code>
-
-      <h4>TextMate</h4>
-      <code>git config --global core.editor "mate -w"</code>
-
-      <h4>nano</h4>
-      <code>git config --global core.editor "nano -w"</code>
-
-      <h4>Text Wrangler (Mac)</h4>
-      <code>git config --global core.editor "edit -w"</code>
-
-      <h4>Sublime Text (Mac)</h4>
-      <code>git config --global core.editor "subl -n -w"</code>
-
-      <h4>Sublime Text (Win, x32)</h4>
-      <code>git config --global core.editor "'c:/program files (x86)/sublime text 3/sublime_text.exe' -w"</code>
-
-      <h4>Sublime Text (Win, x64)</h4>
-      <code>git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"</code>
-
-      <h4>Notepad++ (Win, x32)</h4>
-      <code>git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
-
-      <h4>Notepad++ (Win, x64)</h4>
-      <code>git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code>
-
-      <h4>Kate (Linux)</h4>
-      <code>git config --global core.editor "kate"</code>
-
-      <h4>Gedit (Linux)</h4>
-      <code>git config --global core.editor "gedit --wait --new-window"</code>
-
-      <h4>Scratch (Linux)</h4>
-      <code>git config --global core.editor "scratch-text-editor"</code>
-
-      <h4>emacs</h4>
-      <code>git config --global core.editor "emacs"</code>
-
-      <h4>vim</h4>
-      <code>git config --global core.editor "vim"</code>
-    </article>
-  </div>
-
-</div>
+  <p>Команды консоли будут работать и без установленной git</p>
+  <p>Очистить консоль</p>
+  <code>clear</code>
+  <p>или</p>
+  <code>cls</code>
+  <p>Сменить директорию. Перейти на диск d</p>
+  <code>cd d:</code>
+  <p>Посмотреть список папок и файлов в текущем каталоге</p>
+  <code>dir</code>
+  <p>или</p>
+  <code>ls</code>
+  <p>Посмотреть в виде списка (-l), отображать скрытые (-a)</p>
+  <code>ls -la</code>
+  <p>Создать каталог</p>
+  <code>mkdir learngit</code>
+  <p>Сменить директорию</p>
+  <code>cd learngit</code>
+  <p>Создать файл index.html</p>
+  <code>touch index.html</code>
+  <p>Посмотреть файл index.html</p>
+  <code>cat index.html</code>
+</article>

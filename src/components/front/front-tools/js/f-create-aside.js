@@ -9,6 +9,14 @@ const asideThemes = ['Tools', 'Git', 'Notepad++', 'Sublime Text', 'VS Code', 'Vi
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
 
+// Функция создает id для элемента меню
+let idNameSuffix = 1;
+function createId(str) {
+  str = idNameSuffix;
+  idNameSuffix++;
+  return `base-${str}`;
+}
+
 // 3. Для каждой темы из массива asideThemes
 for (const theme of asideThemes) {
   // 3.1 Создаем элемент elementAside
@@ -16,11 +24,6 @@ for (const theme of asideThemes) {
   elementAside.href = '#';
   elementAside.innerHTML = theme;
   elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `edu-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);
@@ -49,7 +52,7 @@ aside.classList.add('aside');
 aside.append(...asideDiv);
 
 export const main = document.createElement('main');
-main.classList.add('list');
+main.classList.add('main');
 main.id = 'tools';
 
 pageLink(asideDiv);

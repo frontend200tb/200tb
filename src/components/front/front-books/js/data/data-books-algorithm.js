@@ -2,6 +2,19 @@ const dataBooksAlgorithm = [
 
   {
     id: 1,
+    year: 1965,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы и рекурсивные функции',
+    author: 'Мальцев',
+    authorName: 'Анатолий',
+    pages: '405',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1978,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -72,7 +85,7 @@ const dataBooksAlgorithm = [
     theme: 'Алгоритмы',
     title: 'Компиляторы. Принципы, технологии, инструменты',
     author: 'Ахо',
-    authorName: 'Альлфред',
+    authorName: 'Альфред',
     pages: '769',
     isLearned: false,
     dateLearned: '',
@@ -85,7 +98,7 @@ const dataBooksAlgorithm = [
     theme: 'Алгоритмы',
     title: 'Структуры данных и алгоритмы',
     author: 'Ахо',
-    authorName: 'Альлфред',
+    authorName: 'Альфред',
     pages: '382',
     isLearned: false,
     dateLearned: '',
@@ -1247,6 +1260,19 @@ const dataBooksAlgorithm = [
 
   {
     id: 97,
+    year: 2022,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Грокаем алгоритмы (2е)',
+    author: 'Бхаргава',
+    authorName: 'Адитья',
+    pages: '352',
+    isLearned: true,
+    dateLearned: '2024.05.31 пт',
+  },
+
+  {
+    id: 97,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1306,6 +1332,19 @@ const dataBooksAlgorithm = [
     author: 'Окулов',
     authorName: 'Станислав',
     pages: '288',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 102,
+    year: 2025,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: '2025 Алгоритмы и структуры данных на Python',
+    author: 'Cuantum',
+    authorName: 'Technologies',
+    pages: '370',
     isLearned: false,
     dateLearned: '',
   },

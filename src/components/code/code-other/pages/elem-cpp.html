@@ -6,21 +6,25 @@
   <h2>Содержание</h2>
 
   <p><a href="#links">links</a></p>
+  <ol>
+    <li><a href="#links1">online курсы</a></li>
+    <li><a href="#links">статьи</a></li>
+  </ol>
   <p><a href="#about">about</a></p>
   <p><a href="#install">install</a></p>
   <ol>
-    <li><a href="#vscode">Редактор кода VS Code</a></li>
+    <li><a href="#wsl">Командная строка wsl</a></li>
     <li><a href="#gcc">Компилятор gcc</a></li>
     <li><a href="#clang">Компилятор clang</a></li>
+    <li><a href="#vscode">Редактор кода VS Code</a></li>
     <li><a href="#visualstudio">IDE Visual Studio</a></li>
-    <li><a href="#codeblocks">IDE Code Blocks</a></li>
+    <li><a href="#console">Первая программа</a></li>
+    <li><a href="#gcc-setup">Настройка компилятора g++ и clang++</a></li>
   </ol>
-  <p><a href="#gcc-setup">Настройка компилятора g++</a></p>
   <p>Практика</p>
   <ul>
-    <li><a href="#console">Первая программа. Вывод в консоль</a></li>
-    <li><a href="endl">Конец строки</a></li>
-    <li><a href="namespace">namespase</a></li>
+    <li><a href="#endl">Конец строки</a></li>
+    <li><a href="#namespace">namespase</a></li>
     <li><a href="#locale">Локализация и кириллица в консоли</a></li>
   </ul>
   <p><a href="#struct">Структура программы</a></p>
@@ -55,19 +59,28 @@
 <!-- links-->
 <article class="article">
   <div class="anchor" id="links"></div>
-  <h2>links</h2>
+  <h3>links</h3>
+</article>
 
-  <h3>онлайн курсы</h3>
+
+<!-- links1-->
+<article class="article">
+  <div class="anchor" id="links1"></div>
+  <h3>online курсы</h3>
   <p><a href="https://metanit.com/cpp/tutorial/">metanit.com/cpp/tutorial</a> Введение в С++</p>
   <p><a href="https://education.yandex.ru/handbook/cpp/">education.yandex.ru/handbook/cpp</a> Основы С++</p>
   <p><a href="https://stepik.org/course/193691/">https://stepik.org/course/193691/</a> Добрый, добрый C/C++ с Сергеем Балакиревым</p>
   <p><a href="https://stepik.org/course/7/">https://stepik.org/course/7/</a> Программирование на языке C++. Александр Смаль, Михаил Кринкин</p>
   <p><a href="https://stepik.org/course/3206/">https://stepik.org/course/3206/</a> Программирование на языке C++ (продолжение). Александр Смаль</p>
+</article>
 
+
+<!-- links2-->
+<article class="article">
+  <div class="anchor" id="links2"></div>
   <h3>статьи</h3>
   <p><a href="https://blog.skillfactory.ru/kak-pisat-programmi-c-plus-plus/">blog.skillfactory.ru/kak-pisat-programmi-c-plus-plus</a> Язык программирования С++ разбираемся и пишем простую программу</p>
   <p><a href="https://www.onlinegdb.com/online_c++_compiler/">onlinegdb.com/online_c++_compiler</a> Онлайн компилятор С++</p>
-
 </article>
 
 
@@ -94,23 +107,33 @@
   <h2>install</h2>
 
   <p>Для того чтобы написать свою первую программу на языке C++, достаточно редактора кода и компилятора. В редакторе кода будем писать код, а компилятором компилировать его в исполняемый файл.</p>
-  <p>В качестве редактора кода можно использовать и Notepad++ (тоже два плюса как и в C++). Но мы будем использовать VS Code. В него можно поставить расширение для языка C++.</p>
-  <p>Три самых популярный компилятора это</p>
+  <p>Три самых популярных компилятора это</p>
   <ol>
     <li>Компилятор gcc от проекта GNU</li>
     <li>Компилятор Clang от проекта LLVM</li>
     <li>Компилятор C++ от компании Microsoft (используется в Visual Studio)</li>
   </ol>
+  <p>В качестве редактора кода можно использовать и Notepad++ (тоже два плюса как и в C++). Но мы будем использовать VS Code. В него можно поставить расширение для языка C++.</p>
   <p>После того, как первая программа написана, можно поставить среду разработки IDE.</p>
   <p>Самый профессиональный вариант это использовать Microsoft Visual Studio</p>
   <p>Можно использовать Code Blocks</p>
 </article>
 
 
-<!-- Редактор кода VS Code-->
+<!-- Командная строка -->
 <article class="article">
-  <div class="anchor" id="vscode"></div>
-  <h2>Редактор кода VS Code</h2>
+  <div class="anchor" id="wsl"></div>
+  <h3>Командная строка</h3>
+
+  <p>Проверим что установлена командная строка wsl</p>
+  <code>wsl -v</code>
+  <code>Версия WSL: 2.3.24.0</code>
+  <p>(сокращение от wsl --version)</p>
+
+  <p>На Windows 10 рекомендуем установить WSL (Windows Subsystem for Linux) или WSL2</p>
+  <code><a href="https://learn.microsoft.com/ru-ru/windows/wsl/install">https://learn.microsoft.com/ru-ru/windows/wsl/install</a></code>
+  <p>Команда установки wsl</p>
+  <code>wsl --install</code>
 </article>
 
 
@@ -119,77 +142,12 @@
   <div class="anchor" id="gcc"></div>
   <h2>Компилятор gcc от проекта GNU</h2>
 
-  <p>Самый популярный набор компиляторов для разных операционных систем - GCC с компиляторами</p>
-  <ul>
-    <li>gcc для языка СИ</li>
-    <li>g++ для языка С++</li>
-  </ul>
-  <p><a href="https://gcc.gnu.org/">https://gcc.gnu.org/</a></p>
+  <p>Проверим что установлен компилятор gcc</p>
+  <code>gcc -v</code>
+  <code>gcc.exe (GCC) 14.1.0</code>
+  <p>(сокращение от gcc --version)</p>
 
-  <h3>Вариант 1. Если есть интернет</h3>
-  <p>Воспользуемся пакетом средств для разработки MSYS2, который включает GCC</p>
-  <ol>
-    <li>
-      <p>Зайдем на сайт <a href="https://www.msys2.org/">https://www.msys2.org/</a></p>
-    </li>
-    <li>
-      <p>Скачаем установщик (installer)</p>
-      <code>msys2-x86_64-20240727.exe</code>
-    </li>
-    <li>
-      <p>Запустим установщик</p>
-      <code>msys2-x86_64-20240727.exe</code>
-    </li>
-    <li>
-      <p>По умолчанию программа MSYS2 установится в папку</p>
-      <code>C:\msys64\</code>
-    </li>
-    <li>
-      <p>После установки запустится консольное приложение MSYS2.exe. Если не запустилось, то нужно запустить файл</p>
-      <code>C:\msys64\ucrt64.exe</code>
-    </li>
-    <li>
-      <p>Чтобы установить набор компиляторов GCC, наберем в консоли MSYS2 команду. Эта команда <strong>скачает из интернета и установит</strong> компилятор</p>
-      <code>pacman -S mingw-w64-x86_64-gcc</code>
-    </li>
-    <li>
-      <p>Компилятор установится в папку</p>
-      <code>C:\msys64\ucrt64\bin</code>
-    </li>
-    <li>
-      <p>Желательно сразу установить отладчик. Для этого намерем в консоли MSYS2 команду. Эта команда <strong>скачает из интернета и установит</strong> отладчик</p>
-      <code>pacman -S mingw-w64-x86_64-gdb</code>
-    </li>
-    <li>
-      <p>Проверим что компилятор установился</p>
-      <code>gcc --version</code>
-      <code>gcc.exe (GCC) 14.1.0</code>
-    <li>
-      <p>Добавим в Переменные среды путь к компилятору</p>
-      <code>C:\msys64\ucrt\bin\</code>
-    </li>
-  </ol>
-
-  <h3>Вариант 2. Если нет интернета</h3>
-  <ol>
-    <li>
-      <p>Запустим установочный файл</p>
-      <code>gcc-14.1.0-64.exe</code>
-    </li>
-    <li>
-      <p>Компилятор установится в папку</p>
-      <code>C:\gcc\bin</code>
-    </li>
-    <li>
-      <p>Проверим что компилятор установился</p>
-      <code>gcc --version</code>
-      <code>gcc.exe (GCC) 14.1.0</code>
-    </li>
-    <li>
-      <p>Добавим в Переменные среды путь к компилятору</p>
-      <code>C:\gcc\bin\</code>
-    </li>
-  </ol>
+  <p><a href="https://gcc.gnu.org/">https://gcc.gnu.org/</a> Бесплатный компилятор Си и C++</p>
 </article>
 
 
@@ -198,36 +156,36 @@
   <div class="anchor" id="clang"></div>
   <h2>Компилятор clang от проекта LLVM</h2>
 
-  <p>Clang содержит компилятор</p>
-  <ul>
-    <li>clang для языка СИ</li>
-    <li>clang++ для языка С++</li>
-  </ul>
-  <p><a href="https://llvm.org/">https://llvm.org/</a></p>
+  <p>Проверим что установлен компилятор clang</p>
+  <code>clang -v</code>
+  <code>clang version 18.1.8</code>
+  <p>(сокращение от clang --version)</p>
 
-  <h3>Установим компилятор clang</h3>
+  <p><a href="https://clang.llvm.org/">https://clang.llvm.org/</a> Бесплатный компилятор Си и C++</p>
+</article>
 
+
+<!-- Редактор кода VS Code-->
+<article class="article">
+  <div class="anchor" id="vscode"></div>
+  <h2>Редактор кода VS Code</h2>
+  <h3>Установим бесплатный редактор кода Visual Studio Code</h3>
   <ol>
     <li>
-      <p>Зайдем на сайт <a href="http://github.com/llvm/llvm-project/releases/">http://github.com/llvm/llvm-project/releases/</a></p>
+      <p>Переходим на сайт</p>
+      <code><a href="https://visualstudio.microsoft.com/ru">https://visualstudio.microsoft.com/ru</a></code>
     </li>
     <li>
-      <p>Выберем</p>
-      <code>Assets - show all - LLVM-18.1.18-win64.exe</code>
+      <p>Выбираем Бесплатныя версия Visual Studio - и попадаем на страницу</p>
+      <code><a href="https://visualstudio.microsoft.com/ru/free-developer-offers/">https://visualstudio.microsoft.com/ru/free-developers-offers</a></code>
     </li>
     <li>
-      <p>Скачаем и запустим файл</p>
-      <code>LLVM-18.1.18-win64.exe</code>
+      <p>Выбираем</p>
+      <code>Visual Studio Code - Скачать бесплатно -Пользовательский установщик</code>
+      <p>Сохраняем установочный файл на компьютере и запускаем его</p>
+      <code>VSCodeUserSetup-x64-q.93.1.exe</code>
     </li>
-    <li>
-      <p>По умолчанию программа установится в папку</p>
-      <code>C:\Program Files\LLVM\</code>
-    </li>
-    <li>
-      <p>Проверим что программа установилась</p>
-      <code>clang --version</code>
-      <code>clang version 18.1.8</code>
-    </li>
+  </ol>
 </article>
 
 
@@ -236,28 +194,31 @@
   <div class="anchor" id="visualstudio"></div>
   <h2>Среда разработки Visual Studio</h2>
 
-  <h3>Установим бесплатную версию Visual Studio</h3>
+  <h3>Установим бесплатную версию Visual Studio Community</h3>
   <ol>
     <li>
       <p>Переходим на сайт</p>
-      <code>http://www.visualstudio.com/ru</code>
+      <code><a href="https://visualstudio.microsoft.com/ru">https://visualstudio.microsoft.com/ru</a></code>
     </li>
     <li>
-      <p>Выбираем Visual Studio - подробнее и попадаем на страницу</p>
-      <code>http://www.visualstudio.com/ru/vs</code>
+      <p>Выбираем Бесплатныя версия Visual Studio - и попадаем на страницу</p>
+      <code><a href="https://visualstudio.microsoft.com/ru/free-developer-offers/">https://visualstudio.microsoft.com/ru/free-developers-offers</a></code>
     </li>
     <li>
       <p>Выбираем</p>
-      <code>Visual Studio Community - загружается бесплатно</code>
+      <code>Visual Studio Community - Скачать бесплатно</code>
       <p>Сохраняем установочный файл на компьютере и запускаем его</p>
     </li>
     <li>
       <p>Откроется окно</p>
-      <code>Идет установка - Visual Studio Community 2022 - 17.6.3</code>
+      <code>Идет установка - Visual Studio Community 2022 - 17.11.4</code>
     </li>
     <li>
       <p>Выбираем пункт</p>
       <code>Разработка классических приложений на C++</code>
+    </li>
+    <li>
+      <p>Нажимаем Установить</p>
     </li>
   </ol>
 
@@ -282,44 +243,29 @@
       <p>Нажимаем Создать</p>
     </li>
     <li>
-      <p>Visual Studio создаст новый проект для консольного приложения с файлом hello.cpp который содержит код вывода в консоль строки Hello World</p>
+      <p>Visual Studio создаст новый проект для консольного приложения с файлом hello.cpp который содержит код вывода в консоль строки Hello World. Выбираем меню</p>
+      <code>Сборка - Собрать решение (Ctrl+Shift+B)</code>
+    </li>
+    <li>
+      <p>Выбираем меню</p>
+      <code>Отладка - Запуск без отладки (Ctrl+F5)</code>
     </li>
   </ol>
-</article>
-
-
-<!-- IDE Code Blocks-->
-<article class="article">
-  <div class="anchor" id="codeblocks"></div>
-  <h3>IDE Code Blocks</h3>
-</article>
-
-
-<!-- Настройка компилятора g++-->
-<article class="article">
-  <div class="anchor" id="gcc-setup"></div>
-  <h3>Настройка компилятора g++</h3>
-  <p>Для компиляции с предупреждениями применяется флаг <strong>-Wall</strong></p>
-  <code>g++ -Wall source.cpp</code>
-  <p>Для компиляции в определенный стандарт используется флаг <strong>-std=</strong></p>
-  <code>g++ -std=c++20 source.cpp</code>
-  <p>Чтобы гарантировать, что программа будет строго соответствовать определенному стандарту дополнительно используют флаг <strong>-pedantic</strong></p>
-  <code>g++ -std=c++20 - Wall - pedantic source.cpp</code>
-  <p>В этом случае компилятор будет генерировать предупреждения, если код не соответствует правилам стандарта</p>
 </article>
 
 
 <!-- Первая программа. Вывод в консоль-->
 <article class="article">
   <div class="anchor" id="console"></div>
-  <h3>Первая программа. Вывод в консоль</h3>
+  <h3>Первая программа</h3>
 
-  <h3>Напишем первую программу</h3>
   <ol>
+
     <li>
       <p>Создадим файл</p>
       <code>hello.cpp</code>
     </li>
+
     <li>
       <p>Запишем в него код первой программы</p>
 <pre>#include &lt;iostream&gt;
@@ -328,29 +274,46 @@ int main() {
   return 0;
 }</pre>
     </li>
+
     <li>
-      <p>Скомпилируем наш код</p>
+      <p>Откроем терминал и запустим компилятор</p>
       <code>g++ hello.cpp</code>
     </li>
+
     <li>
-      <p>По умолчанию компилятор создаст исполняемый файл <strong>a.exe</strong>. Запустим нашу программу</p>
-      <p>Если используется стандартная консоль Windows, то надо ввести имя файла</p>
-      <code>a</code>
-      <code>Hello, world!</code>
-      <p>Если используется оболочка PowerShell или консоль VSCode, то перед именем файла надо использовать <strong>./</strong></p>
+      <p>По умолчанию компилятор создаст исполняемый файл <strong>a.exe</strong>. Запустим его</p>
       <code>./a</code>
+    </li>
+
+    <li>
+      <p>Увидим результат работы программы</p>
       <code>Hello, world!</code>
     </li>
-    <li>
-      <p>Можно задать имя исполняемого файла. Эта команда создаст исполняемый файл hello.exe</p>
-      <code>g++ hello.cpp -o hello</code>
-    </li>
-    <li>
-      <p>Можно совместить компиляцию и выполнение одной командой</p>
-      <code>g++ hello.cpp -o hello && ./hello</code>
-      <p>Если использовать один амперсанд &, у меня консоль выдает ошибку что файл не найден, поскольку файл не успевал создаваться, когда он уже вызывался на исполнение.</p>
-    </li>
+
   </ol>
+</article>
+
+
+<!-- Настройка компилятора g++ и clang++ -->
+<article class="article">
+  <div class="anchor" id="gcc-setup"></div>
+  <h3>Настройка компилятора g++ и clang++</h3>
+
+  <p>Можно совместить компиляцию и выполнение одной командой</p>
+  <code>g++ source.cpp && ./a</code>
+
+  <p>Можно задать имя исполняемого файла после флага <strong>-o</strong></p>
+  <code>g++ source.cpp -o source</code>
+
+  <p>Для компиляции с предупреждениями применяется флаг <strong>-Wall</strong></p>
+  <code>g++ -Wall source.cpp</code>
+
+  <p>Можно задать компиляцию в определенный стандарт после флага <strong>-std=</strong></p>
+  <code>g++ -std=c++20 source.cpp</code>
+
+  <p>Чтобы гарантировать, что программа будет строго соответствовать определенному стандарту дополнительно используют флаг <strong>-pedantic</strong></p>
+  <code>g++ -std=c++20 -Wall -pedantic source.cpp</code>
+  <p>В этом случае компилятор будет генерировать предупреждения, если код не соответствует правилам стандарта</p>
 </article>
 
 

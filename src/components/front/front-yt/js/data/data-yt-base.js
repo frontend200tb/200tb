@@ -281,6 +281,20 @@ const dataYtBase = [
   },
 
   {
+    id: 11,
+    theme: 'Основы',
+    title: 'Александр Донской DevOps фабрика',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@devopsfactory/videos',
+    site: '',
+    dateFirstVideo: '2024.04.13',
+    dateLastVideo: '2024.09.07',
+    amountVideos: 7,
+  },
+
+  {
     id: 12,
     theme: 'Основы',
     title: 'Alexander Titov',

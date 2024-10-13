@@ -1,144 +1,119 @@
 
 <h2>Sublime Text (2007)</h2>
 
-<div class="content__menu">
-  <p class="content__menu-link" id="content__menu-link1">Документация</p>
-  <p class="content__menu-link" id="content__menu-link2">Установка</p>
-  <p class="content__menu-link" id="content__menu-link3">Плагины</p>
-  <p class="content__menu-link" id="content__menu-link4">Настройка</p>
-  <p class="content__menu-link" id="content__menu-link5">Горячие клавиши</p>
-</div>
 
-<div class="content__items">
-  <div class="content__item" id="content__item1">
-    <h3>Документация Sublime text</h3>
-    <ol>
-      <li><a href="https://www.sublimetext.com/">sublimetext.com</a><br>sublime (eng)</li>
-      <li><a href="https://packagecontrol.io/">packagecontrol.io</a><br>Плагины</li>
-      <li><a href="https://sublimetext.ru/">sublimetext.ru</a><br>sublime (рус)</li>
-      <li><a href="https://freefrontend.com/sublime-text-themes-ui/">freefrontend.com</a><br>Темы sublime</li>
-    </ol>
-  </div>
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
 
-  <div class="content__item" id="content__item2">
-    <h3>Установка Sublime text (портативной версии)</h3>
-    <ol>
-      <li>Заходим на сайт <a href="https://www.sublimetext.com/">sublimetext.com</a></li>
-      <li>Нажимаем Download</li>
-      <li>Выбираем portable version sublime_text_build_4113_x64.zip</li>
-      <li>Распаковываем ее в каталог <code>c:\Portable\SublimeText\</code></li>
-    </ol>
+  <p><a href="#links">links</a></p>
+  <p><a href="#install">install</a></p>
+  <p><a href="#setup">Настройка</a></p>
+  <p><a href="#plugins">Плагины</a></p>
+  <p><a href="#hotkeys">Горячие клавиши</a></p>
+</article>
 
-    <h2>Как добавить Sublime text в меню пуск</h2>
-    <ol>
-      <li>Выбираем файл (клик правой кнопкой мыши) <code>c:\Portable\SublimeText\sublime_text.exe</code></li>
-      <li>Выбираем Закрепить на начальном экране</li>
-    </ol>
 
-    <h3>Как добавить <em>программу</em> Sublime text в контекстное меню</h3>
-    <ol>
-      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
-      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
-      <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать &gt; Раздел</code></li>
-      <li>Назовите его так, как должна называться команда в контекстном меню. Скажем, <code>Открыть с помощью Sublime text</code></li>
-      <li>Клик правой кнопкой мыши на созданной папке и снова выбираем команду <code>Создать &gt; Раздел</code></li>
-      <li>Новый вложенный раздел назовите <code>command</code></li>
-      <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
-      <li>В открывшемся окне введите следующую команду <code>"c:\Portable\SublimeText\sublime_text.exe" "%1"</code></li>
-    </ol>
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h3>links</h3>
 
-    <h3>Как добавить <em>иконку</em> Sublime text в контекстное меню</h2>
-    <ol>
-      <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
-      <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью Sublime text</code></li>
-      <li>Клик правой кнопкой мыши и выбираем команду <code>Создать > Строковый параметр</code></li>
-      <li>в поле Имя укажите значение <code>Icon</code></li>
-      <li>
-        а в поле Значение укажите путь к exe-файлу, как показано ниже (кавычки обязательны): 
-        <code>"c:\Portable\SublimeText\sublime_text.exe"</code>
-      </li>
-    </ol>
-  </div>
+  <p><a href="https://www.sublimetext.com/">sublimetext.com</a><br>sublime (eng)</p>
+  <p><a href="https://packagecontrol.io/">packagecontrol.io</a><br>Плагины</p>
+  <p><a href="https://sublimetext.ru/">sublimetext.ru</a><br>sublime (рус)</p>
+  <p><a href="https://freefrontend.com/sublime-text-themes-ui/">freefrontend.com</a><br>Темы sublime</p>
+</article>
 
-  <div class="content__item" id="content__item3">
-    <h3>Установка Packege Control</h2>
-    <ol>
-      <li>Перед установкой плагинов надо установить Packege Control. Для установки в автоматическом режиме (если есть выход в интернет) надо нажать
-      <code>ctrl + shift + P</code>
-      и в появившемся окне набрать
-      <code>Install Package Control</code>
-      Для установки в ручном режиме заходим на сайт <a href="https://packagecontrol.io/installation">packagecontrol.io/installation.</a>
-      Инструкция с сайта ниже
-      </li>
-      <li>Click menu Preferences &gt; Browse Packages</li>
-      <li>Browse up Installed Packages folder
-        <code>C:\Portable\SublimeText\Data\Packages</code>
-      </li>
-      <li>Download Package Control.sublime-package and copy it into the Installed Packages folder</li>
-      <li>Restart Sublime Text</li>
-    </ol>
 
-    <h3>Установка плагинов для Sublime Text</h3>
-    <ul>
-      <li>Для установки плагинов в автоматическом режиме (если есть выход в интернет) надо нажать нажать
-      <code>Preferences - Package Control - Install Package</code>
-      или
-      <code>ctrl + shift + P</code>
-      и в появившемся окне набрать Install Package и найти нужный плагин. Для установки в ручном режиме ищем плагины на сайте </p><a href="https://packagecontrol.io/">packagecontrol.io</a>
-      </li>
-      <li>Список полезных плагинов</li>
-    </ul>
-    <ol>
-      <li>Emmet ускоряет написание кода</li>
-      <li>All Autocomplete начинаем писать и нам предлагают подставить то что уже есть</li>
-      <li>AutoFileName автоподстановка пути файлов и картинок</li>
-      <li>Alignment выравнивает фрагменты кода</li>
-      <li>BracketHighlighter подсветка начального и закрывающего тега</li>
-      <li>ColorHighlighter подсветка цвета</li>
-      <li>ColorPicker выбор цвета</li>
-      <li>Goto-CSS-Declaration находит класс в css</li>
-      <li>LiveReload Обновление файла в браузере при редактировании</li>
-      <li>LiveServer</li>
-      <li>LiveStyle</li>
-      <li>Sass для работы с препроцессором Sass, выделяет синтаксис</li>
-      <li>SideBarEnhancements больше команд в сайд баре</li>
-      <li>SublimeLinter</li>
-    </ol>
-  </div>
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>install</h3>
 
-  <div class="content__item" id="content__item4">
-    <h3>Настройка пункта меню View</h3>
-    <ul>
-    <li>показать навигацию по файлам слева
-    <code>View - Side bar - Show side bar </code>
-    показать миникарту справа
-    <code>View - Show Minimap</code>
-    показать панель выбора текущего документа сверху
-    <code>View - Show Tabs</code>
-    показать строку состояния внизу
-    <code>View - Show Status Bar</code>
-    показать меню (если выбран Hide Menu, то меню появляется и исчезает по нажатию на клавишу alt, когда меню появится надо выбрать Show menu)
-    <code>View - Show menu</code>
-    показать консоль
-    <code>View - Show Console</code>
-    цветовая тема
-    <code>Preferences - Color Scheme</code>
-    </li>
-    </ul>
-
-    <h3>Настройка окна редактирования</h3>
-    <ul>
+  <h3>Установка Sublime text (портативной версии)</h3>
+  <ol>
     <li>
-    <code>Preferences – Settings </code>
-    <p>Открывается такое окно разделенное на две части. В левой части настройки по умолчанию, их изменить нельзя, а вот в правой части ты можешь эти настройки переназначить, каждая следующая должна идти через запятую.</p>
-    <p>"margin": 0, // Отступ стрки кода от номера строки слева</p>
-    <p>"font_size": 12, // Размер шрифта по умолчанию</p>
-    <p>"tab_size": 4, //Размер табуляции</p>
-    <p>"draw_white_space": "all", // Отображает непечатаемые символы</p>
-    <p>"draw_indent_guides": true, // Включает/выключает направляющие линии</p>
-    <p>"translate_tabs_to_spaces": true, // Преобразовывает табуляцию в пробелы</p>
-    <p>"remeber_open_files": true, // Помнит открытые ранее файлы</p>
-    <p>"highlight_line": true, // Подсветка текущей строки</p>
+      <p>Заходим на сайт</p>
+      <code><a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></code>
+    </li>
+    <li>
+      <p>Скачиваем 64битную портативную версию</p>
+      <code>sublime_text_build_4113_x64.zip</code>
+    </li>
+    <li>
+      <p>Распаковываем ее в каталог</p>
+      <code>c:\Portable\SublimeText\</code>
+    </li>
+  </ol>
+
+  <h3>Как добавить Sublime text в меню пуск</h3>
+  <ol>
+    <li>
+      <p>Выбираем файл (клик правой кнопкой мыши)</p>
+      <code>c:\Portable\SublimeText\sublime_text.exe</code>
+    </li>
+    <li>Выбираем Закрепить на начальном экране</li>
+  </ol>
+
+  <h3>Как добавить <em>программу</em> Sublime text в контекстное меню</h3>
+  <ol>
+    <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
+    <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell</code></li>
+    <li>Клик правой кнопкой мыши на папке shell и выберите команду <code>Создать &gt; Раздел</code></li>
+    <li>Назовите его так, как должна называться команда в контекстном меню. Скажем, <code>Открыть с помощью Sublime text</code></li>
+    <li>Клик правой кнопкой мыши на созданной папке и снова выбираем команду <code>Создать &gt; Раздел</code></li>
+    <li>Новый вложенный раздел назовите <code>command</code></li>
+    <li>Щелкните на значке раздела command и дважды в окне справа на ключе <code>(По умолчанию) REG_SZ</code></li>
+    <li>В открывшемся окне введите следующую команду <code>"c:\Portable\SublimeText\sublime_text.exe" "%1"</code></li>
+  </ol>
+
+  <h3>Как добавить <em>иконку</em> Sublime text в контекстное меню</h3>
+  <ol>
+    <li>Открыть Редактор реестра, для этого выбрать Пуск - Выполнить или нажать<code>win + R</code>и ввести команду <code>regedit</code></li>
+    <li>В редакторе реестра переходим к ветке <code>HKEY_CLASSES_ROOT\*\shell\Открыть с помощью Sublime text</code></li>
+    <li>Клик правой кнопкой мыши и выбираем команду <code>Создать > Строковый параметр</code></li>
+    <li>в поле Имя укажите значение <code>Icon</code></li>
+    <li>
+      а в поле Значение укажите путь к exe-файлу, как показано ниже (кавычки обязательны):
+      <code>"c:\Portable\SublimeText\sublime_text.exe"</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Настройка -->
+<article class="article">
+  <div class="anchor" id="setup"></div>
+  <h3>Настройка</h3>
+
+  <h3>Настройка пункта меню View</h3>
+  показать навигацию по файлам слева
+  <code>View - Side bar - Show side bar </code>
+  показать миникарту справа
+  <code>View - Show Minimap</code>
+  показать панель выбора текущего документа сверху
+  <code>View - Show Tabs</code>
+  показать строку состояния внизу
+  <code>View - Show Status Bar</code>
+  показать меню (если выбран Hide Menu, то меню появляется и исчезает по нажатию на клавишу alt, когда меню появится надо выбрать Show menu)
+  <code>View - Show menu</code>
+  показать консоль
+  <code>View - Show Console</code>
+  цветовая тема
+  <code>Preferences - Color Scheme</code>
+
+  <h3>Настройка окна редактирования</h3>
+  <code>Preferences – Settings </code>
+  <p>Открывается такое окно разделенное на две части. В левой части настройки по умолчанию, их изменить нельзя, а вот в правой части ты можешь эти настройки переназначить, каждая следующая должна идти через запятую.</p>
+  <p>"margin": 0, // Отступ стрки кода от номера строки слева</p>
+  <p>"font_size": 12, // Размер шрифта по умолчанию</p>
+  <p>"tab_size": 4, //Размер табуляции</p>
+  <p>"draw_white_space": "all", // Отображает непечатаемые символы</p>
+  <p>"draw_indent_guides": true, // Включает/выключает направляющие линии</p>
+  <p>"translate_tabs_to_spaces": true, // Преобразовывает табуляцию в пробелы</p>
+  <p>"remeber_open_files": true, // Помнит открытые ранее файлы</p>
+  <p>"highlight_line": true, // Подсветка текущей строки</p>
 <pre>{
 "show_definitions": false,
 "auto_complete": false,
@@ -163,46 +138,82 @@
 "theme": "OneDarkMaterial.sublime-theme",
 "word_wrap": "false",
 }</pre>
-</li>
-</ul>
 
 <h3>Настройка браузера для просмотра кода</h3>
-<ul>
-<li>
 <code>Tools - Build System - New Build System...</code>
 прописываем в открывшемся окне путь до хрома
 <pre>{
 "cmd": ["c:\Program Files (x86)\Google\Chrome\Application\chrome.exe", "$file"]
 }</pre>
-    <p>При этом двойной слеш нужен для экранирования</p>
-    <p>Собственно все, сохраняем файл как</p><code>Chrome.sublime-build</code>
-    <p>Закрываем и открываем снова SublimeText</p>
-    <p>Заходим в</p><code>Tools - Build System </code>
-    <p>Выбираем Chrome и запускать открытые файлы в нем можно нажатием Ctrl+B</p>
-    </li>
-    </ul>
-  </div>
+  <p>При этом двойной слеш нужен для экранирования</p>
+  <p>Собственно все, сохраняем файл как</p><code>Chrome.sublime-build</code>
+  <p>Закрываем и открываем снова SublimeText</p>
+  <p>Заходим в</p><code>Tools - Build System </code>
+  <p>Выбираем Chrome и запускать открытые файлы в нем можно нажатием Ctrl+B</p>
+</article>
 
-  <div class="content__item" id="content__item5">
-    <h3>Горячие клавиши</h3>
-    <ul>
-    <li>
-    <p>ctrl + s сохранить<br>alt + shift + 2 две колонки<br>ctrl + f поиск<br>ctrl + shift + / комментарий<br>ctrl + shift + d копировать строку</p>
-    </li>
-    </ul>
 
-    <h3>Настройка горячих клавиш</h3>
-    <ul>
-    <li>
-    <code>Preferences - Key Bindings</code>
-    <p>Код пресета для пользовательских клавиатурных сокращений (Default (Windows).sublime-keymap:</p>
+<!-- Плагины -->
+<article class="article">
+  <div class="anchor" id="plugins"></div>
+  <h3>Плагины</h3>
+
+  <h3>Установка Packege Control</h3>
+  <ol>
+    <li>Перед установкой плагинов надо установить Packege Control. Для установки в автоматическом режиме (если есть выход в интернет) надо нажать
+    <code>ctrl + shift + P</code>
+    и в появившемся окне набрать
+    <code>Install Package Control</code>
+    Для установки в ручном режиме заходим на сайт <a href="https://packagecontrol.io/installation">packagecontrol.io/installation.</a>
+    Инструкция с сайта ниже
+    </li>
+    <li>Click menu Preferences &gt; Browse Packages</li>
+    <li>Browse up Installed Packages folder
+      <code>C:\Portable\SublimeText\Data\Packages</code>
+    </li>
+    <li>Download Package Control.sublime-package and copy it into the Installed Packages folder</li>
+    <li>Restart Sublime Text</li>
+  </ol>
+
+  <h3>Установка плагинов для Sublime Text</h3>
+  Для установки плагинов в автоматическом режиме (если есть выход в интернет) надо нажать нажать
+  <code>Preferences - Package Control - Install Package</code>
+  или
+  <code>ctrl + shift + P</code>
+  и в появившемся окне набрать Install Package и найти нужный плагин. Для установки в ручном режиме ищем плагины на сайте </p><a href="https://packagecontrol.io/">packagecontrol.io</a>
+
+  <h3>Список полезных плагинов</h3>
+  <ol>
+    <li>Emmet ускоряет написание кода</li>
+    <li>All Autocomplete начинаем писать и нам предлагают подставить то что уже есть</li>
+    <li>AutoFileName автоподстановка пути файлов и картинок</li>
+    <li>Alignment выравнивает фрагменты кода</li>
+    <li>BracketHighlighter подсветка начального и закрывающего тега</li>
+    <li>ColorHighlighter подсветка цвета</li>
+    <li>ColorPicker выбор цвета</li>
+    <li>Goto-CSS-Declaration находит класс в css</li>
+    <li>LiveReload Обновление файла в браузере при редактировании</li>
+    <li>LiveServer</li>
+    <li>LiveStyle</li>
+    <li>Sass для работы с препроцессором Sass, выделяет синтаксис</li>
+    <li>SideBarEnhancements больше команд в сайд баре</li>
+    <li>SublimeLinter</li>
+  </ol>
+</article>
+
+
+<!-- Горячие клавиши (Hot keys) -->
+<article class="article">
+  <div class="anchor" id="hotkeys"></div>
+  <h3>Горячие клавиши (Hot keys)</h3>
+
+  <p>ctrl + s сохранить<br>alt + shift + 2 две колонки<br>ctrl + f поиск<br>ctrl + shift + / комментарий<br>ctrl + shift + d копировать строку</p>
+
+  <h3>Настройка горячих клавиш</h3>
+  <code>Preferences - Key Bindings</code>
+  <p>Код пресета для пользовательских клавиатурных сокращений (Default (Windows).sublime-keymap:</p>
 <pre>[
 { "keys": ["alt+shift+f"], "command": "reindent" },
 ]</pre>
-    <p>Теперь при выделении и по нажатию Alt+Shift+F ваш код будет автоматически выравниваться отступами с соответствующей иерархией вложенности элементов.</p>
-    </li>
-    </ul>
-  </div>
-  <hr><a href="#header">К началу страницы</a>
-  <hr>
-</div>
+  <p>Теперь при выделении и по нажатию Alt+Shift+F ваш код будет автоматически выравниваться отступами с соответствующей иерархией вложенности элементов.</p>
+</article>

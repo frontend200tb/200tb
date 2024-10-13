@@ -5,6 +5,7 @@
 import htmlAssembler from './elem-assembler.html';
 import htmlLinux from './elem-linux.html';
 import htmlC from './elem-c.html';
+import htmlCPractice from './elem-cpractice.html';
 import htmlCpp from './elem-cpp.html';
 import htmlCsharp from './elem-csharp.html';
 import htmlMarkdown from './elem-markdown.html';
@@ -19,6 +20,7 @@ export default function pageLink() {
     htmlAssembler,
     htmlLinux,
     htmlC,
+    htmlCPractice,
     htmlCpp,
     htmlCsharp,
     htmlMarkdown,
