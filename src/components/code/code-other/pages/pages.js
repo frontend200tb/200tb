@@ -8,6 +8,7 @@ import htmlC from './elem-c.html';
 import htmlCPractice from './elem-cpractice.html';
 import htmlCpp from './elem-cpp.html';
 import htmlCsharp from './elem-csharp.html';
+import htmlJava from './elem-java.html';
 import htmlMarkdown from './elem-markdown.html';
 import htmlPhp from './elem-php.html';
 import htmlPug from './elem-pug.html';
@@ -23,6 +24,7 @@ export default function pageLink() {
     htmlCPractice,
     htmlCpp,
     htmlCsharp,
+    htmlJava,
     htmlMarkdown,
     htmlPhp,
     htmlPug,

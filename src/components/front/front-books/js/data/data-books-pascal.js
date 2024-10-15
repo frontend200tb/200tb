@@ -775,13 +775,26 @@ const dataBooksPascal = [
     title: 'Введение в язык Паскаль',
     author: 'Абрамов',
     authorName: 'Владимир',
-    pages: '379',
+    pages: '381',
     isLearned: false,
     dateLearned: '',
   },
 
   {
     id: 60,
+    year: 2021,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Разработка Паскаль-компилятора (5е)',
+    author: 'Залогова',
+    authorName: 'Любовь',
+    pages: '186',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 61,
     year: 2022,
     category: 'code',
     theme: 'pascal',
@@ -794,7 +807,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 61,
+    id: 62,
     year: 2023,
     category: 'code',
     theme: 'pascal',
@@ -807,7 +820,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 62,
+    id: 63,
     year: 2023,
     category: 'code',
     theme: 'pascal',

@@ -39,7 +39,7 @@ const dataBooksC = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 1990,
     category: 'code',
     theme: 'c',
@@ -52,7 +52,7 @@ const dataBooksC = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 1991,
     category: 'code',
     theme: 'c',
@@ -65,7 +65,7 @@ const dataBooksC = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 1991,
     category: 'code',
     theme: 'c',
@@ -78,7 +78,7 @@ const dataBooksC = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -91,7 +91,7 @@ const dataBooksC = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -104,7 +104,7 @@ const dataBooksC = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -117,7 +117,7 @@ const dataBooksC = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -130,7 +130,7 @@ const dataBooksC = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -143,7 +143,7 @@ const dataBooksC = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -156,7 +156,7 @@ const dataBooksC = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 1992,
     category: 'code',
     theme: 'c',
@@ -169,7 +169,7 @@ const dataBooksC = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -182,7 +182,7 @@ const dataBooksC = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -195,7 +195,7 @@ const dataBooksC = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 1994,
     category: 'code',
     theme: 'c',
@@ -208,7 +208,7 @@ const dataBooksC = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 1996,
     category: 'code',
     theme: 'c',
@@ -220,7 +220,7 @@ const dataBooksC = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -233,7 +233,7 @@ const dataBooksC = [
   },
 
   {
-    id: 18,
+    id: 19,
     year: 1997,
     category: 'code',
     theme: 'c',
@@ -246,7 +246,7 @@ const dataBooksC = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2000,
     category: 'code',
     theme: 'c',
@@ -259,7 +259,7 @@ const dataBooksC = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -272,7 +272,7 @@ const dataBooksC = [
   },
 
   {
-    id: 21,
+    id: 22,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -285,7 +285,7 @@ const dataBooksC = [
   },
 
   {
-    id: 22,
+    id: 23,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -298,7 +298,7 @@ const dataBooksC = [
   },
 
   {
-    id: 23,
+    id: 24,
     year: 2001,
     category: 'code',
     theme: 'c',
@@ -311,7 +311,7 @@ const dataBooksC = [
   },
 
   {
-    id: 24,
+    id: 25,
     year: 2002,
     category: 'code',
     theme: 'c',
@@ -324,7 +324,7 @@ const dataBooksC = [
   },
 
   {
-    id: 25,
+    id: 26,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -336,7 +336,7 @@ const dataBooksC = [
   },
 
   {
-    id: 26,
+    id: 27,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -349,7 +349,7 @@ const dataBooksC = [
   },
 
   {
-    id: 27,
+    id: 28,
     year: 2003,
     category: 'code',
     theme: 'c',
@@ -362,7 +362,7 @@ const dataBooksC = [
   },
 
   {
-    id: 28,
+    id: 29,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -375,7 +375,7 @@ const dataBooksC = [
   },
 
   {
-    id: 29,
+    id: 30,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -388,7 +388,7 @@ const dataBooksC = [
   },
 
   {
-    id: 30,
+    id: 31,
     year: 2004,
     category: 'code',
     theme: 'c',
@@ -401,7 +401,7 @@ const dataBooksC = [
   },
 
   {
-    id: 31,
+    id: 32,
     year: 2006,
     category: 'code',
     theme: 'c',
@@ -414,7 +414,7 @@ const dataBooksC = [
   },
 
   {
-    id: 32,
+    id: 33,
     year: 2006,
     category: 'code',
     theme: 'c',
@@ -427,7 +427,20 @@ const dataBooksC = [
   },
 
   {
-    id: 33,
+    id: 34,
+    year: 2007,
+    category: 'code',
+    theme: 'c',
+    title: 'Основы алгоритмизации и программирования. Язык Си',
+    author: 'Батура',
+    authorName: 'Михаил',
+    pages: '243',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
     year: 2007,
     category: 'code',
     theme: 'c',
@@ -440,7 +453,20 @@ const dataBooksC = [
   },
 
   {
-    id: 34,
+    id: 36,
+    year: 2007,
+    category: 'code',
+    theme: 'c',
+    title: 'Основы алгоритмизации и программирования. Язык Си',
+    author: 'Луцик',
+    authorName: 'Юрий',
+    pages: '160',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
     year: 2007,
     category: 'code',
     theme: 'c',
@@ -453,7 +479,7 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 38,
     year: 2007,
     category: 'code',
     theme: 'c',
@@ -466,7 +492,7 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 39,
     year: 2008,
     category: 'code',
     theme: 'c',
@@ -479,7 +505,7 @@ const dataBooksC = [
   },
 
   {
-    id: 34,
+    id: 40,
     year: 2009,
     category: 'code',
     theme: 'c',
@@ -492,7 +518,20 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 41,
+    year: 2009,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке высокого уровня Си. Конспект лекций',
+    author: 'Попов',
+    authorName: 'Д.И.',
+    pages: '221',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 42,
     year: 2010,
     category: 'code',
     theme: 'c',
@@ -505,7 +544,7 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 43,
     year: 2011,
     category: 'code',
     theme: 'c',
@@ -518,7 +557,7 @@ const dataBooksC = [
   },
 
   {
-    id: 35,
+    id: 44,
     year: 2012,
     category: 'code',
     theme: 'c',
@@ -531,7 +570,7 @@ const dataBooksC = [
   },
 
   {
-    id: 36,
+    id: 45,
     year: 2013,
     category: 'code',
     theme: 'c',
@@ -544,7 +583,7 @@ const dataBooksC = [
   },
 
   {
-    id: 37,
+    id: 46,
     year: 2014,
     category: 'code',
     theme: 'c',
@@ -557,7 +596,7 @@ const dataBooksC = [
   },
 
   {
-    id: 38,
+    id: 47,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -570,7 +609,7 @@ const dataBooksC = [
   },
 
   {
-    id: 38,
+    id: 48,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -583,7 +622,7 @@ const dataBooksC = [
   },
 
   {
-    id: 39,
+    id: 49,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -596,7 +635,7 @@ const dataBooksC = [
   },
 
   {
-    id: 40,
+    id: 50,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -609,7 +648,7 @@ const dataBooksC = [
   },
 
   {
-    id: 41,
+    id: 51,
     year: 2015,
     category: 'code',
     theme: 'c',
@@ -622,7 +661,7 @@ const dataBooksC = [
   },
 
   {
-    id: 42,
+    id: 52,
     year: 2016,
     category: 'code',
     theme: 'c',
@@ -635,7 +674,7 @@ const dataBooksC = [
   },
 
   {
-    id: 43,
+    id: 53,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -648,7 +687,7 @@ const dataBooksC = [
   },
 
   {
-    id: 44,
+    id: 54,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -660,7 +699,7 @@ const dataBooksC = [
   },
 
   {
-    id: 45,
+    id: 55,
     year: 2017,
     category: 'code',
     theme: 'c',
@@ -673,7 +712,7 @@ const dataBooksC = [
   },
 
   {
-    id: 46,
+    id: 56,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -685,7 +724,7 @@ const dataBooksC = [
   },
 
   {
-    id: 47,
+    id: 57,
     year: 2019,
     category: 'code',
     theme: 'c',
@@ -697,7 +736,19 @@ const dataBooksC = [
   },
 
   {
-    id: 48,
+    id: 58,
+    year: 2019,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на языке Си. Билеты и ответы',
+    author: '',
+    pages: '82',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 59,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -710,7 +761,7 @@ const dataBooksC = [
   },
 
   {
-    id: 49,
+    id: 60,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -723,7 +774,7 @@ const dataBooksC = [
   },
 
   {
-    id: 50,
+    id: 61,
     year: 2020,
     category: 'code',
     theme: 'c',
@@ -736,7 +787,7 @@ const dataBooksC = [
   },
 
   {
-    id: 51,
+    id: 62,
     year: 2021,
     category: 'code',
     theme: 'c',
@@ -749,7 +800,7 @@ const dataBooksC = [
   },
 
   {
-    id: 52,
+    id: 63,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -762,7 +813,7 @@ const dataBooksC = [
   },
 
   {
-    id: 52,
+    id: 64,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -775,7 +826,7 @@ const dataBooksC = [
   },
 
   {
-    id: 53,
+    id: 65,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -788,7 +839,7 @@ const dataBooksC = [
   },
 
   {
-    id: 54,
+    id: 66,
     year: 2022,
     category: 'code',
     theme: 'c',
@@ -801,7 +852,7 @@ const dataBooksC = [
   },
 
   {
-    id: 55,
+    id: 67,
     year: 2023,
     category: 'code',
     theme: 'c',
@@ -814,7 +865,7 @@ const dataBooksC = [
   },
 
   {
-    id: 56,
+    id: 68,
     year: 2023,
     category: 'code',
     theme: 'c',
@@ -827,7 +878,7 @@ const dataBooksC = [
   },
 
   {
-    id: 57,
+    id: 69,
     year: 2023,
     category: 'code',
     theme: 'c',
