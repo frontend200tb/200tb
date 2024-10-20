@@ -1,22 +1,45 @@
 /** **************
 Скрипт из файла nav.js
 создает ссылки в меню nav для каждого пункта меню header_nav
-Code HTML CSS JS TS C# Markdown Pug Sass Php Pascal
+Alg      Алгоритмы
+Code     HTML CSS JS TS Pascal Other
 Frontend Books Edu Learned Node Offline Vacancy Video Youtube
 ****************** */
 
 import './Nav.class';
-import {dataNavCode, dataNavFront} from './data-nav';
+import {dataNavAlg, dataNavCode, dataNavFront} from './data-nav';
 import { endUrl } from '../Header/header-nav/header-nav';
 
 const nav = document.getElementById('nav');
 const main = document.getElementById('maincomponent');
 
 /** **************
-1. nav для страниц code
+1. nav для страниц alg
 **************** */
 
-// 4.1 Создаем ссылки из массива dataNavCode
+// 1.1 Создаем ссылки из массива dataNavAlg
+createNavAlg(dataNavAlg);
+
+function createNavAlg(navCode) {
+  navCode.forEach((el) => {
+    el.elem = document.createElement('a');
+    el.elem.href = '';
+    el.elem.innerHTML = el.text;
+    el.elem.addEventListener('click', (event) => {
+      event.preventDefault();
+      // добавим class="active"
+      classActive(navCode, el.elem);
+      main.innerHTML = el.content;
+      el.act();
+    });
+  });
+}
+
+/** **************
+2. nav для страниц code
+**************** */
+
+// 2.1 Создаем ссылки из массива dataNavCode
 createNavCode(dataNavCode);
 
 function createNavCode(navCode) {
@@ -35,10 +58,10 @@ function createNavCode(navCode) {
 }
 
 /** **************
-2. nav для страниц frontend
+3. nav для страниц frontend
 **************** */
 
-// 5.1 Создаем ссылки из массива dataNavFront
+// 3.1 Создаем ссылки из массива dataNavFront
 createNavFront(dataNavFront);
 
 function createNavFront(navFront) {
@@ -65,7 +88,17 @@ function classActive(menu, activElem) {
 }
 
 export default function createNav() {
-  // 1.2 Добавим ссылки navCode в nav если адрес code.html
+  // 1.2 Добавим ссылки navAlg в nav если адрес alg.html
+  if (endUrl === '/alg.html') {
+    nav.innerHTML = '';
+    dataNavAlg.forEach((el) => {
+      nav.appendChild(el.elem);
+      el.elem.classList.remove('active');
+    });
+    dataNavAlg[0].elem.classList.add('active');
+  }
+
+  // 2.2 Добавим ссылки navCode в nav если адрес code.html
   if (endUrl === '/code.html') {
     nav.innerHTML = '';
     dataNavCode.forEach((el) => {
@@ -75,7 +108,7 @@ export default function createNav() {
     dataNavCode[0].elem.classList.add('active');
   }
 
-  // 2.2 Добавим ссылки navFront в nav если адрес index.html
+  // 3.2 Добавим ссылки navFront в nav если адрес index.html
   if (endUrl === '/index.html') {
     nav.innerHTML = '';
     dataNavFront.forEach((el) => {

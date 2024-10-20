@@ -11,8 +11,9 @@ import htmlNeoflex from './elem-neoflex.html';
 import htmlYandex from './elem-yandex.html';
 import htmlOzon from './elem-ozon.html';
 import htmlAvito from './elem-avito.html';
-import htmlTinkoff from './elem-tinkoff.html';
 import htmlSber from './elem-sber.html';
+import htmlTbank from './elem-tbank.html';
+import htmlT1 from './elem-t1.html';
 import htmlInterview from './elem-interview.html';
 import htmlPostcross from './elem-postcross.html';
 import htmlInvite from './elem-invite.html';
@@ -29,8 +30,9 @@ const aside = [
   htmlYandex,
   htmlOzon,
   htmlAvito,
-  htmlTinkoff,
   htmlSber,
+  htmlTbank,
+  htmlT1,
   htmlInterview,
   htmlPostcross,
   htmlInvite,

@@ -5,8 +5,7 @@
 import {main} from './../js/f-create-aside';
 
 // Aside
-import htmlEduRss2024stage3 from './elem-edu-rss2024-stage3-react.html';
-import htmlEduRss2024stage0 from './elem-edu-rss2024-stage0.html';
+import htmlEduDsr2024cpp from './elem-edu-dsr2024cpp.html';
 import htmlEduCourses from './elem-edu-courses.html';
 import htmlEduCoursesLearned from './elem-edu-courseslearned.html';
 import htmlEduLearning from './elem-edu-learning.html';
@@ -20,29 +19,38 @@ import htmlEduRss2022stage1 from './elem-edu-rss2022-stage1.html';
 import htmlEduRss2022stage0 from './elem-edu-rss2022-stage0.html';
 import htmlEduQuiz from './elem-edu-quiz.html';
 
-// DSR
-import htmlDsrLec0 from './dsr/dsr2023net-lecture0.html';
-import htmlDsrLec1 from './dsr/dsr2023net-lecture1.html';
-import htmlDsrLec2 from './dsr/dsr2023net-lecture2.html';
-import htmlDsrLec3 from './dsr/dsr2023net-lecture3.html';
-import htmlDsrLec4 from './dsr/dsr2023net-lecture4.html';
-import htmlDsrLec5 from './dsr/dsr2023net-lecture5.html';
-import htmlDsrLec6 from './dsr/dsr2023net-lecture6.html';
-import htmlDsrLec7 from './dsr/dsr2023net-lecture7.html';
-import htmlDsrLec8 from './dsr/dsr2023net-lecture8.html';
-import htmlDsrLec9 from './dsr/dsr2023net-lecture9.html';
-import htmlDsrLec10 from './dsr/dsr2023net-lecture10.html';
-import htmlDsrLec11 from './dsr/dsr2023net-lecture11.html';
-import htmlDsrLec12 from './dsr/dsr2023net-lecture12.html';
+// DSR 2023 lectures
+import htmlDsr2023Lec0 from './dsr2023net/dsr2023net-lecture0.html';
+import htmlDsr2023Lec1 from './dsr2023net/dsr2023net-lecture1.html';
+import htmlDsr2023Lec2 from './dsr2023net/dsr2023net-lecture2.html';
+import htmlDsr2023Lec3 from './dsr2023net/dsr2023net-lecture3.html';
+import htmlDsr2023Lec4 from './dsr2023net/dsr2023net-lecture4.html';
+import htmlDsr2023Lec5 from './dsr2023net/dsr2023net-lecture5.html';
+import htmlDsr2023Lec6 from './dsr2023net/dsr2023net-lecture6.html';
+import htmlDsr2023Lec7 from './dsr2023net/dsr2023net-lecture7.html';
+import htmlDsr2023Lec8 from './dsr2023net/dsr2023net-lecture8.html';
+import htmlDsr2023Lec9 from './dsr2023net/dsr2023net-lecture9.html';
+import htmlDsr2023Lec10 from './dsr2023net/dsr2023net-lecture10.html';
+import htmlDsr2023Lec11 from './dsr2023net/dsr2023net-lecture11.html';
+import htmlDsr2023Lec12 from './dsr2023net/dsr2023net-lecture12.html';
 
-import htmlDsrWshop1 from './dsr/dsr2023net-workshop1.html';
-import htmlDsrWshop2 from './dsr/dsr2023net-workshop2.html';
-import htmlDsrWshop3 from './dsr/dsr2023net-workshop3.html';
-import htmlDsrWshop4 from './dsr/dsr2023net-workshop4.html';
-import htmlDsrWshop5 from './dsr/dsr2023net-workshop5.html';
-import htmlDsrWshop6 from './dsr/dsr2023net-workshop6.html';
+// DSR 2023 workshops
+import htmlDsr2023Wshop1 from './dsr2023net/dsr2023net-workshop1.html';
+import htmlDsr2023Wshop2 from './dsr2023net/dsr2023net-workshop2.html';
+import htmlDsr2023Wshop3 from './dsr2023net/dsr2023net-workshop3.html';
+import htmlDsr2023Wshop4 from './dsr2023net/dsr2023net-workshop4.html';
+import htmlDsr2023Wshop5 from './dsr2023net/dsr2023net-workshop5.html';
+import htmlDsr2023Wshop6 from './dsr2023net/dsr2023net-workshop6.html';
 
-import htmlDsrExam from './dsr/dsr-exam.html';
+// DSR 2024 lectures
+import htmlDsr2024Lec1 from './dsr2024cpp/dsr2024cpp-lecture1.html';
+import htmlDsr2024Lec2 from './dsr2024cpp/dsr2024cpp-lecture2.html';
+import htmlDsr2024Lec3 from './dsr2024cpp/dsr2024cpp-lecture3.html';
+import htmlDsr2024Lec4 from './dsr2024cpp/dsr2024cpp-lecture4.html';
+
+// DSR Test
+import htmlDsrCsharp from './dsr-test/dsr-csharptest.html';
+import htmlDsrC from './dsr-test/dsr-ctest.html';
 
 // RS Test stage 1
 import htmlRsTestRss from './rs-test/rs-test-rss.html';
@@ -107,19 +115,23 @@ import htmlHhGit2 from './hh/hh-git2.html';
 import htmlHhEng from './hh/hh-eng.html';
 
 // Создаем массив страниц с Aside меню
-const htmlPages = [htmlEduRss2024stage3, htmlEduRss2024stage0, htmlEduCourses, htmlEduCoursesLearned, htmlEduLearning, htmlEduRss, htmlEduRss2024stage2, htmlEduRss2023stage1, htmlEduDsr2023net, htmlEduRss2023stage0, htmlEduRss2022stage3, htmlEduRss2022stage1, htmlEduRss2022stage0, htmlEduQuiz];
+const htmlPages = [htmlEduDsr2024cpp, htmlEduCourses, htmlEduCoursesLearned, htmlEduLearning, htmlEduRss, htmlEduRss2024stage2, htmlEduRss2023stage1, htmlEduDsr2023net, htmlEduRss2023stage0, htmlEduRss2022stage3, htmlEduRss2022stage1, htmlEduRss2022stage0, htmlEduQuiz];
 
-// Создаем массив страниц с лекциями DSR
-const htmlDsrLec = [htmlDsrLec0, htmlDsrLec1, htmlDsrLec2, htmlDsrLec3,
-htmlDsrLec4, htmlDsrLec5, htmlDsrLec6, htmlDsrLec7, htmlDsrLec8, htmlDsrLec9,
-htmlDsrLec10, htmlDsrLec11, htmlDsrLec12];
+// Создаем массив страниц с лекциями DSR 2023
+const htmlDsr2023Lec = [htmlDsr2023Lec0, htmlDsr2023Lec1, htmlDsr2023Lec2, htmlDsr2023Lec3,
+htmlDsr2023Lec4, htmlDsr2023Lec5, htmlDsr2023Lec6, htmlDsr2023Lec7, htmlDsr2023Lec8, htmlDsr2023Lec9,
+htmlDsr2023Lec10, htmlDsr2023Lec11, htmlDsr2023Lec12];
 
-// Создаем массив страниц с практикой DSR
-const htmlDsrWshop = [htmlDsrWshop1, htmlDsrWshop2, htmlDsrWshop3, htmlDsrWshop4,
-htmlDsrWshop5, htmlDsrWshop6];
+// Создаем массив страниц с практикой DSR 2023
+const htmlDsr2023Wshop = [htmlDsr2023Wshop1, htmlDsr2023Wshop2, htmlDsr2023Wshop3, htmlDsr2023Wshop4,
+htmlDsr2023Wshop5, htmlDsr2023Wshop6];
+
+// Создаем массив страниц с лекциями DSR 2024
+const htmlDsr2024Lec = [htmlDsr2024Lec1, htmlDsr2024Lec2, htmlDsr2024Lec3,
+htmlDsr2024Lec4];
 
 // Создаем массив страниц с экзаменом DSR
-const htmlDsrExams = [htmlDsrExam];
+const htmlDsrTest = [htmlDsrCsharp, htmlDsrC];
 
 // Создаем массив страниц с тестом Neoflex
 const htmlNeoflex = [htmlNftest, htmlEftest1];
@@ -157,7 +169,10 @@ export default function pageLink(asideItems) {
       currentContent.innerHTML = htmlPages[index];
       switch (htmlPages[index]) {
         case htmlEduDsr2023net:
-          dsrLinks();
+          dsr2023Links();
+          break;
+        case htmlEduDsr2024cpp:
+          dsr2024Links();
           break;
         case htmlEduQuiz:
           quizLinks();
@@ -167,7 +182,7 @@ export default function pageLink(asideItems) {
   })
 }
 
-function dsrLinks() {
+function dsr2023Links() {
   const currentContent = document.querySelector('#edu');
 
   const dsrLectures = document.querySelectorAll('.js-dsr-lecture');
@@ -175,9 +190,9 @@ function dsrLinks() {
     for (let i = 0; i < dsrLectures.length; i++) {
       dsrLectures[i].addEventListener('click', (e) => {
         e.preventDefault();
-        if (htmlDsrLec[i]) {
-          currentContent.innerHTML = htmlDsrLec[i];
-          backToDsr();
+        if (htmlDsr2023Lec[i]) {
+          currentContent.innerHTML = htmlDsr2023Lec[i];
+          backToDsr2023();
         }
       });
     }
@@ -188,16 +203,33 @@ function dsrLinks() {
     for (let i = 0; i < dsrWshops.length; i++) {
       dsrWshops[i].addEventListener('click', (e) => {
         e.preventDefault();
-        if (htmlDsrWshop[i]) {
-          currentContent.innerHTML = htmlDsrWshop[i];
-          backToDsr();
+        if (htmlDsr2023Wshop[i]) {
+          currentContent.innerHTML = htmlDsr2023Wshop[i];
+          backToDsr2023();
         }
       });
     }
   }
 }
 
-function backToDsr() {
+function dsr2024Links() {
+  const currentContent = document.querySelector('#edu');
+
+  const dsrLectures = document.querySelectorAll('.js-dsr-lecture');
+  if (dsrLectures) {
+    for (let i = 0; i < dsrLectures.length; i++) {
+      dsrLectures[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        if (htmlDsr2024Lec[i]) {
+          currentContent.innerHTML = htmlDsr2024Lec[i];
+          backToDsr2024();
+        }
+      });
+    }
+  }
+}
+
+function backToDsr2023() {
   const currentContent = document.querySelector('#edu');
 
   const linkToDsr = document.getElementById('link-to-dsr2023net');
@@ -205,7 +237,20 @@ function backToDsr() {
     linkToDsr.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = htmlEduDsr2023net;
-      dsrLinks();
+      dsr2023Links();
+    });
+  }
+}
+
+function backToDsr2024() {
+  const currentContent = document.querySelector('#edu');
+
+  const linkToDsr = document.getElementById('link-to-dsr2024cpp');
+  if (linkToDsr) {
+    linkToDsr.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = htmlEduDsr2024cpp;
+      dsr2024Links();
     });
   }
 }
@@ -226,13 +271,13 @@ function quizLinks() {
     }
   }
 
-  const dsrExam = document.querySelectorAll('.dsr-exam');
-  if (dsrExam) {
-    for (let i = 0; i < dsrExam.length; i++) {
-      dsrExam[i].addEventListener('click', (e) => {
+  const dsrTest = document.querySelectorAll('.dsr-test');
+  if (dsrTest) {
+    for (let i = 0; i < dsrTest.length; i++) {
+      dsrTest[i].addEventListener('click', (e) => {
         e.preventDefault();
-        if (htmlDsrExams[i]) {
-          currentContent.innerHTML = htmlDsrExams[i];
+        if (htmlDsrTest[i]) {
+          currentContent.innerHTML = htmlDsrTest[i];
           backToQuiz();
         }
       });

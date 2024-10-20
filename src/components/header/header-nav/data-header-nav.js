@@ -1,13 +1,22 @@
-import showAlgorithm from '../../code/algorithm/algorithm';
+import showAlg from '../../alg/algorithm/algorithm';
+import showCodeHtml from '../../code/code-html/code-html';
 import showFront from '../../front/front-main/front-main';
 
 const dataHeaderNav = [
   {
-    url: '/code.html',
-    text: 'Code',
+    url: '/alg.html',
+    text: 'Alg',
     content: '<base-algorithm></base-algorithm>',
     act() {
-      showAlgorithm();
+      showAlg();
+    },
+  },
+  {
+    url: '/code.html',
+    text: 'Code',
+    content: '<code-html></base-code-html>',
+    act() {
+      showCodeHtml();
     },
   },
  {

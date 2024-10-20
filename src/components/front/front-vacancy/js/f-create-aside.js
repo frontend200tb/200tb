@@ -4,7 +4,7 @@
 import pageLink from './../pages/pages';
 
 // 1. Создаем массив asideThemes с темами
-const asideThemes = ['Vacancy', 'Epam', 'DSR', 'Neoflex', 'Yandex', 'Ozon', 'Avito', 'Tinkoff', 'Sber', 'Interview', 'Postcross', 'Приглашения', 'Отказы', 'Без ответа', 'Skills'];
+const asideThemes = ['Vacancy', 'Epam', 'DSR', 'Neoflex', 'Yandex', 'Ozon', 'Avito', 'Сбер', 'Т Банк', 'Иннотех', 'Interview', 'Postcross', 'Приглашения', 'Отказы', 'Без ответа', 'Skills'];
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];

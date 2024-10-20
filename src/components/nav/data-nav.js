@@ -1,5 +1,7 @@
+// alg
+import showAlg from '../alg/algorithm/algorithm';
+
 // code
-import showAlgorithm from '../code/algorithm/algorithm';
 import showCodeHtml from '../code/code-html/code-html';
 import showCodeCss from '../code/code-css/code-css';
 import showCodeJs from '../code/code-js/code-js';
@@ -17,16 +19,20 @@ import showFrontVacancy from '../front/front-vacancy/front-vacancy';
 import showFrontVideo from '../front/front-video/front-video';
 import showFrontYt from '../front/front-yt/front-yt';
 
-// code
-export const dataNavCode = [
+// alg
+export const dataNavAlg = [
   {
-    url: 'algorithm.html',
+    url: 'alg.html',
     text: 'Алгоритмы',
     content: '<base-algorithm></base-algorithm>',
     act() {
-      showAlgorithm();
+      showAlg();
     },
   },
+]
+
+// code
+export const dataNavCode = [
   {
     url: 'code-html.html',
     text: 'HTML',

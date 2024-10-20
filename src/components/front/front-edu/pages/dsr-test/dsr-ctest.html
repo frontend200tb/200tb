@@ -1,0 +1,308 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>DSR Embedded Systems Lab 2024/25</h1>
+
+  <strong>13 вопросов за 1 час</strong>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 1</h3>
+
+  <p>Пусть даны два целых числа a и b. Реализовать макросы, которые устанавливают значениея бита с индексом b в числе a в 1 (первый макрос) и в 0 (второй макрос). Продемонстрируйте пример использования таких макросов.</p>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 2</h3>
+
+  <p>Напишите функцию, которая находит и возвращает слово с указанным порядковым номером (начиная с 0). Например, для предыдущего предложения и числа 3 функция должна вернуть слово "находит". Для того, чтобы проверить, является ли символ пробельным, можно использовать функцию int isspace(char) из заголовочного файла ctype.h. Если слова с такой позицией не существует, функция должна вернуть NULL.</p>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 3</h3>
+
+  <p>Сколько чисел будет напечатано в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+void main()
+{
+  int c = 1;
+  while ((c &gt; 0) && (c &lt; 60))
+  {
+    printf("%d ", c++);
+  }
+}
+</pre>
+  <ul>
+    <li>61</li>
+    <li>59</li>
+    <li>1</li>
+    <li>60</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 4</h3>
+
+  <p>Укажите правильный способ объявления указателя на целочисленную переменную</p>
+  <ul>
+    <li>Все перечисленные</li>
+    <li>int * pointer;</li>
+    <li>int *pointer;</li>
+    <li>int* pointer;</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 5</h3>
+
+  <p>Напишите функцию, которая сравнивает студентов. Прототип функции:</p>
+<pre>
+#define MAX_NUMBER_OF_MARKS 4
+
+typedef struct
+{
+  const char* name;
+  size_t number_of_marks;
+  int marks[MAX_NUMBER_OF_MARKS];
+} student_t;
+
+/**
+ * Compare two students. Criteria:
+ * - average mark
+ * - name
+ *
+ * @retval 0 if the first_student and the second_student are equal;
+ * @retval a negative value if first_student is less than second_student;
+ * @retval a positive value if first_student is greater than second_student.
+ */
+int student_cmp(const student_t* first_student, const student_t*  second_student)
+</pre>
+  <p>Критерии сравнивания:</p>
+  <ol>
+    <li>Функция должна вернуть 1 для студентов А и Б, если у студента А больше взвешенная сумма баллов или, если баллы равны, если имя студента А больше имени студента Б в лексикографическом смысле</li>
+    <li>Функция должна вернуть -1 для студентов А и Б, если у студента А меньше взвешенная сумма баллов или, если баллы равны, если имя студента А меньше имени студента Б в лексикографисеском смысле</li>
+    <li>Функция должна вернуть 0 в иных случаях</li>
+    <li>
+      Веса для суммы (оценка = вес):
+      <p>1 = -5</p>
+      <p>2 = -2</p>
+      <p>3 = 1</p>
+      <p>4 = 2</p>
+      <p>5 = 4</p>
+    </li>
+  </ol>
+  <p>Для лексиографического сравнения можете воспользоваться функцией strcmp</p>
+<pre>
+/**
+ * @brief The function compares the two strings s1 and s2.
+ * Returns an integer indicating the result of the comparison.
+ *
+ * @retval 0, if the s1 and s2 are equal
+ * @retval a negative value if s1 is less than s2;
+ * @retval a positive value if s1 is greater than s2
+ */
+int strcmp(const char *s1, const char *s2);
+</pre>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 6</h3>
+
+  <p>Что будет выведено в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void main()
+{
+  char string[] = "Hello, world!";
+  char *new_string = string + 2 * 3;
+
+  printf("%s", new_string);
+}
+</pre>
+  <ul>
+    <li>Ничего, ошибка компиляции</li>
+    <li>%s Hello, world!6</li>
+    <li>Hello, world!6</li>
+    <li>world!</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 7</h3>
+
+  <p>Что делает ключевое слово static в данном контексте?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void func(void)
+{
+  static int func_number = 4;
+  printf("func_number = %d\n", ++func_number);
+}
+</pre>
+  <ul>
+    <li>Сохраняет значение переменной func_number между вызовами func</li>
+    <li>Не имеет эффекта</li>
+    <li>Делает функцию func видимой только в рамках этого файла</li>
+    <li>Делает переменную func_number видимой только в рамках этого файла</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 8</h3>
+
+  <p>Что будет выведено в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void main()
+{
+  int month = 10;
+  switch (month)
+  {
+    case 1:
+    case 2:
+    case 3:
+      printf("Q1");
+    case 4:
+    case 5:
+    case 6:
+      printf("Q2");
+    case 7:
+    case 8:
+    case 9:
+      printf("Q3");
+    case 10:
+    case 11:
+    case 12:
+      printf("Q4");
+    default:
+      printf("DEF");
+  }
+}
+</pre>
+  <ul>
+    <li>Ничего</li>
+    <li>Q4</li>
+    <li>Q4DEF</li>
+    <li>Ничего, ошибка компиляции</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 9</h3>
+
+  <p>Что выведет следующая программа?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void main()
+{
+  int a = 1, b = 3;
+  printf("a ^ b = %d\n", a ^ b);
+}
+</pre>
+  <ul>
+    <li>a ^ b = 2</li>
+    <li>a ^ b = 4</li>
+    <li>a ^ b = 1</li>
+    <li>a ^ b = 3</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 10</h3>
+
+  <p>Что означает следующее выражение?</p>
+  <p>char * (*pf)(int, double);</p>
+  <ul>
+    <li>Объявление функции pf, которая имеет параметры типа int и double и возвращает char*</li>
+    <li>Объявление указателя pf на функцию, которая имеет параметры типа int и double и возвращает char*</li>
+    <li>Ничего, выражение некорректно</li>
+    <li>Вызов функции pf с переменными int и double</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 11</h3>
+
+  <p>Что будет выведено в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+#define DIFF_AND_MOD(a, b) (a - b) % b
+
+void main()
+{
+  printf("%d", DIFF_AND_MOD(10, 4 + 1));
+}
+</pre>
+  <ul>
+    <li>3</li>
+    <li>2</li>
+    <li>4</li>
+    <li>Значение не определено</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 12</h3>
+
+  <p>Что выведется в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void main()
+{
+  printf("%p", main);
+}
+</pre>
+  <ul>
+    <li>Произвольное число</li>
+    <li>Ошибка компиляции</li>
+    <li>Ошибка времени выполнения</li>
+    <li>Адрес функции main</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Вопрос 13</h3>
+
+  <p>Сколько раз будет напечатано "DSR" в результате работы следующей программы?</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void main()
+{
+  int i, j;
+
+  for (i = 0, j = 10; i &lt; j; i++, j--)
+  {
+    printf("DSR");
+    break;
+  }
+}
+</pre>
+  <ul>
+    <li>10</li>
+    <li>5</li>
+    <li>1</li>
+    <li>4</li>
+  </ul>
+</article>
+

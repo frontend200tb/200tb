@@ -1,0 +1,269 @@
+<h1>Leetcode (medium) - 01</h1>
+
+
+<!-- Содержание -->
+<div class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#task-2">(Medium) LeetCode 2. Add Two Numbers</a></p>
+  <p><a href="#task-3">(Medium) LeetCode 3. Longest Substring Without Repeating Characters</a></p>
+  <p><a href="#task-5">(Medium) LeetCode 5. Longest Palindromic Substring</a></p>
+  <p><a href="#task-54">(Medium) LeetCode 54. Spiral Matrix</a></p>
+  <p><a href="#task-532">(Medium) LeetCode 532. K-diff Pairs in an Array</a></p>
+  <p><a href="#task-658">(Medium) LeetCode 658. Find K Closest Elements</a></p>
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://leetcode.com/">https://leetcode.com/</a></p>
+</article>
+
+
+<!-- (Medium) LeetCode 2. Add Two Numbers -->
+<article class="article">
+  <div class="anchor" id="task-2"></div>
+  <h2>(Medium) LeetCode 2. Add Two Numbers</h2>
+
+  <p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+  <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+
+  <h4>Example:</h4>
+  <code>Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)</code>
+  <code>Output: 7 -> 0 -> 8</code>
+  <code>Explanation: 342 + 465 = 807</code>
+</article>
+
+
+<!-- (Medium) LeetCode 3. Longest Substring Without Repeating Characters -->
+<article class="article">
+  <div class="anchor" id="task-3"></div>
+  <h2>(Medium) LeetCode 3. Longest Substring Without Repeating Characters</h2>
+
+  <p>Given a string s, find the length of the longest substring without repeating characters.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.</pre>
+
+  <h4>Example 3:</h4>
+<pre>Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.</pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>var lengthOfLongestSubstring = function(s) {
+  let dict = {};
+  let count = 0;
+  let max = 0;
+  let i = 0;
+  while (i &lt; s.length) {
+      if (dict[s[i]] == undefined) {
+          dict[s[i]] = i;
+          count++;
+      } else {
+          max = Math.max(max, count);
+          i = dict[s[i]];
+          count = 0;
+          dict = {};
+      }
+      i++;
+  }
+  max = Math.max(max, count);
+  return max;
+};</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 5. Longest Palindromic Substring -->
+<article class="article">
+  <div class="anchor" id="task-5"></div>
+  <h2>(Medium) LeetCode 5. Longest Palindromic Substring</h2>
+
+  <p>Given a string s, return the longest palindromic substring in s.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: s = "cbbd"
+Output: "bb"</pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>var longestPalindrome = function(s) {
+  let start = 0;
+  let end = s.length;
+  let pal = '';
+  let result = '';
+  while (start &lt;= end) {
+      test = s.slice(start, end);
+      if (isPalindrome(test)) {
+          pal = test;
+          start++;
+          end = s.length;
+          if (pal.length &gt; result.length) {
+              result = pal;
+          }
+      } else {
+          end--;
+      }
+  }
+  return result;
+};
+
+function isPalindrome(s) {
+  let start = 0;
+  let end = s.length - 1;
+  while (start &lt; end) {
+      if (s[start] !== s[end]) {
+          return false;
+      } else {
+          start++;
+          end--;
+      }
+  }
+  return true;
+}</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 54. Spiral Matrix -->
+<article class="article">
+  <div class="anchor" id="task-54"></div>
+  <h2>(Medium) LeetCode 54. Spiral Matrix</h2>
+
+  <h4>Description</h4>
+  <p>Given an m x n matrix, return all elements of the matrix in spiral order</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: [[1,2,3],[4,5,6],[7,8,9]]</code>
+  <code>Output: [1,2,3,6,9,8,7,4,5]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</code>
+  <code>Output: [1,2,3,4,8,12,11,19,9,5,6,7]</code>
+
+  <h4>Constraints:</h4>
+  <code>m == matrix.length</code>
+  <code>n == matrix[i].length</code>
+  <code>1 &le; m, n &le; 10</code>
+  <code>-100 &le; matrix[i][j] &le; 100</code>
+  <details>
+    <summary>Решение</summary>
+<pre>const rotateAgainst90 = (arr)=>{
+  if(!arr.length) return []
+  const cols = arr.length;
+  const rows = arr[0].length;
+  const res = Array(arr[0].length).fill(null).map(v=>[]);
+  for(let row=0;row &lt; rows;row++){
+      for(let col=0;col &lt; cols;col++){
+        res[row].push(arr[col][row])
+      }
+  }
+  return res.reverse()
+}
+
+var spiralOrder = function(m) {
+    const res = [];
+    for(let row=0;row &lt; m.length;){
+        for(let col=0;col &lt; m[0].length;col++){
+            res.push(m[row][col]);
+        }
+        m = rotateAgainst90(m.slice(1))
+    }
+    return res
+};</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 532. K-diff Pairs in an Array -->
+<article class="article">
+  <div class="anchor" id="task-532"></div>
+  <h2>(Medium) LeetCode 532. K-diff Pairs in an Array</h2>
+
+  <h4>Description</h4>
+  <p>Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array.</p>
+  <p>A k-diff pair is an integer pair (nums[i], nums[j]), where the following are true:</p>
+  <code>0 &lt;= i, j &lt; nums.length</code>
+  <code>i != j</code>
+  <code>|nums[i] - nums[j]| == k</code>
+  <p>Notice that |val| denotes the absolute value of val.</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: nums = [3,1,4,1,5], k = 2</code>
+  <code>Output: 2</code>
+  <p>Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5). Although we have two 1s in the input, we should only return the number of unique pairs.</p>
+
+  <h4>Example 2:</h4>
+  <code>Input: nums = [1,2,3,4,5], k = 1</code>
+  <code>Output: 4</code>
+  <p>Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).</p>
+
+  <h4>Example 3:</h4>
+  <code>Input: nums = [1,3,1,5,4], k = 0</code>
+  <code>Output: 1</code>
+  <p>Explanation: There is one 0-diff pair in the array, (1, 1).</p>
+</article>
+
+
+<!-- (Medium) LeetCode 658. Find K Closest Elements -->
+<article class="article">
+  <div class="anchor" id="task-658"></div>
+  <h2>(Medium) LeetCode 658. Find K Closest Elements</h2>
+
+  <h4>Description</h4>
+  <p>Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.</p>
+  <p>An integer a is closer to x than an integer b if:</p>
+  <code>|a - x| &lt; |b - x|, or</code>
+  <code>|a - x| == |b - x| and a &lt; b</code>
+
+  <h4>Example 1:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = 3</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = -1</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function findClosestElements(arr, k, x) {
+  isClosest = (a, b) => {
+    const aDiff = Math.abs(a-x);
+    const bDiff = Math.abs(b-x);
+    return aDiff &lt; bDiff || (aDiff === bDiff && a &lt; b);
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (right - left + 1 &gt; k) {
+    if (isClosest(arr[left], arr[right])) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+
+  return arr.slice(left, right + 1);
+}</pre>
+  </details>
+</article>

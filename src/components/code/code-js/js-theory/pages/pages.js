@@ -5,6 +5,7 @@
 
 // Aside
 import htmlJs from './elem-js.html';
+import htmlAsync from './elem-async.html';
 import htmlEventloop from './elem-eventloop.html';
 import htmlPrototype from './elem-prototype.html';
 import htmlScope from './elem-scope.html';
@@ -21,6 +22,7 @@ import htmlScopeTask from './elem-scope-task.html';
 // массив страниц из aside menu
 const aside = [
   htmlJs,
+  htmlAsync,
   htmlEventloop,
   htmlPrototype,
   htmlScope,

@@ -1,7 +1,7 @@
 /****************
 Скрипт из файла header-nav.js
 Навигация по сайту
-Code Frontend
+Alg Code Frontend
 ******************/
 import dataHeaderNav from './data-header-nav';
 import createNav from '../../Nav/Nav.component';
@@ -36,10 +36,10 @@ function renderHeaderNav() {
   dataHeaderNav.forEach((el) => {
     headerNav.appendChild(el.elem);
   });
-  classActive(dataHeaderNav, dataHeaderNav[1].elem);
-  main.innerHTML = dataHeaderNav[1].content;
+  classActive(dataHeaderNav, dataHeaderNav[2].elem);
+  main.innerHTML = dataHeaderNav[2].content;
   createNav();
-  dataHeaderNav[1].act();
+  dataHeaderNav[2].act();
 }
 
 // Ставим class="active" выбранному элементу меню и убираем с остальных
