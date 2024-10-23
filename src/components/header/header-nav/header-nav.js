@@ -1,7 +1,7 @@
 /****************
 Скрипт из файла header-nav.js
 Навигация по сайту
-Alg Code Frontend
+Alg Code Frontend Lib
 ******************/
 import dataHeaderNav from './data-header-nav';
 import createNav from '../../Nav/Nav.component';

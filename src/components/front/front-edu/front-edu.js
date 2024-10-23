@@ -3,8 +3,7 @@
 Функция showFrontEdu показывает страницу front-edu
 ****************** */
 import './js/element-front-edu';
-import html from './pages/elem-edu.html';
-import {createAside, createMain, removeClassActive} from './js/f-create-aside';
+import {createAside, createMain} from './js/f-create-aside';
 
 // 1. Создаем объект frontEdu
 const frontEdu = {};
@@ -19,9 +18,11 @@ frontEdu.main = createMain();
 export default function showFrontEdu() {
   const mainAside = document.querySelector('.main__aside');
 
-  frontEdu.main.innerHTML = html;
   mainAside.innerHTML = '';
   mainAside.append(frontEdu.aside);
   mainAside.append(frontEdu.main);
-  removeClassActive();
+
+  // 5. Создадим и вызовем событие click на первой ссылке aside элемента
+  const eventClick = new Event('click');
+  mainAside.firstElementChild.firstElementChild.dispatchEvent(eventClick);
 }

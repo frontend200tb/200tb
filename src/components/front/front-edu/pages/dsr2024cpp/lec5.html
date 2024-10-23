@@ -1,0 +1,464 @@
+<article class="article">
+	<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+  <h1>Лекция 5 (21.10.2024)</h1>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#plan">План работы</a></p>
+  <p><a href="#func">Перегрузка функции</a></p>
+  <p><a href="#const1">Константы</a></p>
+  <p><a href="#const2">Указатели на константы</a></p>
+  <p><a href="#const3">Константный указатель</a></p>
+  <p><a href="#const4">Константный указатель на константу</a></p>
+  <p><a href="#const5">Константные параметры</a></p>
+  <p><a href="#const6">Константные ссылочные параметры</a></p>
+  <p><a href="#const7">Вопросы по перегрузке</a></p>
+  <p><a href="#t1">Практика. Сумма ряда</a></p>
+</article>
+
+
+<!-- План работы -->
+<article class="article">
+  <div class="anchor" id="plan"></div>
+  <h3>План работы</h3>
+
+  <ol>
+    <li>Ссылки и указатели</li>
+    <li>Функции</li>
+    <li>Массивы</li>
+  </ol>
+</article>
+
+
+<!-- Перегрузка функции -->
+<article class="article">
+  <div class="anchor" id="func"></div>
+  <h3>Перегрузка функции</h3>
+
+  <p>Напишем функцию sum(), которая складывает два целых числа и функцию sum(), которая скаладывает два вещественных числа</p>
+<pre>
+int sum(int, int);
+double sum(double, double);
+
+int main()
+{
+  int result1 {sum(3,6)};
+  std::cout &lt;&lt; result1 &lt;&lt; std::endl;
+
+  double result2 {sum(2.5, 1.6)};
+  std::cout &lt;&lt; result2 &lt;&lt; std::endl;
+
+  return 0;
+}
+
+int sum(int a, int b)
+{
+  return a + b;
+}
+
+double sum(double a, double b)
+{
+  return a + b;
+}
+</pre>
+  <code>9</code>
+  <code>4.1</code>
+
+  <p>Добавим еще одну функцию sum(), которая складывает три целых числа, причем третий параметр не обязательный, при его отсутствии будет подставляться значение по умолчанию.</p>
+<pre>
+int sum(int, int);
+double sum(double, double);
+int sum(int, int, int = 2);
+
+int main()
+{
+  int result1 {sum(3,6)};
+  std::cout &lt;&lt; result1 &lt;&lt; std::endl;
+
+  double result2 {sum(2.5, 1.6)};
+  std::cout &lt;&lt; result2 &lt;&lt; std::endl;
+
+  return 0;
+}
+
+int sum(int a, int b)
+{
+  return a + b;
+}
+
+double sum(double a, double b)
+{
+  return a + b;
+}
+
+int sum(int a, int b, int c)
+{
+  return a + b + c;
+}
+</pre>
+  <p>Компилятор не знает какую функцию запустить</p>
+</article>
+
+
+<!-- Константы -->
+<article class="article">
+  <div class="anchor" id="const1"></div>
+  <h3>Константы</h3>
+
+  <p>const тип_данных & имя_переменной = значение_переменной</p>
+
+  <p>Объявим константу с инициализацией, а потом попробуем присвоить ей новое значение</p>
+<pre>
+const int a = 3;
+a = 10; // нельзя
+</pre>
+  <p>Компилятор не будет компилировать, потому что константе нельзя присвоить новое значение</p>
+
+  <p>Объявим константу без инициализации, а потом попробуем ее инициализировать</p>
+<pre>
+const int age; // нельзя
+age = 6;
+</pre>
+  <p>Компилятор не будет компилировать, потому что константу нужно инициализировать только при объявлении.</p>
+</article>
+
+
+<!-- Указатели на константы -->
+<article class="article">
+  <div class="anchor" id="const2"></div>
+  <h3>Указатели на константы</h3>
+
+  <p>const тип_данных * имя_указателя = адресс_переменной</p>
+<pre>
+const int a {10};
+const int *pa {&a};
+
+std::cout &lt;&lt; "address = " &lt;&lt; pa &lt;&lt; std::endl;
+std::cout &lt;&lt; "value = " &lt;&lt; *pa &lt;&lt; std::endl;
+
+*pa = 4; // нельзя
+</pre>
+
+<pre>
+const int a {10};
+const int *pa {&a};
+const int b {45};
+pa = &b; // можно
+
+std::cout &lt;&lt; "*pa = " &lt;&lt; *pa &lt;&lt; std::endl;
+std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+</pre>
+
+<pre>
+const int a {10};
+const int *pa {&a};
+std::cout &lt;&lt; "value = " &lt;&lt; *pa &lt;&lt; std::endl;
+
+a = 22; // можно
+std::cout &lt;&lt; "value = " &lt;&lt; *pa &lt;&lt; std::endl;
+</pre>
+</article>
+
+
+<!-- Константный указатель -->
+<article class="article">
+  <div class="anchor" id="const3"></div>
+  <h3>Константный указатель</h3>
+
+  <p>тип_данных *const имя_указателя = адресс_переменной</p>
+
+<pre>
+int a {10};
+int *const pa {&a};
+std::cout &lt;&lt; "value = " &lt;&lt; *pa &lt;&lt; std::endl;
+
+*pa = 22; // можно
+std::cout &lt;&lt; "value = " &lt;&lt; *pa &lt;&lt; std::endl;
+
+int b {45};
+pa = &b; // нельзя
+</pre>
+</article>
+
+
+<!-- Константный указатель на константу -->
+<article class="article">
+  <div class="anchor" id="const4"></div>
+  <h3>Константный указатель на константу</h3>
+
+  <p>const тип_данных *const имя_указателя = адресс_переменной</p>
+
+<pre>
+int a {10};
+const int *const pa {&a};
+int b {45};
+</pre>
+</article>
+
+
+<!-- Константные параметры -->
+<article class="article">
+  <div class="anchor" id="const5"></div>
+  <h3>Константные параметры</h3>
+
+<pre>
+void square(int);
+//void square(const int);
+
+int main()
+{
+  int number {12};
+  square(number);
+
+  return 0;
+}
+
+void square(const int a)
+{
+  std::cout &lt;&lt; "a * a = " &lt;&lt; a * a &lt;&lt; std::endl;
+}
+</pre>
+  <code>a * a = 144</code>
+</article>
+
+
+<!-- Константные ссылочные параметры -->
+<article class="article">
+  <div class="anchor" id="const6"></div>
+  <h3>Константные ссылочные параметры</h3>
+
+<pre>
+void square(const int&);
+
+int main()
+{
+  const int number {6};
+  square(number);
+
+  return 0;
+}
+
+void square(const int &n)
+{
+  std::cout &lt;&lt; "n * n = " &lt;&lt; n * n &lt;&lt; std::endl;
+}
+</pre>
+  <code>a * a = 36</code>
+</article>
+
+
+<!-- Вопросы по перегрузке -->
+<article class="article">
+  <div class="anchor" id="const7"></div>
+  <h3>Вопросы по перегрузке</h3>
+
+<pre>
+void show(int);
+void show(int&);
+
+void print(int);
+void print(const int);
+
+int square(int*);
+int square(const int*);
+
+int square(int* num)
+{
+  return *num * *num;
+}
+
+int square(const int* num)
+{
+  return *num * *num;
+}
+</pre>
+  <p>Компилятор не различает в данном случае & и const от простой реализации</p>
+
+<pre>
+const int n1{2};
+int n2{3};
+
+int square_n1 {square(&n1)};
+int square_n2 {square(&n2)};
+
+std::cout &lt;&lt; "square(n1) = " &lt;&lt; square_n1 &lt;&lt; std::endl;
+std::cout &lt;&lt; "square(n2) = " &lt;&lt; square_n2 &lt;&lt; std::endl;
+</pre>
+  <code>4</code>
+  <code>9</code>
+</article>
+
+
+<!-- Практика. Сумма ряда -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Практика. Сумма ряда</h3>
+
+  <p>Вычислить суммму ряда</p>
+  <code>sin x = x - x<sup>3</sup>/3! + x<sup>5</sup>/5! - x<sup>7</sup>/7! + ...</code>
+
+  <p>Для начала попробуем упростить выражение</p>
+  <code>S<sub>n</sub> = sin x = x - x<sup>3</sup>/3! + x<sup>5</sup>/5! - x<sup>7</sup>/7! + ... + (-1)<sup>n</sup> * (x<sup>2n+1</sup>)/(2n+1)!</code>
+  <code>q = a<sub>n</sub>/a<sub>n-1</sub></code>
+  <code>q = (-1)<sup>n</sup> * x<sup>2n+1</sup>/(2n+1)! * (2n-1)!/(x<sup>2n-1</sup> * (-1)<sup>n-1</sup>)</code>
+  <code>q = (-1)<sup>n-n+1</sup> * x<sup>2n+1-2n+1</sup> * (2n-1)!/(2n+1)!</code>
+
+  <p>Так как</p>
+  <code>n! = 1*2*3*...*n</code>
+  <code>(n-1)! = 1*2*3*...*(n-1)</code>
+  <p>То</p>
+  <code>n! = (n-1)!*n</code>
+  <p>Тогда</p>
+  <code>(2n+1)! = (2n-1)! * 2n * (2n+1)</code>
+
+  <p>Подставим это вместо (2n+1)!</p>
+  <code>q = (-1) * x<sup>2</sup> * (2n-1)! / ((2n-1)! * 2n * (2n+1))</code>
+  <code>q = (-1) * x<sup>2</sup> / (2n * (2n+1))</code>
+
+  <h4>1 часть</h4>
+  <p>Так как при i=0 множитель даст деление на 0, начинаем с 1, а самое первое значение заносим заранее в ai</p>
+<pre>
+double Sn{};
+double ai{x};
+
+for (int i=1; i &lt; n; i++)
+{
+  Sn += ai;
+  ai *= (-1) * (x*x) / (2*n * (2*n + 1));
+}
+</pre>
+
+  <h4>2 часть</h4>
+  <p>Посчитаем с погрешностью. Пусть погрешность будет очень маленькая величина</p>
+  <code>eps = 1.0e-10;</code>
+<pre>
+double Sn{};
+double ai{x};
+
+for (int i=1; abs(ai)>eps; i++)
+{
+  Sn += ai;
+  ai *= (-1) * (x*x) / (2*n * (2*n + 1));
+}
+</pre>
+  <p>С каждым шагом ai стремится к нашей точности eps, уменьшается. Чем выше точность eps (чем оно меньше), тем ближе к значению S<sub>точ</sub>. Таким образом мы считаем S<sub>n</sub>до тех пор, пока абсолютное значение ai не станет меньше eps</p>
+
+  <h4>Код программы</h4>
+<pre>
+#include <iostream>
+#include <iomanip>
+
+int main()
+{
+  setlocale(LC_ALL, "Russian");
+
+  int choice{};
+  do
+  {
+    std::cout &lt;&lt; "Введите 1- Сумма ряда" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Введите 2- Сумма ряда c погрешностью" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Введите 3- Завершение программы" &lt;&lt; std::endl;
+
+    bool isError{ true };
+    do {
+
+      std::cin >> choice;
+      if (!std::cin.fail()&& choice&lt;=3 && choice>=1)
+      {
+        isError = false;
+        std::cin.ignore(std::cin.rdbuf()->in_avail());
+      }
+      else
+      {
+        std::cout &lt;&lt; "Ошибка ввода" &lt;&lt; std::endl;
+        std::cin.clear();
+        std::cin.ignore(std::cin.rdbuf()->in_avail());
+      }
+
+    } while (isError);
+
+    if (choice != 3)
+    {
+      double x{};
+      isError = true;
+      do {
+
+        std::cout &lt;&lt; "Введите x " &lt;&lt; std::endl;
+        std::cin >> x;
+        if (!std::cin.fail())
+        {
+          isError = false;
+          std::cin.ignore(std::cin.rdbuf()->in_avail());
+        }
+        else
+        {
+          std::cout &lt;&lt; "Ошибка ввода" &lt;&lt; std::endl;
+          std::cin.clear();
+          std::cin.ignore(std::cin.rdbuf()->in_avail());
+        }
+
+      } while (isError);
+
+      if (choice == 1)
+      {
+
+        double Sn{};
+        int N{};
+        std::cout &lt;&lt; "Введите кол-во элементов ряда" &lt;&lt; std::endl;
+        std::cin >> N;
+        double ai{ x };
+        for (int i = 1; i &lt; N; i++)//ошибочка
+        {
+          Sn += ai;
+          ai *= (-1) * (x * x) / (2*i * (2*i + 1));
+        }
+        std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; N &lt;&lt; " элементах ряда =" &lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
+
+
+      }
+      else if (choice == 2)
+      {
+
+
+        int i{};
+        double eps = 1.0E-12;
+
+
+        for (int j{ 0 }; j &lt; 2; j++)
+        {
+          double Sn{};
+          double ai{ x };
+
+          for (i = 1; abs(ai) > eps; i++)
+          {
+            Sn += ai;
+            ai *= (-1) * (x * x) / (2*i * (2*i + 1));
+          }
+          std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; i &lt;&lt; " элементах ряда ="&lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
+          std::cout &lt;&lt; "Точное значение" &lt;&lt; sin(x) &lt;&lt; std::endl;
+          eps /= 100;
+
+        }
+      }
+    }
+
+    char isExit{};
+    std::cout &lt;&lt; "Хотите завершить работу? (Y/y - завершить, любое другое значение - нет)" &lt;&lt; std::endl;
+    std::cin >> isExit;
+    if (isExit == 'Y' || isExit == 'y')
+    {
+      choice = 3;
+    }
+
+
+  } while (choice != 3);
+
+}
+</pre>
+</article>
+

@@ -4,7 +4,8 @@
 *******************/
 import {main} from './../js/f-create-aside';
 
-import htmlAlgorithm from './elem-algorithm.html';
+import htmlAlg from './elem-alg.html';
+import htmlStruct from './elem-structure.html';
 import htmlComplexity from './elem-complexity.html';
 import htmlSort from './elem-sort.html';
 import htmlSearch from './elem-search.html';
@@ -18,7 +19,8 @@ import htmlYaKurs1 from './elem-ya-alg-kurs-free.html';
 import htmlYaKurs2 from './elem-ya-alg-kurs-pay.html';
 
 const aside = [
-  htmlAlgorithm,
+  htmlAlg,
+  htmlStruct,
   htmlComplexity,
   htmlSort,
   htmlSearch,

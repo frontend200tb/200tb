@@ -3,11 +3,12 @@
 создает ссылки в меню nav для каждого пункта меню header_nav
 Alg      Алгоритмы
 Code     HTML CSS JS TS Pascal Other
-Frontend Books Edu Learned Node Offline Vacancy Video Youtube
+Frontend Edu Learned Node Offline Vacancy
+Lib      Books Video Youtube
 ****************** */
 
 import './Nav.class';
-import {dataNavAlg, dataNavCode, dataNavFront} from './data-nav';
+import {dataNavAlg, dataNavCode, dataNavFront, dataNavLib} from './data-nav';
 import { endUrl } from '../Header/header-nav/header-nav';
 
 const nav = document.getElementById('nav');
@@ -79,6 +80,28 @@ function createNavFront(navFront) {
   });
 }
 
+/** **************
+4. nav для страниц lib
+**************** */
+
+// 4.1 Создаем ссылки из массива dataNavLib
+createNavLib(dataNavLib);
+
+function createNavLib(navLib) {
+  navLib.forEach((el) => {
+    el.elem = document.createElement('a');
+    el.elem.href = '';
+    el.elem.innerHTML = el.text;
+    el.elem.addEventListener('click', (event) => {
+      event.preventDefault();
+      // добавим class="active"
+      classActive(navLib, el.elem);
+      main.innerHTML = el.content;
+      el.act();
+    });
+  });
+}
+
 // Ставим class="active" выбранному элементу меню и убираем с остальных
 function classActive(menu, activElem) {
   menu.forEach((el) => {
@@ -115,5 +138,16 @@ export default function createNav() {
       nav.appendChild(el.elem);
       el.elem.classList.remove('active');
     });
+    dataNavFront[0].elem.classList.add('active');
+  }
+
+  // 4.2 Добавим ссылки navLib в nav если адрес lib.html
+  if (endUrl === '/lib.html') {
+    nav.innerHTML = '';
+    dataNavLib.forEach((el) => {
+      nav.appendChild(el.elem);
+      el.elem.classList.remove('active');
+    });
+    dataNavLib[0].elem.classList.add('active');
   }
 }

@@ -1,0 +1,678 @@
+<article class="article">
+	<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+  <h1>Лекция 4 (14.10.2024)</h1>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#plan">План работы</a></p>
+  <p><a href="#ref">Ссылки</a></p>
+  <p><a href="#point">Указатель</a></p>
+  <p><a href="#t1">Практика. Sum(int, int)</a></p>
+  <p><a href="#t2">Практика. Max(int, int)</a></p>
+  <p><a href="#t3">Практика. Swap(int&, int&)</a></p>
+  <p><a href="#t4">Практика. Print()</a></p>
+  <p><a href="#t5">Практика. Swap(int*, int*)</a></p>
+  <p><a href="#t6">Практика. Sum(int, int, int = 3)</a></p>
+  <p><a href="#t7">Практика. init(int*)</a></p>
+  <p><a href="#t8">Практика. init(int*&)</a></p>
+</article>
+
+
+<!-- План работы -->
+<article class="article">
+  <div class="anchor" id="plan"></div>
+  <h3>План работы</h3>
+
+  <ol>
+    <li>Ссылки и указатели</li>
+    <li>Функции</li>
+    <li>Массивы</li>
+  </ol>
+</article>
+
+
+<!-- Ссылки -->
+<article class="article">
+  <div class="anchor" id="ref"></div>
+  <h3>Ссылки</h3>
+
+  <p>тип_данных & название_ссылки = переменная_типа_ссылки;</p>
+<pre>
+int main() {
+  int a = 3;
+  int &refa = a;
+
+  std::cout&lt;&lt;a&lt;&lt;std::endl; // 3
+  std::cout&lt;&lt;refa&lt;&lt;std::endl; // 3
+
+  refa++;
+
+  std::cout&lt;&lt;a&lt;&lt;std::endl; // 4
+  std::cout&lt;&lt;refa&lt;&lt;std::endl; // 4
+}
+</pre>
+</article>
+
+
+<!-- Указатель -->
+<article class="article">
+  <div class="anchor" id="point"></div>
+  <h3>Указатель</h3>
+
+  <p>тип_данных * название_указателя;</p>
+<pre>
+int main() {
+  int a = 3;
+  int *pointA = &a;
+
+  std::cout&lt;&lt;a&lt;&lt;std::endl; // 3
+  std::cout&lt;&lt;pointA&lt;&lt;std::endl; // 000000C2E6DAFBF4
+
+  std::cout&lt;&lt;std::endl;
+
+  std::cout&lt;&lt;&a&lt;&lt;std::endl; // 000000C2E6DAFBF4
+  std::cout&lt;&lt;pointA&lt;&lt;std::endl; // 000000C2E6DAFBF4
+
+  std::cout&lt;&lt;std::endl; //
+
+  std::cout&lt;&lt;a&lt;&lt;std::endl; // 3
+  std::cout&lt;&lt;*pointA&lt;&lt;std::endl; // 3
+}
+</pre>
+
+  <h4>Указатель</h4>
+  <p>Количество выделяемой памяти не изменяется в зависимости от типа переменных на которую ссылается указатель.</p>
+<pre>
+int *pint{};
+double *pdouble{};
+
+std::cout&lt;&lt;sizeof(pint)&lt;&lt;std::endl; // 8
+std::cout&lt;&lt;sizeof(pdouble)&lt;&lt;std::endl; // 8
+</pre>
+
+  <h4>Указатель</h4>
+<pre>
+int a {10};
+int b {2};
+
+int *pa {&a};
+int *pb {&b};
+
+std::cout&lt;&lt;"pa: address="&lt;&lt;pa&lt;&lt;"\t value="&lt;&lt;*pa&lt;&lt;std::endl;
+std::cout&lt;&lt;"pb: address="&lt;&lt;pb&lt;&lt;"\t value="&lt;&lt;*pb&lt;&lt;std::endl;
+
+pa = pb;
+std::cout&lt;&lt;"pa: address="&lt;&lt;pa&lt;&lt;"\t value="&lt;&lt;*pa&lt;&lt;std::endl;
+*pa = 125;
+std::cout&lt;&lt;"b value="&lt;&lt;b&lt;&lt;std::endl;
+</pre>
+  <code>pa: address=00000072CAFEFA54 value=10</code>
+  <code>pb: address=00000072CAFEFA74 value=2</code>
+  <code>pb: address=00000072CAFEFA74 value=2</code>
+  <code>b value=125</code>
+
+  <h4>Указатель</h4>
+<pre>
+int a {10};
+int b {6};
+
+int *p{};
+int *&pRef {p};
+
+pRef = &a;
+std::cout&lt;&lt;"p value="&lt;&lt;*p&lt;&lt;std::endl;
+
+*pRef = 70;
+std::cout&lt;&lt;"a value="&lt;&lt;a&lt;&lt;std::endl;
+
+pRef = &b;
+std::cout&lt;&lt;"p value="&lt;&lt;*p&lt;&lt;std::endl;
+</pre>
+  <code>p value=10</code>
+  <code>a value=70</code>
+  <code>p value=6</code>
+
+  <h4>Операторы new и delete</h4>
+<pre>
+int *ptr = new int;
+int *ptr_1 = new int();
+int *ptr_2 {new int(12)};
+
+std::cout &lt;&lt; *ptr &lt;&lt; std::endl;
+std::cout &lt;&lt; *ptr_1 &lt;&lt; std::endl;
+std::cout &lt;&lt; *ptr_2 &lt;&lt; std::endl;
+
+delete ptr;
+delete ptr_1;
+delete ptr_2;
+
+ptr = nullptr;
+ptr_1 = nullptr;
+ptr_2 = nullptr;
+</pre>
+  <code>-842150451</code>
+  <code>0</code>
+  <code>12</code>
+</article>
+
+
+<!-- Практика. Sum(int, int) -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Практика. Sum(int, int)</h3>
+
+  <p>Найдем сумму двух чисел</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = a + b;
+}
+</pre>
+
+  <p>Разделим программу на несколько файлов</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Sum(a,b) = " &lt;&lt; sum &lt;&lt; std::endl;
+}
+</pre>
+
+<p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int);
+</pre>
+
+  <p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y)
+{
+  return x + y;
+}
+</pre>
+</article>
+
+
+<!-- Практика. Max(int, int) -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Практика. Max(int, int)</h3>
+
+  <p>Добавим в проект функцию Max, возвращающую максимум из двух чисел</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  int max{};
+  max = Max(a, b);
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Max(a,b) = " &lt;&lt; max &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int);
+int Max(int, int);
+</pre>
+
+  <p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y)
+{
+  return x + y;
+}
+
+int Max(int x, int y)
+{
+  if (x > y)
+  {
+    return x;
+  }
+  else{
+    return y;
+  }
+}
+</pre>
+</article>
+
+
+<!-- Практика. Swap(int&, int&) -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>Практика. Swap(int&, int&)</h3>
+
+  <p>Добавим в проект функцию Swap, которая ничего не возвращает, принимает адреса двух переменных и меняет местами их значения</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  int max{};
+  max = Max(a, b);
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+  Swap(&a, &b);
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int);
+int Max(int, int);
+void Swap(int&, int&);
+</pre>
+
+  <p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y)
+{
+  return x + y;
+}
+
+int Max(int x, int y)
+{
+  if (x > y)
+  {
+    return x;
+  }
+  else{
+    return y;
+  }
+}
+
+void Swap(int &x, int &y)
+{
+  int temp = x;
+  x = y;
+  y = temp;
+}
+</pre>
+</article>
+
+
+<!-- Практика. Print() -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>Практика. Print()</h3>
+
+  <p>Добавим вывод на экран слова Bob. Добавим функцию Print, которая выводит на экран число, сколько раз функция Print вызывалась</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  int max{};
+  max = Max(a, b);
+
+  Swap(&a, &b);
+
+  std::cout &lt;&lt; "Bob" &lt;&lt; std::endl;
+
+  Print();
+  Print();
+  Print();
+}
+</pre>
+
+  <p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int);
+int Max(int, int);
+void Swap(int&, int&);
+void Print();
+</pre>
+
+  <p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y)
+{
+  return x + y;
+}
+
+int Max(int x, int y)
+{
+  if (x > y)
+  {
+    return x;
+  }
+  else{
+    return y;
+  }
+}
+
+void Swap(int &x, int &y)
+{
+  int temp = x;
+  x = y;
+  y = temp;
+}
+
+void Print()
+{
+  static int i{0};
+  std::cout &lt;&lt; i++ &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Статическая переменная i, объявленная внутри функции Print() инициализируется только один раз - при первом вызове функции. Она получает значение i = 0. При повторных вызовах, инициализация не производится.</p>
+</article>
+
+
+<!-- Практика. Swap(int*, int*) -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>Практика. Swap(int*, int*)</h3>
+
+  <p>Перепишем функцию Swap(), при которой она будет принимать не адреса, а указатели на две переменные.</p>
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  int max{};
+  max = Max(a, b);
+
+  int *pa = &a;
+  int *pb = &b;
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; " b = " &lt;&lt; b &lt;&lt; std::endl;
+  Swap(pa, pb);
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; " b = " &lt;&lt; b &lt;&lt; std::endl;
+
+  std::cout &lt;&lt; "Bob" &lt;&lt; std::endl;
+
+  Print();
+  Print();
+  Print();
+}
+</pre>
+
+  <p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int);
+int Max(int, int);
+void Swap(int*, int*);
+void Print();
+</pre>
+
+  <p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y)
+{
+  return x + y;
+}
+
+int Max(int x, int y)
+{
+  if (x > y)
+  {
+    return x;
+  }
+  else{
+    return y;
+  }
+}
+
+void Swap(int *x, int *y)
+{
+  int temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+void Print()
+{
+  static int i{0};
+  std::cout &lt;&lt; i++ &lt;&lt; std::endl;
+}
+</pre>
+</article>
+
+
+<!-- Практика. Sum(int, int, int = 3) -->
+<article class="article">
+  <div class="anchor" id="t6"></div>
+  <h3>Практика. Sum(int, int, int = 3)</h3>
+
+<p>Перепишем функцию Sum(), при которой она будет принимать не два, а три параметра. Причем третий параметр будет необязательным и в случае его отсутствия будет подставляться значение по умолчанию.</p>
+<p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int a{3};
+  int b{4};
+
+  int sum{};
+  sum = Sum(a, b);
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+  std::cout &lt;&lt; "default c = " &lt;&lt; 3 &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Sum(a,b,c) = " &lt;&lt; sum &lt;&lt; std::endl;
+
+  sum = Sum(a, b, 25);
+
+  std::cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Sum(a,b,25) = " &lt;&lt; sum &lt;&lt; std::endl;
+
+  int max{};
+  max = Max(a, b);
+
+  Swap(&a, &b);
+
+  std::cout &lt;&lt; "Bob" &lt;&lt; std::endl;
+
+  Print();
+  Print();
+  Print();
+}
+</pre>
+
+<p>Файл Math.h</p>
+<pre>
+#pragma once
+
+int Sum(int, int, int = 3);
+int Max(int, int);
+void Swap(int*, int*);
+void Print();
+</pre>
+
+<p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+int Sum(int x, int y, int z)
+{
+  return x + y + z;
+}
+
+int Max(int x, int y)
+{
+  if (x > y)
+  {
+    return x;
+  }
+  else{
+    return y;
+  }
+}
+
+void Swap(int *x, int *y)
+{
+  int temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+void Print()
+{
+  static int i{0};
+  std::cout &lt;&lt; i++ &lt;&lt; std::endl;
+}
+</pre>
+</article>
+
+
+<!-- Практика. init(int*) -->
+<article class="article">
+  <div class="anchor" id="t7"></div>
+  <h3>Практика. init(int*)</h3>
+
+  <p>Напишем функцию init(), которая инициализирует значение переменной</p>
+
+<p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int *a;
+  init(a);
+  std::cout &lt;&lt; "a = " &lt;&lt; *a &lt;&lt; std::endl;
+}
+</pre>
+
+<p>Файл Math.h</p>
+<pre>
+#pragma once
+
+void init(int*);
+</pre>
+
+<p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+void init(int *x)
+{
+  x = new int(3);
+}
+</pre>
+</article>
+
+
+<!-- Практика. init(int*&) -->
+<article class="article">
+  <div class="anchor" id="t8"></div>
+  <h3>Практика. init(int*&)</h3>
+
+  <p>Перепишем функцию init(), которая инициализирует значение переменной</p>
+
+  <p>Файл project.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Math.h"
+
+int main()
+{
+  int *a;
+  init(&a);
+  std::cout &lt;&lt; "a = " &lt;&lt; *a &lt;&lt; std::endl;
+}
+</pre>
+
+<p>Файл Math.h</p>
+<pre>
+#pragma once
+
+void init(int*);
+</pre>
+
+<p>Файл Math.cpp</p>
+<pre>
+#include "Math.h"
+
+void init(int *x)
+{
+  x = new int(3);
+}
+</pre>
+</article>

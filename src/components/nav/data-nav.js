@@ -10,14 +10,17 @@ import showCodePascal from '../code/code-pascal/code-pascal';
 import showCodeOther from '../code/code-other/code-other';
 
 // front
-import showFrontBooks from '../front/front-books/front-books';
 import showFrontEdu from '../front/front-edu/front-edu';
 import showFrontLearned from '../front/front-learned/front-learned';
 import showFrontNode from '../front/front-node/front-node';
 import showFrontOffline from '../front/front-offline/front-offline';
+import showFrontOnline from '../front/front-online/front-online';
 import showFrontVacancy from '../front/front-vacancy/front-vacancy';
-import showFrontVideo from '../front/front-video/front-video';
-import showFrontYt from '../front/front-yt/front-yt';
+
+// lib
+import showFrontBooks from '../lib/front-books/front-books';
+import showFrontVideo from '../lib/front-video/front-video';
+import showFrontYt from '../lib/front-yt/front-yt';
 
 // alg
 export const dataNavAlg = [
@@ -85,14 +88,6 @@ export const dataNavCode = [
 
 // front
 export const dataNavFront = [
-  {
-    url: 'front-books.html',
-    text: 'Books',
-    content: '<front-books></front-books>',
-    act() {
-      showFrontBooks();
-    },
-  },
  {
     url: 'front-edu.html',
     text: 'Edu',
@@ -126,11 +121,31 @@ export const dataNavFront = [
     },
   },
   {
+    url: 'front-online.html',
+    text: 'Online',
+    content: '<front-online></front-online>',
+    act() {
+      showFrontOnline();
+    },
+  },
+  {
     url: 'front-vacancy.html',
     text: 'Vacancy',
     content: '<front-vacancy></front-vacancy>',
     act() {
       showFrontVacancy();
+    },
+  },
+];
+
+// lib
+export const dataNavLib = [
+  {
+    url: 'front-books.html',
+    text: 'Books',
+    content: '<front-books></front-books>',
+    act() {
+      showFrontBooks();
     },
   },
   {

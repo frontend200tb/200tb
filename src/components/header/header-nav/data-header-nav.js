@@ -1,6 +1,7 @@
 import showAlg from '../../alg/algorithm/algorithm';
-import showCodeHtml from '../../code/code-html/code-html';
-import showFront from '../../front/front-main/front-main';
+import showCode from '../../code/code-html/code-html';
+import showFront from '../../front/front-edu/front-edu';
+import showLib from '../../lib/front-books/front-books';
 
 const dataHeaderNav = [
   {
@@ -14,17 +15,25 @@ const dataHeaderNav = [
   {
     url: '/code.html',
     text: 'Code',
-    content: '<code-html></base-code-html>',
+    content: '<code-html></code-html>',
     act() {
-      showCodeHtml();
+      showCode();
     },
   },
  {
     url: '/index.html',
     text: 'Frontend',
-    content: '<front-main></front-main>',
+    content: '<front-edu></front-edu>',
     act() {
       showFront();
+    },
+  },
+ {
+    url: '/lib.html',
+    text: 'Lib',
+    content: '<front-books></front-books>',
+    act() {
+      showLib();
     },
   },
 ];
