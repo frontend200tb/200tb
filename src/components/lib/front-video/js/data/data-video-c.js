@@ -72,7 +72,7 @@ const dataVideoC = [
     theme: 'c',
     title: 'Программирование на Си с нуля',
     author: 'Дмитрий',
-    name: '',
+    name: 'From LAMER to Programmer',
     numberLessons: '45 уроков',
     time_h_m: [17, 38],
     size: '2.3 gb',

@@ -15,7 +15,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 1,
+    id: 2,
     theme: 'C++',
     title: 'Изучаем C++ вместе',
     author: 'Илья',
@@ -29,7 +29,21 @@ const dataYtCpp = [
   },
 
   {
-    id: 2,
+    id: 3,
+    theme: 'C++',
+    title: 'Мещерин Илья',
+    author: 'Илья Мещерин',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@mesyarik/videos',
+    site: '',
+    dateFirstVideo: '2023.09.17',
+    dateLastVideo: '2024.06.17',
+    amountVideos: 61,
+  },
+
+  {
+    id: 4,
     theme: 'C++',
     title: 'coder',
     author: '',

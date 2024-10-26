@@ -1,13 +1,13 @@
-/** **************
-Скрипт из файла algorithm.js
+/******************
+Скрипт из файла alg.js
 Навигация по теме Алгоритмы
-Теория Codewars Coderun Leetcode
-****************** */
-import './element-algorithm';
-import {dataAlgorithmNav} from './data-algorithm-nav';
+Теория Задачи Яндекс
+*******************/
+import './element-alg';
+import {dataAlgNav} from './data-alg-nav';
 
 // Создаем ссылки для меню mainnav
-createMainNav(dataAlgorithmNav);
+createMainNav(dataAlgNav);
 
 function createMainNav(navCode) {
   navCode.forEach((el) => {
@@ -35,11 +35,11 @@ function classActive(menu, activElem) {
 export default function showAlg() {
   const elemMainNav = document.getElementById('main-nav');
   elemMainNav.innerHTML = '';
-  dataAlgorithmNav.forEach((el) => {
+  dataAlgNav.forEach((el) => {
     elemMainNav.appendChild(el.elem);
     el.elem.classList.remove('active');
   });
   // 6. Создадим и вызовем событие click на первом main-nav эелементе
   const eventClick = new Event('click');
-  dataAlgorithmNav[0].elem.dispatchEvent(eventClick);
+  dataAlgNav[0].elem.dispatchEvent(eventClick);
 }

@@ -1,5 +1,7 @@
 // alg
 import showAlg from '../alg/algorithm/algorithm';
+import showAlgPractice from '../alg/practice/practice';
+import showAlgDp from '../alg/dp/dp';
 
 // code
 import showCodeHtml from '../code/code-html/code-html';
@@ -30,6 +32,22 @@ export const dataNavAlg = [
     content: '<base-algorithm></base-algorithm>',
     act() {
       showAlg();
+    },
+  },
+  {
+    url: 'practice.html',
+    text: 'Практика',
+    content: '<alg-practice></alg-prctice>',
+    act() {
+      showAlgPractice();
+    },
+  },
+  {
+    url: 'dp.html',
+    text: 'ДП',
+    content: '<alg-dp></alg-dp>',
+    act() {
+      showAlgDp();
     },
   },
 ]
