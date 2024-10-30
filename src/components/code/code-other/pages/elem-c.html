@@ -61,10 +61,27 @@
   <p><a href="#inout">Операции ввода-вывода</a></p>
   <ol>
     <li><a href="#printf">Функция printf()</a></li>
+    <li><a href="#printf1">Спецификатор формата</a></li>
+    <li><a href="#printf2">Печать символа</a></li>
+    <li><a href="#printf3">Печать целого числа</a></li>
+    <li><a href="#printf4">Печать дробного числа</a></li>
+    <li><a href="#printf5">Печать строки</a></li>
+    <li><a href="#fprintf">Функция fprintf()</a></li>
     <li><a href="#wprintf">Функция wprintf()</a></li>
     <li><a href="#scanf">Функция scanf()</a></li>
+    <li><a href="#fscanf">Функция fscanf()</a></li>
+    <li><a href="#puts">Функция puts()</a></li>
+    <li><a href="#fputs">Функция fputs()</a></li>
+    <li><a href="#gets">Функция gets()</a></li>
+    <li><a href="#fgets">Функция fgets()</a></li>
   </ol>
-
+  <p><a href="#file">Работа с файлами</a></p>
+  <ol>
+    <li><a href="#fopen">Функция fopen()</a></li>
+    <li><a href="#fread">Функция fread()</a></li>
+    <li><a href="#fwrite">Функция fwrite()</a></li>
+  </ol>
+  <p><a href="#rand">Рандомные числа</a></p>
 </article>
 
 
@@ -1041,20 +1058,31 @@ int main() {
   <code>Hello</code>
   <p><strong>Строка форматирования</strong> может содержать <strong>escape-последовательности</strong> и <strong>спецификатор формата</strong>. Если сторока содержит спецификаторы формата, то вторым аргументом передаются переменные, которые нужно поставить на место спецификаторов.</p>
   <code>printf(строка_форматирования, список_аргументов);</code>
-  <p>Если <strong>спецификатор формата</strong> не передается, то список_аргументв не нужен.
+  <p>Если <strong>спецификатор формата</strong> не передается, то список_аргументв не нужен.</p>
 
   <h4>Escape-последовательности</h4>
   <ol>
+    <li><strong>\a</strong> звуковой сигнал</li>
+    <li><strong>\b</strong> удаление предыдущего символа</li>
+    <li><strong>\f</strong> перевод страницы</li>
     <li><strong>\n</strong> перевод на новую строку</li>
-    <li><strong>\t</strong> табуляция</li>
     <li><strong>\r</strong> возврат в начало строки</li>
-    <li><strong>\\</strong> обратный слэш</li>
+    <li><strong>\t</strong> горизонтальная табуляция</li>
+    <li><strong>\v</strong> вертикальная табуляция</li>
     <li><strong>\'</strong> одинарная кавычка</li>
     <li><strong>\"</strong> двойная кавычка</li>
+    <li><strong>\\</strong> обратный слэш</li>
+    <li><strong>\?</strong> вопросительный знак</li>
     <li><strong>\0</strong> конец строки</li>
+    <li><strong>%%</strong> знак процента</li>
   </ol>
+</article>
 
-  <h4>Спецификатор формата</h4>
+
+<!-- Спецификатор формата -->
+<article class="article">
+  <div class="anchor" id="printf1"></div>
+  <h3>Спецификатор формата</h3>
 
   <p>В printf спецификатор формата имеет общий вид:</p>
   <code>%[флаги][ширина][.точность][размер]тип</code>
@@ -1112,33 +1140,48 @@ int main() {
       </ul>
     </li>
   </ol>
+</article>
 
-  <h4>Печать строк</h4>
-  <p>Число до точки задает минимальную ширину строки вывода</p>
-  <p>Для печати строк используют тип s (string).</p>
-  <p><strong>%5s</strong>. Строка менее 5 символов дополняется пробелами слева до 5 символов</p>
-  <code>printf("/%5s/\n", "abc");         // /  abc/</code>
-  <p><strong>%05s</strong>. Строка менее 5 символов дополняется нулями слева до 5 символов</p>
-  <code>printf("/%05s/\n", "abc");        // /00abc/</code>
-  <p><strong>%-5s</strong>. Строка менее 5 символов дополняется пробелами справа до 5 символов</p>
-  <code>printf("/%-5s/\n", "abc");        // /abc  /</code>
-  <p><strong>%5s</strong>. На строки длинее заданной ширины никак не влияет</p>
-  <code>printf("/%5s/\n", "abcdefgh");    // /abcdefgh/</code>
-  <p>Число после точки задает максимальную ширину строки вывода</p>
-  <p><strong>%.5s</strong>. Строка более 5 символов будет обрезана до 5 символов</p>
-  <code>printf("/%.5s/\n", "abcdefgh");   // /abcde/</code>
-  <p><strong>%.5s</strong>. На строки короче заданной ширины никак не влияет</p>
-  <code>printf("/%.5s/\n", "abc");        // /abc/</code>
 
-  <h4>Печать целых чисел</h4>
+<!-- Печать символа -->
+<article class="article">
+  <div class="anchor" id="printf2"></div>
+  <h3>Печать символа</h3>
+
   <h4>%c char</h4>
   <p>Напечатает символ соответствующий переданному числу в коде ASCII</p>
-  <code>char sym = 100;</code>
-  <code>printf("%c", sym);</code>
+  <p>Передадим на печать символ</p>
+  <code>printf("%c", 'A'); // A</code>
+  <p>Передадим на печать символ, записанный в переменную типа char</p>
+  <code>char sym = 'B';</code>
+  <code>printf("%c", sym); // B</code>
+  <p>Передадим на печать число</p>
+  <code>printf("%c", 100); // d</code>
+  <p>Передадим на печать число, записанное в переменную типа char</p>
+  <code>char sym = 101;</code>
+  <code>printf("%c", sym); // e</code>
+</article>
 
-  <h4>%h short</h4>
+
+<!-- Печать целого числа -->
+<article class="article">
+  <div class="anchor" id="printf3"></div>
+  <h3>Печать целого числа</h3>
+
+  <h4>%d char</h4>
+  <p>Можно получить код символа</p>
+  <code>printf("%d", 'A'); // 65</code>
+  <code>char sym = 'B';</code>
+  <code>printf("%d", sym); // 66</code>
+
+  <h4>%hi short</h4>
+  <code>short sh = 1001;</code>
+  <code>printf("%hi", 1000);</code>
+  <code>printf("%hi", sh);</code>
+
+  <h4>%hd short</h4>
   <code>short sh = 100;</code>
-  <code>printf("%h", sh);</code>
+  <code>printf("%hd", sh);</code>
 
   <h4>%i int</h4>
   <code>int a = 100;</code>
@@ -1175,6 +1218,68 @@ int main() {
 </article>
 
 
+<!-- Печать дробного числа -->
+<article class="article">
+  <div class="anchor" id="printf4"></div>
+  <h3>Печать дробного числа</h3>
+
+  <h4>%f float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%f", a);</code>
+
+  <h4>%F float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%F", a);</code>
+
+  <h4>%e float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%e", a);</code>
+
+  <h4>%E float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%E", a);</code>
+
+  <h4>%g float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%g", a);</code>
+
+  <h4>%G float, double</h4>
+  <code>float a = 1.1;</code>
+  <code>printf("%G", a);</code>
+
+</article>
+
+
+<!-- Печать строки -->
+<article class="article">
+  <div class="anchor" id="printf5"></div>
+  <h3>Печать строки</h3>
+
+  <p>Число до точки задает минимальную ширину строки вывода</p>
+  <p>Для печати строк используют тип s (string).</p>
+  <p><strong>%5s</strong>. Строка менее 5 символов дополняется пробелами слева до 5 символов</p>
+  <code>printf("/%5s/\n", "abc");         // /  abc/</code>
+  <p><strong>%05s</strong>. Строка менее 5 символов дополняется нулями слева до 5 символов</p>
+  <code>printf("/%05s/\n", "abc");        // /00abc/</code>
+  <p><strong>%-5s</strong>. Строка менее 5 символов дополняется пробелами справа до 5 символов</p>
+  <code>printf("/%-5s/\n", "abc");        // /abc  /</code>
+  <p><strong>%5s</strong>. На строки длинее заданной ширины никак не влияет</p>
+  <code>printf("/%5s/\n", "abcdefgh");    // /abcdefgh/</code>
+  <p>Число после точки задает максимальную ширину строки вывода</p>
+  <p><strong>%.5s</strong>. Строка более 5 символов будет обрезана до 5 символов</p>
+  <code>printf("/%.5s/\n", "abcdefgh");   // /abcde/</code>
+  <p><strong>%.5s</strong>. На строки короче заданной ширины никак не влияет</p>
+  <code>printf("/%.5s/\n", "abc");        // /abc/</code>
+</article>
+
+
+<!-- Функция fprintf() -->
+<article class="article">
+  <div class="anchor" id="fprintf"></div>
+  <h3>Функция fprintf()</h3>
+</article>
+
+
 <!-- Функция wprintf() -->
 <article class="article">
   <div class="anchor" id="wprintf"></div>
@@ -1194,5 +1299,110 @@ int main() {
     <li>h используется как префикс перед типами d, i, o, x, X для указания того, что тип аргумента short int, или с u для указания того, что тип аргумента short unsigned int</li>
     <li>l используется как префикс перед типами d, i, o, x, X для указания того, что тип аргумента long int, или с u для указания того, что тип аргумента long unsigned int. А также перед типами e, E, f, g, G для указания того, что тип аргумента double, а не float</li>
   </ol>
+</article>
+
+
+<!-- Функция fscanf() -->
+<article class="article">
+  <div class="anchor" id="fscanf"></div>
+  <h3>Функция fscanf()</h3>
+</article>
+
+
+<!-- Функция puts() -->
+<article class="article">
+  <div class="anchor" id="puts"></div>
+  <h3>Функция puts()</h3>
+</article>
+
+
+<!-- Функция fputs() -->
+<article class="article">
+  <div class="anchor" id="fputs"></div>
+  <h3>Функция fputs()</h3>
+</article>
+
+
+<!-- Функция gets() -->
+<article class="article">
+  <div class="anchor" id="gets"></div>
+  <h3>Функция gets()</h3>
+</article>
+
+
+<!-- Функция fgets() -->
+<article class="article">
+  <div class="anchor" id="fgets"></div>
+  <h3>Функция fgets()</h3>
+</article>
+
+
+<!-- Работа с файлами -->
+<article class="article">
+  <div class="anchor" id="file"></div>
+  <h3>Работа с файлами</h3>
+
+  <p>FILE * тип данных указатель на файл</p>
+  <code>FILE *pf;</code>
+</article>
+
+
+<!-- Функция fopen() -->
+<article class="article">
+  <div class="anchor" id="fopen"></div>
+  <h3>Функция fopen()</h3>
+
+  <p>fopen(имя файла, режим)</p>
+  <p>режим</p>
+  <ul>
+    <li>r read чтение</li>
+    <li>w write запись</li>
+    <li>a append дозапись в конец</li>
+    <li>r+ чтение или запись в текстовый файл</li>
+    <li>w+ чтение или запись в текстовый файл</li>
+    <li>a+ чтение или дозапись в конец текстового файла</li>
+    <li>rb чтение бинарного файла</li>
+    <li>wb запись в бинарный файл</li>
+  </ul>
+
+  <code>pf = fopen("a.txt", "w");</code>
+  <p>В случае удачи в pf запишется указатель на файл. В случае неудачи в pf запишется NULL</p>
+</article>
+
+
+<!-- Функция fread() -->
+<article class="article">
+  <div class="anchor" id="fread"></div>
+  <h3>Функция fread()</h3>
+
+  <p>Функция fread() принимает четыре параметра и возвращает в случае успеха количество прочитанных символов</p>
+  <p>Входные параметры: массив, куда записывать символы, количество символов прочитанных за один раз, количество всех символов которые нужно прочитать, указатель на файл откуда читать</p>
+</article>
+
+
+<!-- Функция fwrite() -->
+<article class="article">
+  <div class="anchor" id="fwrite"></div>
+  <h3>Функция fwrite()</h3>
+
+  <p>Функция fwrite() принимает четыре параметра и возвращает в случае успеха количество записанных символов</p>
+  <p>Входные параметры: массив, откуда читать символы, количество символов прочитанных за один раз, количество всех символов которые нужно прочитать, указатель на файл куда записывать символы</p>
+</article>
+
+
+<!-- Рандомные числа -->
+<article class="article">
+  <div class="anchor" id="rand"></div>
+  <h3>Рандомные числа</h3>
+
+  <p>rand() генерерует положительное целое число 0 ... 32767</p>
+  <p>rand % 9 + 10 вернет число от 10 до 19</p>
+  <code>rand() % (max - min +1) + min</code>
+  <p>rand() вернет не случайное число, а одну и ту же последовательность при ее вызовах</p>
+
+  <p>srand(int) принимает зерно для функции rand()</p>
+  <p>Если не использовать функцию srand(), то по умолчанию зерно равно 1.</p>
+  <p>для каждого зерна генерируется разная последовательность, поэтому в качестве зерна передают функцию time(), что бы числа казались случайными</p>
+  <code>srand(time(0));</code>
 </article>
 

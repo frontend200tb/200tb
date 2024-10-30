@@ -3,6 +3,78 @@
 
 <!-- Содержание -->
 <article class="article">
-  <h2>Сортировка</h2>
+  <h2>Содержание</h2>
+
+  <p><a href="#frog">Лягушка и шестиугольник</a></p>
+  <p><a href="#frog0">0 прыжков</a></p>
+  <p><a href="#frog1">1 прыжок</a></p>
+  <p><a href="#frog2">2 прыжка</a></p>
+  <p><a href="#frog3">3 прыжка</a></p>
+  <p><a href="#frog4">4 прыжка</a></p>
+  <p><a href="#frogn">n прыжков</a></p>
+  <p><a href="#frogr">Рекуррентное соотношение</a></p>
+  <p><a href="#frogz">Замкнутое выражение</a></p>
+</article>
+
+
+<!-- Лягушка и шестиугольник -->
+<article class="article">
+  <div class="anchor" id="frog"></div>
+  <h2>Лягушка и шестиугольник</h2>
+
+  <p>Лягушка прыгает по вершинам шестиугольника ABCDEF, кажды раз перемещаясь в одну из соседних вершин. Сколькими способами она может попасть из A в C за n прыжков?</p>
+</article>
+
+
+<!-- 0 прыжков -->
+<article class="article">
+  <div class="anchor" id="frog0"></div>
+  <h2>0 прыжков</h2>
+
+  <p>Рассмотрим крайний случай. За 0 прыжков лягушка не попадет из вершины A на вершину C. Поэтому ответ - ноль способов</p>
+
+  <code>n = 0</code>
+  <code>C<sub>0</sub> = 0</code>
+</article>
+
+
+<!-- 1 прыжок -->
+<article class="article">
+  <div class="anchor" id="frog1"></div>
+  <h2>1 прыжок</h2>
+
+  <p>За один прыжок лягушка из вершины A может попасть только в вершины B и F. Потому что есть только два пути</p>
+  <code>AB, AF</code>
+  <p>Поэтому ответ - ноль способов</p>
+
+  <code>n = 1</code>
+  <code>C<sub>1</sub> = 0</code>
+</article>
+
+
+<!-- 2 прыжка -->
+<article class="article">
+  <div class="anchor" id="frog2"></div>
+  <h2>2 прыжка</h2>
+
+  <p>За два прыжка у лягушки могут быть четыре пути</p>
+  <code>ABC, ABA, AFE, AFA</code>
+  <p>Только один путь приведет ее в конце в вершину C</p>
+
+  <code>n = 2</code>
+  <code>C<sub>2</sub> = 1</code>
+</article>
+
+
+<!-- 3 прыжка -->
+<article class="article">
+  <div class="anchor" id="frog3"></div>
+  <h2>3 прыжка</h2>
+
+  <p>За три прыжка у лягушки могут быть следующие пути</p>
+  <code>ABCD, ABCB, ABAB, ABAF, AFEF, AFED, AFAF, AFAB</code> . Ни один путь не приведет ее в конце в вершину C</p>
+
+  <code>n = 3</code>
+  <code>C<sub>3</sub> = 0</code>
 </article>
 
