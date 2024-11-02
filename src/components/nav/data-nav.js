@@ -9,6 +9,7 @@ import showCodeCss from '../code/code-css/code-css';
 import showCodeJs from '../code/code-js/code-js';
 import showCodeTs from '../code/code-ts/code-ts';
 import showCodePascal from '../code/code-pascal/code-pascal';
+import showCodeC from '../code/code-c/code-c';
 import showCodeOther from '../code/code-other/code-other';
 
 // front
@@ -92,6 +93,14 @@ export const dataNavCode = [
     content: '<code-pascal></code-pascal>',
     act() {
       showCodePascal();
+    },
+  },
+  {
+    url: 'code-c.html',
+    text: 'Си',
+    content: '<code-c></code-c>',
+    act() {
+      showCodeC();
     },
   },
   {

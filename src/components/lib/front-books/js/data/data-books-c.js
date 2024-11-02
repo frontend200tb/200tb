@@ -220,32 +220,6 @@ const dataBooksC = [
   },
 
   {
-    id: 18,
-    year: 1997,
-    category: 'code',
-    theme: 'c',
-    title: 'Программирование для Windows 95. Том 1',
-    author: 'Петцольд',
-    authorName: 'Чарльз',
-    pages: '495',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 19,
-    year: 1997,
-    category: 'code',
-    theme: 'c',
-    title: 'Программирование для Windows 95. Том 2',
-    author: 'Петцольд',
-    authorName: 'Чарльз',
-    pages: '242',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 20,
     year: 2000,
     category: 'code',

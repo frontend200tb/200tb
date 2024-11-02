@@ -1169,6 +1169,19 @@ const dataBooksBase = [
   },
 
   {
+    id: 97,
+    year: 2017,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Программирование распределенных информационных систем',
+    author: 'Сергеева',
+    authorName: 'Татьяна',
+    pages: '154',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 98,
     year: 2017,
     category: 'основы',

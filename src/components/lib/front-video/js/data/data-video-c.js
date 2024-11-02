@@ -56,7 +56,7 @@ const dataVideoC = [
     theme: 'c',
     title: 'Азбука программирования на языке Си',
     author: 'Шереметьев',
-    name: '',
+    name: 'Константин',
     numberLessons: '7 уроков',
     time_h_m: [4, 41],
     size: '5.6 gb',
@@ -76,8 +76,8 @@ const dataVideoC = [
     numberLessons: '45 уроков',
     time_h_m: [17, 38],
     size: '2.3 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.10.31 чт',
   },
 
   {

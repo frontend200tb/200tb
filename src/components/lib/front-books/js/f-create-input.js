@@ -8,6 +8,7 @@ import dataBooksHtmlcss from './data/data-books-htmlcss';
 import dataBooksJs from './data/data-books-js';
 import dataBooksTs from './data/data-books-ts';
 import dataBooksAssembler from './data/data-books-assembler';
+import dataBooksWin32 from './data/data-books-win32';
 import dataBooksC from './data/data-books-c';
 import dataBooksCpp from './data/data-books-cpp';
 import dataBooksCsharp from './data/data-books-csharp';
@@ -65,7 +66,7 @@ import dataBooksGames from './data/data-books-games';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksBasic, dataBooksJava,
+  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksWin32, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksBasic, dataBooksJava,
   // Base
   dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksBios, dataBooksNet, dataBooksSysadmin, dataBooksInformatika, dataBooksOop, dataBooksFreebsd,
   // Framework

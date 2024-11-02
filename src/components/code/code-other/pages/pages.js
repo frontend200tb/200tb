@@ -4,8 +4,6 @@
 */
 import htmlAssembler from './elem-assembler.html';
 import htmlLinux from './elem-linux.html';
-import htmlC from './elem-c.html';
-import htmlCPractice from './elem-cpractice.html';
 import htmlCpp from './elem-cpp.html';
 import htmlCsharp from './elem-csharp.html';
 import htmlJava from './elem-java.html';
@@ -20,8 +18,6 @@ export default function pageLink() {
   const aside = [
     htmlAssembler,
     htmlLinux,
-    htmlC,
-    htmlCPractice,
     htmlCpp,
     htmlCsharp,
     htmlJava,

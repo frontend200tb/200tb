@@ -1,0 +1,478 @@
+<h1>Язык Си</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <ol>
+    <li><a href="#wsl">Командная строка wsl</a></li>
+    <li><a href="#compiler">Компиляторы</a></li>
+    <ol>
+      <li><a href="#gcc">Компилятор gcc</a></li>
+      <li><a href="#clang">Компилятор clang</a></li>
+      <li><a href="#compiler1">Настройка компилятора gcc и clang</a></li>
+    </ol>
+    <li><a href="#editor">Текстовые редакторы</a></li>
+    <ol>
+      <li><a href="#vim">Vim</a></li>
+      <li><a href="#notepad">Notepad++</a></li>
+      <li><a href="#vscode">VSCode</a></li>
+      <li><a href="#editor1">Первая программа</a></li>
+    </ol>
+    <li><a href="#ide">IDE</a></li>
+    <ol>
+      <li><a href="#codeblocks">CodeBlocks</a></li>
+    </ol>
+  </ol>
+</article>
+
+
+<!-- Командная строка -->
+<article class="article">
+  <div class="anchor" id="wsl"></div>
+  <h3>Командная строка</h3>
+
+  <p>Проверим что установлена командная строка wsl</p>
+  <code>wsl -v</code>
+  <code>Версия WSL: 2.3.24.0</code>
+  <p>(сокращение от wsl --version)</p>
+
+  <p>На Windows 10 рекомендуем установить WSL (Windows Subsystem for Linux) или WSL2</p>
+  <code><a href="https://learn.microsoft.com/ru-ru/windows/wsl/install">https://learn.microsoft.com/ru-ru/windows/wsl/install</a></code>
+  <p>Команда установки wsl</p>
+  <code>wsl --install</code>
+</article>
+
+
+<!-- Компиляторы -->
+<article class="article">
+  <div class="anchor" id="compiler"></div>
+  <h3>Компиляторы</h3>
+</article>
+
+
+<!-- Компилятор gcc-->
+<article class="article">
+  <div class="anchor" id="gcc"></div>
+  <h2>Компилятор gcc от проекта GNU</h2>
+
+  <p>Проверим что установлен компилятор gcc</p>
+  <code>gcc -v</code>
+  <code>gcc.exe (GCC) 14.1.0</code>
+  <p>(сокращение от gcc --version)</p>
+
+  <p>Самый популярный набор компиляторов для разных операционных систем - GCC с компиляторами</p>
+  <ul>
+    <li>gcc для языка СИ</li>
+    <li>g++ для языка С++</li>
+  </ul>
+  <p><a href="https://gcc.gnu.org/">https://gcc.gnu.org/</a></p>
+
+  <h3>Вариант 1. Если есть интернет</h3>
+  <p>Воспользуемся пакетом средств для разработки MSYS2, который включает GCC</p>
+  <ol>
+    <li>
+      <p>Зайдем на сайт <a href="https://www.msys2.org/">https://www.msys2.org/</a></p>
+    </li>
+    <li>
+      <p>Скачаем установщик (installer)</p>
+      <code>msys2-x86_64-20240727.exe</code>
+    </li>
+    <li>
+      <p>Запустим установщик</p>
+      <code>msys2-x86_64-20240727.exe</code>
+    </li>
+    <li>
+      <p>По умолчанию программа MSYS2 установится в папку</p>
+      <code>C:\msys64\</code>
+    </li>
+    <li>
+      <p>После установки запустится консольное приложение MSYS2.exe. Если не запустилось, то нужно запустить файл</p>
+      <code>C:\msys64\ucrt64.exe</code>
+    </li>
+    <li>
+      <p>Чтобы установить набор компиляторов GCC, наберем в консоли MSYS2 команду. Эта команда <strong>скачает из интернета и установит</strong> компилятор</p>
+      <code>pacman -S mingw-w64-x86_64-gcc</code>
+    </li>
+    <li>
+      <p>Компилятор установится в папку</p>
+      <code>C:\msys64\ucrt64\bin</code>
+    </li>
+    <li>
+      <p>Желательно сразу установить отладчик. Для этого намерем в консоли MSYS2 команду. Эта команда <strong>скачает из интернета и установит</strong> отладчик</p>
+      <code>pacman -S mingw-w64-x86_64-gdb</code>
+    </li>
+    <li>
+      <p>Проверим что компилятор установился</p>
+      <code>gcc --version</code>
+      <code>gcc.exe (GCC) 14.1.0</code>
+    <li>
+      <p>Добавим в Переменные среды путь к компилятору</p>
+      <code>C:\msys64\ucrt\bin\</code>
+    </li>
+  </ol>
+
+  <h3>Вариант 2. Если нет интернета</h3>
+  <ol>
+    <li>
+      <p>Запустим установочный файл</p>
+      <code>gcc-14.1.0-64.exe</code>
+    </li>
+    <li>
+      <p>Компилятор установится в папку</p>
+      <code>C:\gcc\bin</code>
+    </li>
+    <li>
+      <p>Проверим что компилятор установился</p>
+      <code>gcc --version</code>
+      <code>gcc.exe (GCC) 14.1.0</code>
+    </li>
+    <li>
+      <p>Добавим в Переменные среды путь к компилятору</p>
+      <code>Панель управления - Система и безопасность - Система - Дополнительные параметры системы</code>
+      <code>Свойства системы - Дополнительно - Переменные среды...</code>
+      <code>Path - Изменить - Создать - Обзор</code>
+      <code>C:\Programs\gcc\bin\</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Компилятор clang-->
+<article class="article">
+  <div class="anchor" id="clang"></div>
+  <h2>Компилятор clang от проекта LLVM</h2>
+
+  <p>Проверим что установлен компилятор clang</p>
+  <code>clang -v</code>
+  <code>clang version 18.1.8</code>
+  <p>(сокращение от clang --version)</p>
+
+<p>Clang содержит компилятор</p>
+  <ul>
+    <li>clang для языка СИ</li>
+    <li>clang++ для языка С++</li>
+  </ul>
+  <p><a href="https://llvm.org/">https://llvm.org/</a></p>
+
+  <h3>Установим компилятор clang</h3>
+
+  <ol>
+    <li>
+      <p>Зайдем на сайт <a href="http://github.com/llvm/llvm-project/releases/">http://github.com/llvm/llvm-project/releases/</a></p>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Assets - show all - LLVM-18.1.18-win64.exe</code>
+    </li>
+    <li>
+      <p>Скачаем и запустим файл</p>
+      <code>LLVM-18.1.18-win64.exe</code>
+    </li>
+    <li>
+      <p>По умолчанию программа установится в папку</p>
+      <code>C:\Program Files\LLVM\</code>
+    </li>
+    <li>
+      <p>Проверим что программа установилась</p>
+      <code>clang --version</code>
+      <code>clang version 18.1.8</code>
+    </li>
+</article>
+
+
+<!-- Настройка компилятора gcc и clang-->
+<article class="article">
+  <div class="anchor" id="compiler1"></div>
+  <h3>Настройка компилятора gcc и clang</h3>
+
+  <p>Можно совместить компиляцию и выполнение одной командой</p>
+  <code>gcc source.cpp && ./a</code>
+
+  <p>Можно задать имя исполняемого файла после флага <strong>-o</strong></p>
+  <code>gcc source.cpp -o source</code>
+
+  <p>Для компиляции с предупреждениями применяется флаг <strong>-Wall</strong></p>
+  <code>gcc -Wall source.cpp</code>
+
+  <p>Можно задать компиляцию в определенный стандарт (c99, c11, c17, c23) после флага <strong>-std=</strong></p>
+  <code>gcc -std=c23 source.cpp</code>
+
+  <p>Чтобы гарантировать, что программа будет строго соответствовать определенному стандарту дополнительно используют флаг <strong>-pedantic</strong></p>
+  <code>gcc -std=c23 -Wall -pedantic source.cpp</code>
+  <p>В этом случае компилятор будет генерировать предупреждения, если код не соответствует правилам стандарта</p>
+
+  <p>Можно в добавок создать файл с ассемблерным кодом применяя флаг <strong>-S</strong></p>
+  <code>gcc source.cpp -S</code>
+  <p>В этом случае дополнительно будет сгенерирован файл <strong>a.s</strong>  содержащий код на ассемблере с синтаксисом GAS (ассемблер от GNU)</p>
+</article>
+
+
+<!-- Текстовые редакторы -->
+<article class="article">
+  <div class="anchor" id="editor"></div>
+  <h3>Текстовые редакторы</h3>
+</article>
+
+
+<!-- Vim -->
+<article class="article">
+  <div class="anchor" id="vim"></div>
+  <h3>Vim</h3>
+
+  <p><a href="https://www.vim.org/download.php">https://www.vim.org/download.php</a> Vim — свободный текстовый редактор, созданный на основе более старого vi</p>
+</article>
+
+
+<!-- Notepad++ -->
+<article class="article">
+  <div class="anchor" id="notepad"></div>
+  <h3>Notepad++</h3>
+
+  <p><a href="https://notepad-plus-plus.org/downloads/">https://notepad-plus-plus.org/downloads/</a></p>
+</article>
+
+
+<!-- VSCode -->
+<article class="article">
+  <div class="anchor" id="vscode"></div>
+  <h3>VSCode</h3>
+
+  <p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</article>
+
+
+<!-- Первая программа -->
+<article class="article">
+  <div class="anchor" id="editor1"></div>
+  <h3>Первая программа</h3>
+
+  <ol>
+
+    <li>
+      <p>Создадим файл</p>
+      <code>hello.c</code>
+    </li>
+
+    <li>
+      <p>Запишем в него код первой программы</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello, world!");
+  return 0;
+}</pre>
+    </li>
+
+    <li>
+      <p>Откроем терминал и запустим компилятор gcc</p>
+      <code>gcc hello.c</code>
+    </li>
+
+    <li>
+      <p>По умолчанию компилятор создаст исполняемый файл <strong>a.exe</strong>. Запустим его</p>
+      <code>./a</code>
+    </li>
+
+    <li>
+      <p>Увидим результат работы программы</p>
+      <code>Hello, world!</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- IDE -->
+<article class="article">
+  <div class="anchor" id="ide"></div>
+  <h3>IDE</h3>
+
+  <ol>
+    <li>
+      <h4>Code Blocks</h4>
+      <p><a href="https://www.codeblocks.org/downloads/">https://www.codeblocks.org/downloads/</a>
+      <br>Бесплатная среда разработки для языков Си, C++ и Fortran
+      <br>Кросс-платформенная для Linux, Windows и Mac OS X
+      <br>codeblocks-20.03mingw-nosetup.zip 168mb</p>
+    </li>
+    <li>
+      <h4>Dev-C++</h4>
+      <p><a href="https://bloodshed.net/">https://bloodshed.net/</a> Бесплатная среда разработки</p>
+      <p>devcpp-4.9.9.2_setup.exe 9mb</p>
+    </li>
+    <li>
+      <h4>Pelles C</h4>
+      <p><a href="http://www.smorgasbordet.com/pellesc/download.htm">http://www.smorgasbordet.com/pellesc/download.htm</a> Бесплатная среда разработки</p>
+      <p>setup.exe 14mb</p>
+    </li>
+    <li>
+      <h4>Code Lite</h4>
+      <p><a href="https://codelite.org/">https://codelite.org/</a> Бесплатная среда разработки</p>
+      <p>codelite-amd64-17.0.0.exe 55mb</p>
+    </li>
+    <li>
+      <h4>Eclipse</h4>
+      <p><a href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a> Бесплатная среда разработки</p>
+      <p>eclipse-inst-jre-win64.exe 134mb</p>
+    </li>
+    <li>
+      <h4>Clion</h4>
+      <p><a href="https://www.jetbrains.com/ru-ru/clion/">https://www.jetbrains.com/ru-ru/clion/</a>
+      <br>Платная IDE для Си и Си++ от JetBrains
+      <br>Кросс-платформенная для Linux, Windows и Mac OS X</p>
+      <p>JetBrains CLion 2020.1 433mb</p>
+    </li>
+    <li>
+      <h4>Microsoft Visual Studio</h4>
+      <p><a href="https://visualstudio.microsoft.com/ru/">https://visualstudio.microsoft.com/ru/</a>
+      <br>Платная кросс-платформенная IDE
+      <br>Есть бесплатная версия Community</p>
+    </li>
+    <li>
+      <h4>XCode</h4>
+      <p><a href="https://developer.apple.com/xcode/">https://developer.apple.com/xcode/</a>
+      <br>Платная IDE для apple, macOS, iOS</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Code Blocks -->
+<article class="article">
+  <div class="anchor" id="codeblocks"></div>
+  <h3>Code Blocks</h3>
+
+  <p>Устанавливаем в папку</p>
+  <code>d:\Programs\CodeBlocks\</code>
+  <p>Запускаем файл</p>
+  <code>d:\Programs\CodeBlocks\codeblocks.exe</code>
+
+  <h3>Первая программа в консоли</h3>
+  <ol>
+    <li>
+      <p>Создадим новый проект. Для этого есть два способа</p>
+      <p>1. В окне Start here выберем</p>
+      <code>Create a new project</code>
+      <p>2. Выберем меню</p>
+      <code>File - New - Project</code>
+    </li>
+    <li>
+      <p>В открывшемся окне New from template выберем</p>
+      <code>Projects - Console application</code>
+      <p>И нажмем Go</p>
+    </li>
+    <li>
+      <p>В открывшемся окне Console application выберем язык C и нажмем Next</p>
+    </li>
+    <li>
+      <p>В следующем окне Console application выберем Project title и Folder to create project in и нажмем Next</p>
+    </li>
+    <li>
+       <p>В следующем окне Console application выберем Compiler, остальное оставим как есть и нажмем Finish</p>
+    </li>
+    <li>
+      <p>В окне Management откроем файл</p>
+      <code>Sources - main.c</code>
+    </li>
+    <li>
+      <p>Увидим в нем код первой программы</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello, world!");
+  return 0;
+}
+</pre>
+    </li>
+    <li>
+      <p>Соберем и запустим наш проект. Есть три способа сделать это:</p>
+      <ol>
+        <li>Нажать кнопку F9</li>
+        <li>Выбрать меню Build - Build and run</li>
+        <li>Нажать иконку Build and run</li>
+      </ol>
+    </li>
+    <li>
+      <p>Откроется консоль и мы увидим результат</p>
+      <code>Hello, world!</code>
+    </li>
+  </ol>
+
+  <h4>Русификация консоли</h4>
+  <p>Выполним русификацию консоли</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  setlocale(LC_ALL, "");
+  printf("Привет, мир!");
+  return 0;
+}
+</pre>
+  <p>Также работает setlocale с другим параметром</p>
+  <code>setlocale(LC_CTYPE, "");</code>
+  <p>Откроется консоль и мы увидим результат</p>
+  <code>Привет, мир!</code>
+
+  <h4>Компиляция</h4>
+  <p>При создании проекта, создастся папка проекта, а в ней два файла</p>
+  <code>a1\a1.cbp</code>
+  <code>a1\main.c</code>
+
+  <p>Есть два режима компиляции Debug и Release. Переключаться между ними можно в выпадающем списке между иконками</p>
+  <p>Сборка программы происходит в два этапа. Сначала компиляция - из исходного файла main.c создается объектный файл main.o. Потом компоновка - из объектного файла main.o создается исполняемый файл a1.exe</p>
+  <p>Соберем наш проект. Есть три способа сделать это:</p>
+  <ol>
+    <li>Нажать кнопку Ctrl+F9</li>
+    <li>Выбрать меню Build - Build</li>
+    <li>Нажать иконку Build</li>
+  </ol>
+
+  <h4>Компиляция в режиме Debug</h4>
+  <p>В режиме Debug к исполняемому файлу добавляется отладочная информация</p>
+  <p>Если был выбран режим Debug, то создастся объектный файл main.o для файла main.c</p>
+  <code>a1\obj\Debug\main.o</code>
+  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
+  <code>a1\bin\Debug\a1.exe</code>
+
+  <h4>Компиляция в режиме Release</h4>
+  <p>Если был выбран режим Release, то создастся объектный файл main.o для файла main.c</p>
+  <code>a1\obj\Release\main.o</code>
+  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
+  <code>a1\bin\Release\a1.exe</code>
+
+  <h3>Первая программа в среде Windows</h3>
+
+  <p>Чтобы написать программу для среды Windows нужно пользоваться функциями Win32 API. Для этого подключим заголовочный файл windows.h</p>
+  <code>#include &lt;windows.h&gt;</code>
+  <p>Вместо функции printf() воспользуемся функцией MessageBox() для вывода информации в новом окне.</p>
+<pre>
+#include &lt;windows.h&gt;
+
+int main()
+{
+    MessageBox(0, "Привет!", "Окно", MB_OK);
+    return 0;
+}
+</pre>
+  <p>Откроется окно консоли и откроется окно программы</p>
+  <p>Теперь научимся отатключать окно консоли</p>
+
+  <h3>Как отключить окно консоли</h3>
+  <p>Чтобы при запуске нашей программы не открывалась консоль нужно настроить компилятор</p>
+  <ol>
+    <li>В окне Management на вкладке Projects на имени проекта нажмем правой кнопкой мыши и выберем Properties</li>
+    <li>В открывшемся окне Project/targets options переходим на вкладку Build targets</li>
+    <li>
+      <p>В разделе Selected build target options выбираем Type</p>
+      <code>GUI application</code>
+      <p>Нажимаем OK</p>
+    </li>
+  </ol>
+  <p>При компиляции исходного кода из консоли, нужно добавить флаг -mwindows</p>
+  <code>gcc a.c -mwindows</code>
+</article>
+

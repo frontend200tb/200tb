@@ -337,19 +337,6 @@ const dataBooksCpp = [
   },
 
   {
-    id: 27,
-    year: 2002,
-    category: 'code',
-    theme: 'c++',
-    title: 'Программирование графики для WINDOWS',
-    author: 'Юань',
-    authorName: 'Фень',
-    pages: '1070',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 28,
     year: 2003,
     category: 'code',
@@ -1045,19 +1032,6 @@ const dataBooksCpp = [
     author: 'Саттер',
     authorName: 'Герб',
     pages: '224',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 80,
-    year: 2009,
-    category: 'code',
-    theme: 'c++',
-    title: 'WIN32 API Программирование',
-    author: 'Безруков',
-    authorName: 'Вячеслав',
-    pages: '96',
     isLearned: false,
     dateLearned: '',
   },

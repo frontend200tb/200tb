@@ -781,6 +781,19 @@ const dataBooksAssembler = [
   },
 
   {
+    id: 52,
+    year: 2011,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Программирование на ассемблере',
+    author: 'Одиноков',
+    authorName: 'Владимир',
+    pages: '282',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 53,
     year: 2011,
     category: 'code',
