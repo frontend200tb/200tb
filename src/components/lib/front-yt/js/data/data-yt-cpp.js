@@ -31,6 +31,20 @@ const dataYtCpp = [
   {
     id: 3,
     theme: 'C++',
+    title: 'Ilya Siganov',
+    author: 'Илья Сиганов',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@IlyaSiga/videos',
+    site: '',
+    dateFirstVideo: '2019.02.18',
+    dateLastVideo: '2023.05.25',
+    amountVideos: 78,
+  },
+
+  {
+    id: 3,
+    theme: 'C++',
     title: 'Мещерин Илья',
     author: 'Илья Мещерин',
     city: '',

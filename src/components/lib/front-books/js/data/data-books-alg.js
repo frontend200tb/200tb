@@ -521,6 +521,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 38,
+    year: 2017,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Сборник задач по теории алгоритмов',
+    author: 'Котов',
+    authorName: 'Владимир',
+    pages: '184',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 40,
     year: 2017,
     category: 'основы',

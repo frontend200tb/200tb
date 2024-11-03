@@ -23,6 +23,11 @@
     <li><a href="#ide">IDE</a></li>
     <ol>
       <li><a href="#codeblocks">CodeBlocks</a></li>
+      <li><a href="#codeblocks1">Первая программа в консоли</a></li>
+      <li><a href="#codeblocks2">Русификация консоли</a></li>
+      <li><a href="#codeblocks3">Первая программа в Windows</a></li>
+      <li><a href="#codeblocks4">Русификация Windows</a></li>
+      <li><a href="#codeblocks5">Компиляция</a></li>
     </ol>
   </ol>
 </article>
@@ -347,8 +352,14 @@ int main() {
   <code>d:\Programs\CodeBlocks\</code>
   <p>Запускаем файл</p>
   <code>d:\Programs\CodeBlocks\codeblocks.exe</code>
+</article>
 
+
+<!-- Первая программа в консоли -->
+<article class="article">
+  <div class="anchor" id="codeblocks1"></div>
   <h3>Первая программа в консоли</h3>
+
   <ol>
     <li>
       <p>Создадим новый проект. Для этого есть два способа</p>
@@ -399,9 +410,38 @@ int main() {
       <code>Hello, world!</code>
     </li>
   </ol>
+</article>
 
-  <h4>Русификация консоли</h4>
-  <p>Выполним русификацию консоли</p>
+
+<!-- Русификация консоли -->
+<article class="article">
+  <div class="anchor" id="codeblocks2"></div>
+  <h3>Русификация консоли</h3>
+
+  <p>По умолчанию язык Си работает с символами английского алфавита, которые находятся в первой половине (первые 128 символов) кодовой таблицы ASCII</p>
+  <p>Есть два способа работы с символами русского алфавита:</p>
+  <ol>
+    <li>Установка второй половины кодовой таблицы ASCII в нужную кодировку, например windows-1251. При этом можно пользоваться всеми функциями, которые работают с символами ASCII</li>
+    <li>Работа с кодировкой UTF-8. При этом нужно использовать функции, которые работают с кодировкой UTF-8</li>
+  </ol>
+
+  <h4>Русификация консоли в кодировке windows-1251</h4>
+  <ol>
+    <li>Настроим кодировку файлов в редакторе</li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Settings - Editor</code>
+    </li>
+    <li>
+      <p>В открывшемся окне Configure Editor перейдем на вкладку</p>
+      <code>Encoding settings</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use encoding when opening files: WINDOWS-1251</code>
+    </li>
+    <li>
+      <p>Выполним русификацию консоли</p>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;locale.h&gt;
@@ -412,39 +452,63 @@ int main() {
   return 0;
 }
 </pre>
+    </li>
+  </ol>
+  <p>Функция printf() работает только с кодировкой ASCII</p>
   <p>Также работает setlocale с другим параметром</p>
   <code>setlocale(LC_CTYPE, "");</code>
   <p>Откроется консоль и мы увидим результат</p>
   <code>Привет, мир!</code>
+  <p>Установка всех локалей (LC_ALL) меняет не только кодировку, но и способ отображения чисел и дат. Например, вместо десятичной точки будет использоваться запятая.</p>
+  <code>setlocale(LC_ALL, "");</code>
+  <p>Если это нежелательно, то можно изменить только кодировку символов (LC_CTYPE)</p>
+  <code>setlocale(LC_CTYPE, "");</code>
 
-  <h4>Компиляция</h4>
-  <p>При создании проекта, создастся папка проекта, а в ней два файла</p>
-  <code>a1\a1.cbp</code>
-  <code>a1\main.c</code>
-
-  <p>Есть два режима компиляции Debug и Release. Переключаться между ними можно в выпадающем списке между иконками</p>
-  <p>Сборка программы происходит в два этапа. Сначала компиляция - из исходного файла main.c создается объектный файл main.o. Потом компоновка - из объектного файла main.o создается исполняемый файл a1.exe</p>
-  <p>Соберем наш проект. Есть три способа сделать это:</p>
+  <h4>Русификация консоли в кодировке UTF8</h4>
   <ol>
-    <li>Нажать кнопку Ctrl+F9</li>
-    <li>Выбрать меню Build - Build</li>
-    <li>Нажать иконку Build</li>
+    <li>Настроим редактор, чтобы вместо windows-1251, файлы открывались в кодировке utf8</li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Settings - Editor</code>
+    </li>
+    <li>
+      <p>В открывшемся окне Configure Editor перейдем на вкладку</p>
+      <code>Encoding settings</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use encoding when opening files: UTF-8</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use this encoding - As default encoding</code>
+    </li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Edit - File encoding - UTF-8</code>
+    </li>
+    <li>
+      <p>Выполним русификацию консоли</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  setlocale(LC_ALL, "");
+  wprintf(L"Привет, мир!");
+  return 0;
+}
+</pre>
+    </li>
   </ol>
+  <p>Функция wprintf() работает с кодировкой UTF-8</p>
+</article>
 
-  <h4>Компиляция в режиме Debug</h4>
-  <p>В режиме Debug к исполняемому файлу добавляется отладочная информация</p>
-  <p>Если был выбран режим Debug, то создастся объектный файл main.o для файла main.c</p>
-  <code>a1\obj\Debug\main.o</code>
-  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
-  <code>a1\bin\Debug\a1.exe</code>
 
-  <h4>Компиляция в режиме Release</h4>
-  <p>Если был выбран режим Release, то создастся объектный файл main.o для файла main.c</p>
-  <code>a1\obj\Release\main.o</code>
-  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
-  <code>a1\bin\Release\a1.exe</code>
-
-  <h3>Первая программа в среде Windows</h3>
+<!-- Первая программа в Windows -->
+<article class="article">
+  <div class="anchor" id="codeblocks3"></div>
+  <h3>Первая программа в Windows</h3>
 
   <p>Чтобы написать программу для среды Windows нужно пользоваться функциями Win32 API. Для этого подключим заголовочный файл windows.h</p>
   <code>#include &lt;windows.h&gt;</code>
@@ -476,3 +540,125 @@ int main()
   <code>gcc a.c -mwindows</code>
 </article>
 
+
+<!-- Русификация Windows -->
+<article class="article">
+  <div class="anchor" id="codeblocks4"></div>
+  <h3>Русификация Windows</h3>
+
+  <h4>Русификация Windows в кодировке windows-1251</h4>
+  <ol>
+    <li>Настроим кодировку файлов в редакторе</li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Settings - Editor</code>
+    </li>
+    <li>
+      <p>В открывшемся окне Configure Editor перейдем на вкладку</p>
+      <code>Encoding settings</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use encoding when opening files: WINDOWS-1251</code>
+    </li>
+    <li>
+      <p>Русификация Windows в кодировке windows-1251 не требуется</p>
+<pre>
+#include &lt;windows.h&gt;
+
+int main()
+{
+    MessageBox(0, "Привет!", "Окно", MB_OK);
+    return 0;
+}
+</pre>
+    </li>
+  </ol>
+
+  <h4>Русификация Windows в кодировке UTF-8</h4>
+  <ol>
+    <li>Настроим редактор, чтобы вместо windows-1251, файлы открывались в кодировке utf8</li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Settings - Editor</code>
+    </li>
+    <li>
+      <p>В открывшемся окне Configure Editor перейдем на вкладку</p>
+      <code>Encoding settings</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use encoding when opening files: UTF-8</code>
+    </li>
+    <li>
+      <p>Выберем</p>
+      <code>Use this encoding - As default encoding</code>
+    </li>
+    <li>
+      <p>Выберем меню</p>
+      <code>Edit - File encoding - UTF-8</code>
+    </li>
+    <li>
+      <p>Выполним русификацию</p>
+<pre>
+#include &lt;windows.h&gt;
+
+int main()
+{
+    setlocale(LC_ALL, "");
+    MessageBoxW(0, L"Привет!", L"Окно", MB_OK);
+    return 0;
+}
+</pre>
+    </li>
+  </ol>
+  <p>MessageBox - это макрос. В зависимости от специальных макроопределений для включения/выключения Unicode он превращается либо в функцию MessageBoxA (A - ASCII), либо в функцию MessageBoxW (W- wide). MessageBoxA может работать только с кодировкой ASCII. MessageBoxW работает с кодировкой UTF-8</p>
+      <p>Выполним русификацию переменных</p>
+<pre>
+#include <stdio.h>
+#include &lt;windows.h&gt;
+
+int main()
+{
+  wchar_t a[100];
+  wchar_t b[100];
+  swprintf(a, 100, L"Привет!");
+  swprintf(b, 100, L"Окно");
+  MessageBoxW(0, a, b, MB_OK);
+    return 0;
+}
+</pre>
+</article>
+
+
+<!-- Компиляция -->
+<article class="article">
+  <div class="anchor" id="codeblocks5"></div>
+  <h3>Компиляция</h3>
+
+  <p>При создании проекта, создастся папка проекта, а в ней два файла</p>
+  <code>a1\a1.cbp</code>
+  <code>a1\main.c</code>
+
+  <p>Есть два режима компиляции Debug и Release. Переключаться между ними можно в выпадающем списке между иконками</p>
+  <p>Сборка программы происходит в два этапа. Сначала компиляция - из исходного файла main.c создается объектный файл main.o. Потом компоновка - из объектного файла main.o создается исполняемый файл a1.exe</p>
+  <p>Соберем наш проект. Есть три способа сделать это:</p>
+  <ol>
+    <li>Нажать кнопку Ctrl+F9</li>
+    <li>Выбрать меню Build - Build</li>
+    <li>Нажать иконку Build</li>
+  </ol>
+
+  <h4>Компиляция в режиме Debug</h4>
+  <p>В режиме Debug к исполняемому файлу добавляется отладочная информация</p>
+  <p>Если был выбран режим Debug, то создастся объектный файл main.o для файла main.c</p>
+  <code>a1\obj\Debug\main.o</code>
+  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
+  <code>a1\bin\Debug\a1.exe</code>
+
+  <h4>Компиляция в режиме Release</h4>
+  <p>Если был выбран режим Release, то создастся объектный файл main.o для файла main.c</p>
+  <code>a1\obj\Release\main.o</code>
+  <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
+  <code>a1\bin\Release\a1.exe</code>
+</article>
