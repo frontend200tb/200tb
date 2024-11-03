@@ -466,6 +466,19 @@ const dataBooksC = [
   },
 
   {
+    id: 38,
+    year: 2007,
+    category: 'code',
+    theme: 'c',
+    title: 'Лабораторные работы по Си',
+    author: '',
+    authorName: '',
+    pages: '5',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 39,
     year: 2008,
     category: 'code',
@@ -557,6 +570,19 @@ const dataBooksC = [
   },
 
   {
+    id: 45,
+    year: 2013,
+    category: 'code',
+    theme: 'c',
+    title: '2013 Краткий конспект языка Си',
+    author: '',
+    authorName: '',
+    pages: '5',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 46,
     year: 2014,
     category: 'code',
@@ -565,6 +591,19 @@ const dataBooksC = [
     author: 'Дейтел',
     authorName: 'Пол',
     pages: '546',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 46,
+    year: 2014,
+    category: 'code',
+    theme: 'c',
+    title: 'Сборник задач по языку Си',
+    author: 'Кузина',
+    authorName: 'Л.Н.',
+    pages: '15',
     isLearned: false,
     dateLearned: '',
   },

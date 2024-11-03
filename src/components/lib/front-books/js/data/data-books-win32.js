@@ -70,6 +70,19 @@ const dataBooksWin32 = [
     year: 2004,
     category: 'code',
     theme: 'Win32 API',
+    title: 'Создание эффективных WIN32-приложений (4е)',
+    author: 'Рихтер',
+    authorName: 'Джеффри',
+    pages: '584',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2004,
+    category: 'code',
+    theme: 'Win32 API',
     title: 'Исследование программ Win32 до дизассемблера и отладчика',
     author: 'Румянцев',
     authorName: 'Павел',
@@ -79,7 +92,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2005,
     category: 'code',
     theme: 'Win32 API',
@@ -92,7 +105,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 2006,
     category: 'code',
     theme: 'Win32 API',
@@ -105,7 +118,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2006,
     category: 'code',
     theme: 'Win32 API',
@@ -118,7 +131,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2008,
     category: 'code',
     theme: 'Win32 API',
@@ -131,7 +144,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2009,
     category: 'code',
     theme: 'Win32 API',
@@ -144,7 +157,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2009,
     category: 'code',
     theme: 'Win32 API',
@@ -157,7 +170,20 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 13,
+    id: 14,
+    year: 2010,
+    category: 'code',
+    theme: 'Win32 API',
+    title: 'Win32 API. Основы программирования',
+    author: 'Сучкова',
+    authorName: 'Лариса',
+    pages: '139',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
     year: 2011,
     category: 'code',
     theme: 'Win32 API',
