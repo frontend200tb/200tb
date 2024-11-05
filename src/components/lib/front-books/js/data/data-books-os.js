@@ -106,6 +106,19 @@ const dataBooksOs = [
 
   {
     id: 9,
+    year: 2002,
+    category: 'основы',
+    theme: 'Операционные системы',
+    title: 'Недокументированные возможности Windows 2000',
+    author: 'Шрайбер',
+    authorName: 'Свен',
+    pages: '537',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2004,
     category: 'основы',
     theme: 'Операционные системы',

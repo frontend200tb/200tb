@@ -1,7 +1,8 @@
 // alg
-import showAlg from '../alg/algorithm/algorithm';
-import showAlgPractice from '../alg/practice/practice';
-import showAlgDp from '../alg/dp/dp';
+import showAlgBase from '../alg/alg-base/alg-base';
+import showAlgTrain from '../alg/alg-train/alg-train';
+import showAlgPract from '../alg/alg-pract/alg-pract';
+import showAlgDp from '../alg/alg-dp/alg-dp';
 
 // code
 import showCodeHtml from '../code/code-html/code-html';
@@ -28,23 +29,31 @@ import showFrontYt from '../lib/front-yt/front-yt';
 // alg
 export const dataNavAlg = [
   {
-    url: 'alg.html',
+    url: 'alg-base.html',
     text: 'Алгоритмы',
-    content: '<base-algorithm></base-algorithm>',
+    content: '<alg-base></alg-base>',
     act() {
-      showAlg();
+      showAlgBase();
     },
   },
   {
-    url: 'practice.html',
+    url: 'alg-train.html',
+    text: 'Подготовка',
+    content: '<alg-train></alg-train>',
+    act() {
+      showAlgTrain();
+    },
+  },
+  {
+    url: 'alg-pract.html',
     text: 'Практика',
-    content: '<alg-practice></alg-prctice>',
+    content: '<alg-pract></alg-pract>',
     act() {
-      showAlgPractice();
+      showAlgPract();
     },
   },
-  {
-    url: 'dp.html',
+ {
+    url: 'alg-dp.html',
     text: 'ДП',
     content: '<alg-dp></alg-dp>',
     act() {

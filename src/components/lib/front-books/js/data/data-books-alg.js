@@ -183,6 +183,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 12,
+    year: 2009,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Лекции о сложности алгоритмов pdf',
+    author: 'Абрамов',
+    authorName: 'Сергей',
+    pages: '253',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 13,
     year: 2010,
     category: 'основы',

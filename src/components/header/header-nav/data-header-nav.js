@@ -1,4 +1,4 @@
-import showAlg from '../../alg/algorithm/algorithm';
+import showAlg from '../../alg/alg-base/alg-base';
 import showCode from '../../code/code-html/code-html';
 import showFront from '../../front/front-edu/front-edu';
 import showLib from '../../lib/front-books/front-books';
@@ -7,7 +7,7 @@ const dataHeaderNav = [
   {
     url: '/alg.html',
     text: 'Alg',
-    content: '<base-algorithm></base-algorithm>',
+    content: '<alg-base></alg-base>',
     act() {
       showAlg();
     },

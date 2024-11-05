@@ -7407,20 +7407,6 @@ const dataFrontYtRus = [
   },
 
   {
-    id: 530,
-    theme: 'frontend',
-    title: 'Максим Фатин',
-    author: 'Максим Фатин',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@fatin.maksim/videos',
-    site: '',
-    dateFirstVideo: '2023.08.19',
-    dateLastVideo: '2024.08.17',
-    amountVideos: 12,
-  },
-
-  {
     id: 531,
     theme: 'frontend',
     title: 'Уставший техдир',

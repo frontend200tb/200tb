@@ -266,6 +266,20 @@ const dataYtAlgorithm = [
     amountVideos: 43,
   },
 
+  {
+    id: 530,
+    theme: 'Алгоритмы',
+    title: 'Максим Фатин',
+    author: 'Максим Фатин',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@fatin.maksim/videos',
+    site: '',
+    dateFirstVideo: '2023.08.19',
+    dateLastVideo: '2024.08.17',
+    amountVideos: 12,
+  },
+
   {},
 
 ];
