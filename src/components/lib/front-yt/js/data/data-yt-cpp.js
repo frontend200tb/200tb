@@ -31,6 +31,20 @@ const dataYtCpp = [
   {
     id: 3,
     theme: 'C++',
+    title: 'Daria Emacs',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@DariaEmacs/videos',
+    site: '',
+    dateFirstVideo: '2016.06.02',
+    dateLastVideo: '2024.01.01',
+    amountVideos: 108,
+  },
+
+  {
+    id: 4,
+    theme: 'C++',
     title: 'Ilya Siganov',
     author: 'Илья Сиганов',
     city: '',
@@ -43,7 +57,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 3,
+    id: 5,
     theme: 'C++',
     title: 'Мещерин Илья',
     author: 'Илья Мещерин',
@@ -57,7 +71,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 4,
+    id: 6,
     theme: 'C++',
     title: 'coder',
     author: '',
