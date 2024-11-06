@@ -28,6 +28,9 @@
       <li><a href="#codeblocks3">Первая программа в Windows</a></li>
       <li><a href="#codeblocks4">Русификация Windows</a></li>
       <li><a href="#codeblocks5">Компиляция</a></li>
+      <li><a href="#codeblocks6">Максимум двух чисел</a></li>
+      <li><a href="#codeblocks7">Максимум двух чисел в разных функциях</a></li>
+      <li><a href="#codeblocks8">Максимум двух чисел в разных файлах</a></li>
     </ol>
   </ol>
 </article>
@@ -662,3 +665,219 @@ int main()
   <p>и двоичный исполняемый файл a1.exe для проекта a1</p>
   <code>a1\bin\Release\a1.exe</code>
 </article>
+
+
+<!-- Максимум двух чисел -->
+<article class="article">
+  <div class="anchor" id="codeblocks6"></div>
+  <h3>Максимум двух чисел</h3>
+
+  <p>Напишем программу нахождения максимума двух чисел</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x = 10;
+    int y = 20;
+    int max;
+    if(x > y)
+    {
+        max = x;
+    }
+    else
+    {
+        max = y;
+    }
+    printf("%d\n", max);
+
+    return 0;
+}
+</pre>
+</article>
+
+
+<!-- Максимум двух чисел в разных функциях -->
+<article class="article">
+  <div class="anchor" id="codeblocks7"></div>
+  <h3>Максимум двух чисел в разных функциях</h3>
+
+  <p>Изменим программу. Создадим 4 функции</p>
+  <ol>
+    <li>getX() для получения числа x</li>
+    <li>getY для получения числа y</li>
+    <li>max() для нахождения максимума двух чисел</li>
+    <li>show() для вывода результата</li>
+  </ol>
+  <p>Файл main.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int getX();
+int getY();
+int max(int, int);
+void show(int);
+
+int main()
+{
+    int x = getX();
+    int y = getY();
+    int m = max(x, y);
+    show(m);
+
+    return 0;
+}
+
+int getX()
+{
+    return 10;
+}
+
+int getY()
+{
+    return 20;
+}
+
+int max(int a, int b)
+{
+    if(a > b) {
+        return a;
+    } else {
+    return b;}
+}
+
+void show(int c)
+{
+    printf("%d\n", c);
+}
+</pre>
+</article>
+
+
+<!-- Максимум двух чисел в разных файлах -->
+<article class="article">
+  <div class="anchor" id="codeblocks8"></div>
+  <h3>Максимум двух чисел в разных файлах</h3>
+
+  <p>Изменим программу. Разобьем ее на модули. Вынесем каждую функцию в отдельный файл</p>
+
+  <p>Файл main.c</p>
+<pre>
+#include "getx.h"
+#include "gety.h"
+#include "max.h"
+#include "show.h"
+
+int main()
+{
+    int x = getX();
+    int y = getY();
+    int m = max(x, y);
+    show(m);
+
+    return 0;
+}
+</pre>
+
+  <p>Выберем меню</p>
+  <code>File - New - File</code>
+  <p>В открывшемся окне <strong>New from template</strong> выбираем</p>
+  <code>Files - C/C++ sourse</code>
+  <p>Нажимаем Go</p>
+  <p>В открывшемся окне <strong>C/C++ sourse</strong> выбираем C и нажимаем <strong>Next</strong></p>
+  <p>В открывшемся окне <strong>C/C++ sourse</strong> в поле <strong>File name with full path</strong> вводим имя файла</p>
+  <code>getx</code>
+  <p>Нажимаем ... и в открывшемся окне <strong>Select filename</strong> нажимаем <strong>Сохранить</strong> чтобы сохранить файл в той же папке что и файл main.c</p>
+  <p>Поставим галочки у <strong>Add file to active project</strong> и <strong>Debug</strong> и <strong>Release</strong> и нажмем <strong>Finish</strong></p>
+  <p>Если забыли поставить галочки, то в окне <strong>Management</strong> кликаем правой кнопкой мыши на файле и выбираем <strong>Properties</strong></p>
+  <p>В открывшемся окне <strong>Properties</strong> на вкладке <strong>Build</strong> ставим галочки <strong>Debug</strong> и <strong>Release</strong></p>
+
+  <p>Файл getx.c</p>
+<pre>
+int getX()
+{
+    return 10;
+}
+</pre>
+
+<p>Выберем меню</p>
+<code>File - New - File</code>
+<p>В открывшемся окне <strong>New from template</strong> выбираем</p>
+<code>Files - c/c++ header</code>
+<p>Нажимаем Go</p>
+<p>В открывшемся окне <strong>C/C++ header</strong> в поле <strong>File with full path</strong> вводим имя файла</p>
+<code>getx</code>
+<p>Нажимаем ... и в открывшемся окне <strong>Select filename</strong> нажимаем <strong>Сохранить</strong> чтобы сохранить файл в той же папке что и файл main.c</p>
+<p>Поставим галочки у <strong>Add file to active project</strong> и <strong>Debug</strong> и <strong>Release</strong> и нажмем <strong>Finish</strong></p>
+
+  <p>Файл getx.h</p>
+<pre>
+#ifndef GETX_H_INCLUDED
+#define GETX_H_INCLUDED
+
+int getX();
+
+#endif // GETX_H_INCLUDED
+</pre>
+
+  <p>Файл gety.c</p>
+<pre>
+int getY()
+{
+    return 20;
+}
+</pre>
+
+  <p>Файл gety.h</p>
+<pre>
+#ifndef GETY_H_INCLUDED
+#define GETY_H_INCLUDED
+
+int getY();
+
+#endif // GETY_H_INCLUDED
+</pre>
+
+  <p>Файл max.c</p>
+<pre>
+int max(int a, int b)
+{
+    if(a > b) {
+        return a;
+    } else {
+    return b;}
+}
+</pre>
+
+  <p>Файл max.h</p>
+<pre>
+#ifndef MAX_H_INCLUDED
+#define MAX_H_INCLUDED
+
+int max(int, int);
+
+#endif // MAX_H_INCLUDED
+</pre>
+
+  <p>Файл show.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void show(int c)
+{
+    printf("%d\n", c);
+}
+</pre>
+
+  <p>Файл show.h</p>
+<pre>
+#ifndef SHOW_H_INCLUDED
+#define SHOW_H_INCLUDED
+
+void show(int);
+
+#endif // SHOW_H_INCLUDED
+</pre>
+</article>
+
+

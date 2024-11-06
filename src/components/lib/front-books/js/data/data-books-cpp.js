@@ -718,7 +718,7 @@ const dataBooksCpp = [
     year: 2006,
     category: 'code',
     theme: 'c++',
-    title: 'Эффективное использование C++',
+    title: 'Эффективное использование C++. 50 рекомендаций',
     author: 'Мейерс',
     authorName: 'Скотт',
     pages: '235',
@@ -1348,19 +1348,6 @@ const dataBooksCpp = [
   },
 
   {
-    id: 105,
-    year: 2015,
-    category: 'code',
-    theme: 'c++',
-    title: 'Эффективный и современный С++',
-    author: 'Мейерс',
-    authorName: 'Скотт',
-    pages: '306',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 106,
     year: 2016,
     category: 'code',
@@ -1430,7 +1417,7 @@ const dataBooksCpp = [
     year: 2016,
     category: 'code',
     theme: 'c++',
-    title: 'Эффективный и современный C++',
+    title: 'Эффективный и современный C++. 42 рекомендации',
     author: 'Мейерс',
     authorName: 'Скотт',
     pages: '306',

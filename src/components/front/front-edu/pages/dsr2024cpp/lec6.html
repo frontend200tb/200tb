@@ -1,0 +1,192 @@
+<article class="article">
+  <h1>Лекция 6 (5.11.2024)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#lamb">Лямбда-функции</a></p>
+  <p><a href="#lamb1">Определение лямбда-функций</a></p>
+  <p><a href="#lamb2">"Захват" лямбда-выражения</a></p>
+  <p><a href="#lamb3">Примеры использования</a></p>
+</article>
+
+
+<!-- Лямбда-функции -->
+<article class="article">
+  <div class="anchor" id="lamb"></div>
+  <h3>Лямбда-функции</h3>
+</article>
+
+
+<!-- Определение лямбда-функций -->
+<article class="article">
+  <div class="anchor" id="lamb1"></div>
+  <h3>Определение лямбда-функций</h3>
+
+<pre>
+     1   2     3       4       5
+     |   |     |       |       |
+    --- --- ------- ------- --------
+    [=] ()  mutable throw() -> int
+  |  {
+  |    int n = x + y;
+  |
+  |    x = y;
+6-|    y = n;
+  |
+  |    return n;
+  |  }
+</pre>
+  <ol>
+    <li>Capture clause - список внешних захватываемых параметров</li>
+    <li>Список передаваемых параметров</li>
+    <li>Спецификация изменений</li>
+    <li>Спецификация исключений</li>
+    <li>Тип возвращаемого значения</li>
+    <li>Тело функции</li>
+  </ol>
+</article>
+
+
+<!-- "Захват" лямбда-выражения -->
+<article class="article">
+  <div class="anchor" id="lamb2"></div>
+  <h3>"Захват" лямбда-выражения</h3>
+
+  <ol>
+    <li>
+      <h4>По значению</h4>
+<pre>
+int n{10};
+std::function&lt;void(int)&gt; add =
+       [=](int x) { std::cout &lt;&lt; x + n &lt;&lt; std::endl; };
+
+add(5); // выведет 15
+</pre>
+      <p>[=] Внешнюю переменную n изменять нельзя - программа не скомпилируется</p>
+    </li>
+    <li>
+      <h4>По ссылке</h4>
+<pre>
+int n{10};
+std::function&lt;void(int)&gt; add =
+       [&](int x) { std::cout &lt;&lt; x + ++n &lt;&lt; std::endl; };
+
+add(5); // выведет 16
+cout &lt;&lt; n; // выведет 11
+</pre>
+      <p>[&] Внешнюю переменную n изменять можно. Она также изменится за пределами функции</p>
+    </li>
+    <li>
+      <h4>mutable</h4>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n{10};
+  auto increment = [=]() mutable {
+    n++; // увеличиваем значение внешней переменной
+    std::cout &lt;&lt; "n inside lambda: " &lt;&lt; n &lt;&lt; std::endl;
+  };
+  increment();
+  std::cout &lt;&lt; "n outside lambda: " &lt;&lt; n &lt;&lt; std::endl;
+}
+</pre>
+      <p>mutable Внешняя переменная n передается по значению, но внутри лямбда-выражения ее можно изменять. За пределами она не изменится</p>
+    </li>
+    <li>
+      <h4>Все по значению, кроме одной по ссылке</h4>
+<pre>
+int n{10}, n_2{ 8 };
+auto add = [=, &n](int x) { std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
+
+add(5); // выведет 24
+cout &lt;&lt; nl // выведет 11
+</pre>
+      <p>[=, &n] все переменные передаются по значению и их изменять нельзя, но переменная n передается по ссылке и ее изменять можно. За пределами функции она тоже изменится.</p>
+    </li>
+    <li>
+      <h4>Ошибка</h4>
+<pre>
+int n{10}, n_2{ 8 };
+auto add = [&, &n](int x) { std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
+
+add(5); // ошибка
+cout &lt;&lt; n_2; // ошибка
+</pre>
+      <p>[&, &n] все переменные передаются по ссылке и переменная n тоже передается по ссылке. Это условие избыточное. Компилироваться такая строчка не будет</p>
+    </li>
+    <li>
+      <h4>Все по значению, кроме одной по ссылке</h4>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;function&gt;
+
+using namespace std;
+
+int main()
+{
+  int n{ 10 }, n_2{ 8 };
+  std::function&lt;void(int)&gt; lambda_func =
+         [=, &n_2](int x) { std::cout &lt;&lt; x + ++n_2 - n &lt;&lt; std::endl; };
+  lambda_func(5); // выведет 13
+}
+</pre>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Примеры использования -->
+<article class="article">
+  <div class="anchor" id="lamb3"></div>
+  <h3>Примеры использования</h3>
+
+  <ol>
+    <li>
+      <h4>Логические выражения. Передача по значению</h4>
+<pre>
+int n{ 4 };
+std::function&lt;bool(int)&gt; lambda_func_bool =
+       [](int x) { return x &gt; 1 && x &lt; 3; };
+cout &lt;&lt; lambda_func_bool(n); // 0
+
+double r{ 5 };
+double x{ 4 }, y{ 2 };
+auto lambda_func_r =
+       [r](double x, double y) { return x * x + y * y &lt;= r * r; };
+cout &lt;&lt; lambda_func_r(x, y); // 1
+
+r = 1;
+cout &lt;&lt; lambda_func_r(x, y); // 1
+</pre>
+      <p>[r] переменная r передается по значению и равна значению, которое было при первом вызове лямбда-функции. Если после вызова лямбда-функции переменную r изменить, то при следующем вызове лямбда-функции все равно останется ее старое значение</p>
+    </li>
+    <li>
+      <h4>Логические выражения. Передача по ссылке</h4>
+<pre>
+int n{ 4 };
+std::function&lt;bool(int)&gt; lambda_func_bool =
+       [](int x) { return x &gt; 1 && x &lt; 3; };
+cout &lt;&lt; lambda_func_bool(n); // 0
+
+double r{ 5 };
+double x{ 4 }, y{ 2 };
+auto lambda_func_r =
+       [&r](double x, double y) { return x * x + y * y &lt;= r * r; };
+cout &lt;&lt; lambda_func_r(x, y); // 1
+
+r = 1;
+cout &lt;&lt; lambda_func_r(x, y); // 1
+</pre>
+      <p>[&r] переменная r передается по ссылке. Если после вызова лямбда-функции переменную r изменить, то при следующем вызове лямбда-функции она тоже изменится</p>
+    </li>
+  </ol>
+</article>
+
