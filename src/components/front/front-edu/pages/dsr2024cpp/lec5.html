@@ -19,6 +19,7 @@
   <p><a href="#const6">Константные ссылочные параметры</a></p>
   <p><a href="#const7">Вопросы по перегрузке</a></p>
   <p><a href="#t1">Практика. Сумма ряда</a></p>
+  <p><a href="#t2">Код программы</a></p>
 </article>
 
 
@@ -347,8 +348,14 @@ for (int i=1; abs(ai)>eps; i++)
 }
 </pre>
   <p>С каждым шагом ai стремится к нашей точности eps, уменьшается. Чем выше точность eps (чем оно меньше), тем ближе к значению S<sub>точ</sub>. Таким образом мы считаем S<sub>n</sub>до тех пор, пока абсолютное значение ai не станет меньше eps</p>
+</article>
 
-  <h4>Код программы</h4>
+
+<!-- Код программы -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Код программы</h3>
+
 <pre>
 #include <iostream>
 #include <iomanip>
@@ -417,7 +424,8 @@ int main()
           Sn += ai;
           ai *= (-1) * (x * x) / (2*i * (2*i + 1));
         }
-        std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; N &lt;&lt; " элементах ряда =" &lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; N
+        &lt;&lt; " элементах ряда =" &lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
 
 
       }
@@ -439,7 +447,8 @@ int main()
             Sn += ai;
             ai *= (-1) * (x * x) / (2*i * (2*i + 1));
           }
-          std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; i &lt;&lt; " элементах ряда ="&lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
+          std::cout &lt;&lt; "Приближенное значение при " &lt;&lt; i
+          &lt;&lt; " элементах ряда ="&lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
           std::cout &lt;&lt; "Точное значение" &lt;&lt; sin(x) &lt;&lt; std::endl;
           eps /= 100;
 
@@ -448,7 +457,7 @@ int main()
     }
 
     char isExit{};
-    std::cout &lt;&lt; "Хотите завершить работу? (Y/y - завершить, любое другое значение - нет)" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Хотите завершить работу? (Y/y - завершить, другое - нет)" &lt;&lt; std::endl;
     std::cin >> isExit;
     if (isExit == 'Y' || isExit == 'y')
     {

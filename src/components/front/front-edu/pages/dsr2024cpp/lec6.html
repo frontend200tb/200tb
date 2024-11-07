@@ -13,6 +13,7 @@
   <p><a href="#lamb1">Определение лямбда-функций</a></p>
   <p><a href="#lamb2">"Захват" лямбда-выражения</a></p>
   <p><a href="#lamb3">Примеры использования</a></p>
+  <p><a href="#t1">Код программы</a></p>
 </article>
 
 
@@ -70,6 +71,7 @@ add(5); // выведет 15
 </pre>
       <p>[=] Внешнюю переменную n изменять нельзя - программа не скомпилируется</p>
     </li>
+
     <li>
       <h4>По ссылке</h4>
 <pre>
@@ -82,6 +84,7 @@ cout &lt;&lt; n; // выведет 11
 </pre>
       <p>[&] Внешнюю переменную n изменять можно. Она также изменится за пределами функции</p>
     </li>
+
     <li>
       <h4>mutable</h4>
 <pre>
@@ -100,28 +103,33 @@ int main()
 </pre>
       <p>mutable Внешняя переменная n передается по значению, но внутри лямбда-выражения ее можно изменять. За пределами она не изменится</p>
     </li>
+
     <li>
       <h4>Все по значению, кроме одной по ссылке</h4>
 <pre>
 int n{10}, n_2{ 8 };
-auto add = [=, &n](int x) { std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
+auto add = [=, &n](int x)
+{ std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
 
 add(5); // выведет 24
 cout &lt;&lt; nl // выведет 11
 </pre>
       <p>[=, &n] все переменные передаются по значению и их изменять нельзя, но переменная n передается по ссылке и ее изменять можно. За пределами функции она тоже изменится.</p>
     </li>
+
     <li>
       <h4>Ошибка</h4>
 <pre>
 int n{10}, n_2{ 8 };
-auto add = [&, &n](int x) { std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
+auto add = [&, &n](int x)
+{ std::cout &lt;&lt; x + ++n + n_2 &lt;&lt; std::endl; };
 
 add(5); // ошибка
 cout &lt;&lt; n_2; // ошибка
 </pre>
       <p>[&, &n] все переменные передаются по ссылке и переменная n тоже передается по ссылке. Это условие избыточное. Компилироваться такая строчка не будет</p>
     </li>
+
     <li>
       <h4>Все по значению, кроме одной по ссылке</h4>
 <pre>
@@ -133,11 +141,13 @@ using namespace std;
 int main()
 {
   int n{ 10 }, n_2{ 8 };
-  std::function&lt;void(int)&gt; lambda_func =
-         [=, &n_2](int x) { std::cout &lt;&lt; x + ++n_2 - n &lt;&lt; std::endl; };
+  std::function&lt;void(int)&gt; lambda_func = [=, &n_2](int x)
+  { std::cout &lt;&lt; x + ++n_2 - n &lt;&lt; std::endl; };
+
   lambda_func(5); // выведет 13
 }
 </pre>
+      <p>[=, &n_2] все переменные передаются по значению и их изменять нельзя, но переменная n_2 передается по ссылке и ее изменять можно. За пределами функции она тоже изменится.</p>
     </li>
   </ol>
 </article>
@@ -168,6 +178,7 @@ cout &lt;&lt; lambda_func_r(x, y); // 1
 </pre>
       <p>[r] переменная r передается по значению и равна значению, которое было при первом вызове лямбда-функции. Если после вызова лямбда-функции переменную r изменить, то при следующем вызове лямбда-функции все равно останется ее старое значение</p>
     </li>
+
     <li>
       <h4>Логические выражения. Передача по ссылке</h4>
 <pre>
@@ -183,10 +194,221 @@ auto lambda_func_r =
 cout &lt;&lt; lambda_func_r(x, y); // 1
 
 r = 1;
-cout &lt;&lt; lambda_func_r(x, y); // 1
+cout &lt;&lt; lambda_func_r(x, y); // 0
 </pre>
       <p>[&r] переменная r передается по ссылке. Если после вызова лямбда-функции переменную r изменить, то при следующем вызове лямбда-функции она тоже изменится</p>
+    </li>
+
+    <li>
+      <h4>Замена переменных</h4>
+<pre>
+double a{ 4 }, b{ 2 };
+std::function&lt;void(double&, double&)&gt; lambda_func_swap
+= [](double& x, double& y)
+{
+  double temp = x;
+  x = y;
+  y = temp;
+};
+
+lambda_func_swap(a, b);
+cout &lt;&lt; a &lt;&lt; " " &lt;&lt; b; // 2 4
+</pre>
     </li>
   </ol>
 </article>
 
+
+<!-- Код программы -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Код программы</h3>
+
+  <p>Вынесем в отдельный файл функцию</p>
+  <p>Файл Series.cpp</p>
+<pre>
+#include "Series.h"
+
+int menu() {
+  std::cout &lt;&lt; "Введите 1 - Сумма ряда" &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Введите 2 - Сумма ряда c погрешностью" &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Введите 3 - Завершение программы" &lt;&lt; std::endl;
+
+  int choice{};
+  get_value<int>(choice, [](int temp) { return temp >= 1 && temp &lt;= 3; },
+  "Введите значение в диапазоне от 1 до 3\n");
+
+	return choice;
+}
+//void get_value(int& choice, std::function&lt;bool(int)&gt;
+//condition, const std::string& message)
+//{
+//  std::cout &lt;&lt; message &lt;&lt; std::endl;
+//
+//  do {
+//    std::cin >> choice;
+//    if (!std::cin.fail() && condition(choice))
+//    {
+//      std::cin.ignore(std::cin.rdbuf()->in_avail());
+//      return;
+//    }
+//    else
+//    {
+//      std::cout &lt;&lt; message &lt;&lt; std::endl;
+//      std::cin.clear();
+//      std::cin.ignore(std::cin.rdbuf()->in_avail());
+//    }
+//  } while (true);
+//}
+//void get_value(double& x, std::function&lt;bool(double)&gt;
+//condition, const std::string& message)
+//{
+//  std::cout &lt;&lt; message &lt;&lt; std::endl;
+//
+//  do {
+//    std::cin >> x;
+//    if (!std::cin.fail() && condition(x))
+//    {
+//      std::cin.ignore(std::cin.rdbuf()->in_avail());
+//      return;
+//    }
+//    else
+//    {
+//      std::cout &lt;&lt; message &lt;&lt; std::endl;
+//      std::cin.clear();
+//      std::cin.ignore(std::cin.rdbuf()->in_avail());
+//    }
+//  } while (true);
+//}
+
+double sum_series(double x, int n)
+{
+  double Sn{};
+  double ai{ x };
+  for (int i = 1; i &lt; n; i++)
+  {
+    Sn += ai;
+    ai *= (-1) * (x * x) / (2 * i * (2 * i + 1));
+  }
+  return Sn;
+}
+
+double sum_series(double x, int& count, double eps)
+{
+  double Sn{};
+  double ai{ x };
+
+  for (count = 1; abs(ai) >= eps; count++)
+  {
+    Sn += ai;
+    ai *= (-1) * (x * x) / (2 * count * (2 * count + 1));
+  }
+  return Sn;
+}
+
+void print_answer(double Sn, const std::string& message, int n)
+{
+  std::cout&lt;&lt;std::setw(35) &lt;&lt; std::left &lt;&lt; message &lt;&lt; std::fixed
+  &lt;&lt; std::setprecision(20) &lt;&lt; Sn &lt;&lt; std::endl;
+  if (n > 0)
+  {
+    std::cout &lt;&lt; std::setw(35) &lt;&lt; std::left
+    &lt;&lt; "Количество элементов ряда" &lt;&lt; std::fixed &lt;&lt; n &lt;&lt; std::endl;
+  }
+}
+</pre>
+
+  <p>Файл Series.h</p>
+<pre>
+#pragma once
+#include <iostream>
+#include <iomanip>
+#include <functional>
+
+int menu();
+//void get_value(int& choice, std::function<bool(int)> condition, const std::string& message);
+//void get_value(double& x, std::function<bool(double)> condition, const std::string& message);
+
+double sum_series(double x, int n);
+double sum_series(double x, int& count, double eps);
+void print_answer(double Sn, const std::string& message, int n = 0);
+
+template&lt;typename T&gt;
+void get_value(T& x, std::function&lt;bool(T)&gt; condition, const std::string& message)
+{
+  std::cout &lt;&lt; message &lt;&lt; std::endl;
+
+  do {
+    std::cin >> x;
+    if (!std::cin.fail() && condition(x))
+    {
+      std::cin.ignore(std::cin.rdbuf()->in_avail());
+      return;
+    }
+    else
+    {
+      std::cout &lt;&lt; message &lt;&lt; std::endl;
+      std::cin.clear();
+      std::cin.ignore(std::cin.rdbuf()->in_avail());
+    }
+  } while (true);
+}
+</pre>
+
+  <p>Основная программа примет вид</p>
+  <p>Файл main.c</p>
+<pre>
+#include "Series.h"
+
+int main()
+{
+  setlocale(LC_ALL, "Russian");
+
+  int choice{};
+  do
+  {
+    choice = menu();
+
+    if (choice != 3)
+    {
+      double x{};
+      get_value<double>(x, [](double temp) {return abs(temp) &lt;= 1; }, "Введите x  от -1 до 1\n");
+
+      if (choice == 1)
+      {
+        double Sn{};
+        int N{};
+        get_value<int>(N, [](int temp) {return temp > 0; }, "Введите количество элементов ряда N, где N > 0");
+
+        Sn = sum_series(x, N);
+        print_answer(Sn, "Приближенное значение", N);
+      }
+      else if (choice == 2)
+      {
+        int count{};
+        double eps = 1.0E-12;
+
+        for (int j{ 0 }; j &lt; 2; j++)
+        {
+          double Sn{};
+          Sn = sum_series(x, count, eps);
+          print_answer(Sn, "Приближенное значение", count);
+          print_answer(sin(x), "Точное значение");
+
+          eps /= 100;
+        }
+      }
+    }
+
+    char isExit{};
+    std::cout &lt;&lt; "Хотите завершить работу? (Y/y - завершить, любое другое значение - нет)" &lt;&lt; std::endl;
+    std::cin >> isExit;
+
+    if (isExit == 'Y' || isExit == 'y')
+    {
+      choice = 3;
+    }
+  } while (choice != 3);
+}
+</pre>
+</article>

@@ -76,8 +76,8 @@ const dataVideoC = [
     numberLessons: '10 уроков',
     time_h_m: [5, 36],
     size: '2.2 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2024.11.07 чт',
   },
 
   {

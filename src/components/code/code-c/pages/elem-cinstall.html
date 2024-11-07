@@ -21,16 +21,20 @@
       <li><a href="#editor1">Первая программа</a></li>
     </ol>
     <li><a href="#ide">IDE</a></li>
+    <li><a href="#codeblocks">CodeBlocks</a></li>
     <ol>
-      <li><a href="#codeblocks">CodeBlocks</a></li>
       <li><a href="#codeblocks1">Первая программа в консоли</a></li>
       <li><a href="#codeblocks2">Русификация консоли</a></li>
       <li><a href="#codeblocks3">Первая программа в Windows</a></li>
       <li><a href="#codeblocks4">Русификация Windows</a></li>
-      <li><a href="#codeblocks5">Компиляция</a></li>
-      <li><a href="#codeblocks6">Максимум двух чисел</a></li>
-      <li><a href="#codeblocks7">Максимум двух чисел в разных функциях</a></li>
-      <li><a href="#codeblocks8">Максимум двух чисел в разных файлах</a></li>
+      <li><a href="#codeblocks5">Build (собрать)</a></li>
+      <li><a href="#codeblocks6">Run (запустить)</a></li>
+      <li><a href="#codeblocks7">Build and run (собрать и запустить)</a></li>
+      <li><a href="#codeblocks8">Rebuild (пересобрать)</a></li>
+      <li><a href="#codeblocks9">Abort (остановить)</a></li>
+      <li><a href="#codeblocks10">Максимум двух чисел</a></li>
+      <li><a href="#codeblocks11">Максимум двух чисел в разных функциях</a></li>
+      <li><a href="#codeblocks12">Максимум двух чисел в разных файлах</a></li>
     </ol>
   </ol>
 </article>
@@ -634,23 +638,23 @@ int main()
 </article>
 
 
-<!-- Компиляция -->
+<!-- Build (собрать) -->
 <article class="article">
   <div class="anchor" id="codeblocks5"></div>
-  <h3>Компиляция</h3>
+  <h3>Build (собрать)</h3>
 
   <p>При создании проекта, создастся папка проекта, а в ней два файла</p>
   <code>a1\a1.cbp</code>
   <code>a1\main.c</code>
 
-  <p>Есть два режима компиляции Debug и Release. Переключаться между ними можно в выпадающем списке между иконками</p>
   <p>Сборка программы происходит в два этапа. Сначала компиляция - из исходного файла main.c создается объектный файл main.o. Потом компоновка - из объектного файла main.o создается исполняемый файл a1.exe</p>
-  <p>Соберем наш проект. Есть три способа сделать это:</p>
+  <p>Соберем наш проект. Есть три способа собрать проект:</p>
   <ol>
     <li>Нажать кнопку Ctrl+F9</li>
     <li>Выбрать меню Build - Build</li>
     <li>Нажать иконку Build</li>
   </ol>
+  <p>Есть два режима компиляции Debug и Release. Переключаться между ними можно в выпадающем списке между иконками</p>
 
   <h4>Компиляция в режиме Debug</h4>
   <p>В режиме Debug к исполняемому файлу добавляется отладочная информация</p>
@@ -667,9 +671,64 @@ int main()
 </article>
 
 
-<!-- Максимум двух чисел -->
+<!-- Run (запустить) -->
 <article class="article">
   <div class="anchor" id="codeblocks6"></div>
+  <h3>Run (запустить)</h3>
+
+  <p>Во время сборки создаются объектный и исполняемый файлы. После сборки проект можно запустить. Есть три способа запустить проект</p>
+  <ol>
+    <li>Нажать кнопку Ctrl+F10</li>
+    <li>Выбрать меню Build - Run</li>
+    <li>Нажать иконку Run</li>
+  </ol>
+</article>
+
+
+<!-- Build and run (собрать и запустить) -->
+<article class="article">
+  <div class="anchor" id="codeblocks7"></div>
+  <h3>Build and run (собрать и запустить)</h3>
+
+  <p>Можно собрать и запустить проект одной командой. Есть три способа собрать и запустить проект</p>
+  <ol>
+    <li>Нажать кнопку F9</li>
+    <li>Выбрать меню Build - Build and run</li>
+    <li>Нажать иконку Build and run</li>
+  </ol>
+</article>
+
+
+<!-- Rebuild (пересобрать) -->
+<article class="article">
+  <div class="anchor" id="codeblocks8"></div>
+  <h3>Rebuild (пересобрать)</h3>
+
+  <p>Можно пересобрать проект. Есть три способа пересобрать проект</p>
+  <ol>
+    <li>Нажать кнопку Ctrl+F11</li>
+    <li>Выбрать меню Build - Rebuild</li>
+    <li>Нажать иконку Rebuild</li>
+  </ol>
+</article>
+
+
+<!-- Abort (остановить) -->
+<article class="article">
+  <div class="anchor" id="codeblocks9"></div>
+  <h3>Abort (остановить)</h3>
+
+  <p>Когда проект запущен и нужно закрыть его не дожидаясь его завершения, то можно остановить проект. Есть два способа остановить проект</p>
+  <ol>
+    <li>Выбрать меню Build - Abort</li>
+    <li>Нажать иконку Abort</li>
+  </ol>
+</article>
+
+
+<!-- Максимум двух чисел -->
+<article class="article">
+  <div class="anchor" id="codeblocks10"></div>
   <h3>Максимум двух чисел</h3>
 
   <p>Напишем программу нахождения максимума двух чисел</p>
@@ -699,7 +758,7 @@ int main()
 
 <!-- Максимум двух чисел в разных функциях -->
 <article class="article">
-  <div class="anchor" id="codeblocks7"></div>
+  <div class="anchor" id="codeblocks11"></div>
   <h3>Максимум двух чисел в разных функциях</h3>
 
   <p>Изменим программу. Создадим 4 функции</p>
@@ -756,7 +815,7 @@ void show(int c)
 
 <!-- Максимум двух чисел в разных файлах -->
 <article class="article">
-  <div class="anchor" id="codeblocks8"></div>
+  <div class="anchor" id="codeblocks12"></div>
   <h3>Максимум двух чисел в разных файлах</h3>
 
   <p>Изменим программу. Разобьем ее на модули. Вынесем каждую функцию в отдельный файл</p>
