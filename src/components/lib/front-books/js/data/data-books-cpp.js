@@ -312,6 +312,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 24,
+    year: 2002,
+    category: 'code',
+    theme: 'c++',
+    title: 'Эффективное использование STL',
+    author: 'Мейерс',
+    authorName: 'Скотт',
+    pages: '226',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 25,
     year: 2002,
     category: 'code',
