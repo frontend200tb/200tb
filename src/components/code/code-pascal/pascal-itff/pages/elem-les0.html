@@ -1,0 +1,66 @@
+<h1>Pascal</h1>
+
+
+<!-- urok 0 -->
+<article class="article">
+  <div class="anchor" id="urok0"></div>
+  <h2>Паскаль. Урок 0</h2>
+
+  <p><span class="text-link">Изучил урок</span> <a href="https://fkn.ktu10.com/?q=node/11231" class="text-link">https://fkn.ktu10.com/?q=node/11231</a> #0 Паскаль: Настройка среды разработки - что установить, чтобы начать программировать (Pascal)</p>
+
+  <p><span class="text-link">Прочитал</span> <a href="https://fkn.ktu10.com/?q=node/9746" class="text-link">https://fkn.ktu10.com/?q=node/9746</a> IDE (ИДЕ), Среда разработки -- что это в программировании</p>
+
+  <p><span class="text-link">Прочитал</span> <a href="https://fkn.ktu10.com/?q=node/8368" class="text-link">https://fkn.ktu10.com/?q=node/8368</a> lazarus Как создать консольное приложение -- тип проекта для простых программ</p>
+
+  <p><span class="yt-link">Посмотрел видео youtube</span> <a href="https://www.youtube.com/watch?v=JyBzMLxhxUI" class="yt-link"> #0 Lazarus Delphi Установка, создание и сохранение консольной программы (Windows)</a> (2020.01.25 12мин)</p>
+
+  <p><span class="yt-link">Посмотрел видео youtube</span> <a href="https://www.youtube.com/watch?v=xWOW7TAPLc0" class="yt-link"> Lazarus Установка и настройка Pascal в Windows. Одно окно</a> (2021.12.04 7мин)</p>
+
+  <p><span class="yt-link">Посмотрел видео youtube</span> <a href="https://www.youtube.com/watch?v=izTJAympZ4o" class="yt-link"> Lazarus Как сохранять проеты задачи Паскаль на компьютере</a> (2021.12.11 9мин)</p>
+</article>
+
+
+<!-- урок 0 -->
+<article class="article">
+  <div class="anchor" id="les0"></div>
+  <h2>Паскаль. Урок 0. Настройка среды разработки</h2>
+
+  <h3>Установим среду разработки (IDE) для языка Паскаль.</h3>
+  <p>Идем на страницу <a href="https://www.lazarus-ide.org/index.php?page=downloads">lazarus-ide.org</a> и скачиваем программу по ссылке <span class="text-link">Windows (32 and 64 Bits) Direct download</span></p>
+
+  <p>Устанавливаем Lazarus из скаченного файла, соглашаемся со всеми пунктами по-умолчанию.</p>
+
+  <p>При первом запуске Lazarus работает в многооконном режиме и не понимает русских букв. Исправим это.</p>
+
+  <h3>Переключение Lazarus в однооконный режим</h3>
+
+  <p>Откроем меню Пакет - Установить/удаленить пакеты.</p>
+  <p>В окошке Доступные для установки выбираем пакет anchordockingdsgn 1.0. Нажимаем кнопку Установить выбранное.</p>
+  <p>Нажимаем кнопку Сохранить и перезапустить IDE.</p>
+  <p>В открывшемся окне Подтвердите новый набор пакетов для IDE нажимаем кнопку Продолжить.</p>
+  <p>Начнется компиляция пакета AnchorDockingDsgn 1.0, потом Сборка IDE.</p>
+  <p>После чего Lazarus перезапустится в однооконном режиме.</p>
+
+  <h3>Как в Lazarus писать на русском</h3>
+
+  <p>В окне Редактор исходного кода нажимаем правой кнопкой мыши. Выбираем Параметры файла - Кодировка - UTF-8 с BOM</p>
+
+  <h3>Проверка запуска тестовой программы</h3>
+  <p>Запустим Lazarus и создадим консольное приложение из главного меню.</p>
+
+  <h3>Создание консольного приложения</h3>
+  <p>Открываем Файл - Создать - Проект - Программа</p>
+
+  <p>Необходимо убрать лишний код и заменить его на</p>
+
+  <code>program hello;
+    <br>begin
+    <br>&nbsp;&nbsp;writeln('hello world!');
+    <br>&nbsp;&nbsp;readln();
+    <br>end.</code>
+
+  <h3>Запуск программы в Lazarus</h3>
+  <p>Нажимаем зеленый треугольник (похож на кнопку плей, рядом с кнопками пауза и стоп) или нажимаем клавишу F9.</p>
+
+  <p>Откроется консоль с надписью hello world!. Чтобы закрыть окно консоли надо нажать Enter или нажать крестик на окне консоли, или нажать кнопку стоп в Lazarus или нажать CTRL + F2.</p>
+</article>

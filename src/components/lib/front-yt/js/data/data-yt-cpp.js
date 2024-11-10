@@ -3,6 +3,20 @@ const dataYtCpp = [
   {
     id: 1,
     theme: 'C++',
+    title: 'C++ User Group',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@CUserGroupRussia/videos',
+    site: '',
+    dateFirstVideo: '2016.12.15',
+    dateLastVideo: '2024.11.10',
+    amountVideos: 499,
+  },
+
+  {
+    id: 2,
+    theme: 'C++',
     title: 'Alexander Semenko',
     author: '',
     city: '',
@@ -15,7 +29,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 2,
+    id: 3,
     theme: 'C++',
     title: 'Изучаем C++ вместе',
     author: 'Илья',
@@ -29,7 +43,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 3,
+    id: 4,
     theme: 'C++',
     title: 'Daria Emacs',
     author: '',
@@ -43,7 +57,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 4,
+    id: 5,
     theme: 'C++',
     title: 'Ilya Siganov',
     author: 'Илья Сиганов',
@@ -57,7 +71,21 @@ const dataYtCpp = [
   },
 
   {
-    id: 5,
+    id: 6,
+    theme: 'C++',
+    title: 'PVS-Studio Ru',
+    author: 'Андрей Карпов',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@PVSStudioTool/videos',
+    site: '',
+    dateFirstVideo: '2019.10.01',
+    dateLastVideo: '2024.10.25',
+    amountVideos: 63,
+  },
+
+  {
+    id: 7,
     theme: 'C++',
     title: 'Мещерин Илья',
     author: 'Илья Мещерин',
@@ -71,7 +99,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 6,
+    id: 8,
     theme: 'C++',
     title: 'coder',
     author: '',

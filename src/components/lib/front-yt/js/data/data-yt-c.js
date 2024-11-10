@@ -59,6 +59,20 @@ const dataYtC = [
   {
     id: 5,
     theme: 'Си',
+    title: 'NR.electronics',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@NRelectronics/videos',
+    site: '',
+    dateFirstVideo: '2019.03.20',
+    dateLastVideo: '2024.09.28',
+    amountVideos: 235,
+  },
+
+  {
+    id: 6,
+    theme: 'Си',
     title: 'Айтишник',
     author: '',
     city: '',
@@ -71,7 +85,7 @@ const dataYtC = [
   },
 
   {
-    id: 5,
+    id: 7,
     theme: 'Си',
     title: 'SockFD',
     author: '',
@@ -85,7 +99,7 @@ const dataYtC = [
   },
 
   {
-    id: 6,
+    id: 8,
     theme: 'Си',
     title: 'Begin End',
     author: '',
@@ -99,7 +113,7 @@ const dataYtC = [
   },
 
   {
-    id: 7,
+    id: 9,
     theme: 'Си',
     title: 'Программист86',
     author: '',
@@ -113,7 +127,7 @@ const dataYtC = [
   },
 
   {
-    id: 8,
+    id: 10,
     theme: 'Си',
     title: 'Gena ANTG',
     author: '',
@@ -127,7 +141,7 @@ const dataYtC = [
   },
 
   {
-    id: 9,
+    id: 11,
     theme: 'Си',
     title: 'From LAMER to Programmer',
     author: '',
@@ -141,7 +155,21 @@ const dataYtC = [
   },
 
   {
-    id: 10,
+    id: 12,
+    theme: 'Си',
+    title: 'Bits Code',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@BitsCode/streams',
+    site: '',
+    dateFirstVideo: '2023.03.01',
+    dateLastVideo: '2024.11.09',
+    amountVideos: 51,
+  },
+
+  {
+    id: 13,
     theme: 'Си',
     title: 'First Steps',
     author: '',
@@ -151,11 +179,11 @@ const dataYtC = [
     site: '',
     dateFirstVideo: '2023.01.26',
     dateLastVideo: '2024.09.26',
-    amountVideos: 40,
+    amountVideos: 46,
   },
 
   {
-    id: 12,
+    id: 14,
     theme: 'Си',
     title: 'Triple Distillation',
     author: '',
@@ -169,7 +197,7 @@ const dataYtC = [
   },
 
   {
-    id: 11,
+    id: 15,
     theme: 'Си',
     title: 'shumnik',
     author: '',
