@@ -1,88 +1,269 @@
-<h1>Массив</h1>
+<h1>Паттерн Два указателя с двух сторон</h1>
 
 
-<!-- links -->
 <article class="article">
-  <h2>links</h2>
+  <p>Конспект видео от 2023-09-19</p>
+  <h4>Разбираемся с АЛГОРИТМИЧЕСКИМ собесом</h4>
 
   <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
   <p><a href="https://algocode.io/">https://algocode.io/</a></p>
   <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
-  <p><a href="https://leetcode.com/problems/range-sum-query-immutable/">Range Sum Query - Immutable (LeetCode)</a></p>
-  <p><a href="https://leetcode.com/problems/find-pivot-index/">Find Pivot Index (LeetCode)</a></p>
-  <p><a href="https://leetcode.com/problems/missing-number/">Missing Number (LeetCode)</a></p>
 </article>
 
 
-<!-- Содержание -->
 <article class="article">
-  <h2>Содержание</h2>
-
-  <p><a href="#array">Массив</a></p>
-  <p><a href="#pref">Преффиксный массив</a></p>
-  <ol>
-    <li><a href="#pref1">Массив преффиксов</a></li>
-    <li><a href="#pref2">Массив суффиксов</a></li>
-    <li><a href="#pref3">Накопление суммы</a></li>
-    <li><a href="#pref4">Запоминание предыдущих префиксных сумм (хеш-таблица)</a></li>
-    <li><a href="#pref5">2D преффиксные суммы</a></li>
-  </ol>
+  <p>Три алгоритмических задачи с реальных собесов</p>
+  <p>Первая разогревочная. С собеседования на Senior Android разработчика в Авито. Вторая чуть по сложнее из собеса в Яндекс на Middle позицию. Третья задача самая сложная, самая хитрая, хотя тоже из Яндекса и тоже на Middle позицию</p>
 </article>
 
 
-<!-- Массив -->
 <article class="article">
-  <div class="anchor" id="array"></div>
-  <h3>Массив</h3>
+  <h3>Задача 1. Палиндром</h3>
+
+  <p>Проверить является ли строка палиндромом</p>
+  <p>Палиндром - это строка, которая читается слева-направо и справа-налево одинаково</p>
+
+  <p>Пример</p>
+  <code>isPalindrome('topot'); // true</code>
+  <code>isPalindrome('topoot'); // false</code>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <p>Паттерн <strong>два указателя с двух сторон</strong></p>
+    <ol>
+      <li>Заведем две переменные pl и pr для левого и правого указателей. Левый указатель поставим на первую букву строки. Правый указатель поставим на последнюю букву строки.
+        <code>let pl = 0, pr = str.length - 1;</code>
+      </li>
+      <li>Запустим цикл пока левый указатель меньше правого
+        <code>while (pl &lt; pr)</code>
+      </li>
+      <li>Будем сравнивать буквы. Если они не равны, то вернем false
+        <code>if (str[pl] != str[pr]) return false;</code>
+      </li>
+      <li>Если они равны, то сдвинем левый указатель на 1 вправо, правый указатель на 1 влево.
+        <code>pl++; pr--;</code>
+      </li>
+      <li>Когда левый указатель станет равен или больше правого, вернем true</li>
+    </ol>
+    <p>Сложность по времени O(N) потому что мы один раз проходим по строке</p>
+    <p>Сложность по памяти O(1) потому что мы не используем дополнительную развернутую строку</p>
+  </details>
+
+  <details>
+    <summary>Решение (javascript)</summary>
+<pre>function isPalindrome(str) {
+  let pl = 0, pr = str.length - 1;
+  while (pl &lt; pr) {
+    if (str[pl] != str[pr]) {
+      return false
+    }
+    pl++;
+    pr--;
+  }
+  return true;
+}</pre>
+  </details>
+
+  <details>
+    <summary>Решение (python)</summary>
+<pre>
+def isPalindrome(s: str) -> bool:
+  pl = 0, pr = len(s) - 1
+
+  while pl &lt; pr:
+    if s[pl] != s[pr]:
+      return False
+    pl++
+    pr--
+
+  return True
+</pre>
+  </details>
 </article>
 
 
-<!-- Преффиксный массив -->
 <article class="article">
-  <div class="anchor" id="pref"></div>
-  <h3>Преффиксный массив</h3>
+  <h3>Задача 2. Палиндром сложный</h3>
+
+  <p>Усложним задачу на палиндром. Во входной строке переведем все символы из верхнего регистра в нижний. Удалим все символы, которые не являются буквами или цифрами</p>
+
+  <p>Пример</p>
+  <code>1A,baC AB: a 1 -> 1a,bac ab: a 1 -> 1abacaba1 -> true</code>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <p>Паттерн <strong>два указателя с двух сторон</strong></p>
+    <ol>
+      <li>Напишем вспомогательную функцию isLetterDigit() которая проверяет является ли переданный символ буквой или цифрой. </li>
+      <li>Заведем две переменные pl и pr для левого и правого указателей. Левый указатель поставим на первую букву строки. Правый указатель поставим на последнюю букву строки.
+        <code>let pl = 0, pr = str.length - 1;</code>
+      </li>
+      <li>Запустим цикл пока левый указатель меньше правого
+        <code>while (pl &lt; pr)</code>
+      </li>
+      <li>Проверяем каждый символ и если это не буква или цифра, то переходим к следующему символу. Таким образом, сначала сдвигаем левый указатель до первой буквы или цифры, потом сдвигаем правый указатель до первой буквы или цифры. </li>
+      <li>Сравниваем два символа, переведенные в нижний регистр.Если они не равны, то вернем false
+        <code>if (str[pl] != str[pr]) return false;</code>
+      </li>
+      <li>Если они равны, то сдвинем левый указатель на 1 вправо, правый указатель на 1 влево.
+        <code>pl++; pr--;</code>
+      </li>
+      <li>Когда левый указатель станет равен или больше правого, вернем true</li>
+    </ol>
+    <p>Сложность по времени O(N) потому что мы один раз проходим по строке</p>
+    <p>Сложность по памяти O(1) потому что мы не используем дополнительную развернутую строку</p>
+  </details>
+
+  <details>
+    <summary>Решение (javascript)</summary>
+<pre>
+function isPalindrome(str) {
+  let l = 0;
+  let r = str.length - 1;
+
+  while (l &lt; r) {
+    if (!isLetterDigit(str[l])) {
+      l++;
+      continue;
+    }
+    if (!isLetterDigit(str[r])) {
+      r--;
+      continue;
+    }
+    if (str[l].toLowerCase() != str[r].toLowerCase()) {
+      return false
+    }
+    l++;
+    r--;
+  }
+
+  return true;
+}
+
+function isLetterDigit(a) {
+  let b = a.charCodeAt(0);
+  if ( b > 47 &&  b &lt; 58 || b > 64 && b &lt; 91 || b > 96 && b &lt; 123) {
+    return true;
+  } else {
+    return false;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (python)</summary>
+    <p>В питоне есть метод isalnum() который проверяет является ли символ цифрой или буквой</p>
+<pre>
+def isPalindrome(self, s: str) -> bool:
+  pl = 0
+  pr = len(s) -1
+
+  while pl &lt; pr:
+    if not s[pl].isalnum():
+      pl++
+      continue
+    if not s[pr].isalnum():
+      pr--
+      continue
+    if s[pl].lower() != s[pr].lower():
+      return False
+    pl++
+    pr--
+
+  return True
+</pre>
+  </details>
 </article>
 
 
-<!-- Массив преффиксов -->
 <article class="article">
-  <div class="anchor" id="pref1"></div>
-  <h3>Массив преффиксов</h3>
-</article>
+  <h3>Задача 3. Уровень воды</h3>
 
+  <p>К нам приходит массив чисел обозначающих высоту линий. Сколько максимум воды поместится между двумя любыми линиями если уровень воды не может превышать высоту линии</p>
+  <p>Из линий получается такой контейнер, в который может поместиться вода. Высота контейнера ограничивается высотой минимальной из двух линий. В ширина контейнера равна расстоянию между двумя линиями.</p>
 
-<!-- Массив суффиксов -->
-<article class="article">
-  <div class="anchor" id="pref2"></div>
-  <h3>Массив суффиксов</h3>
-</article>
+  <p>Пример</p>
+  <code>maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]); // 49</code>
+  <p>Здесь максимум воды поместится между линиями 1 и 8. Высота линий 8 и 7, значит высота воды равна 7, она не может подняться выше 7 Ширина воды равна 7, так как она между 8 и 1, 8-1=7.</p>
+<pre>
+  #         #
+  #         #   #
+  # #       #   #
+  # #   #   #   #
+  # #   # # #   #
+  # #   # # # # #
+  # # # # # # # #
+#_#_#_#_#_#_#_#_#
+1 8 6 2 5 4 8 3 7
+0 1 2 3 4 5 6 7 8
+</pre>
+  <p>Если решать переборам и перебрать все пары, то получим квадратичную сложность O(n<sup>2</sup>) и это не оптимально. Оптимальное решение будет через два указателя.</p>
 
+  <details>
+    <summary>Алгоритм</summary>
+    <p>Паттерн <strong>два указателя с двух сторон</strong></p>
+    <ol>
+      <li>Заведем две переменные pl и pr для левого и правого указателя. Левый поставим на первый элемент массива, правый - на последний.
+        <code>let pl = 0, pr = arr.length - 1;</code>
+      </li>
+      <li>Заведем две переменные max и cur. max для ответа, в которой будем хранить максимальную площадь. cur для текущей площади. Сначала там будет 0
+        <code>let max = 0, cur = 0;</code>
+      </li>
+      <li>Запустим цикл пока левый указатель меньше правого
+        <code>while (pl &lt; pr)</code>
+      </li>
+      <li>Обновляем текущую площадь
+        <code>cur = Math.min(h[pl], h[pr]) * (pr - pl);</code>
+      </li>
+      <li>В переменную max записываем максимум из cur и max
+        <code>max = Math.max(max, curr);</code>
+      </li>
+      <li>Двигаем указатель, который показывает на меньшую высоту</li>
+    </ol>
+    <p>Сложность по времени O(N) потому что мы один раз проходим по массиву</p>
+    <p>Сложность по памяти O(1) потому что мы используем только две дополнительные переменные, которые не зависят от длины массива</p>
+  </details>
 
-<!-- Накопление суммы -->
-<article class="article">
-  <div class="anchor" id="pref3"></div>
-  <h3>Накопление суммы</h3>
-</article>
+  <details>
+    <summary>Решение (javascript)</summary>
+<pre>
+function maxArea(h) {
+  let pl = 0, pr = h.length - 1;
+  let max = 0, cur = 0;
 
+  while (pl &lt; pr) {
+    cur = Math.min(h[pl], h[pr]) * (pr - pl);
+    max = Math.max(max, cur);
+    if (h[pl] > h[pr]) {
+      pr--;
+    } else {
+      pl++;
+    }
+  }
 
-<!-- Запоминание предыдущих префиксных сумм (хеш-таблица) -->
-<article class="article">
-  <div class="anchor" id="pref4"></div>
-  <h3>Запоминание предыдущих префиксных сумм (хеш-таблица)</h3>
-</article>
+  return max;
+}
+</pre>
+  </details>
 
+  <details>
+    <summary>Решение (python)</summary>
+<pre>
+class Solution:
+  def maxArea(self, h: List[int]) -> int:
+    pl = 0, pr = len(h) - 1
+    res = 0, cur = 0
 
-<!-- 2D преффиксные суммы -->
-<article class="article">
-  <div class="anchor" id="pref5"></div>
-  <h3>2D преффиксные суммы</h3>
+    while pl &lt; pr:
+      cur = min(h[pl], h[pr]) * (pr - pl)
+      res = max(res, cur)
+      if h[pl] &lt; h[pr]:
+        pl++
+      else:
+        pr--
 
-  <p>Это тема про двумерные преффиксные массивы (матрицы)</p>
-  <p>Решает следующие задачи:</p>
-  <ol>
-    <li>Найти сумму в строке</li>
-    <li>Найти сумму в колонке</li>
-    <li>Найти сумму в диагонали</li>
-    <li>Найти сумму в прямоугольнике внутри матрицы</li>
-  </ol>
+    return res
+</pre>
+  </details>
 </article>

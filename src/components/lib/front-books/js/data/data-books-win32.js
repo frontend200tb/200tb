@@ -131,6 +131,19 @@ const dataBooksWin32 = [
   },
 
   {
+    id: 10,
+    year: 2007,
+    category: 'code',
+    theme: 'Win32 API',
+    title: 'Проектирование интерфейса пользователя средствами WIN 32 API',
+    author: 'Ганеев',
+    authorName: 'Ранас',
+    pages: '338',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 11,
     year: 2008,
     category: 'code',
