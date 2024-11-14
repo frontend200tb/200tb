@@ -1,9 +1,9 @@
-<h1>Задачи от Максима Фатина</h1>
+<h1>Бинарное дерево поиска (BST)</h1>
 
 
-<!-- links -->
 <article class="article">
-  <h2>links</h2>
+  <p>Конспект видео от 2024-08-10</p>
+  <h4>Деревья поиска для собеседования в Яндекс за 2 часа и 15 минут</h4>
 
   <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
   <p><a href="https://algocode.io/">https://algocode.io/</a></p>
@@ -15,275 +15,1091 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#hash">Хэш-таблица</a></p>
-  <ol>
-    <li><a href="#hash1">Сумма двух чисел в не отсортированном массиве</a></li>
-    <li><a href="#hash2">Топ К часто встречающихся элементов</a></li>
-    <li><a href="#hash3">Изоморфные строки</a></li>
-  </ol>
-  <p><a href="#sort">Сортировки</a></p>
+  <p><a href="#about">О чем эта открытая лекция</a></p>
+  <p><a href="#why">Зачем нужны деревья поиска</a></p>
+  <p><a href="#struct">Структура данных для дерева</a></p>
+  <p><a href="#bst">Что такое BST</a></p>
+  <p><a href="#bst1">Золотое правило BST</a></p>
+  <p><a href="#bst2">Задача 1. Проверка всех листьев</a></p>
+  <p><a href="#bst3">Задача 2. Валидация дерева поиска</a></p>
+  <p><a href="#bst4">Задача 3. Из массива в дерево поиска</a></p>
+  <p><a href="#bst5">Задача 4. Ближайшее значение</a></p>
+  <p><a href="#bst6">Задача 5. K-ый наименьший элемент в BST</a></p>
+  <p><a href="#bst7">Задача 6. K-ый наибольший элемент в BST</a></p>
 </article>
 
 
-<!-- Хэш таблица -->
+<!-- О чем эта открытая лекция -->
 <article class="article">
-  <div class="anchor" id="hash"></div>
-  <h3>Хэш таблица</h3>
+  <div class="anchor" id="about"></div>
+  <h3>О чем эта открытая лекция</h3>
 
-
-  <h4>Операции и их сложность</h4>
   <ol>
-    <li>Поиск</li>
-    <li>Вставка</li>
-    <li>Получение</li>
-    <li>Удаление</li>
+    <li>Бинарные деревья поиска - что такое и зечем нужно</li>
+    <li>Сможешь решить 4 + 1 задачи с собеседования в Яндекс</li>
+    <li>Научишься применять золотое правило BST</li>
+    <li>Как часто нужны деревья на собеседовании и в работе</li>
+    <li>Оценишь каждое решение в BigO нотации</li>
   </ol>
-  <p>Сложность по времени в среднем за O(1). Но очень редко, когда перестраивается хеш-таблица за O(N). Если хеш-таблица заранее выделила себе мало памяти и начали появлятся коллизии (когда разные элементы должны быть записаны в одну ячейку памяти), то происходит релокация (перестроение всей таблицы). Этот процесс по времени и по памяти имеет сложность O(N).</p>
-
-  <h4>Что может быть ключем хеш-таблицы</h4>
-  <p>Ключем хеш-таблицы может быть все что угодно (число, строка и т.д.). В некоторых языках ключем не могут быть mutable type.</p>
-
-  <h4>Count sort (сортировка подсчетом)</h4>
-  <p>Используют когда маленькое количество уникальных элементов</p>
-  <p>Если элементы известны заранее, то можно использовать массив. Например, только две цифры 0 и 1, диапазон чисел от 0 до 9, буквы от a до z. Если элементы неизвестны, то используют словарь.</p>
-
-  <h4>Анаграмма</h4>
-  <p>Группировка анаграмм</p>
-  <p>Поиск анаграмм</p>
-  <p>Проверка на анаграмму</p>
 </article>
 
 
-<!-- 1. Сумма двух чисел в не отсортированном массиве -->
+<!-- Зачем нужны деревья поиска -->
 <article class="article">
-  <div class="anchor" id="hash1"></div>
-  <h3>1. Сумма двух чисел в не отсортированном массиве</h3>
+  <div class="anchor" id="why"></div>
+  <h3>Зачем нужны деревья поиска</h3>
 
-  <p>Дан не отсортированный массив чисел и число. Определить, есть ли в массиве два числа , которые в сумме равны заданному числу</p>
+  <h4>Для собеседований</h4>
+  <ol>
+    <li>Повышаем офер</li>
+    <li>Уверенней себя чувствуем</li>
+    <li>Попасть в BigTech (Яндекс, Тинькофф, Озон, Сбер)</li>
+  </ol>
+
+  <h4>Для работы</h4>
+  <ol>
+    <li>PostgreSQL</li>
+    <li>btree index</li>
+    <li>std::map в C++</li>
+  </ol>
+
+  <p>Я прошел собеседования везде куда хотел. Весь российский бигтех. Но был момент когда я не чувствовал этой уверенности. Приходил на собеседование и вообще не знал к чему готовиться.</p>
+  <p>Хочется чтобы после этого урока ты чувствовал эту уверенность в теме бинарное дерево поиска. Чтобы ты чувствовал землю под ногами. Я всегда очень переживал за собеседования. Пока не выучил паттерны, которые буду сегодня рассказывать тебе.</p>
+  <p>Алгоритмы дают очень крутой буст для людей у которых зарплата примерно 100 000 - 150 000 р. Изучение алгоритмов круто бустят до уровня 300 000 р.</p>
+
+  <h4>Как часто нужны деревья + BST</h4>
+  <p>4,71% от всех алгособесов</p>
+  <p>6,84% на работе</p>
+
+  <h4>Как часто нужны деревья + Графы</h4>
+  <p>4,71 + 5,34% задают еа алго-собесах</p>
+  <p>6,84 + 2,29% задают на работе</p>
+
+  <p>Изучение графов обычно совмещают с изучением деревьев. Темы достаточно близкие и проще вначале погрузиться в деревья.</p>
+</article>
+
+
+<!-- Структура данных для дерева -->
+<article class="article">
+  <div class="anchor" id="struct"></div>
+  <h3>Структура данных для дерева</h3>
+
+  <p>Рассмотрим обычное дерево. Это даже не бинарное дерево поиска.</p>
+<pre>
+     10
+    /  \
+   8    9
+  / \
+17   -4
+</pre>
+<p>Дерево состоит только из узлов. У узла есть значение, и есть левый ребенок, правый ребенок, это указатели.</p>
+  <h4>Как выглядит это дерево в коде</h4>
+<pre>
+root = TreeNode(
+  val=10,
+  left=TreeNode(
+    val=8,
+    left=TreeNode(
+      val=17
+    ),
+    right=TreeNode(
+      val=-4
+    ),
+  ),
+  right=TreeNode(
+    val=9
+  ),
+)
+</pre>
+
+  <h4>Код узла на языке python</h4>
+<pre>
+class TreeNode:
+  def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+</pre>
+
+  <h4>Код узла на языке go</h4>
+<pre>
+type TreeNode struct {
+  Val int
+  Left *TreeNode
+  Right *TreeNode
+}
+</pre>
+
+  <h4>Код узла на языке C++</h4>
+<pre>
+struct TreeNode {
+  int val;
+  TreeNode *left
+  TreeNode *right
+  TreeNode() : val(o), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right)
+}
+</pre>
+</article>
+
+
+<!-- Что такое BST -->
+<article class="article">
+  <div class="anchor" id="bst"></div>
+  <h3>Что такое BST</h3>
+
+  <p>Пример бинарного дерева поиска</p>
+<pre>
+     10
+    /  \
+   5    11
+  / \     \
+-2   7     15
+    /
+   6
+</pre>
+
+  <p>В бинарном дереве поиска для каждой вершины верно, что все вершины слева будут меньше, все вершины справа будут больше</p>
+
+  <p>Есть такое <strong>свойство</strong>, что все вершины в правом поддереве (например правое поддерево вершины 5) строго больше своей вершины (вершины 5), потому что находятся справа от нее, и строго меньше следующей вверх вершины (вершины 10), потому что находятся слева от нее</p>
+</article>
+
+
+<!-- Золотое правило BST -->
+<article class="article">
+  <div class="anchor" id="bst1"></div>
+  <h3>Золотое правило BST</h3>
+
+  <p>Золотое правило: если мы выполняем <strong>inorder traversal</strong> (центрированный обход), то мы получим отсортированный порядок</p>
 
   <p>Пример</p>
-  <code>Input: [7,13,6,5], target = 18</code>
-  <code>Output: true</code>
+<pre>
+      5
+     / \
+    3   6
+   / \   \
+  2   4   7
+ /
+1
+</pre>
+  <code>Input: root = [5,3,6,2,4,null,7,1]</code>
+  <code>Output: [1,2,3,4,5,6,7]</code>
+
+  <p>Обычно сортировка занимает NlogN времени, но используя inorder обход мы можем выполнить сортировку за O(N)</p>
+
+  <p>Алгоритм inorder обхода</p>
+  <ol>
+    <li>Если текущий узел пустой - возвращаемся в родительскую вершину</li>
+    <li>Обходим левое поддерево рекурсивно</li>
+    <li>Добавляем значение текущего узла в ответ</li>
+    <li>Обходим правое поддерево рекурсивно</li>
+    <li>Возвращаемся в родительскую вершину</li>
+  </ol>
 
   <details>
-    <summary>Решение</summary>
-    <p>Метод хэш таблицы</p>
-    <h4>Алгоритм</h4>
-    <ol>
-      <li>Заведем переменную dict для хранения пар ключ-значение и запишев в нее пустой объект
-        <code>let dict = {};</code>
-      </li>
-      <li>Пройдем циклом по массиву
-        <code>for (let i = 0; i &lt; nums.length; i++)</code>
-      </li>
-      <li>Если разница между target и текущим значением есть в словаре, то возвращаем true
-        <code>if (t - nums[i] in dict) return true;</code>
-      </li>
-      <li>Если нет, то добавляем в словарь текущее значение
-        <code>dict[nums[i]] = i;</code>
-      </li>
-      <li>Если цикл закончился, значит нет двух чисел с нужной суммой. Возвращаем false</li>
-    </ol>
+    <summary>Код inorder travrsal (javascript)</summary>
 <pre>
-function twoSum(nums, t) {
-  let dict = {};
+function traversal(root) {
+  let result = [];
+  inorder(root, result);
 
-  for (let i = 0; i &lt; nums.length; i++) {
-    if (t - nums[i] in dict) {
+  return result;
+}
+
+function inorder(node, result) {
+  if (node === null) {
+    return;
+  }
+
+  inorder(node.left, result);
+  result.push(node.val);
+  inorder(node.right, result);
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код inorder travrsal (python)</summary>
+<pre>
+def traversal(root: Optional[TreeNode]) -> List[int]:
+  result = []
+  inorder(root, result)
+
+  return result
+
+
+def inorder(node: Optional[TreeNode], result: List[int]) -> None:
+  if node is None:
+    return
+
+  inorder(node.left, result)
+  result.append(node.val)
+  inorder(node.right, result)
+
+</pre>
+  </details>
+
+  <details>
+    <summary>Код inorder travrsal (go)</summary>
+<pre>
+func traversal(root *TreeNode) []int {
+  var result []int = nil
+  inorder(root, &result)
+
+  return result
+}
+
+func inorder(node *TreeNode, result *[]int) {
+  if node == nil {
+    return
+  }
+
+  inorder(node.Left, result)
+  *result = append(*result, node.Val)
+  inorder(node.Right, result)
+}
+</pre>
+  </details>
+
+</article>
+
+
+<!-- Задача 1. Проверка всех листьев -->
+<article class="article">
+  <div class="anchor" id="bst2"></div>
+  <h3>Задача 1. Проверка всех листьев</h3>
+
+  <p>Дан корень бинарного дерева поиска root и числа minVal и maxVal. Нужно проверить, что для каждой вершины node в дереве верно minVal &lt;= node.val &lt;= maxVal</p>
+
+  <p>Пример</p>
+<pre>
+     10
+    /  \
+   5    11
+  / \     \
+-2   7     15
+    /
+   6
+</pre>
+  <code>Input: minVal = -5, maxVal = 15</code>
+  <code>Output: true</code>
+
+  <p>Если решать обходом всех узлов и проверкой каждого узла, то это будет медленно. Обход всех узлов займет O(N) по времени. Но мы воспользуемся свойством бинарного дерева поиска. Минимальное значение будет в левом поддереве в первой вершине, которая не имеет левого потомка. Максимальное значение будет в правом поддереве в первой вершине, которая не имеет правого потомка.</p>
+
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(1)</p>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <ol>
+      <li>Проверяем что корень дерева не null</li>
+      <li>Находим самый левый лист</li>
+      <li>Находим самый правый лист</li>
+      <li>Проверяем что самый левый и самый правый лист больше минимального значения и меньше максимального</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function minMaxLeaves(root, minVal, maxVal) {
+  if (!root) {
+    return true;
+  }
+
+  leftmost = minLeave(root);
+  rightmost = maxLeave(root);
+  return minVal &lt;= leftmost && rightmost &lt;= maxVal;
+}
+
+function minLeave(node) {
+  while (node.left) {
+    node = node.left;
+  }
+  return node.val;
+}
+
+function maxLeave(node) {
+  while (node.right) {
+    node = node.right;
+  }
+  return node.val;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+def minMaxLeaves(root: TreeNode, minVal: int, maxVal: int):
+  def minLeave(node):
+    while node.left:
+      node = node.left
+    return node.val
+
+  def maxLeave(node):
+    while node.right:
+      node = node.right
+    return node.val
+
+  if not root:
+    return True
+
+  leftmost = minLeave(root)
+  rightrmost = maxLeave(root)
+
+  return minVal &lt;= leftmost &lt;= maxVal and minVal &lt;= rightmost &lt;= maxVal
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+func minLeave(node *TreeNode) int {
+  for node.Left != nil {
+    node = node.Left
+  }
+  return node.Val
+}
+
+func maxLeave(node *TreeNode) int {
+  for node.Right != nil {
+    node = node.Right
+  }
+  return node.Val
+}
+
+func minMaxLeaves(root *TreeNode, minVal int, maxVal int) bool {
+  if root == nil {
+    return true
+  }
+
+  leftmost := minLeave(root)
+  rightmost := maxLeave(root)
+
+  return minVal &lt;= leftmost && leftmost &lt;= maxVal &&
+         minVal &lt;= rightmost && rightmost &lt;= maxVal
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+import java.util.*;
+
+class Solution {
+  private int minLeave(TreeNode node) {
+    while (node.left != null) {
+      node = node.left;
+    }
+    return node.val;
+  }
+
+  private int maxLeave(TreeNode node) {
+    while (node.right != null) {
+      node = node.right;
+    }
+    return node.val;
+  }
+
+  public boolean minMaxLeaves(TreeNode root, int minVal, int maxVal) {
+    if (root == null) {
       return true;
-    } else {
-      dict[nums[i]] = i;
     }
-  }
-  return false;
-}
 
-console.log(twoSum([7,13,6,5], 18)); // true
-console.log(twoSum([7,13,6,5], 21)); // false
+    int leftmost = minLeave(root);
+    int rightmost = maxLeave(root);
+
+    return minVal &lt;= leftmost && leftmost &lt;= maxVal &&
+           minVal &lt;= rightmost && rightmost &lt;= maxVal;
+  }
+}
 </pre>
   </details>
-  <p>Сложность по времени O(N). Сложность по памяти O(N)</p>
 
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+int minLeave(TreeNode *node) {
+  while (node->left != nullptr) {
+    node = node->left;
+  }
+  return node->val;
+}
+
+int maxLeave(TreeNode *node) {
+  while (node->right != nullptr) {
+    node = node->right;
+  }
+  return node->val;
+}
+
+bool minMaxLeaves(TreeNode *root, int minVal, int maxVal) {
+  if (root == nullptr) {
+    return true;
+  }
+
+  int leftmost = minLeave(root);
+  int rightmost = maxLeave(root);
+
+  return minVal &lt;= leftmost && leftmost &lt;= maxVal &&
+          minVal &lt;= rightmost && rightmost &lt;= maxVal;
+}
+</pre>
+  </details>
 </article>
 
 
-<!-- Паттерн "ключ-значение - значение-ключ" -->
+<!-- Задача 2. Валидация дерева поиска -->
 <article class="article">
-  <div class="anchor" id="key"></div>
-  <h3>Паттерн "ключ-значение - значение-ключ"</h3>
-</article>
+  <div class="anchor" id="bst3"></div>
+  <h3>Задача 2. Валидация дерева поиска</h3>
 
-
-<!-- 2. Топ К часто встречающихся элементов -->
-<article class="article">
-  <div class="anchor" id="hash2"></div>
-  <h3>2. Топ К часто встречающихся элементов</h3>
-
-  <p>Дан целочисленный массив nums и целое число k, нужно вернуть k наиболее частых элементов. Можно вернуть ответ в любом порядке</p>
+  <p>Дан корень бинарного дерева. Нужно проверить является ли дерево правильным бинарным деревом поиска</p>
 
   <p>Пример</p>
-  <code>Input: nums = [5,3,1,5,5,3,7], k = 2</code>
-  <code>Output: [5,3]</code>
-
-  <p>Идея решения. Перебирать элементы и для каждого элемента считать сколько раз он встретился. Записывать в славарь. Ключем будет элемент, значением - его количество. Когда хеш-таблица создана, нужно создать массив размером n+1, где индексами будут значения из словаря (количество одинаковых элементов), а значением для каждого ключа будет массив с ключами из первого словаря (сами элементы). Таким образом, мы сделаем замену "ключа-значение" на "значение-ключ"</p>
-  <details>
-    <summary>Решение</summary>
-    <p>Решение с помощью хещ-таблицы и паттерна "ключ-значение - значение-ключ"</p>
-    <h4>Алгоритм</h4>
-    <ol>
-      <li>Заведем переменную res для массива с результатом
-        <code>const res = [];</code>
-      </li>
-      <li>Заведем переменную dict для словаря, где ключем будет элемент входного массива, а значением - сколько раз он встречается
-        <code>const dict = {};</code>
-      </li>
-      <li>Заведем переменную count для массива размером n+1, где индекс будут значения из словаря, а значением - массив с элементами
-        <code>const count = [];</code>
-      </li>
-      <li>Пройдем циклом по входному массиву
-        for (let num of nums)
-      </li>
-      <li>Если очередного элемента нет в словаре, то добавим его в словарь как ключ со значением 0
-        <code>if (!(num in dict)) dict[num] = 0;</code>
-      </li>
-      <li>Увеличим значение dict[num] на 1</li>
-      <li>Когда цикл закончится, закончится и формирование словаря
-      </li>
-      <li>
-        Пройдем циклом по словарю
-        <code>for (let num in dict)</code>
-      </li>
-      <li>Добавим очередной ключ словаря в массив count с индексом равным значению из словаря</li>
-      <li>Пройдем по массиву count с конца и добавим первые k элементов в массив с результатом</li>
-    </ol>
 <pre>
-function topKFrenq(nums, k) {
-  const res = [];
-  // ключ - число
-  // значение - сколько раз встретилось
-  const dict = {};
-  // инекс - сколько раз встретилось число
-  // значение - массив чисел, которые встретились столько раз
-  const count = [];
-
-  for (let num of nums) {
-    if (!(num in dict)) {
-      dict[num] = 0;
-    }
-    dict[num]++;
-  }
-
-  for (let num in dict) {
-    let freq = dict[num];
-    count[freq].push(Number(num));
-  }
-
-  for (let i = count.length - 1; i > 0; i--) {
-    for (let num of count) {
-      if (k &lt;= 0) {
-        return res;
-      }
-      res.push(num);
-      k--;
-    }
-  }
-  return res;
-}
+     10
+    /  \
+   5    11
+  / \     \
+-2   7     15
+    /
+   6
 </pre>
-  </details>
-</article>
-
-
-<!-- 3. Изоморфные строки -->
-<article class="article">
-  <div class="anchor" id="hash3"></div>
-  <h3>3. Изоморфные строки</h3>
-
-  <p>Даны две строки s и t, определите, являются ли они изоморфными</p>
-
-  <p>Две строки s и t изоморфны, если символы в s можно заменить, чтобы получить t</p>
-  <p>Все вхождения символа должны быть заменены другим символом с сохранением порядка символов. Никакие два символа не могут отображаться в один и тот же символ, но символ может отображаться сам на себя</p>
-
-  <h4>Пример 1</h4>
-  <code>Input: s = "abacaba", t = "totxtot"</code>
   <code>Output: true</code>
 
-  <h4>Пример 2</h4>
-  <code>Input: s = "foo", t = "bar"</code>
-  <code>Output: false</code>
-
-  <p>Идея решения. Для каждой строки заведем свой словарь. И будем запоминать какая буква одной строке соответствует какой букве другой строки. Если какая-то буква не соответствует, то будем возвращать false</p>
+  <p>Идея решения. Дополнительно для каждой вершины хранить диапазон допустимых значений.</p>
 
   <details>
-    <summary>Решение</summary>
-    <h4>Алгоритм</h4>
+    <summary>Алгоритм</summary>
     <ol>
-      <li>Заведем два словаря dict1 и dict2 для каждой строки
-        <code>const dict1 = {}, dict2 = {};</code>
-      </li>
-      <li>Пройдем циклом по строке
-        <code>for (let i = 0; i &lt; s.length; i++)</code>
-      </li>
-      <li>Если в первом словаре есть ключ равный символу первой строки, и его значение не равно символу второй строки, вернем false
-        <code>if (s[i] in dict1 && dict1[s[i]] !== t[i]) return false;</code>
-      </li>
-      <li>Если во втором словаре есть ключ равный символу второй строки, и его значение не равно символу первой строки, вернем false
-        <code>if (t[i] in dict2 && dict2[t[i]] !== s[i]) return false;</code>
-      </li>
-      <li>Запишем в первый словарь ключ равный символу первой строки и значение равное символу второй строки</li>
-      <li>Запишем во второй словарь ключ равный символу второй строки и значение равное символу первой строки</li>
-      <li>Когда цикл закончится, то вернем true. Все символы совпали значит строки изоморфны</li>
+      <li>Корень может быть любой. Диапазон для корня (-Infinity, +Infinity). Диапазон - не включительно, сторого больше левого значения и строго меньше правого значения. Корень равен 10</li>
+      <li>Идем от корня в левую вершину. Диапазон (-Infinity, 10). Левая вершина равна 5</li>
+      <li>Идем в левую вершину от вершины 5. Диапазон (-Infinity, 5). Вершина равна -2.</li>
+      <li>Возвращаемся обратно в вершину 5 и идем в правую вершину. Диапазон (5, 10). Вершина равна 7.</li>
+      <li>Идем в левую вершину. Диапазон (5, 7). Вершина равна 6.</li>
+      <li>На этом обход левого поддерева закончен. Все вершины входят в свои диапазоны. Переходим в правое поддерево</li>
+      <li>Идем от корня в правую вершину. Диапазон (10, +Infinity). Правая вершина равна 11.</li>
+      <p>Идем в правую вершину от вершины 11. Диапазон (11, +Infinity). Вершина равна 15</p>
     </ol>
-<pre>
-function isIsomorhic(s, t) {
-  const dict1 = {}, dict2 = {};
-  // dict1 ключ: символ строки s
-  // val: сопоставленный символ строки t
-  // dict2 ключ: симовл строки t
-  // val: сопоставленный символ строки s
 
-  let p1 = 0, p2 = 0;
-  for (let i = 0; i &lt; s.length; i++) {
-    if (dict1[s[i]] && dict1[s[i]] !== t[i]) {
-      return false;
-    }
-    if (dict2[t[i]] && dict2[t[i]] !== s[i]) {
-      return false;
-    }
-    dict1[s[i]] = t[i];
-    dict2[t[i]] = s[i];
+    <p>Сложность по времени O(N). Где N - число вершин. Потому что нужно обойти все вершины</p>
+    <p>Сложность по памяти O(h). Где h - высота дерева. При обходе мы используем рекурсию и количество рекурсивных вызовов ограничивается высотой</p>
+  </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function isValidBST(root) {
+  return isValid(root, -Infinity, +Infinity);
+}
+
+function isValid(node, low, high) {
+  if (!node) {
+    return true;
   }
 
-  return true;
+  // если текущая вершина не лежит в нужном диапазоне,
+  // то и все дерево не является правильным BST
+  if (!((low &lt; node.val) && (node.val &lt; high))) {
+    return false;
+  }
+  // обновляем границы диапазона для поддерева
+  return isValid(node.left, low, node.val) &&
+          isValid(node.right, node.val, high);
 }
 </pre>
   </details>
-  <p>Сложность по времени O(N). Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isValid BST(self, root: Optional[TreeNode]) -> bool:
+    def isValid(node: TreeNode, low: int, high: int) -> bool:
+      if node is None:
+        return True
+
+      if not(low &lt; node.Val &lt; high):
+        return False
+
+      return (isValid(node.left, low, node.Val) and
+              isValid(node.right, node.val, high))
+
+    return isValid(root, float('-inf'), float('inf'))
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+import "math"
+
+func isValid BST(root *TreeNode) bool {
+  return isValid(root, math.MinInt64, math.MaxInt64)
+}
+
+
+func isValid(node *TreeNode, low int64, high int64) bool {
+  if node == nil {
+    return true
+  }
+
+  nodeValue := int64(node.Val)
+  if !(low &lt; nodeValue && nodeValue &lt; high) {
+    return false
+  }
+
+  return (isValid(node.Left, low, nodeValue) &&
+          isValid(node.Right, nodeValue, high))
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+class Solution {
+  public boolean isValidBST(TreeNode root) {
+    return isValid(root, null, null);
+  }
+
+  private boolean isValid(TreeNode node, Integer low, Integer high) {
+    if (node == null) {
+      return true;
+    }
+
+    if (low != null && node.val &lt;= low) {
+      return false;
+    }
+
+    if (high != null && node.val &gr;= high) {
+      return false;
+    }
+
+    return isValid(node.left, low, node.val) &&
+            isValid(node.right, node.val, high);
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+class Solution {
+public:
+  bool isValidBST(TreeNode *root) {
+    return isValid(root, INT64_MIN, INT64_MAX);
+  }
+
+private:
+  bool isValid(TreeNode *node, int64_t low, int64_t high) {
+    if (node == nullptr) {
+      return true;
+    }
+
+    if (low &lt; node->val && node->val &lt; high) {
+      return false;
+    }
+
+    return isValid(node->left, low, node->val) &&
+            isValid(node->right, node->val, high);
+  }
+}
+</pre>
+  </details>
 </article>
 
 
-<!-- Сортировки -->
+<!-- Задача3. Из массива в дерево поиска -->
 <article class="article">
-  <div class="anchor" id="sort"></div>
-  <h3>Сортировки</h3>
+  <div class="anchor" id="bst4"></div>
+  <h3>Задача 3. Из массива в дерево поиска</h3>
 
-  <ol>
-    <li>
-      <h4>Квадратичные</h4>
-      <p>Сложность во времени O(n<sup>2</sup>)</p>
-      <p>Сложность по памяти O(1)</p>
-    </li>
-    <li>
-      <h4>Логарифмические</h4>
-      <p>Сложность по времени O(nlogn)</p>
-      <p>Сложность по памяти O(logn)</p>
-    </li>
-    <li>
-      <h4>Сортировка подсчетом</h4>
-      <p>Сложность по времени O(n)</p>
-      <p>Сложность по памяти O(n)</p>
-      <p>Применяют только при небольшом количестве уникальных элементов</p>
-    </li>
-  </ol>
+  <p>Дан целочисленный массив nums, элементы которого отсортированы в порядке возрастания. Нужно преобразовать массив nums в сбалансированное по высоте двоичное дерево поиска</p>
+
+  <р4>Пример</р4>
+  <code>Input: [-2,4,6,12,18,21]</code>
+<pre>
+Output:
+     6
+  /    \
+-2      18
+  \    /  \
+   4 12    21
+</pre>
+
+  <p>Для сбалансированного BST высота левого и правого поддерева отличаются не более чем на 1</p>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <h4>Алгоритм функции sortedArrayToBST()</h4>
+    <ol>
+      <li>Вызовем функцию toBST() и передадим в нее три параметра - массив, начало и конец массива</li>
+    </ol>
+
+    <h4>Алгоритм функции toBST()</h4>
+    <ol>
+      <li>Функция toBST() приняла массив nums и два указателя pl на начало и pr на конец массива
+      </li>
+      <li>Проверяем условие если левый указатель больше правого, то выходим из функции
+        <code>if (pl>pr) {return;}
+      </code>
+      </li>
+      <li>Найдем середину массива middle. Сложим указатели, поделим пополам и округлим до целого значения вниз. Получим индекс вершины которую поставим в корень дерева
+        <code>middle = Math.floor((pl + pr) / 2);</code>
+      </li>
+      <li>Все что слева от корня  - пойдет в левое поддерево</li>
+      <li>Все что справа от корня  - пойдет в правое поддерево</li>
+      <li>Создадим новую вершину. Значением вершины будет найденное значение middle. Для левого ребенка запустим рекурсивно функцию toBST(), передадим в нее подмассив, который слева от middle и указатели на начало и конец этого подмассива. Для правого ребенка запустим рекурсивно функцию toBST(), передадим в нее подмассив, который справа от middle и указатели на начало и конец этого подмассива</li>
+    </ol>
+    <p>Сложность по времени O(N)</p>
+    <p>Сложность по памяти O(h)</p>
+   </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function sortedArrayToBST(nums) {
+  return toBST(nums, 0, nums.length - 1);
+}
+
+function toBST(nums, pl, pr) {
+  if (pl > pr) {
+    return;
+  }
+
+  let middle = Math.floor((pl + pr) / 2);
+
+  return new TreeNode(
+    nums[middle],
+    toBST(nums, pl, middle-1),
+    toBST(nums, middle+1, pr),
+  );
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]
+    return self.toBST(nums, 0, len(nums) - 1);
+
+
+  def toBST(self, nums: List[int], pl: int, pr: int) -> TreeNode:
+    if pl > pr {
+      return None;
+    }
+
+    middle = (pl + pr) // 2
+    node = TreeNode(nums[mid])
+    node.left = self.toBST(nums, pl, middle-1)
+    node.right = self.toBST(nums, middle+1, pr)
+
+    return node
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+func sortedArrayToBST(nums []int) *TreeNode {
+  return toBST(nums, 0, len(nums) - 1);
+}
+
+func toBST(nums []int, pl int, pr int) *TreeNode {
+  if pl > pr {
+    return nil;
+  }
+
+  middle := (pl + pr) // 2
+
+  return &TreeNode {
+    Val: nums[mid],
+    Left: toBST(nums, pl, middle-1),
+    Right: toBST(nums, middle+1, pr),
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+class Solution {
+  public TreeNode sortedArrayToBST(int[] nums) {
+    return toBST(nums, 0, nums.length - 1);
+  }
+
+  private TreeNode toBST(int[] nums, int pl, int pr) {
+    if (pl > pr) {
+      return null;
+    }
+
+    int middle = (pl + pr) / 2;
+    TreeNode node = new TreeNode(nums[mid]);
+    node.left = toBST(nums, pl, middle-1);
+    node.right = toBST(nums, middle+1, pr);
+
+    return node;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+class Solution {
+public:
+  TreeNode *sortedArrayToBST(vector&lt;int&gt;& nums) {
+    return toBST(nums, 0, nums.size() - 1);
+  }
+
+private:
+  TreeNode *toBST(const vector&lt;int&gt;& nums, int pl, int pr) {
+    if (pl > pr) {
+      return nullptr;
+    }
+
+    int middle = (pl + pr) / 2;
+
+    return new TreeNode(
+      nums[mid],
+      toBST(nums, pl, middle-1);
+      toBST(nums, middle+1, pr);
+    )
+  }
+}
+</pre>
+  </details>
 </article>
+
+
+<!-- Задача 4. Ближайшее значение -->
+<article class="article">
+  <div class="anchor" id="bst5"></div>
+  <h3>Задача 4. Ближайшее значение</h3>
+
+  <p>Дан корень бинарного дерева поиска и число. Нужно найти вершину со значением, ближайшим к данному числу</p>
+
+  <p>Пример</p>
+<pre>
+     10
+    /  \
+   5    11
+  / \     \
+-2   8     15
+    /
+   6
+target = 6.2
+</pre>
+  <code>Output: 6</code>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <ol>
+      <li>Заводим переменную res для ответа</li>
+      <li>Заводим переменную dif для разности между target и result</li>
+      <li>Заводим переменную cur для текущей вершины</li>
+      <li>Заходим в корень дерева. Задаем начальные значения переменным
+        <code>cur = 10; res = cur; dif = Math.abs(res - target)</code>
+      </li>
+      <li>Чтобы выбрать следующую вершину, проверяем условие
+        <code>if (target &lt; cur) // true</code>
+        Идем в левое поддерево.</li>
+      <li>Левая вершина равна 5. Обновляем текущее значение
+        <code>cur = 5</code>
+        Проверяем нужно ли обновить результат
+        <code>if (cur - target &lt; dif) // true</code>
+        Обновляем результат и разницу
+        <code>result = cur; dif = result - target.</code>
+      </li>
+      <li>Чтобы выбрать следующую вершину, проверяем условие
+        <code>if (target &lt; cur) // false</code>
+        Идем в правое поддерево.</li>
+      <li>Правая вершина равна 8. Обновляем текущее значение
+        <code>cur = 8</code>
+        Проверяем нужно ли обновить результат
+        <code>if (cur - target &lt; dif) // false</code>
+      </li>
+      <li>Чтобы выбрать следующую вершину, проверяем условие
+        <code>if (target &lt; cur) // true</code>
+        Идем в левое поддерево.</li>
+      <li>Левая вершина равна 6. Обновляем текущее значение
+        <code>cur = 6</code>
+        Проверяем нужно ли обновить результат
+        <code>if (cur - target &lt; dif) // true</code>
+        Обновляем результат и разницу
+        <code>result = cur; dif = result - target.</code>
+      </li>
+      <li>Чтобы выбрать следующую вершину, проверяем условие
+        <code>if (target &lt; cur) // true</code>
+        Идем в правое поддерево.</li>
+      <li>Праваой вершины нету. Поэтому поиск закончен. Вершина с ближайшим значением найдена. Вернем результат</li>
+    </ol>
+  </details>
+
+</article>
+
+
+<!-- Задача 5. K-ый наименьший элемент в BST -->
+<article class="article">
+  <div class="anchor" id="bst6"></div>
+  <h3>Задача 5. K-ый наименьший элемент в BST</h3>
+
+  <p>Дан корень правильного бинарного дерева поиска и число k. Нужно венуть k-ый наименьший элемент в дереве (отсчет для k начинается с 1)</p>
+
+  <p>Пример</p>
+<pre>
+input: k = 3
+     10
+    /  \
+   5    11
+  / \     \
+-2   7     15
+</pre>
+  <code>Output: 7</code>
+
+  <p>Для того чтобы понять какой должен быть ответ, отсортируем все числа</p>
+  <code>-2, 5, 7, 10, 11, 15</code>
+  <p>По условию, отсчет k начинается с 1, поэтому наименьшее третье число это 7</p>
+  <p>Если применить inorder traversal к BST, то получим массив с отсортированными элементами. И ответом будет просто третий элемент сначала массива. Но можно и не создавать весь массив, а просто остановиться на нужном элементе, выполняя inorder traversal</p>
+  <p>Подсчет каждого следующего наименьшего элемента ведется в момент когда возвращаемся из левой пустой вершины</p>
+
+  <details>
+    <summary>Алгоритм</summary>
+    <ol>
+      <li>От корня идем в левое поддерево</li>
+      <li>Проверяем пустая ли левая вершина</li>
+      <li>Левая вершина равна 5. Идем в левое поддерево</li>
+      <li>Проверяем пустая ли левая вершина</li>
+      <li>Левая вершина равна -2. Идем в левое поддерево</li>
+      <li>Проверяем пустая ли левая вершина</li>
+      <li>Левая вершина пустая. Возвращаемся в вершину -2. Обновляем k
+        <code>k = k - 1;</code>
+      </li>
+      <li>Проверяем k
+        <code>if (k === 0)</code>
+      </li>
+      <li>k еще не равна нулю. Идем в правое поддерево</li>
+    </ol>
+    <p>Сложность по времени O(N)</p>
+    <p>Сложность по памяти O(h)</p>
+  </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function kthSmallest(root, k) {
+  return inorder(root);
+}
+
+function inorder(node) {
+  if (node === null) {
+    return null;
+  }
+
+  // идем влево
+  let result = inorder(node.left);
+
+  // если нашли результат, то вернем его
+  if (result !== null) {
+    return result;
+  }
+
+  k = k - 1;
+  if (k === 0) {
+    // нашли k-ую наименьшую
+    return node.val;
+  }
+
+  // идем вправо
+  return inorder(node.right);
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def kthSmallest(self, root: optional[TreeNode], k: int) -> int:
+    return inorder(root)
+
+  def inorder(node: TreeNode) -> int:
+    if node is None:
+      return None
+
+    result = inorder(node.left)
+    if result is not None:
+      return result
+
+    nonlocal k
+    k = k - 1
+    if k == 0:
+      // нашли k-ую наименьшую
+      return node.val
+
+    return inorder(node.right)
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+func kthSmallest(root *TreeNode, k int) int{
+  result := inorder(root, &k)
+  return result.Val
+}
+
+func inorder(node *TreeNode, k *int) *TreeNode {
+  if node == nil {
+    return nil
+  }
+
+  result := inorder(node.Left, k)
+  if result != nil {
+    return result
+  }
+
+  *k = *k - 1
+  if *k == 0 {
+    return node
+  }
+
+  return inorder(node.Right, k)
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+class Solution {
+  private int index = 0;
+
+  public int kthSmallest(TreeNode root, int k) {
+    TreeNode result = inorder(root, k);
+    return result.val;
+  }
+
+  private TreeNode inorder(TreeNode node, int k) {
+    if (node == null) {
+      return null;
+    }
+
+    TreeNode result = inorder(node.left, k);
+    if (result != null) {
+      return result;
+    }
+
+    index = index + 1
+    if (k == index) {
+      return node;
+    }
+
+    return inorder(node.right, k);
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+class Solution {
+public:
+  int kthSmallest(TreeNode *root, int k) {
+    TreeNode *result = inorder(root, k);
+    return result->val;
+  }
+
+private:
+  TreeNode *inorder(TreeNode *node, int &k) {
+    if (node == nullptr) {
+      return nullptr;
+    }
+
+    TreeNode *result = inorder(node->left, k);
+    if (result != nullptr) {
+      return result;
+    }
+
+    k -= 1;
+    if (k == 0) {
+      return node;
+    }
+
+    return inorder(node->right, k);
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 6. K-ый наибольший элемент в BST -->
+<article class="article">
+  <div class="anchor" id="bst7"></div>
+  <h3>Задача 6. K-ый наибольший элемент в BST</h3>
+
+  <p>Дан корень правильного бинарного дерева поиска и число k. Нужно венуть k-ый наибольший элемент в дереве (отсчет для k начинается с 1)</p>
+
+  <p>Пример</p>
+<pre>
+input: k = 4
+     10
+    /  \
+   5    11
+  / \     \
+-2   7     15
+</pre>
+  <code>Output: 7</code>
+
+  <p>Идея решения. Возьмем решение для задачи про k-ый наименьший элемент. И поменяем две строчки местами</p>
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(h)</p>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function kthBigest(root, k) {
+  return inorder(root);
+}
+
+function inorder(node) {
+  if (node === null) {
+    return null;
+  }
+
+  // идем вправо
+  let result = inorder(node.right); // изменили left на right
+
+  // если нашли результат, то вернем его
+  if (result !== null) {
+    return result;
+  }
+
+  k = k - 1;
+  if (k === 0) {
+    // нашли k-ую наибольшую
+    return node.val;
+  }
+
+  // идем влево
+  return inorder(node.left);  // изменили right на left
+}
+</pre>
+  </details>
+</article>
+
+
 
