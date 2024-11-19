@@ -9,9 +9,8 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#plan">План работы</a></p>
   <p><a href="#ref">Ссылки</a></p>
-  <p><a href="#point">Указатель</a></p>
+  <p><a href="#point">Указатели</a></p>
   <p><a href="#t1">Практика. Sum(int, int)</a></p>
   <p><a href="#t2">Практика. Max(int, int)</a></p>
   <p><a href="#t3">Практика. Swap(int&, int&)</a></p>
@@ -23,25 +22,14 @@
 </article>
 
 
-<!-- План работы -->
-<article class="article">
-  <div class="anchor" id="plan"></div>
-  <h3>План работы</h3>
-
-  <ol>
-    <li>Ссылки и указатели</li>
-    <li>Функции</li>
-    <li>Массивы</li>
-  </ol>
-</article>
-
-
 <!-- Ссылки -->
 <article class="article">
   <div class="anchor" id="ref"></div>
   <h3>Ссылки</h3>
 
-  <p>тип_данных & название_ссылки = переменная_типа_ссылки;</p>
+  <h4>Определение ссылки</h4>
+  <code>тип_данных & название_ссылки = переменная_типа_ссылки;</code>
+
 <pre>
 int main()
 {
@@ -60,17 +48,19 @@ int main()
 </article>
 
 
-<!-- Указатель -->
+<!-- Указатели -->
 <article class="article">
   <div class="anchor" id="point"></div>
-  <h3>Указатель</h3>
+  <h3>Указатели</h3>
 
-  <p>тип_данных * название_указателя;</p>
+  <h4>Определение указателя</h4>
+  <code>тип_данных * название_указателя;</code>
+
 <pre>
 int main()
 {
   int a = 3;
-  int *pointA = &a;
+  int *pointA = &amp;a;
 
   std::cout&lt;&lt;a&lt;&lt;std::endl; // 3
   std::cout&lt;&lt;pointA&lt;&lt;std::endl; // 000000C2E6DAFBF4

@@ -16,7 +16,6 @@ import htmlFatin10 from './elem-fatin-10.html';
 import htmlFatin11 from './elem-fatin-11.html';
 import htmlFatin12 from './elem-fatin-12.html';
 import htmlFatin13 from './elem-fatin-13.html';
-import htmlFatin14 from './elem-fatin-14.html';
 
 // массив страниц из aside menu
 const aside = [
@@ -33,7 +32,6 @@ const aside = [
   htmlFatin11,
   htmlFatin12,
   htmlFatin13,
-  htmlFatin14,
 ];
 
 // Функция pageLink вешает обработчик клика на элементы asideMenu

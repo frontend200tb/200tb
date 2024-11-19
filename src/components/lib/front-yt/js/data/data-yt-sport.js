@@ -1,0 +1,105 @@
+const dataYtSport = [
+
+  {
+    id: 1,
+    theme: 'Спорт',
+    title: '3.5 задачи в неделю',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@35zvn/videos',
+    site: '',
+    dateFirstVideo: '2016.04.03',
+    dateLastVideo: '2020.01.06',
+    amountVideos: 779,
+  },
+
+  {
+    id: 2,
+    theme: 'Спорт',
+    title: 'Sergiy Smirnov',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@SergiySmirnovIT/videos',
+    site: '',
+    dateFirstVideo: '2019.11.29',
+    dateLastVideo: '2024.09.19',
+    amountVideos: 310,
+  },
+
+  {
+    id: 3,
+    theme: 'Спорт',
+    title: 'Спортивное программирование МИРЭА',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@cp_mirea/videos',
+    site: '',
+    dateFirstVideo: '2018.07.12',
+    dateLastVideo: '2024.11.04',
+    amountVideos: 272,
+  },
+
+  {
+    id: 4,
+    theme: 'Спорт',
+    title: 'Факультет компьютерных технологий и информатики',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@%D0%A4%D0%B0%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D0%B5%D1%82%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D1%85%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8/videos',
+    site: '',
+    dateFirstVideo: '2020.04.12',
+    dateLastVideo: '2024.05.07',
+    amountVideos: 142,
+  },
+
+  {
+    id: 5,
+    theme: 'Спорт',
+    title: 'Александр Павлов',
+    author: 'Александр Павлов',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@pavlovalex/videos',
+    site: '',
+    dateFirstVideo: '2015.05.15',
+    dateLastVideo: '2024.04.07',
+    amountVideos: 125,
+  },
+
+  {
+    id: 6,
+    theme: 'Спорт',
+    title: 'Школа инженерных наук Бином',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@binom-education/videos',
+    site: '',
+    dateFirstVideo: '2020.04.07',
+    dateLastVideo: '2023.12.17',
+    amountVideos: 55,
+  },
+
+  {
+    id: 7,
+    theme: 'Спорт',
+    title: 'ACM MIET',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@acmmiet2225/videos',
+    site: '',
+    dateFirstVideo: '2021.11.13',
+    dateLastVideo: '2021.04.26',
+    amountVideos: 43,
+  },
+
+  {},
+
+];
+
+export default dataYtSport;

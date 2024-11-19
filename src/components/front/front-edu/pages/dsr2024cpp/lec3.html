@@ -9,35 +9,28 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#plan">План работы</a></p>
-  <p><a href="#loop">Циклы</a></p>
-  <p><a href="#task1">Задача 1</a></p>
+  <p><a href="#while">Цикл while</a></p>
+  <p><a href="#task1">Задача 1. Найти сумму чисел от 1 до 100</a></p>
+  <p><a href="#while2">Вложенный цикл while</a></p>
+  <p><a href="#task2">Задача 2. Вывести таблицу умножения от 1 до 9 while</a></p>
+  <p><a href="#loop">Бесконечные циклы</a></p>
+  <p><a href="#for">Цикл for</a></p>
+  <p><a href="#task3">Задача 3. Вывести квадраты четных чисел от 0 до 20</a></p>
+  <p><a href="#task4">Задача 4. Вывести таблицу умножения от 1 до 9 for</a></p>
+  <p><a href="#task5">Задача 5. Просуммировать все числа от 1 до n</a></p>
+  <p><a href="#dowhile">Цикл do-while</a></p>
+  <p><a href="#task6">Задача 6. Вычитать случайное число</a></p>
   <p><a href="#bad">Обработка "плохих" данных</a></p>
-  <p><a href="#task2">Задача 2</a></p>
-  <p><a href="#task3">Задача 3</a></p>
-  <p><a href="#task4">Задача 4</a></p>
+  <p><a href="#task7">Задача 7. Вычислить сумму числовой последовательности</a></p>
+  <p><a href="#task8">Задача 8. Вычислить сумму числовой последовательности</a></p>
+  <p><a href="#task9">Задача 9. Вычислить сумму числовой последовательности</a></p>
 </article>
 
 
-<!-- План работы -->
+<!-- Цикл while -->
 <article class="article">
-  <div class="anchor" id="plan"></div>
-  <h3>План работы</h3>
-
-  <ol>
-    <li>while</li>
-    <li>for</li>
-    <li>do while</li>
-    <li>foreach</li>
-    <li>Обработка "плохих" данных</li>
-  </ol>
-</article>
-
-
-<!-- Циклы -->
-<article class="article">
-  <div class="anchor" id="loop"></div>
-  <h3>Циклы</h3>
+  <div class="anchor" id="while"></div>
+  <h3>Цикл while</h3>
 
   <h4>Определение цикла while</h4>
 <pre>
@@ -46,19 +39,42 @@ while (/*выражение*/)
   //тело_цикла
 }
 </pre>
-  <p>Найти сумму чисел от 1 до 100</p>
+</article>
+
+
+<!-- Задача 1. Найти сумму чисел от 1 до 100 -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Найти сумму чисел от 1 до 100</h3>
+
 <pre>
-int i = 0;
-int sum = 0;
+#include &lt;iostream&gt;
 
-while (i &lt; 100)
+int main()
 {
-  i++;
-  sum += i;
-}
+  int i = 0;
+  int sum = 0;
 
-std::cout &lt;&lt; "Сумма чисел от 1 до 100 = " &lt;&lt; sum &lt;&lt; std::endl;
+  while (i &lt; 100)
+  {
+    i++;
+    sum += i;
+  }
+
+  std::cout &lt;&lt; "Sum from 1 to 100 = "
+            &lt;&lt; sum &lt;&lt; std::endl;
+}
 </pre>
+
+  <p>Output</p>
+  <code>Sum from 1 to 100 = 5050</code>
+</article>
+
+
+<!-- Вложенный цикл while -->
+<article class="article">
+  <div class="anchor" id="while2"></div>
+  <h3>Вложенный цикл while</h3>
 
   <h4>Определение вложенных циклов</h4>
 <pre>
@@ -71,24 +87,44 @@ while (/*выражение1*/)
   }
 }
 </pre>
+</article>
+
+
+<!-- Задача 2. Вывести таблицу умножения от 1 до 9 -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Вывести таблицу умножения от 1 до 9</h3>
+
   <p>Вывести таблицу умножения от 1 до 9, используя вложенные циклы while</p>
 <pre>
-int a{}, b{};
+#include &lt;iostream&gt;
 
-while (a &lt; 10)
+int main()
 {
-  a++;
-  while (b &lt; 10)
+  int a{}, b{};
+
+  while (a &lt; 10)
   {
-    b++;
-    std::cout &lt;&lt; a &lt;&lt; "\tx\t" &lt;&lt; b &lt;&lt; "\t=\t" &lt;&lt; a * b &lt;&lt; std::endl;
+    while (b &lt; 10)
+    {
+      std::cout &lt;&lt; a &lt;&lt; "\tx\t" &lt;&lt; b
+                &lt;&lt; "\t=\t" &lt;&lt; a * b &lt;&lt; std::endl;
+      b++;
+    }
+    std::cout &lt;&lt; std::endl;
+    a++;
+    b = 0;
   }
-  std::cout &lt;&lt; std::endl;
-  b = 0;
 }
 </pre>
+</article>
 
-  <h4>Бесконечные циклы</h4>
+
+<!-- Бесконечные циклы -->
+<article class="article">
+  <div class="anchor" id="loop"></div>
+  <h3>Бесконечные циклы</h3>
+
 <pre>
 while (true)
 {
@@ -172,53 +208,127 @@ while (count &lt;= 50)
   ++count;
 }
 </pre>
+</article>
+
+
+<!-- Цикл for -->
+<article class="article">
+  <div class="anchor" id="for"></div>
+  <h3>Цикл for</h3>
 
   <h4>Определение цикла for</h4>
-  <p>Вывести квадраты четных чисел от 0 до 20</p>
 <pre>
-int length{20};
-
-for (int i = 0; i &lt; length; i++)
+for (/*объявление_переменных*/;/*условие*/;/*инкремент_декремент*/)
 {
-  if (i % 2 == 0)
-  {
-    std::cout &lt;&lt; i * i &lt;&lt; " ";
-  }
-}
-</pre>
-
-  <p>Вывести таблицу умножения от 1 до 9, используя вложенные циклы for</p>
-<pre>
-for (int i{1}; i &lt; 10; i++)
-{
-  for (int j{1}; j &lt; 10; j++)
-  {
-    std::cout &lt;&lt; i &lt;&lt; "\t x \t" &lt;&lt; j &lt;&lt; "\t = \t" &lt;&lt; i * j &lt;&lt; std::endl;
-  }
-  std::cout &lt;&lt; std::endl;
+  //тело цикла
 }
 </pre>
 </article>
 
 
-<!-- Задача 1 -->
+<!-- Задача 3. Вывести квадраты четных чисел от 0 до 20 -->
 <article class="article">
-  <div class="anchor" id="task1"></div>
-  <h3>Задача 1</h3>
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Вывести квадраты четных чисел от 0 до 20</h3>
 
-  <p>Напишите программу, где пользователь вводит любое целое положительное число. А программа суммирует все числа от 1 до введенного пользователем числа.</p>
 <pre>
-unsigned int temp{};
-int sum{};
-std::cin >> temp;
+#include &lt;iostream&gt;
 
-for (int j{1}; j &lt; temp; j++)
+int main()
 {
-  sum += j;
+  int num{20};
+
+  for (int i = 0; i &lt; num; i++)
+  {
+    if (i % 2 == 0)
+    {
+      std::cout &lt;&lt; i * i &lt;&lt; " ";
+    }
+  }
 }
 </pre>
 
-  <h4>ctime, srand, rand</h4>
+  <p>Output</p>
+  <code>0 4 16 36 64 100 144 196 256 324</code>
+</article>
+
+
+<!-- Задача 4. Вывести таблицу умножения от 1 до 9 -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Вывести таблицу умножения от 1 до 9</h3>
+
+  <p>Вывести таблицу умножения от 1 до 9, используя вложенные циклы for</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  for (int i{1}; i &lt; 10; i++)
+  {
+    for (int j{1}; j &lt; 10; j++)
+    {
+      std::cout &lt;&lt; i &lt;&lt; "\t x \t" &lt;&lt; j
+                &lt;&lt; "\t = \t" &lt;&lt; i * j &lt;&lt; std::endl;
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- Задача 5. Просуммировать все числа от 1 до n -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Просуммировать все числа от 1 до n</h3>
+
+  <p>Напишите программу, где пользователь вводит любое целое положительное число. А программа суммирует все числа от 1 до введенного пользователем числа.</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  unsigned int n{};
+  int sum{};
+
+  std::cout &lt;&lt; "Input n ";
+  std::cin >> n;
+
+  for (int i{1}; i &lt;= n; i++)
+  {
+    sum += i;
+  }
+
+  std::cout &lt;&lt; "Sum from 1 to " &lt;&lt; n &lt;&lt; " = "
+            &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Цикл do-while -->
+<article class="article">
+  <div class="anchor" id="dowhile"></div>
+  <h3>Цикл do-while</h3>
+
+  <h4>Определение цикла</h4>
+<pre>
+do {
+  //тело_цикла
+} while (//условие);
+</pre>
+</article>
+
+
+<!-- Задача 6. Вычитать случайное число -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача 6. Вычитать случайное число</h3>
+
+  <h4>Библиотека ctime, функции srand(), rand()</h4>
+  <p>Библиотека ctime содержит функции srand(), rand(). Функция srand() устанавливает зерно. Функция rand() вычисляет псевдослучайное число относительно зерна. По умолчанию зерно равно 0.</p>
+  <p>Дано целое число balance = 8. Вычитать из него случайное целое число от 0 до 3, пока balance не станет равным нулю.</p>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;ctime&gt;
@@ -236,7 +346,7 @@ int main()
     balance -= removal;
   } while (balance > 0);
 
-  return 0;
+  std::cout &lt;&lt; "balance = " &lt;&lt; balance &lt;&lt; std::endl;
 }
 </pre>
 </article>
@@ -329,60 +439,76 @@ std::cout &lt;&lt; "The sum is: " &lt;&lt; x + y &lt;&lt; '\n';
 </article>
 
 
-<!-- Задача 2 -->
+<!-- Задача 7. Вычислить сумму числовой последовательности -->
 <article class="article">
-  <div class="anchor" id="task2"></div>
-  <h3>Задача 2</h3>
+  <div class="anchor" id="task7"></div>
+  <h3>Задача 7. Вычислить сумму числовой последовательности</h3>
 
   <p>Вычислить сумму числовой последовательности без использования возведения в степень</p>
   <code>1 + 1/3 + 1/(3<sup>2</sup>) + ... + 1/(3<sup>8</sup>)</code>
 
   <h4>Решение</h4>
 <pre>
-double sum {1};
-double denominator {1};
+#include &lt;iostream&gt;
 
-for (int i = 0; i &lt; 8; i++)
+int main()
 {
-  denominator *= 3;
-  sum += 1 / denominator;
-}
+  double sum {1};
+  double denominator {1};
 
-std::cout &lt;&lt; sum;
+  for (int i = 0; i &lt; 8; i++)
+  {
+    denominator *= 3;
+    sum += 1 / denominator;
+  }
+
+  std::cout &lt;&lt; sum;
+}
 </pre>
+
+  <p>Output</p>
+  <code>1.49992</code>
 </article>
 
 
-<!-- Задача 3 -->
+<!-- Задача 8. Вычислить сумму числовой последовательности -->
 <article class="article">
-  <div class="anchor" id="task3"></div>
-  <h3>Задача 3</h3>
+  <div class="anchor" id="task8"></div>
+  <h3>Задача 8. Вычислить сумму числовой последовательности</h3>
 
   <p>Вычислить сумму числовой последовательности без использования возведения в степень</p>
   <code>x + x<sup>3</sup>/3 + x<sup>5</sup>/5 + ... + x<sup>11</sup>/11</code>
 
   <h4>Решение</h4>
 <pre>
-double sum {};
-int n {5};
-double x {2.0};
-double temp = x;
+#include &lt;iostream&gt;
 
-for (int i = 0; i &lt; n; i++)
+int main()
 {
-  sum += temp;
-  temp = temp * (2 * i - 1) * x * x / (2 * i + 1);
-}
+  double sum {};
+  int n {5};
+  double x {2.0};
+  double temp = x;
 
-std::cout &lt;&lt; sum;
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += temp;
+    temp = temp * (2 * i - 1) * x * x / (2 * i + 1);
+  }
+
+  std::cout &lt;&lt; sum;
+}
 </pre>
+
+  <p>Output</p>
+  <code>-115.41</code>
 </article>
 
 
-<!-- Задача 4 -->
+<!-- Задача 9. Вычислить сумму числовой последовательности -->
 <article class="article">
-  <div class="anchor" id="task4"></div>
-  <h3>Задача 4</h3>
+  <div class="anchor" id="task9"></div>
+  <h3>Задача 9. Вычислить сумму числовой последовательности</h3>
 
   <p>Вычислить сумму числовой последовательности без использования возведения в степень</p>
   <code>e<sup>x</sup> = 1 + x + x<sup>2</sup>/2! + x<sup>3</sup>/3! + x<sup>4</sup>/4! + ...</code>

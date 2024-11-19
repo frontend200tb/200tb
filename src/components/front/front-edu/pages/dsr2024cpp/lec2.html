@@ -10,10 +10,13 @@
   <h2>Содержание</h2>
 
   <p><a href="#conv">Преобразования типов</a></p>
+  <p><a href="#task1">Задача 1. Дальнобойщик</a></p>
   <p><a href="#oper">Операции</a></p>
-  <p><a href="#task1">Задача 1</a></p>
-  <p><a href="#task2">Задача 2</a></p>
-  <p><a href="#task3">Задача 3</a></p>
+  <p><a href="#if">Условие if-else</a></p>
+  <p><a href="#task2">Задача 2. Количество набранных очков</a></p>
+  <p><a href="#task3">Задача 3. Площадь заштрихованной области</a></p>
+  <p><a href="#switch">Условие switch-case</a></p>
+  <p><a href="#task4">Задача 4. Принадлежит ли точка заштрихованной области</a></p>
 </article>
 
 
@@ -50,15 +53,56 @@
   <p>В арифметических операциях из двух типов выбирается максимальный и к нему приводится наименьший из них</p>
 
   <h4>Явные преобразования типов</h4>
-  <h4>static_cast&lt;type&gt;(value)</h4>
+  <p>Есть два способа язвного преобразования типа</p>
+  <ol>
+    <li><strong>(type) (value)</strong></li>
+    <li><strong>static_cast&lt;type&gt;(value)</strong></li>
+  </ol>
+</article>
+
+
+<!-- Задача 1. Дальнобойщик -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Дальнобойщик</h3>
+
   <p>Дальнобойщик проехал расстояние 130.21км со средней скоростью 8 км/ч. Сколько часов необходимо оплатить ему за проделанную поездку?</p>
+
 <pre>
-double distance{ 130.21 };
-unsigned int speed{ 8 };
-unsigned int hours{ static_cast<unsigned int>(distance / speed) } // hours = 16
-// unsigned int hours{ (unsigned int) (distance / speed) }; // hours = 16
-std::cout &lt;&lt; "Затрачено часов = " &lt;&lt; hours &lt;&lt; std::endl;
+#include &lt;iostream&gt;
+
+int main()
+{
+  double distance{ 130.21 };
+  unsigned int speed{ 8 };
+
+  unsigned int hours{ (unsigned int) (distance / speed) };
+
+  std::cout &lt;&lt; "Hours = "
+            &lt;&lt; hours &lt;&lt; std::endl;
+}
 </pre>
+
+  <p>Output</p>
+  <code>Hours = 16</code>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  double distance{ 130.21 };
+  unsigned int speed{ 8 };
+
+  unsigned int hours{ static_cast&lt;unsigned int&gt;(distance / speed) };
+
+  std::cout &lt;&lt; "Hours = "
+            &lt;&lt; hours &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Output</p>
+  <code>Hours = 16</code>
 </article>
 
 
@@ -147,9 +191,15 @@ std::cout &lt;&lt; "new_b = " &lt;&lt; new_b &lt;&lt; std::endl; // new_b = 16
   <code>bool F2( a != b || a == 3 }; // true</code>
   <code>std::cout &lt;&lt; "F1 = " &lt;&lt; std::boolalpha &lt;&lt; F1 &lt;&lt; std::endl;</code>
   <code>std::cout &lt;&lt; "F2 = " &lt;&lt; std::boolalpha &lt;&lt; F2 &lt;&lt; std::endl;</code>
+</article>
 
-  <h4>Определение оператора</h4>
-  <p>if</p>
+
+<!-- Условие if-else -->
+<article class="article">
+  <div class="anchor" id="if"></div>
+  <h3>Условие if-else</h3>
+
+  <h4>if</h4>
 <pre>
 int a{ 8 }, b{ 11};
 if (a > b)
@@ -157,7 +207,8 @@ if (a > b)
   std::cout &lt;&lt; "a > b\n";
 }
 </pre>
-  <p>if - else</p>
+
+  <h4>if - else</h4>
 <pre>
 int a{ 8 }, b{ 11};
 if (a > b)
@@ -169,7 +220,8 @@ else
   std::cout &lt;&lt; "a &lt;= b\n";
 }
 </pre>
-  <p>if - else if - else</p>
+
+  <h4>if - else if - else</h4>
 <pre>
 int a{ 8 }, b{ 11};
 if (a > b)
@@ -191,10 +243,10 @@ else
 </article>
 
 
-<!-- Задача 1 -->
+<!-- Задача 2. Количество набранных очков -->
 <article class="article">
-  <div class="anchor" id="task1"></div>
-  <h3>Задача 1</h3>
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Количество набранных очков</h3>
 
   <p>Определить по введенным пользователем координатам попадания выстрела в мишень количество набранных очков</p>
   <p>3 очка если попали в круг радиусом 5 с центром в (0, 0)</p>
@@ -202,61 +254,68 @@ else
   <p>1 очко если попали в круг радиусом 15</p>
 
   <h4>Решение</h4>
-  <h4>Инициализация и заполнение переменных</h4>
-<pre>
-double x{}, y{};
-int score{};
+  <p>Точка с координатами x, y попадет в круг радиуса r, если расстояние от центра круга до точки меньше r. То есть должно выполняться условие</p>
+  <code>x<sup>2</sup> + y<sup>2</sup> &lt;= r<sup>2</sup></code>
 
-std::cout &lt;&lt; "Введите координаты выстрела\n";
-std::cin >> x >> y;
-</pre>
-  <h4>Проверка на попадание</h4>
 <pre>
-if (x * x + y * y &lt;= 5)
+#include &lt;iostream&gt;
+
+int main()
 {
-  score = 3;
-}
-else if (x * x + y * y &lt;= 10)
-{
-  score = 2;
-}
-else if (x * x + y * y &lt;= 15)
-{
-  score = 1;
+  // объявление и инициализация переменных
+  double x{}, y{};
+  int score{};
+
+  // заполнение переменных
+  std::cout &lt;&lt; "Input coords x y\n";
+  std::cin >> x >> y;
+
+  // Проверка на попадание
+  if (x * x + y * y &lt;= 5 * 5)
+  {
+    score = 3;
+  }
+  else if (x * x + y * y &lt;= 10 * 10)
+  {
+    score = 2;
+  }
+  else if (x * x + y * y &lt;= 15 * 15)
+  {
+    score = 1;
+  }
+
+  // Вывод результатов работы
+  if (score > 0)
+  {
+    std::cout &lt;&lt; "Congratulations! Score = " &lt;&lt; score &lt;&lt; "\n";
+  }
+  else{
+    std::cout &lt;&lt; "Try again\n";
+  }
 }
 </pre>
-  <h4>Вывод результатов работы</h4>
-<pre>
-if (score > 0)
-{
-  std::cout &lt;&lt; "Поздравляем! Вы выбили - " &lt;&lt; score &lt;&lt; "\n";
-}
-else{
-  std::cout &lt;&lt; "Вы промахнулись, нужно стараться лучше\n";
-}
-</pre>
-  <h4>Имеет ли право на жизнь?</h4>
-<pre>
-if (score)
-{
-  std::cout &lt;&lt; "Поздравляем! Вы выбили - " &lt;&lt; score &lt;&lt; "\n";
-}
-else{
-  std::cout &lt;&lt; "Вы промахнулись, нужно стараться лучше\n";
-}
-</pre>
+
+  <h4>Можно использовать условие</h4>
+  <code>if (score)</code>
+  <p>Потому что score может принимать значения только 0, 1, 2, 3.</p>
 </article>
 
 
-<!-- Задача 2 -->
+<!-- Задача 3. Площадь заштрихованной области -->
 <article class="article">
-  <div class="anchor" id="task2"></div>
-  <h3>Задача 2</h3>
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Площадь заштрихованной области</h3>
 
-  <p>Составить программу для вычисления значения площади заштрихованной области, если точка с заданными координатами (x, y) попадает в эту область. В противном случае вывести соответствующее сообщение</p>
-  <p>Большой круг радиусом 3 с центром в (0, 0). Малкенький круг с радиусом 1.5 с центром в (0, 1.5)</p>
+  <p>Заштрихованная область находится внутри большого круга радиусом 3 с центром в (0, 0) и вне малкенького круга радиусом 1.5 с центром в (0, 1.5)</p>
+  <p>Вычислить значение площади заштрихованной области, если точка с заданными координатами (x, y) попадает в эту область. В противном случае вывести соответствующее сообщение</p>
 
   <h4>Решение</h4>
+  <p>Чтобы точка с координатами x, y попала в заштрихованную область должны выполниться два условия. Первое точка должна попасть в круг радиуса R. Второе точка должна не попасть в круг радиуса r с центром rx, ry. То есть</p>
+  <code>x<sup>2</sup> + y<sup>2</sup> &lt;= R<sup>2</sup></code>
+  <code>(x - rx)<sup>2</sup> + (y - ry)<sup>2</sup> &gt;= r<sup>2</sup></code>
+  <p>Площадь заштрихованной области равна площади круга радиуса R минус площадь круга радиуса r</p>
+  <code>pi * R<sup>2</sup> - pi * r<sup>2</sup></code>
+
 <pre>
 #define _USE_MATH_DEFINES
 #include &lt;cmath&gt;
@@ -264,23 +323,32 @@ else{
 
 int main()
 {
+  // объявление и инициализация переменных
   double x{}, y{}, s{};
 
-  std::cout &lt;&lt; "Введите x и y" &lt;&lt; std::endl;
+  // заполнение переменных
+  std::cout &lt;&lt; "Input x y" &lt;&lt; std::endl;
   std::cin >> x >> y;
 
+  // Проверка на попадание
   if (x * x + y * y &lt;= 9 && x * x + (y + 1.5) * (y + 1.5) >= 2.25)
   {
-    std::cout &lt;&lt; "Площадь равна " &lt;&lt; M_PI * 9 - M_PI * 2.25;
+    std::cout &lt;&lt; "Square =  " &lt;&lt; M_PI * 9 - M_PI * 2.25;
   }
   else
   {
-    std::cout &lt;&lt; "Вы не попали в область" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Try again" &lt;&lt; std::endl;
   }
 }
 </pre>
+</article>
 
-  <h4>Определение switch case</h4>
+
+<!-- Условие switch-case -->
+<article class="article">
+  <div class="anchor" id="switch"></div>
+  <h3>Условие switch-case</h3>
+
 <pre>
 switch (/*выражение*/)
 {
@@ -289,37 +357,46 @@ switch (/*выражение*/)
   default: // инструкции;
 }
 </pre>
+
   <h4>Пример реализации</h4>
 <pre>
-int counter{ 2 };
+#include &lt;iostream&gt;
 
-switch (counter)
+int main()
 {
-  case 1:
-    std::cout &lt;&lt; "counter = 1" &lt;&lt; std::endl;
-    break;
-  case 2:
-    std::cout &lt;&lt; "counter = 2" &lt;&lt; std::endl;
-    break;
-  case 3:
-    std::cout &lt;&lt; "counter = 3" &lt;&lt; std::endl;
-    break;
-  default:
-    std::cout &lt;&lt; "counter is undefined" &lt;&lt; std::endl;
-    break;
+  int counter{ 2 };
+
+  switch (counter)
+  {
+    case 1:
+      std::cout &lt;&lt; "counter = 1" &lt;&lt; std::endl;
+      break;
+    case 2:
+      std::cout &lt;&lt; "counter = 2" &lt;&lt; std::endl;
+      break;
+    case 3:
+      std::cout &lt;&lt; "counter = 3" &lt;&lt; std::endl;
+      break;
+    default:
+      std::cout &lt;&lt; "counter is undefined" &lt;&lt; std::endl;
+      break;
+  }
 }
 </pre>
 </article>
 
 
-<!-- Задача 3 -->
+<!-- Задача 4. Принадлежит ли точка заштрихованной области -->
 <article class="article">
-  <div class="anchor" id="task3"></div>
-  <h3>Задача 3</h3>
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Принадлежит ли точка заштрихованной области</h3>
 
+  <p>Заштрихованная область ограничена сверху графиком функции y = 2 - x<sup>2</sup>. При x &lt; 0 ограничена снизу функцией y = x. При x &gt;= 0 ограничена снизу функцией y = 0.</p>
   <p>Требуется написать программу, которая принимает с клавиатуры координаты точки на плоскости (x, y - вещественные числа) и определяет принадлежность точки заштрихованной области, включая ее границы</p>
-  <p>Область на плоскости лежит между графиками двух функций. Ниже y = 2 - x*x. Выше y = x</p>
+
   <p>Пояснение</p>
+  <p>Область C лежит в первой четверти (x >= 0, y >= 0). Ограничена сверху графиком y = x. Ограничена снизу графиком y = 0</p>
+  <p>Область G лежит в третьей четверти (x &lt 0, y &lt 0). Ограничена сверху графиком y = x. Ограничена снизу графиком y = 2 - x<sup>2</sup></p>
   <p>Нужно отдельно проверить через switch попадание в области C и G. Пользователю выводится меню, где указано "Чтобы проверить точку G введите 1" и т.д. switch обрабатывает запрос пользователя и выдает результат проверки на попадание в запрашиваемую область</p>
 
   <h4>Решение</h4>
@@ -328,18 +405,19 @@ switch (counter)
 
 int main()
 {
+  // объявление и инициализация переменных
   double x{}, y{}, s{};
-
-  std::cout &lt;&lt; "Введите x и y" &lt;&lt; std::endl;
-  std::cin >> x >> y;
-
-  std::cout &lt;&lt; "Чтобы проверить всю область, нажмите 1" &lt;&lt; std::endl;
-  std::cout &lt;&lt; "Чтобы проверить область C, нажмите 2" &lt;&lt; std::endl;
-  std::cout &lt;&lt; "Чтобы проверить область G, нажмите 3" &lt;&lt; std::endl;
-
   int command{};
 
-  std::cout &lt;&lt; "Введите команду" &lt;&lt; std::endl;
+  // заполнение переменных
+  std::cout &lt;&lt; "Input x y" &lt;&lt; std::endl;
+  std::cin >> x >> y;
+
+  // ввод команды
+  std::cout &lt;&lt; "Check all area - press 1" &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Check C-area - press 2" &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Check G-area - press 3" &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Press 1 or 2 or 3" &lt;&lt; std::endl;
   std::cin >> command;
 
   switch (command)
@@ -347,35 +425,35 @@ int main()
     case 1:
       if (x&lt;=0 && y>=x && y &lt;= 2-x*x || x>0 && y&lt;=2-x*x && y>=0)
       {
-        std::cout &lt;&lt; "Вы попали в закрашенную область\n";
+        std::cout &lt;&lt; "In the area\n";
       }
       else
       {
-        std::cout &lt;&lt; "Вы не попали в закрашенную область\n";
+        std::cout &lt;&lt; "Out of the area\n";
       }
       break;
     case 2:
       if (y&lt;=x && y&lt;=2-x*x && x>0 && y>=0)
       {
-        std::cout &lt;&lt; "Вы попали в область C\n";
+        std::cout &lt;&lt; "In the C-area\n";
       }
       else
       {
-        std::cout &lt;&lt; "Вы не попали в область C\n";
+        std::cout &lt;&lt; "Out of the C-area\n";
       }
       break;
     case 3:
       if (y&lt;=x && y>=2-x*x && y&lt;=0)
       {
-        std::cout &lt;&lt; "Вы попали в область G\n";
+        std::cout &lt;&lt; "In the G-area\n";
       }
       else
       {
-        std::cout &lt;&lt; "Вы не попали в область G\n";
+        std::cout &lt;&lt; "Out of the G-area\n";
       }
       break;
     default:
-      std::cout &lt;&lt; "Вы ввели неправильную команду\n";
+      std::cout &lt;&lt; "Invalid command\n";
   }
 }
 </pre>

@@ -3,6 +3,20 @@ const dataYtC = [
   {
     id: 1,
     theme: 'Си',
+    title: 'SpecialistTV',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@SpecialistTV/videos',
+    site: '',
+    dateFirstVideo: '2009.12.18',
+    dateLastVideo: '2024.09.05',
+    amountVideos: 1523,
+  },
+
+  {
+    id: 2,
+    theme: 'Си',
     title: 'Гоша Дударь',
     author: '',
     city: '',
@@ -15,7 +29,7 @@ const dataYtC = [
   },
 
   {
-    id: 2,
+    id: 3,
     theme: 'Си',
     title: 'selfedu',
     author: '',
@@ -29,7 +43,7 @@ const dataYtC = [
   },
 
   {
-    id: 3,
+    id: 4,
     theme: 'Си',
     title: 'cppProsto',
     author: '',
@@ -43,7 +57,7 @@ const dataYtC = [
   },
 
   {
-    id: 4,
+    id: 5,
     theme: 'Си',
     title: 'Кафедра ИВМ МФТИ',
     author: '',
@@ -57,7 +71,35 @@ const dataYtC = [
   },
 
   {
-    id: 5,
+    id: 6,
+    theme: 'Си',
+    title: 'Александр Григорин',
+    author: 'Александр Григорин',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@Grigorin/videos',
+    site: '',
+    dateFirstVideo: '2017.08.28',
+    dateLastVideo: '2024.11.08',
+    amountVideos: 330,
+  },
+
+  {
+    id: 7,
+    theme: 'Си',
+    title: 'Тимофей Хирьянов',
+    author: 'Тимофей Хирьянов',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@tkhirianov/videos',
+    site: '',
+    dateFirstVideo: '2015.09.08',
+    dateLastVideo: '2024.04.23',
+    amountVideos: 289,
+  },
+
+  {
+    id: 8,
     theme: 'Си',
     title: 'NR.electronics',
     author: '',
@@ -71,7 +113,7 @@ const dataYtC = [
   },
 
   {
-    id: 6,
+    id: 9,
     theme: 'Си',
     title: 'Айтишник',
     author: '',
@@ -85,7 +127,7 @@ const dataYtC = [
   },
 
   {
-    id: 7,
+    id: 10,
     theme: 'Си',
     title: 'SockFD',
     author: '',
@@ -99,7 +141,7 @@ const dataYtC = [
   },
 
   {
-    id: 8,
+    id: 11,
     theme: 'Си',
     title: 'Begin End',
     author: '',
@@ -113,7 +155,7 @@ const dataYtC = [
   },
 
   {
-    id: 9,
+    id: 12,
     theme: 'Си',
     title: 'Программист86',
     author: '',
@@ -127,7 +169,7 @@ const dataYtC = [
   },
 
   {
-    id: 10,
+    id: 13,
     theme: 'Си',
     title: 'Gena ANTG',
     author: '',
@@ -141,7 +183,7 @@ const dataYtC = [
   },
 
   {
-    id: 11,
+    id: 14,
     theme: 'Си',
     title: 'From LAMER to Programmer',
     author: '',
@@ -155,7 +197,7 @@ const dataYtC = [
   },
 
   {
-    id: 12,
+    id: 15,
     theme: 'Си',
     title: 'Bits Code',
     author: '',
@@ -169,21 +211,21 @@ const dataYtC = [
   },
 
   {
-    id: 13,
+    id: 16,
     theme: 'Си',
-    title: 'First Steps',
+    title: 'Учебные материалы',
     author: '',
     city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@firststepsforward/videos',
+    country: '',
+    link: 'https://www.youtube.com/@%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B5%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B-%D0%BA5%D1%84/videos',
     site: '',
-    dateFirstVideo: '2023.01.26',
-    dateLastVideo: '2024.09.26',
-    amountVideos: 46,
+    dateFirstVideo: '2020.03.17',
+    dateLastVideo: '2022.02.17',
+    amountVideos: 30,
   },
 
   {
-    id: 14,
+    id: 17,
     theme: 'Си',
     title: 'Triple Distillation',
     author: '',
@@ -197,7 +239,21 @@ const dataYtC = [
   },
 
   {
-    id: 15,
+    id: 18,
+    theme: 'Си',
+    title: 'Дилетант Володя',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@diletantt/videos',
+    site: '',
+    dateFirstVideo: '2022.04.29',
+    dateLastVideo: '2024.05.19',
+    amountVideos: 15,
+  },
+
+  {
+    id: 19,
     theme: 'Си',
     title: 'shumnik',
     author: '',

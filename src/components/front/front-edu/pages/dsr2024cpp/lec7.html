@@ -1,0 +1,473 @@
+<article class="article">
+  <h1>Лекция 7 (11.11.2024)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#array">Массив</a></p>
+  <p><a href="#for">Перебор массива в цикле</a></p>
+  <p><a href="#task1">Задача 1. Найдите сумму отрицательных элементов массива</a></p>
+  <p><a href="#task2">Задача 2. Написать функцию вывода всех элементов массива</a></p>
+  <p><a href="#array2">Двумерный массив</a></p>
+  <p><a href="#for2">Перебор двумерного массива в цикле</a></p>
+  <p><a href="#task3">Задача 3. Найдите сумму номеров минимального и максимального элементов</a></p>
+  <p><a href="#task4">Задача 4. Дан массив. Вывести сначала элементы на четных местах, затем - на нечетных</a></p>
+  <p><a href="#task5">Задача 5. Дан массив. Определить максимальный элемент массива и элемент, являющийся максимальным без учета этого элемента</a></p>
+  <p><a href="#task6">Задача 6. В массиве из 30 элементов числа образуют неубывающую последовательность. Найти количество различных чисел в массиве</a></p>
+  <p><a href="#task7">Задача 7. Найти элемент, наиболее близкий к среднему значению всех элементов массива</a></p>
+</article>
+
+
+<!-- Массив -->
+<article class="article">
+  <div class="anchor" id="array"></div>
+  <h3>Массив</h3>
+
+  <p>Массив это ссылочный тип данных. Имя массива это указатель на область памяти, где хранится массив. К указателю можно применить операцию разименования. Под массив выделяется непрерывная область памяти размером, равным размеру типа данных умноженному на число элементов. Можно обратиться к любому элементу за O(1).</p>
+
+  <h4>Объявление массива</h4>
+  <p>При объявлении сначала пишут тип данных, которые будут храниться в массиве, название массива и его размер</p>
+  <code>int mas[4];</code>
+  <p>Размер записывают в отдельную переменную</p>
+  <code>const int n = 4; int mas[n];</code>
+
+  <h4>Инициализация массива</h4>
+  <p>Можно сразу при объявлении инициализировать массив значениями по умолчанию</p>
+  <code>int mas[n]{}; // {0,0,0,0}</code>
+  <p>Можно инициализировать значениями</p>
+  <code>int mas[n]{1,2,7,5};</code>
+
+  <h4>Получение данных из массива</h4>
+  <p>Можно получить значие любого элемента массива через [] квадратные скобки</p>
+  <code>int k = mas[1]; // 2</code>
+  <p>Можно получить значие первого элемента массива по ссылке, используя операцию разименования</p>
+  <code>int k = *mas; // 1</code>
+  <p>Можно получить значие люббого элемента массива по ссылке, используя операцию разименования. К указателю надо прибавить смещение, равное индексу элемента массива</p>
+  <code>int k = *(mas + 1); // 2</code>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  // тип_данных название_массива [размерность_массива]
+  const int n = 4;
+  int mas[n]{1,2,7,5};
+  int k1 = mas[0];
+  int k2 = mas[2];
+  int k3 = *mas;
+  int k4 = *(mas + 2);
+
+  std::cout &lt;&lt; "mas[0] " &lt;&lt; k1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; "mas[2] " &lt;&lt; k2 &lt;&lt; std::endl;
+  std::cout &lt;&lt; "*mas " &lt;&lt; k3 &lt;&lt; std::endl;
+  std::cout &lt;&lt; "*(mas + 2) " &lt;&lt; k4 &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+mas[0] 1
+mas[2] 7
+*mas 1
+*(mas + 2) 7
+</pre>
+
+  <h4>Размер массива</h4>
+  <p>Размер массива в байтах</p>
+  <code>int sizebyte = sizeof(mas);</code>
+  <p>Чтобы узнать число элементов массива, нужно его размер в байтах поделить на размер одного элемента в байтах</p>
+  <code>int size = sizeof(mas) / sizeof(mas[0]);</code>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 4;
+  int mas[n]{1,2,7,5};
+  int sizebyte = sizeof(mas);
+  int size = sizeof(mas) / sizeof(mas[0]);
+
+  std::cout &lt;&lt; "size byte " &lt;&lt; sizebyte &lt;&lt; std::endl;
+  std::cout &lt;&lt; "size " &lt;&lt; size &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+size byte 16
+size 4
+</pre>
+</article>
+
+
+<!-- Перебор массива в цикле -->
+<article class="article">
+  <div class="anchor" id="for"></div>
+  <h3>Перебор массива в цикле</h3>
+
+  <p>Обращаемся к элементу по его индексу через [] квадратные скобки</p>
+<pre>
+for (int i = 0; i &lt; n; i++)
+{
+  std::cout &lt;&lt; mas[i] &lt;&lt; " ";
+}
+</pre>
+  <p>Обращаемся к элементу через операцию разименования. Прибавляем индекс к указателю на массив</p>
+<pre>
+for (int i = 0; i &lt; n; i++)
+{
+  std::cout &lt;&lt; *(mas + i) &lt;&lt; " ";
+}
+</pre>
+
+  <p>Второй способ перебрать массив</p>
+<pre>
+for (int a : mas)
+{
+  std::cout &lt;&lt; a &lt;&lt; " ";
+}
+</pre>
+</article>
+
+
+<!-- Задача 1. Найдите сумму отрицательных элементов массива -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Найдите сумму отрицательных элементов массива</h3>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 10;
+  int mas[n]{1,2,-7,5,-1,-2,7,5,-1,2};
+  int count{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (mas[i] &lt; 0)
+    {
+      count += mas[i];
+    }
+  }
+  std::cout &lt;&lt; count;
+}
+</pre>
+
+  <p>Output</p>
+<code>-11</code>
+</article>
+
+
+<!-- Задача 2. Написать функцию вывода всех элементов массива -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Написать функцию вывода всех элементов массива</h3>
+
+  <p>Напишем функцию вывода на печать элементов массива.</p>
+  <h4>1 способ. Функция print() принимает массив и его размер.</h4>
+<pre>
+#include &lt;iostream&gt;
+
+void print(int[], const int);
+
+int main()
+{
+  const int n = 10;
+  int mas[n]{1,2,-7,5,-1,-2,7,5,-1,2};
+  int size = sizeof(mas) / sizeof(mas[0]);
+
+  print(mas, size);
+}
+
+void print(int nums[], int len)
+{
+  for (int i = 0; i &lt; len; i++)
+  {
+    std::cout &lt;&lt; nums[i] &lt;&lt; " ";
+  }
+}
+
+  <p>Output</p>
+<code>1 2 -7 5 -1 -2 7 5 -1 2</code>
+</pre>
+
+<h4>2 способ. Функция print() принимает указатель на начало массива и на конец.</h4>
+<pre>
+#include &lt;iostream&gt;
+
+void print(int*, int*);
+
+int main()
+{
+  const int n = 10;
+  int mas[n]{1,2,-7,5,-1,-2,7,5,-1,2};
+
+  print(mas, mas + n);
+}
+
+void print(int *nums, int *end)
+{
+  for (int *ptr = nums; ptr &lt; end; ptr++)
+  {
+    std::cout &lt;&lt; *ptr &lt;&lt; " ";
+  }
+}
+</pre>
+
+  <p>Output</p>
+<code>1 2 -7 5 -1 -2 7 5 -1 2</code>
+</article>
+
+
+<!-- Двумерный массив -->
+<article class="article">
+  <div class="anchor" id="array2"></div>
+  <h3>Двумерный массив</h3>
+
+  <p>Объявим двумерный массив размером 2х2 и инициализируем его значениями по умолчанию</p>
+  <code>int nums[2][2]{}; // {{0,0},{0,0}}</code>
+
+  <p>Объявим двумерный массив размером 2х2 и инициализируем все его элементы значениями</p>
+  <code>int nums[2][2]{1,2,3,4}; // {{1,2},{3,4}}</code>
+
+  <p>Объявим двумерный массив размером 2х2 и инициализируем только два элемента, остальные получат значения по умолчанию</p>
+  <code>int nums[2][2]{1,2}; // {{1,2},{0,0}}</code>
+
+  <p>Объявим двумерный массив размером 3х3 и укажем какие элементы инициализировать значениями, остальные получат значения по умолчанию</p>
+  <code>const int n = 3, m = 3;</code>
+  <code>int nums[n][m]{{1,2},{},{7}}; // {{1,2,0},{0,0,0},{7,0,0}}</code>
+</article>
+
+
+<!-- Перебор двумерного массива в цикле -->
+<article class="article">
+  <div class="anchor" id="for2"></div>
+  <h3>Перебор двумерного массива в цикле</h3>
+
+  <p>Напечатаем двумерный массив 2х2</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 2, m = 2;
+  int nums[n][m]{1,2};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1 2
+0 0
+</pre>
+
+  <p>Напечатаем двумерный массив 3х3</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 3, m = 3;
+  int nums[n][m]{{1,2},{},{7}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1 2 0
+0 0 0
+7 0 0
+</pre>
+
+  <p>Второй способ перебрать массив</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 3, m = 3;
+  int nums[n][m]{{1,2},{},{7}};
+
+  for (auto &mas : nums)
+  {
+    for (int num : mas)
+    {
+      std::cout &lt;&lt; num &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1 2 0
+0 0 0
+7 0 0
+</pre>
+</article>
+
+
+<!-- Задача 3. Найдите сумму номеров минимального и максимального элементов -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Найдите сумму номеров минимального и максимального элементов</h3>
+
+  <code>Input : {5,2,1,1,12,3}</code>
+  <code>Output : 9 // 2 + 3 + 4</code>
+
+  <p>Заведем переменные min и max для минимального и максимального элементов и присвоим им значение первого элемента массива</p>
+  <p>Заведем переменные sum_min и sum_max для индексов минимального и максимального элементов и присвоим им ноль.</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 6;
+  int nums[n]{5,2,1,1,12,3};
+  int min{nums[0]}, max{nums[0]}, sum_min{}, sum_max{};
+
+  for (int i = 1; i &lt; n; i++)
+  {
+    if (nums[i] &lt; min)
+    {
+      min = nums[i];
+      sum_min = i;
+    }
+    else if (nums[i] == min)
+    {
+      sum_min += i;
+    }
+
+    if (nums[i] &gt; max)
+    {
+      max = nums[i];
+      sum_max = i;
+    }
+    else if (nums[i] == max)
+    {
+      sum_max += i;
+    }
+  }
+
+  std::cout &lt;&lt; "Sum min and max = "
+            &lt;&lt; sum_min + sum_max &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Output</p>
+  <code>Sum min and max = 9</code>
+</article>
+
+
+<!-- Задача 4. Дан массив. Вывести сначала элементы на четных местах, затем - на нечетных -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Дан массив. Вывести на экран сначала его элементы, стоящие на четных местах, затем - на нечетных</h3>
+
+  <p>Два раза пройдем циклом по массиву. Сначала по четным элементам, потом по нечетным.</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 10;
+  int nums[n]{2,3,4,5,6,7,8,9,10,11};
+
+  for (int i = 0; i &lt; n; i += 2)
+  {
+    std::cout &lt;&lt; nums[i] &lt;&lt; " ";
+  }
+  for (int i = 1; i &lt; n; i += 2)
+  {
+    std::cout &lt;&lt; nums[i] &lt;&lt; " ";
+  }
+}
+</pre>
+
+  <p>Output</p>
+  <code>2 4 6 8 10 3 5 7 9 11</code>
+</article>
+
+
+<!-- Задача 5. Дан массив. Определить максимальный элемент массива и элемент, являющийся максимальным без учета этого элемента -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Дан массив. Определить максимальный элемент массива и элемент, являющийся максимальным без учета этого элемента</h3>
+
+  <p>Заведем две переменные max1 и max2 для первого и второго максимума и присвоим им значение первого элемента массива.</p>
+  <p>Циклом пройдем по массиву и обновим максимумы</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 10;
+  int nums[n]{2,3,4,5,6,7,8,9,10,11};
+  int max1{nums[0]}, max2{max1};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (max1 &lt; nums[i])
+    {
+      max2 = max1;
+      max1 = nums[i];
+    }
+    else if (max2 &lt; nums[i])
+    {
+      max2 = nums[i];
+    }
+  }
+
+  std::cout &lt;&lt; "max1 = " &lt;&lt; max1 &lt;&lt; std::endl;
+  std::cout &lt;&lt; "max2 = " &lt;&lt; max2 &lt;&lt; std::endl;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+max1 = 11
+max2 = 10
+</pre>
+</article>
+
+
+<!-- Задача 6. В массиве из 30 элементов числа образуют неубывающую последовательность. Найти количество различных чисел в массиве -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача 6. В массиве из 30 элементов числа образуют неубывающую последовательность. Найти количество различных чисел в массиве</h3>
+</article>
+
+
+<!-- Задача 7. Найти элемент, наиболее близкий к среднему значению всех элементов массива -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача 7. Найти элемент, наиболее близкий к среднему значению всех элементов массива</h3>
+</article>
+
