@@ -185,6 +185,20 @@ const dataYtC = [
   {
     id: 14,
     theme: 'Си',
+    title: 'Konstantin Chaika',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@Konstantin_Chaika/videos',
+    site: '',
+    dateFirstVideo: '2017.05.27',
+    dateLastVideo: '2024.04.08',
+    amountVideos: 95,
+  },
+
+  {
+    id: 14,
+    theme: 'Си',
     title: 'From LAMER to Programmer',
     author: '',
     city: '',
@@ -241,6 +255,20 @@ const dataYtC = [
   {
     id: 18,
     theme: 'Си',
+    title: 'CCPP',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@ccpp-tech/videos',
+    site: '',
+    dateFirstVideo: '2023.06.06',
+    dateLastVideo: '2023.08.01',
+    amountVideos: 23,
+  },
+
+  {
+    id: 18,
+    theme: 'Си',
     title: 'Дилетант Володя',
     author: '',
     city: '',
@@ -250,6 +278,20 @@ const dataYtC = [
     dateFirstVideo: '2022.04.29',
     dateLastVideo: '2024.05.19',
     amountVideos: 15,
+  },
+
+  {
+    id: 18,
+    theme: 'Си',
+    title: 'BugsBound',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@BugsBound/videos',
+    site: '',
+    dateFirstVideo: '2023.07.17',
+    dateLastVideo: '2023.08.21',
+    amountVideos: 12,
   },
 
   {

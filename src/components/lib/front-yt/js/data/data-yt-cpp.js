@@ -143,6 +143,20 @@ const dataYtCpp = [
   {
     id: 11,
     theme: 'C++',
+    title: 'c.s.teacher',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@alexsherzer/videos',
+    site: '',
+    dateFirstVideo: '2010.10.21',
+    dateLastVideo: '2024.06.24',
+    amountVideos: 145,
+  },
+
+  {
+    id: 11,
+    theme: 'C++',
     title: 'Daria Emacs',
     author: '',
     city: '',
@@ -166,6 +180,20 @@ const dataYtCpp = [
     dateFirstVideo: '2016.04.23',
     dateLastVideo: '2024.11.01',
     amountVideos: 103,
+  },
+
+  {
+    id: 13,
+    theme: 'C++',
+    title: 'getKnowledge',
+    author: 'Денис Марков',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@KennyMcKormic123/videos',
+    site: 'https://getknowledge.ru/',
+    dateFirstVideo: '2013.04.08',
+    dateLastVideo: '2023.07.01',
+    amountVideos: 85,
   },
 
   {
@@ -264,6 +292,20 @@ const dataYtCpp = [
     dateFirstVideo: '2021.08.25',
     dateLastVideo: '2024.07.25',
     amountVideos: 40,
+  },
+
+  {
+    id: 20,
+    theme: 'C++',
+    title: 'C++ для начинающих',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@Dima-Teplov/videos',
+    site: '',
+    dateFirstVideo: '2021.10.29',
+    dateLastVideo: '2024.11.18',
+    amountVideos: 22,
   },
 
   {

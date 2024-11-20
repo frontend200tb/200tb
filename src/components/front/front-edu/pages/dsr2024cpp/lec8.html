@@ -9,20 +9,89 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#array">Массив</a></p>
+  <p><a href="#array">Одномерный массив</a></p>
+  <p><a href="#array2">Двумерный массив</a></p>
+  <p><a href="#task1">Задача 1. Сумма элементов на основной диагонали матрицы</a></p>
+  <p><a href="#task2">Задача 2. Сумма элементов на побочной диагонали матрицы</a></p>
+  <p><a href="#task3">Задача 3. Сумма элементов на диагоналях матрицы</a></p>
+  <p><a href="#task4">Задача 4. Заполнить в матрице основную диагональ и выше</a></p>
+  <p><a href="#task5">Задача 5. Заполнить в матрице основную диагональ и ниже</a></p>
+  <p><a href="#task6">Задача 6. Заполнить в матрице побочную диагональ и выше</a></p>
+  <p><a href="#task7">Задача 7. Заполнить в матрице побочную диагональ и ниже</a></p>
+  <p><a href="#task8">Задача 8. Заполнить матрицу случайными числами</a></p>
+  <p><a href="#task9">Задача 9. Сумма элементов над основной диагональю матрицы</a></p>
+  <p><a href="#task10">Задача 10. Сумма элементов над побочной диагональю матрицы</a></p>
+  <p><a href="#task11">Задача 11. Сумма элементов под основной диагональю матрицы</a></p>
+  <p><a href="#task12">Задача 12. Сумма элементов под побочной диагональю матрицы</a></p>
+  <p><a href="#task13">Задача 13. Не более двух отрицательных числа в строке</a></p>
+  <p><a href="#task14">Задача 14. Поменять две строки местами в матрице</a></p>
+  <p><a href="#task15">Задача 15. Напечатать массив сумм в строках двумерной матрицы</a></p>
 </article>
 
 
-<!-- Массив -->
+<!-- Одномерный массив -->
 <article class="article">
   <div class="anchor" id="array"></div>
-  <h3>Массив</h3>
+  <h3>Одномерный массив</h3>
 
-  <h4>Объявление и инициализация одномерного массива</h4>
-  <code>int nums[5]{1,2,3,4,5};</code>
+  <h4>Создание одномерного массива</h4>
+<pre>
+#include &lt;iostream&gt;
 
-  <h4>Объявление и инициализация двумерного массива</h4>
-  <code>int* nums = new int[3]{1,2,3};</code>
+int main()
+{
+  const int n = 5;
+
+  // создание массива
+  int nums[n]{1,2,3,4,5};
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; nums[i] &lt;&lt; " ";
+  }
+}
+</pre>
+
+  <p>Output</p>
+  <code>1 2 3 4 5</code>
+  <p>В переменной nums хранится указатель на ячейку памяти, с которой начинается одномерный массив из пяти элементов</p>
+
+  <h4>Создание одномерного массива в динамической памяти</h4>
+  <p>Ключевое слово <strong>new</strong> для выделения памяти</p>
+  <p>Ключевое слово <strong>delete</strong> для очистки памяти</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  const int n = 3;
+
+  // создание массива
+  int* nums = new int[n]{1,2,3};
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; nums[i] &lt;&lt; " ";
+  }
+
+  // очистка памяти
+  delete[] nums;
+}
+</pre>
+
+  <p>Output</p>
+  <code>1 2 3</code>
+</article>
+
+
+<!-- Двумерный массив -->
+<article class="article">
+  <div class="anchor" id="array2"></div>
+  <h3>Двумерный массив</h3>
+
+  <h4>Создание двумерного массива</h4>
 <pre>
 #include &lt;iostream&gt;
 
@@ -31,15 +100,1410 @@ int main()
   const int n = 3; // количество строк
   const int m = 4; // количество столбцов
 
+  // создание массива
   int **nums = new int*[m]{};
-  std::cout &lt;&lt; nums[1] &lt;&lt; std::endl;
   for (int i = 0; i &lt; n; i++)
   {
     nums[i] = new int[m]();
   }
-  std::cout &lt;&lt; nums[1] &lt;&lt; std::endl;
 
+  // заполнение массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      nums[i][j] = 1 + i + j;
+    }
+  }
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // очистка памяти
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] nums[i];
+  }
   delete[] nums;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1       2       3       4
+2       3       4       5
+3       4       5       6
+</pre>
+  <p>В переменной nums хранится указатель на ячейку памяти, с которой начинается двумерный массив из трех строк. В каждой строке (nums[0], nums[1], nums[2]) хранится указатель на ячейку памяти, с которой начинается очередной массив</p>
+
+
+  <h4>Напишем функцию для создания массива</h4>
+  <p>Функция InitMas() принимает размер двумерного массива. Функция InitMas() выделяет область памяти под массив заданного размера и возвращает указатель на ячейку памяти, с которой начинается двумерный массив</p>
+<pre>
+#include &lt;iostream&gt;
+
+int** InitMas(int, int);
+
+int main()
+{
+  const int n = 3; // количество строк
+  const int m = 4; // количество столбцов
+
+  // создание массива
+  int **nums = InitMas(n, m);
+
+  // заполнение массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      nums[i][j] = 1 + i + j;
+    }
+  }
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // очистка памяти
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] nums[i];
+  }
+  delete[] nums;
+}
+
+int** InitMas(int n, int m)
+{
+  int **mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+  return mas;
+}
+</pre>
+
+  <h4>Напишем функцию для создания массива</h4>
+  <p>Функция CreateMas() принимает указатель и размер двумерного массива. Функция CreateMas() выделяет область памяти под массив заданного размера, начиная с ячейки на которую указывает указатель. Функция CreateMas() ничего не возвращает</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+
+int main()
+{
+  const int n = 3; // количество строк
+  const int m = 4; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      nums[i][j] = 1 + i + j;
+    }
+  }
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // очистка памяти
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] nums[i];
+  }
+  delete[] nums;
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+</pre>
+
+  <h4>Напишем функцию для удаления массива</h4>
+  <p>Функция DeleteMas() принимает указатель и количество строк двумерного массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 3; // количество строк
+  const int m = 4; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      nums[i][j] = 1 + i + j;
+    }
+  }
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <h4>Напишем функцию для заполнения массива</h4>
+  <p>Функция FullMas() принимает указатель и размер двумерного массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 3; // количество строк
+  const int m = 4; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; nums[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <h4>Напишем функцию для печати массива</h4>
+  <p>Функция PrintMas() принимает указатель и размер двумерного массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 3; // количество строк
+  const int m = 4; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+</article>
+
+
+<!-- Задача 1. Сумма элементов на основной диагонали матрицы -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Сумма элементов на основной диагонали матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на основной диагонали матрицы</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 34 // 1 + 6 + 11 + 16</code>
+
+  <h4>Решение</h4>
+  <p>На основной диагонали для каждого элемента квадратной матрицы номер строки равен номеру столбца. Циклом проходим по строкам матрицы. Прибавляем к сумме элементы с одинаковым номером строки и столбца</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += nums[i][i];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 2. Сумма элементов на побочной диагонали матрицы -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Сумма элементов на побочной диагонали матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на побочной диагонали матрицы</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 22 // 4 + 7 + 10 + 1</code>
+
+  <h4>Решение</h4>
+  <p>На побочной диагонали для каждого элемента квадратной матрицы номер столбца равен размеру матрицы минус один минус номер строки. Циклом проходим по строкам матрицы. Прибавляем к сумме элементы у которых номер столбца равен размеру матрицы минус один минус номер строки</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += nums[i][n - 1 - i];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 3. Сумма элементов на диагоналях матрицы -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Сумма элементов на диагоналях матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на диагоналях матрицы</p>
+
+  <h4>Пример 1</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 56 // 1 + 6 + 11 + 16 + 4 + 7 + 10 + 1</code>
+
+  <h4>Пример 2</h4>
+  <code>Input: nums{{1,2,3},{5,6,7},{9,10,11}}</code>
+<pre>
+1  2  3
+5  6  7
+9 10 11
+</pre>
+  <code>Output 30 // 1 + 6 + 11 + 3 + 9</code>
+
+  <h4>Решение</h4>
+  <p>Для четной матрицы вычисляем сумму элементов на каждой диагонали и складываем. Для нечетной матрицы, чтобы не посчитать дважды элемент лежащий в центре на обоих диагоналях, на побочной диагонали не будем считать центральный элемент, для которого номер строки равен номеру столбца</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  // int n = 3;
+  // int nums[n][n]{{1,2,3},{5,6,7},{9,10,11}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += nums[i][i];
+    if (i != n - 1 - i)
+    {
+      sum += nums[i][n - 1 - i];
+    }
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 4. Заполнить в матрице основную диагональ и выше -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Заполнить в матрице основную диагональ и выше</h3>
+
+  <p>При заполнении матрицы вложенный цикл будем начинать не с нуля, а с номера строки</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = i; j &lt; m; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1       2       3       4       5       6
+0       3       4       5       6       7
+0       0       5       6       7       8
+0       0       0       7       8       9
+0       0       0       0       9       10
+0       0       0       0       0       11
+</pre>
+</article>
+
+
+<!-- Задача 5. Заполнить в матрице основную диагональ и ниже -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Заполнить в матрице основную диагональ и ниже</h3>
+
+  <p>При заполнении матрицы вложенный цикл будем начинать с нуля, а заканчивать до номера строки плюс один</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; i + 1; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1       0       0       0       0       0
+2       3       0       0       0       0
+3       4       5       0       0       0
+4       5       6       7       0       0
+5       6       7       8       9       0
+6       7       8       9       10      11
+</pre>
+</article>
+
+
+<!-- Задача 6. Заполнить в матрице побочную диагональ и выше -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача 6. Заполнить в матрице побочную диагональ и выше</h3>
+
+  <p>При заполнении матрицы вложенный цикл будем начинать с нуля, а заканчивать до размера матрицы минус номер строки</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n - i; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+1       2       3       4       5       6
+2       3       4       5       6       0
+3       4       5       6       0       0
+4       5       6       0       0       0
+5       6       0       0       0       0
+6       0       0       0       0       0
+</pre>
+</article>
+
+
+<!-- Задача 7. Заполнить в матрице побочную диагональ и ниже -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача 7. Заполнить в матрице побочную диагональ и ниже</h3>
+
+  <p>При заполнении матрицы вложенный цикл будем начинать с размера матрицы минус один минус номер строки</p>
+<pre>
+#include &lt;iostream&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = n - 1 - i; j &lt; n; j++)
+    {
+      mas[i][j] = 1 + i + j;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+
+  <p>Output</p>
+<pre>
+0       0       0       0       0       6
+0       0       0       0       6       7
+0       0       0       6       7       8
+0       0       6       7       8       9
+0       6       7       8       9       10
+6       7       8       9       10      11
+</pre>
+</article>
+
+
+<!-- Задача 8. Заполнить матрицу случайными числами -->
+<article class="article">
+  <div class="anchor" id="task8"></div>
+  <h3>Задача 8. Заполнить матрицу случайными числами</h3>
+
+  <p>Заполним матрицу случайными числами от 0 до 9, используя выражение rand() % 10</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  srand(time(0));
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+</article>
+
+
+<!-- Задача 9. Сумма элементов над основной диагональю матрицы -->
+<article class="article">
+  <div class="anchor" id="task9"></div>
+  <h3>Задача 9. Сумма элементов над основной диагональю матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на основной диагонали и выше</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 70 // 1+2+3+4+6+7+8+11+12+16</code>
+
+  <h4>Решение</h4>
+  <p>На основной диагонали для каждого элемента квадратной матрицы номер строки равен номеру столбца. Циклом проходим по строкам матрицы. Внутренним циклом проходим по столбцам начиная с номера строки. Прибавляем элементы к сумме</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = i; j &lt; n; j++)
+    sum += nums[i][j];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+  <code>Output 70</code>
+</article>
+
+
+<!-- Задача 10. Сумма элементов над побочной диагональю матрицы -->
+<article class="article">
+  <div class="anchor" id="task10"></div>
+  <h3>Задача 10. Сумма элементов над побочной диагональю матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на побочной диагонали и выше</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 48 // 1+2+3+4+5+6+7+9+10+1</code>
+
+  <h4>Решение</h4>
+  <p>На побочной диагонали для каждого элемента квадратной матрицы номер столбца равен размер матрицы минус один минус номер строки. Циклом проходим по строкам матрицы. Внутренним циклом проходим по столбцам начиная с нуля до побочной диагонали. Прибавляем элементы к сумме</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n - i; j++)
+    sum += nums[i][j];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 11. Сумма элементов под основной диагональю матрицы -->
+<article class="article">
+  <div class="anchor" id="task11"></div>
+  <h3>Задача 11. Сумма элементов под основной диагональю матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на основной диагонали и ниже</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+  <code>Output 88 // 1+5+6+9+10+11+1+14+15+16</code>
+
+  <h4>Решение</h4>
+  <p>На основной диагонали для каждого элемента квадратной матрицы номер строки равен номеру столбца. Циклом проходим по строкам матрицы. Внутренним циклом проходим по столбцам начиная с нуля до основной диагонали. Прибавляем элементы к сумме</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; i + 1; j++)
+    sum += nums[i][j];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 12. Сумма элементов под побочной диагональю матрицы -->
+<article class="article">
+  <div class="anchor" id="task12"></div>
+  <h3>Задача 12. Сумма элементов под побочной диагональю матрицы</h3>
+
+  <p>Дана матрица. Подсчитать сумму элементов на побочной диагонали и ниже</p>
+
+  <h4>Пример</h4>
+  <code>Input: nums{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}}</code>
+<pre>
+1  2  3  4
+5  6  7  8
+9 10 11 12
+1 14 15 16
+</pre>
+<code>Output 98 // 4+7+8+10+11+12+1+14+15+16</code>
+
+  <h4>Решение</h4>
+  <p>На побочной диагонали для каждого элемента квадратной матрицы номер столбца равен размер матрицы минус один минус номер строки. Циклом проходим по строкам матрицы. Внутренним циклом проходим по столбцам начиная от побочной диагонали. Прибавляем элементы к сумме</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main()
+{
+  int n = 4;
+  int sum{};
+  int nums[n][n]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{1,14,15,16}};
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = n - 1 - i; j &lt; n; j++)
+    sum += nums[i][j];
+  }
+
+  std::cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- Задача 13. Не более двух отрицательных числа в строке -->
+<article class="article">
+  <div class="anchor" id="task13"></div>
+  <h3>Задача 13. Не более двух отрицательных числа в строке</h3>
+
+  <p>Проверить, есть ли в двумерной матрице строки, не содержащие более двух отрицательных элементов</p>
+
+  <p>Заполним матрицу случайными числами от -9 до 9, используя выражение rand() % 10 - rand() % 10</p>
+  <p>Напишем вспомогательную функцию Count() которая принимает строку матрицы и возвращает количество отрицательных чисел в ней</p>
+  <p>Напишем функцию lessThenThreeNeg() которая возвращает true если есть строки не содержащие более двух отрицательных чисел</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+int Count(int*, int);
+bool lessThenThreeNeg(int**, int, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  srand(time(0));
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // проверка строк
+  if (lessThenThreeNeg(nums, n, m))
+  {
+    std::cout &lt;&lt; "Matrix has less then three negative";
+  }
+  else
+  {
+    std::cout &lt;&lt; "Matrix has not less then three negative";
+  }
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10 - rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+
+int Count(int* str, int n)
+{
+  int count = 0;
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (str[i] &lt; 0)
+    {
+      count++;
+    }
+  }
+  return count;
+}
+
+bool lessThenThreeNeg(int **mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (Count(mas[i], n) &lt; 3)
+    {
+      return true;
+    }
+  }
+  return false;
+}
+</pre>
+</article>
+
+
+<!-- Задача 14. Поменять две строки местами в матрице -->
+<article class="article">
+  <div class="anchor" id="task14"></div>
+  <h3>Задача 14. Поменять две строки местами в матрице</h3>
+
+  <p>Заполним матрицу случайными числами от 0 до 9, используя выражение rand() % 10</p>
+  <p>Напишем вспомогательную функцию swap() которая принимает две строки матрицы и меняет их местами</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+void Swap(int*&, int*&);
+
+int main()
+{
+  srand(time(0));
+  const int n = 3; // количество строк
+  const int m = 3; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // меняем строки местами
+  Swap(nums[0], nums[1]);
+  std::cout &lt;&lt; std::endl;
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+
+void Swap(int *&a, int *&b)
+{
+  int* temp = a;
+  a = b;
+  b = temp;
+}
+</pre>
+</article>
+
+
+<!-- Задача 15. Напечатать массив сумм в строках двумерной матрицы -->
+<article class="article">
+  <div class="anchor" id="task15"></div>
+  <h3>Задача 15. Напечатать массив сумм в строках двумерной матрицы</h3>
+
+  <p>Заполним матрицу случайными числами от 0 до 9, используя выражение rand() % 10</p>
+  <p>Напишем вспомогательную функцию Sum() которая принимает массив чисел и возвращает их сумму</p>
+  <p>Напишем функцию sumMas() которая создает и возвращает массив сумм</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void DeleteMas(int**&, int);
+void Swap(int*&, int*&);
+int Sum(int*, int);
+int* sumMas(int**, int, int);
+
+int main()
+{
+  srand(time(0));
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+
+  // создаем и печатаем массив сумм
+  int* s = sumMas(nums, n, m);
+  std::cout &lt;&lt; std::endl;
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; s[i] &lt;&lt; " ";
+  }
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+
+void Swap(int *&a, int *&b)
+{
+  int* temp = a;
+  a = b;
+  b = temp;
+}
+
+int Sum(int *row, int n)
+{
+  int sum = 0;
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += row[i];
+  }
+  return sum;
+}
+
+int* sumMas(int **mas, int n, int m)
+{
+  int *new_mas = new int[n];
+  for (int i = 0; i &lt; n; i++)
+  {
+    new_mas[i] = Sum(mas[i], m);
+  }
+  return new_mas;
 }
 </pre>
 </article>

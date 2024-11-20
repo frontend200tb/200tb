@@ -22,6 +22,7 @@
   <p><a href="#task1">Задача 1. Топ К часто встречающихся элементов</a></p>
   <p><a href="#mid">Хеш-таблица Middle</a></p>
   <p><a href="#task2">Задача 2. Изоморфные строки</a></p>
+  <p><a href="#sen">Хеш-таблица Senior</a></p>
 </article>
 
 
@@ -461,6 +462,7 @@ public:
     <li>Знает о bitmap индексе для фильтров</li>
     <li>Знает понятие <strong>кардинальности значений</strong> и его эффекте на больших данных</li>
   </ul>
+  <p>Когда мы ищем товар в базе данных магазина и применяем много различных фильтов. Например, с доставкой, с расширенной гарантией, с защитой от перегрева, по цене, по наличию, со скидкой и т.д. Если в фильтрах есть булевые значения. То bitmap index все эти значения хорошо упакует и поиск будет быстрее</p>
 </article>
 
 
@@ -494,44 +496,159 @@ public:
       <li>Пройдем циклом по строке
         <code>for (let i = 0; i &lt; s.length; i++)</code>
       </li>
+      <li>Заведем две переменные для char1 и char2 для текущего символа каждой строки
+        <code>const char1 = s[i]; const char2 = t[i];</code>
+      </li>
       <li>Если в первом словаре есть ключ равный символу первой строки, и его значение не равно символу второй строки, вернем false
-        <code>if (s[i] in dict1 && dict1[s[i]] !== t[i]) return false;</code>
+        <code>if (dict1[char1] && dict1[char1] !== char2) return false;</code>
       </li>
       <li>Если во втором словаре есть ключ равный символу второй строки, и его значение не равно символу первой строки, вернем false
-        <code>if (t[i] in dict2 && dict2[t[i]] !== s[i]) return false;</code>
+        <code>if (dict2[char2] && dict2[char2] !== char1) return false;</code>
       </li>
-      <li>Запишем в первый словарь ключ равный символу первой строки и значение равное символу второй строки</li>
+      <li>Запишем в первый словарь ключ равный символу первой строки и значение равное символу второй строки
+        <code>dict1[char1] = char2;</code>
+      </li>
       <li>Запишем во второй словарь ключ равный символу второй строки и значение равное символу первой строки</li>
+      <code>dict2[char2] = char1;</code>
       <li>Когда цикл закончится, то вернем true. Все символы совпали значит строки изоморфны</li>
     </ol>
-    <p>Сложность по времени O(N). Сложность по памяти O(N)</p>
+    <p>Сложность по времени O(N). Сложность по памяти O(1)</p>
   </details>
 
   <details>
     <summary>Код на javascript</summary>
 <pre>
 function isIsomorhic(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
   const dict1 = {}, dict2 = {};
-  // dict1 ключ: символ строки s
-  // val: сопоставленный символ строки t
-  // dict2 ключ: симовл строки t
-  // val: сопоставленный символ строки s
 
-  let p1 = 0, p2 = 0;
   for (let i = 0; i &lt; s.length; i++) {
-    if (dict1[s[i]] && dict1[s[i]] !== t[i]) {
+    const char1 = s[i];
+    const char2 = t[i];
+
+    if (dict1[char1] && dict1[char1] !== char2) {
       return false;
     }
-    if (dict2[t[i]] && dict2[t[i]] !== s[i]) {
+    if (dict2[char2] && dict2[char2] !== char1) {
       return false;
     }
-    dict1[s[i]] = t[i];
-    dict2[t[i]] = s[i];
+    dict1[char1] = char2;
+    dict2[char2] = char1;
   }
 
   return true;
 }
 </pre>
   </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isIsomorhic(self, s: str, t: str) -> bool:
+    if len(s) != len(t)
+      return False
+    dict1, dict2 = {}, {}
+
+    for i in range(len(s)):
+      if s[i] in dict1 and dict1[s[i]] !== t[i]:
+        return False
+      if t[i] in dict2 and dict2[t[i]] !== s[i]:
+        return False
+      dict1[s[i]] = t[i]
+      dict2[t[i]] = s[i]
+
+    return true;
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+func isIsomorhic(s string, t string) bool {
+  if len(s) != len(t)
+    return false
+  dict1 := make(map[rune]rune)
+  dict2 := make(map[rune]rune)
+
+  for i := 0; i &lt; len(s); i++ {
+    char1 := rune(s[i])
+    char2 := rune(t[i])
+
+    if val, ok := dict1[char1]; ok && val != char2 {
+      return false
+    }
+    if val, ok := dict2[char2]; ok && val != char1 {
+      return false
+    }
+    dict1[char1] = char2
+    dict2[char2] = char1
+  }
+
+  return true;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+class Solution {
+  public boolean isIsomorhic(String s, String t) {
+    if (s.length() != t.length()) {
+      return false;
+    }
+    Map&lt;Character, Character&gt; dict1 = new HashMap&lt;&gt;();
+    Map&lt;Character, Character&gt; dict2 = new HashMap&lt;&gt;();
+
+    for (int i = 0; i &lt; s.length(); i++) {
+      char char1 = s.charAt(i);
+      char char2 = t.charAt(i);
+
+      if (dict1.containsKey(char1) && dict1.get(char1) != char2) {
+        return false;
+      }
+      if (dict2.containsKey(char2) && dict2.get(char2) != char1) {
+        return false;
+      }
+      dict1.put(char1, char2);
+      dict2.put(char2, char1);
+    }
+
+    return true;
+  }
+}
+</pre>
+  </details>
+
+  <p>Если в словах используются только малые английские буквы, как в задаче на leetcode, то ее можно решить не словарем а массивом. По таблице ASCII 'a' = 97, 'b' = 98 ... 'z' = 122. Переводим каждый символ строки в число и отнимаем от него 97, чтобы массив начинался с 0 и записываем его в массив. В Питоне ord('a') переводит букву в число, а chr(97) переводит число в букву.</p>
+  <p>Если алфавит ограничен, то сложность по памяти будет O(1). В алфавите не более 26 букв не зависимо от длины строки на входе.</p>
+</article>
+
+
+<!-- Хеш-таблица Senior -->
+<article class="article">
+  <div class="anchor" id="sen"></div>
+  <h3>Хеш-таблица Senior</h3>
+
+  <h4>Алго-собес</h4>
+  <ul>
+    <li>Умеет работать с анаграммами</li>
+    <li>Умеет заменять хеш-таблицу на массив</li>
+  </ul>
+
+  <h4>На работе</h4>
+  <ul>
+    <li>Умеет в Key-Value БД (Redis,...)</li>
+    <li>Понимает когда вообще в принципе нужно использовать Key-Value БД</li>
+  </ul>
+
+  <h4>Финты</h4>
+  <ul>
+    <li>Может реализовать хеш-таблицу на массивах</li>
+    <li>Может реализовать хеш-таблицу на  int-ах</li>
+  </ul>
 </article>
 
