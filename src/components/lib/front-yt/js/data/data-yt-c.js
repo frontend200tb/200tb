@@ -45,6 +45,20 @@ const dataYtC = [
   {
     id: 4,
     theme: 'Си',
+    title: 'narod stream',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@narodstream552/videos',
+    site: '',
+    dateFirstVideo: '2015.10.26',
+    dateLastVideo: '2023.07.25',
+    amountVideos: 724,
+  },
+
+  {
+    id: 5,
+    theme: 'Си',
     title: 'cppProsto',
     author: '',
     city: '',
@@ -57,7 +71,7 @@ const dataYtC = [
   },
 
   {
-    id: 5,
+    id: 6,
     theme: 'Си',
     title: 'Кафедра ИВМ МФТИ',
     author: '',
@@ -71,7 +85,7 @@ const dataYtC = [
   },
 
   {
-    id: 6,
+    id: 7,
     theme: 'Си',
     title: 'Александр Григорин',
     author: 'Александр Григорин',
@@ -85,7 +99,7 @@ const dataYtC = [
   },
 
   {
-    id: 7,
+    id: 8,
     theme: 'Си',
     title: 'Тимофей Хирьянов',
     author: 'Тимофей Хирьянов',
@@ -99,7 +113,7 @@ const dataYtC = [
   },
 
   {
-    id: 8,
+    id: 9,
     theme: 'Си',
     title: 'NR.electronics',
     author: '',
@@ -113,7 +127,21 @@ const dataYtC = [
   },
 
   {
-    id: 9,
+    id: 10,
+    theme: 'Си',
+    title: 'Splincode TV',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@splincodewd/videos',
+    site: '',
+    dateFirstVideo: '2015.03.20',
+    dateLastVideo: '2024.04.12',
+    amountVideos: 223,
+  },
+
+  {
+    id: 11,
     theme: 'Си',
     title: 'Айтишник',
     author: '',
@@ -127,7 +155,7 @@ const dataYtC = [
   },
 
   {
-    id: 10,
+    id: 12,
     theme: 'Си',
     title: 'SockFD',
     author: '',
@@ -141,7 +169,7 @@ const dataYtC = [
   },
 
   {
-    id: 11,
+    id: 13,
     theme: 'Си',
     title: 'Begin End',
     author: '',
@@ -155,7 +183,7 @@ const dataYtC = [
   },
 
   {
-    id: 12,
+    id: 14,
     theme: 'Си',
     title: 'Программист86',
     author: '',
@@ -169,7 +197,21 @@ const dataYtC = [
   },
 
   {
-    id: 13,
+    id: 15,
+    theme: 'Си',
+    title: 'Konstantin Vladimirov',
+    author: 'Константин Владимиров',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@tilir/videos',
+    site: '',
+    dateFirstVideo: '2019.07.18',
+    dateLastVideo: '2024.11.16',
+    amountVideos: 152,
+  },
+
+  {
+    id: 16,
     theme: 'Си',
     title: 'Gena ANTG',
     author: '',
@@ -183,7 +225,7 @@ const dataYtC = [
   },
 
   {
-    id: 14,
+    id: 17,
     theme: 'Си',
     title: 'Konstantin Chaika',
     author: '',
@@ -197,7 +239,7 @@ const dataYtC = [
   },
 
   {
-    id: 14,
+    id: 18,
     theme: 'Си',
     title: 'From LAMER to Programmer',
     author: '',
@@ -211,7 +253,7 @@ const dataYtC = [
   },
 
   {
-    id: 15,
+    id: 19,
     theme: 'Си',
     title: 'Bits Code',
     author: '',
@@ -225,7 +267,7 @@ const dataYtC = [
   },
 
   {
-    id: 16,
+    id: 20,
     theme: 'Си',
     title: 'Учебные материалы',
     author: '',
@@ -239,7 +281,7 @@ const dataYtC = [
   },
 
   {
-    id: 17,
+    id: 21,
     theme: 'Си',
     title: 'Triple Distillation',
     author: '',
@@ -253,7 +295,7 @@ const dataYtC = [
   },
 
   {
-    id: 18,
+    id: 22,
     theme: 'Си',
     title: 'CCPP',
     author: '',
@@ -267,7 +309,7 @@ const dataYtC = [
   },
 
   {
-    id: 18,
+    id: 23,
     theme: 'Си',
     title: 'Дилетант Володя',
     author: '',
@@ -281,7 +323,7 @@ const dataYtC = [
   },
 
   {
-    id: 18,
+    id: 24,
     theme: 'Си',
     title: 'BugsBound',
     author: '',
@@ -295,7 +337,7 @@ const dataYtC = [
   },
 
   {
-    id: 19,
+    id: 25,
     theme: 'Си',
     title: 'shumnik',
     author: '',

@@ -155,7 +155,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 11,
+    id: 12,
     theme: 'C++',
     title: 'Daria Emacs',
     author: '',
@@ -169,7 +169,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 12,
+    id: 13,
     theme: 'C++',
     title: 'Winderton',
     author: '',
@@ -183,7 +183,35 @@ const dataYtCpp = [
   },
 
   {
-    id: 13,
+    id: 14,
+    theme: 'C++',
+    title: 'Ambushed Raccoon',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@ambushedraccoon6408/videos',
+    site: '',
+    dateFirstVideo: '2017.07.19',
+    dateLastVideo: '2024.11.19',
+    amountVideos: 96,
+  },
+
+  {
+    id: 15,
+    theme: 'C++',
+    title: 'Оксана Еськова. Основы программирования',
+    author: 'Оксана Еськова',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@Programming_for_beginners/videos',
+    site: '',
+    dateFirstVideo: '2021.11.12',
+    dateLastVideo: '2024.11.06',
+    amountVideos: 86,
+  },
+
+  {
+    id: 16,
     theme: 'C++',
     title: 'getKnowledge',
     author: 'Денис Марков',
@@ -197,7 +225,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 13,
+    id: 17,
     theme: 'C++',
     title: 'Владимир Башун',
     author: '',
@@ -211,7 +239,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 14,
+    id: 18,
     theme: 'C++',
     title: 'Ilya Siganov',
     author: 'Илья Сиганов',
@@ -225,7 +253,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 15,
+    id: 19,
     theme: 'C++',
     title: 'Алгоритмы и структуры данных Вязовов С.М.',
     author: '',
@@ -239,7 +267,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 16,
+    id: 20,
     theme: 'C++',
     title: 'Мультодей',
     author: '',
@@ -253,7 +281,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 17,
+    id: 21,
     theme: 'C++',
     title: 'PVS-Studio Ru',
     author: 'Андрей Карпов',
@@ -267,7 +295,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 18,
+    id: 22,
     theme: 'C++',
     title: 'Мещерин Илья',
     author: 'Илья Мещерин',
@@ -281,7 +309,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 19,
+    id: 23,
     theme: 'C++',
     title: 'C++ practice',
     author: '',
@@ -295,7 +323,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 20,
+    id: 24,
     theme: 'C++',
     title: 'C++ для начинающих',
     author: '',
@@ -309,7 +337,7 @@ const dataYtCpp = [
   },
 
   {
-    id: 20,
+    id: 25,
     theme: 'C++',
     title: 'coder',
     author: '',

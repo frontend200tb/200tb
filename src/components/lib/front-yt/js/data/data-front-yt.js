@@ -5839,6 +5839,20 @@ const dataFrontYtRus = [
   },
 
   {
+    id: 417,
+    theme: 'frontend',
+    title: 'Reach the end',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@reachtheendstudy/videos',
+    site: '',
+    dateFirstVideo: '2014.10.15',
+    dateLastVideo: '2024.11.21',
+    amountVideos: 26,
+  },
+
+  {
     id: 418,
     theme: 'frontend',
     title: 'udod (JediCSS)',

@@ -47,10 +47,12 @@
     <p>Сложность по памяти O(1) потому что количество различных элементов заранее известно (26 английских букв)</p>
   </details>
 
+  <p>Есть два хороших решения: с двумя массивами и с одним массивом</p>
   <details>
     <summary>Решение (javascript)</summary>
 
-<pre>function isAnagram(s, t) {
+<pre>
+function isAnagram(s, t) {
   if (s.length !== t.length) {
     return false;
   }
@@ -64,7 +66,8 @@
   }
 
   return count1.join() === count2.join();
-}</pre>
+}
+</pre>
   </details>
 
   <details>
@@ -81,6 +84,121 @@ class Solution:
       count2[ord(char) - 97]++
 
     return count1 == count2
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (javascript)</summary>
+<pre>
+function isAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  const count = new Array(26).fill(0);
+
+  for (let char of s) {
+    count[char.charCkde(0) - 'a'.charCode.at(0)]++;
+  }
+
+  for (let char of t) {
+    count[char.charCkde(0) - 'a'.charCode.at(0)]--;
+  }
+
+  return count.every(num => num === 0);
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (python)</summary>
+<pre>
+class Solution:
+  def isAnagram(self, s:str, t: str) -> bool:
+    count = [0 for _ in range(26)]
+
+    for char in s:
+      count[ord(char) - 97]++
+    for char in t:
+      count[ord(char) - 97]--
+
+    return count == [0 for _ in range(26)]
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (go)</summary>
+<pre>
+func isAnagram(s string, t string) bool {
+  count := make([]int, 26)
+
+  for _, c := range s {
+    count[c - 'a']++
+  }
+  for _, c := range t {
+    count[c - 'a']--
+
+  for _, num := range count {
+    if num != 0 {
+      return false
+    }
+  }
+
+  return true
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (C++)</summary>
+<pre>
+class Solution {
+public:
+  bool isAnagram(string s, string t) {
+    vextor&lt;int&gt; count (26,0);
+
+    for (char c: s) {
+      count[c - 'a']++;
+    }
+    for (char c : t) {
+      count[c - 'a']--
+    }
+
+    for (int num : count) {
+      if (num != 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение (java)</summary>
+<pre>
+class Solution {
+  public boolean isAnagram(String s, String t) {
+    int[] count = new int(26);
+
+    for (char c: s.toCharArray()) {
+      count[c - 'a']++;
+    }
+    for (char c : t.toCharArray()) {
+      count[c - 'a']--
+    }
+
+    for (int num : count) {
+      if (num != 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
 </pre>
   </details>
 </article>
