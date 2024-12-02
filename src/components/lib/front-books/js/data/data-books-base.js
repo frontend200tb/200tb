@@ -54,19 +54,6 @@ const dataBooksBase = [
 
   {
     id: 5,
-    year: 2000,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Мифический человеко-месяц или как создаются программные системы',
-    author: 'Брукс',
-    authorName: 'Фредерик',
-    pages: '304',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 6,
     year: 2001,
     category: 'основы',
     theme: 'Программирование',
@@ -79,7 +66,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 7,
+    id: 6,
     year: 2001,
     category: 'основы',
     theme: 'Программирование',
@@ -92,7 +79,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 8,
+    id: 7,
     year: 2002,
     category: 'основы',
     theme: 'Программирование',
@@ -105,7 +92,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 9,
+    id: 8,
     year: 2002,
     category: 'основы',
     theme: 'Программирование',
@@ -118,7 +105,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 10,
+    id: 9,
     year: 2002,
     category: 'основы',
     theme: 'Программирование',
@@ -131,20 +118,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 11,
-    year: 2002,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Инженерия программного обеспечения (6е)',
-    author: 'Соммервилл',
-    authorName: 'Иан',
-    pages: '624',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 12,
+    id: 10,
     year: 2003,
     category: 'основы',
     theme: 'Программирование',
@@ -157,20 +131,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 14,
-    year: 2003,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Рефакторинг. Улучшение существующего кода',
-    author: 'Фаулер',
-    authorName: 'Мартин',
-    pages: '432',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 18,
+    id: 11,
     year: 2004,
     category: 'основы',
     theme: 'Программирование',
@@ -183,46 +144,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 19,
-    year: 2004,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Быстрая разработка программ',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '746',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 20,
-    year: 2005,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Основы инженерии программного обеспечения (2е)',
-    author: 'Гецци',
-    authorName: 'Карло',
-    pages: '833',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 21,
-    year: 2005,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Совершенный код (2е)',
-    author: 'Макконнелл',
-    authorName: 'Стив',
-    pages: '893',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 22,
+    id: 12,
     year: 2005,
     category: 'основы',
     theme: 'Программирование',
@@ -235,7 +157,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 23,
+    id: 13,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -248,20 +170,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 24,
-    year: 2006,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Джоэл о программировании',
-    author: 'Спольски',
-    authorName: 'Джоэл',
-    pages: '352',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 25,
+    id: 14,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -274,7 +183,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 26,
+    id: 15,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -287,59 +196,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 27,
-    year: 2007,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Искусство управления IT-проектами',
-    author: 'Беркун',
-    authorName: 'Скотт',
-    pages: '403',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 28,
-    year: 2007,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Мифический человеко-месяц',
-    author: 'Брукс',
-    authorName: 'Фредерик',
-    pages: '298',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 29,
-    year: 2007,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Сколько стоит программный проект',
-    author: 'Макконнелл',
-    authorName: 'Стив',
-    pages: '297',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 30,
-    year: 2007,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Лучшие примеры разработки ПО',
-    author: 'Спольски',
-    authorName: 'Джоэл',
-    pages: '210',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 31,
+    id: 16,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -352,7 +209,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 32,
+    id: 17,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -365,7 +222,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 33,
+    id: 18,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -378,20 +235,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 34,
-    year: 2008,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Джоэл о программировании',
-    author: 'Спольски',
-    authorName: 'Джоэл',
-    pages: '355',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 35,
+    id: 19,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -404,7 +248,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 36,
+    id: 20,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -417,7 +261,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 37,
+    id: 21,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -430,20 +274,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 39,
-    year: 2009,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'И снова о программировании',
-    author: 'Спольски',
-    authorName: 'Джоел',
-    pages: '320',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 40,
+    id: 22,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -456,7 +287,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 41,
+    id: 23,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -469,7 +300,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 42,
+    id: 24,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -482,59 +313,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 43,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Оптимизация ПО. Сборник рецептов',
-    author: 'Гербер',
-    authorName: 'Ричард',
-    pages: '348',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 44,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Программирование и конфликты. Теория и практика программной инженерии',
-    author: 'Гласс',
-    authorName: 'Роберт',
-    pages: '242',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 46,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Совершенный код (2е)',
-    author: 'Макконнелл',
-    authorName: 'Стив',
-    pages: '889',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 47,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый код. Создание, анализ и рефакторинг (1е)',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '466',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 48,
+    id: 25,
     year: 2010,
     category: 'основы',
     theme: 'Программирование',
@@ -547,46 +326,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 49,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Бережливое производство ПО. От идеи до прибыли',
-    author: 'Поппендик',
-    authorName: 'Мэри',
-    pages: '256',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 50,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Идеальная архитектура',
-    author: 'Спинеллис',
-    authorName: 'Диомидис',
-    pages: '529',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 51,
-    year: 2010,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Win32 API. Основы программирования',
-    author: 'Сучкова',
-    authorName: 'Лариса',
-    pages: '139',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 52,
+    id: 26,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -599,7 +339,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 53,
+    id: 27,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -612,7 +352,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 54,
+    id: 28,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -625,20 +365,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 56,
-    year: 2011,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Предметно-ориентированные языки программирования',
-    author: 'Фаулер',
-    authorName: 'Мартин',
-    pages: '576',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 57,
+    id: 29,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -650,20 +377,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 58,
-    year: 2011,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Head First. Паттерны проектирования (1е)',
-    author: 'Фримен',
-    authorName: 'Эрик',
-    pages: '384',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 59,
+    id: 30,
     year: 2012,
     category: 'основы',
     theme: 'Программирование',
@@ -676,72 +390,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 60,
-    year: 2012,
-    category: 'основы',
-    theme: 'Программирование',
-    title: '97 этюдов для программистов',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '256',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 61,
-    year: 2012,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Идеальный программист. Как стать профессионалом разработки ПО (1е)',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '224',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 62,
-    year: 2012,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Призрак в сети. Мемуары величайшего хакера',
-    author: 'Митник',
-    authorName: 'Кевин',
-    pages: '293',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 63,
-    year: 2012,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Гибкое управление IT-проектами',
-    author: 'Расмуссон',
-    authorName: 'Джонатан',
-    pages: '272',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 64,
-    year: 2013,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Жемчужины проектирования алгоритмов',
-    author: 'Бёрд',
-    authorName: 'Ричард',
-    pages: '330',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 65,
+    id: 31,
     year: 2013,
     category: 'основы',
     theme: 'Программирование',
@@ -754,20 +403,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 66,
-    year: 2013,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый код. Создание, анализ и рефакторинг (2е)',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '465',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 67,
+    id: 32,
     year: 2013,
     category: 'основы',
     theme: 'Программирование',
@@ -780,20 +416,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 68,
-    year: 2014,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Разработка требований к программному обеспечению (3е)',
-    author: 'Вигерс',
-    authorName: 'Карл',
-    pages: '737',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 69,
+    id: 33,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -805,20 +428,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 70,
-    year: 2014,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Системная инженерия (2е)',
-    author: 'Косяков',
-    authorName: 'Александр',
-    pages: '625',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 71,
+    id: 34,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -831,20 +441,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 72,
-    year: 2014,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Программная инженерия',
-    author: 'Липаев',
-    authorName: 'Владимир',
-    pages: '311',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 73,
+    id: 35,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -857,7 +454,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 74,
+    id: 36,
     year: 2015,
     category: 'основы',
     theme: 'Программирование',
@@ -870,7 +467,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 75,
+    id: 37,
     year: 2015,
     category: 'основы',
     theme: 'Программирование',
@@ -883,7 +480,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 76,
+    id: 38,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -896,20 +493,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 77,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Как управлять интеллектуалами',
-    author: 'Лопп',
-    authorName: 'Майкл',
-    pages: '257',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 78,
+    id: 39,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -922,59 +506,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 79,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Идеальный программист',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '224',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 80,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Создание микросервисов',
-    author: 'Ньюмен',
-    authorName: 'Сэм',
-    pages: '304',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 81,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Программная инженерия. Технология разработки ПО (5е)',
-    author: 'Орлов',
-    authorName: 'Сергей',
-    pages: '770',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 82,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Как пасти котов. Наставление для программистов, руководящих другими программистами',
-    author: 'Рейнвотер',
-    authorName: 'Ханк',
-    pages: '256',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 83,
+    id: 40,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -987,7 +519,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 84,
+    id: 41,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1000,7 +532,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 85,
+    id: 42,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1013,7 +545,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 86,
+    id: 43,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1026,7 +558,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 87,
+    id: 44,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1039,7 +571,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 88,
+    id: 45,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1052,7 +584,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 89,
+    id: 46,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1065,7 +597,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 90,
+    id: 47,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -1078,59 +610,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 91,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Шаблоны корпоративных приложений',
-    author: 'Фаулер',
-    authorName: 'Мартин',
-    pages: '544',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 92,
-    year: 2016,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Прибыльная веб студия',
-    author: 'Чипижко',
-    authorName: 'Александр',
-    pages: '183',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 93,
-    year: 2017,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Шаблоны реализации корпоративных приложений',
-    author: 'Бек',
-    authorName: 'Кент',
-    pages: '178',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 94,
-    year: 2017,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Экстремальное программирование. Разработка через тестирование',
-    author: 'Бек',
-    authorName: 'Кент',
-    pages: '291',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 95,
+    id: 48,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1143,7 +623,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 96,
+    id: 49,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1156,7 +636,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 97,
+    id: 50,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1169,20 +649,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 97,
-    year: 2017,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Программирование распределенных информационных систем',
-    author: 'Сергеева',
-    authorName: 'Татьяна',
-    pages: '154',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 98,
+    id: 51,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1195,7 +662,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 99,
+    id: 52,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1208,7 +675,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 100,
+    id: 53,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -1221,20 +688,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 101,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'IT архитектура от А до Я',
-    author: 'Алджанов',
-    authorName: 'Вадим',
-    pages: '396',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 102,
+    id: 54,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -1247,33 +701,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 103,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Управление высокотехнологичными программами и проектами (4е)',
-    author: 'Арчибальд',
-    authorName: 'Рассел',
-    pages: '466',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 104,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Масштабирование приложений. Выращивание сложных систем',
-    author: 'Атчисон',
-    authorName: 'Ли',
-    pages: '228',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 105,
+    id: 55,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -1286,7 +714,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 106,
+    id: 56,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -1299,33 +727,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 107,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Идеальный программист (2е)',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '224',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 108,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистая архитектура',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '352',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 109,
+    id: 57,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -1338,20 +740,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 110,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Думай как программист. Креативный подход к созданию кода. C++ версия',
-    author: 'Спрол',
-    authorName: 'Антон',
-    pages: '273',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 111,
+    id: 58,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -1364,33 +753,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 112,
-    year: 2018,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Head First. Паттерны проектирования (2е)',
-    author: 'Фримен',
-    authorName: 'Эрик',
-    pages: '656',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 113,
-    year: 2019,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Распределенные системы. Паттерны проектирования',
-    author: 'Бернс',
-    authorName: 'Брендан',
-    pages: '224',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 114,
+    id: 59,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -1403,20 +766,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 115,
-    year: 2019,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый код (3е)',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '464',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 116,
+    id: 60,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -1429,7 +779,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 117,
+    id: 61,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -1442,46 +792,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 118,
-    year: 2019,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Spring. Все паттерны проектирования',
-    author: 'Раджпут Динеш',
-    authorName: '',
-    pages: '320',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 119,
-    year: 2019,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Микросервисы. Паттерны разработки и рефакторинга',
-    author: 'Ричардсон',
-    authorName: 'Крис',
-    pages: '546',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 120,
-    year: 2019,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Рефакторинг. Улучшение проекта существующего кода',
-    author: 'Фаулер',
-    authorName: 'Мартин',
-    pages: '450',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 121,
+    id: 62,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -1494,20 +805,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 122,
-    year: 2020,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Введение в архитектуру программного обеспечения',
-    author: 'Гаrарина',
-    authorName: 'Лариса',
-    pages: '321',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 123,
+    id: 63,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -1520,33 +818,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 124,
-    year: 2020,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый Agile. Основы гибкости',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '272',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 126,
-    year: 2020,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Практическая программная инженерия (4е)',
-    author: 'Мацяшек',
-    authorName: 'Лешек',
-    pages: '959',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 127,
+    id: 64,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -1559,7 +831,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 128,
+    id: 65,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -1572,7 +844,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 129,
+    id: 66,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -1585,59 +857,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 130,
-    year: 2020,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Ловушка для багов. Полевое руководство по веб-хакингу',
-    author: 'Яворски',
-    authorName: 'Питер',
-    pages: '272',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 131,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Мифический человеко-месяц или как создаются программные системы',
-    author: 'Брукс',
-    authorName: 'Фредерик',
-    pages: '368',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 133,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Делай как в Google. Разработка ПО',
-    author: 'Винтерс',
-    authorName: 'Титус',
-    pages: '544',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 134,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Основы администрирования информационных систем',
-    author: 'Добынцев',
-    authorName: 'Денис',
-    pages: '201',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 135,
+    id: 67,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1650,7 +870,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 136,
+    id: 68,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1663,7 +883,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 137,
+    id: 69,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1676,46 +896,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 138,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Еще более эффективный Agile',
-    author: 'Макконнелл',
-    authorName: 'Стив',
-    pages: '228',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 139,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистая архитектура',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '352',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 140,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'От монолита к микросервисам',
-    author: 'Ньюмен',
-    authorName: 'Сэм',
-    pages: '274',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 141,
+    id: 70,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1728,7 +909,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 142,
+    id: 71,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1741,7 +922,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 143,
+    id: 72,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1754,7 +935,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 144,
+    id: 73,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1767,20 +948,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 145,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Распределенные системы (3е)',
-    author: 'Таненбаум',
-    authorName: 'Эндрю',
-    pages: '584',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 146,
+    id: 74,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -1793,98 +961,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 147,
-    year: 2021,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Погружение в паттерны проектирования',
-    author: 'Швец',
-    authorName: 'Александр',
-    pages: '400',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 148,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Agile. Основы',
-    author: 'Коробейник',
-    authorName: 'Андрей',
-    pages: '54',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 149,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Идеальная работа',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '384',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 150,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Масштабируемый рефакторинг. Возвращаем контроль над кодом',
-    author: 'Лемер',
-    authorName: 'Мод',
-    pages: '256',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 151,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'System Design. Подготовка к сложному интервью',
-    author: 'Сюй',
-    authorName: 'Алекс',
-    pages: '304',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 152,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Разработка интерфейсов. Паттерны проектирования',
-    author: 'Тидвелл',
-    authorName: 'Дженифер',
-    pages: '558',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 153,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Как проектировать программы',
-    author: 'Фелляйзен',
-    authorName: 'Маттиас',
-    pages: '726',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 154,
+    id: 75,
     year: 2022,
     category: 'основы',
     theme: 'Программирование',
@@ -1897,59 +974,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 155,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Head First. Паттерны проектирования (2е)',
-    author: 'Фримен',
-    authorName: 'Эрик',
-    pages: '641',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 156,
-    year: 2022,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Проектирование гибких программ. Как не загнать себя в угол',
-    author: 'Хансон',
-    authorName: 'Крис',
-    pages: '369',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 157,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Паттерны проектирования API',
-    author: 'Гивакс',
-    authorName: 'Джей',
-    pages: '512',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 158,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Разработка кроссплатформенного ПО',
-    author: 'Городничев',
-    authorName: 'Михаил',
-    pages: '149',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 159,
+    id: 76,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1962,20 +987,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 160,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Технология разработки ПО (3е)',
-    author: 'Зубкова',
-    authorName: 'Татьяна',
-    pages: '252',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 161,
+    id: 77,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1988,7 +1000,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 162,
+    id: 78,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2001,7 +1013,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 163,
+    id: 79,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2014,98 +1026,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 164,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Software. Ошибки и компромиссы при разработке ПО',
-    author: 'Лелек',
-    authorName: 'Томаш',
-    pages: '464',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 165,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Искусство чистого кода',
-    author: 'Майер',
-    authorName: 'Кристиан',
-    pages: '240',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 166,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Управление it проектом. От стартапа до высокотехнологичного бизнеса. Часть 1. Методология управления',
-    author: 'Максимова',
-    authorName: 'Татьяна',
-    pages: '74',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 167,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Управление it проектом. От стартапа до высокотехнологичного бизнеса. Часть 2. Теория и практика',
-    author: 'Максимова',
-    authorName: 'Татьяна',
-    pages: '91',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 168,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Микросервисы',
-    author: 'Митра',
-    authorName: 'Ронни',
-    pages: '396',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 169,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Архитектура и проектирование программных систем (2е)',
-    author: 'Назаров',
-    authorName: 'Станислав',
-    pages: '375',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 170,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Создание микросервисов (2е)',
-    author: 'Ньюмен',
-    authorName: 'Сэм',
-    pages: '624',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 171,
+    id: 80,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2118,20 +1039,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 172,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Фундаментальный подход к программной архитектуре',
-    author: 'Ричардc',
-    authorName: 'Марк',
-    pages: '448',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 173,
+    id: 81,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2144,7 +1052,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 174,
+    id: 82,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2157,7 +1065,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 175,
+    id: 83,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2170,7 +1078,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 176,
+    id: 84,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2183,20 +1091,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 177,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Современный подход к программной архитектуре',
-    author: 'Форд',
-    authorName: 'Нил',
-    pages: '480',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 178,
+    id: 85,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2209,7 +1104,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 179,
+    id: 86,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -2222,59 +1117,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 180,
-    year: 2023,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Взломать всё',
-    author: 'Шнайер',
-    authorName: 'Брюс',
-    pages: '157',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 181,
-    year: 2024,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый дизайн. Практика эмпирического проектирования ПО.',
-    author: 'Бек',
-    authorName: 'Кент',
-    pages: '176',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 182,
-    year: 2024,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Жемчужины разработки. Чему мы научились за 50 лет создания ПО.',
-    author: 'Вигерс',
-    authorName: 'Карл',
-    pages: '368',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 183,
-    year: 2024,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Чистый Agile. Основы гибкости',
-    author: 'Мартин',
-    authorName: 'Роберт',
-    pages: '272',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 184,
+    id: 87,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',
@@ -2287,7 +1130,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 185,
+    id: 88,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',
@@ -2295,32 +1138,6 @@ const dataBooksBase = [
     author: 'Салонен',
     authorName: 'Антти',
     pages: '482',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 186,
-    year: 2024,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Эволюционная архитектура. Автоматизированное управление программным обеспечением.',
-    author: 'Форд',
-    authorName: 'Нил',
-    pages: '272',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 187,
-    year: 2024,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Искусство Agile-разработки. Теория и практика быстрой разработки ПО (2е)',
-    author: 'Шор',
-    authorName: 'Джеймс',
-    pages: '624',
     isLearned: false,
     dateLearned: '',
   },

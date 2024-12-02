@@ -3,7 +3,7 @@ const dataBooksBios = [
   {
     id: 1,
     year: 2002,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Секреты BIOS',
     author: 'Трасковский',
@@ -16,7 +16,7 @@ const dataBooksBios = [
   {
     id: 2,
     year: 2004,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Настройка BIOS',
     author: 'Белунцов',
@@ -28,7 +28,7 @@ const dataBooksBios = [
   {
     id: 3,
     year: 2005,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Секреты BIOS',
     author: 'Белунцов',
@@ -40,7 +40,7 @@ const dataBooksBios = [
   {
     id: 4,
     year: 2005,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Настройки BIOS',
     author: 'Дмитриев',
@@ -52,7 +52,7 @@ const dataBooksBios = [
   {
     id: 5,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'BIOS. Оптимизация и разгон компьютера',
     author: 'Карпов',
@@ -65,7 +65,7 @@ const dataBooksBios = [
   {
     id: 6,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'BIOS Setup',
     author: 'Михлин',
@@ -78,7 +78,7 @@ const dataBooksBios = [
   {
     id: 7,
     year: 2007,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Настройки BIOS (3е)',
     author: 'Дмитриев',
@@ -90,7 +90,7 @@ const dataBooksBios = [
   {
     id: 8,
     year: 2007,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Bios и тонкая настройка ПК',
     author: 'Донцов',
@@ -102,7 +102,7 @@ const dataBooksBios = [
   {
     id: 9,
     year: 2008,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Bios',
     author: 'Салихан',
@@ -115,7 +115,7 @@ const dataBooksBios = [
   {
     id: 10,
     year: 2009,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'BIOS на 100%',
     author: 'Зозуля',
@@ -128,7 +128,7 @@ const dataBooksBios = [
   {
     id: 11,
     year: 2010,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Справочник по параметрам BIOS',
     author: 'Вонг',
@@ -141,7 +141,7 @@ const dataBooksBios = [
   {
     id: 12,
     year: 2010,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'Тонкая настройка компьютера с помощью BIOS',
     author: 'Зозуля',
@@ -153,7 +153,7 @@ const dataBooksBios = [
   {
     id: 13,
     year: 2013,
-    category: 'основы',
+    category: 'tools',
     theme: 'Bios',
     title: 'BIOS. Настройки (5е)',
     author: 'Дмитриев',

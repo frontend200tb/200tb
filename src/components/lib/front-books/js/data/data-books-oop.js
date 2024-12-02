@@ -3,7 +3,7 @@ const dataBooksOop = [
   {
     id: 1,
     year: 2001,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Приемы объектно-ориентированного проектирования. Паттерны проектирования',
     author: 'Гамма',
@@ -16,7 +16,7 @@ const dataBooksOop = [
   {
     id: 2,
     year: 2002,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Шаблоны проектирования. Новый подход к ООП',
     author: 'Шаллоуей',
@@ -29,7 +29,7 @@ const dataBooksOop = [
   {
     id: 3,
     year: 2002,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Объектно-ориентированные методы. Принципы и практика (3е)',
     author: 'Грэхем',
@@ -42,7 +42,7 @@ const dataBooksOop = [
   {
     id: 4,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП',
     author: 'Бадд',
@@ -55,7 +55,7 @@ const dataBooksOop = [
   {
     id: 5,
     year: 2008,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Основы ООП',
     author: 'Финогенов',
@@ -68,7 +68,7 @@ const dataBooksOop = [
   {
     id: 6,
     year: 2010,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Приемы объектно-ориентированного проектирования. Паттерны проектирования',
     author: 'Гамма',
@@ -81,7 +81,7 @@ const dataBooksOop = [
   {
     id: 7,
     year: 2011,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Алгоритмическое и ООП',
     author: 'Холодов',
@@ -94,7 +94,7 @@ const dataBooksOop = [
   {
     id: 8,
     year: 2012,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Практикуп по ООП (3е)',
     author: 'Бабушкина',
@@ -107,7 +107,7 @@ const dataBooksOop = [
   {
     id: 9,
     year: 2014,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Объектно-ориентированное мышление',
     author: 'Вайсфельд',
@@ -120,7 +120,7 @@ const dataBooksOop = [
   {
     id: 10,
     year: 2014,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП Хорошая книга для хороших людей',
     author: 'Комлев',
@@ -133,7 +133,7 @@ const dataBooksOop = [
   {
     id: 11,
     year: 2015,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Практикуп по ООП (4е)',
     author: 'Бабушкина',
@@ -146,7 +146,7 @@ const dataBooksOop = [
   {
     id: 12,
     year: 2015,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Приемы ООП. Паттерны проектирования',
     author: 'Гамма',
@@ -159,7 +159,7 @@ const dataBooksOop = [
   {
     id: 13,
     year: 2015,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП',
     author: 'Николаев',
@@ -172,7 +172,7 @@ const dataBooksOop = [
   {
     id: 14,
     year: 2015,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП Лабораторный практикум 1',
     author: 'Николаев',
@@ -185,7 +185,7 @@ const dataBooksOop = [
   {
     id: 15,
     year: 2015,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП Лабораторный практикум 2',
     author: 'Николаев',
@@ -198,7 +198,7 @@ const dataBooksOop = [
   {
     id: 16,
     year: 2016,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Основы ООП (ИНТУИТ)',
     author: 'Мейер',
@@ -210,7 +210,7 @@ const dataBooksOop = [
   {
     id: 17,
     year: 2018,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'ООП. Настольная книга программиста',
     author: 'Комлев',
@@ -223,7 +223,7 @@ const dataBooksOop = [
   {
     id: 18,
     year: 2020,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Практикум по ООП',
     author: 'Бабушкина',
@@ -236,7 +236,7 @@ const dataBooksOop = [
   {
     id: 19,
     year: 2020,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Паттерны объектно-ориентированного проектирования',
     author: 'Гамма',
@@ -249,7 +249,7 @@ const dataBooksOop = [
   {
     id: 20,
     year: 2023,
-    category: 'основы',
+    category: 'tools',
     theme: 'ООП',
     title: 'Объекты. Стильное ООП',
     author: 'Нобак',

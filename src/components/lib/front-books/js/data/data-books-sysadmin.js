@@ -109,6 +109,19 @@ const dataBooksSysadmin = [
     year: 2021,
     category: 'основы',
     theme: 'Системный администратор',
+    title: 'Основы администрирования информационных систем',
+    author: 'Добынцев',
+    authorName: 'Денис',
+    pages: '201',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2021,
+    category: 'основы',
+    theme: 'Системный администратор',
     title: 'Самоучитель системного администратора (6е)',
     author: 'Кенин',
     authorName: 'Александр',
@@ -118,7 +131,7 @@ const dataBooksSysadmin = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2021,
     category: 'основы',
     theme: 'Системный администратор',
@@ -131,7 +144,7 @@ const dataBooksSysadmin = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2023,
     category: 'основы',
     theme: 'Системный администратор',
@@ -144,7 +157,7 @@ const dataBooksSysadmin = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2024,
     category: 'основы',
     theme: 'Системный администратор',
@@ -157,7 +170,7 @@ const dataBooksSysadmin = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 2024,
     category: 'основы',
     theme: 'Системный администратор',
@@ -170,7 +183,7 @@ const dataBooksSysadmin = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 2024,
     category: 'основы',
     theme: 'Системный администратор',

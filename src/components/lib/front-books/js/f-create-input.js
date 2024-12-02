@@ -8,15 +8,15 @@ import dataBooksHtmlcss from './data/data-books-htmlcss';
 import dataBooksJs from './data/data-books-js';
 import dataBooksTs from './data/data-books-ts';
 import dataBooksAssembler from './data/data-books-assembler';
-import dataBooksWin32 from './data/data-books-win32';
 import dataBooksC from './data/data-books-c';
 import dataBooksCpp from './data/data-books-cpp';
 import dataBooksCsharp from './data/data-books-csharp';
+import dataBooksWin32 from './data/data-books-win32';
 import dataBooksPascal from './data/data-books-pascal';
 import dataBooksPhp from './data/data-books-php';
 import dataBooksPython from './data/data-books-python';
-import dataBooksBasic from './data/data-books-basic';
 import dataBooksJava from './data/data-books-java';
+import dataBooksBasic from './data/data-books-basic';
 
 // Base
 import dataBooksBase from './data/data-books-base';
@@ -26,12 +26,11 @@ import dataBooksLinux from './data/data-books-linux';
 import dataBooksUnix from './data/data-books-unix';
 import dataBooksComp from './data/data-books-comp';
 import dataBooksOs from './data/data-books-os';
-import dataBooksBios from './data/data-books-bios';
 import dataBooksNet from './data/data-books-net';
 import dataBooksSysadmin from './data/data-books-sysadmin';
 import dataBooksInformatika from './data/data-books-inform';
-import dataBooksOop from './data/data-books-oop';
-import dataBooksFreebsd from './data/data-books-freebsd';
+import dataBooksSecure from './data/data-books-secure';
+import dataBooksArch from './data/data-books-arch';
 
 // Framework
 import dataBooksNode from './data/data-books-node';
@@ -46,11 +45,14 @@ import dataBooksCms from './data/data-books-cms';
 
 // Tools
 import dataBooksAjax from './data/data-books-ajax';
+import dataBooksBios from './data/data-books-bios';
 import dataBooksDocker from './data/data-books-docker';
 import dataBooksGit from './data/data-books-git';
 import dataBooksGraphql from './data/data-books-graphql';
 import dataBooksRegexp from './data/data-books-regexp';
 import dataBooksSql from './data/data-books-sql';
+import dataBooksFreebsd from './data/data-books-freebsd';
+import dataBooksOop from './data/data-books-oop';
 
 // Theme
 import dataBooksWeb from './data/data-books-web';
@@ -66,15 +68,15 @@ import dataBooksGames from './data/data-books-games';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksWin32, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksBasic, dataBooksJava,
+  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksWin32, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksJava, dataBooksBasic,
   // Base
-  dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksBios, dataBooksNet, dataBooksSysadmin, dataBooksInformatika, dataBooksOop, dataBooksFreebsd,
+  dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksNet, dataBooksSysadmin, dataBooksInformatika, dataBooksSecure, dataBooksArch,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS
   dataBooksCms,
   // Tools
-  dataBooksAjax, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp, dataBooksSql,
+  dataBooksAjax, dataBooksBios, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp, dataBooksSql, dataBooksFreebsd, dataBooksOop,
   // Theme
   dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksTest, dataBooksMathDis, dataBooksMathFast, dataBooksGames];
 

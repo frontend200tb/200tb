@@ -315,7 +315,7 @@ const dataBooksMathDis = [
   {
     id: 53,
     year: 2019,
-    category: 'основы',
+    category: 'theme',
     theme: 'Математика',
     title: 'Дискретная математика',
     author: 'Баврин',

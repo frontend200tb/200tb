@@ -3,7 +3,7 @@ const dataBooksFreebsd = [
   {
     id: 1,
     year: 2003,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD. Установка, настройка, использование',
     author: 'Федорчук',
@@ -16,7 +16,7 @@ const dataBooksFreebsd = [
   {
     id: 2,
     year: 2003,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD. Администрирование. Искусство достижения равновесия',
     author: 'Эбен',
@@ -29,7 +29,7 @@ const dataBooksFreebsd = [
   {
     id: 3,
     year: 2003,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD. Энциклопедия пользователя (3е)',
     author: 'Эбен',
@@ -42,7 +42,7 @@ const dataBooksFreebsd = [
   {
     id: 4,
     year: 2004,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'Руководство FreeBSD',
     author: '',
@@ -55,7 +55,7 @@ const dataBooksFreebsd = [
   {
     id: 5,
     year: 2004,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'Полный справочник по FreeBSD',
     author: 'Смит',
@@ -68,7 +68,7 @@ const dataBooksFreebsd = [
   {
     id: 6,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'Один на один с FreeBSD',
     author: 'Дидок',
@@ -81,7 +81,7 @@ const dataBooksFreebsd = [
   {
     id: 7,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD. Архитектура и реализация',
     author: 'МакКузик',
@@ -94,7 +94,7 @@ const dataBooksFreebsd = [
   {
     id: 8,
     year: 2006,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD 6. Полное руководство',
     author: 'Таймэн',
@@ -107,7 +107,7 @@ const dataBooksFreebsd = [
   {
     id: 9,
     year: 2008,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'Корпоративный Интернет- сервер на базе FreeBSD',
     author: 'Корниенко',
@@ -120,7 +120,7 @@ const dataBooksFreebsd = [
   {
     id: 10,
     year: 2009,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD. Подробное руководство (2е)',
     author: 'Лукас',
@@ -133,7 +133,7 @@ const dataBooksFreebsd = [
   {
     id: 11,
     year: 2013,
-    category: 'основы',
+    category: 'tools',
     theme: 'FreeBSD',
     title: 'FreeBSD 9. Корпоративный Интернет-сервер',
     author: 'Корниенко',

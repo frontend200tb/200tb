@@ -219,19 +219,6 @@ const dataBooksNet = [
   },
 
   {
-    id: 18,
-    year: 2003,
-    category: 'основы',
-    theme: 'Компьютерные сети',
-    title: 'Распределённые системы. Принципы и парадигмы',
-    author: 'Таненбаум',
-    authorName: 'Эндрю',
-    pages: '877',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 19,
     year: 2003,
     category: 'основы',
