@@ -143,6 +143,20 @@ const dataYtCpp = [
   {
     id: 11,
     theme: 'C++',
+    title: 'Konstantin Vladimirov',
+    author: 'Константин Владимиров',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@tilir/videos',
+    site: '',
+    dateFirstVideo: '2019.07.18',
+    dateLastVideo: '2024.12.07',
+    amountVideos: 155,
+  },
+
+  {
+    id: 11,
+    theme: 'C++',
     title: 'c.s.teacher',
     author: '',
     city: '',
@@ -267,6 +281,20 @@ const dataYtCpp = [
   },
 
   {
+    id: 19,
+    theme: 'C++',
+    title: 'Petr Alexeev',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@PetrAlexeev/videos',
+    site: '',
+    dateFirstVideo: '2009.04.19',
+    dateLastVideo: '2011.06.03',
+    amountVideos: 73,
+  },
+
+  {
     id: 20,
     theme: 'C++',
     title: 'Мультодей',
@@ -320,6 +348,20 @@ const dataYtCpp = [
     dateFirstVideo: '2021.08.25',
     dateLastVideo: '2024.07.25',
     amountVideos: 40,
+  },
+
+  {
+    id: 23,
+    theme: 'C++',
+    title: 'Computer Science клуб при НГУ',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@computerscience5628/videos',
+    site: '',
+    dateFirstVideo: '2019.09.26',
+    dateLastVideo: '2020.11.17',
+    amountVideos: 30,
   },
 
   {

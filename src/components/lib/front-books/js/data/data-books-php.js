@@ -235,6 +235,19 @@ const dataBooksPhp = [
   },
 
   {
+    id: 18,
+    year: 2006,
+    category: 'code',
+    theme: 'php',
+    title: 'Головоломки на php для хакера',
+    author: 'Кузнецов',
+    authorName: 'Максим',
+    pages: '465',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 19,
     year: 2006,
     category: 'code',
@@ -352,6 +365,19 @@ const dataBooksPhp = [
   },
 
   {
+    id: 27,
+    year: 2008,
+    category: 'code',
+    theme: 'php',
+    title: 'Сценарии для веб сайта Php и Javascript (2е)',
+    author: 'Дунаев',
+    authorName: 'Вадим',
+    pages: '572',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 28,
     year: 2008,
     category: 'code',
@@ -399,6 +425,19 @@ const dataBooksPhp = [
     author: 'Кузнецов',
     authorName: 'Максим',
     pages: '609',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
+    year: 2008,
+    category: 'code',
+    theme: 'php',
+    title: 'Головоломки на php для хакера (2е)',
+    author: 'Кузнецов',
+    authorName: 'Максим',
+    pages: '544',
     isLearned: false,
     dateLearned: '',
   },

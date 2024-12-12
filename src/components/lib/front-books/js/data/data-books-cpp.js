@@ -1154,19 +1154,6 @@ const dataBooksCpp = [
   },
 
   {
-    id: 90,
-    year: 2009,
-    category: 'code',
-    theme: 'c++',
-    title: 'Си и C++ в задачах и примерах (2е)',
-    author: 'Культин',
-    authorName: 'Никита',
-    pages: '349',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 91,
     year: 2009,
     category: 'code',

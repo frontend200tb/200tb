@@ -1,0 +1,617 @@
+<article class="article">
+  <h1>Лекция 9 (9.12.2024)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task1">Задача 1. Строки матрицы по невозрастанию сумм</a></p>
+  <p><a href="#task2">Задача 2. Перемещение 0 в конец массива</a></p>
+  <p><a href="#task3">Задача 3. Создадим квадратную матрицу и определим элементы выше, ниже и на главной диагонали</a></p>
+  <p><a href="#task4">Задача 4. Упорядочить строки матрицы по условию</a></p>
+</article>
+
+
+<!-- Задача 1. Строки матрицы по невозрастанию сумм -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Строки матрицы по невозрастанию сумм</h3>
+
+  <p>Упорядочить строки в двумерной матрице по невозрастанию сумм</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int, int);
+void FullMas(int**&, int, int);
+void PrintMas(int**&, int, int);
+void Print(int*&, int);
+void DeleteMas(int**&, int);
+void Swap(int*&, int*&);
+int SumRow(int*, int);
+int* sumMas(int**, int, int);
+void sortMas(int**&, int, int);
+
+int main()
+{
+  srand(time(0));
+  const int n = 6; // количество строк
+  const int m = 6; // количество столбцов
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n, m);
+
+  // заполнение массива
+  FullMas(nums, n, m);
+
+  // печать массива
+  PrintMas(nums, n, m);
+  std::cout &lt;&lt; std::endl;
+
+  // сортировка массива
+  sortMas(nums, n, m);
+
+  // печатаем массив
+  PrintMas(nums, n, m);
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n, int m)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[m]();
+  }
+}
+
+void FullMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n, int m)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; m; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void Print(int *&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; mas[i] &lt;&lt; " ";
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+
+void Swap(int *&a, int *&b)
+{
+  int* temp = a;
+  a = b;
+  b = temp;
+}
+
+int SumRow(int *row, int n)
+{
+  int sum = 0;
+  for (int i = 0; i &lt; n; i++)
+  {
+    sum += row[i];
+  }
+  return sum;
+}
+
+int* sumMas(int **mas, int n, int m)
+{
+  int *new_mas = new int[n];
+  for (int i = 0; i &lt; n; i++)
+  {
+    new_mas[i] = SumRow(mas[i], m);
+  }
+  return new_mas;
+}
+
+void sortMas(int **&mas, int n, int m)
+{
+  int* s = sumMas(mas, n, m);
+  Print(s, n);
+
+  for (int i = 1; i &lt; n; i++)
+  {
+    for (int j = i; j &gt; 0 && s[j-1] &gt; s[j]; j--)
+    {
+      std::swap(s[j-1], s[j]);
+      std::swap(mas[j-1], mas[j]);
+    }
+  }
+  Print(s, n);
+  std::cout &lt;&lt; std::endl;
+}
+</pre>
+</article>
+
+
+<!-- Задача 2. Перемещение 0 в конец массива -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Перемещение 0 в конец массива</h3>
+
+  <p>Дан массив оценок учеников за экзамен от 0 до 5. Все оценки равные 0 должны быть перемещены в конец массива</p>
+
+  <h4>Решение 1. Создаем новый массив с результатом</h4>
+  <p>Сложность по памяти O(N)</p>
+<pre>
+#include &lt;iostream&gt;
+
+void Print(int*, int);
+
+int main()
+{
+  // ввод длины массива
+  int n{};
+  std::cout &lt;&lt; "Input array length ";
+  std::cin &gt;&gt; n;
+
+  // ввод элементов массива
+  int *nums = new int[n]();
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; "Input element " &lt;&lt; i &lt;&lt; " ";
+    std::cin &gt;&gt; nums[i];
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // печать массива
+  Print(nums, n);
+
+  // создание массива результата
+  int* result = new int[n]();
+  for (int i = 0, j = 0; i &lt; n; i++)
+  {
+    if (nums[i] != 0)
+    {
+      result[j] = nums[i];
+      j++;
+    }
+  }
+
+  // очистка памяти
+  delete[] nums;
+  nums = result;
+
+  // печать результата
+  Print(result, n);
+  Print(nums, n);
+
+  // очистка памяти
+  delete[] nums;
+  result = nullptr;
+  nums = nullptr;
+}
+
+void Print(int *mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; mas[i] &lt;&lt; "\t";
+  }
+  std::cout &lt;&lt; std::endl;
+}
+</pre>
+
+<h4>Решение 2. Изменяем входной массив</h4>
+<p>Сложность по памяти O(1)</p>
+<pre>
+#include &lt;iostream&gt;
+
+void Print(int*, int);
+void Solution(int*, int);
+
+int main()
+{
+  // ввод длины массива
+  int n{};
+  std::cout &lt;&lt; "Input array length ";
+  std::cin &gt;&gt; n;
+
+  // ввод элементов массива
+  int *nums = new int[n]();
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; "Input element " &lt;&lt; i &lt;&lt; " ";
+    std::cin &gt;&gt; nums[i];
+    std::cout &lt;&lt; std::endl;
+  }
+
+  // печать массива
+  Print(nums, n);
+
+  // изменяем входной массив
+  Solution(nums, n);
+
+  // печать массива
+  Print(nums, n);
+
+  // очистка памяти
+  delete[] nums;
+  nums = nullptr;
+}
+
+void Print(int *mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; mas[i] &lt;&lt; "\t";
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+void Solution(int *mas, int n)
+{
+  int cntZero = 0;
+
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (mas[i] == 0)
+    {
+      cntZero++;
+    }
+    else
+    {
+      mas[i - cntZero] = mas[i];
+    }
+  }
+
+  for (int i = n - cntZero; i &lt; n; i++)
+  {
+    mas[i] = 0;
+  }
+}
+</pre>
+</article>
+
+
+<!-- Задача 3. Создадим квадратную матрицу и определим элементы выше, ниже и на главной диагонали -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Создадим квадратную матрицу и определим элементы выше, ниже и на главной диагонали</h3>
+
+  <h4>Алгоритм программы</h4>
+  <ol>
+    <li>Введем размер n квадратной матрицы nxn</li>
+    <li>Заполним матрицу случайными числами</li>
+    <li>Запишем 0 в элементы выше главной диагонали</li>
+    <li>Запишем 1 в элементы ниже главной диагонали</li>
+    <li>Запишем 2 в элементы на главной диагонали</li>
+  </ol>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int);
+void FullMas(int**&, int);
+void PrintMas(int**&, int);
+void DeleteMas(int**&, int);
+
+int main()
+{
+  srand(time(0));
+  // Введем размер n квадратной матрицы nxn
+  int n{};
+  std::cout &lt;&lt; "Input array dimention ";
+  std::cin &gt;&gt; n;
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n);
+
+  // заполнение массива
+  FullMas(nums, n);
+
+  // печать массива
+  PrintMas(nums, n);
+  std::cout &lt;&lt; std::endl;
+
+  // Запишем 0 в элементы выше главной диагонали
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = i + 1; j &lt; n; j++)
+    {
+      nums[i][j] = 0;
+    }
+  }
+
+  // Запишем 1 в элементы ниже главной диагонали
+  for (int i = 1; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; i; j++)
+    {
+      nums[i][j] = 1;
+    }
+  }
+
+  // Запишем 2 в элементы на главной диагонали
+  for (int i = 0; i &lt; n; i++)
+  {
+    nums[i][i] = 2;
+  }
+
+  // печать массива
+  PrintMas(nums, n);
+  std::cout &lt;&lt; std::endl;
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[n]();
+  }
+}
+
+void FullMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+</pre>
+</article>
+
+
+<!-- Задача 4. Упорядочить строки матрицы по условию -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Упорядочить строки матрицы по условию</h3>
+
+  <p>Дана квадратная матрица. Если сумма элементов матрицы выше главной диагонали больше суммы элементов матрицы ниже главной диагонали, упорядочить строки матрицы в порядке неубывания сумм элементов, стоящих на нечетных позициях каждой строки</p>
+
+  <h4>Алгоритм программы</h4>
+  <ol>
+    <li>Введем размер n квадратной матрицы nxn</li>
+    <li>Заполним матрицу случайными числами</li>
+    <li>Посчитаем сумму элементов выше главной диагонали</li>
+    <li>Посчитаем сумму элементов ниже главной диагонали</li>
+    <li>Если верхняя сумма больше нижней, то переходим к сортировке</li>
+    <li>Подсчитаем суммы элементов, стоящих на нечетных позициях каждой строки</li>
+    <li>Отсортируем массив в порядке неубывания этих сумм</li>
+  </ol>
+
+  <p><em>odd - нечетный</em></p>
+  <p><em>even - четный</em></p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+void CreateMas(int**&, int);
+void FullMas(int**&, int);
+void PrintMas(int**&, int);
+void Print(int*&, int);
+void DeleteMas(int**&, int);
+int Sum(int**, int, bool flag = true);
+int SumRowOdd(int*, int);
+int* sumMas(int**, int);
+void sortMas(int**&, int);
+
+int main()
+{
+  srand(time(0));
+  // Введем размер n квадратной матрицы nxn
+  int n{};
+  std::cout &lt;&lt; "Input array dimention ";
+  std::cin &gt;&gt; n;
+  int **nums;
+
+  // создание массива
+  CreateMas(nums, n);
+
+  // заполнение массива
+  FullMas(nums, n);
+
+  // печать массива
+  PrintMas(nums, n);
+  std::cout &lt;&lt; std::endl;
+
+  // посчитаем сумму элементов
+  // над и под диагональю
+  int mas_up = Sum(nums, n);
+  int mas_down = Sum(nums, n, false);
+
+  std::cout &lt;&lt; mas_up &lt;&lt; std::endl;
+  std::cout &lt;&lt; mas_down &lt;&lt; std::endl;
+
+  // Если верхняя сумма больше нижней,
+  // то сортируем массив
+  if (mas_up &gt; mas_down)
+  {
+    sortMas(nums, n);
+  }
+  else
+  {
+    std::cout &lt;&lt; "without sort" &lt;&lt; std::endl;
+  }
+
+  // печать массива
+  PrintMas(nums, n);
+  std::cout &lt;&lt; std::endl;
+
+  // очистка памяти
+  DeleteMas(nums, n);
+}
+
+void CreateMas(int **&mas, int n)
+{
+  mas = new int*[n]{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    mas[i] = new int[n]();
+  }
+}
+
+void FullMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      mas[i][j] = rand() % 10;
+    }
+  }
+}
+
+void PrintMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    for (int j = 0; j &lt; n; j++)
+    {
+      std::cout &lt;&lt; mas[i][j] &lt;&lt; "\t";
+    }
+    std::cout &lt;&lt; std::endl;
+  }
+}
+
+void Print(int *&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; mas[i] &lt;&lt; " ";
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+void DeleteMas(int **&mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    delete[] mas[i];
+  }
+  delete[] mas;
+}
+
+int Sum(int **mas, int n, bool flag)
+{
+  int sum{};
+  if (flag)
+  {
+    for (int i = 0; i &lt; n; i++)
+    {
+      for (int j = i + 1; j &lt; n; j++)
+      {
+        sum += mas[i][j];
+      }
+    }
+  }
+  else
+  {
+    for (int i = 1; i &lt; n; i++)
+    {
+      for (int j = 0; j &lt; i; j++)
+      {
+        sum += mas[i][j];
+      }
+    }
+  }
+  return sum;
+}
+
+int SumRowOdd(int *row, int n)
+{
+  int sum{};
+  for (int i = 0; i &lt; n; i++)
+  {
+    if (i % 2 == 1)
+    {
+      sum += row[i];
+    }
+  }
+  return sum;
+}
+
+int* sumMas(int **mas, int n)
+{
+  int *new_mas = new int[n];
+  for (int i = 0; i &lt; n; i++)
+  {
+    new_mas[i] = SumRowOdd(mas[i], n);
+  }
+  return new_mas;
+}
+
+void sortMas(int **&mas, int n)
+{
+  int* s = sumMas(mas, n);
+  Print(s, n);
+
+  for (int i = 1; i &lt; n; i++)
+  {
+    for (int j = i; j &gt; 0 && s[j-1] &gt; s[j]; j--)
+    {
+      std::swap(s[j-1], s[j]);
+      std::swap(mas[j-1], mas[j]);
+    }
+  }
+  Print(s, n);
+}
+</pre>
+</article>
+

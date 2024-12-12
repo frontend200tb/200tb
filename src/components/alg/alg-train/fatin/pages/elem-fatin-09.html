@@ -1,12 +1,12 @@
-<h1>Деревья на собесах</h1>
+<h1>Деревья</h1>
 
 
 <article class="article">
-  <p>Конспект видео от 2024-04-22</p>
-  <h4>Деревья на собесах: подготовка к алгоритмическому интервью (в одну большую компанию)</h4>
+  <p>Конспект</p>
+  <p>видео от 2024-04-22 <strong>Деревья на собесах: подготовка к алгоритмическому интервью (в одну большую компанию)</strong></p>
+  <p>+ видео <strong>Деревья</strong></p>
 
   <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
-  <p><a href="https://algocode.io/">https://algocode.io/</a></p>
   <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
 </article>
 
@@ -28,15 +28,15 @@
   <ol>
     <li><a href="#bintree5">Level order</a></li>
     <li><a href="#bintree6">Zigzag level order</a></li>
-    <li><a href="#bintree7">Вид справа</a></li>
-    <li><a href="#bintree8">Вид слева</a></li>
+    <li><a href="#bintree7">Right side view (вид справа)</a></li>
+    <li><a href="#bintree8">Left side view (вид слева)</a></li>
   </ol>
   <p><a href="#equal">Сравнение деревьев</a></p>
   <ol>
-    <li><a href="#bintree9">Симметричное дерево</a></li>
-    <li><a href="#bintree10">Идентичные деревья</a></li>
+    <li><a href="#bintree9">Symmetric tree (симметричное дерево)</a></li>
+    <li><a href="#bintree10">Same tree (идентичные деревья)</a></li>
   </ol>
-  </ol>
+  <p><a href="#bintree11">Path sum (сумма от корня до листа)</a></p>
   <p><a href="#sobes2">Что еще нужно для собеседования</a></p>
   <p><a href="#quest">Вопросы из зала</a></p>
 </article>
@@ -60,7 +60,19 @@
     <li>Бамбук. Это крайний случай, когда у каждого узла (кроме корня) есть только один родитель и у каждого узла (кроме листа) есть только один ребенок. Дерево вырождается в прямую линию</li>
     <li>Сбалансированное дерево. Высоба левого и правого поддерева различаются не больше, чем на 1. Высота O(logN), где N - числов вершин</li>
     <li>Несбалансированное дерево. Поддеревья имеют разницу высот больше 1</li>
+    <li>Корневое дерево - это дерево, у которого по условию задачи, дан корень</li>
   </ol>
+  <h4>Пример</h4>
+<pre>
+          1
+      /       \
+    2           5
+  /   \       /   \
+3       4   6       7
+</pre>
+  <p>Узел 2. Узел 1 это родитель узла 2. Узлы 4 и 5 это дети узла 2</p>
+  <p>Узел 1 это корень, у него нет родителя</p>
+  <p>Узлы 4 и 5 это листья, у них нет детей</p>
 </article>
 
 
@@ -98,6 +110,17 @@ class TreeNode {
     this.val = val;
     this.left = left;
     this.right = right;
+  }
+}
+</pre>
+
+  <h4>Код структуры (python)</h4>
+<pre>
+class TreeNode:
+  def __init__(self, val = 0, left = None, right = None):
+    self.val = val
+    self.left = left
+    self.right = right
   }
 }
 </pre>
@@ -144,6 +167,8 @@ type TreeNode struct {
 <article class="article">
   <div class="anchor" id="traver"></div>
   <h3>Базовые обходы</h3>
+
+  <p>Во всех задачах, все обходы деревьев - это про то, как мы будем выводить информацию из нашего дерева</p>
 </article>
 
 
@@ -152,20 +177,22 @@ type TreeNode struct {
   <div class="anchor" id="bintree1"></div>
   <h3>1. Preorder</h3>
 
+  <h4>Leetcode 144. Binary Tree Preorder Traversal</h4>
+
   <p>Дан корень бинарного дерева и требуется вернуть массив значений узлов в preorder порядке</p>
 
   <p>Пример</p>
 <pre>
                1
-        /             \
+         /           \
        2               5
-    /     \         /     \
+     /   \           /   \
    3       4       6       7
- /   \   /   \   /   \   /   \
+  / \     / \     / \     / \
 nil nil nil nil nil nil nil nil
 </pre>
   <code>[1, 2, 3, 4, 5, 6, 7]</code>
-  <p>Эта задача решается рекурсивно. Вначале приходит корень дерева. Добавляем его в массив с ответом [1]. Идем в левое поддерево. Добавляем значение левого ребенка в массив [1, 2]. Идем в левое поддерево. Добавляем значение левого ребенка в массив [1, 2, 3]. Дальше детей нет.</p>
+  <p>Эта задача решается рекурсивно. Вначале приходит корень дерева. Preorder означает, что перед тем как мы из вершины пойдем влево или вправо, мы должны добавить эту вершину в ответ. Добавляем корень в массив с ответом [1]. Идем в левое поддерево. Добавляем значение левого ребенка в массив [1, 2]. Идем в левое поддерево. Добавляем значение левого ребенка в массив [1, 2, 3]. Дальше детей нет.</p>
   <p>Возвращаемся к родителю и идем в правое поддерево. Добавляем значение правого ребенка в массив [1, 2, 3, 4]. Дальше детей нет.</p>
   <p>Возвращаемся к ближайшему родителю у которого есть ребенок. Это корень. Идем в правое поддерево. Добавляем значение правого ребенка в массив [1, 2, 3, 4, 5]. Идем в левое поддерево. Добавляем значение [1, 2, 3, 4, 5,6]. Дальше детей нет.</p>
   <p>Возвращаемся к родителю и идем в правое поддерево. Добавляем значение правого ребенка в массив [1, 2, 3, 4, 5, 6, 7]. Возвращаемся к корню. Все вершины добавлены в массив.</p>
@@ -223,6 +250,24 @@ function preorder(node, result) {
   </details>
 
   <details>
+    <summary>Preorder Traversal (python)</summary>
+<pre>
+class Solution:
+  def traverse(self, node: Optional[TreeNode], result: List[int]):
+    if node is None:
+      return
+    result.append(node.val)
+    self.traverse(node.left, result)
+    self.traverse(node.right, result)
+
+  def preorderTraverse(self, root: Optional[TreeNode]) -> List[int]:
+    result = []
+    self.traverse(root, result)
+    return result
+</pre>
+  </details>
+
+  <details>
     <summary>Preorder Traversal (go)</summary>
 <pre>
 func traversal(root *TreeNode) []int {
@@ -269,16 +314,18 @@ func preorder(node *TreeNode, result *[]int) {
   <div class="anchor" id="bintree2"></div>
   <h3>2. Inorder</h3>
 
+  <h4>Leetcode 94. Binary Tree Inorder Traversal</h4>
+
   <p>Дан корень бинарного дерева и требуется вернуть массив значений узлов в inorder порядке</p>
 
   <p>Пример</p>
 <pre>
                4
-        /             \
+         /           \
        2               6
-    /     \         /     \
+     /   \           /   \
    1       3       5       7
- /   \   /   \   /   \   /   \
+  / \     / \     / \     / \
 nil nil nil nil nil nil nil nil
 </pre>
 <code>[1, 2, 3, 4, 5, 6, 7]</code>
@@ -341,6 +388,24 @@ function inorder(node, result) {
   </details>
 
   <details>
+    <summary>Inorder Traversal (python)</summary>
+<pre>
+class Solution:
+  def traverse(self, node: Optional[TreeNode], result: List[int]):
+    if node is None:
+      return
+    self.traverse(node.left, result)
+    result.append(node.val)
+    self.traverse(node.right, result)
+
+  def inorderTraverse(self, root: Optional[TreeNode]) -> List[int]:
+    result = []
+    self.traverse(root, result)
+    return result
+</pre>
+  </details>
+
+  <details>
     <summary>Inorder Traversal (go)</summary>
 <pre>
   func traversal(root *TreeNode) []int {
@@ -377,16 +442,18 @@ function inorder(node, result) {
   <div class="anchor" id="bintree3"></div>
   <h3>3. Postorder</h3>
 
+  <h4>Leetcode 145. Binary Tree Postorder Traversal</h4>
+
   <p>Дан корень бинарного дерева и требуется вернуть массив значений узлов в postorder порядке</p>
 
   <p>Пример</p>
 <pre>
-              7
-       /             \
-      3               6
-   /     \         /     \
-  1       2       4       5
- /   \   /   \   /   \   /   \
+               7
+         /           \
+       3               6
+     /   \           /   \
+   1       2       4       5
+  / \     / \     / \     / \
 nil nil nil nil nil nil nil nil
 </pre>
   <code>[1, 2, 3, 4, 5, 6, 7]</code>
@@ -442,6 +509,24 @@ function postorder(node, result) {
   postorder(node.right, result);
   result.push(node.val);
 }
+</pre>
+  </details>
+
+  <details>
+    <summary>Postorder Traversal (python)</summary>
+<pre>
+class Solution:
+  def traverse(self, node: Optional[TreeNode], result: List[int]):
+    if node is None:
+      return
+    self.traverse(node.left, result)
+    self.traverse(node.right, result)
+    result.append(node.val)
+
+  def postorderTraverse(self, root: Optional[TreeNode]) -> List[int]:
+    result = []
+    self.traverse(root, result)
+    return result
 </pre>
   </details>
 
@@ -502,26 +587,28 @@ function postorder(node, result) {
   <div class="anchor" id="bintree5"></div>
   <h3>Level order</h3>
 
+  <h4>Leetcode 102. Binary Tree Level Order Traversal</h4>
+
   <p>Дан корень бинарного дерева. Нужно обойти дерево слева направо и сверху вниз и вернуть массив вершин каждого уровня</p>
 
   <p>Пример</p>
 <pre>
-               3
-       /              \
-     9                 4
-   /   \           /       \
- nil    2         1         8
-      /   \     /   \     /   \
-     5    nil nil   nil nil   nil
-    / \
-  nil nil
+           3
+     /          \
+   9              4
+  / \           /   \
+nil   2       1       8
+     / \     / \     / \
+   5   nil nil nil nil nil
+  / \
+nil nil
 </pre>
   <code>[[3], [9, 4], [2, 1, 8], [5]]</code>
   <p>Пусть верхний уровень будет нулевой, на нем вершина 3. Потом первый уровень с вершинами 9,4. Потом второй уровень с вершинами 2,1,8. Потом третий уровень с вершиной 5. На каждом уровне идем слева направо и записываем вершины в массив.</p>
 
   <details>
     <summary>Алгоритм</summary>
-    <p>Идея решения. Возьмем preorder обход. Дополнительно будем передавать текущи уровень в нашу рекурсивную функцию. Для ответа заведем двумерный массив. Индексами первого массива будут уровни, а значением для каждогшо индекса первого массива будет массив с вершинами этого уровня.</p>
+    <p>Идея решения. Возьмем preorder обход. Дополнительно будем передавать текущий уровень в нашу рекурсивную функцию. Для ответа заведем двумерный массив. Индексами первого массива будут уровни, а значением для каждогшо индекса первого массива будет массив с вершинами этого уровня.</p>
     <p>Пройдем алгоритм по шагам.</p>
     <ol>
       <li>В первом шаге мы берем корень. В функцию передаем уровень 0 и вершину 3. Функция добавит вершину 3 в массив по индексу 0.</li>
@@ -557,6 +644,26 @@ function preorder(node, level, result) {
   preorder(node.left, level + 1, result)
   preorder(node.right, level + 1, result)
 }
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def preOrder(self, node: TreeNode, level: int, result: List[List[int]]):
+    if node is None:
+      return
+    if level == len(result):
+      result.append([])
+    result[level].append(node.val)
+    self.preOrder(node.left, level + 1, result)
+    self.preOrder(node.right, level + 1, result)
+
+  def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    result = []
+    self.preOrder(root, 0, result)
+    return result
 </pre>
   </details>
 
@@ -601,15 +708,15 @@ func preorder(node *TreeNode, level int, result *[][]int) {
 
   <p>Пример</p>
 <pre>
-               3
-       /              \
-     9                 4
-   /   \           /       \
- nil    2         1         8
-      /   \     /   \     /   \
-     5    nil nil   nil nil   nil
-    / \
-  nil nil
+           3
+     /          \
+   9              4
+  / \           /   \
+nil   2       1       8
+     / \     / \     / \
+   5   nil nil nil nil nil
+  / \
+nil nil
 </pre>
   <code>[[3], [4, 9], [2, 1, 8], [5]]</code>
 
@@ -650,28 +757,32 @@ function preorder(node, level, result) {
 </article>
 
 
-<!-- Вид справа -->
+<!-- Right side view (вид справа) -->
 <article class="article">
   <div class="anchor" id="bintree7"></div>
-  <h3>Вид справа</h3>
+  <h3>Right side view (вид справа)</h3>
+
+  <h4>Leetcode 199. Binary Tree Right Side View</h4>
 
   <p>Дан корень бинарного дерева. Нужно вернуть массив самых правых вершин дерева на каждом уровне.</p>
 
   <p>Пример</p>
 <pre>
-             3
-      /              \
-    9                 4
-  /   \           /       \
-nil    2         1         8
-     /   \     /   \     /   \
-    5    nil nil   nil nil   nil
-  /   \
-nil   nil
+          3
+     /         \
+   9             4
+  / \          /   \
+nil  2       1       8
+    / \     / \     / \
+   5  nil nil nil nil nil
+  / \
+nil nil
 </pre>
   <code>[3, 4, 8, 5]</code>
 
   <p>Идея решения. Запустить Level order. Но вместо того чтобы в каждом индексе хранить массив, мы будем хранить последний элемент.</p>
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
 
   <details>
     <summary>Код (javascript)</summary>
@@ -695,13 +806,33 @@ function preorder(node, level, result) {
 }
 </pre>
   </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def preOrder(self, node: TreeNode, level: int, result: List[int]):
+    if node is None:
+      return
+    if level == len(result):
+      result.append(0)
+    result[level] = node.val
+    self.preOrder(node.left, level + 1, result)
+    self.preOrder(node.right, level + 1, result)
+
+  def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    result = []
+    self.preOrder(root, 0, result)
+    return result
+</pre>
+  </details>
 </article>
 
 
-<!-- Вид слева -->
+<!-- Left side view (вид слева) -->
 <article class="article">
   <div class="anchor" id="bintree8"></div>
-  <h3>Вид слева</h3>
+  <h3>Left side view (вид слева)</h3>
 
   <p>Дан корень бинарного дерева. Нужно вернуть массив самых левых вершин дерева на каждом уровне.</p>
 
@@ -756,14 +887,16 @@ function preorder(node, level, result) {
 </article>
 
 
-<!-- Симметричное дерево -->
+<!-- Symmetric tree (симметричное дерево) -->
 <article class="article">
   <div class="anchor" id="bintree9"></div>
-  <h3>Симметричное дерево</h3>
+  <h3>Symmetric tree (симметричное дерево)</h3>
+
+  <h4>Leetcode 101. Symmetric Tree</h4>
 
   <p>Дан корень бинарного дерева. Нужно вернуть true, если дерево симметрично, и false, если несимметрично</p>
 
-  <p>Пример</p>
+  <h4>Пример 1</h4>
 <pre>
                     5
          /                     \
@@ -777,6 +910,19 @@ nil nil  5       1       1     5  nil   nil
 </pre>
   <code>true</code>
 
+  <h4>Пример 2</h4>
+<pre>
+  1
+ / \
+2   2
+ \   \
+  3   3
+</pre>
+  <code>false</code>
+
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
   <details>
     <summary>Алгоритм</summary>
     <h4>Алгоритм функции isSymmetric()</h4>
@@ -789,13 +935,10 @@ nil nil  5       1       1     5  nil   nil
       <li>Проверяем условие, если вершины не одинаковые то все дерево несимметрично.</li>
       <li>Рекурсивно вызываем два раза функцию isSymmetricSubtree(). Первый раз передаем из левой вершины левого ребенка, из правой правого. Второй раз передаем из левой вершины правого ребенка, из правой левого.</li>
     </ol>
-
-    <p>Сложность по времени O(N)</p>
-    <p>Сложность по памяти O(N)</p>
   </details>
 
   <details>
-    <summary>Решение (javascript)</summary>
+    <summary>Код на javascript</summary>
 <pre>
 function isSymmetric(root) {
   return isSymmetricSubtree(root.left, root.right);
@@ -817,7 +960,25 @@ function isSymmetricSubtree(leftNode, rightNode) {
   </details>
 
   <details>
-    <summary>Решение (go)</summary>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isSymmetricSubtree(self, l, r):
+    if l is None or r is None:
+      return l is None and r is None
+    if l.val != r.val:
+      return False
+    return self.isSymmetricSubtree(l.left, r.right) and self.isSymmetricSubtree(l.right, r.left)
+
+  def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+    if root is None:
+      return True
+    return self.isSymmetricSubtree(root.left, root.right)
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
 <pre>
 func isSymmetric(root *TreeNode) bool {
   return isSymmetricSubtree(root.Left, rootRight)
@@ -837,53 +998,45 @@ func isSymmetricSubtree(leftNode *TreeNode, rightNode *TreeNode) bool {
 }
 </pre>
   </details>
-
 </article>
 
 
-<!-- Идентичные деревья -->
+<!-- Same tree (идентичные деревья) -->
 <article class="article">
   <div class="anchor" id="bintree10"></div>
-  <h3>Идентичные деревья</h3>
+  <h3>Same tree (идентичные деревья)</h3>
 
-  <p>Даны корни двух бинарных деревьев. Нужно вернуть true, если деревья одинаковые, и false в противном случае</p>
+  <h4>Leetcode 100. Same Tree</h4>
+
+  <p>Даны корни двух бинарных деревьев p и q. Нужно вернуть true, если деревья одинаковые, и false в противном случае</p>
 
   <p>Пример</p>
 <pre>
        1                1
-    /     \          /     \
+     /   \            /   \
    2       3        2       3
   / \     / \      / \     / \
 nil nil nil nil  nil nil nil nil
 </pre>
   <code>true</code>
 
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
   <details>
     <summary>Алгоритм</summary>
     <h4>Алгоритм функции isSame()</h4>
-    <ol>
-      <li>Вызываем два раза функцию isSameSubtree(). Первый раз передаем из первой вершины левую вершину и из второй вершины левую вершину. Второй раз передаем из первой вершины правую вершину и из второй вершины правую вершину</li>
-    </ol>
-    <h4>Алгоритм функции isSameSubtree()</h4>
     <ol>
       <li>Проверяем условие, если одна вершина null а другая нет то все дерево неидентично.</li>
       <li>Проверяем условие, если вершины не одинаковые то все дерево неидентично.</li>
       <li>Рекурсивно вызываем два раза функцию isSameSubtree(). Первый раз передаем из первой вершины левую вершину и из второй вершины левую вершину. Второй раз передаем из первой вершины правую вершину и из второй вершины правую вершину</li>
     </ol>
-
-    <p>Сложность по времени O(N)</p>
-    <p>Сложность по памяти O(N)</p>
   </details>
 
   <details>
-    <summary>Решение (javascript)</summary>
+    <summary>Код на javascript</summary>
 <pre>
 function isSame(p, q) {
-  return isSameSubtree(p.left, q.left) &&
-         isSameSubtree(p.right, q.right);
-}
-
-function isSameSubtree(p, q) {
   if (p == null || q == null) {
     return p == null && q == null;
   }
@@ -892,21 +1045,29 @@ function isSameSubtree(p, q) {
     return false;
   }
 
-  return isSameSubtree(p.left, q.left) &&
-         isSameSubtree(p.right, q.right);
+  return isSame(p.left, q.left) &&
+         isSame(p.right, q.right);
 }
 </pre>
   </details>
 
   <details>
-    <summary>Решение (go)</summary>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isSame(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+    if p is None or q is None:
+      return p is None and q is None
+    if p.val != q.val:
+      return False
+    return self.isSame(p.left, q.left) and self.isSame(p.right, q.right)
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
 <pre>
 func isSame(p *TreeNode, q *TreeNode) bool {
-  return isSameSubtree(p.left, q.left) &&
-         isSameSubTree(p.right, q.right)
-}
-
-func isSameSubtree(p *TreeNode, q *TreeNode) bool {
   if (p == nil || q == nil) {
     return p == nil && q == nil
   }
@@ -915,9 +1076,61 @@ func isSameSubtree(p *TreeNode, q *TreeNode) bool {
     return false
   }
 
-  return isSameSubtree(p.Left, q.Left) &&
-         isSameSubtree(p.Right, q.Right)
+  return isSame(p.Left, q.Left) &&
+         isSame(p.Right, q.Right)
 }
+</pre>
+  </details>
+</article>
+
+
+<!-- Path sum (сумма от корня до листа) -->
+<article class="article">
+  <div class="anchor" id="bintree11"></div>
+  <h3>Path sum (сумма от корня до листа)</h3>
+
+  <h4>Leetcode 112. Path Sum</h4>
+
+  <p>Дан корень root бинарного дерева и целое число targetSum. Проверить каждый путь от корня до листа и вернуть true если сумма значений узлов любого пути равна targetSum</p>
+
+  <h4>Пример</h4>
+<pre>
+        5
+      /   \
+     4     8
+    /     / \
+  11    13   4
+ /  \         \
+7    2         1
+</pre>
+  <code>targetSum = 22</code>
+  <code>true // 5+4+11+2 = 22</code>
+
+  <h4>Паттерн префиксных сумм</h4>
+  <p>Всего количество сумм от корня до листа будет равно количеству листьев. Спускаясь из корня к листу, будем накапливать сумму значений всех пройденных вершин. Сравниваем накопленную сумму с targetSum. Если они равны то возвращаем ture. Если нет, то поднимаемся из листа наверх в родителя. Вычитаем из накопленной суммы значение листа. Пробуем зайти в другого ребенка</p>
+
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isLeaf(self, node:TreeNode) -> bool:
+    return node.left is None and node.right is None
+
+  def hasSum(self, node:TreeNode, curSum: int, targetSum: int) -> bool:
+    if node is None:
+      return False
+    if self.isLeaf(node) and node.val + currSum == targetSum:
+      return True
+    isLeftSum = self.hasSum(node.left, currSum + node.val, targetSum)
+    isRightSum = self.hasSum(node.right, currSum + node.val, targetSum)
+
+    return isLeftSum or isRightSum
+
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+      return self.hasSum(root, 0, targetSum)
 </pre>
   </details>
 </article>
@@ -929,11 +1142,29 @@ func isSameSubtree(p *TreeNode, q *TreeNode) bool {
   <h3>Что еще нужно для собеседования</h3>
 
   <h4>Поиск суммы в бинарном дереве</h4>
-  <p>112. Path Sum</p>
   <p>437. Path Sum III</p>
 
-  <h4>Бинарное дерево поиска (BST)</h4>
-  <p>98. Validate Binary Search Tree</p>
+  <h4>Сколько было человек на 1 курсе по алгосам. Сколько из них устроились и в какие компании (август 2023)</h4>
+  <p>На 1 курсе было 25 человек. Из них 3 преподавателя пришли послушать как я рассказываю про алгосы. 5 человек на момент окончания уже были трудоустроены - 2 в Авито, 1 в Озон, 1 в Касперский, 1 в Яндекс.</p>
+  <p>Курс шел 8 недель. Ко мне пришел один человек и сказал - я хочу в Авито. Через 4 недели он бросил курс потому что устроился в Авито. Я его спрашиваю - ты курс доходить не хочешь? Он отвечает - нет, Макс, я потом приду когда в Яндекс захочу.</p>
+
+  <h4>Как долго ты тренировался решать задачи чтобы успешно проходить собесы</h4>
+  <p>Я занимался олимпиадным программированием. Поэтому единственный раз когда я завалил собес это был Яндекс. Меня спросили про деревья. Я просто не знал что есть деревья. Кодил олимпиадные задачи, но с деревьями никогда не работал. Потом выучил задачи и больше ни одного собеса не проваливал вообще. Суммарно я прошел собесов 20-30.</p>
+
+  <h4>Как торговаться за зарплату</h4>
+  <p>Никогда не говорим зарплату до прохождения собеса. Вилка в компании может быть достаточно широкая и по результатам собеса тебя даже могут взять на более высокий грейд. Могут предложить зарплату больше, чем вы сами можете попросить.</p>
+  <p>На вопрос: какую вы хотите зарплату? Нужно отвечать: мне очень важно как компания умеет оценивать меня.</p>
+  <p>Если после этого второй раз спросили про зарплату. Можно сказать: я сейчас не готов говорить о зарплате, хочу сначала пройти все секции собеседования.</p>
+  <p>Когда третий раз спросят про зарплату. Можно ответить шуткой: а почему это для вас так важно? Разве у компании не хватает денег на зарплаты сотрудникам?</p>
+  <p>Когда четвертый раз спросят про зарплату. Надо отвечать: на данный момент я не готов общаться на эту тему. Вы меня ставите в очень некомфортное положение. Мне неприятно это обсуждать сейчас.</p>
+  <p>Если после всего этого продолжают спрашивать про зарплату, я просто перестану проходить собес. Это моя система ценностей. Я не пойду в компанию, которая уже на этапе собеседования докапывается. Можно уже догадываться что у них там с процессами.</p>
+  <p>Когда вы уже прошли все технические собесы и к вам возвращается HR с этим вопросом. То есть две стратегии - назвать и не назвать.</p>
+
+  <h4>Потолок вилки на зарплату</h4>
+  <p>Вы приходите на собес. Вас спрашивают какую хотите зарплату. Вы отвечаете что важна компания а не зарплата. Вам говорят, что у нас есть потолок вилки. Спросите их: а какая вилка. Всегда отвечают, что не могут сказать вилку.</p>
+
+  <h4>Секция System Design</h4>
+  <p>Однажды на собесе в ВК меня попросили спроектировать базу данных. Начиная с файловой системы и масштабируя все это дело. Во всех остальных - Авито, Озон, Сбер девайсес, меня спросили интритор Я подумал что это очень просто.</p>
 </article>
 
 

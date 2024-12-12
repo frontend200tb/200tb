@@ -105,6 +105,19 @@ const dataBooksSql = [
 
   {
     id: 9,
+    year: 2002,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'PostgreSQL. Основы',
+    author: 'Стоунз',
+    authorName: 'Ричард',
+    pages: '639',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
     year: 2003,
     category: 'tools',
     theme: 'SQL',
@@ -116,19 +129,33 @@ const dataBooksSql = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2003,
     category: 'tools',
     theme: 'SQL',
     title: 'PostgreSQL Для профессионалов',
     author: 'Уорсли',
+    authorName: 'Джон',
     pages: '498',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 10,
+    id: 12,
+    year: 2004,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Методы и модели анализа данных',
+    author: 'Барсегян',
+    authorName: 'А.А.',
+    pages: '337',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
     year: 2004,
     category: 'tools',
     theme: 'SQL',
@@ -141,7 +168,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 11,
+    id: 14,
     year: 2004,
     category: 'tools',
     theme: 'SQL',
@@ -154,7 +181,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 11,
+    id: 15,
     year: 2004,
     category: 'tools',
     theme: 'SQL',
@@ -167,7 +194,20 @@ const dataBooksSql = [
   },
 
   {
-    id: 12,
+    id: 16,
+    year: 2005,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Реляционные базы данных. Практические приемы оптимальных решений',
+    author: 'Мирошниченко',
+    authorName: 'Галина',
+    pages: '400',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 17,
     year: 2005,
     category: 'tools',
     theme: 'SQL',
@@ -180,7 +220,85 @@ const dataBooksSql = [
   },
 
   {
-    id: 13,
+    id: 18,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Базы данных. Язык SQL',
+    author: 'Дунаев',
+    authorName: 'Вадим',
+    pages: '280',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'MySQL 5',
+    author: 'Кузнецов',
+    authorName: 'Максим',
+    pages: '1008',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Самоучитель MySQL 5',
+    author: 'Кузнецов',
+    authorName: 'Максим',
+    pages: '560',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 21,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'MS SQL Server 2005 для администраторов',
+    author: 'Михеев',
+    authorName: 'Ростислав',
+    pages: '522',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Уроки MySQL. Самоучитель',
+    author: 'Мотев',
+    authorName: 'Анатолий',
+    pages: '209',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 23,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Настройка приложений баз данных',
+    author: 'Новиков',
+    authorName: 'Б.А.',
+    pages: '236',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 24,
     year: 2006,
     category: 'tools',
     theme: 'SQL',
@@ -193,7 +311,20 @@ const dataBooksSql = [
   },
 
   {
-    id: 14,
+    id: 25,
+    year: 2006,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Базы данных. Разработка приложений',
+    author: 'Рудикова',
+    authorName: 'Л.В.',
+    pages: '492',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 26,
     year: 2007,
     category: 'tools',
     theme: 'SQL',
@@ -206,7 +337,59 @@ const dataBooksSql = [
   },
 
   {
-    id: 15,
+    id: 27,
+    year: 2007,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Базы данных. Язык SQL для студента (2е)',
+    author: 'Дунаев',
+    authorName: 'Вадим',
+    pages: '302',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 28,
+    year: 2007,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'MySQL. Сборник рецептов',
+    author: 'Дюбуа',
+    authorName: 'Поль',
+    pages: '1058',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 29,
+    year: 2007,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'MySQL на примерах',
+    author: 'Кузнецов',
+    authorName: 'Максим',
+    pages: '592',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
+    year: 2007,
+    category: 'tools',
+    theme: 'SQL',
+    title: 'Рефакторинг баз данных. Эволюционное проектирование',
+    author: 'Скотт',
+    authorName: 'Эмблер',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2009,
     category: 'tools',
     theme: 'SQL',
@@ -219,7 +402,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 15,
+    id: 32,
     year: 2009,
     category: 'tools',
     theme: 'SQL',
@@ -232,7 +415,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 16,
+    id: 33,
     year: 2009,
     category: 'tools',
     theme: 'SQL',
@@ -245,7 +428,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 17,
+    id: 34,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -258,7 +441,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 18,
+    id: 35,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -270,7 +453,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 19,
+    id: 36,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -282,7 +465,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 20,
+    id: 37,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -295,7 +478,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 21,
+    id: 38,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -308,7 +491,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 22,
+    id: 39,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -321,7 +504,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 23,
+    id: 40,
     year: 2010,
     category: 'tools',
     theme: 'SQL',
@@ -334,7 +517,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 24,
+    id: 41,
     year: 2012,
     category: 'tools',
     theme: 'SQL',
@@ -347,7 +530,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 25,
+    id: 42,
     year: 2012,
     category: 'tools',
     theme: 'SQL',
@@ -359,7 +542,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 26,
+    id: 43,
     year: 2013,
     category: 'tools',
     theme: 'SQL',
@@ -372,7 +555,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 27,
+    id: 44,
     year: 2013,
     category: 'tools',
     theme: 'SQL',
@@ -385,7 +568,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 28,
+    id: 45,
     year: 2014,
     category: 'tools',
     theme: 'SQL',
@@ -398,7 +581,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 29,
+    id: 46,
     year: 2014,
     category: 'tools',
     theme: 'SQL',
@@ -410,7 +593,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 30,
+    id: 47,
     year: 2014,
     category: 'tools',
     theme: 'SQL',
@@ -423,7 +606,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 31,
+    id: 48,
     year: 2015,
     category: 'tools',
     theme: 'SQL',
@@ -436,7 +619,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 32,
+    id: 49,
     year: 2015,
     category: 'tools',
     theme: 'SQL',
@@ -449,7 +632,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 33,
+    id: 50,
     year: 2017,
     category: 'tools',
     theme: 'SQL',
@@ -461,7 +644,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 34,
+    id: 51,
     year: 2017,
     category: 'tools',
     theme: 'SQL',
@@ -474,7 +657,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 35,
+    id: 52,
     year: 2018,
     category: 'tools',
     theme: 'SQL',
@@ -487,7 +670,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 36,
+    id: 53,
     year: 2018,
     category: 'tools',
     theme: 'SQL',
@@ -500,7 +683,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 37,
+    id: 54,
     year: 2019,
     category: 'tools',
     theme: 'SQL',
@@ -513,7 +696,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 38,
+    id: 55,
     year: 2019,
     category: 'tools',
     theme: 'SQL',
@@ -526,7 +709,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 39,
+    id: 56,
     year: 2019,
     category: 'tools',
     theme: 'SQL',
@@ -539,7 +722,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 40,
+    id: 57,
     year: 2020,
     category: 'tools',
     theme: 'SQL',
@@ -552,7 +735,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 41,
+    id: 58,
     year: 2021,
     category: 'tools',
     theme: 'SQL',
@@ -565,7 +748,7 @@ const dataBooksSql = [
   },
 
   {
-    id: 42,
+    id: 59,
     year: 2024,
     category: 'tools',
     theme: 'SQL',

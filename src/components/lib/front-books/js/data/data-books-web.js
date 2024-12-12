@@ -2,6 +2,71 @@ const dataBooksWeb = [
 
   {
     id: 1,
+    year: 2000,
+    category: 'theme',
+    theme: 'web',
+    title: '2000  - Веб сайт своими руками',
+    author: 'Шапошников',
+    authorName: 'И.В.',
+    pages: '224',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2003,
+    category: 'theme',
+    theme: 'web',
+    title: 'Основы программирования для интернета',
+    author: 'Будилов',
+    authorName: 'Вадим',
+    pages: '733',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2003,
+    category: 'theme',
+    theme: 'web',
+    title: 'Веб конструирование DHTML',
+    author: 'Дуванов',
+    authorName: 'Александр',
+    pages: '512',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2005,
+    category: 'theme',
+    theme: 'web',
+    title: 'Техника веб дизайна для студента',
+    author: 'Едомский',
+    authorName: 'Юрий',
+    pages: '391',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2006,
+    category: 'theme',
+    theme: 'web',
+    title: 'Веб конструирование. Элективный курс',
+    author: 'Дуванов',
+    authorName: 'Александр',
+    pages: '425',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
     year: 2007,
     category: 'theme',
     theme: 'web',
@@ -14,7 +79,33 @@ const dataBooksWeb = [
   },
 
   {
-    id: 2,
+    id: 7,
+    year: 2008,
+    category: 'theme',
+    theme: 'web',
+    title: 'Веб программирование для всех',
+    author: 'Дунаев',
+    authorName: 'Вадим',
+    pages: '561',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2009,
+    category: 'theme',
+    theme: 'web',
+    title: 'Веб дизайн',
+    author: 'Нильсен',
+    authorName: 'Якоб',
+    pages: '376',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2010,
     category: 'theme',
     theme: 'web',
@@ -27,7 +118,20 @@ const dataBooksWeb = [
   },
 
   {
-    id: 3,
+    id: 10,
+    year: 2010,
+    category: 'theme',
+    theme: 'web',
+    title: 'Выбираем лучший бесплатный движок для сайта',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '288',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
     year: 2010,
     category: 'theme',
     theme: 'web',
@@ -40,7 +144,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 4,
+    id: 12,
     year: 2010,
     category: 'theme',
     theme: 'web',
@@ -53,7 +157,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 5,
+    id: 13,
     year: 2011,
     category: 'theme',
     theme: 'web',
@@ -66,7 +170,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 6,
+    id: 14,
     year: 2012,
     category: 'theme',
     theme: 'web',
@@ -79,7 +183,20 @@ const dataBooksWeb = [
   },
 
   {
-    id: 7,
+    id: 15,
+    year: 2012,
+    category: 'theme',
+    theme: 'web',
+    title: 'Основы веб дизайна. Самоучитель (2е)',
+    author: 'Дунаев',
+    authorName: 'Вадим',
+    pages: '479',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
     year: 2012,
     category: 'theme',
     theme: 'web',
@@ -92,7 +209,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 8,
+    id: 17,
     year: 2012,
     category: 'theme',
     theme: 'web',
@@ -105,7 +222,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 9,
+    id: 18,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -118,7 +235,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 10,
+    id: 19,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -131,7 +248,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 11,
+    id: 20,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -144,7 +261,20 @@ const dataBooksWeb = [
   },
 
   {
-    id: 12,
+    id: 21,
+    year: 2013,
+    category: 'theme',
+    theme: 'web',
+    title: 'Создание веб сайта. Недостающее руководство (3е)',
+    author: 'Макдональд',
+    authorName: 'Мэтью',
+    pages: '625',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -157,7 +287,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 13,
+    id: 23,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -170,7 +300,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 14,
+    id: 24,
     year: 2013,
     category: 'theme',
     theme: 'web',
@@ -182,7 +312,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 15,
+    id: 25,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -195,7 +325,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 16,
+    id: 26,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -208,7 +338,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 17,
+    id: 27,
     year: 2014,
     category: 'theme',
     theme: 'web',
@@ -221,7 +351,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 18,
+    id: 28,
     year: 2015,
     category: 'theme',
     theme: 'web',
@@ -234,7 +364,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 19,
+    id: 29,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -247,7 +377,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 20,
+    id: 30,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -259,7 +389,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 21,
+    id: 31,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -271,7 +401,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 22,
+    id: 32,
     year: 2016,
     category: 'theme',
     theme: 'web',
@@ -283,7 +413,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 23,
+    id: 33,
     year: 2017,
     category: 'theme',
     theme: 'web',
@@ -296,7 +426,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 24,
+    id: 34,
     year: 2017,
     category: 'theme',
     theme: 'web',
@@ -308,7 +438,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 25,
+    id: 35,
     year: 2018,
     category: 'theme',
     theme: 'web',
@@ -320,7 +450,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 26,
+    id: 36,
     year: 2019,
     category: 'theme',
     theme: 'web',
@@ -333,7 +463,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 27,
+    id: 37,
     year: 2019,
     category: 'theme',
     theme: 'web',
@@ -346,7 +476,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 28,
+    id: 38,
     year: 2020,
     category: 'theme',
     theme: 'web',
@@ -359,7 +489,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 29,
+    id: 39,
     year: 2020,
     category: 'theme',
     theme: 'web',
@@ -371,7 +501,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 30,
+    id: 40,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -384,7 +514,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 31,
+    id: 41,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -397,7 +527,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 32,
+    id: 42,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -410,7 +540,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 33,
+    id: 43,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -423,7 +553,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 34,
+    id: 44,
     year: 2021,
     category: 'theme',
     theme: 'web',
@@ -436,7 +566,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 35,
+    id: 45,
     year: 2022,
     category: 'theme',
     theme: 'web',
@@ -449,7 +579,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 36,
+    id: 46,
     year: 2022,
     category: 'theme',
     theme: 'web',
@@ -462,7 +592,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 37,
+    id: 47,
     year: 2023,
     category: 'theme',
     theme: 'web',
@@ -475,7 +605,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 38,
+    id: 48,
     year: 2023,
     category: 'theme',
     theme: 'web',
@@ -488,7 +618,7 @@ const dataBooksWeb = [
   },
 
   {
-    id: 39,
+    id: 49,
     year: 2024,
     category: 'theme',
     theme: 'web',

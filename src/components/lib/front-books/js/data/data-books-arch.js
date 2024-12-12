@@ -57,6 +57,19 @@ const dataBooksArch = [
     year: 2004,
     category: 'основы',
     theme: 'Архитектура ПО',
+    title: 'Человеческий фактор в программировании',
+    author: 'Константин',
+    authorName: 'Ларри',
+    pages: '383',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2004,
+    category: 'основы',
+    theme: 'Архитектура ПО',
     title: 'Быстрая разработка программ',
     author: 'Мартин',
     authorName: 'Роберт',
@@ -66,7 +79,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 6,
+    id: 7,
+    year: 2004,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Профессиональное программирование. Системный подход (2е)',
+    author: 'Одинцов',
+    authorName: 'Игорь',
+    pages: '611',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 2005,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -79,7 +105,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2005,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -92,7 +118,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2006,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -105,7 +131,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2007,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -118,7 +144,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 10,
+    id: 12,
     year: 2007,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -131,7 +157,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 11,
+    id: 13,
+    year: 2007,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Профессиональная разработка ПО',
+    author: 'Макконнелл',
+    authorName: 'Стив',
+    pages: '236',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
     year: 2007,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -144,7 +183,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 2007,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -157,7 +196,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 13,
+    id: 16,
+    year: 2008,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Применение DDD и шаблонов проектирования. С примерами на C# и .NET',
+    author: 'Нильссон',
+    authorName: 'Джимми',
+    pages: '560',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 17,
     year: 2008,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -170,7 +222,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 14,
+    id: 18,
+    year: 2008,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Руководство по подбору программистов и управлению ими',
+    author: 'Спольски',
+    authorName: 'Джоэл',
+    pages: '144',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
     year: 2009,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -183,7 +248,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 15,
+    id: 20,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -196,7 +261,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 16,
+    id: 21,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -209,7 +274,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 17,
+    id: 22,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -222,7 +287,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 18,
+    id: 23,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -235,7 +300,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 19,
+    id: 24,
+    year: 2010,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Информационная архитектура в интернете (3е)',
+    author: 'Морвиль',
+    authorName: 'Питер',
+    pages: '609',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 25,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -248,20 +326,46 @@ const dataBooksArch = [
   },
 
   {
-    id: 20,
+    id: 26,
+    year: 2010,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Проектирование веб-интерфейсов',
+    author: 'Скотт',
+    authorName: 'Билл',
+    pages: '351',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 27,
     year: 2010,
     category: 'основы',
     theme: 'Архитектура ПО',
     title: 'Идеальная архитектура',
     author: 'Спинеллис',
     authorName: 'Диомидис',
-    pages: '529',
+    pages: '530',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 21,
+    id: 28,
+    year: 2010,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: '97 этюдов для архитекторов программных систем',
+    author: 'Форд',
+    authorName: 'Нил',
+    pages: '218',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 29,
     year: 2011,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -274,7 +378,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 22,
+    id: 30,
     year: 2011,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -287,7 +391,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 23,
+    id: 31,
     year: 2012,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -300,7 +404,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 24,
+    id: 32,
     year: 2012,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -313,7 +417,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 25,
+    id: 33,
     year: 2012,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -326,7 +430,20 @@ const dataBooksArch = [
   },
 
   {
-    id: 26,
+    id: 34,
+    year: 2013,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Проектирование процесса проектирования. Записки компьютерного эксперта',
+    author: 'Брукс',
+    authorName: 'Фредерик',
+    pages: '464',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
     year: 2013,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -339,7 +456,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 27,
+    id: 36,
     year: 2014,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -352,7 +469,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 28,
+    id: 37,
     year: 2014,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -365,7 +482,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 29,
+    id: 38,
     year: 2014,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -378,7 +495,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 30,
+    id: 39,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -391,7 +508,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 31,
+    id: 40,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -404,7 +521,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 32,
+    id: 41,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -417,7 +534,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 33,
+    id: 42,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -430,7 +547,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 34,
+    id: 43,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -443,7 +560,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 35,
+    id: 44,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -456,7 +573,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 36,
+    id: 45,
     year: 2016,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -469,7 +586,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 37,
+    id: 46,
     year: 2017,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -482,7 +599,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 38,
+    id: 47,
     year: 2017,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -495,7 +612,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 39,
+    id: 48,
     year: 2017,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -508,7 +625,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 40,
+    id: 49,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -521,7 +638,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 41,
+    id: 50,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -534,7 +651,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 42,
+    id: 51,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -547,7 +664,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 43,
+    id: 52,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -560,7 +677,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 44,
+    id: 53,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -573,7 +690,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 45,
+    id: 54,
     year: 2018,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -586,7 +703,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 46,
+    id: 55,
     year: 2019,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -599,7 +716,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 47,
+    id: 56,
     year: 2019,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -612,7 +729,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 48,
+    id: 57,
     year: 2019,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -625,7 +742,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 49,
+    id: 58,
     year: 2019,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -638,7 +755,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 50,
+    id: 59,
     year: 2019,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -651,7 +768,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 51,
+    id: 60,
     year: 2020,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -664,7 +781,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 52,
+    id: 61,
     year: 2020,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -677,7 +794,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 53,
+    id: 62,
     year: 2020,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -690,7 +807,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 54,
+    id: 63,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -703,7 +820,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 55,
+    id: 64,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -716,7 +833,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 56,
+    id: 65,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -729,7 +846,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 57,
+    id: 66,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -742,7 +859,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 58,
+    id: 67,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -755,7 +872,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 59,
+    id: 68,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -768,7 +885,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 60,
+    id: 69,
     year: 2021,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -781,7 +898,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 61,
+    id: 70,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -794,7 +911,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 62,
+    id: 71,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -807,7 +924,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 63,
+    id: 72,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -820,7 +937,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 64,
+    id: 73,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -833,7 +950,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 65,
+    id: 74,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -846,7 +963,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 66,
+    id: 75,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -859,7 +976,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 67,
+    id: 76,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -872,7 +989,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 68,
+    id: 77,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -885,7 +1002,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 69,
+    id: 78,
     year: 2022,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -898,7 +1015,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 70,
+    id: 79,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -911,7 +1028,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 71,
+    id: 80,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -924,7 +1041,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 72,
+    id: 81,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -937,7 +1054,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 73,
+    id: 82,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -950,7 +1067,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 74,
+    id: 83,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -963,7 +1080,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 75,
+    id: 84,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -976,7 +1093,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 76,
+    id: 85,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -989,7 +1106,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 77,
+    id: 86,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1002,7 +1119,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 78,
+    id: 87,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1015,7 +1132,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 79,
+    id: 88,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1028,7 +1145,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 80,
+    id: 89,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1041,7 +1158,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 81,
+    id: 90,
     year: 2023,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1054,7 +1171,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 82,
+    id: 91,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1067,7 +1184,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 83,
+    id: 92,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1080,7 +1197,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 84,
+    id: 93,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1093,7 +1210,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 85,
+    id: 94,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1106,7 +1223,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 86,
+    id: 95,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -1119,7 +1236,7 @@ const dataBooksArch = [
   },
 
   {
-    id: 87,
+    id: 96,
     year: 2024,
     category: 'основы',
     theme: 'Архитектура ПО',

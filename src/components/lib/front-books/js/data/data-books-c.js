@@ -648,6 +648,19 @@ const dataBooksC = [
   },
 
   {
+    id: 90,
+    year: 2009,
+    category: 'code',
+    theme: 'c',
+    title: 'Си и C++ в задачах и примерах (2е)',
+    author: 'Культин',
+    authorName: 'Никита',
+    pages: '349',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 51,
     year: 2009,
     category: 'code',
@@ -851,6 +864,19 @@ const dataBooksC = [
     author: 'Прата',
     authorName: 'Стивен',
     pages: '926',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 66,
+    year: 2015,
+    category: 'code',
+    theme: 'c',
+    title: 'Безопасное программирование на C и C++ (2е)',
+    author: 'Сикорд',
+    authorName: 'Роберт',
+    pages: '498',
     isLearned: false,
     dateLearned: '',
   },

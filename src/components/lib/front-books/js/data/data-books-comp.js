@@ -1160,6 +1160,19 @@ const dataBooksComp = [
     dateLearned: '',
   },
 
+  {
+    id: 91,
+    year: 2024,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Современная архитектура и устройство компьютеров (2е)',
+    author: 'Ледин',
+    authorName: 'Джим',
+    pages: '688',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

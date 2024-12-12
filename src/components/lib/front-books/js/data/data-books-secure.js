@@ -28,6 +28,32 @@ const dataBooksSecure = [
 
   {
     id: 3,
+    year: 2001,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Защита информации в компьютерных системах и сетях (2е)',
+    author: 'Романец',
+    authorName: 'Юрий',
+    pages: '376',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2001,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Криптография и защита сетей. Принципы и практика (2е)',
+    author: 'Столлингс',
+    authorName: 'Вильям',
+    pages: '698',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
     year: 2002,
     category: 'основы',
     theme: 'Безопасность',
@@ -40,7 +66,33 @@ const dataBooksSecure = [
   },
 
   {
-    id: 4,
+    id: 6,
+    year: 2002,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Криптография. Скоростные шифры',
+    author: 'Молдовян',
+    authorName: 'А.А.',
+    pages: '494',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2003,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Антихакер. Средства защиты компьютерных сетей. Справочник профессионала',
+    author: 'Джонс',
+    authorName: 'Кейт',
+    pages: '688',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 2003,
     category: 'основы',
     theme: 'Безопасность',
@@ -53,7 +105,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 5,
+    id: 9,
+    year: 2003,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Практическая криптография',
+    author: 'Масленников',
+    authorName: 'Михаил',
+    pages: '465',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -66,7 +131,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 6,
+    id: 11,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -79,7 +144,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 7,
+    id: 12,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -92,7 +157,33 @@ const dataBooksSecure = [
   },
 
   {
-    id: 8,
+    id: 13,
+    year: 2004,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Криптография. От примитивов к синтезу алгоритмов',
+    author: 'Молдовян',
+    authorName: 'Н.А.',
+    pages: '447',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
+    year: 2004,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Искусство защиты и взлома информации',
+    author: 'Скляров',
+    authorName: 'Дмитрий',
+    pages: '289',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -105,7 +196,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 9,
+    id: 16,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -118,7 +209,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 10,
+    id: 17,
+    year: 2005,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Техника защиты и нападения на веб приложения',
+    author: 'Низамутдинов',
+    authorName: 'Марсель',
+    pages: '428',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 18,
     year: 2006,
     category: 'основы',
     theme: 'Безопасность',
@@ -131,20 +235,98 @@ const dataBooksSecure = [
   },
 
   {
-    id: 11,
+    id: 19,
+    year: 2006,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Реверсинг и защита программ от взлома',
+    author: 'Панов',
+    authorName: 'Александр',
+    pages: '244',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
+    year: 2008,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Защита инфрмации в компьютерных сетях',
+    author: 'Андрончик',
+    authorName: 'Александр',
+    pages: '248',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 21,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
     title: 'Искусство дизассемблирования',
     author: 'Касперски',
     authorName: 'Крис',
-    pages: '893',
+    pages: '897',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 12,
+    id: 22,
+    year: 2008,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Информационная безопасность компьютерных систем и сетей',
+    author: 'Шиньгин',
+    authorName: 'Крис',
+    pages: '416',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 23,
+    year: 2009,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Веб сервер глазами хакера (2е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '309',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 24,
+    year: 2011,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Искусство восстановления данных',
+    author: 'Сенкевич',
+    authorName: 'Глеб',
+    pages: '304',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 25,
+    year: 2012,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Анонимность и безопасность в интернете. От чайника к пользователю',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '232',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 26,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -157,7 +339,46 @@ const dataBooksSecure = [
   },
 
   {
-    id: 13,
+    id: 27,
+    year: 2013,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Обнаружение вторжений в компьютерные сети. Сетевые аномалии',
+    author: 'Шелухин',
+    authorName: 'О.И.',
+    pages: '220',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 28,
+    year: 2016,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Технологии защиты информации в компьютерных сетях',
+    author: 'Пролетарский',
+    authorName: 'А.В.',
+    pages: '369',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 29,
+    year: 2017,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Анализ защищенности и мониторинг компьютерных сетей',
+    author: 'Бондарев',
+    authorName: 'Валерий',
+    pages: '227',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
     year: 2020,
     category: 'основы',
     theme: 'Безопасность',
@@ -170,7 +391,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 14,
+    id: 31,
+    year: 2021,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Компьютерное подполье. Истории о хакинге, безумии и одержимости',
+    author: 'Дрейфус',
+    authorName: 'Сьюлетт',
+    pages: '320',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 32,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -183,7 +417,46 @@ const dataBooksSecure = [
   },
 
   {
-    id: 15,
+    id: 32,
+    year: 2021,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Хакинг на примерах. Уязвимости, взлом, защита',
+    author: 'Ярошенко',
+    authorName: 'А.А.',
+    pages: '320',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 33,
+    year: 2022,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Введение в криптографию. Теоретико-числовые основы защиты информации',
+    author: 'Деза',
+    authorName: 'Елена',
+    pages: '378',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 34,
+    year: 2022,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Системная защита информации компьютерных сетей',
+    author: 'Келдыш',
+    authorName: 'Наталья',
+    pages: '100',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -191,6 +464,32 @@ const dataBooksSecure = [
     author: 'Шнайер',
     authorName: 'Брюс',
     pages: '157',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 36,
+    year: 2024,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Защита компьютерных сетей и телекоммуникаций',
+    author: 'Макаренко',
+    authorName: 'Сергей',
+    pages: '313',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
+    year: 2025,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Сети глазами хакера',
+    author: 'Базаров',
+    authorName: 'Магама',
+    pages: '226',
     isLearned: false,
     dateLearned: '',
   },

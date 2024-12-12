@@ -39,6 +39,32 @@ const dataBooksAjax = [
     dateLearned: '',
   },
 
+  {
+    id: 4,
+    year: 2011,
+    category: 'tools',
+    theme: 'Ajax',
+    title: 'Сайт на Ajax под ключ. Готовое решение для интернет магазина',
+    author: 'Петин',
+    authorName: 'Виктор',
+    pages: '428',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2012,
+    category: 'tools',
+    theme: 'Ajax',
+    title: 'Сайт на Ajax под ключ. Готовое решение для интернет магазина (2е)',
+    author: 'Петин',
+    authorName: 'Виктор',
+    pages: '432',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

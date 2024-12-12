@@ -73,20 +73,6 @@ const dataYtC = [
   {
     id: 6,
     theme: 'Си',
-    title: 'Кафедра ИВМ МФТИ',
-    author: '',
-    city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@cs_mipt/videos',
-    site: '',
-    dateFirstVideo: '2019.08.30',
-    dateLastVideo: '2023.04.07',
-    amountVideos: 622,
-  },
-
-  {
-    id: 7,
-    theme: 'Си',
     title: 'Александр Григорин',
     author: 'Александр Григорин',
     city: '',
@@ -95,11 +81,11 @@ const dataYtC = [
     site: '',
     dateFirstVideo: '2017.08.28',
     dateLastVideo: '2024.11.08',
-    amountVideos: 330,
+    amountVideos: 332,
   },
 
   {
-    id: 8,
+    id: 7,
     theme: 'Си',
     title: 'Тимофей Хирьянов',
     author: 'Тимофей Хирьянов',
@@ -110,6 +96,20 @@ const dataYtC = [
     dateFirstVideo: '2015.09.08',
     dateLastVideo: '2024.04.23',
     amountVideos: 289,
+  },
+
+  {
+    id: 8,
+    theme: 'Си',
+    title: 'Кафедра ИВМ МФТИ',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@cs_mipt/videos',
+    site: '',
+    dateFirstVideo: '2019.08.30',
+    dateLastVideo: '2023.04.07',
+    amountVideos: 282,
   },
 
   {
@@ -165,11 +165,25 @@ const dataYtC = [
     site: '',
     dateFirstVideo: '2022.05.08',
     dateLastVideo: '2024.10.04',
-    amountVideos: 196,
+    amountVideos: 203,
   },
 
   {
     id: 13,
+    theme: 'Си',
+    title: 'Петр Радько [CMTV]',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@CMTV_official/videos',
+    site: '',
+    dateFirstVideo: '2012.07.04',
+    dateLastVideo: '2021.05.04',
+    amountVideos: 176,
+  },
+
+  {
+    id: 14,
     theme: 'Си',
     title: 'Begin End',
     author: '',
@@ -183,7 +197,7 @@ const dataYtC = [
   },
 
   {
-    id: 14,
+    id: 15,
     theme: 'Си',
     title: 'Программист86',
     author: '',
@@ -197,7 +211,7 @@ const dataYtC = [
   },
 
   {
-    id: 15,
+    id: 16,
     theme: 'Си',
     title: 'Konstantin Vladimirov',
     author: 'Константин Владимиров',
@@ -207,11 +221,11 @@ const dataYtC = [
     site: '',
     dateFirstVideo: '2019.07.18',
     dateLastVideo: '2024.11.16',
-    amountVideos: 152,
+    amountVideos: 155,
   },
 
   {
-    id: 16,
+    id: 17,
     theme: 'Си',
     title: 'Gena ANTG',
     author: '',
@@ -225,7 +239,7 @@ const dataYtC = [
   },
 
   {
-    id: 17,
+    id: 18,
     theme: 'Си',
     title: 'Konstantin Chaika',
     author: '',
@@ -239,7 +253,7 @@ const dataYtC = [
   },
 
   {
-    id: 18,
+    id: 19,
     theme: 'Си',
     title: 'From LAMER to Programmer',
     author: '',
@@ -253,7 +267,21 @@ const dataYtC = [
   },
 
   {
-    id: 19,
+    id: 20,
+    theme: 'Си',
+    title: 'optfil214',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@optfil2144/videos',
+    site: '',
+    dateFirstVideo: '2020.09.17',
+    dateLastVideo: '2021.09.10',
+    amountVideos: 57,
+  },
+
+  {
+    id: 21,
     theme: 'Си',
     title: 'Bits Code',
     author: '',
@@ -263,11 +291,53 @@ const dataYtC = [
     site: '',
     dateFirstVideo: '2023.03.01',
     dateLastVideo: '2024.11.09',
-    amountVideos: 51,
+    amountVideos: 54,
   },
 
   {
-    id: 20,
+    id: 22,
+    theme: 'Си',
+    title: 'Triple Distillation',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@tripledistillation1755/videos',
+    site: '',
+    dateFirstVideo: '2021.06.06',
+    dateLastVideo: '2024.08.19',
+    amountVideos: 35,
+  },
+
+  {
+    id: 23,
+    theme: 'Си',
+    title: 'Denis Maltsev',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@maltsevda/videos',
+    site: '',
+    dateFirstVideo: '2020.03.25',
+    dateLastVideo: '2022.12.19',
+    amountVideos: 33,
+  },
+
+  {
+    id: 23,
+    theme: 'Си',
+    title: 'Slechtvalk',
+    author: 'Георгий',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@slechtvalk_7986/videos',
+    site: '',
+    dateFirstVideo: '2014.06.30',
+    dateLastVideo: '2014.08.22',
+    amountVideos: 33,
+  },
+
+  {
+    id: 24,
     theme: 'Си',
     title: 'Учебные материалы',
     author: '',
@@ -281,21 +351,21 @@ const dataYtC = [
   },
 
   {
-    id: 21,
+    id: 25,
     theme: 'Си',
-    title: 'Triple Distillation',
-    author: '',
+    title: 'Курс Алгоритмизация и программирование',
+    author: 'Хусаинов',
     city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@tripledistillation1755/videos',
+    country: '',
+    link: 'https://www.youtube.com/@%D0%9A%D1%83%D1%80%D1%81%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%D0%B8%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE/videos',
     site: '',
-    dateFirstVideo: '2021.06.06',
-    dateLastVideo: '2024.08.19',
+    dateFirstVideo: '2016.09.28',
+    dateLastVideo: '2022.12.19',
     amountVideos: 28,
   },
 
   {
-    id: 22,
+    id: 26,
     theme: 'Си',
     title: 'CCPP',
     author: '',
@@ -309,21 +379,49 @@ const dataYtC = [
   },
 
   {
-    id: 23,
+    id: 27,
     theme: 'Си',
-    title: 'Дилетант Володя',
+    title: 'Иван Гончаров',
     author: '',
     city: '',
-    country: 'Россия',
-    link: 'https://www.youtube.com/@diletantt/videos',
+    country: '',
+    link: 'https://www.youtube.com/@ivan.goncharov/videos',
     site: '',
-    dateFirstVideo: '2022.04.29',
-    dateLastVideo: '2024.05.19',
+    dateFirstVideo: '2021.06.06',
+    dateLastVideo: '2024.05.28',
+    amountVideos: 23,
+  },
+
+  {
+    id: 28,
+    theme: 'Си',
+    title: 'Pavel Filonov',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@filonovpv/videos',
+    site: '',
+    dateFirstVideo: '2021.05.10',
+    dateLastVideo: '2021.11.21',
+    amountVideos: 20,
+  },
+
+  {
+    id: 29,
+    theme: 'Си',
+    title: 'Vlad Jpeg',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@depdoprogramming2750/videos',
+    site: '',
+    dateFirstVideo: '2019.11.25',
+    dateLastVideo: '2023.05.07',
     amountVideos: 15,
   },
 
   {
-    id: 24,
+    id: 30,
     theme: 'Си',
     title: 'BugsBound',
     author: '',
@@ -337,7 +435,35 @@ const dataYtC = [
   },
 
   {
-    id: 25,
+    id: 31,
+    theme: 'Си',
+    title: 'Дилетант Володя',
+    author: '',
+    city: '',
+    country: 'Россия',
+    link: 'https://www.youtube.com/@diletantt/videos',
+    site: '',
+    dateFirstVideo: '2022.04.29',
+    dateLastVideo: '2024.05.19',
+    amountVideos: 12,
+  },
+
+  {
+    id: 32,
+    theme: 'Си',
+    title: 'Aliaksandr Yakutovich',
+    author: '',
+    city: '',
+    country: 'Беларусь',
+    link: 'https://www.youtube.com/@aliaksandryakutovich968/videos',
+    site: '',
+    dateFirstVideo: '2015.05.06',
+    dateLastVideo: '2017.04.15',
+    amountVideos: 9,
+  },
+
+  {
+    id: 33,
     theme: 'Си',
     title: 'shumnik',
     author: '',

@@ -1,0 +1,144 @@
+<h1>Интернвалы</h1>
+
+
+<article class="article">
+  <p>Конспект видео Интервалы</p>
+
+  <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
+  <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#how">Как определить что интервалы пересекаются</a></p>
+  <p><a href="#task1">Задача 1. Объединить интервалы</a></p>
+</article>
+
+
+<!-- Как определить что интервалы пересекаются -->
+<article class="article">
+  <div class="anchor" id="how"></div>
+  <h3>Как определить что интервалы пересекаются</h3>
+
+  <h4>6 случаев расположения двух интервалов</h4>
+<pre>
+a1            b1
+._____________.
+          a2           b2
+          .____________.
+</pre>
+
+<pre>
+a1        b1
+._________.
+            a2           b2
+            .____________.
+</pre>
+
+<pre>
+a1              b1
+._______________.
+    a2       b2
+    .________.
+</pre>
+  <code>a1 &lt;= b1, a2 &lt;=b2</code>
+
+  <p>С интервалами надо уметь делать три вещи</p>
+  <ol>
+    <li>Проверять что интервалы пересекаются</li>
+    <li>Находить пересечение интервалов</li>
+    <li>Объединять интервалы</li>
+  </ol>
+
+  <h4>Условие пересечения интервалов</h4>
+  <code>max(a1, a2) &lt;= min(b1, b2)</code>
+
+  <h4>Пересечение интервалов</h4>
+  <p>Когда известно, что интервалы пересекаются, можно найти пересечение - все точки, принадлежащие обоим интервалам</p>
+  <code>[max(a1, a2) , min(b1, b2)]</code>
+
+<pre>
+a1            b1
+._____________.
+        xxxxxxx
+        .____________.
+        a2           b2
+</pre>
+
+  <h4>Объединение интервалов</h4>
+
+<pre>
+a1            b1
+._____________.
+          a2           b2
+          .____________.
+</pre>
+
+<pre>
+a3                     b3
+.______________________.
+</pre>
+  <code>[min(a1, a2) , max(b1, b2)]</code>
+
+  <p>В задачах границы (точки a1,b1) могут быть включены в интервал, а могут быть нет.</p>
+</article>
+
+
+<!-- Задача 1. Объединить интервалы -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Объединить интервалы</h3>
+
+  <h4>Leetcode 56. Merge Intervals</h4>
+
+  <p>Дан массив интервалов. Объединить все пересекающиеся интервалы и вернуть массив непересекающихся интервалов</p>
+  <p>Каждый инттервал задается его границами, включая сами границы</p>
+  <code>intervals[i] = [start, end]</code>
+
+  <h4>Пример 1</h4>
+  <code>Input: [[1,3], [2,6], 8,10], 15,18]</code>
+  <code>Output: [[1,6], [8,10], 15,18]</code>
+
+  <h4>Пример 2</h4>
+  <code>Input: [[1,4], [4,5]</code>
+  <code>Output: [[1,5]]</code>
+
+  <h4>Алгоритм</h4>
+  <ol>
+    <li>Отсортировать интервалы. Сортируем в порядке возрастания нижней границы</li>
+    <li>Объединить интервалы. Кладем первый интервал в ответ. Далее проходим по массиву интервалов и сравниваем каждый интервал с последним интервалом в ответе. Если они пересекаются, то увеличиваем верхнюю границу последнего интервала в ответе. Если нет, то добавляем в ответ следующий интервал.</li>
+  </ol>
+
+  <p>Сложность по времени O(NlogN)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isOverlap(self, a, b):
+    return max(a[0], b[0] &lt;= min(a[1], b[1]))
+
+  def mergeTwo(self, a, b):
+    return [a[0], max(a[1], b[1])]
+
+  def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    intervals.sort()
+    result = []
+    result.append(intervals[0])
+
+    for i in range(1, len(intervals)):
+      interval = intervals[i]
+      if self.isOverlap(result[-1], interval):
+        result[-1] = self.mergeTwo(result[-1], interval)
+      else:
+        result.append(interval)
+
+    return result
+</pre>
+  </details>
+</article>
+

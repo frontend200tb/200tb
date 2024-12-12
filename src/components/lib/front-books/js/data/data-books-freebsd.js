@@ -57,6 +57,19 @@ const dataBooksFreebsd = [
     year: 2004,
     category: 'tools',
     theme: 'FreeBSD',
+    title: 'FreeBSD. Подробное руководство',
+    author: 'Лукас',
+    authorName: 'Майкл',
+    pages: '613',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2004,
+    category: 'tools',
+    theme: 'FreeBSD',
     title: 'Полный справочник по FreeBSD',
     author: 'Смит',
     authorName: 'Родерик',
@@ -66,7 +79,7 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 2006,
     category: 'tools',
     theme: 'FreeBSD',
@@ -79,7 +92,7 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2006,
     category: 'tools',
     theme: 'FreeBSD',
@@ -92,7 +105,7 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 2006,
     category: 'tools',
     theme: 'FreeBSD',
@@ -105,7 +118,7 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2008,
     category: 'tools',
     theme: 'FreeBSD',
@@ -118,7 +131,7 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2009,
     category: 'tools',
     theme: 'FreeBSD',
@@ -131,7 +144,33 @@ const dataBooksFreebsd = [
   },
 
   {
-    id: 11,
+    id: 12,
+    year: 2011,
+    category: 'tools',
+    theme: 'FreeBSD',
+    title: 'FreeBSD. От новичка к профессионалу',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '526',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2012,
+    category: 'tools',
+    theme: 'FreeBSD',
+    title: 'FreeBSD. От новичка к профессионалу (2е)',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '602',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
     year: 2013,
     category: 'tools',
     theme: 'FreeBSD',

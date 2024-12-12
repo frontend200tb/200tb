@@ -20,6 +20,7 @@ const dataBooksBios = [
     theme: 'Bios',
     title: 'Настройка BIOS',
     author: 'Белунцов',
+    authorName: 'В.',
     pages: '404',
     isLearned: false,
     dateLearned: '',
@@ -27,12 +28,13 @@ const dataBooksBios = [
 
   {
     id: 3,
-    year: 2005,
+    year: 2004,
     category: 'tools',
     theme: 'Bios',
-    title: 'Секреты BIOS',
-    author: 'Белунцов',
-    pages: '336',
+    title: 'BIOS',
+    author: 'Трасковский',
+    authorName: 'Антон',
+    pages: '536',
     isLearned: false,
     dateLearned: '',
   },
@@ -42,15 +44,55 @@ const dataBooksBios = [
     year: 2005,
     category: 'tools',
     theme: 'Bios',
-    title: 'Настройки BIOS',
-    author: 'Дмитриев',
-    pages: '284',
+    title: 'Секреты BIOS',
+    author: 'Белунцов',
+    authorName: 'В.',
+    pages: '336',
     isLearned: false,
     dateLearned: '',
   },
 
   {
     id: 5,
+    year: 2005,
+    category: 'tools',
+    theme: 'Bios',
+    title: 'Настройки BIOS',
+    author: 'Дмитриев',
+    authorName: 'П.А.',
+    pages: '284',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2005,
+    category: 'tools',
+    theme: 'Bios',
+    title: 'BIOS. Экспресс курс',
+    author: 'Трасковский',
+    authorName: 'Антон',
+    pages: '271',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2005,
+    category: 'tools',
+    theme: 'Bios',
+    title: 'Секреты BIOS (2е)',
+    author: 'Трасковский',
+    authorName: 'Антон',
+    pages: '393',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 2006,
     category: 'tools',
     theme: 'Bios',
@@ -63,7 +105,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 6,
+    id: 9,
     year: 2006,
     category: 'tools',
     theme: 'Bios',
@@ -76,7 +118,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 7,
+    id: 10,
     year: 2007,
     category: 'tools',
     theme: 'Bios',
@@ -88,7 +130,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 8,
+    id: 11,
     year: 2007,
     category: 'tools',
     theme: 'Bios',
@@ -100,7 +142,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 9,
+    id: 12,
     year: 2008,
     category: 'tools',
     theme: 'Bios',
@@ -113,7 +155,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 10,
+    id: 13,
     year: 2009,
     category: 'tools',
     theme: 'Bios',
@@ -126,7 +168,20 @@ const dataBooksBios = [
   },
 
   {
-    id: 11,
+    id: 14,
+    year: 2009,
+    category: 'tools',
+    theme: 'Bios',
+    title: 'Самоучитель BIOS (2е)',
+    author: 'Трасковский',
+    authorName: 'Антон',
+    pages: '448',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
     year: 2010,
     category: 'tools',
     theme: 'Bios',
@@ -139,7 +194,7 @@ const dataBooksBios = [
   },
 
   {
-    id: 12,
+    id: 16,
     year: 2010,
     category: 'tools',
     theme: 'Bios',
@@ -151,7 +206,7 @@ const dataBooksBios = [
     dateLearned: '',
   },
   {
-    id: 13,
+    id: 17,
     year: 2013,
     category: 'tools',
     theme: 'Bios',

@@ -2,6 +2,19 @@ const dataBooksOop = [
 
   {
     id: 1,
+    year: 1992,
+    category: 'tools',
+    theme: 'ООП',
+    title: 'Объектно-ориентированное проектирование с примерами применения',
+    author: 'Буч',
+    authorName: 'Гради',
+    pages: '538',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
     year: 2001,
     category: 'tools',
     theme: 'ООП',
@@ -14,7 +27,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 2002,
     category: 'tools',
     theme: 'ООП',
@@ -27,7 +40,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2002,
     category: 'tools',
     theme: 'ООП',
@@ -40,7 +53,20 @@ const dataBooksOop = [
   },
 
   {
-    id: 4,
+    id: 5,
+    year: 2005,
+    category: 'tools',
+    theme: 'ООП',
+    title: 'Основные концепции и механизмы ООП',
+    author: 'Пышкин',
+    authorName: 'Е.В.',
+    pages: '641',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
     year: 2006,
     category: 'tools',
     theme: 'ООП',
@@ -53,7 +79,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 2008,
     category: 'tools',
     theme: 'ООП',
@@ -66,7 +92,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 6,
+    id: 8,
     year: 2010,
     category: 'tools',
     theme: 'ООП',
@@ -79,7 +105,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2011,
     category: 'tools',
     theme: 'ООП',
@@ -92,7 +118,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2012,
     category: 'tools',
     theme: 'ООП',
@@ -105,7 +131,20 @@ const dataBooksOop = [
   },
 
   {
-    id: 9,
+    id: 11,
+    year: 2012,
+    category: 'tools',
+    theme: 'ООП',
+    title: 'ООП. Конспект лекций',
+    author: 'Радченко',
+    authorName: 'Г.И.',
+    pages: '167',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
     year: 2014,
     category: 'tools',
     theme: 'ООП',
@@ -118,7 +157,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 10,
+    id: 13,
     year: 2014,
     category: 'tools',
     theme: 'ООП',
@@ -131,7 +170,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 11,
+    id: 14,
     year: 2015,
     category: 'tools',
     theme: 'ООП',
@@ -144,7 +183,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 2015,
     category: 'tools',
     theme: 'ООП',
@@ -157,7 +196,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 13,
+    id: 16,
     year: 2015,
     category: 'tools',
     theme: 'ООП',
@@ -170,7 +209,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 14,
+    id: 17,
     year: 2015,
     category: 'tools',
     theme: 'ООП',
@@ -183,7 +222,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 15,
+    id: 18,
     year: 2015,
     category: 'tools',
     theme: 'ООП',
@@ -196,7 +235,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 16,
+    id: 19,
     year: 2016,
     category: 'tools',
     theme: 'ООП',
@@ -208,7 +247,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 17,
+    id: 20,
     year: 2018,
     category: 'tools',
     theme: 'ООП',
@@ -221,7 +260,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 18,
+    id: 21,
     year: 2020,
     category: 'tools',
     theme: 'ООП',
@@ -234,7 +273,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 19,
+    id: 22,
     year: 2020,
     category: 'tools',
     theme: 'ООП',
@@ -247,7 +286,7 @@ const dataBooksOop = [
   },
 
   {
-    id: 20,
+    id: 23,
     year: 2023,
     category: 'tools',
     theme: 'ООП',

@@ -27,10 +27,10 @@ import dataBooksUnix from './data/data-books-unix';
 import dataBooksComp from './data/data-books-comp';
 import dataBooksOs from './data/data-books-os';
 import dataBooksNet from './data/data-books-net';
-import dataBooksSysadmin from './data/data-books-sysadmin';
-import dataBooksInformatika from './data/data-books-inform';
 import dataBooksSecure from './data/data-books-secure';
 import dataBooksArch from './data/data-books-arch';
+import dataBooksInf from './data/data-books-inf';
+import dataBooksInfSchool from './data/data-books-infschool';
 
 // Framework
 import dataBooksNode from './data/data-books-node';
@@ -70,7 +70,7 @@ const dataArray = [
   // Code
   dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAssembler, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksWin32, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksJava, dataBooksBasic,
   // Base
-  dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksNet, dataBooksSysadmin, dataBooksInformatika, dataBooksSecure, dataBooksArch,
+  dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksNet, dataBooksSecure, dataBooksArch, dataBooksInf, dataBooksInfSchool,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS

@@ -51,6 +51,7 @@ import htmlDsr2024Lec5 from './dsr2024cpp/lec5.html';
 import htmlDsr2024Lec6 from './dsr2024cpp/lec6.html';
 import htmlDsr2024Lec7 from './dsr2024cpp/lec7.html';
 import htmlDsr2024Lec8 from './dsr2024cpp/lec8.html';
+import htmlDsr2024Lec9 from './dsr2024cpp/lec9.html';
 
 // DSR Test
 import htmlDsrCsharp from './dsr-test/dsr-csharptest.html';
@@ -131,7 +132,7 @@ const htmlDsr2023Wshop = [htmlDsr2023Wshop1, htmlDsr2023Wshop2, htmlDsr2023Wshop
 htmlDsr2023Wshop5, htmlDsr2023Wshop6];
 
 // Создаем массив страниц с лекциями DSR 2024
-const htmlDsr2024Lec = [htmlDsr2024Lec1, htmlDsr2024Lec2, htmlDsr2024Lec3, htmlDsr2024Lec4, htmlDsr2024Lec5, htmlDsr2024Lec6, htmlDsr2024Lec7, htmlDsr2024Lec8];
+const htmlDsr2024Lec = [htmlDsr2024Lec1, htmlDsr2024Lec2, htmlDsr2024Lec3, htmlDsr2024Lec4, htmlDsr2024Lec5, htmlDsr2024Lec6, htmlDsr2024Lec7, htmlDsr2024Lec8, htmlDsr2024Lec9];
 
 // Создаем массив страниц с экзаменом DSR
 const htmlDsrTest = [htmlDsrCsharp, htmlDsrC];
