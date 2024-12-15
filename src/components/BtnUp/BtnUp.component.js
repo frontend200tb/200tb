@@ -7,7 +7,7 @@
 ****************** */
 import './BtnUp.component.scss';
 
-export function BtnUpComponent() {
+export default function BtnUpComponent() {
   const element = document.createElement('div');
   element.classList.add('btn-up', 'none');
   element.innerHTML = 'НАВЕРХ';

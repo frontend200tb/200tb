@@ -1,14 +1,2 @@
 import './Footer.component.scss';
-import html from './Footer.component.html';
-
-class Footer extends HTMLElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
-    this.innerHTML = html;
-  }
-}
-
-customElements.define('footer-component', Footer);
+import './Footer.class';

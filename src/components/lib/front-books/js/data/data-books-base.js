@@ -157,7 +157,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -170,7 +170,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -183,7 +183,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 2006,
     category: 'основы',
     theme: 'Программирование',
@@ -196,7 +196,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -209,7 +209,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -222,7 +222,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 18,
+    id: 19,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -235,7 +235,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2008,
     category: 'основы',
     theme: 'Программирование',
@@ -248,11 +248,24 @@ const dataBooksBase = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
-    title: 'Ремесло программиста. Практика написания хорошего кода.',
+    title: 'Креатиивное программирование 2.0',
+    author: 'Гласс',
+    authorName: 'Роберт',
+    pages: '352',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
+    year: 2009,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Ремесло программиста. Практика написания хорошего кода',
     author: 'Гудлиф',
     authorName: 'Питер',
     pages: '697',
@@ -261,7 +274,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -274,7 +287,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -287,7 +300,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 23,
+    id: 25,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -300,7 +313,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2009,
     category: 'основы',
     theme: 'Программирование',
@@ -313,7 +326,20 @@ const dataBooksBase = [
   },
 
   {
-    id: 25,
+    id: 27,
+    year: 2009,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Продуктивный программист',
+    author: 'Форд',
+    authorName: 'Нил',
+    pages: '249',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 28,
     year: 2010,
     category: 'основы',
     theme: 'Программирование',
@@ -326,7 +352,20 @@ const dataBooksBase = [
   },
 
   {
-    id: 26,
+    id: 29,
+    year: 2011,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Пионеры программирования. Диалоги с создателями наиболее популярных языков программирования',
+    author: 'Бьянкуцци',
+    authorName: 'Федерико',
+    pages: '605',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -339,7 +378,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 27,
+    id: 31,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -352,7 +391,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 28,
+    id: 32,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -365,7 +404,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 29,
+    id: 33,
     year: 2011,
     category: 'основы',
     theme: 'Программирование',
@@ -377,7 +416,20 @@ const dataBooksBase = [
   },
 
   {
-    id: 30,
+    id: 34,
+    year: 2012,
+    category: 'основы',
+    theme: 'Программирование',
+    title: '97 этюдов для программистов. Опыт ведущих экспертов',
+    author: 'Гудлиф',
+    authorName: 'Пит',
+    pages: '254',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
     year: 2012,
     category: 'основы',
     theme: 'Программирование',
@@ -390,7 +442,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 31,
+    id: 36,
     year: 2013,
     category: 'основы',
     theme: 'Программирование',
@@ -403,7 +455,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 32,
+    id: 37,
     year: 2013,
     category: 'основы',
     theme: 'Программирование',
@@ -416,7 +468,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 33,
+    id: 38,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -428,7 +480,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 34,
+    id: 39,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -441,7 +493,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 35,
+    id: 40,
     year: 2014,
     category: 'основы',
     theme: 'Программирование',
@@ -454,7 +506,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 36,
+    id: 41,
     year: 2015,
     category: 'основы',
     theme: 'Программирование',
@@ -467,7 +519,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 37,
+    id: 42,
     year: 2015,
     category: 'основы',
     theme: 'Программирование',
@@ -480,7 +532,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 38,
+    id: 43,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -493,7 +545,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 39,
+    id: 44,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -506,7 +558,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 40,
+    id: 45,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -519,7 +571,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 41,
+    id: 46,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -532,7 +584,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 42,
+    id: 47,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -545,7 +597,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 43,
+    id: 48,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -558,7 +610,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 44,
+    id: 49,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -571,7 +623,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 45,
+    id: 50,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -584,7 +636,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 46,
+    id: 51,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -597,7 +649,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 47,
+    id: 52,
     year: 2016,
     category: 'основы',
     theme: 'Программирование',
@@ -610,7 +662,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 48,
+    id: 53,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -623,7 +675,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 49,
+    id: 54,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -636,7 +688,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 50,
+    id: 55,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -649,7 +701,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 51,
+    id: 56,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -662,7 +714,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 52,
+    id: 57,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -675,7 +727,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 53,
+    id: 58,
     year: 2017,
     category: 'основы',
     theme: 'Программирование',
@@ -688,7 +740,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 54,
+    id: 59,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -701,7 +753,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 55,
+    id: 60,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -714,7 +766,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 56,
+    id: 61,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -727,7 +779,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 57,
+    id: 62,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -740,7 +792,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 58,
+    id: 63,
     year: 2018,
     category: 'основы',
     theme: 'Программирование',
@@ -753,7 +805,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 59,
+    id: 64,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -766,7 +818,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 60,
+    id: 65,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -779,7 +831,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 61,
+    id: 66,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -792,7 +844,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 62,
+    id: 67,
     year: 2019,
     category: 'основы',
     theme: 'Программирование',
@@ -805,7 +857,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 63,
+    id: 68,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -818,7 +870,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 64,
+    id: 69,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -831,7 +883,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 65,
+    id: 70,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -844,7 +896,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 66,
+    id: 71,
     year: 2020,
     category: 'основы',
     theme: 'Программирование',
@@ -857,7 +909,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 67,
+    id: 72,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -870,7 +922,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 68,
+    id: 73,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -883,7 +935,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 69,
+    id: 74,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -896,7 +948,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 70,
+    id: 75,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -909,7 +961,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 71,
+    id: 76,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -922,7 +974,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 72,
+    id: 77,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -935,7 +987,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 73,
+    id: 78,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -948,7 +1000,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 74,
+    id: 79,
     year: 2021,
     category: 'основы',
     theme: 'Программирование',
@@ -961,7 +1013,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 75,
+    id: 80,
     year: 2022,
     category: 'основы',
     theme: 'Программирование',
@@ -974,7 +1026,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 76,
+    id: 81,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -987,7 +1039,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 77,
+    id: 82,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1000,7 +1052,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 78,
+    id: 83,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1013,7 +1065,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 79,
+    id: 84,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1026,7 +1078,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 80,
+    id: 85,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1039,7 +1091,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 81,
+    id: 86,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1052,7 +1104,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 82,
+    id: 87,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1065,7 +1117,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 83,
+    id: 88,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1078,7 +1130,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 84,
+    id: 89,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1091,7 +1143,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 85,
+    id: 90,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1104,7 +1156,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 86,
+    id: 91,
     year: 2023,
     category: 'основы',
     theme: 'Программирование',
@@ -1117,7 +1169,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 87,
+    id: 92,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',
@@ -1130,7 +1182,7 @@ const dataBooksBase = [
   },
 
   {
-    id: 88,
+    id: 93,
     year: 2024,
     category: 'основы',
     theme: 'Программирование',

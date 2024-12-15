@@ -2,6 +2,32 @@ const dataBooksOlimp = [
 
   {
     id: 1,
+    year: 2001,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Практика программирования. Бейсик, Си, Паскаль. Самоучитель',
+    author: 'Кетков',
+    authorName: 'Юлий',
+    pages: '462',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 2001,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Практика программирования. Visual Basic, C++ Builder, Delphi',
+    author: 'Кетков',
+    authorName: 'Юлий',
+    pages: '452',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2004,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -118,6 +144,19 @@ const dataBooksOlimp = [
   },
 
   {
+    id: 9,
+    year: 2007,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Сборник задач по программированию (2е)',
+    author: 'Златопольский',
+    authorName: 'Д.М.',
+    pages: '239',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 2007,
     category: 'основы',
@@ -152,6 +191,19 @@ const dataBooksOlimp = [
     author: 'Волченков',
     authorName: 'Сергей',
     pages: '407',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2011,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Сборник задач по программированию (3е)',
+    author: 'Златопольский',
+    authorName: 'Д.М.',
+    pages: '295',
     isLearned: false,
     dateLearned: '',
   },

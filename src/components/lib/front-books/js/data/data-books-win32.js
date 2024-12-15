@@ -222,6 +222,19 @@ const dataBooksWin32 = [
   },
 
   {
+    id: 8,
+    year: 2008,
+    category: 'code',
+    theme: 'Win32 API',
+    title: 'Внутреннее устройство Windows (4е)',
+    author: 'Руссинович',
+    authorName: 'Марк',
+    pages: '990',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 11,
     year: 2008,
     category: 'code',

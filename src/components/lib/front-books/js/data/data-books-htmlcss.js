@@ -27,7 +27,33 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 2,
+    id: 3,
+    year: 1999,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML 4.0',
+    author: 'Матросов',
+    authorName: 'Александр',
+    pages: '671',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 2001,
+    category: 'code',
+    theme: 'html css',
+    title: 'Самоучитель HTML 4',
+    author: 'Шапошников',
+    authorName: 'Игорь',
+    pages: '288',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
     year: 2002,
     category: 'code',
     theme: 'html css',
@@ -40,20 +66,72 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 2,
+    id: 6,
     year: 2003,
     category: 'code',
     theme: 'html css',
     title: 'HTML 4.0. В подлиннике',
     author: 'Матросов',
     authorName: 'Александр',
-    pages: '242',
+    pages: '674',
     isLearned: false,
-    dateLearned: '674',
+    dateLearned: '',
   },
 
   {
-    id: 3,
+    id: 7,
+    year: 2003,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML. Экспресс курс',
+    author: 'Петюшкин',
+    authorName: 'Алексей',
+    pages: '241',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2004,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML в веб дизайне',
+    author: 'Петюшкин',
+    authorName: 'Алексей',
+    pages: '399',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2005,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML и CSS на примерах',
+    author: 'Мержевич',
+    authorName: 'Влад',
+    pages: '449',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2008,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML. Самое необходимое',
+    author: 'Кисленко',
+    authorName: 'Николай',
+    pages: '353',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
     year: 2008,
     category: 'code',
     theme: 'html css',
@@ -66,7 +144,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 1,
+    id: 12,
     year: 2010,
     category: 'code',
     theme: 'html css',
@@ -78,7 +156,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 2,
+    id: 13,
     year: 2010,
     category: 'code',
     theme: 'html css',
@@ -91,7 +169,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 1,
+    id: 14,
     year: 2010,
     category: 'code',
     theme: 'html css',
@@ -104,7 +182,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 7,
+    id: 15,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -117,7 +195,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 6,
+    id: 16,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -130,7 +208,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 5,
+    id: 17,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -143,7 +221,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 9,
+    id: 18,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -156,7 +234,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 7,
+    id: 19,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -169,7 +247,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 3,
+    id: 20,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -182,7 +260,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 8,
+    id: 21,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -195,7 +273,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 4,
+    id: 22,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -208,7 +286,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 2,
+    id: 23,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -221,7 +299,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 10,
+    id: 24,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -234,7 +312,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 6,
+    id: 25,
     year: 2011,
     category: 'code',
     theme: 'html css',
@@ -247,7 +325,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 14,
+    id: 26,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -260,7 +338,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 16,
+    id: 27,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -273,7 +351,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 17,
+    id: 28,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -286,7 +364,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 17,
+    id: 29,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -299,7 +377,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 12,
+    id: 30,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -312,7 +390,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 13,
+    id: 31,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -325,7 +403,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 15,
+    id: 32,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -338,7 +416,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 15,
+    id: 33,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -351,7 +429,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 11,
+    id: 34,
     year: 2012,
     category: 'code',
     theme: 'html css',
@@ -364,7 +442,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 22,
+    id: 35,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -377,7 +455,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 19,
+    id: 36,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -395,7 +473,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 20,
+    id: 37,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -413,7 +491,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 18,
+    id: 38,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -426,7 +504,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 14,
+    id: 39,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -439,7 +517,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 21,
+    id: 40,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -452,7 +530,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 23,
+    id: 41,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -465,7 +543,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 23,
+    id: 42,
     year: 2013,
     category: 'code',
     theme: 'html css',
@@ -478,7 +556,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 24,
+    id: 43,
     year: 2014,
     category: 'code',
     theme: 'html css',
@@ -491,7 +569,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 24,
+    id: 44,
     year: 2014,
     category: 'code',
     theme: 'html css',
@@ -504,7 +582,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 18,
+    id: 45,
     year: 2014,
     category: 'code',
     theme: 'html css',
@@ -517,7 +595,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 25,
+    id: 46,
     year: 2014,
     category: 'code',
     theme: 'html css',
@@ -530,7 +608,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 25,
+    id: 47,
     year: 2014,
     category: 'code',
     theme: 'html css',
@@ -543,7 +621,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 28,
+    id: 48,
     year: 2015,
     category: 'code',
     theme: 'html css',
@@ -556,7 +634,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 27,
+    id: 49,
     year: 2015,
     category: 'code',
     theme: 'html css',
@@ -569,7 +647,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 26,
+    id: 50,
     year: 2015,
     category: 'code',
     theme: 'html css',
@@ -582,7 +660,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 36,
+    id: 51,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -595,7 +673,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 33,
+    id: 52,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -607,7 +685,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 34,
+    id: 53,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -619,7 +697,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 35,
+    id: 54,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -631,7 +709,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 32,
+    id: 55,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -643,7 +721,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 30,
+    id: 56,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -661,7 +739,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 37,
+    id: 57,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -674,7 +752,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 29,
+    id: 58,
     year: 2016,
     category: 'code',
     theme: 'html css',
@@ -687,7 +765,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 38,
+    id: 59,
     year: 2017,
     category: 'code',
     theme: 'html css',
@@ -700,7 +778,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 39,
+    id: 60,
     year: 2018,
     category: 'code',
     theme: 'html css',
@@ -713,7 +791,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 39,
+    id: 61,
     year: 2018,
     category: 'code',
     theme: 'html css',
@@ -725,7 +803,7 @@ const dataBooksHtmlcss = [
     dateLearned: '',
   },
   {
-    id: 40,
+    id: 62,
     year: 2019,
     category: 'code',
     theme: 'html css',
@@ -738,7 +816,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 41,
+    id: 63,
     year: 2019,
     category: 'code',
     theme: 'html css',
@@ -756,7 +834,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 43,
+    id: 64,
     year: 2020,
     category: 'code',
     theme: 'html css',
@@ -769,7 +847,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 44,
+    id: 65,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -782,7 +860,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 43,
+    id: 66,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -795,7 +873,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 44,
+    id: 67,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -808,7 +886,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 45,
+    id: 68,
     year: 2022,
     category: 'code',
     theme: 'html css',
@@ -821,7 +899,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 46,
+    id: 69,
     year: 2022,
     category: 'code',
     theme: 'html css',

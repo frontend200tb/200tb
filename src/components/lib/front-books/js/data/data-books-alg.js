@@ -92,6 +92,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 5,
+    year: 2002,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование. Математические основы, средства, теория',
+    author: 'Лавров',
+    authorName: 'Святослав',
+    pages: '317',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 6,
     year: 2003,
     category: 'основы',
@@ -131,6 +144,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 8,
+    year: 2003,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование алгоритмов обработки данных',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '187',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 9,
     year: 2004,
     category: 'основы',
@@ -144,6 +170,32 @@ const dataBooksAlg = [
   },
 
   {
+    id: 13,
+    year: 2005,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Арифметика. Алгоритмы. Сложность вычислений (3е)',
+    author: 'Гашков',
+    authorName: 'Сергей',
+    pages: '322',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 13,
+    year: 2005,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Языки программирования и методы трансляции',
+    author: 'Опалева',
+    authorName: 'Э.А.',
+    pages: '471',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 2006,
     category: 'основы',
@@ -152,6 +204,19 @@ const dataBooksAlg = [
     author: 'Миллер',
     authorName: 'Расс',
     pages: '409',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2006,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Методы и алгоритмы вычислений на строках',
+    author: 'Смит',
+    authorName: 'Билл',
+    pages: '484',
     isLearned: false,
     dateLearned: '',
   },
@@ -282,6 +347,19 @@ const dataBooksAlg = [
     author: 'Скиена',
     authorName: 'Стивен',
     pages: '722',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 2011,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Методы оптимизации. Компьютерные технологии',
+    author: 'Черноруцкий',
+    authorName: 'И.Г.',
+    pages: '375',
     isLearned: false,
     dateLearned: '',
   },
