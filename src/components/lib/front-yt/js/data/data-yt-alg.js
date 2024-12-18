@@ -143,7 +143,7 @@ const dataYtAlg = [
   {
     id: 11,
     theme: 'Алгоритмы',
-    title: 'Академия Яндекса',
+    title: 'Яндекс Образование',
     author: '',
     city: '',
     country: '',
@@ -151,7 +151,21 @@ const dataYtAlg = [
     site: '',
     dateFirstVideo: '2014.11.10',
     dateLastVideo: '2023.10.19',
-    amountVideos: 451,
+    amountVideos: 549,
+  },
+
+  {
+    id: 14,
+    theme: 'Алгоритмы',
+    title: 'Т-Образование',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@fintech.tinkoff/videos',
+    site: '',
+    dateFirstVideo: '2020.10.27',
+    dateLastVideo: '2023.08.25',
+    amountVideos: 303,
   },
 
   {
@@ -180,20 +194,6 @@ const dataYtAlg = [
     dateFirstVideo: '2012.04.14',
     dateLastVideo: '2022.05.22',
     amountVideos: 277,
-  },
-
-  {
-    id: 14,
-    theme: 'Алгоритмы',
-    title: 'Тинькофф Образование',
-    author: '',
-    city: '',
-    country: '',
-    link: 'https://www.youtube.com/@fintech.tinkoff/videos',
-    site: '',
-    dateFirstVideo: '2020.10.27',
-    dateLastVideo: '2023.08.25',
-    amountVideos: 240,
   },
 
   {

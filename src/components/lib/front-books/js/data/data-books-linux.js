@@ -70,10 +70,10 @@ const dataBooksLinux = [
     year: 2001,
     category: 'основы',
     theme: 'Linux',
-    title: 'Основы Slackware Linux',
-    author: 'Кэнтрелл',
-    authorName: 'Дэвид',
-    pages: '147',
+    title: 'Red Hat Linux 6 Server',
+    author: 'Кабир',
+    authorName: 'Мохаммед',
+    pages: '561',
     isLearned: false,
     dateLearned: '',
   },
@@ -83,16 +83,29 @@ const dataBooksLinux = [
     year: 2001,
     category: 'основы',
     theme: 'Linux',
-    title: 'Linux. Справочник (3е)',
-    author: 'Сивер',
-    authorName: 'Эллен',
-    pages: '916',
+    title: 'Основы Slackware Linux',
+    author: 'Кэнтрелл',
+    authorName: 'Дэвид',
+    pages: '147',
     isLearned: false,
     dateLearned: '',
   },
 
   {
     id: 8,
+    year: 2001,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux. Справочник (3е)',
+    author: 'Сивер',
+    authorName: 'Эллен',
+    pages: '912',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2001,
     category: 'основы',
     theme: 'Linux',
@@ -105,7 +118,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2001,
     category: 'основы',
     theme: 'Linux',
@@ -118,7 +131,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2001,
     category: 'основы',
     theme: 'Linux',
@@ -131,7 +144,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
@@ -144,7 +157,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
@@ -157,20 +170,33 @@ const dataBooksLinux = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
     title: 'Linux для дома и офиса',
     author: 'Глушаков',
     authorName: 'Сергей',
-    pages: '388',
+    pages: '390',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 14,
+    id: 15,
+    year: 2002,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Сети TCP IP. Том 3. Разработка приложений для Linux',
+    author: 'Камер',
+    authorName: 'Дуглас',
+    pages: '576',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
@@ -183,7 +209,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 15,
+    id: 17,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
@@ -196,7 +222,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 16,
+    id: 18,
     year: 2002,
     category: 'основы',
     theme: 'Linux',
@@ -209,7 +235,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 17,
+    id: 19,
+    year: 2002,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux',
+    author: 'Стахнов',
+    authorName: 'Алексей',
+    pages: '896',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -222,7 +261,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 18,
+    id: 21,
+    year: 2003,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Руководство пользователя ALT линукса',
+    author: 'Блохин',
+    authorName: 'А.',
+    pages: '421',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -235,7 +287,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 19,
+    id: 23,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -248,7 +300,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 20,
+    id: 24,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -261,7 +313,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 21,
+    id: 25,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -274,7 +326,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 22,
+    id: 26,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -287,7 +339,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 23,
+    id: 27,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -300,7 +352,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 24,
+    id: 28,
     year: 2003,
     category: 'основы',
     theme: 'Linux',
@@ -313,7 +365,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 25,
+    id: 29,
     year: 2004,
     category: 'основы',
     theme: 'Linux',
@@ -326,7 +378,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 26,
+    id: 30,
     year: 2004,
     category: 'основы',
     theme: 'Linux',
@@ -339,7 +391,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 27,
+    id: 31,
     year: 2004,
     category: 'основы',
     theme: 'Linux',
@@ -352,7 +404,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 28,
+    id: 32,
     year: 2004,
     category: 'основы',
     theme: 'Linux',
@@ -365,7 +417,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 29,
+    id: 33,
+    year: 2004,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Запускаем Linux (4е)',
+    author: 'Уэлш',
+    authorName: 'Мэтт',
+    pages: '728',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 34,
     year: 2004,
     category: 'основы',
     theme: 'Linux',
@@ -378,7 +443,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 30,
+    id: 35,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -391,7 +456,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 31,
+    id: 36,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -404,7 +469,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 32,
+    id: 37,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -417,7 +482,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 33,
+    id: 38,
+    year: 2005,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux не для гиков',
+    author: 'Грант',
+    authorName: 'Рикфорд',
+    pages: '334',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 39,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -430,7 +508,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 34,
+    id: 40,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -443,7 +521,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 35,
+    id: 41,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -456,7 +534,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 36,
+    id: 42,
     year: 2005,
     category: 'основы',
     theme: 'Linux',
@@ -469,7 +547,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 37,
+    id: 43,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -482,7 +560,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 38,
+    id: 44,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -495,7 +573,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 39,
+    id: 45,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -508,7 +586,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 40,
+    id: 46,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -521,7 +599,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 41,
+    id: 47,
+    year: 2006,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Защита и безопасность в сетях Linux',
+    author: 'Бэндл',
+    authorName: 'Дэвид',
+    pages: '326',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 48,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -534,7 +625,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 42,
+    id: 49,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -547,7 +638,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 43,
+    id: 50,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -560,7 +651,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 44,
+    id: 51,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -573,7 +664,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 45,
+    id: 52,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -586,7 +677,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 46,
+    id: 53,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -599,7 +690,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 47,
+    id: 54,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -612,7 +703,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 48,
+    id: 55,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -625,20 +716,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 49,
-    year: 2006,
-    category: 'основы',
-    theme: 'Linux',
-    title: 'Linux глазами хакера',
-    author: 'Фленов',
-    authorName: 'Михаил',
-    pages: '542',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 50,
+    id: 57,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -651,7 +729,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 51,
+    id: 58,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -664,7 +742,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 52,
+    id: 59,
     year: 2006,
     category: 'основы',
     theme: 'Linux',
@@ -677,7 +755,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 53,
+    id: 60,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -690,7 +768,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 54,
+    id: 61,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -703,7 +781,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 55,
+    id: 62,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -716,7 +794,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 56,
+    id: 63,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -729,7 +807,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 57,
+    id: 64,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -742,7 +820,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 58,
+    id: 65,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -755,7 +833,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 59,
+    id: 66,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -768,7 +846,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 60,
+    id: 67,
+    year: 2007,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Самоучитель Linux',
+    author: 'Орлов',
+    authorName: 'Андрей',
+    pages: '433',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 68,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -781,7 +872,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 61,
+    id: 69,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -794,7 +885,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 62,
+    id: 70,
     year: 2007,
     category: 'основы',
     theme: 'Linux',
@@ -807,7 +898,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 63,
+    id: 71,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -820,7 +911,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 64,
+    id: 72,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -833,7 +924,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 65,
+    id: 73,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -846,7 +937,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 66,
+    id: 74,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -859,7 +950,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 67,
+    id: 75,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -872,7 +963,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 68,
+    id: 76,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -885,7 +976,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 69,
+    id: 77,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -898,7 +989,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 70,
+    id: 78,
+    year: 2008,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Запускаем Linux (5е)',
+    author: 'Уэлш',
+    authorName: 'Мэтт',
+    pages: '985',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 79,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -911,7 +1015,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 71,
+    id: 80,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -924,7 +1028,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 72,
+    id: 81,
     year: 2008,
     category: 'основы',
     theme: 'Linux',
@@ -937,7 +1041,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 73,
+    id: 82,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -950,7 +1054,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 74,
+    id: 83,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -963,7 +1067,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 75,
+    id: 84,
+    year: 2009,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux на ноутбуке',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '693',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 85,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -976,7 +1093,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 76,
+    id: 86,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -989,7 +1106,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 38,
+    id: 87,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -1002,7 +1119,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 77,
+    id: 88,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -1015,7 +1132,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 78,
+    id: 89,
     year: 2009,
     category: 'основы',
     theme: 'Linux',
@@ -1028,7 +1145,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 79,
+    id: 90,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1041,7 +1158,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 80,
+    id: 91,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1054,7 +1171,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 81,
+    id: 92,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1067,7 +1184,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 82,
+    id: 93,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1080,7 +1197,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 83,
+    id: 94,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1093,33 +1210,33 @@ const dataBooksLinux = [
   },
 
   {
-    id: 84,
+    id: 95,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
-    title: 'Linux. От новичка к профессионалу',
+    title: 'Linux. От новичка к профессионалу (2е)',
     author: 'Колисниченко',
     authorName: 'Денис',
-    pages: '781',
+    pages: '771',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 85,
+    id: 96,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
     title: 'Ubuntu 10. Краткое руководство пользователя',
     author: 'Колисниченко',
     authorName: 'Денис',
-    pages: '315',
+    pages: '334',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 86,
+    id: 97,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1132,7 +1249,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 87,
+    id: 98,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1145,7 +1262,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 88,
+    id: 99,
     year: 2010,
     category: 'основы',
     theme: 'Linux',
@@ -1158,20 +1275,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 89,
-    year: 2010,
-    category: 'основы',
-    theme: 'Linux',
-    title: 'Linux глазами хакера (3е)',
-    author: 'Флёнов',
-    authorName: 'Михаил',
-    pages: '467',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 90,
+    id: 101,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1184,7 +1288,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 91,
+    id: 102,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1197,7 +1301,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 92,
+    id: 103,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1210,7 +1314,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 93,
+    id: 104,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1223,7 +1327,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 94,
+    id: 105,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1236,7 +1340,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 95,
+    id: 106,
+    year: 2011,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Руководство администратора Linux (2е)',
+    author: 'Немет',
+    authorName: 'Эви',
+    pages: '1072',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 107,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1249,7 +1366,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 96,
+    id: 108,
+    year: 2011,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux (3е)',
+    author: 'Стахнов',
+    authorName: 'Алексей',
+    pages: '738',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 109,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1262,7 +1392,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 97,
+    id: 110,
     year: 2011,
     category: 'основы',
     theme: 'Linux',
@@ -1275,7 +1405,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 98,
+    id: 111,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1288,7 +1418,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 99,
+    id: 112,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1301,7 +1431,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 100,
+    id: 113,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1314,7 +1444,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 101,
+    id: 114,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1327,7 +1457,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 102,
+    id: 115,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1340,7 +1470,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 103,
+    id: 116,
     year: 2012,
     category: 'основы',
     theme: 'Linux',
@@ -1353,7 +1483,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 104,
+    id: 117,
     year: 2013,
     category: 'основы',
     theme: 'Linux',
@@ -1366,7 +1496,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 105,
+    id: 118,
     year: 2013,
     category: 'основы',
     theme: 'Linux',
@@ -1379,7 +1509,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 106,
+    id: 119,
     year: 2014,
     category: 'основы',
     theme: 'Linux',
@@ -1392,7 +1522,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 107,
+    id: 120,
     year: 2014,
     category: 'основы',
     theme: 'Linux',
@@ -1405,7 +1535,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 108,
+    id: 121,
+    year: 2014,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux. Установка, настройка, администрирование',
+    author: 'Кофлер',
+    authorName: 'Михаэль',
+    pages: '768',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 122,
     year: 2014,
     category: 'основы',
     theme: 'Linux',
@@ -1418,7 +1561,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 109,
+    id: 123,
     year: 2015,
     category: 'основы',
     theme: 'Linux',
@@ -1431,7 +1574,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 110,
+    id: 124,
     year: 2016,
     category: 'основы',
     theme: 'Linux',
@@ -1444,7 +1587,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 111,
+    id: 125,
     year: 2016,
     category: 'основы',
     theme: 'Linux',
@@ -1457,20 +1600,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 112,
-    year: 2016,
+    id: 127,
+    year: 2017,
     category: 'основы',
     theme: 'Linux',
-    title: 'Linux глазами хакера (4е)',
-    author: 'Фленов',
-    authorName: 'Михаил',
-    pages: '434',
+    title: 'Linux на примерах',
+    author: 'Донцов',
+    authorName: 'В.П.',
+    pages: '351',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 113,
+    id: 128,
     year: 2017,
     category: 'основы',
     theme: 'Linux',
@@ -1483,7 +1626,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 114,
+    id: 129,
     year: 2017,
     category: 'основы',
     theme: 'Linux',
@@ -1496,7 +1639,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 115,
+    id: 130,
     year: 2017,
     category: 'основы',
     theme: 'Linux',
@@ -1509,7 +1652,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 116,
+    id: 131,
     year: 2017,
     category: 'основы',
     theme: 'Linux',
@@ -1522,7 +1665,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 117,
+    id: 132,
     year: 2017,
     category: 'основы',
     theme: 'Linux',
@@ -1535,7 +1678,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 118,
+    id: 133,
     year: 2018,
     category: 'основы',
     theme: 'Linux',
@@ -1548,7 +1691,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 119,
+    id: 134,
     year: 2018,
     category: 'основы',
     theme: 'Linux',
@@ -1561,7 +1704,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 120,
+    id: 135,
     year: 2019,
     category: 'основы',
     theme: 'Linux',
@@ -1574,7 +1717,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 121,
+    id: 136,
     year: 2019,
     category: 'основы',
     theme: 'Linux',
@@ -1587,7 +1730,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 122,
+    id: 137,
     year: 2019,
     category: 'основы',
     theme: 'Linux',
@@ -1600,7 +1743,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 123,
+    id: 138,
     year: 2019,
     category: 'основы',
     theme: 'Linux',
@@ -1613,20 +1756,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 124,
-    year: 2019,
-    category: 'основы',
-    theme: 'Linux',
-    title: 'Linux глазами хакера (5е)',
-    author: 'Фленов',
-    authorName: 'Михаил',
-    pages: '418',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 125,
+    id: 140,
     year: 2020,
     category: 'основы',
     theme: 'Linux',
@@ -1639,7 +1769,20 @@ const dataBooksLinux = [
   },
 
   {
-    id: 126,
+    id: 141,
+    year: 2020,
+    category: 'основы',
+    theme: 'Linux',
+    title: 'Linux. От новичка к профессионалу (7е)',
+    author: 'Колисниченко',
+    authorName: 'Денис',
+    pages: '674',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 142,
     year: 2020,
     category: 'основы',
     theme: 'Linux',
@@ -1652,7 +1795,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 127,
+    id: 143,
     year: 2020,
     category: 'основы',
     theme: 'Linux',
@@ -1665,7 +1808,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 128,
+    id: 144,
     year: 2020,
     category: 'основы',
     theme: 'Linux',
@@ -1678,7 +1821,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 129,
+    id: 145,
     year: 2021,
     category: 'основы',
     theme: 'Linux',
@@ -1691,7 +1834,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 130,
+    id: 146,
     year: 2021,
     category: 'основы',
     theme: 'Linux',
@@ -1704,7 +1847,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 131,
+    id: 147,
     year: 2021,
     category: 'основы',
     theme: 'Linux',
@@ -1717,7 +1860,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 132,
+    id: 148,
     year: 2021,
     category: 'основы',
     theme: 'Linux',
@@ -1730,7 +1873,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 133,
+    id: 149,
     year: 2021,
     category: 'основы',
     theme: 'Linux',
@@ -1743,20 +1886,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 134,
-    year: 2021,
-    category: 'основы',
-    theme: 'Linux',
-    title: 'Linux глазами хакера (6е)',
-    author: 'Фленов',
-    authorName: 'Михаил',
-    pages: '417',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 135,
+    id: 151,
     year: 2022,
     category: 'основы',
     theme: 'Linux',
@@ -1769,7 +1899,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 136,
+    id: 152,
     year: 2022,
     category: 'основы',
     theme: 'Linux',
@@ -1782,7 +1912,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 137,
+    id: 153,
     year: 2022,
     category: 'основы',
     theme: 'Linux',
@@ -1795,7 +1925,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 138,
+    id: 154,
     year: 2022,
     category: 'основы',
     theme: 'Linux',
@@ -1808,7 +1938,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 139,
+    id: 155,
     year: 2022,
     category: 'основы',
     theme: 'Linux',
@@ -1821,7 +1951,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 140,
+    id: 156,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1834,7 +1964,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 141,
+    id: 157,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1847,7 +1977,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 142,
+    id: 158,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1860,7 +1990,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 143,
+    id: 159,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1873,7 +2003,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 144,
+    id: 160,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1886,7 +2016,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 145,
+    id: 161,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1899,7 +2029,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 146,
+    id: 162,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1912,7 +2042,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 147,
+    id: 163,
     year: 2023,
     category: 'основы',
     theme: 'Linux',
@@ -1925,7 +2055,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 148,
+    id: 164,
     year: 2024,
     category: 'основы',
     theme: 'Linux',
@@ -1938,7 +2068,7 @@ const dataBooksLinux = [
   },
 
   {
-    id: 149,
+    id: 165,
     year: 2024,
     category: 'основы',
     theme: 'Linux',

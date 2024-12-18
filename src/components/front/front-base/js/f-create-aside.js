@@ -1,21 +1,11 @@
 /** ***************
 Функция createInput создает inputArray
 **************** */
-import pageLink from './../pages/pages';
-
-// 1. Создаем массив asideThemes с темами
-const asideThemes = ['Паттерны', 'Принципы', 'OOP', 'FP', 'Информатика'];
+import {asideThemes} from './data-aside';
+import pageLink      from './pages';
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
-
-// Функция создает id для элемента меню
-let idNameSuffix = 1;
-function createId(str) {
-  str = idNameSuffix;
-  idNameSuffix++;
-  return `base-${str}`;
-}
 
 // 3. Для каждой темы из массива asideThemes
 for (const theme of asideThemes) {
@@ -23,7 +13,6 @@ for (const theme of asideThemes) {
   const elementAside = document.createElement('a');
   elementAside.href = '#';
   elementAside.innerHTML = theme;
-  elementAside.id = createId(theme);
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);
@@ -51,11 +40,11 @@ const aside = document.createElement('aside');
 aside.classList.add('aside');
 aside.append(...asideDiv);
 
-export const main = document.createElement('main');
+const main = document.createElement('main');
 main.classList.add('main');
-main.id = 'base';
+main.id = 'base'; // эта строчка отличается
 
-pageLink(asideDiv);
+pageLink(asideDiv, main);
 
 export function createAside() {
   return aside;

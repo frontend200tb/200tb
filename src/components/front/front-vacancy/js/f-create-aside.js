@@ -1,10 +1,8 @@
 /** ***************
 Функция createInput создает inputArray
 **************** */
-import pageLink from './../pages/pages';
-
-// 1. Создаем массив asideThemes с темами
-const asideThemes = ['Vacancy', 'Epam', 'DSR', 'Neoflex', 'Yandex', 'Ozon', 'Avito', 'Сбер', 'Т Банк', 'Иннотех', 'Interview', 'Postcross', 'Приглашения', 'Отказы', 'Без ответа', 'Skills'];
+import {asideThemes} from './data-aside';
+import pageLink      from './pages';
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
@@ -15,12 +13,6 @@ for (const theme of asideThemes) {
   const elementAside = document.createElement('a');
   elementAside.href = '#';
   elementAside.innerHTML = theme;
-  elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `edu-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);
@@ -48,11 +40,11 @@ const aside = document.createElement('aside');
 aside.classList.add('aside');
 aside.append(...asideDiv);
 
-export const main = document.createElement('main');
+const main = document.createElement('main');
 main.classList.add('list');
-main.id = 'vacancy';
+main.id = 'vacancy'; // эта строчка отличается
 
-pageLink(asideDiv);
+pageLink(asideDiv, main);
 
 export function createAside() {
   return aside;

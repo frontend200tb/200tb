@@ -2,9 +2,9 @@
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ****************** */
 import showFrontBase from './../front-base/front-base';
+import showFrontNets from './../front-nets/front-nets';
 import showFrontFramework from './../front-framework/front-framework';
 import showFrontTools from './../front-tools/front-tools';
-import showFrontNet from './../front-net/front-net';
 import showFrontArticles from './../front-articles/front-articles';
 
 export default function pageLink() {
@@ -19,7 +19,16 @@ export default function pageLink() {
     });
   }
 
-  const navFramework = document.getElementById('offline-2');
+  const navNets = document.getElementById('offline-2');
+  if (navNets) {
+    navNets.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<front-nets></front-nets>';
+      showFrontNets();
+    });
+  }
+
+  const navFramework = document.getElementById('offline-3');
   if (navFramework) {
     navFramework.addEventListener('click', (e) => {
       e.preventDefault();
@@ -28,21 +37,12 @@ export default function pageLink() {
     });
   }
 
-  const navTools = document.getElementById('offline-3');
+  const navTools = document.getElementById('offline-4');
   if (navTools) {
     navTools.addEventListener('click', (e) => {
       e.preventDefault();
       currentContent.innerHTML = '<front-tools></front-tools>';
       showFrontTools();
-    });
-  }
-
-  const navNet = document.getElementById('offline-4');
-  if (navNet) {
-    navNet.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<front-net></front-net>';
-      showFrontNet();
     });
   }
 

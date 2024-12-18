@@ -1,10 +1,8 @@
 /** ***************
 Функция createInput создает inputArray
 **************** */
-import pageLink from './../pages/pages';
-
-// 1. Создаем массив asideThemes с темами
-const asideThemes = ['DSR 2024 C++', 'ВГУ 2024 Сети', 'Courses', 'Courses learned', 'Learning', 'RS School', 'RSS 2024 Stage2', 'RSS 2023 Stage1', 'DSR 2023 .Net', 'RSS 2023 Stage0', 'RSS 2022 Stage3 Angular', 'RSS 2022 Stage1', 'RSS 2022 Stage0', 'Quiz'];
+import {asideThemes} from './data-aside';
+import pageLink      from './pages';
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
@@ -15,12 +13,6 @@ for (const theme of asideThemes) {
   const elementAside = document.createElement('a');
   elementAside.href = '#';
   elementAside.innerHTML = theme;
-  elementAside.id = createId(theme);
-
-  function createId(str) {
-    // удалить всё, кроме букв и цифр
-    return `edu-${str.replace(/[^a-z0-9]/gi, '').toLowerCase()}`;
-  }
 
   // 3.2 Добавляем элемент elementAside в массив asideDiv
   asideDiv.push(elementAside);
@@ -32,9 +24,6 @@ for (const theme of asideThemes) {
     // 3.3.1 добавим ему class="active"
     classActive(asideDiv, elementAside);
   });
-}
-export function removeClassActive() {
-  classActive(asideDiv);
 }
 
 // Ставим class="active" выбранному элементу меню и убираем с остальных
@@ -51,11 +40,11 @@ const aside = document.createElement('aside');
 aside.classList.add('aside');
 aside.append(...asideDiv);
 
-export const main = document.createElement('main');
+const main = document.createElement('main');
 main.classList.add('main');
-main.id = 'edu';
+main.id = 'edu'; // эта строчка отличается
 
-pageLink(asideDiv);
+pageLink(asideDiv, main);
 
 export function createAside() {
   return aside;

@@ -2,6 +2,19 @@ const dataBooksBasic = [
 
   {
     id: 1,
+    year: 2002,
+    category: 'code',
+    theme: 'basic',
+    title: 'Задачник практикум по информатике',
+    author: 'Сафронов',
+    authorName: 'Игорь',
+    pages: '428',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2003,
     category: 'code',
     theme: 'basic',

@@ -261,6 +261,7 @@ const dataBooksComp = [
     theme: 'Компьютер',
     title: 'Конспект лекций по дисциплине Вычислительные машины',
     author: 'Бутаков',
+    authorName: 'С.В.',
     pages: '63',
     isLearned: false,
     dateLearned: '',
@@ -271,16 +272,42 @@ const dataBooksComp = [
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
-    title: 'Аппаратные средства ПК',
-    author: 'Сломенчук',
-    authorName: 'Валентин',
-    pages: '500',
+    title: 'Аппаратно-программные средства карманных компьютеров',
+    author: 'Елисеев',
+    authorName: 'Дмитрий',
+    pages: '362',
     isLearned: false,
     dateLearned: '',
   },
 
   {
     id: 23,
+    year: 2003,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Популярные лекции об устройстве компьютера',
+    author: 'Еремин',
+    authorName: 'Е.А.',
+    pages: '273',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 24,
+    year: 2003,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Аппаратные средства ПК',
+    author: 'Сломенчук',
+    authorName: 'Валентин',
+    pages: '501',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 25,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -293,7 +320,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -306,7 +333,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 25,
+    id: 27,
     year: 2003,
     category: 'основы',
     theme: 'Компьютер',
@@ -319,11 +346,11 @@ const dataBooksComp = [
   },
 
   {
-    id: 26,
+    id: 28,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
-    title: 'Интерфейсы USB',
+    title: 'Интерфейсы USB. Практика использования и программирования',
     author: 'Агуров',
     authorName: 'Павел',
     pages: '566',
@@ -332,20 +359,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 27,
+    id: 29,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
-    title: 'Последовательные интерфейсы ПК',
+    title: 'Последовательные интерфейсы ПК. Практика программирования',
     author: 'Агуров',
     authorName: 'Павел',
-    pages: '482',
+    pages: '483',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 28,
+    id: 30,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -358,7 +385,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 29,
+    id: 31,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -371,7 +398,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 30,
+    id: 32,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -384,7 +411,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 31,
+    id: 33,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -397,7 +424,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 32,
+    id: 34,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -410,7 +437,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 33,
+    id: 35,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -423,7 +450,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 34,
+    id: 36,
     year: 2004,
     category: 'основы',
     theme: 'Компьютер',
@@ -436,7 +463,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 35,
+    id: 37,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -449,7 +476,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 36,
+    id: 38,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -462,7 +489,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 37,
+    id: 39,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -475,7 +502,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 38,
+    id: 40,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -488,7 +515,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 39,
+    id: 41,
     year: 2005,
     category: 'основы',
     theme: 'Компьютер',
@@ -501,7 +528,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 40,
+    id: 42,
+    year: 2006,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Практика программирования USB',
+    author: 'Агуров',
+    authorName: 'Павел',
+    pages: '622',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 43,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -514,7 +554,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 41,
+    id: 44,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -527,7 +567,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 42,
+    id: 45,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -540,7 +580,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 43,
+    id: 46,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -553,19 +593,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 44,
+    id: 47,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
     title: 'Сборка компьютера. Легкий старт (2е)',
     author: 'Динман',
+    authorName: 'М.И.',
     pages: '142',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 45,
+    id: 48,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -578,7 +619,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 46,
+    id: 49,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -591,7 +632,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 47,
+    id: 50,
+    year: 2006,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Шины PCI, PCI Express. Архитектура, дизайн, принципы',
+    author: 'Петров',
+    authorName: 'Сергей',
+    pages: '417',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 51,
     year: 2006,
     category: 'основы',
     theme: 'Компьютер',
@@ -604,7 +658,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 48,
+    id: 52,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -617,7 +671,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 49,
+    id: 53,
+    year: 2007,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Программирование драйверов для Windows',
+    author: 'Комиссарова',
+    authorName: 'Валерия',
+    pages: '252',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -630,7 +697,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 50,
+    id: 55,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -643,7 +710,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 51,
+    id: 56,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -656,7 +723,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 52,
+    id: 57,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -669,7 +736,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 53,
+    id: 58,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -682,7 +749,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 54,
+    id: 59,
     year: 2007,
     category: 'основы',
     theme: 'Компьютер',
@@ -695,19 +762,33 @@ const dataBooksComp = [
   },
 
   {
-    id: 55,
+    id: 60,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
     title: 'Современные информационные технологии',
     author: 'Давидовская',
+    authorName: 'М.И.',
     pages: '425',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 56,
+    id: 61,
+    year: 2008,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Программирование аппаратных средств в Windows (2е)',
+    author: 'Несвижский',
+    authorName: 'Всеволод',
+    pages: '529',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 62,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
@@ -720,7 +801,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 57,
+    id: 63,
     year: 2008,
     category: 'основы',
     theme: 'Компьютер',
@@ -733,7 +814,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 58,
+    id: 64,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -746,7 +827,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 59,
+    id: 65,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -759,7 +840,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 60,
+    id: 66,
+    year: 2009,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Программирование последовательных интерфейсов',
+    author: 'Магда',
+    authorName: 'Юрий',
+    pages: '299',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 67,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -772,7 +866,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 61,
+    id: 68,
     year: 2009,
     category: 'основы',
     theme: 'Компьютер',
@@ -785,7 +879,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 62,
+    id: 69,
+    year: 2009,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Компьютер глазами хакера (2е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '352',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 70,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -798,7 +905,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 63,
+    id: 71,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -811,7 +918,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 64,
+    id: 72,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -824,7 +931,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 65,
+    id: 73,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -837,7 +944,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 66,
+    id: 74,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -850,7 +957,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 67,
+    id: 75,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -863,7 +970,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 68,
+    id: 76,
     year: 2010,
     category: 'основы',
     theme: 'Компьютер',
@@ -876,7 +983,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 69,
+    id: 77,
     year: 2011,
     category: 'основы',
     theme: 'Компьютер',
@@ -889,7 +996,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 70,
+    id: 78,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -902,7 +1009,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 71,
+    id: 79,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -915,7 +1022,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 72,
+    id: 80,
     year: 2012,
     category: 'основы',
     theme: 'Компьютер',
@@ -928,7 +1035,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 73,
+    id: 81,
+    year: 2013,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'ПК для чайников, издание для Windows 8',
+    author: 'Гукин',
+    authorName: 'Дэн',
+    pages: '208',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 82,
     year: 2013,
     category: 'основы',
     theme: 'Компьютер',
@@ -941,7 +1061,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 74,
+    id: 83,
     year: 2013,
     category: 'основы',
     theme: 'Компьютер',
@@ -954,7 +1074,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 75,
+    id: 84,
     year: 2015,
     category: 'основы',
     theme: 'Компьютер',
@@ -967,7 +1087,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 76,
+    id: 85,
     year: 2018,
     category: 'основы',
     theme: 'Компьютер',
@@ -980,7 +1100,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 77,
+    id: 86,
     year: 2018,
     category: 'основы',
     theme: 'Компьютер',
@@ -993,7 +1113,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 78,
+    id: 87,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1006,7 +1126,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 79,
+    id: 88,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1019,7 +1139,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 80,
+    id: 89,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1031,7 +1151,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 81,
+    id: 90,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1044,7 +1164,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 82,
+    id: 91,
     year: 2019,
     category: 'основы',
     theme: 'Компьютер',
@@ -1057,7 +1177,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 83,
+    id: 92,
     year: 2020,
     category: 'основы',
     theme: 'Компьютер',
@@ -1070,7 +1190,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 84,
+    id: 93,
     year: 2021,
     category: 'основы',
     theme: 'Компьютер',
@@ -1083,7 +1203,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 85,
+    id: 94,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1096,7 +1216,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 86,
+    id: 95,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1109,7 +1229,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 87,
+    id: 96,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1122,7 +1242,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 88,
+    id: 97,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1135,7 +1255,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 89,
+    id: 98,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1148,7 +1268,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 90,
+    id: 99,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1161,7 +1281,20 @@ const dataBooksComp = [
   },
 
   {
-    id: 91,
+    id: 100,
+    year: 2024,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Архитектура вычислительных систем и Ассемблер',
+    author: 'Гагарина',
+    authorName: 'Л.Г.',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 101,
     year: 2024,
     category: 'основы',
     theme: 'Компьютер',

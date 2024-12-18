@@ -3,6 +3,20 @@ const dataYtSport = [
   {
     id: 1,
     theme: 'Спорт',
+    title: 'Vadim Kiselev',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@VadimKiselev1982/videos',
+    site: '',
+    dateFirstVideo: '2020.01.08',
+    dateLastVideo: '2024.12.01',
+    amountVideos: 1006,
+  },
+
+  {
+    id: 1,
+    theme: 'Спорт',
     title: '3.5 задачи в неделю',
     author: '',
     city: '',
@@ -96,6 +110,20 @@ const dataYtSport = [
     dateFirstVideo: '2021.11.13',
     dateLastVideo: '2021.04.26',
     amountVideos: 43,
+  },
+
+  {
+    id: 8,
+    theme: 'Спорт',
+    title: 'Acing Algorithmic Interviews',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@acing_algorithmic_interviews/videos',
+    site: '',
+    dateFirstVideo: '2024.11.16',
+    dateLastVideo: '2024.12.09',
+    amountVideos: 10,
   },
 
   {},

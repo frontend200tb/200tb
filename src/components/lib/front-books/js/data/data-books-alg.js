@@ -144,19 +144,6 @@ const dataBooksAlg = [
   },
 
   {
-    id: 8,
-    year: 2003,
-    category: 'основы',
-    theme: 'Алгоритмы',
-    title: 'Программирование алгоритмов обработки данных',
-    author: 'Ускова',
-    authorName: 'О.Ф.',
-    pages: '187',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 9,
     year: 2004,
     category: 'основы',
@@ -217,19 +204,6 @@ const dataBooksAlg = [
     author: 'Смит',
     authorName: 'Билл',
     pages: '484',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 11,
-    year: 2007,
-    category: 'основы',
-    theme: 'Алгоритмы',
-    title: 'Алгоритмы и программы. Решение олимпиадных задач',
-    author: 'Порублев',
-    authorName: 'Илья',
-    pages: '475',
     isLearned: false,
     dateLearned: '',
   },
@@ -509,19 +483,6 @@ const dataBooksAlg = [
   },
 
   {
-    id: 31,
-    year: 2014,
-    category: 'основы',
-    theme: 'Алгоритмы',
-    title: 'Программирование в алгоритмах (5е)',
-    author: 'Окулов',
-    authorName: 'Станислав',
-    pages: '386',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 32,
     year: 2015,
     category: 'основы',
@@ -612,19 +573,6 @@ const dataBooksAlg = [
   },
 
   {
-    id: 38,
-    year: 2017,
-    category: 'основы',
-    theme: 'Алгоритмы',
-    title: 'Сборник задач по теории алгоритмов',
-    author: 'Котов',
-    authorName: 'Владимир',
-    pages: '184',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 40,
     year: 2017,
     category: 'основы',
@@ -633,19 +581,6 @@ const dataBooksAlg = [
     author: 'Лобанова',
     authorName: 'Валентина',
     pages: '95',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 41,
-    year: 2017,
-    category: 'основы',
-    theme: 'Алгоритмы',
-    title: 'Программирование в алгоритмах (4е)',
-    author: 'Окулов',
-    authorName: 'Станислав',
-    pages: '386',
     isLearned: false,
     dateLearned: '',
   },

@@ -2,6 +2,19 @@ const dataBooksOlimp = [
 
   {
     id: 1,
+    year: 2000,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Особенности национальных задач по информатике',
+    author: 'Беров',
+    authorName: 'Виталий',
+    pages: '152',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
     year: 2001,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -14,7 +27,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 1,
+    id: 3,
     year: 2001,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -27,7 +40,111 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 1,
+    id: 4,
+    year: 2001,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 1',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '75',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2001,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 2',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '42',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
+    year: 2002,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 3',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '80',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2002,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 4',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '76',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 2003,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 5',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '80',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2003,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 6',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '36',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2003,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 7',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '28',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2003,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Программирование алгоритмов обработки данных',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '187',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
     year: 2004,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -40,7 +157,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 2,
+    id: 13,
     year: 2004,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -53,7 +170,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 3,
+    id: 14,
     year: 2004,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -66,7 +183,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 4,
+    id: 15,
     year: 2004,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -79,7 +196,59 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 5,
+    id: 16,
+    year: 2004,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиады по базовому курсу информатики',
+    author: 'Русаков',
+    authorName: 'С.В.',
+    pages: '48',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 17,
+    year: 2004,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 8',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '86',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 18,
+    year: 2004,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Лучшие решения. Часть 9',
+    author: 'Ускова',
+    authorName: 'О.Ф.',
+    pages: '68',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 2005,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Санкт-Петербургские олимпиады по кибернетике',
+    author: 'Ананьевский',
+    authorName: 'Михаил',
+    pages: '330',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 2005,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -92,7 +261,33 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 6,
+    id: 21,
+    year: 2005,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'О решении олимпиадных задач по программированию формата ACM ICPC',
+    author: 'Оршанский',
+    authorName: 'С.А.',
+    pages: '30',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
+    year: 2005,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадные задачи по программированию. Руководство по подготовке к соревнованиям',
+    author: 'Скиена',
+    authorName: 'Стивен',
+    pages: '416',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 23,
     year: 2006,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -105,7 +300,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 7,
+    id: 24,
     year: 2006,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -118,7 +313,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 8,
+    id: 25,
     year: 2006,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -131,7 +326,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 9,
+    id: 26,
     year: 2007,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -144,7 +339,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 9,
+    id: 27,
     year: 2007,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -157,7 +352,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 10,
+    id: 28,
     year: 2007,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -170,7 +365,33 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 11,
+    id: 29,
+    year: 2007,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Алгоритмы и программы. Решение олимпиадных задач',
+    author: 'Порублев',
+    authorName: 'Илья',
+    pages: '475',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
+    year: 2008,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Подготовка школьников к олимпиадам по информатике',
+    author: 'Алексеев',
+    authorName: 'Александр',
+    pages: '284',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2009,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -183,7 +404,20 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 12,
+    id: 32,
+    year: 2009,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Курс лекций по олимпиадной информатике',
+    author: 'Густокашин',
+    authorName: 'Михаил',
+    pages: '105',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 33,
     year: 2010,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -196,7 +430,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 9,
+    id: 34,
     year: 2011,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -209,7 +443,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 13,
+    id: 35,
     year: 2011,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -222,7 +456,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 14,
+    id: 36,
     year: 2011,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -235,7 +469,85 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 15,
+    id: 37,
+    year: 2012,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Динамическое программирование',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '300',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 38,
+    year: 2012,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Спортивное программирование. Сборник рецептов для программирующих на C++',
+    author: 'Симоненко',
+    authorName: 'Евгений',
+    pages: '29',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 39,
+    year: 2013,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Задачи школьных олимпиад. Часть 1 из 3',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '60',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 40,
+    year: 2013,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Задачи школьных олимпиад. Часть 2 из 3',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '61',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 41,
+    year: 2014,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Задачи школьных олимпиад. Часть 3 из 3',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '60',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 42,
+    year: 2014,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Программирование в алгоритмах (5е)',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '386',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 43,
     year: 2015,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -248,7 +560,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 16,
+    id: 44,
     year: 2015,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -261,7 +573,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 17,
+    id: 45,
     year: 2015,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -274,7 +586,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 18,
+    id: 46,
     year: 2016,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -287,7 +599,33 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 19,
+    id: 47,
+    year: 2016,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Сборник олимпиадных задач по информатике. Часть 1 из 5',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '30',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 48,
+    year: 2016,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Комбинаторные алгоритмы для программистов',
+    author: 'Костюкова',
+    authorName: 'Н.И.',
+    pages: '217',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 49,
     year: 2017,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -300,7 +638,20 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 19,
+    id: 50,
+    year: 2017,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Программирование в алгоритмах (4е)',
+    author: 'Окулов',
+    authorName: 'Станислав',
+    pages: '386',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 51,
     year: 2017,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -313,7 +664,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 20,
+    id: 52,
     year: 2017,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -326,7 +677,20 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 48,
+    id: 53,
+    year: 2018,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Сборник олимпиадных задач по информатике. Часть 2 из 5',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '56',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
     year: 2018,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -339,7 +703,20 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 64,
+    id: 55,
+    year: 2019,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Олимпиадное программирование',
+    author: 'Мальцев',
+    authorName: 'Станислав',
+    pages: '138',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 56,
     year: 2020,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -352,7 +729,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 125,
+    id: 57,
     year: 2020,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -365,7 +742,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 66,
+    id: 58,
     year: 2020,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -378,7 +755,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 71,
+    id: 59,
     year: 2020,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -391,7 +768,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 73,
+    id: 60,
     year: 2021,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -404,7 +781,20 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 101,
+    id: 61,
+    year: 2022,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Сборник олимпиадных задач по информатике. Часть 3 из 5',
+    author: 'Кашкевич',
+    authorName: 'Сергей',
+    pages: '52',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 62,
     year: 2024,
     category: 'основы',
     theme: 'Олимпиадные задачи',

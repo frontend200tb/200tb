@@ -1,7 +1,8 @@
-/*
+/************************
 Скрипт из файла front-base.js
+Объект frontBase содержит страницу front-base
 Функция showFrontBase показывает страницу front-base
-****************** */
+************************/
 import './js/element-front-base';
 import {createAside, createMain} from './js/f-create-aside';
 
@@ -17,7 +18,7 @@ frontBase.main = createMain();
 // 4. Экспортируем функцию showFrontBase()
 export default function showFrontBase() {
   const mainAside = document.querySelector('.main__aside');
-  
+
   if (mainAside) {
     mainAside.innerHTML = '';
     mainAside.append(frontBase.aside);

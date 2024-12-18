@@ -27,19 +27,6 @@ const dataBooksBase = [
   },
 
   {
-    id: 3,
-    year: 1984,
-    category: 'основы',
-    theme: 'Программирование',
-    title: 'Элементы стиля программирования',
-    author: 'Керниган',
-    authorName: 'Брайан',
-    pages: '162',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 4,
     year: 1990,
     category: 'основы',

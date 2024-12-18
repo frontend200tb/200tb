@@ -183,6 +183,19 @@ const dataBooksSecure = [
   },
 
   {
+    id: 14,
+    year: 2004,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Секреты хакеров. Безопасность Linux - готовые решения (2е)',
+    author: 'Хатч',
+    authorName: 'Брайан',
+    pages: '702',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 15,
     year: 2005,
     category: 'основы',
@@ -222,6 +235,19 @@ const dataBooksSecure = [
   },
 
   {
+    id: 17,
+    year: 2005,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Linux глазами Хакера',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '542',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 18,
     year: 2006,
     category: 'основы',
@@ -243,6 +269,19 @@ const dataBooksSecure = [
     author: 'Панов',
     authorName: 'Александр',
     pages: '244',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 19,
+    year: 2007,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Головоломки для хакера',
+    author: 'Скляров',
+    authorName: 'Иван',
+    pages: '320',
     isLearned: false,
     dateLearned: '',
   },
@@ -300,6 +339,19 @@ const dataBooksSecure = [
   },
 
   {
+    id: 100,
+    year: 2010,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Linux глазами хакера (3е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '467',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 24,
     year: 2011,
     category: 'основы',
@@ -308,6 +360,18 @@ const dataBooksSecure = [
     author: 'Сенкевич',
     authorName: 'Глеб',
     pages: '304',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
+    year: 2012,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Безопасность компьютерных сетей',
+    author: 'Информзащита',
+    pages: '404',
     isLearned: false,
     dateLearned: '',
   },
@@ -365,6 +429,19 @@ const dataBooksSecure = [
   },
 
   {
+    id: 126,
+    year: 2016,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Linux глазами хакера (4е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '434',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 29,
     year: 2017,
     category: 'основы',
@@ -373,6 +450,19 @@ const dataBooksSecure = [
     author: 'Бондарев',
     authorName: 'Валерий',
     pages: '227',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 139,
+    year: 2019,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Linux глазами хакера (5е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '418',
     isLearned: false,
     dateLearned: '',
   },
@@ -417,6 +507,19 @@ const dataBooksSecure = [
   },
 
   {
+    id: 150,
+    year: 2021,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Linux глазами хакера (6е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '417',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 32,
     year: 2021,
     category: 'основы',
@@ -451,6 +554,58 @@ const dataBooksSecure = [
     author: 'Келдыш',
     authorName: 'Наталья',
     pages: '100',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 34,
+    year: 2022,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Этичный хакер',
+    author: 'Шахулов',
+    authorName: 'Никита',
+    pages: '138',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
+    year: 2023,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Python для хакеров',
+    author: 'Воган',
+    authorName: 'Ли',
+    pages: '384',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
+    year: 2023,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'C# глазами хакера (5е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '221',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 35,
+    year: 2023,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'PHP глазами хакера (5е)',
+    author: 'Фленов',
+    authorName: 'Михаил',
+    pages: '274',
     isLearned: false,
     dateLearned: '',
   },

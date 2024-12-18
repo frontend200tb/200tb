@@ -1,7 +1,8 @@
-/** **************
+/************************
 Скрипт из файла front-vacancy.js
+Объект frontVacancy содержит страницу front-vacancy
 Функция showFrontVacancy показывает страницу front-vacancy
-****************** */
+************************/
 import './js/element-front-vacancy';
 import {createAside, createMain} from './js/f-create-aside';
 
@@ -17,12 +18,14 @@ frontVacancy.main = createMain();
 // 4. Экспортируем функцию showFrontVacancy()
 export default function showFrontVacancy() {
   const mainAside = document.querySelector('.main__aside');
-  
-  mainAside.innerHTML = '';
-  mainAside.append(frontVacancy.aside);
-  mainAside.append(frontVacancy.main);
 
-  // 5. Создадим и вызовем событие click на первой ссылке aside элемента
-  const eventClick = new Event('click');
-  mainAside.firstElementChild.firstElementChild.dispatchEvent(eventClick);
+  if (mainAside) {
+    mainAside.innerHTML = '';
+    mainAside.append(frontVacancy.aside);
+    mainAside.append(frontVacancy.main);
+
+    // 5. Создадим и вызовем событие click на первой ссылке aside элемента
+    const eventClick = new Event('click');
+    mainAside.firstElementChild.firstElementChild.dispatchEvent(eventClick);
+  }
 }

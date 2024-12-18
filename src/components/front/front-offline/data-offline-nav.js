@@ -1,7 +1,7 @@
 import showFrontBase from './../front-base/front-base';
+import showFrontNets from './../front-nets/front-nets';
 import showFrontFramework from './../front-framework/front-framework';
 import showFrontTools from './../front-tools/front-tools';
-import showFrontNet from './../front-net/front-net';
 import showFrontArticles from './../front-articles/front-articles';
 
 export const dataOfflineNav = [
@@ -11,6 +11,14 @@ export const dataOfflineNav = [
     content: '<front-base></front-base>',
     act() {
       showFrontBase();
+    },
+  },
+  {
+    url: 'front-nets.html',
+    text: 'сети',
+    content: '<front-nets></front-nets>',
+    act() {
+      showFrontNets();
     },
   },
   {
@@ -27,14 +35,6 @@ export const dataOfflineNav = [
     content: '<front-tools></front-tools>',
     act() {
       showFrontTools();
-    },
-  },
-  {
-    url: 'front-net.html',
-    text: 'net',
-    content: '<front-net></front-net>',
-    act() {
-      showFrontNet();
     },
   },
   {

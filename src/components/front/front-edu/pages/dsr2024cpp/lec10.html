@@ -1,0 +1,410 @@
+<article class="article">
+  <h1>Лекция 10 (16.12.2024)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#sten">Стенфордский курс</a></p>
+  <p><a href="#task1">Задача 1. Найти соседние элементы массива с минимальной разницей</a></p>
+  <p><a href="#task2">Задача 2. Опасные динозавры</a></p>
+</article>
+
+
+<!-- Стенфордский курс -->
+<article class="article">
+  <div class="anchor" id="sten"></div>
+  <h3>Стенфордский курс</h3>
+
+  <h3>CS 106X, Lecture 3</h3>
+  <h3>I/O Streams and Grids</h3>
+  <p>reading: Programming Abstractions in C++, Chapter 4, 5.1</p>
+
+  <h4>Defining a function (2.3)</h4>
+  <p>A C++ function is like a Java method</p>
+<pre>
+type functionName(type name, ..., type name) {
+  statement;
+  ...
+  statement;
+  return expression; // if return type is not void
+}
+</pre>
+
+  <p>Calling a function</p>
+  <code>functionName(value, ..., value);</code>
+
+  <h4>Default parameters</h4>
+  <p>You can make a parameter optional by supplying a default value</p>
+  <p>All parameters with default values must appear last in the list</p>
+  <p>Prints a line of characters of the given width</p>
+<pre>
+void printLine(int width = 10, char letter = '*') {
+  for (int i = 0; i &lt; width; i++) {
+    cout &lt;&lt; letter;
+  }
+  cout &lt;&lt; endl;
+}
+
+printLine(7, '?'); // ???????
+printLine(5); // *****
+printLine(); // **********
+</pre>
+
+  <h4>Function prototypes (1.4)</h4>
+  <code>type name(type name, ..., type name);</code>
+  <p>Declare the function (without its body) at top of program</p>
+
+<pre>
+double circleArea(double); // function prototype
+
+int main() {
+  double a = circleArea(2.5); // call the function
+  return 0;
+}
+
+double circleArea(double r) {
+  ...
+}
+</pre>
+
+  <p>With prototype, only declare default values in prototype</p>
+
+  <h4>Pass by Value</h4>
+<pre>
+void swap(int a, int b) {
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+int main() {
+  int x = 17;
+  int y = 35;
+  swap(x, y);
+  cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; endl; // 17, 35
+  return 0;
+}
+</pre>
+
+  <p>By default, C++ parameters are copies</p>
+
+  <h4>Pass by Reference</h4>
+<pre>
+void swap(int &a, int &b) {
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+int main() {
+  int x = 17;
+  int y = 35;
+  swap(x, y);
+  cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; endl; // 35, 17
+  return 0;
+}
+</pre>
+
+  <p>Use "&" to pass the same version</p>
+
+  <h4>Strings (3.1)</h4>
+<pre>
+#include &lt;string&gt;
+...
+string s = "hello";
+</pre>
+
+  <p>A string is a (possible empty) sequence of characters</p>
+  <p>Strings are mutable (can be changed) in C++</p>
+  <p>There are two types of strings in C++</p>
+
+  <h4>Operators (3.2)</h4>
+  <p>Concatenate using + or +=</p>
+  <code>string s1 = "Dai";</code>
+  <code>s1 += "sy"; // "Daisy"</code>
+
+  <p>Compare using relational operators (ASCII ordering)</p>
+  <code>string s2 = "Nicl";</code>
+  <code>if (s1 &lt; s2 != "Joe") {...} // true</code>
+
+  <p>Strings are mutable and can be changed</p>
+  <code>s2.append(" Troccoli"); // "Nick Troccoli"</code>
+  <code>s2.erase(6,7); // "Nick T"</code>
+  <code>s2[2] = 'e'; // "Niek T"</code>
+
+  <h4>C vs C++ strings (3.5)</h4>
+  <p>C++ has tho kinds of strings: C strings (char arrays) and C++ strings (string objects)</p>
+  <p>A string literal such as "hi there" is a C string. C strings don't include any methods/behavior shown previously. No member functions like length, find, or operators</p>
+  <p>Converting between the two types</p>
+  <code>string("text"); // C string to C++ string</code>
+  <code>string.c_str(); C++ string to C string</code>
+
+  <h4>NEW: Const parameters </h4>
+  <p>What if you want to avoid copying a large variable but don't want to change it?</p>
+  <p>Use the const keyword to indicate that the parameter won't be changed. Usually used with strings and collections. Passing in a non-variable (e.g. printString("hello")) does work</p>
+<pre>
+void printString(const string& str) {
+  cout &lt;&lt; "I will print this string" &lt;&lt; endl;
+  cout &lt;&lt; str &lt;&lt; endl;
+}
+
+int main() {
+  printString("This could be a really long string");
+}
+</pre>
+
+  <h4>What is a stream?</h4>
+  <p>A stream is a type of variable that you can insert into and remove from using special stream operations like &lt;&lt; , &gt;&gt; , getline, get and put</p>
+  <p>There are input streams and output streams</p>
+  <p>An input stream lets you get data from a source (like user input, a file, a webpage, etc.) and read it in your program</p>
+  <p>An output stream lets you take data from your program and output it to a source (like the console, a file, etc.)</p>
+
+  <h4>Reading In A File</h4>
+  <ol>
+    <li>Open the file for reading</li>
+    <li>Read the file, one chunk at a time</li>
+    <li>Close the file</li>
+  </ol>
+<pre>
+The animal I really dig,
+Above all others is a pig.
+Pigs are noble. Pigs are clever,
+Pigs are courteous. However, ...
+-Roald Dahl, "The Three Little Pigs"
+</pre>
+
+  <h4>Step one: Open the file for reading</h4>
+<pre>
+#include &lt;fstream&gt;; // for file streams
+ifstream infile;
+infile.open("filename.txt");
+</pre>
+<pre>
+ifstream infile;
+string myFilename = ...;
+infile.open(myFilename.c_str());
+</pre>
+
+  <p>This error-checks the filename (unlike previous)</p>
+<pre>
+#include &lt;fstream&gt;; // for file streams
+#include "filelib.h"; // for promptUserForFile
+ifstream infile;
+promptUserForFile(infile, "Enter a file name: ");
+</pre>
+
+  <h4>Step Two: Read the file, one line at a time</h4>
+<pre>
+string line1;
+getline(infile, line1); // The animal I realy dig
+</pre>
+<pre>
+string line1, line2, line3, line4, line5;
+getline(infile, line1); // The animal I realy dig
+getline(infile, line2); // Above all others is the pig
+getline(infile, line3); // Pigs are noble. Pigs are clever,
+getline(infile, line4); // Pigs are courteous. However, ...
+getline(infile, line5); // -Roald Dahl, "The Three Little Pigs"
+</pre>
+
+  <p>print all lines in the file</p>
+<pre>
+string line;
+while (getline(infile, line)) {
+  cout &lt;&lt; line &lt;&lt; endl;
+}
+</pre>
+
+  <h4>Step Three: close the file</h4>
+  <code>infile.close();</code>
+
+  <h4>One Character at a Time</h4>
+<pre>
+char ch;
+while(infile.get(ch)) {
+  // do something with ch
+}
+infile.close();
+</pre>
+
+  <h4>One Word at a Time</h4>
+<pre>
+string word;
+while(infile &gt;&gt; word) {
+  // do something with word
+}
+infile.close();
+</pre>
+
+  <h4>Writing to a File</h4>
+  <ol>
+    <li>Open the file for writing</li>
+    <li>Write to the file</li>
+    <li>Close the file</li>
+  </ol>
+
+  <p>Open the file for writing</p>
+<pre>
+ofstream outfile;
+promptUserForFile(outfile, "Enter a file name: ");
+</pre>
+
+  <p>Write to the file</p>
+<pre>
+string word = "my cool string";
+int x = 3;
+outfile &lt;&lt; word &lt;&lt; x;
+</pre>
+
+  <p>Close the file</p>
+  <code>outfile.close();</code>
+
+  <h4>That Looks Familiar</h4>
+  <p>If file-writing syntax seems eerily similar to printing to the console, that's because it is!</p>
+  <p>cin is a istream; cout is a ostream</p>
+  <p>We can take advantage of this in your code</p>
+<pre>
+void outputUserData(ostream& outputStream, string name, int score, double health) {
+  outputStream &lt;&lt; name &lt;&lt; endl;
+  outputStream &lt;&lt; score &lt;&lt; endl;
+}
+</pre>
+
+  <h4>Reading files (4.3)</h4>
+  <code>#include &lt;fstream&gt;</code>
+  <p>ifstream, ofstream classes for input/output files</p>
+  <p>inheritance hierarchy, based on parents named istream, ostream</p>
+  <p>cin is an ifstream; cout is an ofstream</p>
+  <p><a href="http://cplusplus.com/reference/istream/istream/">http://cplusplus.com/reference/istream/istream/</a></p>
+</article>
+
+
+<!-- Задача 1. Найти соседние элементы массива с минимальной разницей -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Найти соседние элементы массива с минимальной разницей</h3>
+
+  <p>Дан отсортированный массив положительных целых чисел. Необходимо найти такую пару соседних элементов, у которых абсолютная разница минимальна</p>
+
+  <p>Формат входных данных. В первой строчке задается число N- размер массива (количество элементов). Во второй строке вводится массив из N положительных целых чисел, разделенных пробелами.</p>
+
+  <p>Формат выходных данных. Программа должна вывести два числа - значения пары соседних элементов с наименьшей абсолютной разницей, разделенные пробелом. Если таких пар несколько, вывести первую найденную</p>
+
+  <p>Файл lec10.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+void CreateMas(int*&, int);
+void Print(int*, int);
+void DeleteMas(int*&);
+
+int main()
+{
+  std::ifstream infile;
+  infile.open("text.txt");
+  int size{};
+  int* array = nullptr;
+  int a{}, b{}, min{-1};
+
+  if (infile.is_open())
+  {
+    infile >> size;
+    CreateMas(array, size);
+
+    for (int i = 0; i &lt; size; i++)
+    {
+      infile >> array[i];
+    }
+
+    Print(array, size);
+
+    for (int i = 0; i &lt; size-1; i++)
+    {
+      if (min &lt; 0)
+      {
+        a = array[i];
+        b = array[i+1];
+        min = b - a;
+      }
+      else if (min > array[i+1] - array[i])
+      {
+        a = array[i];
+        b = array[i+1];
+        min = b - a;
+      }
+    }
+
+    std::cout &lt;&lt; a &lt;&lt; " "
+              &lt;&lt; b &lt;&lt; std::endl;
+    DeleteMas(array);
+
+    infile.close();
+  }
+}
+
+void CreateMas(int *&mas, int n)
+{
+  mas = new int[n]{};
+}
+
+void Print(int *mas, int n)
+{
+  for (int i = 0; i &lt; n; i++)
+  {
+    std::cout &lt;&lt; mas[i] &lt;&lt; "\t";
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+void DeleteMas(int *&mas)
+{
+  delete[] mas;
+  mas = nullptr;
+}
+
+</pre>
+
+  <p>Файл text.txt</p>
+<pre>
+10
+1 3 6 10 12 14 17 19 20 30
+</pre>
+</article>
+
+
+<!-- Задача 2. Опасные динозавры -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Опасные динозавры</h3>
+
+  <p>В парке Юрского периода случилась авария и все динозавры разбежались по острову. Необходимо помочь доктору Хэммонду отловить всех опасных динозавров на острове. Опасными считаются динозавры, у которых коэффициент К опасности выше 40. Коэффициент рассчитывается по следующей формуле</p>
+  <code>К = Скорость + Агрессивность + Размеры</code>
+  <p>Если этот динозавр хищник, то коэффициент умножается на 2, если всеядный на 1.5, если травоядный на 1.2</p>
+  <p>На входе подаются строки вида</p>
+  <code>Код_динозавра Название Тип Скорость Агрессивность Размеры</code>
+
+  <h4>Пример</h4>
+  <code>1 Раптор Хищник 7 10 5</code>
+  <code>2 Трицератопс Травоядный 7 15 8</code>
+  <code>3 Тиранозавр Хищник 10 10 12</code>
+
+  <p>Необходимо напечатать сколько выездов потребуется команде доктора, чтобы отловить всех опасных динозавров, если за один могут отловить только 3 динозавров</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+struct Dino {
+  int id;
+}
+
+int main() {
+  return 0;
+}
+</pre>
+</article>

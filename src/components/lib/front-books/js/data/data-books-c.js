@@ -2,6 +2,19 @@ const dataBooksC = [
 
   {
     id: 1,
+    year: 1984,
+    category: 'code',
+    theme: 'c',
+    title: 'Элементы стиля программирования',
+    author: 'Керниган',
+    authorName: 'Брайан',
+    pages: '162',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1985,
     category: 'code',
     theme: 'c',
