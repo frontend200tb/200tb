@@ -398,13 +398,143 @@ void DeleteMas(int *&mas)
 
 <pre>
 #include &lt;iostream&gt;
+#include &lt;fstream&gt;
 
 struct Dino {
   int id;
-}
+  std::string name;
+  std::string type;
+  int speed;
+  int agr;
+  int razm;
+
+  // конструктор
+  Dino(int _id, std::string _name, std::string _type,
+       int _speed, int _agr, int _razm) {
+    id = _id;
+    name = _name;
+    type = _type;
+    speed = _speed;
+    agr = _agr;
+    razm = _razm;
+  }
+
+  // конструктор по умолчанию
+  Dino(){}
+
+  int Dangerous() {
+    int K = speed + agr + razm;
+    if (type == "Trav")
+    {
+      return K * 1.2;
+    }
+    else if (type == "Vseyad")
+    {
+      return K * 1.5;
+    }
+    else
+    {
+      return K * 2;
+    }
+  }
+
+  void Print()
+  {
+    std::cout &lt;&lt; id &lt;&lt; " " &lt;&lt; name &lt;&lt; std::endl;
+  }
+};
 
 int main() {
+  // 1й способ задать динозавра
+  // через конструктор по умолчанию
+  Dino Raptor;
+  Raptor.id = 1;
+  Raptor.name = "Raptor";
+  Raptor.type = "Hishnik";
+  Raptor.speed = 10;
+  Raptor.agr = 5;
+  Raptor.razm = 15;
+
+  std::cout &lt;&lt; Raptor.name &lt;&lt; " has Dangerous ";
+  std::cout &lt;&lt; Raptor.Dangerous() &lt;&lt; std::endl;
+
+  // 2й способ задать динозавра через конструктор
+  Dino Tirex(2, "Tirex", "Vseyad", 12, 15, 13);
+
+  std::cout &lt;&lt; Tirex.name &lt;&lt; " has Dangerous ";
+  std::cout &lt;&lt; Tirex.Dangerous() &lt;&lt; std::endl;
+
+  // 3й способ задать динозавра через new
+  // создается объект, доступ к его полям через ->
+  Dino* Centavr = new Dino(3, "Centavr", "Trav", 15, 13, 12);
+
+  std::cout &lt;&lt; Centavr->name &lt;&lt; " has Dangerous ";
+  std::cout &lt;&lt; Centavr->Dangerous() &lt;&lt; std::endl;
+
+  // 4й способ задать динозавра из файла
+  std::ifstream infile;
+  infile.open("text_d.txt");
+  Dino* Reks = new Dino();
+  infile &gt;&gt; Reks->id &gt;&gt; Reks->name
+          &gt;&gt; Reks->type &gt;&gt; Reks->speed
+          &gt;&gt; Reks->agr &gt;&gt; Reks->razm;
+  Reks->Print();
+
+  std::cout &lt;&lt; Reks->name &lt;&lt; " has Dangerous ";
+  std::cout &lt;&lt; Reks->Dangerous() &lt;&lt; std::endl;
+
+  // 5й способ задать массив динозавров из файла
+  int size{};
+  std::ifstream infile2;
+  infile2.open("text_d2.txt");
+  infile2 &gt;&gt; size;
+  Dino* Dinos = new Dino[size];
+
+  for (int i = 0; i &lt; size; i++)
+  {
+    infile2 &gt;&gt; Dinos[i].id &gt;&gt; Dinos[i].name
+            &gt;&gt; Dinos[i].type &gt;&gt; Dinos[i].speed
+            &gt;&gt; Dinos[i].agr &gt;&gt; Dinos[i].razm;
+    Dinos[i].Print();
+  }
+
+  // посчитаем сколько опасных (К>40) динозавров
+  int count{};
+  for (int i = 0; i &lt; size; i++)
+  {
+    if (Dinos[i].Dangerous() > 40) {
+      count++;
+    }
+  }
+
+  std::cout &lt;&lt; "Count Danger Dinos ";
+  std::cout &lt;&lt; count &lt;&lt; std::endl;
+
+  // сколько выездов потребуется команде доктора
+  int result{};
+  for (int i = 0; i &lt; count; i += 3)
+  {
+      result++;
+  }
+
+  std::cout &lt;&lt; "Result ";
+  std::cout &lt;&lt; result &lt;&lt; std::endl;
+
   return 0;
 }
 </pre>
+
+  <p>Файл text_d.txt</p>
+  <code>4 Reks Trav 4 8 12</code>
+
+  <p>Файл text_d2.txt</p>
+<pre>
+5
+1 Raptor Hishnik 10 5 15
+2 Tirex Vseyad 12 15 13
+3 Centavr Trav 15 13 12
+4 Reks Trav 4 8 12
+5 Tiranozavr Trav 12 13 20
+</pre>
+
 </article>

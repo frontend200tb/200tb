@@ -13,7 +13,7 @@
 7. Экспортируем функцию frontYt()
 */
 
-import './element-front-yt';
+import './js/element-front-yt';
 import createInput from './js/f-create-input';
 import createCategory from './js/f-create-category';
 import createElements from './js/f-create-elements';
@@ -41,7 +41,9 @@ frontYt.elemSection = createElemSection(frontYt.elements);
 // 7. Экспортируем функцию showFrontYt()
 export default function showFrontYt() {
   const elementFrontYt = document.querySelector('.front-yt');
+
   if (elementFrontYt) {
+    elementFrontYt.innerHTML = '';
     elementFrontYt.append(frontYt.mainNav);
     elementFrontYt.append(frontYt.elemSection);
   }

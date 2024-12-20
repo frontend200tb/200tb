@@ -14,16 +14,16 @@ export default function pageLink(asideItems, currentContent) {
       if (pages[index]) {
         currentContent.innerHTML = pages[index];
         switch (index) {
-          case 0:
+          case 0: // htmlEduDsr2024cpp
             dsr2024Links();
             break;
-          case 1:
+          case 1: // htmlEduVgu2024nets
             vgu2024Links();
             break;
-          case 8:
+          case 8: // htmlEduDsr2023net
             dsr2023Links();
             break;
-          case 13:
+          case 13: // htmlEduQuiz
             quizLinks();
             break;
         }

@@ -13,7 +13,7 @@
 7. Экспортируем функцию showFrontVideo()
 */
 
-import './element-front-video';
+import './js/element-front-video';
 import createInput from './js/f-create-input';
 import createCategory from './js/f-create-category';
 import createElements from './js/f-create-elements';
@@ -41,6 +41,7 @@ frontVideo.elemSection = createElemSection(frontVideo.elements);
 // 7. Экспортируем функцию showFrontVideo()
 export default function showFrontVideo() {
   const elementFrontVideo = document.querySelector('.front-video');
+
   if (elementFrontVideo) {
     elementFrontVideo.innerHTML = '';
     elementFrontVideo.append(frontVideo.mainNav);

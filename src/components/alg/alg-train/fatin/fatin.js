@@ -1,79 +1,31 @@
 /** *******************
 Скрипт из файла fatin.js
+Объект fatin содержит страницу alg-fatin
 Функция showFatin показывает страницу fatin
 ******************** */
-import './element-fatin';
-import pageLink from './pages/pages';
+import './js/element-fatin';
+import {createAside, createMain} from './js/f-create-aside';
 
-// 1. Создаем массив asideThemes с темами
-const asideThemes = [
-  'Два неубывающих массива',
-  'Анаграмма',
-  'Два указателя с двух сторон',
-  'Подсчет бит',
-  'Матрица. Сумма диагоналей',
-  'Матрица. Суша и вода',
-  'Бинарный поиск',
-  'Связный список',
-  'Деревья',
-  'Деревья поиска',
-  'Два указателя',
-  'Хеш-таблица',
-  'Префиксный массив',
-  'Плавающее окно',
-  'Интервалы',
-];
+// 1. Создаем объект fatin
+const fatin = {};
 
-// 2. Создаем массив asideDiv для элементов aside меню
-const asideDiv = [];
+// 2. В объекте fatin создаем свойство aside
+fatin.aside = createAside();
 
-// Функция создает id для элемента меню
-let idNameSuffix = 1;
-function createId(str) {
-  str = idNameSuffix;
-  idNameSuffix++;
-  return `coderun-${str}`;
-}
+// 3. В объекте fatin создаем свойство main
+fatin.main = createMain();
 
-// 3. Для каждой темы из массива asideThemes
-for (const theme of asideThemes) {
-  // 3.1 Создаем элемент elementAside
-  const elementAside = document.createElement('a');
-  elementAside.href = '#';
-  elementAside.innerHTML = theme;
-  elementAside.id = createId(theme);
-
-  // 3.2 Добавляем элемент elementAside в массив asideDiv
-  asideDiv.push(elementAside);
-
-  // 3.3 По клику на элемент elementAside
-  elementAside.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    // 3.3.1 добавим ему class="active"
-    classActive(asideDiv, elementAside);
-  });
-}
-
+// 4. Экспортируем функцию showFatin()
 export default function showFatin() {
-  const aside = document.querySelector('.aside');
+  const mainAside = document.querySelector('.main__aside');
 
-  // 4. Показываем нужный aside
-  aside.innerHTML = '';
-  aside.append(...asideDiv);
+  if (mainAside) {
+    mainAside.innerHTML = '';
+    mainAside.append(fatin.aside);
+    mainAside.append(fatin.main);
 
-  // 5. Вешаем обработчики кликов по aside
-  pageLink();
-
-  // 6. Создадим и вызовем событие click на первом aside эелементе
-  const eventClick = new Event('click');
-  asideDiv[0].dispatchEvent(eventClick);
-}
-
-// Ставим class="active" выбранному элементу меню и убираем с остальных
-function classActive(elementOl, elementLi) {
-  elementOl.forEach((li) => {
-    li.classList.remove('active');
-  });
-  elementLi.classList.add('active');
+    // 5. Создадим и вызовем событие click на первой ссылке aside элемента
+    const eventClick = new Event('click');
+    mainAside.firstElementChild.firstElementChild.dispatchEvent(eventClick);
+  }
 }

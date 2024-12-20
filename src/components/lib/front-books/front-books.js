@@ -41,7 +41,9 @@ frontBooks.elemSection = createElemSection(frontBooks.elements);
 // 7. Экспортируем функцию showFrontBooks()
 export default function showFrontBooks() {
   const elementFrontBooks = document.querySelector('.front-books');
+
   if (elementFrontBooks) {
+    elementFrontBooks.innerHTML = '';
     elementFrontBooks.append(frontBooks.mainNav);
     elementFrontBooks.append(frontBooks.elemSection);
   }

@@ -1,10 +1,8 @@
 /** ***************
 Функция createInput создает inputArray
 **************** */
-import pageLink from './../pages/pages';
-
-// 1. Создаем массив asideThemes с темами
-const asideThemes = ['Тренировки 1.0', 'Тренировки 2.0', 'Тренировки 3.0', 'Тренировки 4.0', 'Тренировки 5.0'];
+import {asideThemes} from './data-aside';
+import pageLink      from './pages';
 
 // 2. Создаем массив asideDiv для элементов aside меню
 const asideDiv = [];
@@ -38,12 +36,20 @@ function classActive(elementOl, elementLi = null) {
   }
 }
 
-export const main = document.createElement('main');
-main.classList.add('main');
-main.id = 'gustokashin';
-
-pageLink(asideDiv);
-
-export const aside = document.createElement('aside');
+const aside = document.createElement('aside');
 aside.classList.add('aside');
 aside.append(...asideDiv);
+
+const main = document.createElement('main');
+main.classList.add('main');
+main.id = 'gustokashin'; // эта строчка отличается
+
+pageLink(asideDiv, main);
+
+export function createAside() {
+  return aside;
+}
+
+export function createMain() {
+  return main;
+}
