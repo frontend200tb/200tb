@@ -2,7 +2,6 @@
 export const asideThemes = [
   'Ассемблер',
   'Linux',
-  'C++',
   'C#',
   'Java',
   'Markdown',

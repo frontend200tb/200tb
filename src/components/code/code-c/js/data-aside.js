@@ -4,4 +4,5 @@ export const asideThemes = [
   'install',
   'Си',
   'Си Практика',
+  'C++',
 ];

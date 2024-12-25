@@ -716,6 +716,19 @@ const dataBooksArch = [
   },
 
   {
+    id: 55,
+    year: 2019,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Технология разработки ПО',
+    author: 'Гниденко',
+    authorName: 'Ирина',
+    pages: '236',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 56,
     year: 2019,
     category: 'основы',

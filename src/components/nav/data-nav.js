@@ -1,8 +1,7 @@
 // alg
 import showAlgBase from '../alg/alg-base/alg-base';
-import showAlgTrain from '../alg/alg-train/alg-train';
+import showAlgConspect from '../alg/alg-conspect/alg-conspect';
 import showAlgPract from '../alg/alg-pract/alg-pract';
-import showAlgDp from '../alg/alg-dp/alg-dp';
 
 // code
 import showCodeHtml from '../code/code-html/code-html';
@@ -37,11 +36,11 @@ export const dataNavAlg = [
     },
   },
   {
-    url: 'alg-train.html',
-    text: 'Подготовка',
-    content: '<alg-train></alg-train>',
+    url: 'alg-conspect.html',
+    text: 'Конспекты',
+    content: '<alg-conspect></alg-conspect>',
     act() {
-      showAlgTrain();
+      showAlgConspect();
     },
   },
   {
@@ -50,14 +49,6 @@ export const dataNavAlg = [
     content: '<alg-pract></alg-pract>',
     act() {
       showAlgPract();
-    },
-  },
- {
-    url: 'alg-dp.html',
-    text: 'ДП',
-    content: '<alg-dp></alg-dp>',
-    act() {
-      showAlgDp();
     },
   },
 ]
@@ -106,7 +97,7 @@ export const dataNavCode = [
   },
   {
     url: 'code-c.html',
-    text: 'Си',
+    text: 'C/C++',
     content: '<code-c></code-c>',
     act() {
       showCodeC();
