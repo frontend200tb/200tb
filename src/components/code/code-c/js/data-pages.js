@@ -4,6 +4,8 @@ import htmlCInstall  from './../pages/elem-cinstall.html';
 import htmlC         from './../pages/elem-c.html';
 import htmlCPractice from './../pages/elem-cpractice.html';
 import htmlCpp       from './../pages/elem-cpp.html';
+import htmlBook1     from './../pages/elem-book1.html';
+import htmlStepik1     from './../pages/elem-stepik1.html';
 
 export const pages = [
   htmlCAbout,
@@ -11,4 +13,6 @@ export const pages = [
   htmlC,
   htmlCPractice,
   htmlCpp,
+  htmlBook1,
+  htmlStepik1,
 ];

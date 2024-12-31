@@ -1,0 +1,546 @@
+<h1>Стек и сортировки</h1>
+
+
+<article class="article">
+  <p>Конспект видео <strong>Стек и сортировки</strong></p>
+
+  <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
+  <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task1">Задача 1. Правильная скобочная последовательность</a></p>
+  <p><a href="#task2">Задача 2. Сбалансированные скобки</a></p>
+  <p><a href="#task3">Задача 3. Удалить минимум лишних скобок в строке</a></p>
+  <p><a href="#task4">Задача 4. Дневная температура</a></p>
+  <p><a href="#sort">Сортировки</a></p>
+  <p><a href="#task5">Задача 5. Отсортировать массив</a></p>
+  <p><a href="#sort1">Сортировка пузырьком (bubble)</a></p>
+  <p><a href="#sort2">Сортировка слиянием (merge)</a></p>
+  <p><a href="#sort3">Быстрая сортировка (quick sort))</a></p>
+</article>
+
+
+<!-- Задача 1. Правильная скобочная последовательность -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Правильная скобочная последовательность</h3>
+
+  <h4>Leetcode 20. Valid Parentheses</h4>
+
+  <p>Дана строка, которая может содержать только следующие символы '(', ')', '{', '}', '[', ']'. Вернуть true если пришла правильная скобочная последовательность, иначе false</p>
+  <p>Правильная скобочная последовательность если</p>
+  <ol>
+    <li>Открывающие скобки должны быть закрыты такими же закрывающими</li>
+    <li>Открывающие скобки должны быть закрыты в правильном порядке</li>
+    <li>Каждая закрывающая скобка имеет открывающую такого же типа</li>
+  </ol>
+
+  <h4>Пример 1</h4>
+  <code>s = "()"</code>
+  <code>Output: true</code>
+
+  <h4>Пример 2</h4>
+  <code>s = "()[]{}"</code>
+  <code>Output: true</code>
+
+  <h4>Пример 3</h4>
+  <code>s = "(]"</code>
+  <code>Output: false</code>
+
+  <h4>Паттерн стек</h4>
+  <p>Создаем стек</p>
+  <code>stack = []</code>
+  <p>Создаем словарь из разрешенных символов. Ключ - открывающая скобка, значение - соответствующая закрывающая скобка</p>
+<pre>
+pairs = {
+  '(' : ')',
+  '[' : ']',
+  '{' : '}',
+}
+</pre>
+  <p>Запускаем цикл пока не закончилась входная строка.</p>
+  <code>for (char of s) {}</code>
+  <p>Берем каждый символ из входной строки. Если это открывающая скобка, то кладем ее в стек.</p>
+  <code>if (char in pairs) {stack.push(char)}</code>
+  <p>Если это закрывающая скобка, то берем последнюю скобку из стека и сравниваем. Если они не одного типа возвращаем false, иначе продолжаем цикл.</p>
+<pre>
+lastChar = stack.pop()
+if (pairs[lastChar] != char) {
+  return False
+}
+</pre>
+  <p>Если строка закончилась а в стеке остались скобки возвращаем false иначе true</p>
+  <code>return stack.length === 0</code>
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def isValid(self, s: str) -> bool:
+    stack = []
+    pairs = {'(':')', '[':']', '{', '}'}
+
+    for char in s:
+      # если это открывающая скобка
+      if char in pairs:
+        # добавляем ее в стек
+        stack.append(char)
+        continue
+
+      # закрывающая скобка есть, но стек пуст
+      if len(stack) == 0:
+        return False
+
+      # достаем последний элемент из стека
+      lastChar = stack.pop()
+
+      # если закрывающая скобка
+      # не образует пару с открывающей
+      if pairs[lastChar] != char:
+        return False
+
+    return len(stack) == 0
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 2. Сбалансированные скобки -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Сбалансированные скобки</h3>
+
+  <h4>Balanced Parentheses</h4>
+
+  <p>Дана строка A состоящая только из символов '(' и ')'. Нужно вернуть 1 если скобки сбалансированы, иначе вернуть 0.</p>
+
+  <h4>Пример 1</h4>
+  <code>A = "(()())"</code>
+  <code>Output: 1</code>
+
+  <h4>Пример 2</h4>
+  <code>A = "(()"</code>
+  <code>Output: 0</code>
+
+  <h4>Паттерн счетчик</h4>
+  <p>Создаем счетчик count = 0</p>
+  <p>Пока счетчик больше или равен нулю, проходим по строке</p>
+  <p>Если скобка октрывающая, то увеличиваем счетчик count++</p>
+  <p>Если скобка закрывающая, то уменьшаем счетчик count--</p>
+  <p>Если счетчик равен нулю, возвращаем 1</p>
+  <p>Если счетчик меньше нуля, значит закрывающая скобка пришла, а открывающей до нее не было.</p>
+  <p>Если счетчик больше нуля, значит открывающих скобок было больше закрывающих</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def solve(self, A):
+    balance = 0
+    for char in A:
+      balance = balance + 1 if char == '(' else balance - 1
+      if balance &lt; 0:
+        return 0
+
+    return int(balance == 0)
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3. Удалить минимум лишних скобок в строке -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Удалить минимум лишних скобок в строке</h3>
+
+  <h4>Leetcode 1249. Minimum Remove to Make Valid Parentheses (medium)</h4>
+
+  <p>Дана строка s из '(', ')' и английский букв в нижнем регистре. Ваша задача удалить минимум скобок в любых позициях, чтобы осталась строка с правильной скобочной последовательностью</p>
+  <p>Строка считается с правильной скобочной последовательностью, если</p>
+  <ol>
+    <li>Строка состоит только из букв</li>
+    <li>Стока записана как AB где A и B правильные строки</li>
+    <li>Строка записана как (A) где A правильная строка</li>
+  </ol>
+
+  <h4>Пример 1</h4>
+  <code>s = "lee(t(c)o)de)"</code>
+  <code>Output: "lee(t(co)de)" или "lee(t(co)de)" или "lee(t(c)o)de"</code>
+  <p>Две открывающие скобки, за ними три закрывающие. Можем убрать одну из трех закрывающих</p>
+
+  <h4>Пример 2</h4>
+  <code>s = "a)b(c)d"</code>
+  <code>Output: "ab(c)d"</code>
+  <p>Закрывающая скобка не может быть до открывающей, поэтому убираем ее</p>
+
+  <h4>Пример 3</h4>
+  <code>s = "))(("</code>
+  <code>Output: ""</code>
+  <p>Пустая строка правильная. Убираем начальные закрывающие скобки и все непарные открывающие</p>
+
+  <h4>Паттерн стек</h4>
+  <p>Заведем стек, в котором будем хранить позиции открывающихся скобок</p>
+  <p>Создадим массив с символами из исходной строки</p>
+  <p>Циклом пройдем по массиву</p>
+  <p>Если буква, то пропускаем ее. Если открывающая скобка, добавляем ее позицию в стек</p>
+  <p>Если закрывающая скобка и стек пуст, то удаляем закрывающую скобку из массива. Если в стеке не пустой, то удаляем последний элемент из стека</p>
+  <p>Когда цикл закончится, будем доставать из стека идексы и удалять эти элементы из массива</p>
+  <p>Преобразуем массив в строку и вернем ее</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def minRemove(self, s: str) -> str:
+    result = list(s)
+    stack = []
+
+    for i in range(len(result)):
+      char = result[i]
+      if char == '(':
+        stack.append(i)
+      elif char ==')' and len(stack) == 0:
+        # удаляем лишнюю закрывающую скобку
+        result[i] = ''
+      elif char == ')' and len(stack) != 0:
+        stack.pop()
+
+    for i in stack:
+      # удаляем лишнюю открывающую скобку
+      result[i] = ''
+
+    return "".join(result)
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 4. Дневная температура -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Дневная температура</h3>
+
+  <h4>Leetcode 739. Daily Temperatures (medium)</h4>
+
+  <p>Дан массив чисел temperatures представляющий дневную температуру. Вернуть массив answer, в котором answer[i] это число дней после i-го когда будет теплее. Если не будет дней теплее то answer[i] = 0</p>
+
+  <h4>Пример 1</h4>
+  <code>temperatures = [73,74,75,71,69,72,76,73]</code>
+  <code>answer = [1,1,4,2,1,1,0,0]</code>
+
+  <h4>Пример 2</h4>
+  <code>temperatures = [30,40,50,60]</code>
+  <code>answer = [1,1,1,0]</code>
+
+  <h4>Пример 3</h4>
+  <code>temperatures = [30,60,90]</code>
+  <code>answer = [1,1,0]</code>
+
+  <h4>Паттерн стек</h4>
+  <ol>
+    <li>
+      <p>Создаем массив answer для ответа. Размер такой же как у входного массива. Зададим 0 как начальные значения</p>
+      <code>answer = new Array(temperatures.length).fill(0);</code>
+    </li>
+    <li>
+      <p>Создаем стек stack</p>
+      <code>stack = [];</code>
+    </li>
+    <li>
+      <p>Проходим по входному массиву temperatures</p>
+      <code>for (t of temperatures) {}</code>
+    </li>
+    <li>
+      <p>Если в стеке есть элементы, то выполняем вложенный цикл пока в стеке есть элементы</p>
+    </li>
+    <li>
+      <p>Берем последний элемент из стека и сравниваем его температуру с текущей</p>
+    </li>
+    <li>
+      <p>Если текущая температура не больше, то кладем в стек массив из двух элементов. В стеке всегда будет убывающая последовательность</p>
+    </li>
+    <li>
+      <p>Если текущая температура больше, то записываем в ответ answer по индексу последнего элемента стека разницу в днях и удаляем его из стека</p>
+    </li>
+    <li>
+      <p>Выходим из вложенного массива и кладем в стек массив из двух элементов - текущий и его индекс</p>
+      <code>stack.push([temperatures[t], t])</code>
+    </li>
+  </ol>
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def dailyTemp(self, temp: List[int]) -> List[int]:
+    answer = [0] * len(temp)
+    stack = []
+
+    for i, temp in enumerate(temp):
+      while len(stack) > 0 and stack[-1][1] &lt; temp:
+        idx, _ = stack.pop()
+        answer[idx] = i - idx
+      stack.append([i, temp])
+
+    return answer
+</pre>
+  </details>
+</article>
+
+
+<!-- Сортировки -->
+<article class="article">
+  <div class="anchor" id="sort"></div>
+  <h3>Сортировки</h3>
+
+  <ol>
+    <li>
+      <h4>Квадратичные</h4>
+      <p>Например, bubble sort, gnome sort</p>
+      <p>Сложность во времени O(n<sup>2</sup>)</p>
+      <p>Сложность по памяти O(1)</p>
+      <p>Есть только один case когда нужна квадратичная сортировка на собесе. Это если нужно что-то сделать без дополнительной памяти и на входе большое количество уникальных элементов.</p>
+    </li>
+    <li>
+      <h4>Логарифмические</h4>
+      <p>Например, quick sort, merge sort, team sort</p>
+      <p>Сложность по времени O(nlogn)</p>
+      <p>Сложность по памяти O(logn)</p>
+      <p>В худшем случае сложность по времени O(n<sup>2</sup>) и это зависит от выбора pivot. pivot это опорный элемент вокруг которого будет происходить swap (перестановка)</p>
+      <p>В худшем случае сложность по памяти O(n) и это зависит от компаратора</p>
+      <p>Используются когда заранее ничего не известно о входных данных - много ли входных данных, сколько уникальных элементов. Они универсальный инструмент.</p>
+    </li>
+    <li>
+      <h4>Сортировка подсчетом</h4>
+      <p>Например, count sort</p>
+      <p>Сложность по времени O(n)</p>
+      <p>Сложность по памяти O(n)</p>
+      <p>Применяют только при небольшом количестве уникальных элементов</p>
+    </li>
+    <li>
+      <h4>Сортировка + массив</h4>
+      <ol>
+        <li>
+          <h4>Работа с интервалами</h4>
+          <p>Обычно интервалы в задачи приходят не отсортированные. Для того чтобы решить их <strong>паттерном точек</strong>, нужно сначала их отсортировать</p>
+        </li>
+        <li>
+          <h4>Сортировка событий</h4>
+          <p>Для событий самая сложная часть задачи это придумать компаратор (то, как сравнивать элементы)</p>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Задача 5. Отсортировать массив -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Отсортировать массив</h3>
+
+  <h4>Leetcode 912. Sort an Array (medium)</h4>
+
+  <p>Дан массив целых чисел nums. Отсортируйте его в возрастающем порядке и верните</p>
+
+  <h4>Пример 1</h4>
+  <code>nums = [5,2,3,1]</code>
+  <code>Output: [1,2,3,5]</code>
+
+  <h4>Пример 2</h4>
+  <code>nums = [5,1,1,2,0,0]</code>
+  <code>Output: [0,0,1,1,2,5]</code>
+</article>
+
+
+<!-- Сортировка пузырьком (bubble) -->
+<article class="article">
+  <div class="anchor" id="sort1"></div>
+  <h3>Сортировка пузырьком (bubble)</h3>
+
+  <p>В первом проходе максимальный элемент встанет на свое место. Во втором проходе следующий максимальный элемент встанет на свое место и т.д.</p>
+
+  <p>Сложность по времени O(N<sup>2</sup>)</p>
+  <p>Сложность по памяти O(1)</p>
+
+  <details>
+    <summary>Сортировка пузырьком без оптимизаций</summary>
+<pre>
+class Solution:
+  def sortArray(self, nums: List[int]) -> List[int]:
+    for i in range(len(nums)):
+      for j in range(len(nums) - 1):
+        if nums[j] > nums[j+1]:
+          nums[j], nums[j+1] = nums[j+1], nums[j]
+
+    return nums
+</pre>
+  </details>
+
+  <details>
+    <summary>Сортировка пузырьком с оптимизациями</summary>
+<pre>
+class Solution:
+  def sortArray(self, nums: List[int]) -> List[int]:
+    swapCount = -1
+    i = 0
+    while swapCount != 0:
+      swapCount = 0
+      for j in range(len(nums) - i - 1):
+        if nums[j] > nums[j+1]:
+          swapCount += 1
+          nums[j], nums[j+1] = nums[j+1], nums[j]
+      i += 1
+
+    return nums
+</pre>
+  </details>
+</article>
+
+
+<!-- Сортировка слиянием (merge) -->
+<article class="article">
+  <div class="anchor" id="sort2"></div>
+  <h3>Сортировка слиянием (merge)</h3>
+
+  <p>Происходит в два этапа</p>
+  <p>Первый этап - деление. Делим исходный массив по полам. Каждый полученный массив - пополам. И так далее пока не останутся массывы по 1 элементу в каждом</p>
+  <p>Второй этап - слияние. Слияние двух массивов по одному элементу. Слияние двух массивов по два отсортированных элементов. И так далее пока не соберем все в один отсортированный массив</p>
+  <p>Сложность по времени O(NlogN)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Сортировка слиянием (merge)</summary>
+<pre>
+class Solution:
+  def merge(self, arr1: List[int], arr2: List[int]) -> List[int]:
+    p1, p2 = 0, 0
+    result = []
+
+    while p1 != len(arr1) or p2 != len(arr2):
+      if p2 >= len(arr2) or p1 &lt; len(arr1) and arr1[p1] &lt;= arrs[p2]:
+        result.append(arr1[p1])
+        p1 += 1
+      else:
+        result.append(arr2[p2])
+        p2 += 1
+
+    return result
+
+  def sortArray(self, nums: List[int]) -> List[int]:
+    if len(nums) == 1:
+      return nums
+
+    leftPart = self.sortArray(nums[:len(nums) // 2])
+    rightPart = self.sortArray(nums[len(nums) // 2:])
+
+    return self.merge(leftPart, rightPart)
+</pre>
+  </details>
+</article>
+
+
+<!-- Быстрая сортировка (quick sort) -->
+<article class="article">
+  <div class="anchor" id="sort3"></div>
+  <h3>Быстрая сортировка (quick sort)</h3>
+
+  <ol>
+    <li>Выбираем pivot- это элемент, слева от которого элементы меньше либо равны ему, а справа - больше или равны ему. Есть несколько способов выбора pivot.</li>
+    <li>Пусть pivot это последний элемент массива</li>
+    <li>Ставим левый указатель на первый элемент, правый на предпоследний</li>
+    <li>
+      <p>Двигаем левый указатель пока его элемент меньше pivot</p>
+      <code>while (arr[l] &lt; pivot)</code>
+    </li>
+    <li>
+      <p>Двигаем правый указатель пока его элемент больше pivot</p>
+      <code>while (arr[r] &gt; pivot)</code>
+    </li>
+    <li>Когда левый указатель указывает на элемент больше pivot, а правый указатель указывает на элемент меньше pivot, меняем указатели местами</li>
+  </ol>
+
+  <h4>Пример</h4>
+  <code>[19, 17, 15, 12, 16, 18, 4, 11, 13]</code>
+  <code>pivot = 13, l = 0, r = 7</code>
+  <p>После прохода указателями</p>
+  <code>[11, 4, 12, 15, 16, 18, 17, 19, 13]</code>
+  <code>pivot = 13, l = 2, r = 3</code>
+  <p>Меняем правый указатель и pivot местами</p>
+  <code>[11, 4, 12, 13, 16, 18, 17, 19, 15]</code>
+  <code>pivot = 13, l = 2, r = 8</code>
+  <p>Теперь pivot стоит так, что все элементы слева меньше его, а справа болбше его</p>
+  <p>Теперь запускаем рекурсивно этот алгоритм для левой части и для правой части, не включая pivot. pivot остается на своем месте, потому что он уже отсортирован</p>
+  <p>Сложность по времени. Если плохо выбирать pivot и он каждый раз будет либо минимальный либо максимальный элемент, то сложность по времени O(n<sup>2</sup>. Если хорошо выбирать pivot и он будет средним элементом, то сложность по времени O(NlogN)</p>
+
+  <p>Выбираем pivot рандомно, чтобы улучшить время быстрой сортировки</p>
+  <p>Меняем pivot с последним элементом. Ставим указатели и запускаем алгоритм, двигаем указатели</p>
+  <p>l - включительно, r - не включительно</p>
+  <p>[lIdx, rIdx) - полуинтервал, lIdx включаем, rIdx - нет</p>
+  <p>Ставим pivot на самое левое место. pivot не будет учавствовать в перестановке элементов, т.е. его позиция после while не изменится, для этого делаем l = lIdx + 1</p>
+  <p>r = rIdx - 1 делаем чтобы r указывал на последний элемент. rIdx может указывать на несуществующий элемент</p>
+  <p>Делим массив на 2 части. 1 часть элементы &lt;= pivot. 2 часть элементы &gt;= pivot</p>
+
+  <details>
+    <summary>Быстрая сортировка (quick sort)</summary>
+<pre>
+class Solution:
+  def getPivot(self, arr: list[int], l: int, r: int):
+    pivotIdx = random.randint(l, r - 1)
+    pivot = arr[pivotIdx]
+    return pivot, pivotIdx
+
+  def partition(self, arr: list[int], lIdx: int, rIdx: int) -> int:
+    pivot, pivotIdx = self.getPivot(arr, lIdx, rIdx)
+    arr[lIdx], arr[pivotIdx] = arr[pivotIdx], arr[lIdx]
+    l, r = lIdx + 1, rIdx - 1
+
+    while l &lt;= r:
+      if arr[l] &lt; pivot:
+        l += 1
+      elif arr[r] &gt; pivot:
+        r -= 1
+      else:
+        arr[l], arr[r] = arr[r], arr[l]
+        l += 1; r -= 1
+
+    # ставим pivot на нужное место. это будет
+    # гарантированно правильным местом в отсортированном
+    # массиве, т.е. индекс где стоит pivot (r)
+    # можно будет выкинуть из рекурсии
+    # не запускать для него снова qsort
+    arr[lIdx], arr[r] = arr[r], arr[lIdx]
+    return r
+
+  def qsort(self, nums: list[int], l: int, r: int) -> list[int]:
+    if l &gt;= r:
+      return nums
+
+    # разделяем массив на 2 части
+    pivotIdx = self.partition(nums, l, r)
+
+    # рекурсивно сортируем 1 часть
+    # pivot не включаем, т.к.
+    # правая граница идет не включительно
+    self.qsort(nums, l, pivotIdx)
+
+    # рекурсивно сортируем 2 часть
+    # pivot не включаем
+    self.qsort(nums, pivotIdx + 1, r)
+    return nums
+
+  def sortArray(self, nums: list[int]) -> list[int]:
+    return self.qsort(nums, 0, len(nums))
+</pre>
+  </details>
+</article>
+
