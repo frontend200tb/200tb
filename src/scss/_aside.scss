@@ -29,11 +29,21 @@ Aside
 @media (max-width: 800px) {
   .aside {
     min-width: 132px;
+    max-width: 100%;
 
     & a {
       padding: 5px;
       border: 1px solid white;
       border-radius: 5px;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .aside {
+    & a {
+      font-size: 1rem;
     }
   }
 }

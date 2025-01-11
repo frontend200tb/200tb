@@ -10,6 +10,7 @@ import showCodeJs from '../code/code-js/code-js';
 import showCodeTs from '../code/code-ts/code-ts';
 import showCodePascal from '../code/code-pascal/code-pascal';
 import showCodeC from '../code/code-c/code-c';
+import showCodeAsm from '../code/code-asm/code-asm';
 import showCodeOther from '../code/code-other/code-other';
 
 // front
@@ -101,6 +102,14 @@ export const dataNavCode = [
     content: '<code-c></code-c>',
     act() {
       showCodeC();
+    },
+  },
+  {
+    url: 'code-asm.html',
+    text: 'Asm',
+    content: '<code-asm></code-asm>',
+    act() {
+      showCodeAsm();
     },
   },
   {

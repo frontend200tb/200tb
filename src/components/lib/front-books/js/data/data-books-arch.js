@@ -1261,6 +1261,19 @@ const dataBooksArch = [
     dateLearned: '',
   },
 
+  {
+    id: 97,
+    year: 2025,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Рецепты чистого кода',
+    author: 'Контьери',
+    authorName: 'Максимилиано',
+    pages: '416',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

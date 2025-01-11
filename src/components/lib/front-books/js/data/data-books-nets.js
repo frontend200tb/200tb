@@ -1278,6 +1278,19 @@ const dataBooksNets = [
   },
 
   {
+    id: 10,
+    year: 2021,
+    category: 'основы',
+    theme: 'Компьютерные сети',
+    title: 'Удаленный сервер своими руками',
+    author: 'Левицкий',
+    authorName: 'Никита',
+    pages: '402',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 51,
     year: 2021,
     category: 'основы',

@@ -131,6 +131,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 38,
+    year: 2003,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование и основы алгоритмизации',
+    author: 'Давыдов',
+    authorName: 'Владимир',
+    pages: '450',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 8,
     year: 2003,
     category: 'основы',
@@ -165,6 +178,19 @@ const dataBooksAlg = [
     author: 'Гашков',
     authorName: 'Сергей',
     pages: '322',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 67,
+    year: 2005,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Программирование шахмат и других логических игр',
+    author: 'Корнилов',
+    authorName: 'Евгений',
+    pages: '273',
     isLearned: false,
     dateLearned: '',
   },

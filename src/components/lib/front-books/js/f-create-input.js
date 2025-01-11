@@ -8,27 +8,32 @@ import dataBooksHtmlcss from './data/data-books-htmlcss';
 import dataBooksJs from './data/data-books-js';
 import dataBooksTs from './data/data-books-ts';
 import dataBooksAsm from './data/data-books-asm';
+import dataBooksBasic from './data/data-books-basic';
+import dataBooksPascal from './data/data-books-pascal';
 import dataBooksC from './data/data-books-c';
 import dataBooksCpp from './data/data-books-cpp';
+import dataBooksCppBuilder from './data/data-books-cppBuilder';
+import dataBooksCppQt from './data/data-books-cppQt';
+import dataBooksCppVisual from './data/data-books-cppVisual';
 import dataBooksCsharp from './data/data-books-csharp';
-import dataBooksWin32 from './data/data-books-win32';
-import dataBooksPascal from './data/data-books-pascal';
 import dataBooksPhp from './data/data-books-php';
-import dataBooksPython from './data/data-books-python';
 import dataBooksJava from './data/data-books-java';
-import dataBooksBasic from './data/data-books-basic';
+import dataBooksPython from './data/data-books-python';
 
 // Base
 import dataBooksBase from './data/data-books-base';
+import dataBooksArch from './data/data-books-arch';
 import dataBooksAlg from './data/data-books-alg';
 import dataBooksOlimp from './data/data-books-olimp';
+import dataBooksComp from './data/data-books-comp';
+import dataBooksDos from './data/data-books-dos';
+import dataBooksWin32 from './data/data-books-win32';
 import dataBooksLinux from './data/data-books-linux';
 import dataBooksUnix from './data/data-books-unix';
-import dataBooksComp from './data/data-books-comp';
 import dataBooksOs from './data/data-books-os';
 import dataBooksNets from './data/data-books-nets';
 import dataBooksSecure from './data/data-books-secure';
-import dataBooksArch from './data/data-books-arch';
+import dataBooksStm from './data/data-books-stm';
 import dataBooksInf from './data/data-books-inf';
 import dataBooksInfSchool from './data/data-books-infschool';
 
@@ -68,9 +73,9 @@ import dataBooksGames from './data/data-books-games';
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
-  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAsm, dataBooksC, dataBooksCpp, dataBooksCsharp, dataBooksWin32, dataBooksPascal, dataBooksPhp, dataBooksPython, dataBooksJava, dataBooksBasic,
+  dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAsm, dataBooksBasic, dataBooksPascal, dataBooksC, dataBooksCpp, dataBooksCppBuilder, dataBooksCppQt, dataBooksCppVisual, dataBooksCsharp, dataBooksPhp, dataBooksJava, dataBooksPython,
   // Base
-  dataBooksBase, dataBooksAlg, dataBooksOlimp, dataBooksLinux, dataBooksUnix, dataBooksComp, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksArch, dataBooksInf, dataBooksInfSchool,
+  dataBooksBase, dataBooksArch, dataBooksAlg, dataBooksOlimp, dataBooksComp, dataBooksDos, dataBooksWin32, dataBooksLinux, dataBooksUnix, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksStm, dataBooksInf, dataBooksInfSchool,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS

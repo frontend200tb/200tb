@@ -40,6 +40,32 @@ const dataBooksUnix = [
   },
 
   {
+    id: 1,
+    year: 1987,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Введение в операционные системы. Том 1',
+    author: 'Дейтел',
+    authorName: 'Гарви',
+    pages: '362',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 1987,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Введение в операционные системы. Том 2',
+    author: 'Дейтел',
+    authorName: 'Гарви',
+    pages: '402',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 4,
     year: 1992,
     category: 'основы',

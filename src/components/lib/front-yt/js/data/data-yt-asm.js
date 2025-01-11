@@ -17,6 +17,20 @@ const dataYtAsm = [
   {
     id: 2,
     theme: 'Asm',
+    title: 'Alexander Semenko',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@AlexanderSemenko/videos',
+    site: '',
+    dateFirstVideo: '2019.07.20',
+    dateLastVideo: '2024.09.08',
+    amountVideos: 323,
+  },
+
+  {
+    id: 3,
+    theme: 'Asm',
     title: 'ASSEMBLER WHEREVER WE',
     author: '',
     city: '',
@@ -29,7 +43,7 @@ const dataYtAsm = [
   },
 
   {
-    id: 3,
+    id: 4,
     theme: 'Asm',
     title: 'Tempesta Torres',
     author: '',
@@ -43,7 +57,7 @@ const dataYtAsm = [
   },
 
   {
-    id: 4,
+    id: 5,
     theme: 'Asm',
     title: 'CryptoFun [ IT ]',
     author: '',
@@ -57,7 +71,7 @@ const dataYtAsm = [
   },
 
   {
-    id: 5,
+    id: 6,
     theme: 'Asm',
     title: 'First Steps',
     author: '',

@@ -159,7 +159,7 @@ const dataBooksWeb = [
   {
     id: 13,
     year: 2010,
-    category: 'code',
+    category: 'theme',
     theme: 'web',
     title: 'HTML, Javascript, PHP и MySQL (3е)',
     author: 'Прохоренок',

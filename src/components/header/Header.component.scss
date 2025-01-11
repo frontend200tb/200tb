@@ -26,15 +26,14 @@ header__1
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0.5em 0;
   padding: 0 10px;
-  height: 3rem;
   font-family: monospace, sans-serif;
 }
 
 @media (max-width: 580px) {
   .header__1 {
-    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     max-width: 90vw;
   }
 
@@ -63,7 +62,7 @@ header__1
 
 .header__nav a {
   margin-left: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
   color: #fff;
   text-decoration: none;
 }
@@ -89,7 +88,6 @@ header__2
 
 @media (max-width: 580px) {
   .header__2 {
-    flex-direction: column;
     gap: 20px;
     max-width: 90vw;
   }

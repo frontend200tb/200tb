@@ -3,7 +3,7 @@ const dataBooksWin32 = [
   {
     id: 1,
     year: 1997,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Программирование для Windows 95. Том 1',
     author: 'Петцольд',
@@ -16,7 +16,7 @@ const dataBooksWin32 = [
   {
     id: 2,
     year: 1997,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Программирование для Windows 95. Том 2',
     author: 'Петцольд',
@@ -27,9 +27,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 2000,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Основы COM (2е)',
     author: 'Роджерсон',
@@ -40,9 +40,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2001,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Азбука программирования в win32 API',
     author: 'Румянцев',
@@ -53,9 +53,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 2002,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Работа с файлами в win32 API',
     author: 'Румянцев',
@@ -66,9 +66,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 2002,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Недокументированные возможности Win2000',
     author: 'Шрайбер',
@@ -79,9 +79,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 2002,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Программирование графики для Windows',
     author: 'Юань',
@@ -92,9 +92,35 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 6,
+    id: 8,
+    year: 2003,
+    category: 'основы',
+    theme: 'Win32 API',
+    title: 'Программирование игр для Windows (2е)',
+    author: 'Ламот',
+    authorName: 'Андре',
+    pages: '877',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2004,
-    category: 'code',
+    category: 'основы',
+    theme: 'Win32 API',
+    title: 'Программирование трехмерных игр для Windows',
+    author: 'Ламот',
+    authorName: 'Андре',
+    pages: '1422',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 2004,
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Создание эффективных WIN32-приложений (4е)',
     author: 'Рихтер',
@@ -105,9 +131,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 7,
+    id: 11,
     year: 2004,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Исследование программ Win32 до дизассемблера и отладчика',
     author: 'Румянцев',
@@ -118,9 +144,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 7,
+    id: 12,
     year: 2004,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Windows Server 2003 для чайников',
     author: 'Титтел',
@@ -131,9 +157,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 13,
     year: 2005,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Форматы файлов WinXP',
     author: 'Леонтьев',
@@ -144,9 +170,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 14,
     year: 2005,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Внутреннее устройство Windows (4е)',
     author: 'Руссинович',
@@ -157,9 +183,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 15,
     year: 2005,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Системное программирование в среде Windows (3е)',
     author: 'Харт',
@@ -170,9 +196,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 9,
+    id: 16,
     year: 2006,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Системное программирование в Windows',
     author: 'Побегайло',
@@ -183,9 +209,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 10,
+    id: 17,
     year: 2006,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Win32. Основы программирования (2е)',
     author: 'Финогенов',
@@ -196,9 +222,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 10,
+    id: 18,
     year: 2007,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Проектирование интерфейса пользователя средствами WIN 32 API',
     author: 'Ганеев',
@@ -209,9 +235,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 11,
+    id: 19,
     year: 2008,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Windows для профессионалов. Создание эффективный Win32 приложений (4е)',
     author: 'Рихтер',
@@ -222,9 +248,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 20,
     year: 2008,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Внутреннее устройство Windows (4е)',
     author: 'Руссинович',
@@ -235,9 +261,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 11,
+    id: 21,
     year: 2008,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Win32 API. Разработка приложений для Windows',
     author: 'Щупак',
@@ -248,9 +274,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 12,
+    id: 22,
     year: 2009,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'WIN32 API Программирование',
     author: 'Безруков',
@@ -261,9 +287,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 13,
+    id: 23,
     year: 2009,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Системное программирование в среде WIN32',
     author: 'Гальченко',
@@ -274,9 +300,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 14,
+    id: 24,
     year: 2010,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Win32 API. Основы программирования',
     author: 'Сучкова',
@@ -287,9 +313,9 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 15,
+    id: 25,
     year: 2011,
-    category: 'code',
+    category: 'основы',
     theme: 'Win32 API',
     title: 'Системное программирование в WIN API',
     author: 'Марапулец',

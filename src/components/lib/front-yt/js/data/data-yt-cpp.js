@@ -95,7 +95,7 @@ const dataYtCpp = [
     site: '',
     dateFirstVideo: '2019.07.20',
     dateLastVideo: '2024.09.08',
-    amountVideos: 321,
+    amountVideos: 323,
   },
 
   {

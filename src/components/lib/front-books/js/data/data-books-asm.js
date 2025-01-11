@@ -183,6 +183,18 @@ const dataBooksAsm = [
   },
 
   {
+    id: 13,
+    year: 1993,
+    category: 'code',
+    theme: 'assembler',
+    title: 'ZX Spectrum. Программирование в машинных кодах и на языке ассемблера',
+    author: 'Инфорком',
+    pages: '273',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 15,
     year: 1994,
     category: 'code',
@@ -759,6 +771,19 @@ const dataBooksAsm = [
     year: 2010,
     category: 'code',
     theme: 'assembler',
+    title: 'Основы программирования на ассемблере',
+    author: 'Секаев',
+    authorName: 'В.Г.',
+    pages: '99',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 49,
+    year: 2010,
+    category: 'code',
+    theme: 'assembler',
     title: 'Изучаем Assembler за 7 дней',
     author: 'Скляров',
     authorName: 'Иван',
@@ -957,6 +982,19 @@ const dataBooksAsm = [
     author: 'Гаркуша',
     authorName: 'Олег',
     pages: '136',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 59,
+    year: 2024,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Оптимизирующие компиляторы',
+    author: 'Владимиров',
+    authorName: 'Константин',
+    pages: '274',
     isLearned: false,
     dateLearned: '',
   },
