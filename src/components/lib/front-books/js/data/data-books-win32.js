@@ -138,7 +138,7 @@ const dataBooksWin32 = [
     title: 'Исследование программ Win32 до дизассемблера и отладчика',
     author: 'Румянцев',
     authorName: 'Павел',
-    pages: '367',
+    pages: '368',
     isLearned: false,
     dateLearned: '',
   },

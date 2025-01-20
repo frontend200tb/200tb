@@ -26,6 +26,7 @@ import dataBooksArch from './data/data-books-arch';
 import dataBooksAlg from './data/data-books-alg';
 import dataBooksOlimp from './data/data-books-olimp';
 import dataBooksComp from './data/data-books-comp';
+import dataBooksMicro from './data/data-books-micro';
 import dataBooksDos from './data/data-books-dos';
 import dataBooksWin32 from './data/data-books-win32';
 import dataBooksLinux from './data/data-books-linux';
@@ -34,6 +35,7 @@ import dataBooksOs from './data/data-books-os';
 import dataBooksNets from './data/data-books-nets';
 import dataBooksSecure from './data/data-books-secure';
 import dataBooksStm from './data/data-books-stm';
+import dataBooksCompil from './data/data-books-compil';
 import dataBooksInf from './data/data-books-inf';
 import dataBooksInfSchool from './data/data-books-infschool';
 
@@ -69,13 +71,14 @@ import dataBooksMl from './data/data-books-ml';
 import dataBooksMathDis from './data/data-books-math-dis';
 import dataBooksMathFast from './data/data-books-math-fast';
 import dataBooksGames from './data/data-books-games';
+import dataBooksCrypt from './data/data-books-crypt';
 
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
   dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAsm, dataBooksBasic, dataBooksPascal, dataBooksC, dataBooksCpp, dataBooksCppBuilder, dataBooksCppQt, dataBooksCppVisual, dataBooksCsharp, dataBooksPhp, dataBooksJava, dataBooksPython,
   // Base
-  dataBooksBase, dataBooksArch, dataBooksAlg, dataBooksOlimp, dataBooksComp, dataBooksDos, dataBooksWin32, dataBooksLinux, dataBooksUnix, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksStm, dataBooksInf, dataBooksInfSchool,
+  dataBooksBase, dataBooksArch, dataBooksAlg, dataBooksOlimp, dataBooksComp, dataBooksMicro, dataBooksDos, dataBooksWin32, dataBooksLinux, dataBooksUnix, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksStm, dataBooksCompil, dataBooksInf, dataBooksInfSchool,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS
@@ -83,7 +86,7 @@ const dataArray = [
   // Tools
   dataBooksAjax, dataBooksBios, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp, dataBooksSql, dataBooksFreebsd, dataBooksOop,
   // Theme
-  dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksTest, dataBooksMathDis, dataBooksMathFast, dataBooksGames];
+  dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksTest, dataBooksMathDis, dataBooksMathFast, dataBooksGames, dataBooksCrypt];
 
 // 3. Создаем массив с книгами dataBooks из массива dataArray
 const dataBooks = [].concat(...dataArray);

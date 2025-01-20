@@ -18,4 +18,5 @@ export const asideThemes = [
   'Стек и сортировки',
   'Куча',
   'Графы',
+  'Backtracking',
 ];

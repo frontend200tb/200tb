@@ -15,7 +15,7 @@ const dataYtBase = [
   },
 
   {
-    id: 1,
+    id: 2,
     theme: 'Основы',
     title: 'Электротехника и электроника для программистов',
     author: 'Анатолий Глазов',
@@ -29,7 +29,7 @@ const dataYtBase = [
   },
 
   {
-    id: 12,
+    id: 3,
     theme: 'Основы',
     title: 'ВМК МГУ',
     author: '',
@@ -43,7 +43,7 @@ const dataYtBase = [
   },
 
   {
-    id: 2,
+    id: 4,
     theme: 'Основы',
     title: 'Компьютерные курсы Евгения Юртаева',
     author: 'Евгений Юртаев',
@@ -57,7 +57,7 @@ const dataYtBase = [
   },
 
   {
-    id: 3,
+    id: 5,
     theme: 'Основы',
     title: 'Тимофей Хирьянов',
     author: 'Тимофей Хирьянов',
@@ -71,7 +71,7 @@ const dataYtBase = [
   },
 
   {
-    id: 4,
+    id: 6,
     theme: 'Основы',
     title: 'Институт программных систем I Йошкар-Ола',
     author: '',
@@ -85,7 +85,7 @@ const dataYtBase = [
   },
 
   {
-    id: 4,
+    id: 7,
     theme: 'Основы',
     title: 'Институт iSpring',
     author: '',
@@ -99,7 +99,7 @@ const dataYtBase = [
   },
 
   {
-    id: 5,
+    id: 8,
     theme: 'Основы',
     title: 'ЖИЗНЬ АНОНИМА (нет уже)',
     author: 'Александр',
@@ -113,7 +113,7 @@ const dataYtBase = [
   },
 
   {
-    id: 6,
+    id: 9,
     theme: 'Основы',
     title: 'Свалка cобеседований',
     author: '',
@@ -127,7 +127,7 @@ const dataYtBase = [
   },
 
   {
-    id: 7,
+    id: 10,
     theme: 'Основы',
     title: 'Natasha Samoylenko',
     author: 'Наташа Самойленко',
@@ -141,7 +141,7 @@ const dataYtBase = [
   },
 
   {
-    id: 7,
+    id: 11,
     theme: 'Основы',
     title: 'Pro OS',
     author: '',
@@ -155,7 +155,7 @@ const dataYtBase = [
   },
 
   {
-    id: 7,
+    id: 12,
     theme: 'Основы',
     title: 'MIR Company',
     author: '',
@@ -169,7 +169,7 @@ const dataYtBase = [
   },
 
   {
-    id: 7,
+    id: 13,
     theme: 'Основы',
     title: 'Hacker School',
     author: '',
@@ -183,7 +183,21 @@ const dataYtBase = [
   },
 
   {
-    id: 8,
+    id: 14,
+    theme: 'Основы',
+    title: 'Alek OS',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://www.youtube.com/@AlekOS/videos',
+    site: '',
+    dateFirstVideo: '2021.03.08',
+    dateLastVideo: '2024.12.20',
+    amountVideos: 58,
+  },
+
+  {
+    id: 15,
     theme: 'Основы',
     title: 'Industrial Software Engineering Online',
     author: '',
@@ -197,7 +211,7 @@ const dataYtBase = [
   },
 
   {
-    id: 8,
+    id: 16,
     theme: 'Основы',
     title: 'Мультодей',
     author: '',
@@ -211,7 +225,7 @@ const dataYtBase = [
   },
 
   {
-    id: 8,
+    id: 17,
     theme: 'Основы',
     title: 'Менеджмент разработки ПО',
     author: 'Валерий Студенников',
@@ -225,7 +239,7 @@ const dataYtBase = [
   },
 
   {
-    id: 9,
+    id: 18,
     theme: 'Основы',
     title: 'Lo-Fi Собеседования',
     author: '',
@@ -239,7 +253,7 @@ const dataYtBase = [
   },
 
   {
-    id: 10,
+    id: 19,
     theme: 'Основы',
     title: 'Yury Uskov',
     author: 'Юрий Усков',
@@ -253,7 +267,7 @@ const dataYtBase = [
   },
 
   {
-    id: 10,
+    id: 20,
     theme: 'Основы',
     title: 'Pavel Filonov',
     author: '',
@@ -267,7 +281,7 @@ const dataYtBase = [
   },
 
   {
-    id: 11,
+    id: 21,
     theme: 'Основы',
     title: 'ЖИЗНЬ ЖИЗНИ АНОНИМА (нет уже)',
     author: '',
@@ -281,7 +295,7 @@ const dataYtBase = [
   },
 
   {
-    id: 11,
+    id: 22,
     theme: 'Основы',
     title: 'Александр Донской DevOps фабрика',
     author: '',
@@ -295,7 +309,7 @@ const dataYtBase = [
   },
 
   {
-    id: 12,
+    id: 23,
     theme: 'Основы',
     title: 'Alexander Titov',
     author: '',

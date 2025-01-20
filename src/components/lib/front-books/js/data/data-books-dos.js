@@ -2,6 +2,32 @@ const dataBooksDos = [
 
   {
     id: 1,
+    year: 1987,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Операционная система MS-DOS',
+    author: 'Хаузер',
+    authorName: 'Дэйв',
+    pages: '169',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 1988,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Программное обеспечение ЭВМ',
+    author: 'Брябрин',
+    authorName: 'Виктор',
+    pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -14,7 +40,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 2,
+    id: 4,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -27,7 +53,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 3,
+    id: 5,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -40,7 +66,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -53,7 +79,33 @@ const dataBooksDos = [
   },
 
   {
-    id: 5,
+    id: 7,
+    year: 1992,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Работа с жестким диском IBM PC',
+    author: 'Нортон',
+    authorName: 'Питер',
+    pages: '561',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 1992,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Адаптация программ к системе TR-DOS',
+    author: 'Родионов',
+    authorName: 'Николай',
+    pages: '45',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -66,7 +118,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 6,
+    id: 10,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -79,7 +131,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 7,
+    id: 11,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -92,7 +144,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 8,
+    id: 12,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -105,7 +157,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 9,
+    id: 13,
     year: 1994,
     category: 'основы',
     theme: 'dos',
@@ -118,7 +170,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 10,
+    id: 14,
     year: 1994,
     category: 'основы',
     theme: 'dos',
@@ -131,7 +183,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 11,
+    id: 15,
     year: 1995,
     category: 'основы',
     theme: 'dos',
@@ -144,7 +196,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 12,
+    id: 16,
     year: 2009,
     category: 'основы',
     theme: 'dos',

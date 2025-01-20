@@ -2,6 +2,19 @@ const dataBooksArch = [
 
   {
     id: 1,
+    year: 1979,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Как проектируются и создаются программные комплексы',
+    author: 'Брукс',
+    authorName: 'Фредерик',
+    pages: '152',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2000,
     category: 'основы',
     theme: 'Архитектура ПО',
@@ -690,6 +703,19 @@ const dataBooksArch = [
   },
 
   {
+    id: 53,
+    year: 2018,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Блокчейн разработка приложений',
+    author: 'Прасти',
+    authorName: 'Нараян',
+    pages: '252',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 54,
     year: 2018,
     category: 'основы',
@@ -1231,6 +1257,19 @@ const dataBooksArch = [
     author: 'Мартин',
     authorName: 'Роберт',
     pages: '272',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 94,
+    year: 2024,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Программирование инфраструктуры',
+    author: 'Моррис',
+    authorName: 'Киф',
+    pages: '408',
     isLearned: false,
     dateLearned: '',
   },

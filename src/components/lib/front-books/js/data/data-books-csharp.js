@@ -182,6 +182,19 @@ const dataBooksCsharp = [
   },
 
   {
+    id: 14,
+    year: 2004,
+    category: 'code',
+    theme: 'c# .net',
+    title: 'Отладка приложений Microsoft дли .NET и Windows',
+    author: 'Роббинс',
+    authorName: 'Джон',
+    pages: '731',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 15,
     year: 2004,
     category: 'code',

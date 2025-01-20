@@ -2,6 +2,32 @@ const dataBooksStm = [
 
   {
     id: 1,
+    year: 2014,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Практическое программирование микроконтроллеров Atmel AVR на языке ассемблера (3е)',
+    author: 'Ревич',
+    authorName: 'Юрий',
+    pages: '370',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 2015,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Микропроцессорная техника. Введение в Cortex M3',
+    author: 'Огородников',
+    authorName: 'Игорь',
+    pages: '118',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 3,
     year: 2018,
     category: 'основы',
     theme: 'stm32',
@@ -14,7 +40,33 @@ const dataBooksStm = [
   },
 
   {
-    id: 2,
+    id: 4,
+    year: 2019,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Практический курс. Микропроцессорной техники на базе Cortex M3',
+    author: 'Козаченко',
+    authorName: 'Владимир',
+    pages: '543',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2020,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Программирование микроконтроллеров AVR от Arduino к ассемблеру',
+    author: 'Ревич',
+    authorName: 'Юрий',
+    pages: '449',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 6,
     year: 2023,
     category: 'основы',
     theme: 'stm32',
@@ -27,7 +79,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 3,
+    id: 7,
     year: 2024,
     category: 'основы',
     theme: 'stm32',
@@ -35,6 +87,19 @@ const dataBooksStm = [
     author: 'Гей',
     authorName: 'Уоррен',
     pages: '364',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 2024,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Освоение STM32 самостоятельно',
+    author: 'Русин',
+    authorName: 'Николай',
+    pages: '204',
     isLearned: false,
     dateLearned: '',
   },

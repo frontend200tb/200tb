@@ -17,6 +17,11 @@
   <p><a href="#task2">Задача 2. Количество уникальных маршрутов 2</a></p>
   <p><a href="#task3">Задача 3. Найти путь с минимальной суммой</a></p>
   <p><a href="#task4">Задача 4. Расписание курсов</a></p>
+  <p><a href="#task5">Задача 5. Расписание курсов 2</a></p>
+  <p><a href="#task6">Задача 6. Окруженные области</a></p>
+  <p><a href="#task7">Задача 7. Максимальная площадь острова</a></p>
+  <p><a href="#task8">Задача 8. Кратчайший путь в двоичной матрице</a></p>
+  <p><a href="#qa">Вопросы</a></p>
 </article>
 
 
@@ -244,7 +249,7 @@ class Solution:
   <div class="anchor" id="task4"></div>
   <h3>Задача 4. Расписание курсов</h3>
 
-  <h4>Leetcode 207. Course Schedule</h4>
+  <h4>Leetcode 207. Course Schedule (medium)</h4>
 
   <p>Есть число курсов numCourses которые ты должен взять отмеченные от 0 до numCourses - 1. Дан массив prerequisites где</p>
   <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>
@@ -254,11 +259,440 @@ class Solution:
 
   <h4>Пример 1</h4>
   <code>numCourses = 2, prerequisites = [[1,0]]</code>
+  <code>0 -> 1</code>
   <code>Output: true</code>
 
   <h4>Пример 2</h4>
   <code>numCourses = 2, prerequisites = [[1,0], [0,1]]</code>
+<pre>
+0 -> 1
+|____|
+</pre>
   <code>Output: false</code>
 
-  <h4>Паттерн топологическая сортировка</h4>
+  <h4>Паттерн dfs. Поиск цикла в графе</h4>
+  <p>Нужно построить граф. Если в графе есть цикл то возвращаем false. Иначе возвращаем true. Поиск цикла осуществляется с помощью <strong>dfs</strong>. Будем красить вершины в разные цвета.</p>
+  <ol>
+    <li>белый - вершина, которую еще не посещали</li>
+    <li>серый - вершина в которую зашли</li>
+    <li>черный - вершина, которую уже посетили. У нее или нет потомков или все потомки уже посещенные</li>
+  </ol>
+  <p>Изначально все вершины белые. Заходим в первую вершину красим ее в серый. От нее идем к ее первому потомку и тоже красим его в серый</p>
+  <p>Так идем в глубину до последней вершины - у которой нет потомков. Если вершина последняя, красим ее в черный и возвращаемся на предыдущую. Если в предыдущей нет других потомков, красим ее в черный и возвращаемся.</p>
+  <p>Если пришли в серую вершину, значит есть цикл. Если пришли в черную вершину, значит мы ее уже посещали и возвращаемся назад.</p>
+  <p>Нельзя найти цикл в графе с помощью <strong>bfs</strong> потому что будет непонятно какую вершину красить серым, а какую черным цветом</p>
+  <p>Алгоритм dfs реализует метод hasCycle, который возвращает bool - есть вершина или нет. Сразу проверяем, если пришли в серую вершину, то цикл есть. Если пришли в черную вершину, то цикла нет. Перед тем как идти вглубь красим вершину в серый. Обходим все следующие вершины и после этого красим в черный.</p>
+  <p>В методе canFinish делаем список смежности. К нам приходят пары - откуда куда можно идти. Мы из этих пар делаем список, где ключ это откуда, а значение это все вершины куда можно пойти из ключа.</p>
+  <p>Сложность по времени O(N)</p>
+  <p>Сложность по памяти O(N)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def hasCycle(self, currCourseNum: int, colors: List[int], matrix: List[List[int]]) -> bool:
+    if colors[currCourseNum] == 1:
+      return True
+    if colors[currCourseNum] == 2:
+      return False
+    colors[currCourseNum] = 1
+    for nextCourseNum in matrix[currCourseNum]:
+      if self.hasCycle(nextCourseNum, colors, matrix):
+        return True
+    colors[currCourseNum] = 2
+
+    return False
+
+  def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+  # инициализируем и заполняем список смежности
+    matrix = [[] for _ in range(numCourses)]
+    for (a, b) in prerequisites:
+      matrix[a].append(b)
+
+    colors = [0 for _ in range(numCourses)]
+
+    for currCourseNum in range(numCourses):
+      if self.hasCycle(currCourseNum, colors, matrix):
+        # если цикл есть - значит не можем
+        #сделать топологическую сортировку
+        return False
+
+    # цикла нет - топологическая сортировка возможна
+    return True
+</pre>
+  </details>
 </article>
+
+
+<!-- Задача 5. Расписание курсов 2 -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Расписание курсов 2</h3>
+
+  <h4>Leetcode 210. Course Schedule 2 (medium)</h4>
+
+  <p>Есть число курсов numCourses которые ты должен взять отмеченные от 0 до numCourses - 1. Дан массив prerequisites где</p>
+  <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>
+  <p>показывает что вы должны брать сначала курс b<sub>i</sub>, если хотите взять курс a<sub>i</sub></p>
+  <p>Например пара [0,1] показывает, чтобы взять курс 0 вы должны взять сначала курс 1.</p>
+  <p>Вернуть порядок курсов в котором их нужно проходить чтобы закончить все курсы. Если несколько правильных ответов, вернуть любой. Если невозможно закончить все курсы, вернуть пустой массив</p>
+
+  <h4>Пример 1</h4>
+  <code>numCourses = 2, prerequisites = [[1,0]]</code>
+  <code>Output: [0, 1]</code>
+
+  <h4>Пример 2</h4>
+  <code>numCourses = 4, prerequisites = [[1,0], [2,0], [3,1], [3,2]]</code>
+  <code>Output: [0, 2, 1, 3]</code>
+
+  <h4>Пример 3</h4>
+  <code>numCourses = 1, prerequisites = []</code>
+  <code>Output: []</code>
+
+  <h4>Паттерн топологическая сортировка</h4>
+  <p>Заведем пустой массив, куда будем добавлять вершины в топологическом порядке. Вначале все вершины белые. Начинать можно с любой вершины. Каждую посещаемую вершину красим в серый.</p>
+  <p>Когда доходим до вершины у которой нет потомков, красим ее в черный, добавляем в массив и возвращаемся к ее предку чтобы обойти других потомков.</p>
+  <p>Если их обошли или других потомков нет, то красим в черный, добавляем в массив и возвращается так до той вершины с которой начили. В итоге они все станут черные все будут в массиве.</p>
+  <p>Если еще остались белые вершины, то начинаем с любой из них.</p>
+  <p>Когда все вершины черные, то массив сформирован. Чтобы получить из него топологический порядок, надо его развернуть, т.е. сделать реверс</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def hasCycle(self, currCourseNum: int, cources: List[List[int]], colors: List[bool], topologicalOrder: List[int]) -> bool:
+    if colors[currCourseNum] == 1:
+      return True
+    if colors[currCourseNum] == 2:
+      return False
+    colors[currCourseNum] = 1
+    for nextCourseNum in cources[currCourseNum]:
+      # проверяем имеется ли цикл
+      if self.hasCycle(nextCourseNum, cources, colors, topologicalOrder):
+        return True
+    topologicalOrder.append(currCourseNum)
+    colors[currCourseNum] = 2
+
+    return False
+
+  def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> <list int=""></list>:
+  # инициализируем и заполняем список смежности
+    cources = [[] for _ in range(numCourses)]
+    for prerequisite in prerequisites:
+      cources[prerequisite[0]].append(prerequisite[1])
+
+    colors = [0 for _ in range(numCourses)]
+    topologicalOrder = []
+
+    for i in range(numCourses):
+      isHasCycle = self.hasCycle(i, cources, colors, topologicalOrder)
+      if isHasCycle:
+        return []
+
+    return topologicalOrder
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 6. Окруженные области -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача 6. Окруженные области</h3>
+
+  <h4>Leetcode 130. Surrounded Regions (medium)</h4>
+
+  <p>Дана матрица board размером m на n содержащая 'x' и 'o'. Захватите все области 'o' окруженные с четырех сторон 'x'</p>
+  <p>Область захвачена если все символы 'o' заменены на символы 'x', которые окружили область</p>
+
+  <h4>Пример 1</h4>
+<pre>board = [
+  ["x", "x", "x", 'x'],
+  ["x", "o", "o", "x"],
+  ["x", "x", "o", "x"],
+  ["x", "o", "x", "x"],
+]</pre>
+<pre>Output: [
+  ["x", "x", "x", 'x'],
+  ["x", "x", "x", "x"],
+  ["x", "x", "x", "x"],
+  ["x", "o", "x", "x"],
+]</pre>
+
+  <h4>Пример 2</h4>
+  <code>board = [["x"]]</code>
+  <code>Output: [["x"]]</code>
+
+  <h4>Решение</h4>
+  <p>Решение можно разбить на две части. Первая ищем все "o" вершины, которые не надо захватывать. Вторая заменяем все остальные "o" вершины на "x"</p>
+  <p>Нужно найти все "o" вершины которые стоят у края. Т.е. в первой или последней строчке, в первом или последнем столбце. Потом на всех найденных вершинах по очереди запустить алгоритм dfs или bfs. Пометить все посещенные вершины</p>
+  <p>Пройтись циклом по всем вершинам. Все непосещенные вершины "o" заменить на "x"</p>
+  <p>Сложность по времени O(n*m)</p>
+  <p>Сложность по памяти O(n*m)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  # проверяем не выходят ли индексы
+  # за границу массива, true если не выходят
+  def good_idx(self, i: int, j: int, board: list[list[str]]) -> bool:
+    return 0 &lt;= i &lt; len(board) and 0 &lt;= j &lt; len(board[0])
+
+  # делаем обход и помечаем вершины пройденными
+  # если flip -> true, то помечаем все пройденные
+  # вершины как 'x'
+  def dfs(self, startX: int, startY: int, visited: list[list[bool]], board: list[list[str]], flip: bool):
+    if not self.good_idx(startX, startY, board):
+      return
+
+    # dfs запускаем только для не посещенных вершин
+    if visited[startX][startY] or board[startX][startY] == 'X':
+      return
+
+    visited[startX][startY] = True
+    if flip:
+      board[startX][startY] = 'X'
+
+    steps = [[0,1],[0,-1],[1,0],[-1,0]]
+    # перебираем шаги которые могут быть из текущей вершины
+    for step in steps:
+      # вычисляем координаты куда можем пойти
+      newX, newY = startX + step[0], startY + step[1]
+      self.dfs(newX, newY, visited, board, flip)
+
+  def solve(self, board: list[list[str]]) -> None:
+    visited = [[False for _ in range(len(board[0]))] for _ in range(len(board))]
+
+    # перебираем крайние столбцы
+    for i in range(len(board)):
+      self.dfs(i, 0, visited, board, False)
+      self.dfs(i, len(board[0]) - 1, visited, board, False)
+
+    # обходим все индексы кроме крайних, т.к. их уже обошли
+    for i in range(1, len(board) - 1):
+      for j in range(1, len(board[i]) - 1):
+        # bfs запускаем только для не посещенных вершин
+        self.dfs(i, j, visited, board, True)
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 7. Максимальная площадь острова -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача 7. Максимальная площадь острова</h3>
+
+  <h4>Leetcode 695. Max Area of Island (medium)</h4>
+
+  <p>Дана двоичная матрица grid размером m на n. Остров это группа из 1 (представляющая сушу) соединенных горизонтально или вертикально. Считайте что со всех четырех сторон матрица окружена водой. Площадь острова считается как число клеток со значением 1 на острове. Вернуть максимальную площад острова. Если островов нет, то вернуть 0</p>
+
+  <h4>Пример 1</h4>
+<pre>
+grid = [
+  [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+]
+</pre>
+  <code>Output: 6</code>
+
+  <h4>Паттерн обход графа</h4>
+  <p>Пройдем циклом по матрице. Если встречаем 0, то пропускаем клетку. Если встречаем 1, то запускаем для нее dfs или bfs для обхода всех клеток острова и сразу подсчитываем сколько клеток на острове. Остров с максимальным количеством клеток и будет самым большим. Вернем его размер.</p>
+  <p>Сложность по времени O(n*m)</p>
+  <p>Сложность по памяти O(n*m)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  # проверяем не выходят ли индексы за границу массива
+  # true если не выходят
+  def good_idx(self, i: int, j: int, grid: list[list[int]]) -> bool:
+    return 0 &lt;= i &lt; len(grid) and 0 &lt;= j &lt; len(grid[0])
+
+  # делаем обход и помечаем вершины пройденными
+  # если flip -> true, то помечаем
+  # все пройденные вершины как X
+  def dfs(self, startX: int, startY: int, visited: list[list[bool]], grid: list[list[int]]) -> int:
+    if not self.good_idx(startX, startY, grid):
+      # вышли за пределы массива grid
+      return 0
+    if grid[startX][startY] != 1 or visited[startX][startY]:
+      # значит текущая клетка это вода
+      # или мы уже посещали ее
+      return 0
+
+    visited[startX][startY] = True
+    steps = [[0,1], [0,-1], [1,0], [-1,0]]
+
+    # считаем сколько обошли клеток начиная с 1
+    # так как одну клетку startX,startY уже посетили
+    cellCount = 1
+
+    # перебираем шаги которые могут быть
+    for step in steps:
+      # вычисляем координаты куда можно пойти
+      newX, newY = startX + step[0], startY + step[1]
+      cellCount += self.dfs(newX, newY, visited, grid)
+
+    return cellsCount
+
+  def maxAreaIsland(self, grid: List[List[int]]) -> int:
+    maxArea = 0
+    visited = [[False for _ in range(len(grid[0]))] for _ in range(len(grid))]
+    for i in range(len(grid)):
+      for j in range(len(grid[0])):
+        maxArea = max(maxArea, self.dfs(i, j, visited, grid))
+
+    return maxArea
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 8. Кратчайший путь в двоичной матрице -->
+<article class="article">
+  <div class="anchor" id="task8"></div>
+  <h3>Задача 8. Кратчайший путь в двоичной матрице</h3>
+
+  <h4>Leetcode 1091. Shortest Path in Binary Matrix</h4>
+
+  <p>Дана двоичная матрица grid размером n на n. Вернутьт длину кратчайшего чистого пути в матрице. Если нет чистого пути, вернуть -1</p>
+  <p>Чистый путь в двоичной матрице это путь от верхней левой клетки (0, 0) до нижней правой (n-1, n-1) такой что</p>
+  <ul>
+    <li>Все клетки в пути 0</li>
+    <li>Все клетки в пути соединены на 8 направлениях (можно идти даже по диагонали)</li>
+  </ul>
+  <p>Длина чистого пути это число посещенных клеток на этом пути</p>
+
+  <h4>Пример 1</h4>
+<pre>
+grid = [
+  [0, 1],
+  [1, 0]
+]
+</pre>
+  <code>Output: 2</code>
+
+  <h4>Пример 2</h4>
+<pre>
+grid = [
+  [0, 0, 0],
+  [1, 1, 0],
+  [1, 1, 0]
+]
+</pre>
+  <code>Output: 4</code>
+
+  <h4>Пример 3</h4>
+<pre>
+grid = [
+  [1, 0, 0],
+  [1, 1, 0],
+  [1, 1, 0]
+]
+</pre>
+  <code>Output: -1</code>
+
+  <h4>Паттерн поиск в ширину bfs</h4>
+  <p>В очереди лежат вершины, которые мы будем посещать. Вершины которые уже посетили выходят из очереди.</p>
+  <p>Сложность по времени O(n*m)</p>
+  <p>Сложность по памяти O(n*m)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  # проверяем не выходят ли индексы за границу
+  # массива, true - если не выходят
+  def good_idx(self, i: int, j: int, board: list[list[str]]) -> bool:
+    return 0 &lt;= i &lt; len(board) and 0 &lt;= j &lt; len(board[0])
+
+  # проверяем что крайняя правая клетка
+  def is_finish(self, cell, grid: List[List[int]]) -> bool:
+    return cell[0] == (len(grid) - 1) and cell[1] == (len(grid[0]) - 1)
+
+  def shortestPath(self, grid: List[List[int]]) -> int:
+    # true - посещали, false - не посещали
+    visited = [[False for _ in range(len(grid[0]))] for _ in range(len(grid))]
+    # определяем возможные шаги из клетки
+    steps = [
+      [0, 1], #вправо
+      [1, 1], #вправо вниз
+      [1, 0], #вниз
+      [1, -1], #влево вниз
+      [0, -1], #влево
+      [-1, -1], #влево вверх
+      [-1, 0], #вверх
+      [-1, 1], #вправо вверх
+    ]
+
+    # если клетка начала это "стена"
+    # то никуда идти не можем
+    if grid[0][0] == 1:
+      return -1
+
+    # в очереди храним пару
+    # расстояние до текущей клетки и координаты клетки
+    q = deque([1, (0,0)])
+    visited[0][0] = True
+
+    # запускаем bfs
+    while len(q) > 0:
+      path_len, (x, y) = q.popleft()
+      # проверяю что дошли до последней клетки
+      if self.is_finish((x, y), grid):
+        return path_len
+      for step in steps:
+        next_x, next_y = x + step[0], y + step[1]
+        if not self.good_idx(next_x, next_y, grid):
+          # выходим за границы матрицы
+          continue
+        if visited[next_x][next_y] or grid[next_x][next_y] == 1:
+          # уже посещали или уперлись в "стену"
+          continue
+
+        # можно проверять здесь что дошли до пункта назначение
+        # чтобы в очередь не накладывать лишних элементов,
+        # но больше крайних случаев тогда и кода больше
+        visited[next_x][next_y] = True
+        # добавляем в очередь элемент и увеличиваем
+        # число ходов на 1
+        q.append((path_len + 1, (next_x, next_y)))
+
+    return -1
+</pre>
+  </details>
+</article>
+
+
+<!-- Вопросы -->
+<article class="article">
+  <div class="anchor" id="qa"></div>
+  <h3>Вопросы</h3>
+
+  <ol>
+    <li>Какие есть способы хранения графа?
+      <p>Список смежности, список ребер</p>
+    </li>
+    <li>
+      <p>Что такое связная компонента графа?</p>
+      <p>Это часть графа не связная с другими компонентами графа.</p>
+    </li>
+    <li>Что такое цикл в графе? Как можно проверить что в графе есть цикл? Алгоритмом покраски графов в белый, серый и черный</li>
+    <li>Чем отличается dfs от bfs? Приведите пример, когда можно использовать bfs, а когда dfs. bfs это поиск кратчайшего пути в матрице. dfs это проверка графа на цикл при топологической сортировке.
+    </li>
+    <li>Можно ли использовать dfs/bfs для поиска цикла? Да, но лучше dfs</li>
+    <li>Для чего нужна топологическая сортировка и что это такое? Нужна чтобы показать в каком порядке нужно идти чтобы не было зависимостей</li>
+    <li>Когда нельзя сделать топологическую сортировку? Когда есть цикл</li>
+    <li>Можно ли использовать bfs/dfs для поиска кратчайшего пути? Да, можно bfs</li>
+  </ol>
+</article>
+

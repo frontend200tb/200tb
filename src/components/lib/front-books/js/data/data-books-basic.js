@@ -2,6 +2,58 @@ const dataBooksBasic = [
 
   {
     id: 1,
+    year: 1987,
+    category: 'code',
+    theme: 'basic',
+    title: 'Как Петя Бейсиков Таню Соображалкину программировать учил',
+    author: 'Мартузан',
+    authorName: 'Бруно',
+    pages: '242',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 1988,
+    category: 'code',
+    theme: 'basic',
+    title: 'Алгоритмы и программы на Бейсике',
+    author: 'Гринчишин',
+    authorName: 'Ярослав',
+    pages: '162',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 1989,
+    category: 'code',
+    theme: 'basic',
+    title: 'ЭВМ игра и творчество',
+    author: 'Александров',
+    authorName: 'Ярослав',
+    pages: '130',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
+    year: 1994,
+    category: 'code',
+    theme: 'basic',
+    title: 'ПК ZX-SPECTRUM Игры на Бейсике своими руками',
+    author: 'Инфорком',
+    authorName: '',
+    pages: '193',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2002,
     category: 'code',
     theme: 'basic',

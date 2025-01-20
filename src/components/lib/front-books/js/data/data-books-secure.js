@@ -40,19 +40,6 @@ const dataBooksSecure = [
   },
 
   {
-    id: 4,
-    year: 2001,
-    category: 'основы',
-    theme: 'Безопасность',
-    title: 'Криптография и защита сетей. Принципы и практика (2е)',
-    author: 'Столлингс',
-    authorName: 'Вильям',
-    pages: '698',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 5,
     year: 2002,
     category: 'основы',
@@ -61,19 +48,6 @@ const dataBooksSecure = [
     author: 'Касперски',
     authorName: 'Крис',
     pages: '199',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 6,
-    year: 2002,
-    category: 'основы',
-    theme: 'Безопасность',
-    title: 'Криптография. Скоростные шифры',
-    author: 'Молдовян',
-    authorName: 'А.А.',
-    pages: '494',
     isLearned: false,
     dateLearned: '',
   },
@@ -105,19 +79,6 @@ const dataBooksSecure = [
   },
 
   {
-    id: 9,
-    year: 2003,
-    category: 'основы',
-    theme: 'Безопасность',
-    title: 'Практическая криптография',
-    author: 'Масленников',
-    authorName: 'Михаил',
-    pages: '465',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 10,
     year: 2004,
     category: 'основы',
@@ -138,7 +99,7 @@ const dataBooksSecure = [
     title: 'Техника и философия хакерских атак',
     author: 'Касперски',
     authorName: 'Крис',
-    pages: '272',
+    pages: '273',
     isLearned: false,
     dateLearned: '',
   },
@@ -151,19 +112,6 @@ const dataBooksSecure = [
     title: 'Фундаментальные основы хакерства',
     author: 'Касперски',
     authorName: 'Крис',
-    pages: '335',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 13,
-    year: 2004,
-    category: 'основы',
-    theme: 'Безопасность',
-    title: 'Криптография. От примитивов к синтезу алгоритмов',
-    author: 'Молдовян',
-    authorName: 'Н.А.',
     pages: '447',
     isLearned: false,
     dateLearned: '',
@@ -177,13 +125,13 @@ const dataBooksSecure = [
     title: 'Искусство защиты и взлома информации',
     author: 'Скляров',
     authorName: 'Дмитрий',
-    pages: '289',
+    pages: '273',
     isLearned: false,
     dateLearned: '',
   },
 
   {
-    id: 14,
+    id: 15,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -196,7 +144,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -209,7 +157,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -222,7 +170,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -235,7 +183,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 17,
+    id: 19,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -248,7 +196,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 18,
+    id: 20,
+    year: 2005,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Защита от взлома',
+    author: 'Фостер',
+    authorName: 'Джеймс',
+    pages: '784',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 21,
     year: 2006,
     category: 'основы',
     theme: 'Безопасность',
@@ -261,7 +222,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 19,
+    id: 22,
     year: 2006,
     category: 'основы',
     theme: 'Безопасность',
@@ -274,7 +235,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 19,
+    id: 23,
     year: 2007,
     category: 'основы',
     theme: 'Безопасность',
@@ -287,7 +248,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 20,
+    id: 24,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -300,7 +261,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 21,
+    id: 25,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -313,7 +274,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 22,
+    id: 26,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -326,7 +287,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 23,
+    id: 27,
     year: 2009,
     category: 'основы',
     theme: 'Безопасность',
@@ -339,7 +300,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 100,
+    id: 28,
     year: 2010,
     category: 'основы',
     theme: 'Безопасность',
@@ -352,7 +313,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 24,
+    id: 29,
     year: 2011,
     category: 'основы',
     theme: 'Безопасность',
@@ -365,7 +326,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 3,
+    id: 30,
+    year: 2011,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Взлом програмного обеспечения',
+    author: 'Хогланд',
+    authorName: '',
+    pages: '384',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -377,7 +351,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 25,
+    id: 32,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -390,7 +364,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 26,
+    id: 33,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -403,7 +377,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 27,
+    id: 34,
     year: 2013,
     category: 'основы',
     theme: 'Безопасность',
@@ -416,7 +390,33 @@ const dataBooksSecure = [
   },
 
   {
-    id: 28,
+    id: 35,
+    year: 2014,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Как я украл миллион',
+    author: 'Павлович',
+    authorName: 'Сергей',
+    pages: '368',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 36,
+    year: 2016,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Лаборатория хакера',
+    author: 'Бабин',
+    authorName: 'Сергей',
+    pages: '239',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 37,
     year: 2016,
     category: 'основы',
     theme: 'Безопасность',
@@ -429,7 +429,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 126,
+    id: 38,
     year: 2016,
     category: 'основы',
     theme: 'Безопасность',
@@ -442,7 +442,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 29,
+    id: 39,
     year: 2017,
     category: 'основы',
     theme: 'Безопасность',
@@ -455,7 +455,33 @@ const dataBooksSecure = [
   },
 
   {
-    id: 139,
+    id: 40,
+    year: 2017,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Искусство легального, анонимного и безопасного доступа к ресурсам интернета',
+    author: 'Райтман',
+    authorName: 'Михаил',
+    pages: '626',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 41,
+    year: 2018,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Защита информации',
+    author: 'Козлов',
+    authorName: 'Сергей',
+    pages: '289',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 42,
     year: 2019,
     category: 'основы',
     theme: 'Безопасность',
@@ -468,7 +494,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 30,
+    id: 43,
+    year: 2020,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Кибербезопасность',
+    author: 'Диогенез',
+    authorName: 'Юрий',
+    pages: '327',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 44,
     year: 2020,
     category: 'основы',
     theme: 'Безопасность',
@@ -481,7 +520,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 31,
+    id: 45,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -494,7 +533,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 32,
+    id: 46,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -507,7 +546,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 150,
+    id: 47,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -520,7 +559,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 32,
+    id: 48,
+    year: 2021,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Обнаружение вторжения в компьютерные сети',
+    author: 'Шелухин',
+    authorName: 'О.И.',
+    pages: '220',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 49,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -533,20 +585,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 33,
-    year: 2022,
-    category: 'основы',
-    theme: 'Безопасность',
-    title: 'Введение в криптографию. Теоретико-числовые основы защиты информации',
-    author: 'Деза',
-    authorName: 'Елена',
-    pages: '378',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 34,
+    id: 51,
     year: 2022,
     category: 'основы',
     theme: 'Безопасность',
@@ -559,7 +598,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 34,
+    id: 52,
     year: 2022,
     category: 'основы',
     theme: 'Безопасность',
@@ -572,7 +611,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 35,
+    id: 53,
+    year: 2022,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Практический анализ двоичных файлов',
+    author: 'Эндриесс',
+    authorName: 'Дэннис',
+    pages: '462',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -585,7 +637,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 35,
+    id: 55,
+    year: 2023,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Криминалистика компьютерной памяти на практике',
+    author: 'Островская',
+    authorName: 'Светлана',
+    pages: '378',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 56,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -598,7 +663,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 35,
+    id: 57,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -611,7 +676,20 @@ const dataBooksSecure = [
   },
 
   {
-    id: 35,
+    id: 58,
+    year: 2023,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Занимайся хакингом как невидимка',
+    author: 'Флоу',
+    authorName: 'Спарк',
+    pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 59,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -624,7 +702,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 36,
+    id: 60,
     year: 2024,
     category: 'основы',
     theme: 'Безопасность',
@@ -637,7 +715,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 37,
+    id: 61,
     year: 2025,
     category: 'основы',
     theme: 'Безопасность',

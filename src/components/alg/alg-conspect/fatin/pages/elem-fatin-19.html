@@ -1,0 +1,398 @@
+<h1>Backtracking</h1>
+
+
+<article class="article">
+  <p>Конспект видео <strong>Backtracking</strong></p>
+
+  <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
+  <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#bt">Backtracking</a></p>
+  <p><a href="#task1">Задача 1. Телефонный номер</a></p>
+  <p><a href="#task2">Задача 2. Перестановка символов</a></p>
+  <p><a href="#task3">Задача 3. N ферзей</a></p>
+  <p><a href="#task4">Задача 4. Генерация скобочных последовательностей</a></p>
+</article>
+
+
+<!-- Backtracking -->
+<article class="article">
+  <div class="anchor" id="bt"></div>
+  <h3>Backtracking</h3>
+
+  <p>Backtracking это задачи полного перебора. Это может быть перебор с условием, когда цифры не могут повторяться или когда могут повторяться не более двух раз и т.д.</p>
+  <p>Пример задачи. Пусть у нас есть три цифры - 1, 2, 3. Построить из них все возможные комбинации чисел. Мы будем перебирать все цифры и проверять (track) подходит ли нам ответ или не подходит. Если нельзя двух одинаковых цифр подряд, то такие числа не будем добавлять в ответ.</p>
+  <p>Другой пример. Даны цифры 1, 2, 3. Нужно сгенерировать все последовательности длины 3. Решается полным перебором. Сколько всего вариантов возможно?</p>
+  <p>Если символы могут повторяться, то это степень</p>
+  <code>3*3*3 = 27</code>
+  <p>Если символ повторяться не может, то это факториал</p>
+  <code>3*2*1 = 6</code>
+  <p><strong>bruteforce</strong> - перебор всех возможных комбинаций</p>
+</article>
+
+
+<!-- Задача 1. Телефонный номер -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Телефонный номер</h3>
+
+  <p>Эта задача встретилась в Озон</p>
+  <h4>Leetcode 17. Letter Combination of a Phone Number (medium)</h4>
+
+  <p>Дана строка digits, содержащая цифры от 2 до 9 включительно. Вернуть все возможные комбинации букв которые может представлять этот номер. Вернуть ответ в любом порядке. Соответствие букв цифрам показаны ниже</p>
+  <code>2(a,b,c), 3(d,e,f), 4(g,h,i), 5(j,k,l), 6(m,n,o), 7(p,q,r,s), 8(t,u,v), 9(w,x,y,z)</code>
+
+  <h4>Пример 1</h4>
+  <code>digits = "23"</code>
+  <code>Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]</code>
+
+  <h4>Пример 2</h4>
+  <code>digits = ""</code>
+  <code>Output: []</code>
+
+  <h4>Первое решение</h4>
+  <p>Решение с рекурсией</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def bruteforce(self, idx: int, digits: str, currCombination: str, allCombinations):
+    if idx == len(digits):
+      # список превращаем в строку
+      allCombinations.append("".join(currCombination))
+      return
+
+    phone = {
+      "2": "abc", "3": "def", "4": "gfi", "5": "jkl",
+      "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz",
+    }
+
+    digit = digits[idx]
+    for letter in phone[digit]:
+      # добавили новую букву
+      currCombination.append(letter)
+      # перебрали все варианты для текущей буквы
+      self.bruteforce(idx + 1, digits, currCombination, allCombinations)
+      # убрали букву
+      currCombination.pop()
+
+  def letterCombinations(self, digits: str) -> List[str]:
+    # без if-а на входные данные "" вернем [""]
+    # а должно быть []
+    if len(digits) == 0:
+      return []
+    ans = []
+    self.bruteforce(0, digits, [], ans)
+
+    return ans
+</pre>
+  </details>
+
+  <h4>Второе решение</h4>
+  <p>Решение без рекурсии</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def letterCombinations(self, digits: str) -> list[str]:
+
+  phoneSymbols = {
+    "2": "abc", "3": "def", "4": "gfi", "5": "jkl",
+    "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz",
+  }
+  combinationCount = 1
+
+  for digit in digits:
+    combinationCount *= len(phoneSymbols[digit])
+
+  result = ["" for _ in range(combinationsCount)]
+  # сколько раз будем повторять одну и ту же букву
+  symbolPeriod = combinationsCount
+
+  for digit in digits:
+    # сколько раз будем повторять одну и ту же букву
+    symbolPeriod = symbolPeriod // len(phoneSymbols[digit])
+
+    # сколько раз повторяем все буквы
+    # чтобы добавить символ к каждому ответу
+    allLattersPeriod = combinationCount // symblPeriod // len(phoneSymbols[digit])
+
+    i = 0
+    for _ in range(allLattersPeriod):
+      for symbol in phoneSymbols[digit]
+        for _ in range(symbolPeriod):
+          result[i] += symbol
+          i += 1
+
+    return result
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 2. Перестановка символов -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Перестановка символов</h3>
+
+  <h4>Leetcode 46. Permutations (medium)</h4>
+
+  <p>Дан массив nums различных целых чисел. Вернуть все возможные перестановки. Можно вернуть ответ в любом порядке. Все числа в nums уникальны</p>
+
+  <h4>Пример 1</h4>
+  <code>nums = [1,2,3]</code>
+  <code>Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</code>
+
+  <h4>Пример 2</h4>
+  <code>nums = [0,1]</code>
+  <code>Output: [[0,1],[1,0]]</code>
+
+  <h4>Пример 3</h4>
+  <code>nums = [1]</code>
+  <code>Output: [[1]]</code>
+
+  <h4>Паттерн полный перебор</h4>
+  <p>Сложность по времни O(n!)</p>
+  <p>Сложность по памяти O(n!)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solutions:
+  def generate(self, nums: List[int], useNums: List[bool], currPermute, allPermutes):
+    if len(currPermute) == len(nums):
+    # currPermute[:] - копируем список
+    allPermutes.append(currPermute[:])
+    return
+
+    # как возможность оптимизации переберать
+    # каждый раз не все числа а только те
+    # которые раньше не использовали
+
+    # перебираем все возможные варианты
+    # на очередное место ставим все числа, которые
+    # до этого не использовались. т.к. порядок не важен
+    # то получим правильный ответ
+    for i, nextNum in enumerate(nums):
+      if usedNums[i]
+        #nums[i] уже есть в массиве currPermute
+        continue
+      currPermute.append(nextNum)
+      usedNums[i] = True
+
+      self.generate(nums, usedNums, currPermute, allPermutes)
+
+      currPermute.pop()
+      usedNums[i] = False
+
+    def permute(self, nums: List[int]) -> List[List[int]]:
+      allPermutes = []
+      usedNums = [False for _ in range(len(nums))]
+      self.generate(nums, usedNums, [], allPermutes)
+
+      return allPermutes
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3. N ферзей -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. N ферзей</h3>
+
+  <h4>Leetcode 51. N Queens (hard)</h4>
+
+  <p>Разместить n ферзей на шахматной доске размером n на n так, чтобы ферзи не атаковали друг друга.</p>
+  <p>Дано целое число n. Вернуть все различные решения в любом порядке.</p>
+  <p>Каждое решение состоит из расположения ферзей на доске, где 'Q' это ферзь, '.' это свободная клетка</p>
+
+  <h4>Пример 1</h4>
+  <code>n = 4</code>
+<pre>
+.  Q  .  .
+.  .  .  Q
+Q  .  .  .
+.  .  Q  .
+</pre>
+<pre>
+.  .  Q  .
+Q  .  .  .
+.  .  .  Q
+.  Q  .  .
+</pre>
+  <code>Output:[[".Q..","...Q","Q...","..Q."], ["..Q.","Q...","...Q",".Q.."]]</code>
+
+  <h4>Пример 2</h4>
+  <code>n = 1</code>
+  <code>Output: [["Q"]]</code>
+
+  <h4>Рекурсивное решение</h4>
+  <p>На доске будем перебирать строки. Для каждой строки будем перебирать поля. Пытаемся расставить ферзей так чтобы они не атаковали друг друга</p>
+  <p>Начнем. Ставим 1-го ферзя на 1 строку на 1 поле ["Q..."]. Переходим на 2 строку. Ищем куда можно поставить 2-го ферзя. Ставим 2-го ферзя на 2 строку 3 поле ["..Q."]. Переходим на 3 строку. Ищем куда можно поставить 3-го ферзя. Перебираем каждое поле 3 строки и видим что все они под ударом и мы не можем поставить 3-го ферзя. В этой ветке решения нет.</p> <p>Возвращаемся на шаг назад на 2 строку. Ищем куда можно поставить 2-го ферзя. Ставим 2-го ферзя на 2 строку 4 поле ["...Q"]. Переходим на 3 строку. Ищем куда можно поставить 3-го ферзя. Перебираем каждое поле 3 строки и видим что все они под ударом и мы не можем поставить 3-го ферзя. В этой ветке решения нет.</p>
+  <p>Возвращаемся на шаг назад на 2 строку. Варианты для 2 строки закончились.</p>
+  <p>Возвращаемся на шаг назад на 1 строку. Ищем куда можно поставить 1-го ферзя. Ставим 1-го ферзя на 1 строку на 2 поле [".Q.."]. Переходим на 2 строку. Ищем куда можно поставить 2-го ферзя. Ставим 2-го ферзя на 2 строку 4 поле ["...Q"]. Переходим на 3 строку. Ищем куда можно поставить 3-го ферзя. Ставим 3-го ферзя на 3 строку 1 поле ["Q..."]. Переходим на 4 строку. Ищем куда можно поставить 4-го ферзя. Ставим 4-го ферзя на 4 строку 3 поле ["..Q."]</p>
+  <p>Все 4 ферзя расставлены. Одно решение найдено. Переходим к поиску следующего решения. Возвращаемся на шаг назад.</p>
+
+  <h4>Проверка, что в клетку можно поставить ферзя</h4>
+  <p>Нужны 4 хеш-таблицы row, col, d1, d2. Которые проверяют занята ли строка, столбец, первая и вторая диагонали. То есть в таблицах содержатся только true или false</p>
+  <p>Когда доска пустая, все клетки на доске свободны и все таблицы таблицы содержат false.</p>
+
+  <p>Таблица для первой диагогали. Нумеруем диагонали сверху слева вниз направо. Формула i - j</p>
+
+  <p>Таблица для второй диагогали. Нумеруем снизу слева вверх направо. Формула i + j</p>
+
+  <p>Когда мы ставим на доску первого ферзя на клетку [i, j]. Мы должны указать true (заняты) row[i], col[j], d1[i-j], d2[i+j]</p>
+  <p>Когда мы хотим поставить на доску ферзя, мы должны сперва проверить эти 4 таблицы - можно ли нам поставить ферзя на эту клетку, не атакуется ли она уже поставленными ферзями</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>n - число ферзей, которое осталось поставить</p>
+    <p>queenRow - номер строки в которую ставим очередного ферзя</p>
+    <p>usedRows - если usedRows[0] == True значит 0-я строка занята ферзем</p>
+    <p>usedCols - если usedCols[0] == True значит 0-й столбец занят ферзем</p>
+    <p>usedLRDiag - обозначает занята ли диагональ слева направо LR ферзем</p>
+    <p>Давайте придумаем способ определения номера диагонали (одинаковые номера образуют диагональ) зная строку i и столбец j, тогда номер диагонали можно считать как i-j</p>
+<pre>
+   j0 j1 j2 j3
+i0  0 -1 -2 -3
+i1  1  0 -1 -2
+i2  2  1  0 -1
+i3  3  2  1  0
+</pre>
+  <p>usedRLDiag - обозначает занята ли диагональ справо налево RL ферзем</p>
+<pre>
+   j0 j1 j2 j3
+i0  0  1  2  3
+i1  1  2  3  4
+i2  2  3  4  5
+i3  3  4  5  6
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  def solve(self, currPosition, n, queenRow, usedRow, usedCols, usedLRDiag, usedRLDiag, allPositions):
+    if n == 0:
+      # копирование 2D массива в ответ
+      currPositionCopy = [row[:] for row in currPosition]
+      allPosition.append(currPositionCopy)
+      return
+
+    # если строка уже занята, то не ставим туда ферзя
+    # лишнее условие, но так понятнее
+    if usedRows[queenRow]:
+      return
+
+    # строка куда ставим королеву у нас фиксирована и равна queenRow
+    # поэтому перебираем колонку куда можно поставить королеву
+    for queenCol in range(len(currPosition)):
+      # если королева под боем другой королевы
+      # по столбцу или одной из диагоналей
+      # то выбираем другую колонку
+      if usedCols[queenCol] or usedLRDiag[queenRow - queenCol] or usedRLDiag[queenRow + queenCol]:
+        continue
+
+      # ставим королеву и помечаем все что под боем новой королевы
+      usedRows[queenRow] = True
+      usedCols[queenCol] = True
+      usedLRDiag[queenRow - queenCol] = True
+      usedRLDiag[queenRow + queenCol] = True
+      currPosition[queenRow][queenCol] = "Q"
+
+      # делаем перебор
+      self.solve(currPosition, n - 1, queenRow + 1, usedRows, usedCols, usedLRDiag, usedRLDiag, allPositions)
+
+      # убираем королеву
+      usedRows[queenRow] = False
+      usedCols[queenCol] = False
+      usedLRDiag[queenRow - queenCol] = False
+      usedRLDiag[queenRow + queenCol] = False
+      currPosition[queenRow][queenCol] = "."
+
+  def solveNQueens(self, n: int) -> List[List[str]]:
+    # создали двумерный массив n на n из точек
+    currPosition = [["." for _ in range(n)] for _ in range(n)]
+    usedRows = [False for _ in range(n)]
+    usedCols = [False for _ in range(n)]
+    usedLRDiag = [False for _ in range(n*2)]
+    usedRLDiag = [False for _ in range(n*2)]
+    allPositions = []
+    self.solve(currPosition, n, 0, usedRows, usedCols, usedLRDiag, userRLDiag, allPosition)
+
+    # переводим массив массивов в массив строк
+    # (т.к. в python нельзя менять строку)
+    result = []
+    for position in allPosition:
+      result.append([])
+      for row in position:
+        result[-1].append("".join(row))
+
+    return result
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 4. Генерация скобочных последовательностей -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Генерация скобочных последовательностей</h3>
+
+  <p>Задача с собеседования в ВК</p>
+
+  <h4>Leetcode 22. Generate Parentheses (medium)</h4>
+
+  <p>Дано n пар скобок. Написать функцию для генерации всех комбинаций правильных скобочных последовательностей</p>
+  <p>Ограничения. 1 &lt;= n &lt;= 8</p>
+
+  <h4>Пример 1</h4>
+  <code>n = 3</code>
+  <code>Output: ["((()))","(()())","(())()","()(())","()()()"]</code>
+
+  <h4>Пример 2</h4>
+  <code>n = 1</code>
+  <code>Output: ["()"]</code>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+class Solution:
+  # n - число скобок всего
+  def generate(self, n, balance, currParentheses, allParentheses):
+    # balance &lt; 0 - число закрывающих больше чем открывающих -
+    # последовательность не корректна
+    # balance &gt; n - len(currParentheses) не хватает
+    # закрывающих скобок для корректной последовательности
+    if balance &lt; 0 or balance &gt; n - len(currParentheses):
+      return
+    if balance == 0 and len(currParentheses) == n:
+      # список привратили в строку и добавили в ответ
+      allParentheses.append("".join(currParentheses))
+      return
+
+    # перебираем все возможные варианты
+    for brace, newBalance in [["(", balance + 1], [")", balance - 1]]:
+      currParentheses.append(brace)
+      self.generate(n, newBalance, currParentheses, allParentheses)
+      currParentheses.pop()
+
+  def generateParentheses(self, n: int) -> List[str]:
+    allParentheses = []
+    self.generate(n * 2, 0, [], allParentheses)
+
+    return allParentheses
+</pre>
+  </details>
+</article>
+

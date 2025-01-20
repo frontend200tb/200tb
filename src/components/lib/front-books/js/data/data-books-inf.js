@@ -310,18 +310,6 @@ const dataBooksInf = [
   },
 
   {
-    id: 25,
-    year: '2022',
-    category: 'основы',
-    theme: 'Информатика',
-    title: 'Введение в теорию алгоритмических языков и компиляторов',
-    author: 'Гагарина',
-    pages: '175',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 26,
     year: '2022',
     category: 'основы',

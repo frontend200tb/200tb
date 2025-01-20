@@ -17,6 +17,7 @@ import htmlFatin15 from './../pages/elem-fatin-15.html';
 import htmlFatin16 from './../pages/elem-fatin-16.html';
 import htmlFatin17 from './../pages/elem-fatin-17.html';
 import htmlFatin18 from './../pages/elem-fatin-18.html';
+import htmlFatin19 from './../pages/elem-fatin-19.html';
 
 export const pages = [
   htmlFatin01,
@@ -37,4 +38,5 @@ export const pages = [
   htmlFatin16,
   htmlFatin17,
   htmlFatin18,
+  htmlFatin19,
 ];

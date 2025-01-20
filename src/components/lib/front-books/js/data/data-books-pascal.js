@@ -2,6 +2,19 @@ const dataBooksPascal = [
 
   {
     id: 1,
+    year: 1982,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Паскаль',
+    author: 'Вирт',
+    authorName: 'Никлаус',
+    pages: '153',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
     year: 1987,
     category: 'code',
     theme: 'pascal',
@@ -14,7 +27,20 @@ const dataBooksPascal = [
   },
 
   {
-    id: 2,
+    id: 3,
+    year: 1988,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Паскаль для всех',
+    author: 'Боон',
+    authorName: 'К.',
+    pages: '191',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
     year: 1988,
     category: 'code',
     theme: 'pascal',
@@ -27,7 +53,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 3,
+    id: 5,
     year: 1988,
     category: 'code',
     theme: 'pascal',
@@ -40,7 +66,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 1988,
     category: 'code',
     theme: 'pascal',
@@ -53,7 +79,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 4,
+    id: 7,
     year: 1989,
     category: 'code',
     theme: 'pascal',
@@ -66,7 +92,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 5,
+    id: 8,
     year: 1989,
     category: 'code',
     theme: 'pascal',
@@ -79,7 +105,7 @@ const dataBooksPascal = [
   },
 
   {
-    id: 6,
+    id: 9,
     year: 1991,
     category: 'code',
     theme: 'pascal',
@@ -87,6 +113,32 @@ const dataBooksPascal = [
     author: 'Алкок',
     authorName: 'Доналд',
     pages: '194',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 1991,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Турбо Паскаль с графикой для ПК',
+    author: 'Белецкий',
+    authorName: 'Ян',
+    pages: '322',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 1991,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Турбо Паскаль',
+    author: 'Хершель',
+    authorName: 'Рудольф',
+    pages: '346',
     isLearned: false,
     dateLearned: '',
   },
@@ -347,6 +399,19 @@ const dataBooksPascal = [
     author: 'Ружицкая',
     authorName: 'Елена',
     pages: '48',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 22,
+    year: 2005,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Программирование на языке Паскаль. Задачник',
+    author: 'Ускова',
+    authorName: 'Ольга',
+    pages: '334',
     isLearned: false,
     dateLearned: '',
   },
@@ -651,6 +716,32 @@ const dataBooksPascal = [
   },
 
   {
+    id: 44,
+    year: 2014,
+    category: 'code',
+    theme: 'pascal',
+    title: 'ООП Lazarus Free Pascal',
+    author: 'Сорокин',
+    authorName: 'Александр',
+    pages: '216',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 45,
+    year: 2015,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Справочное руководство Free Pascal',
+    author: 'Ван Кенет',
+    authorName: 'Михаил',
+    pages: '286',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 45,
     year: 2015,
     category: 'code',
@@ -672,6 +763,32 @@ const dataBooksPascal = [
     author: 'Акулов',
     authorName: 'Леонид',
     pages: '268',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 46,
+    year: 2016,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Программирование на Free Pascal и Lazarus (2е)',
+    author: 'Алексеев',
+    authorName: 'Е.Р.',
+    pages: '552',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 46,
+    year: 2016,
+    category: 'code',
+    theme: 'pascal',
+    title: 'Программирование на Lazarus (2е)',
+    author: 'Ачкасов',
+    authorName: 'В.Ю.',
+    pages: '521',
     isLearned: false,
     dateLearned: '',
   },
@@ -772,6 +889,19 @@ const dataBooksPascal = [
     year: 2019,
     category: 'code',
     theme: 'pascal',
+    title: 'Прикладное программирование в Lazarus',
+    author: 'Беляков',
+    authorName: 'Андрей',
+    pages: '114',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
+    year: 2019,
+    category: 'code',
+    theme: 'pascal',
     title: 'Информатика. Основы программирования на языке Паскаль. Учебное пособие',
     author: 'Волобуева',
     authorName: 'Татьяна',
@@ -841,19 +971,6 @@ const dataBooksPascal = [
     author: 'Абрамов',
     authorName: 'Владимир',
     pages: '381',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 60,
-    year: 2021,
-    category: 'code',
-    theme: 'pascal',
-    title: 'Разработка Паскаль-компилятора (5е)',
-    author: 'Залогова',
-    authorName: 'Любовь',
-    pages: '186',
     isLearned: false,
     dateLearned: '',
   },

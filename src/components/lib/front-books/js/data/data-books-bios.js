@@ -149,7 +149,7 @@ const dataBooksBios = [
     title: 'Bios',
     author: 'Салихан',
     authorName: 'Дармаван',
-    pages: '763',
+    pages: '764',
     isLearned: false,
     dateLearned: '',
   },

@@ -92,7 +92,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 1978,
     category: 'theme',
     theme: 'Математика',
@@ -105,7 +105,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 1980,
     category: 'theme',
     theme: 'Математика',
@@ -118,7 +118,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 1982,
     category: 'theme',
     theme: 'Математика',
@@ -131,7 +131,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 1988,
     category: 'theme',
     theme: 'Математика',
@@ -144,7 +144,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 1989,
     category: 'theme',
     theme: 'Математика',
@@ -157,7 +157,33 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 12,
+    id: 13,
+    year: 1990,
+    category: 'theme',
+    theme: 'Математика',
+    title: 'Компьютерная математика',
+    author: 'Кук',
+    authorName: 'Д.',
+    pages: '385',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 14,
+    year: 1991,
+    category: 'theme',
+    theme: 'Математика',
+    title: 'Численные методы для ПЭВМ на языках Бейсик, Фортран и Паскаль',
+    author: 'Мудров',
+    authorName: 'Анатолий',
+    pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 15,
     year: 2002,
     category: 'theme',
     theme: 'Математика',
@@ -170,7 +196,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 13,
+    id: 16,
     year: 2002,
     category: 'theme',
     theme: 'Математика',
@@ -183,7 +209,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 14,
+    id: 17,
     year: 2003,
     category: 'theme',
     theme: 'Математика',
@@ -196,7 +222,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 15,
+    id: 18,
     year: 2004,
     category: 'theme',
     theme: 'Математика',
@@ -209,7 +235,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 16,
+    id: 19,
     year: 2004,
     category: 'theme',
     theme: 'Математика',
@@ -222,7 +248,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 17,
+    id: 20,
     year: 2004,
     category: 'theme',
     theme: 'Математика',
@@ -235,7 +261,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 18,
+    id: 21,
     year: 2006,
     category: 'theme',
     theme: 'Математика',
@@ -248,7 +274,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 19,
+    id: 22,
     year: 2008,
     category: 'theme',
     theme: 'Математика',
@@ -261,7 +287,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 20,
+    id: 23,
     year: 2009,
     category: 'theme',
     theme: 'Математика',
@@ -274,7 +300,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 21,
+    id: 24,
     year: 2009,
     category: 'theme',
     theme: 'Математика',
@@ -287,7 +313,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 22,
+    id: 25,
     year: 2011,
     category: 'theme',
     theme: 'Математика',
@@ -300,7 +326,20 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 23,
+    id: 26,
+    year: 2013,
+    category: 'theme',
+    theme: 'Математика',
+    title: 'Высшая математика',
+    author: 'Кузнецов',
+    authorName: 'Альберт',
+    pages: '352',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 27,
     year: 2013,
     category: 'theme',
     theme: 'Математика',
@@ -313,7 +352,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 53,
+    id: 28,
     year: 2019,
     category: 'theme',
     theme: 'Математика',
@@ -326,7 +365,7 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 24,
+    id: 29,
     year: 2019,
     category: 'theme',
     theme: 'Математика',
@@ -339,7 +378,20 @@ const dataBooksMathDis = [
   },
 
   {
-    id: 25,
+    id: 30,
+    year: 2022,
+    category: 'theme',
+    theme: 'Математика',
+    title: 'Математическое программирование в примерах и задачах',
+    author: 'Акулич',
+    authorName: 'Иван',
+    pages: '348',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2022,
     category: 'theme',
     theme: 'Математика',
