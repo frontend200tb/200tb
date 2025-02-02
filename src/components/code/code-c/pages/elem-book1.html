@@ -31,21 +31,23 @@
       <p><a href="#p2.8">Создание массивов переменных</a></p>
       <p><a href="#p2.9">Описание нескольких измерений</a></p>
     </li>
-  </ol>
+     <li>
+      <h4><a href="#p3">Установка значений переменных</a></h4>
+      <p><a href="#p3.1">Объявление констант в программе</a></p>
+      <p><a href="#p3.2">Перечисление значений констант</a></p>
+      <p><a href="#p3.3">Создание константного типа</a></p>
+      <p><a href="#p3.4">Определение констант</a></p>
+      <p><a href="#p3.5">Отладка с помощью определений</a></p>
+    </li>
+ </ol>
 </article>
 
 
 <!-- 1. Приступаем к работе -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>1. Приступаем к работе</h3>
+  <h2>1. Приступаем к работе</h2>
 </article>
-
-
-<!-- 2.1 Создание переменных в программе -->
-<article class="article">
-  <div class="anchor" id="p2.1"></div>
-  <h3>2.1 Создание переменных в программе</h3>
 
 
 <!-- 1.1 Введение в язык Си -->
@@ -79,6 +81,9 @@
 
   <p>Функция main() - стартовая точка всех программ на языке Си. Компилятор не будет компилировать код, если не найдет внутри программы функцию main()</p>
   <p>При изучении языка программирования в первую очередь пишут программу, выводящую на экран сообщение Hello World!</p>
+
+  <details>
+    <summary>Программа 1 (16стр)</summary>
 <pre>
 #include &lt;stdio.h&gt;
 
@@ -89,6 +94,7 @@ int main()
   return 0;
 }
 </pre>
+  </details>
 </article>
 
 
@@ -135,7 +141,7 @@ int main()
 <!-- 2. Сохранение значений переменных -->
 <article class="article">
   <div class="anchor" id="p2"></div>
-  <h3>2. Сохранение значений переменных</h3>
+  <h2>2. Сохранение значений переменных</h2>
 </article>
 
 
@@ -143,21 +149,327 @@ int main()
 <article class="article">
   <div class="anchor" id="p2.1"></div>
   <h3>2.1 Создание переменных в программе</h3>
-</article>
 
-<p><a href="#p2.3">Ввод значений переменных</a></p>
-<p><a href="#p2.4">Спецификаторы типов данных</a></p>
-<p><a href="#p2.5">Использование глобальных переменных</a></p>
-<p><a href="#p2.6">Размещение переменных в регистрах</a></p>
-<p><a href="#p2.7">Преобразование типов данных</a></p>
-<p><a href="#p2.8">Создание массивов переменных</a></p>
-<p><a href="#p2.9">Описание нескольких измерений</a></p>
+  <p>Объявление переменной</p>
+  <code>тип_данных имя_переменной;</code>
+  <code>int num;</code>
+
+  <p>Можно объявить несколько переменных с одним типом данных</p>
+  <code>int num, sum, age;</code>
+
+  <p>Инициализация переменной</p>
+  <code>num = 10;</code>
+
+  <p>Объявление с инициализацией</p>
+  <code>int num = 10;</code>
+  <p>Слева от знака равно стоят L-значения, справа R-значения</p>
+</article>
 
 
 <!-- 2.2 Отображение значений переменных -->
 <article class="article">
   <div class="anchor" id="p2.2"></div>
   <h3>2.2 Отображение значений переменных</h3>
+
+  <p>Значение переменной можно вывести с помощью функции printf(). Для этого нужно указать спецификатор формата</p>
+  <code>%d целое число от -32768 до +32767</code>
+  <code>%ld длинное целое число от -2<sup>31</sup> до +2<sup>31</sup></code>
+  <code>%f число с плавающей точкой</code>
+  <code>%c один символ</code>
+  <code>%s строка символов</code>
+  <code>%p адрес в памяти</code>
+
+  <details>
+    <summary>Программа 2 (25стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num = 100;
+  double pi = 3.1415926536;
+
+  printf("%d\n", num);
+  printf("%f\n", pi);
+  printf("%7d\n", num);
+  printf("%07d\n", num);
+  printf("%1.10f\n", pi);
+  printf("%20.3f\n", pi);
+  printf("%-20.3f\n", pi);
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
+
+<!-- 2.3 Ввод значений переменных -->
+<article class="article">
+  <div class="anchor" id="p2.3"></div>
+  <h3>2.3 Ввод значений переменных</h3>
+
+  <p>Для получения данных от пользователя используют функцию scanf(). Она принимает два аргумента - тип данных и место в памяти где они должны быть сохранены. Первый аргумент - тип данных определяется спецификатором формата. Второй аргумент - переменная, перед которой ставят &, чтобы получить адрес переменной.</p>
+
+  <details>
+    <summary>Программа 3 (27стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char letter;
+  int num1, num2;
+
+  printf("Enter symbol ");
+  scanf("%c", &letter);
+  printf("Enter integer a b ");
+  scanf("%d %d", &num1, &num2);
+  printf("Symbol %c\n", letter);
+  printf("Address symbol %p\n", &letter);
+  printf("Integer %d %d\n", num1, num2);
+  printf("Address integer %p %p\n", &num1, &num2);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.4 Спецификаторы типов данных -->
+<article class="article">
+  <div class="anchor" id="p2.4"></div>
+  <h3>2.4 Спецификаторы типов данных</h3>
+
+  <p>Тип данных int по умолчани может быть short или long. Ее размер можно указать явно</p>
+  <code>short num1;</code>
+  <code>long num2;</code>
+
+  <p>Заголовочный файл limits.h содержит размеры каждого типа данных, например INT_MIN, INT_MAX, SHRT_MIN, SHRT_MAX, LONG_MIN, LONG_MAX</p>
+  <p>Перед беззнаковым типом ставят слово unsigned</p>
+  <p>Оператор sizeof возвращает размер типа данных.</p>
+
+  <details>
+    <summary>Программа 4 (29стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main() {
+  printf("char size %d byte\n", sizeof(char));
+  printf("from %d to %d\n", CHAR_MIN, CHAR_MAX);
+
+  printf("short int size %d bytes\n", sizeof(short int));
+  printf("from %d to %d\n", SHRT_MIN, SHRT_MAX);
+
+  printf("int size %d bytes\n", sizeof(int));
+  printf("from %d to %d\n", INT_MIN, INT_MAX);
+
+  printf("long int size %d bytes\n", sizeof(long int));
+  printf("from %ld to %ld\n", LONG_MIN, LONG_MAX);
+
+  printf("long long int size %d bytes\n", sizeof(long long int));
+  printf("from %lld to %lld\n", LLONG_MIN, LLONG_MAX);
+
+  printf("float size %d bytes\n", sizeof(float));
+  printf("double size %d bytes\n", sizeof(double));
+  printf("long double size %d bytes\n", sizeof(long double));
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.5 Использование глобальных переменных -->
+<article class="article">
+  <div class="anchor" id="p2.5"></div>
+  <h3>2.5 Использование глобальных переменных</h3>
+
+  <p>Локальные переменные - это переменные объявленные внутри функции. Их область видимости это функция в которой они объявлены, они видны только в ней</p>
+  <p>Глобальные переменные - это переменные объявленные вне функций.У них глобальная область видимости, они видны внутри любой функции</p>
+  <p>Внешние глобальные переменные должны быть объявлены всего один раз в начале программы. Они также должны быть объявлены внутри каждой функции, которая их будет использовать, с ключевым словом extern.</p>
+  <p>Если программа стостоит из нескольких файлов и в этих файлах есть глобальные переменные и функции, то они доступны в любом месте программы. Если мы хотим чтобы глобальные переменные и функции были доступны только внутри тех файлов где были объявлены, то нужно объявлять их с ключевым словом static.</p>
+  <p>Если объявить переменную внутри функции с ключевым словом static, то она будет доступна только внутри этой функции, но не пропадет по завершении работы функции и будет существовать до конца работы программы.</p>
+
+  <details>
+    <summary>Программа 5 (31стр)</summary>
+    <p>Код в файле 05a.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+static int sum = 100;
+extern int num;
+
+int main()
+{
+  extern int sum;
+  printf("sum is %d\n", sum);
+
+  extern int num;
+  printf("num is %d\n", num);
+
+  return 0;
+}
+</pre>
+
+<p>Код в файле 05b.c</p>
+<pre>
+int num = 200;
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.6 Размещение переменных в регистрах -->
+<article class="article">
+  <div class="anchor" id="p2.6"></div>
+  <h3>2.6 Размещение переменных в регистрах</h3>
+
+  <p>Ключевое слово registr при объявлении переменной указывает компилятору, что эта переменная будет часто использоваться. Компилятор может разместить такие переменные в регистре, чтобы ускорить доступ к ним.</p>
+  <p>С ключевым словом registr можно объявить только локальные переменные определенных типов. Часто компилятор игнорирует это слово.</p>
+  <p>Ключевое слово volatile при объявлении переменной указывает компилятору не помещать ее в регистры, потому что она может измениться в любой момент.</p>
+
+  <details>
+    <summary>Программа 6 (33стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  register int i = 0;
+  while (i &lt; 5)
+  {
+    i++;
+    printf("i is %d\n", i);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.7 Преобразование типов данных -->
+<article class="article">
+  <div class="anchor" id="p2.7"></div>
+  <h3>2.7 Преобразование типов данных</h3>
+
+  <p>Компилятор сам преобразует типы данных к одному типу когда происходят операции над данными разных типов</p>
+  <p>Программисто может дать указание компилятору преобразовать один тип данных к другому. Это называется приведением типов</p>
+
+  <details>
+    <summary>Программа 7 (35стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int a = (int)5.75;
+  char b = (char)257;
+  float c = (float)0.1234567;
+
+  printf("%d\n", a);
+  printf("%d\n", b);
+  printf("%f\n", c);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.8 Создание массивов переменных -->
+<article class="article">
+  <div class="anchor" id="p2.8"></div>
+  <h3>2.8 Создание массивов переменных</h3>
+
+  <p>Массив может хранить несколько элементов. Элементы хранятся последовательно в ячейках массива, которые нумеруются начиная с нуля.</p>
+  <p>Объявление массива</p>
+  <code>тип_данных имя_массива [размер_массива]</code>
+  <code>int nums[3]</code>
+  <p>Можно не указывать размер если происходит объявление и инициализация</p>
+  <code>char s = {'c', 'a', 't', '\0'}</code>
+
+  <details>
+    <summary>Пример 8 (37стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int nums[3];
+  int nums1[3], nums2[6], nums3[9];
+
+  printf("%d\n", nums[0]);
+  printf("%d\n", nums1[0]);
+  printf("%d\n", nums2[0]);
+  printf("%d\n", nums3[0]);
+
+  nums[0] = 10;
+  int a[3] = {20, 30, 40};
+
+  printf("%d\n", nums[0]);
+  printf("%d\n", a[0]);
+
+  int b[] = {1, 2, 3, 4};
+  char str[5] = {'b', 'o', 'o', 'k', '\0'};
+  printf("%s\n", str);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.9 Описание нескольких измерений -->
+<article class="article">
+  <div class="anchor" id="p2.9"></div>
+  <h3>2.9 Описание нескольких измерений</h3>
+
+  <p>Массив с одним индексом является одномерным</p>
+  <p>Если у массива несколько индексов - то он многомерный</p>
+  <p>Массив с двумя индексами двумерный</p>
+
+  <details>
+    <summary>Программа 9 (39стр)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int matrix[2][3] = {{-1, -2, -3}, {1, 2, 3}};
+
+  printf("%d\n", matrix[0][1]);
+  printf("%d\n", matrix[1][1]);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3 Установка значений переменных -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h2>3 Установка значений переменных</h2>
+</article>
+
+
+<!-- 3.1 Объявление констант в программе -->
+<article class="article">
+  <div class="anchor" id="p3.1"></div>
+  <h2>3.1 Объявление констант в программе</h2>
+</article>
+
+<p><a href="#p3.1">Объявление констант в программе</a></p>
+<p><a href="#p3.2">Перечисление значений констант</a></p>
+<p><a href="#p3.3">Создание константного типа</a></p>
+<p><a href="#p3.4">Определение констант</a></p>
+<p><a href="#p3.5">Отладка с помощью определений</a></p>
 

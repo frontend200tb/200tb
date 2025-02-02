@@ -2,13 +2,14 @@ import showFatin from './fatin/fatin';
 import showGustokashin from './gustokashin/gustokashin';
 import showStepik from './stepik/stepik';
 import showDp from './dp/dp';
+import showSp from './sp/sp';
 import showKurs1 from './kurs1/kurs1';
 import showKurs2 from './kurs2/kurs2';
 
 export const dataConspectNav = [
   {
     url: 'fatin.html',
-    text: 'Фатин',
+    text: 'МФ',
     content: '<alg-fatin></alg-fatin>',
     act() {
       showFatin();
@@ -16,7 +17,7 @@ export const dataConspectNav = [
   },
   {
     url: 'gustokashin.html',
-    text: 'Густокашин',
+    text: 'МГ',
     content: '<alg-gustokashin></alg-gustokashin>',
     act() {
       showGustokashin();
@@ -36,6 +37,14 @@ export const dataConspectNav = [
     content: '<alg-dp></alg-dp>',
     act() {
       showDp();
+    },
+  },
+  {
+    url: 'sp.html',
+    text: 'СП',
+    content: '<alg-sp></alg-sp>',
+    act() {
+      showSp();
     },
   },
   {

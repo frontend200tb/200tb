@@ -1,7 +1,7 @@
 /******************
 Скрипт из файла alg-conspect.js
 Навигация по теме Конспекты
-Фатин Густокашин Stepik ДП
+МФ МГ Stepik ДП СП Курс1 Курс2
 *******************/
 import './element-conspect';
 import {dataConspectNav} from './data-conspect-nav';

@@ -27,6 +27,19 @@ const dataBooksStm = [
   },
 
   {
+    id: 2,
+    year: 2016,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Основы программирования микроконтроллеров',
+    author: 'Васильев',
+    authorName: 'Александр',
+    pages: '96',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 3,
     year: 2018,
     category: 'основы',

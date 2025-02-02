@@ -1,0 +1,190 @@
+<h1>Занятие 6. Основы С++ #5. Функции</h1>
+
+
+<article class="article">
+  <p>Конспект курса <strong>Спортивное программирование в ЯрГУ</strong></p>
+  <p>Конспект видео <strong>Занятие 6. Основы С++ #5. Функции</strong> от 2024.10.19</p>
+  <p><a href="https://vkvideo.ru/@sportprog_yarsu">vkvideo.ru/@sportprog_yarsu</a></p>
+  <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/559129">Codeforces Контест 559129</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Функции</a></p>
+  <p><a href="#p2">Рекурсия</a></p>
+  <p><a href="#p3">Компаратор</a></p>
+  <p><a href="#p4">Работа с файлами</a></p>
+</article>
+
+
+<!-- Функции -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Функции</h3>
+
+  <p>Функции позволяют отделить часто используемый код и переиспользовать его с разными значениями аргументов.</p>
+<pre>
+Тип Имя(аргумент1, аргумент2, аргумент3, …) {
+  тело функции
+  return возвращаемое значение;
+}
+</pre>
+  <p>Если функция ничего не должна возвращать, её можно объявить как void.</p>
+  <p>В C++ есть возможность передавать аргументы в функции двумя способами.</p>
+  <ol>
+    <li>
+      <p>Создавать локальную переменную, копируя в нее значение передаваемого объекта.</p>
+<pre>
+int sum(int a, int b) {
+  return a + b;
+}
+</pre>
+    </li>
+    <li>
+      <p>Использовать исходный объект с возможностью его изменять. Для этого надо передать аргументы через ссылку & или указатель *.</p>
+<pre>
+void swap(int& a, int& b) {
+  int c = a;
+  a = b;
+  b = c;
+}
+</pre>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Рекурсия -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Рекурсия</h3>
+
+  <p>Рекурсивные функции - это функции, которые вызывают сами себя. Такие функции довольно часто используются для обхода различных представлений. Например, если нам надо найти факториал числа n!. Так же факториал можно найти и при помощи циклов.</p>
+<pre>
+long long factorial(long long n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n-1);
+  }
+}
+</pre>
+  <p>Функция для подсчета чисел Фибоначчи, трудоемкость O(a<sup>n</sup>).</p>
+<pre>
+int Fib(int n) {
+  if (n &lt;= 2) {
+    return 1;
+  } else {
+    return Fib(n-1) + Fib(n-2);
+  }
+}
+</pre>
+  <p>Функция для подсчета НОД</p>
+<pre>
+int gcd1(int a, int b) {
+  while (a != 0 && b != 0) {
+    if (a > b) {
+      a = a - b;
+    } else {
+      b = b - a;
+    }
+  }
+  return a + b;
+}
+</pre>
+<pre>
+int gcd2(int a, int b) {
+  while (a != 0 && b != 0) {
+    if (a > b) {
+      a = a % b;
+    } else {
+      b = b % a;
+    }
+  }
+  return a + b;
+}
+</pre>
+<pre>
+int gcd3(int a, int b) {
+  if (b != 0) {
+    return gcd3(b, a % b);
+  } else {
+    return a;
+  }
+}
+</pre>
+</article>
+
+
+<!-- Компаратор -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Компаратор</h3>
+
+  <p>Компаратор - это специальная функция, которая умеет сравнивать два объекта.</p>
+<pre>
+bool имя(аргумент1, аргумент2) {
+  действия
+  return результат;
+}
+</pre>
+<pre>
+bool comp(int a, int b) {
+  return a > b;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+  sort(A.begin(), A.end(), comp);
+  for (int i = 0; i &lt; n; i ++) {
+    cout &lt;&lt; A[i] &lt;&lt; " ";
+  }
+}
+</pre>
+</article>
+
+
+<!-- Работа с файлами -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Работа с файлами</h3>
+
+  <p>Для работы с файлами необходимо подключить заголовочный файл fstream. В fstream определены несколько классов и подключены заголовочные файлы ifstream> — файловый ввод и ofstream — файловый вывод.
+  </p>
+<pre>
+#include &lt;fstream&gt;
+
+int main() {
+  int n;
+  ifstream in("input.txt");
+  ofstream out("output.txt");
+  in >> n;
+  out &lt;&lt; n * n;
+  in.close();
+  out.close();
+}
+</pre>
+  <p>freopen обычно используется для перенаправления заранее открытых файлов stdin, stdout и stderr на файлы, определенные пользователем.</p>
+  <ul>
+    <li>"r" Открывает для чтения. Если файл не существует или не удается найти, вызов завершается ошибкой freopen.</li>
+    <li>"w"	Открывает пустой файл для записи. Если указанный файл существует, его содержимое удаляется.</li>
+  </ul>
+<pre>
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+  int n;
+  cin >> n;
+  cout &lt;&lt; n * n;
+</pre>
+</article>
+

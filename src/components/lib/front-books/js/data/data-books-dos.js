@@ -40,6 +40,19 @@ const dataBooksDos = [
   },
 
   {
+    id: 3,
+    year: 1991,
+    category: 'основы',
+    theme: 'dos',
+    title: 'MS-DOS 4.01',
+    author: 'Финогенов',
+    authorName: 'Кирилл',
+    pages: '129',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 4,
     year: 1991,
     category: 'основы',

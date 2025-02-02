@@ -287,6 +287,19 @@ const dataBooksCppBuilder = [
   },
 
   {
+    id: 22,
+    year: 2008,
+    category: 'code',
+    theme: 'C++ Builder',
+    title: 'Программирование в Windows с помощью ОО библиотек',
+    author: 'Финогенов',
+    authorName: 'Кирилл',
+    pages: '105',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 23,
     year: 2010,
     category: 'code',

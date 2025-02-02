@@ -468,6 +468,19 @@ const dataBooksAsm = [
   },
 
   {
+    id: 27,
+    year: 2001,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Основы языка Ассемблер',
+    author: 'Финогенов',
+    authorName: 'Кирилл',
+    pages: '200',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 28,
     year: 2002,
     category: 'code',
