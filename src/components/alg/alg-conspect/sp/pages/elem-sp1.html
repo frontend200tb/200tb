@@ -15,6 +15,7 @@
 
   <p><a href="#p1">Что необходимо для курса</a></p>
   <p><a href="#p2">Что необходимо для написания кода</a></p>
+  <p><a href="#p3">Настройка Visual Studio</a></p>
   <p><a href="#task1">Задача A. Арбуз</a></p>
   <p><a href="#task2">Задача B. Слоник</a></p>
   <p><a href="#task3">Задача C. Мишка и старший брат</a></p>
@@ -69,6 +70,27 @@
 </article>
 
 
+<!-- Настройка Visual Studio -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Настройка Visual Studio</h3>
+
+  <h4>2 пробела вместо табуляции</h4>
+  <code>Средства - Параметры - Текстовый редактор - Все языки - Табуляция</code>
+  <p>Выбрать Размер интервала табуляции 2, Размер отступа 2, Вставлять пробелы.</p>
+  <code>Tools - Options - Text Editor - All Languages - Tabs</code>
+  <p>Выбрать Tab size 2, Indent size 2, Insert spaces</p>
+
+  <h4>Запретить перенос else</h4>
+  <code>Средства - Параметры - Текстовый редактор - C/C++ - Стиль кода - Форматирование - Новые строки</code>
+  <p>Убрать галочку с пункта</p>
+  <code>Помещать ключевое слово else на новую строку</code>
+  <code>Tools - Options - Text Editor - C/C++ - Code Style - Formatting - New Lines</code>
+  <p>Убрать галочку с пункта</p>
+  <code>Place else on a new line</code>
+</article>
+
+
 <!-- Задача A. Арбуз -->
 <article class="article">
   <div class="anchor" id="task1"></div>
@@ -99,9 +121,12 @@
 using namespace std;
 
 int main() {
+  // ввод данных
   int w;
-  cin &gt;&gt; w;
-  if (w &gt; 2 and w % 2 == 0) {
+  cin >> w;
+
+  // решение и вывод результата
+  if (w > 2 and w % 2 == 0) {
     cout &lt;&lt; "YES";
   } else {
     cout &lt;&lt; "NO";
@@ -147,8 +172,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int x;
-  cin &gt;&gt; x;
+  cin >> x;
+
+  // решение и вывод результата
   cout &lt;&lt; (x + 4) / 5;
 }
 </pre>
@@ -195,14 +223,19 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int a, b;
-  cin &gt;&gt; a &gt;&gt; b;
+  cin >> a >> b;
+
+  // решение
   int count = 0;
   while (a &lt;= b) {
     a *= 3;
     b *= 2;
     count++;
   }
+
+  // вывод результата
   cout &lt;&lt; count;
 }
 </pre>
@@ -248,12 +281,17 @@ int main() {
 
 using namespace std;
 int main() {
-  int n, a, b;
-  cin &gt;&gt; n;
+  // ввод данных
+  int t, a, b;
+  cin >> t;
   int sum;
-  for (int i = 1; i &lt;= n; i++) {
-    cin &gt;&gt; a &gt;&gt; b;
+  for (int test = 1; test &lt;= t; test++) {
+    cin >> a >> b;
+
+    // решение
     sum = a + b;
+
+    // вывод результата
     cout &lt;&lt; sum &lt;&lt; '\n';
   }
 }
@@ -308,11 +346,14 @@ YES
 using namespace std;
 
 int main() {
+  // ввод данных
   int t, a, b, c;
   cin >> t;
   int sum;
-  for (int i = 1; i &lt;= t; i++) {
+  for (int test = 1; test &lt;= t; test++) {
     cin >> a >> b >> c;
+
+    // решение и вывод результата
     if (a == b + c || b == a + c || c == a + b) {
       cout &lt;&lt; "YES" &lt;&lt; '\n';
     } else {
@@ -362,8 +403,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   string s;
-  cin &gt;&gt; s;
+  cin >> s;
+
+  // решение
   int len = s.length();
   int big = 0;
   int small = 0;
@@ -374,7 +418,7 @@ int main() {
       small++;
     }
   }
-  if (big &gt; small) {
+  if (big > small) {
     for (int i = 0; i &lt; len; i++) {
       s[i] = toupper(s[i]);
     }
@@ -384,6 +428,8 @@ int main() {
       s[i] = tolower(s[i]);
     }
   }
+
+  // вывод результата
   cout &lt;&lt; s;
 }
 </pre>
@@ -437,8 +483,11 @@ AbCdEfF
 using namespace std;
 
 int main() {
+  // ввод данных
   string s1, s2;
-  cin &gt;&gt; s1 &gt;&gt; s2;
+  cin >> s1 >> s2;
+
+  // решение и вывод результата
   int len = s1.length();
   for (int i = 0; i &lt; len; i++) {
     if (toupper(s1[i]) &gt; toupper(s2[i])) {
@@ -513,13 +562,16 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int n;
   cin >> n;
   int d[30], v[30];
-  int res = 0;
   for (int i = 0; i &lt; n; i++) {
     cin >> d[i] >> v[i];
   }
+
+  // решение
+  int res = 0;
   for (int i = 0; i &lt; n; i++) {
     for (int j = 0; j &lt; n; j++) {
       if (d[i] == v[j]) {
@@ -527,6 +579,8 @@ int main() {
       }
     }
   }
+
+  // вывод результата
   cout &lt;&lt; res;
 }
 </pre>

@@ -498,8 +498,11 @@ cout &lt;&lt; sum;
 using namespace std;
 
 int main() {
+  // ввод данных
   int m, n;
   cin >> m >> n;
+
+  // решение и вывод результата
   cout &lt;&lt; (m * n) / 2;
 }
 </pre>
@@ -539,8 +542,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int k, n, a;
   cin >> k >> n >> a;
+
+  // решение и вывод результата
   cout &lt;&lt; a + k * n;
 }
 </pre>
@@ -580,8 +586,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int year;
   cin >> year;
+
+  // решение и вывод результата
   bool mod4 = year % 4 == 0;
   bool mod100 = year % 100 == 0;
   bool mod400 = year % 400 == 0;
@@ -624,13 +633,15 @@ int main() {
     <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;cstdio&gt;
 
 using namespace std;
 
 int main() {
+  // ввод данных
   long long n, m, a;
-  cin &gt;&gt; n &gt;&gt; m &gt;&gt; a;
+  cin >> n >> m >> a;
+
+  // решение
   long long res = 1;
   if (n % a == 0) {
     res = res * (n / a);
@@ -644,6 +655,8 @@ int main() {
   else {
     res = res * (m / a + 1);
   }
+
+  // вывод результата
   cout &lt;&lt; res;
 }
 </pre>
@@ -683,6 +696,34 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  // решение
+  int min = 0, max = 0, tmp;
+  for (int i = 0; i &lt; n; i++) {
+      cin >> tmp;
+      if (min > tmp || min == 0) {
+          min = tmp;
+      }
+      if (max &lt; tmp || max == 0) {
+          max = tmp;
+      }
+  }
+
+  // вывод результата
+  cout &lt;&lt; max &lt;&lt; " " &lt;&lt; min;
+
+  return 0;
+}
+</pre>
   </details>
 </article>
 
@@ -726,6 +767,28 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int k, r;
+  cin >> k >> r;
+
+  // решение
+  int min = 1;
+  for (; min &lt; 10; min++) {
+    if ((k * min) % 10 == 0 || (k * min) % 10 == r) {
+      break;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; min;
+}
+</pre>
   </details>
 </article>
 
@@ -754,6 +817,32 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <p>Пусть price это цена за w бананов. Если у солдата меньше денег, то borrow это количество денег, которые нужно занять.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int k, n, w;
+  cin >> k >> n >> w;
+
+  // решение
+  int price = 0, borrow = 0;
+  for (int i = 1; i &lt;= w; i++) {
+    price += i * k;
+  }
+  borrow = price - n;
+
+  // вывод результата
+  if (borrow > 0) {
+    cout &lt;&lt; borrow;
+  } else {
+    cout &lt;&lt; 0;
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -797,13 +886,15 @@ int main() {
     <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;cstdio&gt;
 
 using namespace std;
 
 int main() {
+  // ввод данных
   long long n;
-  cin &gt;&gt; n;
+  cin >> n;
+
+  // решение и вывод результата
   int count47 = 0;
   while (n &gt; 0) {
     if (n % 10 == 4 || n % 10 == 7) {

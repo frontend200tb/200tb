@@ -2078,6 +2078,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 156,
+    year: 2023,
+    category: 'code',
+    theme: 'c++',
+    title: 'Вредные советы для C++ программистов',
+    author: 'Карпов',
+    authorName: 'Андрей',
+    pages: '245',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 157,
     year: 2023,
     category: 'code',

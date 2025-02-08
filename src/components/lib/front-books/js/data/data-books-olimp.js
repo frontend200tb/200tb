@@ -768,6 +768,17 @@ const dataBooksOlimp = [
   },
 
   {
+    id: 54,
+    year: 2018,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Разбор задач 32 Районная олимпиада (9-11 классы)',
+    pages: '34',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 55,
     year: 2019,
     category: 'основы',
@@ -879,6 +890,17 @@ const dataBooksOlimp = [
     title: 'Алгоритмы компьютерной арифметики (4е)',
     author: 'Окулов',
     authorName: 'Станислав',
+    pages: '288',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 62,
+    year: 2025,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Все задачи сайта acmp.ru',
     pages: '288',
     isLearned: false,
     dateLearned: '',

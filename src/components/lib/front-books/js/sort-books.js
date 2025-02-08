@@ -3,17 +3,27 @@
 **************** */
 export default function sortBooks(books) {
   books.sort((a, b) => {
-    if (a.year === b.year) {
+
+    // если поля нет, то задаем значение по умолчанию
+    const a1 = a.year ? a.year : 0;
+    const b1 = b.year ? b.year : 0;
+    const a2 = a.author ? a.author : '';
+    const b2 = b.author ? b.author : '';
+    const a3 = a.title ? a.title : '';
+    const b3 = b.title ? b.title : '';
+    // ---------------------------
+
+    if (a1 === b1) {
       // Если год одинаковый то сортировать по автору
-      if (a.author === b.author) {
+      if (a2 === b2) {
         // Если автор одинаковый то сортировать по названию
-        return a.title.localeCompare(b.title, 'en');
+        return a3.localeCompare(b3, 'en');
       }
       // Иначе сортировать по автору
-      return a.author.localeCompare(b.author, 'en');
+      return a2.localeCompare(b2, 'en');
     }
     // Иначе сортировать по году
-    return a.year - b.year;
+    return a1 - b1;
   });
   return books;
 }

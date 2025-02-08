@@ -19,4 +19,5 @@ export const asideThemes = [
   'Куча',
   'Графы',
   'Backtracking',
+  'Грокни алгоритмы',
 ];

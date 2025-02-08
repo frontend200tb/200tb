@@ -1,0 +1,594 @@
+<h1>Грокни алгоритмы</h1>
+
+
+<article class="article">
+  <p>Конспект видео от 2025-02-01</p>
+  <h4>Грокни алгоритмы</h4>
+
+  <p><a href="https://www.youtube.com/@fatin.maksim/videos">youtube Максим Фатин</a></p>
+  <p><a href="https://tskills.ru/algo">https://tskills.ru/algo</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Введение</a></p>
+  <p><a href="#task1">Задача 1. Общие элементы</a></p>
+  <p><a href="#task2">Задача 2. Сумма чисел</a></p>
+  <p><a href="#task3">Задача 3. Палиндром</a></p>
+  <p><a href="#task4">Задача 4. Отсортировать по модулю</a></p>
+  <p><a href="#task5">Задача 5. Соревнования по числу шагов</a></p>
+  <p><a href="#p2">Продолжение</a></p>
+</article>
+
+
+<!-- Введение -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Введение</h3>
+
+  <p>Грокни алгоритмы даже если ты</p>
+  <ol>
+    <li>больше года в IT</li>
+    <li>пробовал, но терял мотивацию</li>
+    <li>решил 0 задач на LeetCode</li>
+    <li>если каждая задача на LeetCode это тяжелое испытание</li>
+    <li>не знаешь как грамотно подходить к решению задач на LeetCode</li>
+  </ol>
+
+  <p>Все решения будут на 6 языках. C++, C#, Go, Python, Java, JavaScript</p>
+  <p>Будет понятно как подходить к решению задач. Но надо приложить необходимые усилия.</p>
+
+  <p>Зачем хочешь выучить алгоритмы?</p>
+  <ol>
+    <li>Чтобы научиться проходить собесы</li>
+    <li>В целом для развития по карьере</li>
+    <li>Просто для себя</li>
+  </ol>
+
+  <p>Прежде чем учить алгоритмы, нужно поставить цель. Без постановки цели будет сложно это делать. Именно поставленная цель будет определять путь. Если сконцентрироваться на цели то путь будет максимально короткий.</p>
+  <p>Свое первое собеседование 6 лет назад я провалил. Это было собеседование в Яндекс. Потом я уже поработал и в Яндексе и в Авито, сейчас в Т-Банке. На это у меня ушло 6 лет. Сначала я занимался олимпиадным программировал, потом дотягивал темы, которые нужны для собесов.</p>
+
+  <p>Ты пробовал сам, но</p>
+  <ol>
+    <li>ты начал</li>
+    <li>что-то получилось</li>
+    <li>понял, что ничего не понял</li>
+    <li>стал решать больше, но легче не становится</li>
+    <li>результата нет, мотивация падает</li>
+  </ol>
+
+  <p>Главная цель стрима</p>
+  <ol>
+    <li>Пройти через контролируемую эволюцию от 0 задач до оффера в BigTech</li>
+    <li>Определить ключевые проблемы и их решение</li>
+    <li>Сделать все с кайфом</li>
+  </ol>
+
+  <p>Нужна понятная точка роста. Ты решил 5 задач и поняв как их решать, теперь ты можешь решить 50. Ты прочитал статью в 2 листа и вобрал себе мудрость 10 книг. Это точка, в которую ты давишь и продолжаешь расти. Весь стрим я буду рассказывать про эту точку роста. Твоя точка роста на этом этапе это <strong>паттерны</strong></p>
+  <p><strong>Паттерны</strong> это техника решения задач, которая позволяет тебе зная один паттерн решать 50 задач. Чтобы вывести паттерны и сформировать их у себя в голове, нужно прорешать очень много задач. Мы разберем задачки, а потом я из них выведу правила и мы разберем эти паттерны</p>
+</article>
+
+
+<!-- Задача 1. Общие элементы -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Общие элементы</h3>
+
+  <p>Даны два отсортированных по возрастанию массива <strong>nums1</strong> и <strong>nums2</strong>. Необходимо вернуть новый массив <strong>nums3</strong>, который содержит все общие элементы из <strong>nums1</strong> и <strong>nums2</strong>. Вернуть массив нужно тоже в отсортированном порядке.</p>
+
+  <h4>Пример</h4>
+  <code>nums1 = [-3, 2, 2, 5, 8, 19, 31]</code>
+  <code>nums2 = [1, 2, 2, 2, 6, 19, 52]</code>
+  <code>Output: [2, 2, 19]</code>
+
+  <h4>Паттерн два указателя каждому по указателю</h4>
+  <p>Заведем 2 указателя. Поставим p1 на начало первого массива и p2 на начало второго массива. Сравниваем два элемента. Если один элемент меньше, то его указатель двигаем вправо. Снова сравниваем элементы. Если элементы равны, то добавляем этот элемент в ответ, и сдвигаем вправо оба указателя. Когда любой указатель выходит за границы массива остановим алгоритм.</p>
+  <p>Сложность по времени O(n), где n это количество элементов в обоих массивах</p>
+  <p>Сложность по памяти O(n)</p>
+  <p>Для этого паттерна лучше писать через while - пока оба указателя внутри массива.</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+from typing import *
+
+def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
+  p1 = 0
+  p2 = 0
+  res = []
+
+  while p1 &lt; len(nums1) and p2 &lt; len(nums2):
+    if nums1[p1] > nums2[p2]:
+      p2 += 1
+    elif nums1[p1] &lt; nums2[p2]:
+      p1 += 1
+    else:
+      res.append(nums1[p1])
+      p1 += 1
+      p2 += 1
+
+  return res
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function intersect(nums1, nums2) {
+  let p1 = 0;
+  let p2 = 0;
+  const res = [];
+
+  while (p1 &lt; nums1.length && p2 &lt; nums2.length) {
+    if (nums1[p1] > nums2[p2]) {
+      p2 += 1;
+    } else if (nums1[p1] &lt; nums2[p2]) {
+      p1 += 1;
+    } else {
+      res.push(nums1[p1]);
+      p1 += 1;
+      p2 += 1;
+    }
+  }
+
+  return res;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+import java.util.*;
+
+public class Solution {
+  public List&lt;Integer&gt; intersect(List&lt;Integer&gt;nums1,
+         List&lt;Integer&gt;nums2) {
+    int p1 = 0;
+    int p2 = 0;
+    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
+
+    while (p1 &lt; nums1.size() && p2 &lt; nums2.size()) {
+      if (nums1.get(p1) > nums2.get(p2)) {
+        p2 += 1;
+      } else if (nums1.get(p1) &lt; nums2.get(p2)) {
+        p1 += 1;
+      } else {
+        res.add(nums1.get(p1));
+        p1 += 1;
+        p2 += 1;
+      }
+    }
+
+    return res;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+package main
+
+func intersect(nums1 []int, nums2 []int) []int {
+  p1 := 0
+  p2 := 0
+  var res []int
+
+  for p1 &lt; len(nums1) && p2 &lt; len(nums2) {
+    if nums1[p1] > nums2[p2] {
+      p2 += 1
+    } else if nums1[p1] &lt; nums2.[p2] {
+      p1 += 1
+    } else {
+      res = append(res, nums1[p1])
+      p1 += 1
+      p2 += 1
+    }
+  }
+
+  return res
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C#</summary>
+<pre>
+public class Solution {
+  public static List&lt;int&gt; Intersect(List&lt;int&gt; nums1,
+                                List&lt;int&gt; nums2) {
+    int p1 = 0;
+    int p2 = 0;
+    List&lt;int&gt; res = new List&lt;int&gt;();
+
+    while (p1 &lt; nums1.Count && p2 &lt; nums2.Count) {
+      if (nums1[p1] > nums2[p2]) {
+        p2 += 1;
+      } else if (nums1[p1] &lt; nums2[p2]) {
+        p1 += 1;
+      } else {
+        res.Add(nums1[p1]);
+        p1 += 1;
+        p2 += 1;
+      }
+    }
+
+    return res;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+#include &lt;vector&gt;
+
+using namespace std;
+
+vector&lt;int&gt; intersect(const vector&lt;int&gt;& nums1,
+                  const vector&lt;int&gt;& nums2) {
+  int p1 = 0;
+  int p2 = 0;
+  vector&lt;int&gt; res;
+
+  while (p1 &lt; nums1.size() && p2 &lt; nums2.size()) {
+    if (nums1[p1] > nums2[p2]) {
+      p2 += 1;
+    } else if (nums1[p1] &lt; nums2[p2]) {
+      p1 += 1;
+    } else {
+      res.push_back(nums1[p1]);
+      p1 += 1;
+      p2 += 1;
+    }
+  }
+
+  return res;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 2. Сумма чисел -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Сумма чисел</h3>
+
+  <p>Дан отсортированный массив <strong>nums</strong> и число <strong>target</strong>. Нужно вернуть индексы двух чисел, которые дают в сумме <strong>target</strong>, при этом ответ гарантированно присутствует и он единственный</p>
+
+  <h4>Пример</h4>
+  <code>nums = [-2,1,6,9,12,25,101]</code>
+  <code>target = 18</code>
+  <code>Output: [2,4]</code>
+
+  <h4>Паттерн два указателя с двух сторон</h4>
+  <p>Заведем два указателя. Поставим pl на начальный элемент массива, а pr на конечный. Складываем два элемента. Если сумма больше target, то ее надо уменьшить. Сдвигаем правый указатель влево. Снова складываем два элемента. Если сумма меньше target, то ее надо увеличить. Сдвигаем левый указатель вправо. Если сумма элементов равна target то добавляем индексы этих элементов в ответ. Когда указатели пересекутся остановим алгоритм</p>
+
+  <p>Сложность по времени O(n)</p>
+  <p>Сложность по памяти O(1)</p>
+
+  <p>Если начальный массив неотсортирован то решать можно с помощью хеш-таблицы. Но сложность по памяти будет O(n)</p>
+
+  <details>
+    <summary>Код на python</summary>
+<pre>
+from typing import *
+
+def twoSum(nums: List[int], target: int) -> List[int] {
+  l = 0
+  r = len(nums) - 1
+
+  while l &lt; r:
+    curr_sum: int = nums[l] + nums[r]
+    if curr_sum == target:
+      return [l, r]
+    elif curr_sum > target:
+      r -= 1
+    else:
+      l += 1
+
+  return [-1, -1]
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function twoSum(nums, target) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l &lt; r) {
+    const currSum = nums[l] + nums[r];
+    if (currSum == target) {
+      return [l, r];
+    } else if (currSum > target) {
+      r -= 1;
+    } else {
+      l += 1;
+    }
+  }
+
+  return [-1, -1];
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на java</summary>
+<pre>
+import java.util.*;
+
+public class Solution {
+  public List&lt;Integer&gt; twoSum(List&lt;Integer&gt; nums, int target) {
+    int l = 0;
+    int r = nums.size() - 1;
+
+    while (l &lt; r) {
+      int currSum = nums.get(l) + nums.get(r);
+      if (currSum == target) {
+        return Array.asList(l, r);
+      } else if (currSum > target) {
+        r -= 1;
+      } else {
+        l += 1;
+      }
+    }
+
+    return Array.asList(-1, -1);
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на go</summary>
+<pre>
+package main
+
+func twoSum(nums []int, target int) []int {
+  l := 0
+  r := len(nums) - 1
+
+  for l &lt; r {
+    currSum := nums[l] + nums[r];
+    if currSum == target {
+      return []int{l, r};
+    } else if currSum > target {
+      r -= 1;
+    } else {
+      l += 1;
+    }
+  }
+
+  return []int{-1, -1};
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C#</summary>
+<pre>
+public class Solution {
+  public static List&lt;int&gt; twoSum(List&lt;int&gt; nums, int target) {
+    int l = 0;
+    int r = nums.Count - 1;
+
+    while (l &lt; r) {
+      int currSum = nums[l] + nums[r];
+      if (currSum == target) {
+        return new List&lt;int&gt; {l, r};
+      } else if (currSum > target) {
+        r--;
+      } else {
+        l++;
+      }
+    }
+
+    return new List&lt;int&gt; {-1, -1};
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+#include &lt;vector&gt;
+
+using namespace std;
+
+vector&lt;int&gt; twoSum(vector&lt;int&gt;& nums, int target) {
+  int l = 0;
+  int r = nums.size() - 1;
+
+  while (l &lt; r) {
+    int currSum = nums[l] + nums[r];
+    if (currSum == target) {
+      return {l, r};
+    } else if (currSum > target) {
+      r--;
+    } else {
+      l++;
+    }
+  }
+
+  return {-1, -1};
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3. Палиндром -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Палиндром</h3>
+
+  <p>Нужно проверить что строка палиндром без учета пробелов</p>
+
+  <h4>Пример</h4>
+  <code>s = "AB CD  D C B A"</code>
+  <code>Output: true</code>
+
+  <h4>Паттерн два указателя с двух сторон</h4>
+  <p>Заведем два указателя. Поставим pl на начальный элемент массива, а pr на конечный. Если элемент это пробел, то сдвигаем этот указатель. Сравнимаем два элемента. Если элементы не равны, возвращаем <strong>false</strong> и останавливаем алгоритм. Если элементы равны, то сдвигаем правый указатель влево, а левый указатель вправо. Снова сравниваем два элемента. Когда указатели пересекутся остановим алгоритм и вернем <strong>true</strong></p>
+
+  <p>Сложность по времени O(n)</p>
+  <p>Сложность по памяти O(1)</p>
+
+  <details>
+    <summary>Код на javascript</summary>
+<pre>
+function isPalindrome(str) {
+  let pl = 0, pr = str.length - 1;
+  while (pl &lt; pr) {
+    if (str[pl] == ' ') {
+      pl++;
+      continue;
+    }
+    if (str[pr] == ' ') {
+      pr--;
+      continue;
+    }
+    if (str[pl] != str[pr]) {
+      return false
+    }
+    pl++;
+    pr--;
+  }
+  return true;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 4. Отсортировать по модулю -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача 4. Отсортировать по модулю</h3>
+
+  <p>Дан массив <strong>nums</strong>, отсортированный по возрастанию. Нужно вернуть отсортированный массив, полученный путем взятия модуля от каждого элемента <strong>nums</strong></p>
+  <p>Проще говоря, все отрицательные элементы нужно заменить на их положительные значения, и готовый массив вернуть в отсортированном поряке</p>
+
+  <h4>Пример</h4>
+  <code>nums = [-3,-2,0,1,3,5]</code>
+  <code>Output: [0,1,2,3,3,5]</code>
+
+  <p>Наивное решение - сначала взять модуль каждого элемента, а затем вызвать встрокенную сортировку, которая обычно работает за O(nlogn)</p>
+  <p>Однако, такое решение не устроит интервьюера, потому что оно будет долго работать при большом массиве и тебя попросят найти более эффективный способ</p>
+
+  <h4>Паттерн два указателя с двух сторон</h4>
+  <p>Заметим, что в отсортированном массиве самый большой элемент по модулю может находиться либо в начале массива, либо в конце. Заведем два указателя pl на начало массива и pr на конец массива. Сравниваем абсолютные значения элементов. Модуль какого элемента больше, тот и добавляем в конец результирующего массива. Двигаем соответствующий указатель. Когда указатели пересеклись, останавливаем алгоритм.</p>
+
+  <p>Сложность по времени O(n)</p>
+  <p>Сложность по памяти O(n)</p>
+
+  <details>
+    <summary>Код на C++</summary>
+<pre>
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+vector&lt;int&gt; sortAbs(vector&lt;int&gt;& nums) {
+  vector&lt;int&gt; result;
+  int pl = 0;
+  int pr = nums.size() - 1;
+
+  while (pl &lt;= pr) {
+    if (abs(nums[pl]) > abs(nums[pr])) {
+      result.push_back(abs(nums[pl]));
+      pl++;
+    }
+  } else {
+      result.push_back(abs(nums[pr]));
+      pr--;
+  }
+  reverse(result.begin(), result.end());
+
+  return result;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 5. Соревнования по числу шагов -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача 5. Соревнования по числу шагов</h3>
+
+  <p>Недавно закончился чемпионат по шагам и тебе нужно подвести его итоги. Дан массив statistics, где statistics[i] = [[id участника, число шагов в i-ый день], ...]. Нужно вернуть id всех участников в возрастающем порядке, которые принимали участие в соревнованиях каждый день и прошли наибольшее число шагов.</p>
+  <p>Если ни один из участников не принимал участие в соревнованиях каждый день, то нужно вернуть пустой массив.</p>
+
+  <h4>Пример 1</h4>
+<pre>
+statistics = [
+  [ [1,1000],[2,3500] ],
+  [ [1,1500] ],
+]
+</pre>
+  <code>[1]</code>
+  <p>Только участник с id=1 учасвтовал в соревнованиях каждый день</p>
+
+  <h4>Пример 2</h4>
+<pre>
+statistics = [
+  [ [2,4000],[1,500],[3,2500] ],
+  [ [1,5000],[3,150],[2,1000] ],
+  [ [2,3420],[1,10000],[3,12850] ],
+]
+</pre>
+<code>[1,3]</code>
+</article>
+
+
+<!-- Продолжение -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Продолжение</h3>
+
+  <h4>3 секрета успеха</h4>
+  <ol>
+    <li>Знание паттернов</li>
+    <li>Умение видеть паттерны</li>
+    <li>Умение сделать вариацию паттерна</li>
+  </ol>
+
+  <h4>Вариации паттернов</h4>
+  <ol>
+    <li>С двух сторон - могут быть пропуски элементов. Обычно для одного массива, списка...</li>
+    <li>Каждому по указателю - могут быть пропуски элементов и могут начинаться как с начала так и с конца. Обычно для нескольких массивов, списков...</li>
+    <li>Быстрый и медленный. Обычно в задачах о замене символов в массиве, о перемещении символов в конец массива. Медленный указатель - это КУДА ставим. Быстрый указатель - это ОТКУДА ставим.</li>
+  </ol>
+
+  <h4>Пошаговый план для собеса</h4>
+  <ol>
+    <li>Читаешь условие вслух</li>
+    <li>Сам придумываешь примеры входных данных и уточняешь у интервьюера ответ, чтобы понять условие правильно</li>
+    <li>Задаешь вопросы (ограничения и дополнительные условия)</li>
+    <li>Проговариваешь идею. Оцениваешь сложность по времени и памяти</li>
+    <li>Пишешь код и параллельно проговариваешь что он делает</li>
+    <li>Когда код написан нужно его проверить в два прохода.Первый раз проверяется синтаксис. Второй раз проверяется логика. Логика проверяется методом дебагинга. Берется пример входных данных и строчка за строчкой пишется комментарий к коду</li>
+    <li>Ни в коем случае не говорить что такую задачу уже видел или решал</li>
+  </ol>
+
+  <h4>Roadmap</h4>
+  <ol>
+    <li>Хеш-таблица (6 паттернов)</li>
+    <li>Два указателя (3 паттерна)</li>
+    <li>Массивы (5 паттернов)</li>
+    <li>Плавающее окно (3 паттерна)</li>
+  </ol>
+</article>
+

@@ -961,3 +961,907 @@ int main() {
 </pre>
 </article>
 
+
+<!-- 09 Функции и рекурсия -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h2>09 Функции и рекурсия</h2>
+
+  <h4>Задача 1.</h4>
+  <p>Посчитать наибольший общий делитель (НОД) двух чисел</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int gcd(int a, int b) {
+  while (a != 0 && b != 0) {
+    if (a > b) {
+      a = a % b;
+    } else {
+      b = b % a;
+    }
+  }
+  return a + b;
+}
+int main() {
+  int n, m;
+  cin >> n >> m;
+  cout &lt;&lt; gcd(n, m);
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 2</h4>
+  <p>Сократить дробь</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int gcd(int a, int b) {
+  while (a != 0 && b != 0) {
+    if (a > b) {
+      a = a % b;
+    } else {
+      b = b % a;
+    }
+  }
+  return a + b;
+}
+
+void reduce(int& a, int& b) {
+  int c = gcd(a, b);
+  a /= c;
+  b /= c;
+}
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+  reduce(n, m);
+  cout &lt;&lt; n &lt;&lt; " " &lt;&lt; m;
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 3</h4>
+  <p>Считать последовательность чисел и вывести ее в обратном порядке. Считывать числа, пока не встретится ноль. Не использовать массисы. Использовать рекурсию</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void rec() {
+  int n;
+  cin >> n;
+  if (n != 0) {
+    rec();
+    cout &lt;&lt; n &lt;&lt; " ";
+  }
+}
+
+int main() {
+  rec();
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 4</h4>
+  <p>На входе целое число. Посчитать факториал этого числа</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int fact(int n) {
+	if (n == 1) {
+		return 1;
+	}
+	return n * fact(n - 1);
+}
+
+int main() {
+	int m;
+	cin >> m;
+	cout &lt;&lt; fact(m);
+
+	return 0;
+}
+</pre>
+
+  <h4>Задача 5</h4>
+  <p>Пусть есть 6 человек. Из них нужно выбрать 3 добровольца. Сколько есть способов это сделать?</p>
+  <p>Из математики известна формула C из N по K равно n!/(k!*(n-k)!)</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int fact(int n) {
+  if (n == 1) {
+    return 1;
+  }
+  return n * fact(n - 1);
+}
+
+int cnk(int n, int k) {
+  return fact(n) / (fact(k) * fact(n - k));
+}
+
+int main() {
+  cout &lt;&lt; cnk(6, 3);
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 6</h4>
+  <p>Написать функцию проверки числа на четность</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool is_even(int n) {
+ return n % 2 == 0;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  if (is_even(n)) {
+    cout &lt;&lt; "even";
+  } else {
+    cout &lt;&lt; "odd";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Если есть сложное логическое выражение, то лучше его оформить в виде функции с хорошим названием, тогда будет проще и писать и читать код. Бывает полезно выносить куски кода в функции даже если они вызываются один раз. В голове можно удержать небольшое количество разных вещей. Размер функции хороший если она целиком видна на одном экране</p>
+</article>
+
+
+<!-- 10 Строки и символы -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h2>10 Строки и символы</h2>
+
+  <p>Сегодня мы изучаем строки. Строки часто встречаются в реальных задачах. Подключим библиотеку <strong>string</strong></p>
+
+  <h4>Задача 1</h4>
+  <p>Пользователь вводит имя. Нужно вывести приветствие.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  cin >> s;
+  cout &lt;&lt; "Hello, " + s;
+
+  return 0;
+}
+</pre>
+
+  <p>Функция <strong>cin</strong> считывает поток ввода по словам, т.е. до пробельного символа (' ', '\t', '\n').</p>
+
+  <h4>Задача 2</h4>
+  <p>Ввести два слова и вывести их</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s, t;
+  cin >> s >> t;
+  cout &lt;&lt; s &lt;&lt; " " &lt;&lt; t;
+
+  return 0;
+}
+</pre>
+
+  <p>Чтобы считать строку не до пробельного символа, а целиком, до символа перевода строки ('\n'), то нужно использовать функцию <strong>getline</strong></p>
+
+  <h4>Задача 3</h4>
+  <p>Считать строку целиком</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  getline(cin, s);
+  cout &lt;&lt; s;
+
+  return 0;
+}
+</pre>
+
+  <p>В компьютере все хранится как числа. Строка представлена в виде набора символов. Размер (длина) строки равен количеству символов в строке. У каждого символа есть свой числовой код. Один символ можно хранить в переменной типа <strong>char</strong>. В переменной типа char можно поменять один символ на другой. В строке хранится набор символов. Это может быть один символ или даже ноль символов. В строке менять символы нельзя.</p>
+
+  <h4>Задача 4</h4>
+  <p>Считать строку. Записать первый и последний символ строки в переменные типа char и вывести их</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  char c1, c2;
+  getline(cin, s);
+  c1 = s[0];
+  c2 = s[s.size() - 1];
+  cout &lt;&lt; c1 &lt;&lt; " " &lt;&lt; c2;
+
+  return 0;
+}
+</pre>
+
+  <p>Чтобы вывести не сам символ, а его код, надо сделать преобразование типов. Преобразовать тип char в тип int.</p>
+
+  <h4>Задача 5</h4>
+  <p>Считать строку. Вывести код первого символа</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  char c;
+  getline(cin, s);
+  c = s[0];
+  cout &lt;&lt; (int) c;
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 6</h4>
+  <p>Считать строку. Вывести только цифры</p>
+  <p>Символ будет цифрой, если его код лежит в диапазоне от кода цифры 0 до кода цифры 9</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  getline(cin, s);
+  for (auto c : s) {
+    if (c >= '0' && c &lt;= '9') {
+      cout &lt;&lt; c;
+    }
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 7</h4>
+  <p>Считать несколько строк. Найти строку содержащую имя компании rkpt. Если такая строка нашлась, то вывести все цифры из этой строки</p>
+  <p>Подстрока в строке ищется методом <strong>find</strong></p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  string s;
+  getline(cin, s);
+  for (int i = 0; i &lt; n; i++) {
+    getline(cin, s);
+    if (s.find("rkpt") != -1) {
+      for (auto c : s) {
+        if (c >= '0' && c &lt;= '9') {
+          cout &lt;&lt; c;
+        }
+      }
+    }
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 7</h4>
+  <p>Считать несколько строк. Найти строку содержащую имя компании rkpt. Имя компании может быть написано любым регистром. Если такая строка нашлась, то вывести все цифры из этой строки</p>
+  <p>Чтобы перевести символ в верхний регистр применяют функцию <strong>toUpper</strong></p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  string s;
+  getline(cin, s);
+
+  for (int i = 0; i &lt; n; i++) {
+    getline(cin, s);
+
+    // строка для заглавных символов
+    string s2 = "";
+
+    // перевод букв в заглавные
+    for (auto c : s) {
+      if (c >= 'a' && c &lt;= 'z') {
+        int al_num = c - 'a';
+        s2 += 'A' + al_num;
+      } else {
+        s2 += c;
+      }
+    }
+
+    // поиск подстроки
+    if (s2.find("RKPT") != -1) {
+      for (auto c : s2) {
+        if (c >= '0' && c &lt;= '9') {
+          cout &lt;&lt; c;
+        }
+      }
+    }
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 8</h4>
+  <p>Вернуть позицию первого знака препинания в строке</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  getline(cin, s);
+  cout &lt;&lt; s.find_first_of("?!.");
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 9</h4>
+  <p>Вывести второе предложение в тексте</p>
+  <p>Второе предложение находится после первого знака препинания (?!.). Второе предложение заканчивается на втором знаке препинания.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  string s;
+  getline(cin, s);
+  int first = s.find_first_of("?!.");
+  int second = s.find_first_of("?!.", first + 1);
+  cout &lt;&lt; s.substr(first + 2, second - first - 2);
+
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- 11 Словари и множества -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h2>11 Словари и множества</h2>
+
+  <p>Сегодня мы изучаем множества. Множество это структура данных, позволяющая хранить уникальные (без повторов) элементы. Будем использовать библиотеку <strong>set</strong></p>
+
+  <h4>Задача 1</h4>
+  <p>Пусть есть n запросов, каждый из которых бывает одного из трех типов.</p>
+  <ol>
+    <li>добавить элемент в множество</li>
+    <li>проверить есть ли элемент в множестве</li>
+    <li>удалить элемент из множества</li>
+  </ol>
+  <p>В первой строке приходит число запросов. Потом каждый запрос отдельно. Это тип запроса (1, 2 или 3) и элемент.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  set &lt;int&gt; s;
+  for (int i = 0; i &lt; n; i++) {
+    int type, x;
+    cin >> type >> x;
+
+    // добавить
+    if (type == 1) {
+      s.insert(x);
+
+    // проверить
+    } else if (type == 2) {
+      if (s.find(x) == s.end()) {
+        cout &lt;&lt; "NO\n";
+      } else {
+        cout &lt;&lt; "YES\n";
+      }
+
+    // удалить
+    }
+    else if (type == 3) {
+      s.erase(x);
+    }
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 2</h4>
+  <p>Заполним множество и выведем его на экран. В первой строке приходит число элеметов множества. Во второй строке сами элементы</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  set <int> s;
+
+  // добавление в множество
+  for (int i = 0; i &lt; n; i++) {
+    int x;
+    cin >> x;
+    s.insert(x);
+  }
+
+  // вывод множества
+  for (auto now : s) {
+    cout &lt;&lt; now &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+  <p>Заметим, что вводить числа мы можем без порядка. А выведется на экран множество в возрастающем порядке. Это связано с тем, что внутри себя множество представляет собой красно-черное дерево.</p>
+
+  <h4>Задача 3</h4>
+  <p>Сделаем то же что и во второй задаче. Только выведем все элементы множества в цикле, где указатель указывает на первый элемент s.begin() и так далее до последнего элемента s.end().</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  set <int> s;
+
+  // добавление в множество
+  for (int i = 0; i &lt; n; i++) {
+    int x;
+    cin >> x;
+    s.insert(x);
+  }
+
+  // вывод множества
+  for (auto now = s.begin(); now != s.end(); now++) {
+    cout &lt;&lt; *now &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+  <p>При выводе множество выводит уникальные значения в возрастающем порядке. В множестве не может быть дубликатов, поэтому для обычной сортировки оно не подходит.</p>
+  <p><strong>Мультимножество multiset</strong> это множество, позволяющее хранить и одинаковые элементы тоже.</p>
+
+  <h4>Задача 4</h4>
+  <p>Приходит последовательность. Отсортировать ее</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  multiset <int> s;
+
+  // добавление в множество
+  for (int i = 0; i &lt; n; i++) {
+    int x;
+    cin >> x;
+    s.insert(x);
+  }
+
+  // вывод множества
+  for (auto now = s.begin(); now != s.end(); now++) {
+    cout &lt;&lt; *now &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 5</h4>
+  <p>Приходит последовательность. Посчитать количество уникальных элементов</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  set <int> s;
+
+  // добавление в множество
+  for (int i = 0; i &lt; n; i++) {
+    int x;
+    cin >> x;
+    s.insert(x);
+  }
+
+  // вывод количетва элементов
+  cout &lt;&lt; s.size();
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 6</h4>
+  <p>Приходит последовательность. Посчитать сколько раз встретилась 1</p>
+  <p>Метод множества <strong>lower_bound(x)</strong> возвращает указатель на первый элемент больше либо равный x. Метод множества <strong>upper_bound(x)</strong> возвращает указатель на строго большее число</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  multiset &lt;int&gt; s;
+
+  // добавление в множество
+  for (int i = 0; i &lt; n; i++) {
+    int x;
+    cin >> x;
+    s.insert(x);
+  }
+
+  // подсчитаем число единиц
+  int count = 0;
+  for (auto now = s.lower_bound(1); now != s.upper_bound(1); now++) {
+    count++;
+  }
+  cout &lt;&lt; count;
+
+  return 0;
+}
+</pre>
+
+  <p><strong>Словарь</strong> это структура данных, хранящая пары ключ-значение. Для использования словаря нужно подключить библиотеку <strong>map</strong></p>
+
+  <h4>Задача 7</h4>
+  <p>Создать словарь, добавить в него ключ 112 и проверить есть ли в словаре ключ 112</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  map &lt;int, string&gt; m;
+  m[112] = "sos";
+  if (m.find(112) != m.end()) {
+    cout &lt;&lt; "YES\n";
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Задача 8</h4>
+  <p>Создать словарь из трех элементов и вывести их. При этом ключи выводятся упорядоченными по возрастанию</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  map &lt;int, string&gt; m;
+  m[112] = "sos";
+  m[102] = "police";
+  m[103] = "emergency";
+  for (auto now : m) {
+    cout &lt;&lt; now.first &lt;&lt; " "
+         &lt;&lt; now.second &lt;&lt; "\n";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>В словаре для одного ключа может быть несколько значений. В этом случае для значения нужно использовать <strong>vector</strong></p>
+
+  <h4>Задача 9</h4>
+  <p>Создать словарь с ключем lang. В качестве значений использовать языки прогшраммирования. Вывести значения</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+	map &lt;string, vector &lt;string&gt;&gt; m;
+    m["lang"] = {"pascal", "basic", "c", "c++"};
+    for (auto now : m["lang"]) {
+      cout &lt;&lt; now &lt;&lt; "\n";
+    }
+
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- 12 Стандартные алгоритмы STL -->
+<article class="article">
+  <div class="anchor" id="p12"></div>
+  <h2>12 Стандартные алгоритмы STL</h2>
+
+  <p>Сегодня будем пользоваться готовыми библиотеками. Для начала научимся сортировать <strong>vector</strong> еще одним способом. Уже третьим по счету.</p>
+  <p>Подключим библиотеку <strong>algorithm</strong> чтобы пользоваться алгоритмическими функциями. Для сортировки используется функция <strong>sort</strong></p>
+
+  <h4>Задача 1</h4>
+  <p>Считаем последовательность чисел в вектор и упорядочим его</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;int&gt; a(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> a[i];
+  }
+  sort(a.begin(), a.end());
+  for (auto now : a) {
+    cout &lt;&lt; now &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Подключим библиотеку <strong>utility</strong> чтобы можно было создавать пары. Для создания пары используется ключевое слово <strong>pair</strong></p>
+
+  <h4>Задача 2</h4>
+  <p>Упорядочить массив чисел и вывести номера элементов в том порядке как они стояли в исходном массиве. Пара имеет два поля. Сортировка в паре идет по первому полю, если они равны то тогда и по второму.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;utility&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;pair &lt;int, int&gt;&gt; a(n);
+  for (int i = 0; i &lt; n; i++) {
+    int temp;
+    cin >> temp;
+    a[i] = { temp, i };
+  }
+  sort(a.begin(), a.end());
+  for (auto now : a) {
+    cout &lt;&lt; now.second &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Чтобы перевернуть массив используется функция <strong>reverse</strong></p>
+
+  <h4>Задача 3</h4>
+  <p>Отсортируем пары в обратном порядке</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;utility&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;pair &lt;int, int&gt;&gt; a(n);
+  for (int i = 0; i &lt; n; i++) {
+    int temp;
+    cin >> temp;
+    a[i] = { temp, i };
+  }
+  sort(a.begin(), a.end());
+  reverse(a.begin(), a.end());
+  for (auto now : a) {
+    cout &lt;&lt; now.first &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Тип данных <strong>struct</strong> это структура. Она нужна чтобы объединять в себе несколько разных полей. Например, можно хранить информацию о книге. Тогда будут поля - имя автора, год издания, название.</p>
+
+  <h4>Задача 4</h4>
+  <p>Создать структуру man с полями height и name. Ввести в нее несколько человек, отсортировать их по росту. И вывести на экран</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+struct man {
+  int height;
+  string name;
+};
+
+bool cmp(man a, man b) {
+  return a.height &lt; b.height;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;man&gt; a(n);
+  for (int i = 0; i &lt; n; i++) {
+    int temp1;
+    string temp2;
+    cin >> temp1 >> temp2;
+    man temp;
+    temp.height = temp1;
+    temp.name = temp2;
+    a[i] = temp;
+  }
+  sort(a.begin(), a.end(), cmp);
+  for (auto now : a) {
+    cout &lt;&lt; now.name &lt;&lt; " ";
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Функция <strong>sort</strong> сортирует элементы не сохраняя порядок исходных элементов если они одинаковые. <strong>Устойчивая сортировка</strong> это сортировка при которой сохраняется исходный порядок одинаковых элементов. Для <strong>устойчивой сортировки</strong> есть функция <strong>stable_sort</strong></p>
+
+  <h4>Задача 5</h4>
+  <p>Найти медиану. Медиана это значение элемента, который посередине.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;int&gt; a(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> a[i];
+  }
+  sort(a.begin(), a.end());
+  cout &lt;&lt; a[n/2];
+
+  return 0;
+}
+</pre>
+
+  <p>Кроме сортировок можно посмотреть еще перестановки. Функция <strong>next_permutation</strong> меняет местами два элемента. Первый раз меняются два последних элемента. Второй раз индекс последнего становится на 2 меньше. И так поска последовательность не выстроится в обратном порядке.</p>
+
+  <h4>Задача 6</h4>
+  <p>Считываем число n. Создаем вектор чисел от 1 до n. Выводим их на экран. Делаем первые две перестановки.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+void print(vector &lt;int&gt; a) {
+  for (auto now : a) {
+    cout &lt;&lt; now &lt;&lt; " ";
+  }
+  cout &lt;&lt; '\n';
+}
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;int&gt; a(n);
+  for (int i = 1; i &lt;= n; i++) {
+    a[i-1] = i;
+  }
+  print(a);
+  next_permutation(a.begin(), a.end());
+  print(a);
+  next_permutation(a.begin(), a.end());
+  print(a);
+
+  return 0;
+}
+</pre>
+  <p>Функция <strong>next_permutation</strong> возвращает <strong>true</strong> если возможно хотя бы еще одна перестановка. Если все перестановки уже сделаны, то она возвращает <strong>false</strong></p>
+
+  <h4>Задача 7</h4>
+  <p>Считываем число n. Создаем вектор чисел от 1 до n. Выполним все возможные перестановки.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+void print(vector &lt;int&gt; a) {
+  for (auto now : a) {
+      cout &lt;&lt; now &lt;&lt; " ";
+  }
+  cout &lt;&lt; '\n';
+}
+
+int main() {
+  int n;
+  cin >> n;
+  vector &lt;int&gt; a(n);
+  for (int i = 1; i &lt;= n; i++) {
+      a[i-1] = i;
+  }
+  print(a);
+  while (next_permutation(a.begin(), a.end())) {
+    print(a);
+  }
+
+  return 0;
+}
+</pre>
+</article>
+

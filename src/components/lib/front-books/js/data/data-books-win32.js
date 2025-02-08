@@ -261,6 +261,19 @@ const dataBooksWin32 = [
   },
 
   {
+    id: 20,
+    year: 2008,
+    category: 'основы',
+    theme: 'Win32 API',
+    title: 'Программирование в системе Windows',
+    author: 'Финогенов',
+    authorName: 'Кирилл ',
+    pages: '105',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 21,
     year: 2008,
     category: 'основы',

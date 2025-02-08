@@ -39,7 +39,7 @@ const dataBooksTs = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2021,
     category: 'code',
     theme: 'typescript',
@@ -52,7 +52,7 @@ const dataBooksTs = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 2021,
     category: 'code',
     theme: 'typescript',
@@ -65,7 +65,7 @@ const dataBooksTs = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 2021,
     category: 'code',
     theme: 'typescript',
@@ -83,7 +83,18 @@ const dataBooksTs = [
   },
 
   {
-    id: 6,
+    id: 7,
+    year: 2022,
+    category: 'code',
+    theme: 'typescript',
+    title: 'TypeScript. Подробное Руководство (4.9 beta)',
+    pages: '631',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
     year: 2024,
     category: 'code',
     theme: 'typescript',
@@ -91,6 +102,19 @@ const dataBooksTs = [
     author: 'Фримен',
     authorName: 'Адам',
     pages: '578',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
+    year: 2025,
+    category: 'code',
+    theme: 'typescript',
+    title: 'Рецепты TypeScript',
+    author: 'Баумгартнер',
+    authorName: 'Стефан',
+    pages: '432',
     isLearned: false,
     dateLearned: '',
   },
