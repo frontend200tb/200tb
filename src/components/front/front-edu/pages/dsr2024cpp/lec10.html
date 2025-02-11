@@ -387,7 +387,7 @@ void DeleteMas(int *&mas)
   <code>К = Скорость + Агрессивность + Размеры</code>
   <p>Если этот динозавр хищник, то коэффициент умножается на 2, если всеядный на 1.5, если травоядный на 1.2</p>
   <p>На входе подаются строки вида</p>
-  <code>Код_динозавра Название Тип Скорость Агрессивность Размеры</code>
+  <code>Код Название Тип Скорость Агрессивность Размеры</code>
 
   <h4>Пример</h4>
   <code>1 Раптор Хищник 7 10 5</code>
@@ -406,36 +406,37 @@ struct Dino {
   std::string type;
   int speed;
   int agr;
-  int razm;
+  int size;
 
   // конструктор
   Dino(int _id, std::string _name, std::string _type,
-       int _speed, int _agr, int _razm) {
+       int _speed, int _agr, int _size) {
     id = _id;
     name = _name;
     type = _type;
     speed = _speed;
     agr = _agr;
-    razm = _razm;
+    size = _size;
   }
 
   // конструктор по умолчанию
   Dino(){}
 
   int Dangerous() {
-    int K = speed + agr + razm;
+    int K = speed + agr + size;
     if (type == "Trav")
     {
-      return K * 1.2;
+      K *= 1.2;
     }
     else if (type == "Vseyad")
     {
-      return K * 1.5;
+      K *= 1.5;
     }
     else
     {
-      return K * 2;
+      K *= 2;
     }
+    return K;
   }
 
   void Print()
@@ -453,7 +454,7 @@ int main() {
   Raptor.type = "Hishnik";
   Raptor.speed = 10;
   Raptor.agr = 5;
-  Raptor.razm = 15;
+  Raptor.size = 15;
 
   std::cout &lt;&lt; Raptor.name &lt;&lt; " has Dangerous ";
   std::cout &lt;&lt; Raptor.Dangerous() &lt;&lt; std::endl;
@@ -477,7 +478,7 @@ int main() {
   Dino* Reks = new Dino();
   infile &gt;&gt; Reks->id &gt;&gt; Reks->name
           &gt;&gt; Reks->type &gt;&gt; Reks->speed
-          &gt;&gt; Reks->agr &gt;&gt; Reks->razm;
+          &gt;&gt; Reks->agr &gt;&gt; Reks->size;
   Reks->Print();
 
   std::cout &lt;&lt; Reks->name &lt;&lt; " has Dangerous ";
@@ -494,7 +495,7 @@ int main() {
   {
     infile2 &gt;&gt; Dinos[i].id &gt;&gt; Dinos[i].name
             &gt;&gt; Dinos[i].type &gt;&gt; Dinos[i].speed
-            &gt;&gt; Dinos[i].agr &gt;&gt; Dinos[i].razm;
+            &gt;&gt; Dinos[i].agr &gt;&gt; Dinos[i].size;
     Dinos[i].Print();
   }
 
@@ -536,5 +537,4 @@ int main() {
 4 Reks Trav 4 8 12
 5 Tiranozavr Trav 12 13 20
 </pre>
-
 </article>

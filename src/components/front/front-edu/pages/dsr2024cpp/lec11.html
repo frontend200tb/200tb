@@ -1,0 +1,369 @@
+<article class="article">
+  <h1>Лекция 11 (23.12.2024)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task1">Задача 1. Опасные динозавры</a></p>
+  <p><a href="#task2">Задача 2. Покемоны</a></p>
+</article>
+
+
+<!-- Задача 1. Опасные динозавры -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Опасные динозавры</h3>
+
+  <p>В парке Юрского периода случилась авария и все динозавры разбежались по острову. Необходимо помочь доктору Хэммонду отловить всех опасных динозавров на острове. Опасными считаются динозавры, у которых коэффициент К опасности выше 40. Коэффициент рассчитывается по следующей формуле</p>
+  <code>К = Скорость + Агрессивность + Размеры</code>
+  <p>Если этот динозавр хищник, то коэффициент умножается на 2, если всеядный на 1.5, если травоядный на 1.2</p>
+  <p>На входе подаются строки вида</p>
+  <code>Код Название Тип Скорость Агрессивность Размеры</code>
+
+  <h4>Пример</h4>
+  <code>1 Раптор Хищник 7 10 5</code>
+  <code>2 Трицератопс Травоядный 7 15 8</code>
+  <code>3 Тиранозавр Хищник 10 10 12</code>
+
+  <p>Необходимо напечатать сколько выездов потребуется команде доктора, чтобы отловить всех опасных динозавров, если за один могут отловить только 3 динозавров</p>
+
+  <p>Файл dsr_11.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include "Dino.h"
+
+int main() {
+
+  setlocale(LC_ALL, "Russian");
+
+  // Создаем массив динозавров из файла
+  int size{};
+  std::ifstream infile;
+  infile.open("text.txt");
+  if (!infile.is_open()) {
+    std::cout &lt;&lt; "Ошибка открытия файла";
+    return 1;
+  }
+
+  infile >> size;
+  Dino* Dinos = new Dino[size];
+
+  for (int i = 0; i &lt; size; i++) {
+    infile >> Dinos[i].id >> Dinos[i].name
+          >> Dinos[i].type >> Dinos[i].speed
+          >> Dinos[i].agr >> Dinos[i].size;
+    Dinos[i].Print();
+  }
+  std::cout &lt;&lt; std::endl;
+
+  // посчитаем сколько опасных (К>40) динозавров
+  int count{};
+  for (int i = 0; i &lt; size; i++) {
+    if (Dinos[i].Dangerous() > 40) {
+      std::cout &lt;&lt; Dinos[i].name &lt;&lt; " "
+                &lt;&lt; Dinos[i].Dangerous();
+      count++;
+      std::cout &lt;&lt; std::endl;
+    }
+  }
+  std::cout &lt;&lt; std::endl;
+
+  std::cout &lt;&lt; "Число опасных динозавров: ";
+  std::cout &lt;&lt; count &lt;&lt; std::endl;
+
+  // сколько выездов потребуется команде доктора
+  int result{};
+  for (int i = 0; i &lt; count; i += 3)
+  {
+      result++;
+  }
+
+  std::cout &lt;&lt; "Потребуется поездок: " &lt;&lt; result &lt;&lt; std::endl;
+
+  infile.close();
+  delete[]Dinos;
+  Dinos = nullptr;
+
+  return 0;
+}
+</pre>
+
+  <p>Файл Dino.h</p>
+<pre>
+#pragma once
+
+#include &lt;iostream&gt;
+
+struct Dino {
+  int id;
+  std::string name;
+  std::string type;
+  int speed;
+  int agr;
+  int size;
+
+  // конструктор
+  Dino(int _id, std::string _name, std::string _type,
+       int _speed, int _agr, int _size) {
+    id = _id;
+    name = _name;
+    type = _type;
+    speed = _speed;
+    agr = _agr;
+    size = _size;
+  }
+
+  // конструктор по умолчанию
+  Dino(){}
+
+  int Dangerous();
+
+  void Print()
+  {
+    std::cout &lt;&lt; id &lt;&lt; " "
+              &lt;&lt; name &lt;&lt; std::endl;
+  }
+};
+</pre>
+
+  <p>Файл Dino.cpp</p>
+<pre>
+#include "Dino.h"
+
+int Dino::Dangerous() {
+  int K = speed + agr + size;
+  if (type == "Травоядный") {
+    K *= 1.2;
+  }
+  else if (type == "Всеядный") {
+    K *= 1.5;
+  }
+  else if (type == "Хищник") {
+    K *= 2;
+  }
+  return K;
+}
+</pre>
+
+  <p>Файл text.txt</p>
+<pre>
+8
+
+1 Раптор Хищник 7 10 5
+2 Трицератопс Травоядный 7 15 8
+3 Тиранозавр Хищник 10 10 12
+4 Птеранодон Всеядный 15 5 4
+5 Стегозавр Травоядный 5 8 10
+6 Аккилозавр Травоядный 6 7 11
+7 Велоцираптор Хищник 9 9 6
+8 Диплодок Травоядный 4 4 15
+</pre>
+</article>
+
+
+<!-- Задача 2. Покемоны -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Покемоны</h3>
+
+  <p>Эш с друзьями начал подготовку к турниру за звание величайшего в мире Мастера Покемонов. Для этого ему нужно собрать себе в дорогу самых сильных покемонов различных типов. Необходимо написать программу для того, чтобы выбрать самых сильных покемонов в своей стихии (сильнейшими считаются покемоны А + За + Зд максимально в своем подвиде). Всего могут встречаться покемоны 5 типов: Электрические, Огненные, Водяные, Земляные и Воздушные</p>
+  <p>На входе подаются</p>
+  <code>"Номер в покедексе" "Название покемона" "Стихия покемона" "Атака" "Защита" "Здоровье"</code>
+
+  <h4>Пример</h4>
+  <code>1 Пикачу Электричество 12 3 30</code>
+  <code>2 Бульбазавр Земляной 33 23 40</code>
+  <code>3 Пиджи Воздух 15 0 40</code>
+
+  <p>Необходимо сформировать строку из номеров и названий покемонов, которых Эш возьмет в свое путешествие</p>
+
+  <p>Файл dsr_11.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include "Pokemon.h"
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+
+  std::ifstream infile;
+  infile.open("text.txt");
+
+  if (!infile.is_open()) {
+    std::cout &lt;&lt; "Файл не открылся!";
+    return 1;
+  }
+
+  int size{};
+  infile >> size;
+  Pokemon* pokemons = new Pokemon[size];
+  for (int i = 0; i &lt; size; i++) {
+    std::string s;
+    infile >> pokemons[i].pokemon_id >> pokemons[i].pokemon_name
+           >> s >> pokemons[i].attack
+           >> pokemons[i].defense >> pokemons[i].health;
+
+    if (s == "Электрический") {
+      pokemons[i].pokemon_type = PokemonType::Electric;
+    } else if (s == "Огненный") {
+      pokemons[i].pokemon_type = PokemonType::Fire;
+    } else if (s == "Водяной") {
+      pokemons[i].pokemon_type = PokemonType::Water;
+    } else if (s == "Земляной") {
+      pokemons[i].pokemon_type = PokemonType::Earth;
+    } else if (s == "Воздушный") {
+      pokemons[i].pokemon_type = PokemonType::Air;
+    }
+  }
+
+  for (int i = 0; i &lt; size; i++) {
+    pokemons[i].Print();
+    std::cout &lt;&lt; std::endl;
+  }
+
+  Pokemon* new_team = new Pokemon[5]();
+
+  for (int i = 0; i &lt; size; i++) {
+    if (pokemons[i].Level() > 40) {
+      switch (pokemons[i].pokemon_type) {
+        case PokemonType::Fire: {
+          if (new_team[(int)PokemonType::Fire].pokemon_id &lt; 0) {
+            new_team[(int)PokemonType::Fire] = pokemons[i];
+          } else if (new_team[(int)PokemonType::Fire].Level() > pokemons[i].Level()) {
+            new_team[(int)PokemonType::Fire] = pokemons[i];
+          }
+          break;
+        }
+        case PokemonType::Water: {
+          if (new_team[static_cast&lt;int&gt;(PokemonType::Water)].pokemon_id &lt; 0) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Water)] = pokemons[i];
+          } else if (new_team[static_cast&lt;int&gt;(PokemonType::Water)].Level() > pokemons[i].Level()) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Water)] = pokemons[i];
+          }
+          break;
+        }
+        case PokemonType::Electric: {
+          if (new_team[static_cast&lt;int&gt;(PokemonType::Electric)].pokemon_id &lt; 0) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Electric)] = pokemons[i];
+          } else if (new_team[static_cast&lt;int&gt;(PokemonType::Electric)].Level() > pokemons[i].Level()) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Electric)] = pokemons[i];
+          }
+          break;
+        }
+        case PokemonType::Earth: {
+          if (new_team[static_cast&lt;int&gt;(PokemonType::Earth)].pokemon_id &lt; 0) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Earth)] = pokemons[i];
+          } else if (new_team[static_cast&lt;int&gt;(PokemonType::Earth)].Level() > pokemons[i].Level()) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Earth)] = pokemons[i];
+          }
+          break;
+        }
+        case PokemonType::Air: {
+          if (new_team[static_cast&lt;int&gt;(PokemonType::Air)].pokemon_id &lt; 0) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Air)] = pokemons[i];
+          } else if (new_team[static_cast&lt;int&gt;(PokemonType::Air)].Level() > pokemons[i].Level()) {
+            new_team[static_cast&lt;int&gt;(PokemonType::Air)] = pokemons[i];
+          }
+          break;
+        }
+      }
+    }
+  }
+}
+</pre>
+
+  <p>Файл Pokemon.h</p>
+<pre>
+#pragma once
+#include &lt;string&gt;
+
+enum class PokemonType { Fire, Electric, Water, Earth, Air };
+
+struct Pokemon {
+  int pokemon_id;
+  std::string pokemon_name;
+  PokemonType pokemon_type;
+  int attack;
+  int defense;
+  int health;
+
+  Pokemon (int _pokemon_id, std::string _pokemon_name,
+         PokemonType _pokemon_type, int _attack,
+         int _defense, int _health):
+  pokemon_id(_pokemon_id),
+  pokemon_name(_pokemon_name),
+  pokemon_type(_pokemon_type),
+  attack(_attack),
+  defense(_defense),
+  health(_health) {
+
+  }
+
+  // конструктор по умолчанию
+  Pokemon(){
+    pokemon_id = -1;
+    pokemon_name = "";
+    int attack = -1;
+    int defense = -1;
+    int health = -1;
+  }
+
+  void Print() {
+    std::string s;
+    switch (pokemon_type) {
+      case PokemonType::Fire: {
+        s = "Огненный";
+        break;
+      }
+      case PokemonType::Water: {
+        s = "Водяной";
+        break;
+      }
+      case PokemonType::Electric: {
+        s = "Электрический";
+        break;
+      }
+      case PokemonType::Earth: {
+        s = "Земляной";
+        break;
+      }
+      case PokemonType::Air: {
+        s = "Воздушный";
+        break;
+      }
+    }
+    std::cout &lt;&lt; pokemon_id &lt;&lt; " "
+    &lt;&lt; pokemon_name &lt;&lt; " "
+    &lt;&lt; s &lt;&lt; " "
+    &lt;&lt; attack &lt;&lt; " "
+    &lt;&lt; defense &lt;&lt; " "
+    &lt;&lt; health &lt;&lt; " ";
+  }
+
+  int Level() {
+    return attack + defense + health;
+  }
+};
+</pre>
+
+  <p>Файл text.txt</p>
+<pre>
+9
+
+1 Электромон Электрический 12 3 30
+2 Вулканик Огненный 15 4 28
+3 Водяка Водяной 10 5 32
+4 Сандерон Земляной 14 6 35
+5 Стратус Воздушный 13 2 31
+6 Волтекс Электрический 17 5 33
+7 Молния Электрический 19 2 28
+8 Магнитус Электрический 14 4 30
+9 Пламор Огненный 20 3 26
+</pre>
+</article>

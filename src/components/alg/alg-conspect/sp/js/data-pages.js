@@ -7,6 +7,8 @@ import htmlSp5  from './../pages/elem-sp5.html';
 import htmlSp6  from './../pages/elem-sp6.html';
 import htmlSp7  from './../pages/elem-sp7.html';
 import htmlSp8  from './../pages/elem-sp8.html';
+import htmlSp9  from './../pages/elem-sp9.html';
+import htmlSp10  from './../pages/elem-sp10.html';
 
 export const pages = [
   htmlSp1,
@@ -17,4 +19,6 @@ export const pages = [
   htmlSp6,
   htmlSp7,
   htmlSp8,
+  htmlSp9,
+  htmlSp10,
 ];

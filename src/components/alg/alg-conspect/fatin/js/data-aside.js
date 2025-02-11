@@ -20,4 +20,5 @@ export const asideThemes = [
   'Графы',
   'Backtracking',
   'Грокни алгоритмы',
+  'Хакни бинарный поиск',
 ];

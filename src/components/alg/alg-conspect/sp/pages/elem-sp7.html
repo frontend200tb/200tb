@@ -50,6 +50,49 @@
   <h3>Линейные алгоритмы</h3>
 
   <p>Линейным алгоритмом решаются задачи вида "найти максимальный и минимальный элемент на отрезке", "найти сумму элементов на отрезке"</p>
+
+  <h4>Отладка</h4>
+  <p>В Visual Studio для того чтобы найти баг, поможет Debug режим. Его можно выбрать в окошке между Debug и Release. Запустить отладку можно кнопкой</p>
+  <code>Локальный отладчик Windows (Ctrl+F10)</code>
+  <p>На сервере Codeforces всегда запускается в режиме Release. Запустить отладку в режиме Release можно из меню</p>
+  <code>Отладка - Запуск без отладки (Ctrl+F5)</code>
+
+  <h4>Использование файлов</h4>
+  <p>Мы запускаем часть кода в Debug режиме. В Release он не будет виден, поэтому при запуске на сервере Codeforces не будет происходить подключение файлов</p>
+<pre>
+int main() {
+
+#ifdef _DEBUG
+  freopen("input1.txt", "rt", stdin);
+  freopen("output1.txt", "wt", stdout);
+#endif
+}
+</pre>
+  <p>Добавим файлы <strong>input1.txt</strong> и <strong>output1.txt</strong> в проект.</p>
+  <ol>
+    <li>
+      <p>В окне <strong>Обозреватель решений</strong> выбираем</p>
+      <code>Исходный файл - Добавить - Создать элемент (Ctrl+Shift+A)</code>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Добавление нового элемента</strong> выбираем <strong>Файл C++ (.cpp)</strong>. Задаем имя файла <strong>input1.txt</strong>. Нажимаем <strong>Добавить</strong></p>
+    </li>
+    <li>
+      <p>В окне <strong>Обозреватель решений</strong> создается текстовый файл</p>
+      <code>Исходные файлы - input1.txt</code>
+    </li>
+    <li>Также создаем файл <strong>output2.txt</strong></li>
+  </ol>
+
+  <h4>freopen</h4>
+  <p>Если при компиляции выдается предупреждение</p>
+  <code>error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.</code>
+
+  <p>Microsoft объявила ряд функций устаревшими (deprecated) - freopen, fopen, fscanf, chsize и т.д. Это связано с тем, что данные функции не проверяют возможности переполнения буфера. Например, может произойти запись за пределами выделенного буфера, что может привести к изменению значений других данных, затиранию информации на стеке - к трудно находимым ошибкам при выполнении программы. Для устранения этого недостатка были разработаны безопасные функции с суффиксом _s (freopen_s)</p>
+  <p>Чтобы продолжать пользоваться старыми функциями, можно попробовать отключить сообщения с ошибкой C4996. Для этого объявите макросы перед заголовочными файлами стандартных библиотек. Мне помог первый макрос</p>
+  <code>#define _CRT_SECURE_NO_WARNINGS</code>
+  <code>#define _CRT_SECURE_NO_DEPRECATE</code>
+  <code>#define _CRT_NONSTDC_NO_DEPRECATE</code>
 </article>
 
 
@@ -1391,5 +1434,48 @@ int main() {
   <p>Можно не рассматривать книги, чтение которых не дает никаких навыков. Это книги с двоичным кодом '00'</p>
   <p>Найдем все книги с кодами 01, 10, 11 и выберем из них те которые можно прочесть за минимальное время</p>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+  for (int test = 0; test &lt; t; test++) {
+    int n;
+    cin >> n;
+    int min10 = 10000000;
+    int min01 = 10000000;
+    int min11 = 10000000;
+    for (int i = 0; i &lt; n; i++) {
+      int m;
+      string s;
+      cin >> m >> s;
+
+      // решение
+      if (s == "11") {
+        min11 = min(min11, m);
+      } else if (s == "10") {
+        min10 = min(min10, m);
+      } else if (s == "01") {
+        min01 = min(min01, m);
+      }
+    }
+    int result = min(min11, min10 + min01);
+
+    // вывод результата
+    if (result >= 1000000) {
+      cout &lt;&lt; -1 &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; result &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 

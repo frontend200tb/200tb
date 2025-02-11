@@ -959,6 +959,38 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  // решение
+  int cnt_police = 0;
+  int cnt_crime = 0;
+  int res = 0;
+  for (int i = 0; i &lt; n; i++) {
+    int tmp;
+    cin >> tmp;
+    if (tmp > 0) {
+      cnt_police += tmp;
+    } else if (tmp == -1) {
+      if (cnt_police > 0) {
+        cnt_police--;
+      } else {
+        res++;
+      }
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
   </details>
 </article>
 
@@ -984,7 +1016,7 @@ int main() {
   <p> Учитывая rating, выведите, к какому дивизиону относится rating</p>
 
   <h4>Входные данные</h4>
-  <p>Первая строка ввода содержит целое число t (1≤t≤104) — количество наборов входных данных в тесте.</p>
+  <p>Первая строка ввода содержит целое число t (1≤t≤10<sup>4</sup>) — количество наборов входных данных в тесте.</p>
   <p>Описание каждого набора состоит из одной строки, содержащей одно целое число rating (-5000≤rating≤5000).</p>
 
   <h4>Выходные данные</h4>
@@ -1021,6 +1053,33 @@ Division 1
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+
+  // решение и вывод результата
+  for (int test = 0; test &lt; t; test++) {
+    int raiting;
+    cin >> raiting;
+    if (raiting >= 1900) {
+      cout &lt;&lt; "Division 1\n";
+    } else if (raiting >= 1600) {
+      cout &lt;&lt; "Division 2\n";
+    } else if (raiting >= 1400) {
+      cout &lt;&lt; "Division 3\n";
+    } else {
+      cout &lt;&lt; "Division 4\n";
+    }
+  }
+
+}
+</pre>
   </details>
 </article>
 
@@ -1036,7 +1095,7 @@ Division 1
   <p>Номер билета — это строка, которая состоит ровно из шести цифр. Номер билета является счастливым, если сумма первых трёх цифр равна сумме последних трёх цифр. Задан номер билета, проверьте счастливый он или нет. Обратите внимание, что в номере могут быть лидирующие нули.</p>
 
   <h4>Входные данные</h4>
-  <p>Первая строка входных данных содержит целое число t (1≤t≤103) — количество наборов входных данных в тесте.</p>
+  <p>Первая строка входных данных содержит целое число t (1≤t≤10<sup>3</sup>) — количество наборов входных данных в тесте.</p>
 
   <p>Далее следуют описания наборов, каждый из них — это одна строка, которая содержит шесть цифр.</p>
 
@@ -1072,6 +1131,41 @@ NO
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+
+  for (int test = 0; test &lt; t; test++) {
+    int num;
+    cin >> num;
+
+    // решение
+    int sum1 = 0;
+    for (int i = 0; i &lt; 3; i++) {
+      sum1 += num % 10;
+      num /= 10;
+    }
+    int sum2 = 0;
+    for (int i = 0; i &lt; 3; i++) {
+      sum2 += num % 10;
+      num /= 10;
+    }
+
+    // вывод результата
+    if (sum1 == sum2) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
   </details>
 </article>
 

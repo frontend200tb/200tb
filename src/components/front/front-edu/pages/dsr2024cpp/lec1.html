@@ -12,6 +12,7 @@
   <p><a href="#plan">План работы</a></p>
   <p><a href="#types">Типы данных</a></p>
   <p><a href="#base">Основы C++</a></p>
+  <p><a href="#rus">Подключение русской локализации</a></p>
   <p><a href="#task1">Задача 1. Найти периметр треугольника заданного координатами своих вершин</a></p>
   <p><a href="#task2">Задача 2. Найти сумму членов арифметической прогрессии</a></p>
   <p><a href="#task3">Задача 3. Найти сумму членов геометрической прогрессии</a></p>
@@ -123,23 +124,6 @@ int main()
 }
 </pre>
 
-  <h4>Подключение русской локализации</h4>
-  <p>Если файл не в кодировке UTF-8, то можно подключить русскую локализацию</p>
-  <code>setlocale(LC_ALL, "Russian");</code>
-
-  <p>Если файл в кодировке UTF-8, то также используют функцию <strong>setlocale()</strong>. В UTF-8 для каждого символа отводится не 1 байт, а 2 или 4 байта. Поэтому нужно использовать другой формат вывода. Вместо объекта <strong>cout</strong> применяется объект <strong>wcout</strong>, который работает с символами Unicode. А перед строкой надо указать символ <strong>L</strong></p>
-<pre>
-#include &lt;iostream&gt;
-int main() {
-  setlocale(LC_ALL, "");
-  std::wcout &lt;&lt; L"Привет, мир!";
-  return 0;
-}
-</pre>
-
-  <p>Output</p>
-  <code>Привет, мир!</code>
-
   <h4>Количество байт, выделенные под переменные</h4>
   <code>sizeof(bool)</code>
   <code>sizeof(int)</code>
@@ -159,6 +143,29 @@ int main() {
   <code>std::cin.clear();</code>
   <code>std::cin.ignore(32767,n);</code>
   <code>std::cin.get</code>
+</article>
+
+
+<!-- Подключение русской локализации -->
+<article class="article">
+  <div class="anchor" id="rus"></div>
+  <h3>Подключение русской локализации</h3>
+
+  <p>Если файл не в кодировке UTF-8, то можно подключить русскую локализацию</p>
+  <code>setlocale(LC_ALL, "Russian");</code>
+
+  <p>Если файл в кодировке UTF-8, то также используют функцию <strong>setlocale()</strong>. В UTF-8 для каждого символа отводится не 1 байт, а 2 или 4 байта. Поэтому нужно использовать другой формат вывода. Вместо объекта <strong>cout</strong> применяется объект <strong>wcout</strong>, который работает с символами Unicode. А перед строкой надо указать символ <strong>L</strong></p>
+<pre>
+#include &lt;iostream&gt;
+int main() {
+  setlocale(LC_ALL, "");
+  std::wcout &lt;&lt; L"Привет, мир!";
+  return 0;
+}
+</pre>
+
+  <p>Output</p>
+  <code>Привет, мир!</code>
 </article>
 
 
