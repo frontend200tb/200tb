@@ -956,7 +956,7 @@ int main() {
   // решение
   for (int i = 2; i &lt;= n; i++) {
     B[i] = B[i - 1];
-    if (A[i] < A[i - 1]) {
+    if (A[i] &lt; A[i - 1]) {
       B[i] += A[i - 1] - A[i];
     }
   }
