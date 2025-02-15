@@ -404,6 +404,7 @@ int ternary_search(int* array, int target, int left, int right) {
 
   <details>
     <summary>Решение</summary>
+    <p>Рекурсивное решение. Ищет только индекс элемента, если он есть в массиве</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -433,6 +434,49 @@ int binary_search_r(int* arr, int n, int target) {
 
 int main() {
   std::cout &lt;&lt; binary_search_r(new int[12] {1,2,3,4,6,7,8,11,14,15,16,17}, 12, 11);
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Мое решение</summary>
+    <p>Ищет индекс числа target, если оно уже есть в массиве, или индекс, где оно должно находиться для сохранения порядка сортировки.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+bool good(std::vector&lt;int&gt; arr, int middle, int target) {
+  return arr[middle] >= target;
+}
+
+int binary_search(std::vector&lt;int&gt; arr, int n, int target) {
+  int left = -1;
+  int right = n - 1;
+
+  // ответ в правом указателе
+  while (right - left > 1) {
+    int middle = left + (right - left) / 2;
+    if (good(arr, middle, target)) {
+      right = middle;
+    } else {
+      left = middle;
+    }
+  }
+
+  return right;
+}
+
+int main() {
+  int n;
+  std::cin >> n;
+  std::vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    std::cin >> A[i];
+  }
+  int target;
+  std::cin >> target;
+
+  std::cout &lt;&lt; binary_search(A, n, target);
 }
 </pre>
   </details>
