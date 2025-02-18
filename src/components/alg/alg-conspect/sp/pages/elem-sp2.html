@@ -1622,5 +1622,75 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // количество колонн
+  cin >> n;
+  vector&lt;int&gt; AL(n);
+  vector&lt;int&gt; AR(n);
+
+  for (int i = 0; i &lt; n; i++) {
+    cin >> AL[i]; // левая нога
+    cin >> AR[i]; // правая нога
+  }
+
+  // решение
+  int L = 0;
+  int R = 0;
+  int maxL = 0;
+  int maxR = 0;
+  int left = 0;    // кол-во с левой ноги
+  int right = 0;   // кол-во с правой ноги
+  int difL = 0;     // разница левых
+  int difR = 0;     // разница правых
+  int max_difL = 0; // макс разница левых
+  int max_difR = 0; // макс разница правых
+  int colL = 0;     // номер колонны с макс левых
+  int colR = 0;     // номер колонны с макс правых
+
+  for (int i = 0; i &lt; n; i++) {
+    left = AL[i];
+    right = AR[i];
+    L += left;
+    R += right;
+    difL = left - right;
+    difR = right - left;
+    if (difL > max_difL) {
+      max_difL = difL;
+      colL = i;
+    }
+    if (difR > max_difR) {
+      max_difR = difR;
+      colR = i;
+    }
+  }
+  int beaut = abs(L - R);  // красота
+  maxL = L - AL[colR] + AR[colR];
+  maxR = R - AR[colL] + AL[colL];
+
+  // вывод результата
+  if (maxL >= maxR) {
+    if (maxL > L) {
+      cout &lt;&lt; colR + 1;
+    } else {
+      cout &lt;&lt; 0;
+    }
+
+  } else if (maxR > maxL) {
+    if (maxR > R) {
+      cout &lt;&lt; colL + 1;
+    } else {
+      cout &lt;&lt; 0;
+    }
+  }
+}
+</pre>
   </details>
 </article>

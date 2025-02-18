@@ -477,34 +477,55 @@
   <ul>
     <li>
       <h4>char (signed char)</h4>
-      <code>8 бит: от -2<sup>7</sup> до 2<sup>7</sup> - 1 (от -128 до 127)</code>
+      <p>1 байт (8 бит):</p>
+      <code>от -2<sup>7</sup> до 2<sup>7</sup> - 1 (от -128 до 127)</code>
     </li>
     <li>
       <h4>int (signed, signed int)</h4>
-      <p>В зависимости от платформы может быть короткая (2 байта) или длинная (4 байта)</p>
-      <code>16 бит: от -2<sup>15</sup> до 2<sup>15</sup> - 1 (от -32768 до 32767)</code>
-      или
-      <code>32 бита: от -2<sup>31</sup> до 2<sup>31</sup> - 1 (от -2,147,483,648 до 2,147,483,647)</code>
+      <p>2 байта (16 бит) или 4 байта (32 бита) зависит от платформы</p>
     </li>
     <li>
       <h4>short int(short, signed short, signed short int)</h4>
-      <p>Явно указывает что размер 2 байта</p>
-      <code>16 бит: от -2<sup>15</sup> до 2<sup>15</sup> - 1 (от -32768 до 32767)</code>
+      <p>Явно указывает что размер 2 байта (16 бит):</p>
+      <code>от -2<sup>15</sup> до 2<sup>15</sup> - 1 (от -32768 до 32767)</code>
     </li>
     <li>
       <h4>long int (long, signed long, signed long int)</h4>
-      <p>Явно указывает что размер 4 байта</p>
-      <code>32 бита: (от -2,147,483,648 до 2,147,483,647)</code>
+      <p>Явно указывает что размер 4 байта (32 бита):</p>
+      <code>от -2<sup>31</sup> до 2<sup>31</sup> - 1 (от -2,147,483,648 до 2,147,483,647), или от -2*10<sup>9</sup> до 2*10<sup>9</sup></code>
     </li>
-    <li><strong>long long</strong> (signed long long, long long int, signed long long int). 64 бита (от -9,223,372,036,854,775,808 до 9,223,372,036,854,775,807)</li>
+    <li>
+      <h4>long long (signed long long, long long int, signed long long int)</h4>
+      <p>8 байт (64 бита):</p>
+      <code>от -2<sup>63</sup> до 2<sup>63</sup> - 1 (от -9,223,372,036,854,775,808 до 9,223,372,036,854,775,807), или от -9*10<sup>18</sup> до 9*10<sup>18</sup></code>
+    </li>
   </ul>
   <p>У каждого целочисленного типа со знаком, есть парный тип без знака unsigned</p>
   <ul>
-    <li><strong>unsigned char</strong>. 8 бит (от 0 до 255)</li>
-    <li><strong>unsigned short</strong> (unsigned short int). 16 бит (от 0 до 65535)</li>
-    <li><strong>unsigned</strong> (unsigned int). 16 (от 0 до 65535) или 32 бита (от 0 до 4,294,967,295) зависит от платформы</li>
-    <li><strong>unsigned long</strong> (unsigned long int). 32 (от 0 до 4,294,967,295) или 64 бита (от 0 до 18,446,744,073,709,551,615) зависит от платформы.</li>
-    <li><strong>unsigned long long</strong> (unsigned long long int). 64 бита (от 0 до 18,446,744,073,709,551,615)</li>
+    <li>
+      <h4>unsigned char </h4>
+      <p>1 байт (8 бит)</p>
+      <code>от 0 до 255</code>
+    </li>
+    <li>
+      <h4>unsigned (unsigned int)</h4>
+      <p>2 байта (16 бит) или 4 байта (32 бита) зависит от платформы</p>
+    </li>
+    <li>
+      <h4>unsigned short (unsigned short int)</h4>
+      <p>2 байта (16 бит)</p>
+      <code>от 0 до 65535</code>
+    </li>
+    <li>
+      <h4>unsigned long (unsigned long int)</h4>
+      <p>4 байта (32 бита)</p>
+      <code>от 0 до 4,294,967,295</code>
+    </li>
+    <li>
+      <h4>unsigned long long (unsigned long long int)</h4>
+      <p>8 байт (64 бита)</p>
+      <code>от 0 до 18,446,744,073,709,551,615</code>
+    </li>
   </ul>
 </article>
 

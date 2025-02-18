@@ -178,6 +178,39 @@ for (int i = 0; i &lt; n; i++) {
   <details>
     <summary>Решение</summary>
     <p>В одном цикле будем сдвигать правую границу и делать проверку. Если проверка не прошла, то сдвигаем левую границу.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, t;
+  cin >> n >> t;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int sum = 0;
+  int res = 0;
+  int l = 0;
+  for (int r = 0; r &lt; n; r++) {
+    sum += A[r];
+    while (sum > t) {
+      sum -= A[l];
+      l++;
+    }
+    res = max(res, r - l + 1);
+  }
+
+  //вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
   </details>
 </article>
 
@@ -289,6 +322,45 @@ for (int i = 0; i &lt; n; i++) {
 </pre>
   <code>1</code>
   <p>В третьем тестовом примере Вы можете создать команду, состоящую из одного студента (и не можете создать команду, состоящую хотя бы из двух студентов).</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Отсортируем массив по возрастанию. Будем отслеживать максимальную длиину отрезка, в котором крайний правый элемент и крайний левый элемент отличаются не больше чем на 5.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+  int l = 0;
+  int r = 0;
+  int res = 1;
+  while (r &lt; A.size()) {
+    if (A[r] - A[l] &lt;= 5) {
+      res = max(res, r - l + 1);
+      r++;
+    } else {
+      l++;
+    }
+  }
+
+  //вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -320,6 +392,66 @@ for (int i = 0; i &lt; n; i++) {
 2
 </pre>
   <code>2 3</code>
+
+  <h4>Решение</h4>
+  <p>Будем использовать булевский флаг, который определит крайний случай, когда все элементы отрицательные. Если все элементы отрицательные, то максимальный из них это и будет ответ</p>
+  <p>Заведем два указателя l и r. Будем поддерживать отрезок пока он хороший. Пусть отрезок хороший если он больше нуля. Увеличиваем r пока отрезок хороший. Увеличиваем l если отрезок стал плохим.</p>
+  <p>В этой задаче мы отступаем от правила, что все элементы внутри хорошего отрезка могут быть только хорошими. В этой задаче мы допускаем плохие элементы внутри хорошего отрезка.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;long long&gt; A(n + 1);
+  bool flag = false;
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+    if (A[i] > 0) {
+      flag = true;
+    }
+  }
+  if (flag == false) {
+    int id = 1;
+    int el = -1e7; // -10 000 000
+    for (int i = 1; i &lt;= n; i++) {
+      if (A[i] > el) {
+        id = i;
+        el = A[i];
+      }
+    }
+    cout &lt;&lt; id &lt;&lt; " " &lt;&lt; id;
+  } else {
+    long long max_sum = -1;
+    long long sum = 0;
+    long long l = 1;
+    // границы оптимального ответа
+    int left = 0, right = 0;
+
+    for (int r = 1; r &lt;= n; r++) {
+      sum += A[r];
+      while (sum &lt;= 0 && l &lt;= r) {
+        sum -= A[l];
+        l++;
+      }
+      if (sum > max_sum) {
+        max_sum = sum;
+        left = l;
+        right = r;
+      }
+    }
+    cout &lt;&lt; left &lt;&lt; " " &lt;&lt; right;
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -476,6 +608,55 @@ for (int i = 0; i &lt; n; i++) {
 </pre>
   <code>0</code>
   <p>В третьем тестовом примере есть только один способ разделить массив: [ ],[4,1,2],[ ].</p>
+
+  <h4>Решение</h4>
+  <p>Создадим два дополнительных массива B и C для префикс-функций, B слева направо, C справа налево. Будем идти двумя указателями с двух сторон пока они не пересекутся или пока не найдем элементы на которых сумма элементов справа будет равна сумме элементов слева.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;long long&gt; A(n + 2), B(n + 2), C(n + 2);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  // собираем префикс-функцию слева направо
+  for (int i = 1; i &lt;= n; i++) {
+    B[i] = B[i - 1] + A[i];
+  }
+
+  // собираем префикс-функцию справа налево
+  for (int i = n; i >= 1; i--) {
+    C[i] = C[i + 1] + A[i];
+  }
+  int r = n + 1; // правый указатель
+  long long res = 0;
+  for (int l = 0; l &lt; r; l++) {
+    while (B[l] > C[r]) {
+      r--;
+    }
+    if (l &lt; r) {
+      if (B[l] = C[r]) {
+        res = B[l];
+      }
+    }
+  }
+
+  //вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -575,6 +756,48 @@ for (int i = 0; i &lt; n; i++) {
 </pre>
   <code>1</code>
   <p>В третьем примере нам подходит одна тройка: {1, 10, 20}.</p>
+
+  <h4>Решение</h4>
+    <p>Точки приходят к нам в отсортированном порядке. Будем идти двумя указателями и поддерживать отрезок длинны A[r] - A[l] &lt;= d. Определим сколько хороших точек на отрезке по формуле</p>
+    <code>(r - l - 1) * (r - l - 2) / 2</code>
+    <p>Новые тройки точек считаем по левой границе. Каждый раз сдвигая левую границу, находим новые тройки точек</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, d;
+  cin >> n >> d;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long res = 0;
+  vector&lt;long long&gt; B(n);
+  long long l = 0;
+  for (int r = 0; r &lt; n; r++) {
+    while (l != n - 1 && A[l + 1] - A[r] &lt;= d) {
+      l++;
+    }
+    B[r] = (l - r) * (l - r - 1) / 2;
+  }
+  for (int i = 0; i &lt; n; i++) {
+    res += B[i];
+  }
+
+  //вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

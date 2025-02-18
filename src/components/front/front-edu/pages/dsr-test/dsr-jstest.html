@@ -1,0 +1,227 @@
+<article class="article">
+  <div id="link-to-quiz" class="btn-back">назад</div>
+
+  <h1>DSR JS Bootcamp 2025: entrance test</h1>
+
+  <strong>12 вопросов за 1 час</strong>
+  <ol>
+    <li>Test results, whether you passed or not, will be delivered via email, so please make sure to double-check the email address you enter.</li>
+    <li>There are 12 tasks in the test, you can't switch between them during the test.</li>
+    <li>You are not allowed to switch tabs or leave the test page during the exam. If you do so, you will receive a warning. After two warnings, your test will be automatically closed, and you will not be able to continue.</li>
+    <li>There's no time limit for each task, but be sure to complete all the tasks within 1 hour. You can follow our recommendations regarding time-management during the test:
+      <ol>
+        <li>Questions 1-5 - Single choice questions. Question 6 - short answer question. We recommend spending 10 minutes on this part.</li>
+        <li>Questions 7-9 - open answer. This part can take 15-20 minutes.</li>
+        <li>Question 10 - coding task. It can take 15-20 minutes.</li>
+        <li>Questions 11-12 - open answer tasks.</li>
+      </ol>
+    </li>
+  </ol>
+</article>
+
+
+<article class="article">
+  <h3>Question 1/12</h3>
+
+  <p>Which of the following is not a requirement for a RESTful application?</p>
+  <ul>
+    <li>layered system</li>
+    <li><strong>writetable</strong></li>
+    <li>uniform interface</li>
+    <li>cacheable</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Question 2/12</h3>
+
+  <p>Which of the following is not a valid CSS display property value?</p>
+  <ul>
+    <li>inline-block</li>
+    <li><strong>outline</strong></li>
+    <li>none</li>
+    <li>flex</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Question 3/12</h3>
+
+  <p>What is class in JS?</p>
+  <ul>
+    <li>Classes in JS art implemented as classic object-oriented model</li>
+    <li>Class is an object, which clones itself when constructor is called</li>
+    <li><strong>Class is a specific function</strong></li>
+    <li>Class is another name for prototype in JS</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Question 4/12</h3>
+
+  <p>Wich exception call is syntactically incorrect in JavaScript</p>
+  <ul>
+    <li>throw "Error";</li>
+    <li><strong>throw 404;</strong></li>
+    <li>throw false;</li>
+    <li>All options are correct</li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Question 5/12</h3>
+
+  <p>Which of the following HTML tags does not exist?</p>
+  <ul>
+    <li>abbr</li>
+    <li>q</li>
+    <li>wbr</li>
+    <li><strong>color</strong></li>
+  </ul>
+</article>
+
+
+<article class="article">
+  <h3>Question 6/12</h3>
+
+  <p>What are data types in JS?</p>
+<pre>number, string, boolean, null,
+undefined, bigint, symbol, object</pre>
+</article>
+
+
+<article class="article">
+  <h3>Question 7/12</h3>
+
+  <p>What are the ways to declare a variable in JavaScript? What is the difference between them? What are the advantages and disadvantages of each variable type? In which situations would you use each type?</p>
+<pre>
+var, const, let are used to declart variables
+
+var for variables with function scope
+it has global scope if declared outside a function
+variables declared with var are hoisted to the top of their scope
+can be redeclared with same scope
+changeable
+
+let, const for variables with block scope
+cannot be redeclared with same scope
+let is changeable
+const is constant, not changeable, must initializate with declaration
+</pre>
+</article>
+
+
+<article class="article">
+  <h3>Question 8/12</h3>
+
+  <p>What is output of this code?</p>
+<pre>
+var obj = {x: 3};
+var arr = [];
+
+arr.push(obj);
+arr[0] = {x: 2};
+
+console.log(obj.x);
+</pre>
+  <code>3</code>
+</article>
+
+
+<article class="article">
+  <h3>Question 9/12</h3>
+
+  <p>What will you get in console after calling this function? Explain your answer</p>
+<pre>
+(function() {
+  console.log(1);
+
+  setTimeout( function() { console.log(2) }, 1000);
+
+  new Promise( () => console.log(3) );
+
+  setTimeout( function() { console.log(4) }, 0);
+
+  console.log(5);
+})();
+</pre>
+<pre>
+1
+3
+5
+4
+2
+console.log and create promise are run sequently
+after run asyncron code
+</pre>
+</article>
+
+
+<article class="article">
+  <h3>Question 10/12</h3>
+
+  <p>Implement a function sum(num1)(num2)...() which can be called endlessly. Example</p>
+  <code>console.log(sum(2)());       // 2</code>
+  <code>console.log(sum(2)(3)());    // 5</code>
+  <code>console.log(sum(2)(3)(4)()); // 9</code>
+<pre>
+function sum(num) {
+  let summa = num;
+
+  function result(next) {
+    if (next === undefined) {
+      return summa;
+    }
+    summa += next;
+    return result;
+  }
+
+  return result;
+}
+</pre>
+</article>
+
+
+<article class="article">
+  <h3>Question 11/12</h3>
+
+  <p>What is the output of this code and why?</p>
+  <code>const wasmCode = new Uint8Array(
+    [0,97,115,109,1,0,0,0,
+    1,10,0,1,96,1,127,1,
+    127,3,2,1,0,7,5,1,
+    3,102,111,111,0,0,10,13,
+    1,11,0,65,42,11,0]
+    );</code>
+  <code>const wasmModule = new WebAssembly.Module(wasmCode);</code>
+  <code>wasmInstance = new WebAssembly.Instance(wasmModule);</code>
+  <code>console.log(wasmInstance.exports.foo());</code>
+  <code>42</code>
+</article>
+
+
+<article class="article">
+  <h3>Question 12/12</h3>
+
+  <p>Suggest REST API scheme for the following task:</p>
+  <p>You have jedi entities in your database.</p>
+  <p>Each entity has id (number), name (string), sex (male/female), skill (number from 1 to 10).</p>
+  <p>Your API needs to be able to create new Jedi (requires two existing Jedi with different genders), update skill for existing Jedi, get list of all Jedi and remove Jedi</p>
+  <p>Describe resources and URL, HTTP methods, request and response data schemes, how successful and failed requests should look like.</p>
+<pre>
+base url https://api.jedi.com/v1
+create jedi
+method POST endpoint / jedi
+request body
+{"name": "luke", "sex": "male", "parent1_id": 1, "parent2_id": 2}
+response success (201 created)
+</pre>
+</article>
+
+
+
+

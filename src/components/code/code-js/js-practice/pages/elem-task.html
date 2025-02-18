@@ -105,7 +105,7 @@ for (var j = 0; j &lt; 3; j++) {
     <p>Переменная, объявленная через var видна за пределами блока и равна 3 после окончания первого цикла for</p>
 <pre>i equal: 3
 i equal: 3
-i equal: 3</pre>  
+i equal: 3</pre>
   </details>
 
 
@@ -123,7 +123,7 @@ for (var j = 0; j &lt; 3; j++) {
     <p>Переменная, объявленная через let не видна за пределами блока, поэтому в созданной функции она видна через замыкание и равна 0, 1, 2 для каждой итерации первого цикла for</p>
 <pre>i equal: 0
 i equal: 1
-i equal: 2</pre>  
+i equal: 2</pre>
   </details>
 
 
@@ -171,7 +171,7 @@ undefined
 ReferenceError: Cannot access 'f3' before initialization</pre>
   </details>
 
-  
+
   <h3>Задача 4. Что будет в консоли?</h3>
 <pre>var o = {};
 var i = 0;
@@ -194,7 +194,7 @@ console.log(o, i);</pre>
     <code>{ a: 'a', b: 'b' } 1</code>
   </details>
 
-  
+
   <h3>Задача 4. Что будет в консоли?</h3>
 <pre>function Constructor1() {};
 var Constructor2 = function () {};
@@ -209,6 +209,43 @@ console.warn( new Constructor3() );</pre>
 <pre>Constructor1 {}
 Constructor2 {}
 TypeError: Constructor3 is not a constructor</pre>
+  </details>
+
+  <h3>Задача 5. Написать функцию</h3>
+  <p>Написать функцию sum(num1)(num2)...() которая может быть вызвана бесконечно</p>
+  <p>Примеры</p>
+  <code>console.log(sum(2)()); // 2</code>
+  <code>console.log(sum(2)(3)()); // 6</code>
+  <code>console.log(sum(2)(3)(4)()); // 9</code>
+
+  <p>Решение</p>
+  <p>Чтобы написать функцию sum которую можно вызывать бесконечно и в конце вернуть сумму, когда она вызвана без аргументов, мы должны использовать замыкания и чейнинг</p>
+
+  <details>
+    <summary>Код</summary>
+<pre>
+function sum(num1) {
+  let total = num1;
+
+  function innerSum(num2) {
+    if (num2 === undefined) {
+      return total;
+    }
+    total += num2;
+    return innerSum;
+  }
+
+  return innerSum;
+}
+
+// Example usage:
+console.log(sum(2)(3)(4)()); // Output: 9
+</pre>
+  <p>Объяснение</p>
+  <p>Первый вызов sum(2). Функция sum вызывается с аргументом 2. Переменная total = 2. Возвращается функция innerSum</p>
+  <p>Последовательные вызовы (3), (4) и т.д. Каждый вызов добавляет новое число в total в функции innerSum. innerSum возвращает сама себя, позволяя дальнейший чейнинг</p>
+  <p>Последний вызов (). Когда innerSum вызывается без аргументов, она проверяет что num2 это undefined. Если num2 это undefined, функция возвращает total</p>
+  <p>Этот паттерн позволяет вызывать функцию бесконечно, пока наконец она будет вызвана без аргументов и вернет сумму.</p>
   </details>
 </article>
 

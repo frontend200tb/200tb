@@ -60,6 +60,7 @@ import htmlDsr2023Wshop6 from './../pages/dsr2023net/dsr2023net-workshop6.html';
 // DSR Test
 import htmlDsrCsharp   from './../pages/dsr-test/dsr-csharptest.html';
 import htmlDsrC        from './../pages/dsr-test/dsr-ctest.html';
+import htmlDsrJs        from './../pages/dsr-test/dsr-jstest.html';
 
 // RS Test stage 1
 import htmlRsTestRss          from './../pages/rs-test/rs-test-rss.html';
@@ -193,6 +194,7 @@ const htmlDsr2023Wshop = [
 const htmlDsrTest = [
   htmlDsrCsharp,
   htmlDsrC,
+  htmlDsrJs,
 ];
 
 // Создаем массив страниц с тестом Neoflex
