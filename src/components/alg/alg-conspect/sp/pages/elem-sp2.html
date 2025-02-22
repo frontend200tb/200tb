@@ -491,7 +491,7 @@ cout &lt;&lt; sum;
 
   <details>
     <summary>Решение</summary>
-    <p>Если одно из чисел m или n четное, то его нужно разделить на 2 и умножить на второе число. Если оба числа нечетные, то их нужно умножить, а их произведение поделить нацело на 2 без остатка</p>
+    <p>Каждая доминошка занимает 2 клетки. Поэтому максимальное количество доминошек, которое можно уложить на доску, равно половине площади доски с округлением вниз</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -536,6 +536,7 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <p>Через N лет количество щупальцев будет равно A + K * N</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -580,6 +581,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Проверить, делится ли год на 4.</li>
+      <li>Если год делится на 100, проверить, делится ли он на 400.</li>
+      <li>Если год делится на 4 и не делится на 100, или делится на 400, то он високосный.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 
@@ -631,6 +638,15 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Чтобы покрыть длину n нужно n/a плит с округлением вверх</li>
+      <li>Чтобы покрыть ширину m нужно m/a плит с округлением вверх</li>
+      <li>Общее количество плит будет равно произведению количества плит по длине и ширине: (n/a) * (m/a) </li>
+      <li>Округление вверх можно реализовать с помощью формулы: x/y = (x+y-1) / y</li>
+    </ol>
+
+
 <pre>
 #include &lt;iostream&gt;
 
@@ -642,22 +658,12 @@ int main() {
   cin >> n >> m >> a;
 
   // решение
-  long long res = 1;
-  if (n % a == 0) {
-    res = res * (n / a);
-  }
-  else {
-    res = res * (n / a + 1);
-  }
-  if (m % a == 0) {
-    res = res * (m / a);
-  }
-  else {
-    res = res * (m / a + 1);
-  }
+  // Вычисляем количество плит по длине и ширине с округлением вверх
+  long long tilesN = (n + a - 1) / a;
+  long long tilesM = (m + a - 1) / a;
 
   // вывод результата
-  cout &lt;&lt; res;
+  cout &lt;&lt; tilesN + tilesM;
 }
 </pre>
   </details>
@@ -698,6 +704,7 @@ int main() {
     <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
@@ -707,19 +714,20 @@ int main() {
   cin >> n;
 
   // решение
-  int min = 0, max = 0, tmp;
-  for (int i = 0; i &lt; n; i++) {
-      cin >> tmp;
-      if (min > tmp || min == 0) {
-          min = tmp;
-      }
-      if (max &lt; tmp || max == 0) {
-          max = tmp;
-      }
+  int age;
+  cin >> age; // Считываем возраст первого брата
+  int minAge = age; // Инициализируем минимальный возраст
+  int maxAge = age; // Инициализируем максимальный возраст
+
+  // Считываем возраст остальных братьев и обновляем minAge и maxAge
+  for (int i = 1; i &lt; N; i++) {
+      cin >> age;
+      minAge = min(minAge, age); // Обновляем минимальный возраст
+      maxAge = max(maxAge, age); // Обновляем максимальный возраст
   }
 
   // вывод результата
-  cout &lt;&lt; max &lt;&lt; " " &lt;&lt; min;
+  cout &lt;&lt; maxAge &lt;&lt; " " &lt;&lt; minAge;
 
   return 0;
 }
@@ -767,6 +775,7 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <p>Общая стоимость лопат должна удовлетворять условию min_count * k = 0 или min_count * k = r (mod 10)</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -778,15 +787,19 @@ int main() {
   cin >> k >> r;
 
   // решение
-  int min = 1;
-  for (; min &lt; 10; min++) {
-    if ((k * min) % 10 == 0 || (k * min) % 10 == r) {
+  int min_count = 1; // Начинаем с одной лопаты
+
+  while (true) {
+    int totalCost = n * k; // Общая стоимость n лопат
+    // Проверяем, можно ли оплатить без сдачи
+    if (totalCost % 10 == r || totalCost % 10 == 0) {
       break;
     }
+    min_count++; // Увеличиваем количество лопат
   }
 
   // вывод результата
-  cout &lt;&lt; min;
+  cout &lt;&lt; min_count;
 }
 </pre>
   </details>
@@ -959,6 +972,15 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Используем счётчик для отслеживания количества свободных полицейских.</li>
+      <li>Используем счётчик нераскрытых преступлений.</li>
+      <li>Проходим по всем событиям:</li>
+      <li>Если событие — это наём полицейских, увеличиваем счётчик свободных полицейских.</li>
+      <li>Если событие — это преступление: Если есть свободные полицейские, уменьшаем счётчик свободных полицейских (так как один полицейский расследует это преступление). Если свободных полицейских нет, увеличиваем счётчик нераскрытых преступлений.</li>
+      <li>В конце выводим количество нераскрытых преступлений.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 
@@ -1053,6 +1075,11 @@ Division 1
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Для каждого набора входных данных проверяем, в какой диапазон попадает рейтинг.</li>
+      <li>В зависимости от диапазона выводим соответствующий дивизион.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 
@@ -1131,6 +1158,13 @@ NO
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <p>Для каждого набора входных данных:</p>
+    <ol>
+      <li>Разделяем номер билета на первые три цифры и последние три цифры.</li>
+      <li>Вычисляем сумму первых трёх цифр и сумму последних трёх цифр.</li>
+      <li>Если суммы равны, выводим "YES", иначе — "NO".</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 
@@ -1198,6 +1232,13 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Построение пирамиды:</h4>
+    <ol>
+      <li>На каждом шаге увеличиваем высоту пирамиды на 1.</li>
+      <li>Вычисляем количество кубиков, необходимых для текущего уровня: </li>
+      <li>Добавляем это количество к общему количеству использованных кубиков.</li>
+      <li>Если общее количество кубиков превышает n, откатываем последний уровень и завершаем.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 
@@ -1273,67 +1314,44 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Определим, сколько дней Василий провёл в санатории. Это можно сделать, найдя максимальное количество посещений одной из трапез, так как каждая трапеза происходит один раз в день.</li>
+      <li>Для каждого дня, кроме первого и последнего, Василий должен был посетить все три трапезы (завтрак, обед, ужин). Если он пропустил какую-то трапезу, это считается пропуском.</li>
+      <li>В первый и последний дни Василий мог пропустить трапезы в зависимости от времени приезда и отъезда.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
-
 using namespace std;
 
 int main() {
-  // ввод данных
-  unsigned long long b, d, s;
-  cin >> b >> d >> s;
+    long long b, d, s;
+    cin >> b >> d >> s; // Считываем количество завтраков, обедов и ужинов
 
-  // решение
-  unsigned long long a1{};
-  unsigned long long a2{};
-  unsigned long long a3{};
+    // Определяем количество дней
+    long long days = max({b, d, s});
 
-  if (b >= d && b >= s) {
-    a1 = b;
-    if (d >= s) {
-      a2 = d;
-      a3 = s;
-    } else {
-      a2 = s;
-      a3 = d;
+    // Вычисляем минимальное количество пропущенных трапез
+    long long missed = 0;
+
+    // Пропуски для завтраков
+    if (b &lt; days) {
+        missed += (days - 1) - b;
     }
-  } else if (d >= b && d >= s) {
-    a1 = d;
-    if (b >= s) {
-      a2 = b;
-      a3 = s;
-    } else {
-      a2 = s;
-      a3 = b;
+
+    // Пропуски для обедов
+    if (d &lt; days) {
+        missed += (days - 1) - d;
     }
-  } else if (s >= b && s >= d) {
-    a1 = s;
-    if (b >= d) {
-      a2 = b;
-      a3 = d;
-    } else {
-      a2 = d;
-      a3 = b;
+
+    // Пропуски для ужинов
+    if (s &lt; days) {
+        missed += (days - 1) - s;
     }
-  }
 
-  unsigned long long num1;
-  unsigned long long num2;
-
-  if (a1 - a2 > 1) {
-    num1 = a1 - a2 - 1;
-  } else {
-    num1 = 0;
-  }
-  if (a1 - a3 > 1) {
-    num2 = a1 - a3 - 1;
-  } else {
-    num2 = 0;
-  }
-
-  // вывод результата
-  cout &lt;&lt; num1 + num2;
+    // Выводим результат
+    cout &lt;&lt; missed;
 }
 </pre>
   </details>
@@ -1400,6 +1418,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Для каждого дня i (начиная со второго) проверяем, выполняется ли условие b<sub>i-1</sub> + b<sub>i</sub> &ge; k, где b<sub>i</sub> — общее количество прогулок в день i.</li>
+      <li>Если условие не выполняется, увеличиваем количество прогулок в текущем дне b<sub>i</sub> на недостающее количество.</li>
+      <li>После обработки всех дней выводим общее количество дополнительных прогулок и новое расписание.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
@@ -1411,6 +1435,7 @@ int main() {
   // ввод данных
   int n, k;
   cin >> n >> k;
+  // Исходное расписание прогулок
   vector&lt;int&gt; A(n);
 
   for (int i = 0; i &lt; n; i++) {
@@ -1420,6 +1445,7 @@ int main() {
   // решение
   int day = 0;   // доп прогулка за день
   int extra = 0; // доп прогулки за n дней
+  // Новое расписание прогулок
   vector&lt;int&gt; B(n);
   B[0] = A[0];
   for (int i = 1; i &lt; n; i++) {
@@ -1622,6 +1648,13 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Вычислим исходные значения L и R.</li>
+      <li>Для каждой колонны вычислим, как изменится красота парада, если мы поменяем шаг в этой колонне.</li>
+      <li>Найдём колонну, изменение шага в которой даст максимальное увеличение красоты.</li>
+      <li>Если ни одна колонна не улучшает красоту, выводим 0.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
@@ -1690,6 +1723,50 @@ int main() {
       cout &lt;&lt; 0;
     }
   }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Вариант решения</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // Считываем количество колонн
+
+    vector&lt;pair&lt;int, int&gt;&gt; columns(n); // Пары (l_i, r_i) для каждой колонны
+    int L = 0, R = 0; // Исходные значения L и R
+
+    // Считываем данные и вычисляем L и R
+    for (int i = 0; i &lt; n; i++) {
+        cin >> columns[i].first >> columns[i].second;
+        L += columns[i].first;
+        R += columns[i].second;
+    }
+
+    int maxBeauty = abs(L - R); // Исходная красота парада
+    int bestColumn = 0; // Номер колонны для изменения (0, если не нужно менять)
+
+    // Перебираем все колонны и находим лучшую для изменения
+    for (int i = 0; i &lt; n; i++) {
+        int newL = L - columns[i].first + columns[i].second; // Новое L после изменения
+        int newR = R - columns[i].second + columns[i].first; // Новое R после изменения
+        int newBeauty = abs(newL - newR); // Новая красота парада
+
+        if (newBeauty > maxBeauty) {
+            maxBeauty = newBeauty;
+            bestColumn = i + 1; // Нумерация колонн с 1
+        }
+    }
+
+    // Выводим результат
+    cout &lt;&lt; bestColumn;
+    return 0;
 }
 </pre>
   </details>

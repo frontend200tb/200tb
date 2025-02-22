@@ -37,6 +37,8 @@
   <h3>Бинарный поиск на массиве</h3>
 
   <h4>Линейный поиск на массиве</h4>
+
+  <h4>Задача. Поиск числа в массиве</h4>
   <p>Дан массив целых чисел A длины n a<sub>1</sub>, a<sub>2</sub>, ... , a<sub>n</sub>. Задано q запросов, каждый запрос это проверка существует ли число b<sub>j</sub> в массиве A.</p>
   <p>Наивное решение задачи, каждый запрос обрабатывать линейным поиском. Трудоемкость такого решение O(n * q)</p>
 
@@ -95,10 +97,12 @@ while (right - left > 1) {
 }
 </pre>
 
+  <h4>Задача. Поиск числа в массиве</h4>
+  <p>Дан массив целых чисел A длины n a<sub>1</sub>, a<sub>2</sub>, ... , a<sub>n</sub>. Задано q запросов, каждый запрос это проверка существует ли число b<sub>j</sub> в массиве A.</p>
   <p>Трудоемкость алгоритма O(n*log<sub>2</sub>(n) + q*log<sub>2</sub>(n))</p>
 
   <details>
-    <summary>Код</summary>
+    <summary>Код (школьная версия)</summary>
 <pre>
 sort(A.begin(), A.end());
 int q, b, left, right, mid;
@@ -127,9 +131,11 @@ for (int j = 0; j &lt; q; j++) {
   </details>
 
   <p>Бинарный поиск на массиве можно реализовывать по-разному. Чуть ранее мы реализовывали версию бинарного поиска, в которой ответ искали в области включительно с границами [left, right]. Мы можем изменить область поиска элемента до полуинтервалов [left, right) это позволит меньше делать действий в дополнительной проверке элементов после цикла while, но усложняет выбор сдвига границ</p>
+  <p>Реализация на отрезке - это <strong>школьная</strong> версия</p>
+  <p>Реализация на полуинтервале - это <strong>студенческая</strong> версия</p>
 
   <details>
-    <summary>Код</summary>
+    <summary>Код (студенческая версия)</summary>
 <pre>
 sort(A.begin(), A.end());
 int q, b, left, right, mid;
@@ -409,6 +415,53 @@ NO
 100
 </pre>
   <code>2</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+  int m;
+  cin >> m;
+
+  // решение
+  int res = 0;
+  for (int i = 0; i &lt; m; i++) {
+    int tmp, left, right, mid;
+    cin >> tmp;
+    left = 0;
+    right = n - 1;
+
+    while (right - left > 1) {
+      mid = (right + left) / 2;
+      if (A[mid] > tmp) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+    }
+
+    if (A[left] == tmp || A[right] == tmp) {
+      res++;
+    }
+
+    // вывод результата
+    cout &lt;&lt; res;
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -738,7 +791,7 @@ s -5
   <p>Первая строка каждого набора содержит 2 целых числа n и q
   (1≤n,q≤1.5⋅10<sup>5</sup>) — количество конфет, которые есть у Тимура и количество запросов соответственно.</p>
 
-  <p>Вторая строка каждого набора содержит n целых чисел a<sub>1</sub>,a<sub>2</sub>,…,a<sub>n</sub> (1≤a<sub>i</sub>≤10<sup>5</sup>) — количество сахара в каждой конфете соответственно.</p>
+  <p>Вторая строка каждого набора содержит n целых чисел a<sub>1</sub>,a<sub>2</sub>,…,a<sub>n</sub> (1≤a<sub>i</sub>≤10<sup>4</sup>) — количество сахара в каждой конфете соответственно.</p>
 
   <p>Затем следуют q строк.</p>
 
@@ -793,6 +846,66 @@ s -5
   <ul>
     <li>Для единственного запроса второго набора входных данных мы можем выбрать третью конфету, из которой Тимур получает количество сахара равное 3. Также можно получить тот же ответ, выбрав четвертую конфету.</li>
   </ul>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Создадим префикс-функцию идя по массиву в убывающем порядке</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+  for (int test = 0; test &lt; t; test++) {
+    int n, q;
+    cin >> n >> q;
+    vector&lt;int&lt; A(n + 1);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    sort(A.begin(), A.end());
+    int uk = n;
+    vector&lt;int&lt; Pref(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+      Pref[i] = Pref[i - 1] + A[uk];
+      uk--;
+    }
+
+    int x, left, right, mid;
+    for (int i = 0; i &lt; q; i++) {
+      cin >> x;
+      left = 0;
+      right = n + 1;
+
+      while (right - left > 1) {
+        mid = (right + left) / 2;
+        if (Pref[mid] &lt;= x) {
+          left = mid;
+        } else {
+          right = mid;
+        }
+      }
+
+      // вывод результата
+      if (Pref[Pref.size() - 1] &lt; x) {
+        cout &lt;&lt; "-1\n";
+      } else if (Pref[left] >= x) {
+        cout &lt;&lt; left &lt;&lt; "\n";
+      } else {
+        cout &lt;&lt; right &lt;&lt; "\n";
+      }
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

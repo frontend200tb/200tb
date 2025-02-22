@@ -1,0 +1,181 @@
+<article class="article">
+  <h1>Лекция 13 (18.02.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Односвязный список</a></p>
+</article>
+
+
+<!-- Односвязный список -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Односвязный список</h3>
+
+  <p>Файл dsr.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Tlist.h"
+
+int main() {
+  // 1й способ создать список
+  Node* head = initList(1);
+  printList(head);
+
+  // 2й способ создать список
+  Node* head2 = new Node(2);
+  printList(head2);
+
+  // 3й способ создать список
+  Node* head3;
+  initList(head3, 3);
+  printList(head3);
+
+  addToHead(head, 6);
+  addToHead(head, 7);
+  addToHead(head, 8);
+  addToHead(head, 9);
+  printList(head);
+
+  Node* AfterNode = find(head, 7);
+  addAfterNode(AfterNode, 11);
+  printList(head);
+
+  deleteAfterNode(AfterNode);
+  printList(head);
+
+  AfterNode = find(head, 5);
+  deleteAfterNode(AfterNode);
+  printList(head);
+}
+</pre>
+
+  <p>Файл Tlist.h</p>
+<pre>
+#pragma once
+
+struct Node {
+  int data;
+  Node* next;
+
+  Node() {
+    data = 0;
+    next = nullptr;
+  }
+
+  Node(int element) {
+    data = element;
+    next = nullptr;
+  }
+};
+
+void initList(Node*& head, int element);
+Node* initList(int element);
+void initList(Node*& head);
+void addToHead(Node*& head, int element);
+void deleteFromHead(Node*& head);
+bool isEmpty(Node* head);
+void printList(Node* head);
+void addAfterNode(Node* pNode, int element);
+void deleteAfterNode(Node* pNode);
+Node* find(Node* head, int element);
+</pre>
+
+  <p>Файл Tlist.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Tlist.h"
+
+void initList(Node*& head, int element) {
+  head = new Node();
+  head->data = element;
+  head->next = nullptr;
+}
+
+Node* initList(int element) {
+  Node* newNode = new Node();
+  newNode->data = element;
+  newNode->next = nullptr;
+  return newNode;
+}
+
+void initList(Node*& head) {
+  head = nullptr;
+}
+
+void addToHead(Node*& head, int element) {
+  Node* temp = new Node();
+  temp->data = element;
+  temp->next = head;
+  head = temp;
+}
+
+void deleteFromHead(Node*& head) {
+  Node* temp = head;
+  head = head->next;
+  delete temp;
+  temp = nullptr;
+}
+
+bool isEmpty(Node* head) {
+  return head == nullptr;
+}
+
+void printList(Node* head) {
+  Node* ptr = head;
+  while (ptr) {
+    std::cout &lt;&lt; ptr->data &lt;&lt; " ";
+    ptr = ptr->next;
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+void addAfterNode(Node* pNode, int element) {
+  Node* temp = new Node(element);
+  temp->next = pNode->next;
+  pNode->next = temp;
+}
+
+void deleteAfterNode(Node* pNode) {
+  if (isEmpty(pNode)) {
+    return;
+  }
+  Node* temp = pNode->next;
+  if (isEmpty(temp)) {
+    return;
+  }
+  pNode->next = temp->next;
+  delete temp;
+  temp = nullptr;
+}
+
+Node* find(Node* head, int element) {
+  Node* ptr = head;
+  while (ptr) {
+    if (ptr->data == element) {
+      break;
+    }
+    ptr = ptr->next;
+  }
+  return ptr;
+}
+</pre>
+
+  <p>Рекультат</p>
+<pre>
+1
+2
+3
+9 8 7 6 1
+9 8 7 11 6 1
+9 8 7 6 1
+9 8 7 6 1
+</pre>
+</article>
+

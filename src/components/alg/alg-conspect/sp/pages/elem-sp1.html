@@ -115,6 +115,9 @@
 
   <details>
     <summary>Решение</summary>
+    <h4>Проверка четности веса арбуза</h4>
+    <p>Для решения задачи необходимо определить, можно ли разделить арбуз весом w килограмм на две части, каждая из которых будет весить четное количество килограмм.</p>
+    <p>Для этого нужно проверить 2 условия. w должно быть четным числом, так как сумма двух четных чисел всегда четная. w должно быть больше или равно 4, так как минимальный вес каждой части должен быть 2 кг (наименьшее четное положительное число).</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -126,7 +129,7 @@ int main() {
   cin >> w;
 
   // решение и вывод результата
-  if (w > 2 and w % 2 == 0) {
+  if (w % 2 == 0 && w >= 4) {
     cout &lt;&lt; "YES";
   } else {
     cout &lt;&lt; "NO";
@@ -166,6 +169,8 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <p>Чтобы минимизировать количество шагов, слоник должен делать максимально возможные шаги (т.е. шаги по 5 позиций). После этого, если останется расстояние, которое меньше 5, он сделает один дополнительный шаг.</p>
+    <p>Выражение (x + 4) / 5 эквивалентно округлению вверх результата деления x на 5.</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -213,10 +218,11 @@ int main() {
   <h4>Пример 3</h4>
   <code>1 1</code>
   <code>1</code>
-  <p>В третьем примере Лимак станет больше Боба через один год, их веса будут равны 3 и 2 соответственно.</p>
+  <p>В третьем примере Лимак станет больше Боба через один год, их веса будут равны 3 и 2 соответственно. Цикл продолжается, пока вес Лимака не станет строго больше веса Боба.</p>
 
   <details>
     <summary>Решение</summary>
+    <p>В цикле while обновляем веса Лимака и Боба каждый год. Увеличиваем счетчик лет на каждом шаге.</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -228,15 +234,15 @@ int main() {
   cin >> a >> b;
 
   // решение
-  int count = 0;
+  int years  = 0; // Счетчик лет
   while (a &lt;= b) {
     a *= 3;
     b *= 2;
-    count++;
+    years++;
   }
 
   // вывод результата
-  cout &lt;&lt; count;
+  cout &lt;&lt; years;
 }
 </pre>
   </details>
@@ -280,19 +286,18 @@ int main() {
 #include &lt;iostream&gt;
 
 using namespace std;
+
 int main() {
   // ввод данных
-  int t, a, b;
+  int t;
   cin >> t;
-  int sum;
-  for (int test = 1; test &lt;= t; test++) {
+
+  for (int test = 0; test &lt; t; test++) {
+    int a, b;
     cin >> a >> b;
 
-    // решение
-    sum = a + b;
-
     // вывод результата
-    cout &lt;&lt; sum &lt;&lt; '\n';
+    cout &lt;&lt; a + b &lt;&lt; '\n';
   }
 }
 </pre>
@@ -340,6 +345,7 @@ YES
 
   <details>
     <summary>Решение</summary>
+    <p>Для каждого набора входных данных проверяем три условия: a = b + c, b = a + c, c = a + b</p>
 <pre>
 #include &lt;iostream&gt;
 
@@ -347,10 +353,11 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int t, a, b, c;
+  int t;
   cin >> t;
-  int sum;
-  for (int test = 1; test &lt;= t; test++) {
+
+  for (int test = 0; test &lt; t; test++) {
+    int a, b, c;
     cin >> a >> b >> c;
 
     // решение и вывод результата
@@ -396,6 +403,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Подсчитаем количество больших и маленьких букв в слове.</li>
+      <li>Если количество больших букв строго больше, чем маленьких, то преобразуем всё слово в верхний регистр.</li>
+      <li>Иначе преобразуем всё слово в нижний регистр.</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -408,23 +421,26 @@ int main() {
   cin >> s;
 
   // решение
-  int len = s.length();
-  int big = 0;
-  int small = 0;
-  for (int i = 0; i &lt; len; i++) {
-    if (isupper(s[i])) {
-      big++;
-    } else if (islower(s[i])) {
-      small++;
+  int upperCount = 0; // Счётчик больших букв
+  int lowerCount = 0; // Счётчик маленьких букв
+
+  // Подсчитываем количество больших и маленьких букв
+  for (char c : s) {
+    if (isupper(c)) {
+      upperCount++;
+    } else {
+      lowerCount++;
     }
   }
-  if (big > small) {
-    for (int i = 0; i &lt; len; i++) {
+
+  // Преобразуем слово в нужный регистр
+  if (upperCount > lowerCount) {
+    for (int i = 0; i &lt; s.length(); i++) {
       s[i] = toupper(s[i]);
     }
   }
   else {
-    for (int i = 0; i &lt; len; i++) {
+    for (int i = 0; i &lt; s.length(); i++) {
       s[i] = tolower(s[i]);
     }
   }
@@ -476,6 +492,11 @@ AbCdEfF
 
   <details>
     <summary>Решение</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Приведём обе строки к одному регистру (например, к нижнему), чтобы регистр не влиял на сравнение.</li>
+      <li>Сравним строки посимвольно:</li>
+    </ol>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;string&gt;

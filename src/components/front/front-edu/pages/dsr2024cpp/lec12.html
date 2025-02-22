@@ -506,5 +506,39 @@ int main() {
 </pre>
   <code>2 4</code>
   <p>Число 16 находится в подмассиве от индекса 2 до индекса 4</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+int exp_search(int* array, int n, int target) {
+  int border = 1;
+  while (border &lt; n) {
+    if (target &lt; array[border]) {
+      return border;
+    }
+    border *= 2;
+  }
+  return n;
+}
+
+int main () {
+  int n{};
+  std::cin >> n;
+
+  int* array = new int[n]();
+
+  for (int i = 0; i &lt; n; i++) {
+    std::cin >> array[i];
+  }
+
+  int target{};
+  std::cin >> target;
+  int right = exp_search(array, n, target);
+  std::cout &lt;&lt; right / 2 &lt;&lt; " " &lt;&lt; right;
+}
+</pre>
+  </details>
 </article>
 
