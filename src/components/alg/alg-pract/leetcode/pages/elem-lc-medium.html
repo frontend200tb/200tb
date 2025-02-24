@@ -1,0 +1,682 @@
+<h1>Leetcode Medium</h1>
+
+
+<!-- Содержание -->
+<div class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#leetcode2">(Medium) LeetCode 2. Add Two Numbers</a></p>
+  <p><a href="#leetcode3">(Medium) LeetCode 3. Longest Substring Without Repeating Characters</a></p>
+  <p><a href="#leetcode5">(Medium) LeetCode 5. Longest Palindromic Substring</a></p>
+  <p><a href="#leetcode6">(Medium) LeetCode 6. Zigzag Conversion</a></p>
+  <p><a href="#leetcode54">(Medium) LeetCode 54. Spiral Matrix</a></p>
+  <p><a href="#leetcode532">(Medium) LeetCode 532. K-diff Pairs in an Array</a></p>
+  <p><a href="#leetcode658">(Medium) LeetCode 658. Find K Closest Elements</a></p>
+</div>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://leetcode.com/" target="_blamk">https://leetcode.com/</a></p>
+  <p><a href="https://algo.monster/" target="_blank">https://algo.monster/</a></p>
+</article>
+
+
+<!-- (Medium) LeetCode 2. Add Two Numbers -->
+<article class="article">
+  <div class="anchor" id="leetcode2"></div>
+  <h2>(Medium) LeetCode 2. Add Two Numbers</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/add-two-numbers/" target="_blank">https://leetcode.com/problems/add-two-numbers/</a>
+  <hr>
+
+  <p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+  <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+
+  <h4>Example:</h4>
+  <code>Input: l1 = [2,4,3], l2 = [5,6,4]</code>
+  <code>Output: [7,0,8]</code>
+  <code>Explanation: 342 + 465 = 807</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: l1 = [0], l2 = [0]</code>
+  <code>Output: [0]</code>
+
+  <h4>Example 3:</h4>
+  <code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</code>
+  <code>Output: [8,9,9,9,0,0,0,1]</code>
+
+  <details>
+    <summary>Объяснение алгоритма:</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Мы проходим по обоим связным спискам одновременно, складывая соответствующие цифры.</li>
+      <li>Если сумма цифр больше или равна 10, мы сохраняем перенос (carry) для следующего разряда.</li>
+      <li>Результат строится в виде нового связного списка.</li>
+    </ol>
+
+    <h4>Шаги:</h4>
+    <ol>
+      <li>Создаем фиктивный узел (dummyHead), чтобы упростить добавление новых узлов в результат.</li>
+      <li>Инициализируем переменную carry для хранения переноса.</li>
+      <li>Проходим по спискам, пока есть узлы или перенос.</li>
+      <li>
+        На каждом шаге:
+        <ol>
+          <li>Суммируем значения текущих узлов и перенос.</li>
+          <li>Вычисляем новое значение переноса и цифру для текущего узла.</li>
+          <li>Создаем новый узел для результата и переходим к следующему узлу.</li>
+        </ol>
+      </li>
+      <li>Возвращаем результат, начиная с узла после фиктивного.</li>
+    </ol>
+
+    <h4>Сложность:</h4>
+    <ol>
+      <li>Время: O(max(n, m)), где n и m — длины двух связных списков. Мы проходим по каждому списку один раз.</li>
+      <li>Память: O(max(n, m)), так как результат может быть на один узел длиннее самого длинного списка.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Решение на C++</summary>
+<pre>
+/**
+ * Определение для singly-linked list.
+ * struct ListNode {
+ *   int val;
+ *   ListNode *next;
+ *   ListNode() : val(0), next(nullptr) {}
+ *   ListNode(int x) : val(x), next(nullptr) {}
+ *   ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode* dummyHead = new ListNode();
+    ListNode* current = dummyHead;
+    int carry = 0;
+
+    while (l1 != nullptr || l2 != nullptr || carry != 0) {
+      int sum = carry;
+      if (l1 != nullptr) {
+        sum += l1->val;
+        l1 = l1->next;
+      }
+      if (l2 != nullptr) {
+        sum += l2->val;
+        l2 = l2->next;
+      }
+
+      carry = sum / 10;
+      current->next = new ListNode(sum % 10);
+      current = current->next;
+    }
+
+    return dummyHead->next;
+  }
+};
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение на JavaScript</summary>
+<pre>
+/**
+ * Определение для singly-linked list.
+ * function ListNode(val, next) {
+ *   this.val = (val === undefined ? 0 : val);
+ *   this.next = (next === undefined ? null : next);
+ * }
+ */
+
+var addTwoNumbers = function(l1, l2) {
+  const dummyHead = new ListNode();
+  let current = dummyHead;
+  let carry = 0;
+
+  while (l1 !== null || l2 !== null || carry !== 0) {
+    let sum = carry;
+    if (l1 !== null) {
+      sum += l1.val;
+      l1 = l1.next;
+    }
+    if (l2 !== null) {
+      sum += l2.val;
+      l2 = l2.next;
+    }
+
+    carry = Math.floor(sum / 10);
+    current.next = new ListNode(sum % 10);
+    current = current.next;
+  }
+
+  return dummyHead.next;
+};
+</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 3. Longest Substring Without Repeating Characters -->
+<article class="article">
+  <div class="anchor" id="leetcode3"></div>
+  <h2>(Medium) LeetCode 3. Longest Substring Without Repeating Characters</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">https://leetcode.com/problems/longest-substring-without-repeating-characters/</a>
+  <hr>
+
+  <p>Given a string s, find the length of the longest substring without repeating characters.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.</pre>
+
+  <h4>Example 3:</h4>
+<pre>Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring,
+"pwke" is a subsequence and not a substring.</pre>
+
+  <details>
+    <summary>Объяснение алгоритма:</summary>
+    <h4>Идея решения:</h4>
+    <ol>
+      <li>Мы используем два указателя: left (начало текущей подстроки) и right (конец текущей подстроки).</li>
+      <li>Мы также используем множество (unordered_set в C++ и Set в JavaScript) для хранения уникальных символов в текущей подстроке.</li>
+      <li>Если символ на позиции right уже есть в множестве, это означает, что в текущей подстроке есть повторение. Мы двигаем left вправо, пока не удалим повторяющийся символ из множества.</li>
+      <li>На каждом шаге мы обновляем максимальную длину подстроки без повторений.</li>
+    </ol>
+
+    <h4>Шаги:</h4>
+    <ol>
+      <li>Инициализируем maxLength и left.</li>
+      <li>Проходим по строке с помощью right.</li>
+      <li>Если символ s[right] уже есть в множестве, двигаем left и удаляем символы из множества, пока не удалим повторяющийся символ.</li>
+      <li>Добавляем текущий символ в множество.</li>
+      <li>Обновляем maxLength как максимум между текущей длиной подстроки (right - left + 1) и maxLength.</li>
+    </ol>
+
+    <h4>Сложность:</h4>
+    <ol>
+      <li>Время: O(n), где n — длина строки. Каждый символ обрабатывается дважды (в худшем случае).</li>
+      <li>Память: O(min(m, n)), где m — размер алфавита (количество уникальных символов). В худшем случае, если все символы уникальны, множество будет содержать все символы строки.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Решение на C++</summary>
+<pre>
+#include &lt;string&gt;
+#include &lt;unordered_set&gt;
+using namespace std;
+
+class Solution {
+public:
+  int lengthOfLongestSubstring(string s) {
+    int n = s.size();
+    int maxLength = 0;
+    int left = 0;
+    unordered_set&lt;char&gt; charSet;
+
+    for (int right = 0; right &lt; n; right++) {
+      while (charSet.find(s[right]) != charSet.end()) {
+        charSet.erase(s[left]);
+        left++;
+      }
+      charSet.insert(s[right]);
+      maxLength = max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+  }
+};
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение на JavaScript</summary>
+<pre>
+var lengthOfLongestSubstring = function(s) {
+  let maxLength = 0;
+  let left = 0;
+  const charSet = new Set();
+
+  for (let right = 0; right &lt; s.length; right++) {
+    while (charSet.has(s[right])) {
+      charSet.delete(s[left]);
+      left++;
+    }
+    charSet.add(s[right]);
+    maxLength = Math.max(maxLength, right - left + 1);
+  }
+
+  return maxLength;
+};
+</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 5. Longest Palindromic Substring -->
+<article class="article">
+  <div class="anchor" id="leetcode5"></div>
+  <h2>(Medium) LeetCode 5. Longest Palindromic Substring</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank">https://leetcode.com/problems/longest-palindromic-substring/</a>
+  <hr>
+
+  <p>Given a string s, return the longest palindromic substring in s.</p>
+
+  <h4>Example 1:</h4>
+<pre>Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.</pre>
+
+  <h4>Example 2:</h4>
+<pre>Input: s = "cbbd"
+Output: "bb"</pre>
+
+  <details>
+    <summary>Объяснение:</summary>
+    <p>Мы будем использовать метод "расширения вокруг центра". Для каждого символа в строке будем рассматривать его как центр палиндрома и расширяться влево и вправо, пока символы совпадают. Также нужно учитывать случай, когда палиндром имеет четную длину (т.е. центр находится между двумя символами).</p>
+    <p>Если строка пустая или состоит из одного символа, возвращаем её</p>
+
+    <h4>Функция expandAroundCenter:</h4>
+    <ol>
+      <li>Расширяется влево и вправо от центра, пока символы совпадают.</li>
+      <li>Возвращает длину палиндрома.</li>
+    </ol>
+
+    <h4>Цикл в longestPalindrome:</h4>
+    <ol>
+      <li>Для каждого символа в строке рассматриваем его как центр палиндрома.</li>
+      <li>Вычисляем длину палиндрома для нечетной и четной длины.</li>
+      <li>Обновляем индексы start и end, если находим более длинный палиндром.</li>
+    </ol>
+
+    <h4>Возврат результата:</h4>
+    <ol>
+      <li>Используем метод substr для извлечения подстроки в C++.</li>
+      <li>Используем метод substring для извлечения подстроки в JavaScript.</li>
+    </ol>
+
+    <h4>Сложность:</h4>
+    <ol>
+      <li>Временная сложность: O(n^2), где n — длина строки. В худшем случае для каждого символа выполняется расширение.</li>
+      <li>Пространственная сложность: O(1), так как используется константное количество дополнительной памяти.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Решение на C++</summary>
+<pre>
+#include &lt;string&gt;
+using namespace std;
+
+class Solution {
+public:
+  string longestPalindrome(string s) {
+    if (s.empty() || s.length() &lt; 2) {
+      return s;
+    }
+
+    int start = 0;
+    int end = 0;
+
+    for (int i = 0; i &lt; s.length(); i++) {
+      // Для нечетной длины палиндрома
+      int len1 = expandAroundCenter(s, i, i);
+      // Для четной длины палиндрома
+      int len2 = expandAroundCenter(s, i, i + 1);
+      // Выбираем максимальную длину
+      int len = max(len1, len2);
+
+      if (len > end - start) {
+        start = i - (len - 1) / 2;
+        end = i + len / 2;
+      }
+    }
+
+    return s.substr(start, end - start + 1);
+  }
+
+private:
+  int expandAroundCenter(const string& s, int left, int right) {
+    while (left >= 0 && right &lt; s.length() && s[left] == s[right]) {
+      left--;
+      right++;
+    }
+
+    return right - left - 1;
+  }
+};
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение на JavaScript</summary>
+<pre>
+function longestPalindrome(s) {
+  if (!s || s.length &lt; 2) {
+    return s;
+  }
+
+  let start = 0;
+  let end = 0;
+
+  for (let i = 0; i &lt; s.length; i++) {
+    // Для нечетной длины палиндрома
+    const len1 = expandAroundCenter(s, i, i);
+    // Для четной длины палиндрома
+    const len2 = expandAroundCenter(s, i, i + 1);
+    // Выбираем максимальную длину
+    const len = Math.max(len1, len2);
+
+    if (len > end - start) {
+      start = i - Math.floor((len - 1) / 2);
+      end = i + Math.floor(len / 2);
+    }
+  }
+
+  return s.substring(start, end + 1);
+}
+
+function expandAroundCenter(s, left, right) {
+  while (left >= 0 && right &lt; s.length && s[left] === s[right]) {
+    left--;
+    right++;
+  }
+
+  return right - left - 1;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) 6. Zigzag Conversion -->
+<article class="article">
+  <div class="anchor" id="leetcode6"></div>
+  <h2>(Medium) 6. Zigzag Conversion</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/zigzag-conversion/" target="_blank">https://leetcode.com/problems/zigzag-conversion/</a>
+  <hr>
+
+  <p>The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+<pre>
+P   A   H   N
+A P L S I I G
+Y   I   R
+</pre>
+
+  <p>And then read line by line: "PAHNAPLSIIGYIR"</p>
+
+  <p>Write the code that will take a string and make this conversion given a number of rows:</p>
+  <code>string convert(string s, int numRows);</code>
+  <p>Дана строка s и число numRows. Необходимо преобразовать строку в зигзагообразный вид, записав её в несколько строк (количество строк равно numRows), а затем прочитать построчно. Например, для строки "PAYPALISHIRING" и numRows = 3 зигзагообразный вид будет:</p>
+<pre>
+P   A   H   N
+A P L S I I G
+Y   I   R
+</pre>
+  <p>После построчного чтения результат будет: "PAHNAPLSIIGYIR".</p>
+
+  <h4>Example 1:</h4>
+<pre>
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+</pre>
+
+  <h4>Example 2:</h4>
+<pre>
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+</pre>
+
+  <h4>Explanation:</h4>
+<pre>
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+</pre>
+
+  <h4>Example 3:</h4>
+<pre>
+Input: s = "A", numRows = 1
+Output: "A"
+</pre>
+
+  <details>
+    <summary>Решение на C++</summary>
+<pre>
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+  string convert(string s, int numRows) {
+    if (numRows == 1 || s.length() &lt;= numRows) {
+      return s;
+    }
+
+    vector&lt;string&gt; rows(min(numRows, int(s.length())));
+    int currentRow = 0;
+    bool goingDown = false;
+
+    for (char c : s) {
+      rows[currentRow] += c;
+
+      if (currentRow == 0 || currentRow == numRows - 1) {
+        goingDown = !goingDown;
+      }
+
+      currentRow += goingDown ? 1 : -1;
+    }
+
+    string result;
+    for (string row : rows) {
+      result += row;
+    }
+
+    return result;
+  }
+};
+</pre>
+
+    <h4>Объяснение:</h4>
+    <ol>
+      <li>Проверка граничных случаев: Если numRows == 1 или длина строки меньше или равна numRows, возвращаем исходную строку.</li>
+      <li>Использование вектора строк: Создаем вектор rows, где каждая строка соответствует строке зигзага.</li>
+      <li>Заполнение строк: Проходим по каждому символу строки s и добавляем его в соответствующую строку зигзага. Меняем направление движения, когда достигаем верхней или нижней строки.</li>
+      <li>Сбор результата: Объединяем все строки из вектора rows в одну строку result.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Решение на JavaScript</summary>
+<pre>
+function convert(s, numRows) {
+  if (numRows === 1 || s.length &lt;= numRows) {
+    return s;
+  }
+
+  const rows = new Array(Math.min(numRows, s.length)).fill("");
+  let currentRow = 0;
+  let goingDown = false;
+
+  for (const c of s) {
+    rows[currentRow] += c;
+
+    if (currentRow === 0 || currentRow === numRows - 1) {
+      goingDown = !goingDown;
+    }
+
+    currentRow += goingDown ? 1 : -1;
+  }
+
+  return rows.join("");
+}
+</pre>
+
+    <h4>Объяснение:</h4>
+    <ol>
+      <li>Проверка граничных случаев: Аналогично C++ версии, если numRows === 1 или длина строки меньше или равна numRows, возвращаем исходную строку.</li>
+      <li>Использование массива строк: Создаем массив rows, где каждая строка соответствует строке зигзага.</li>
+      <li>Заполнение строк: Проходим по каждому символу строки s и добавляем его в соответствующую строку зигзага. Меняем направление движения, когда достигаем верхней или нижней строки.</li>
+      <li>Сбор результата: Объединяем все строки из массива rows в одну строку с помощью метода join.</li>
+    </ol>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 54. Spiral Matrix -->
+<article class="article">
+  <div class="anchor" id="leetcode54"></div>
+  <h2>(Medium) LeetCode 54. Spiral Matrix</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/spiral-matrix/" target="_blank">https://leetcode.com/problems/spiral-matrix/</a>
+  <hr>
+
+  <p>Given an m x n matrix, return all elements of the matrix in spiral order</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: [[1,2,3],[4,5,6],[7,8,9]]</code>
+  <code>Output: [1,2,3,6,9,8,7,4,5]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</code>
+  <code>Output: [1,2,3,4,8,12,11,19,9,5,6,7]</code>
+
+  <h4>Constraints:</h4>
+  <code>m == matrix.length</code>
+  <code>n == matrix[i].length</code>
+  <code>1 &le; m, n &le; 10</code>
+  <code>-100 &le; matrix[i][j] &le; 100</code>
+  <details>
+    <summary>Решение</summary>
+<pre>const rotateAgainst90 = (arr)=>{
+  if(!arr.length) return []
+  const cols = arr.length;
+  const rows = arr[0].length;
+  const res = Array(arr[0].length).fill(null).map(v=>[]);
+  for(let row=0;row &lt; rows;row++){
+      for(let col=0;col &lt; cols;col++){
+        res[row].push(arr[col][row])
+      }
+  }
+  return res.reverse()
+}
+
+var spiralOrder = function(m) {
+    const res = [];
+    for(let row=0;row &lt; m.length;){
+        for(let col=0;col &lt; m[0].length;col++){
+            res.push(m[row][col]);
+        }
+        m = rotateAgainst90(m.slice(1))
+    }
+    return res
+};</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 532. K-diff Pairs in an Array -->
+<article class="article">
+  <div class="anchor" id="leetcode532"></div>
+  <h2>(Medium) LeetCode 532. K-diff Pairs in an Array</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/k-diff-pairs-in-an-array/" target="_blank">https://leetcode.com/problems/k-diff-pairs-in-an-array/</a>
+  <hr>
+
+  <p>Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array.</p>
+  <p>A k-diff pair is an integer pair (nums[i], nums[j]), where the following are true:</p>
+  <code>0 &lt;= i, j &lt; nums.length</code>
+  <code>i != j</code>
+  <code>|nums[i] - nums[j]| == k</code>
+  <p>Notice that |val| denotes the absolute value of val.</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: nums = [3,1,4,1,5], k = 2</code>
+  <code>Output: 2</code>
+  <p>Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5). Although we have two 1s in the input, we should only return the number of unique pairs.</p>
+
+  <h4>Example 2:</h4>
+  <code>Input: nums = [1,2,3,4,5], k = 1</code>
+  <code>Output: 4</code>
+  <p>Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).</p>
+
+  <h4>Example 3:</h4>
+  <code>Input: nums = [1,3,1,5,4], k = 0</code>
+  <code>Output: 1</code>
+  <p>Explanation: There is one 0-diff pair in the array, (1, 1).</p>
+</article>
+
+
+<!-- (Medium) LeetCode 658. Find K Closest Elements -->
+<article class="article">
+  <div class="anchor" id="leetcode658"></div>
+  <h2>(Medium) LeetCode 658. Find K Closest Elements</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/find-k-closest-elements/description/" target="_blank">https://leetcode.com/problems/find-k-closest-elements/</a>
+  <hr>
+
+  <p>Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.</p>
+  <p>An integer a is closer to x than an integer b if:</p>
+  <code>|a - x| &lt; |b - x|, or</code>
+  <code>|a - x| == |b - x| and a &lt; b</code>
+
+  <h4>Example 1:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = 3</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: arr = [1,2,3,4,5], k = 4, x = -1</code>
+  <code>Output: [1,2,3,4]</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>function findClosestElements(arr, k, x) {
+  isClosest = (a, b) => {
+    const aDiff = Math.abs(a-x);
+    const bDiff = Math.abs(b-x);
+    return aDiff &lt; bDiff || (aDiff === bDiff && a &lt; b);
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (right - left + 1 &gt; k) {
+    if (isClosest(arr[left], arr[right])) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+
+  return arr.slice(left, right + 1);
+}</pre>
+  </details>
+</article>

@@ -384,6 +384,64 @@ NO
 1
 0
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, q;
+  cin >> n >> q;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+  vector&lt;int&gt; B, C;
+  B.push_back(A[0]);
+  C.push_back(1);
+
+  for (int i = 1; i &lt; n; i++) {
+    if (A[i] == B[B.size() - 1]) {
+      C[C.size() - 1]++;
+    } else {
+      B.push_back(A[i]);
+      C.push_back(1);
+    }
+  }
+
+  int x, left, right, mid;
+  for (int i = 0; i &lt; q; i++) {
+    cin >> x;
+    left = 0; // [l,r)
+    right = B.size();
+    while (right - left > 1) {
+      mid = (right + left) / 2;
+      if (B[mid] > x) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+    } // [l, l+1)
+
+    // вывод результата
+    if (B[left] == x) {
+      cout &lt;&lt; C[left] &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; 0 &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -554,6 +612,69 @@ int main() {
 -1
 9
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+// наибольший общий делитель
+long long gcd(long long a, long long b) {
+  if (b == 0) {
+    return a;
+  } else {
+    return gcd(b, a % b);
+  }
+}
+
+int main() {
+  // ввод данных
+  long long a, b;
+  cin >> a >> b;
+  long long d = gcd(a, b);
+  int t;
+  cin >> t;
+
+  // решение
+  vector&lt;long long&gt; G;
+  for (long long i = 1; i * i &lt;= d; i++) {
+    if (d % i == 0) {
+      G.push_back(i);
+      if (d != i * i) {
+        G.push_back(d / i);
+      }
+    }
+  }
+  sort(G.begin(), G.end());
+
+  for (int test = 0; test &lt; t; test++) {
+    int low, high;
+    cin >> low >> high;
+    int left = 0, right = G.size(), mid;
+    while (right - left > 1) {
+      mid = (left + right) / 2;
+      if (G[mid] > high) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+    }
+
+
+    // вывод результата
+    if (G[left] >= low) {
+      cout &lt;&lt; G[left] &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; "-1\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

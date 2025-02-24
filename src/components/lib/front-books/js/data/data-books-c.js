@@ -916,8 +916,8 @@ const dataBooksC = [
     author: 'МакГрат',
     authorName: 'Майк',
     pages: '193',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.02.24 пн',
   },
 
   {

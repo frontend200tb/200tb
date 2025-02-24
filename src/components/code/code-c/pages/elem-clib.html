@@ -1,0 +1,157 @@
+<h1>Стандартные библиотеки языка Си</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#lib">Стандартные библиотеки языка Си</a></p>
+  <br><a href="#stdio">stdio.h</a>
+  <br><a href="#stdlib">stdlib.h</a>
+  <br><a href="#ctype">ctype.h</a>
+  <br><a href="#string">string.h</a>
+  <br><a href="#limits">limits.h</a>
+  <br><a href="#math">math.h</a>
+  <br><a href="#float">float.h</a>
+  <br><a href="#assert">assert.h</a>
+  <br><a href="#stdarg">stdarg.h</a>
+  <br><a href="#setjmp">setjmp.h</a>
+  <br><a href="#signal">signal.h</a>
+  <br><a href="#time">time.h</a>
+</article>
+
+
+<!-- Стандартные библиотеки языка Си -->
+<article class="article">
+  <div class="anchor" id="lib"></div>
+  <h3>Стандартные библиотеки языка Си</h3>
+
+  <p>Стандарт языка Си определяет несколько стандартных библиотек, содержащих протестированные функции, которые могут быть использованы в любых программах на языке Си</p>
+  <p>Библиотеки содержатся в заголовочных файлах с расширением .h</p>
+</article>
+
+
+<!-- stdio.h -->
+<article class="article">
+  <div class="anchor" id="stdio"></div>
+  <h3>stdio.h</h3>
+
+  <p>Функции из билиотеки <strong>stdio.h</strong> составляют одну треть всей билиотеки языка Си. Они используются для передачи данных в программу и из нее.</p>
+  <p>Поток - это источник данных, который завершается символом новой стори '\n'. Поток присваивается указателю типа FILE, в котором хранится вся информация, необходимая для управления потоком.</p>
+
+  <h4>Функция fopen()</h4>
+  <code>FILE fopen(const char *filename, const char mode)</code>
+  <p>Функция fopen() открывает файл в заданном режиме и возвращает указатель типа FILE если файл открылся, иначе значение NULL.</p>
+
+  <h4>Функция freopen()</h4>
+  <code>FILE freopen(const char *filename, const char mode, FILE *stream)</code>
+  <p>Функция freopen() открывает файл в заданном режиме, привязывает его к заданному потоку и возвращает поток если файл открылся, иначе значение NULL.</p>
+
+  <h4>Функция fflush()</h4>
+  <code>int fflush(FILE *stream)</code>
+  <p>Функция fflush() очищает выходной поток. Буферизованные данные, находящиеся в выходном потоке, немедленно записываются. Возвращает значение NULL, при ошибке записи возвращает константу EOF.</p>
+</article>
+
+
+<!-- stdlib.h -->
+<article class="article">
+  <div class="anchor" id="stdlib"></div>
+  <h3>stdlib.h</h3>
+
+  <p>Содержит функции для преобразования чисел, выделения памяти и т.д.</p>
+</article>
+
+
+<!-- ctype.h -->
+<article class="article">
+  <div class="anchor" id="ctype"></div>
+  <h3>ctype.h</h3>
+
+  <p>Содержит функции для работы с символами</p>
+</article>
+
+
+<!-- string.h -->
+<article class="article">
+  <div class="anchor" id="string"></div>
+  <h3>string.h</h3>
+
+  <p>Содержит функции для работы со строками</p>
+</article>
+
+
+<!-- limits.h -->
+<article class="article">
+  <div class="anchor" id="limits"></div>
+  <h3>limits.h</h3>
+
+  <p>Содержит константные определения размеров типов данных языка Си. Для каждого типа данных есть свои константы минимального и максимального значения</p> <p>CHAR_MIN, CHAR_MAX</p>
+  <p>SHRT_MIN, SHRT_MAX</p>
+  <p>INT_MIN, INT_MAX</p>
+  <p>LONG_MIN, LONG_MAX</p>
+  <p>LLONG_MIN, LLONG_MAX</p>
+</article>
+
+
+<!-- math.h -->
+<article class="article">
+  <div class="anchor" id="math"></div>
+  <h3>math.h</h3>
+
+  <p>Содержит математические функции</p>
+</article>
+
+
+<!-- float.h -->
+<article class="article">
+  <div class="anchor" id="float"></div>
+  <h3>float.h</h3>
+
+  <p>Содержит определения констант для арифметики с плавующей точкой</p>
+</article>
+
+
+<!-- assert.h -->
+<article class="article">
+  <div class="anchor" id="assert"></div>
+  <h3>assert.h</h3>
+
+  <p>Содержит функции для диагностики программы</p>
+</article>
+
+
+<!-- stdarg.h -->
+<article class="article">
+  <div class="anchor" id="stdarg"></div>
+  <h3>stdarg.h</h3>
+
+  <p>Содержит функции для перебора аргументов функций</p>
+</article>
+
+
+<!-- setjmp.h -->
+<article class="article">
+  <div class="anchor" id="setjmp"></div>
+  <h3>setjmp.h</h3>
+
+  <p>Содержит функции чтобы нарушить обычную последовательность входа в функции и выхода из них</p>
+</article>
+
+
+<!-- signal.h -->
+<article class="article">
+  <div class="anchor" id="signal"></div>
+  <h3>signal.h</h3>
+
+  <p>Содержит функции для обработки исключительных ситуаций, которые могут возникнуть в программе</p>
+</article>
+
+
+<!-- time.h -->
+<article class="article">
+  <div class="anchor" id="time"></div>
+  <h3>time.h</h3>
+
+  <p>Содержит функции для работы с датой и временем</p>
+</article>
+
