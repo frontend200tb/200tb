@@ -12,6 +12,7 @@ import showCodePascal from '../code/code-pascal/code-pascal';
 import showCodeC from '../code/code-c/code-c';
 import showCodeAsm from '../code/code-asm/code-asm';
 import showCodeOther from '../code/code-other/code-other';
+import showCodeRef from '../code/code-ref/code-ref';
 
 // front
 import showFrontEdu from '../front/front-edu/front-edu';
@@ -118,6 +119,14 @@ export const dataNavCode = [
     content: '<code-other></code-other>',
     act() {
       showCodeOther();
+    },
+  },
+  {
+    url: 'code-ref.html',
+    text: 'Справка',
+    content: '<code-ref></code-ref>',
+    act() {
+      showCodeRef();
     },
   },
 ];

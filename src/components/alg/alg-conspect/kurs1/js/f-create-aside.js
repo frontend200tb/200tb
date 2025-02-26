@@ -42,7 +42,7 @@ aside.append(...asideDiv);
 
 const main = document.createElement('main');
 main.classList.add('main');
-main.id = 'stepik'; // эта строчка отличается
+main.id = 'kurs1'; // эта строчка отличается
 
 pageLink(asideDiv, main);
 

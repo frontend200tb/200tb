@@ -5,9 +5,7 @@ class Timus extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside timus">
-      <aside class="aside"></aside>
-      <main class="main" id="timus"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-timus';

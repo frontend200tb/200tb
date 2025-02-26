@@ -6,8 +6,6 @@ class Codewars extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section class="main__aside">
-      <aside class="aside"></aside>
-      <main class="main" id="codewars"></main>
     </section>
     `;
     this.className = 'alg-codewars';

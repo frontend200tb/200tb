@@ -5,9 +5,7 @@ class Kurs1 extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside kurs1">
-      <aside class="aside"></aside>
-      <main class="main" id="kurs1"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-kurs1';

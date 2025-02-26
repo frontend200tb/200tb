@@ -6,8 +6,6 @@ class JsDatatypes extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section class="main__aside">
-      <aside class="aside"></aside>
-      <main class="main" id="datatypes"></main>
     </section>
     `;
     this.className = 'js-datatypes';

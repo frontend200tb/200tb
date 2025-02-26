@@ -6,8 +6,6 @@ class FrontArticles extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <section class="main__aside">
-        <aside class="aside"></aside>
-        <main class="main" id="articles"></main>
       </section>
     `;
     this.className = 'front-articles';

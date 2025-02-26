@@ -5,9 +5,7 @@ class Acmp extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside acmp">
-      <aside class="aside"></aside>
-      <main class="main" id="acmp"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-acmp';

@@ -5,9 +5,7 @@ class Fatin extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside fatin">
-      <aside class="aside"></aside>
-      <main class="main" id="fatin"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-fatin';

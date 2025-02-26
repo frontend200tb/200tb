@@ -2,7 +2,7 @@
 Скрипт из файла nav.js
 создает ссылки в меню nav для каждого пункта меню header_nav
 Alg      Алгоритмы Конспекты Практика
-Code     HTML CSS JS TS Pascal C/C++ Asm Other
+Code     HTML CSS JS TS Pascal C/C++ Asm Other Справка
 Frontend Edu Learned Node Offline Online Vacancy
 Lib      Books Video Youtube
 ****************** */

@@ -6,8 +6,6 @@ class FrontFramework extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section class="main__aside">
-      <aside class="aside"></aside>
-      <main class="main" id="framework"></main>
     </section>
     `;
     this.className = 'front-framework';

@@ -6,8 +6,6 @@ class JsInterview extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section class="main__aside">
-      <aside class="aside"></aside>
-      <main class="main" id="interview"></main>
     </section>
     `;
     this.className = 'js-interview';

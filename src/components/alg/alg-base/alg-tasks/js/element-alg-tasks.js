@@ -5,9 +5,7 @@ class AlgTasks extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside tasks">
-      <aside class="aside"></aside>
-      <main class="main" id="tasks"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-tasks';

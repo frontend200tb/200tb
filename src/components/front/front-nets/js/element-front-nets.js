@@ -6,8 +6,6 @@ class FrontNets extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <section class="main__aside">
-        <aside class="aside"></aside>
-        <main class="main" id="nets"></main>
       </section>
     `;
     this.className = 'front-nets';

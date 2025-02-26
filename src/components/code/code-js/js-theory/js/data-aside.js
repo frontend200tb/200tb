@@ -8,7 +8,4 @@ export const asideThemes = [
   'Приоритет операций',
   'Keywords',
   'Генераторы',
-  'Ascii',
-  'Escape',
-  'Unicode',
 ];

@@ -5,9 +5,7 @@ class Coderun extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside coderun">
-      <aside class="aside"></aside>
-      <main class="main" id="coderun"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-coderun';

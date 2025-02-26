@@ -5,9 +5,7 @@ class Stepik extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <section class="main__aside stepik">
-      <aside class="aside"></aside>
-      <main class="main" id="stepik"></main>
+    <section class="main__aside">
     </section>
     `;
     this.className = 'alg-stepik';
