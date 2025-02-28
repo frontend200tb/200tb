@@ -27,6 +27,19 @@ const dataBooksMicro = [
   },
 
   {
+    id: 2,
+    year: 1987,
+    category: 'основы',
+    theme: 'Микропроцессоры',
+    title: 'Прикладная теория цифровых автоматов',
+    author: 'Самофалов',
+    authorName: 'Константин',
+    pages: '374',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 3,
     year: 1988,
     category: 'основы',

@@ -131,6 +131,19 @@ const dataBooksDos = [
   },
 
   {
+    id: 9,
+    year: 1992,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Аппаратное обеспечение IBM PC. Том 2 Часть 2 (2е)',
+    author: 'Фролов',
+    authorName: 'Александр',
+    pages: '208',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 1993,
     category: 'основы',

@@ -28,6 +28,32 @@ const dataBooksCompil = [
 
   {
     id: 3,
+    year: 1978,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Теория синтаксического анализа, перевода и компиляции. Том 1',
+    author: 'Ахо',
+    authorName: 'Альфред',
+    pages: '612',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 4,
+    year: 1978,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Теория синтаксического анализа, перевода и компиляции. Том 2',
+    author: 'Ахо',
+    authorName: 'Альфред',
+    pages: '487',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
     year: 1984,
     category: 'основы',
     theme: 'Компиляторы',
@@ -40,7 +66,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 2001,
     category: 'основы',
     theme: 'Компиляторы',
@@ -53,7 +79,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 2002,
     category: 'основы',
     theme: 'Компиляторы',
@@ -66,7 +92,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 6,
+    id: 8,
     year: 2003,
     category: 'основы',
     theme: 'Компиляторы',
@@ -79,7 +105,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2004,
     category: 'основы',
     theme: 'Компиляторы',
@@ -92,7 +118,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2006,
     category: 'основы',
     theme: 'Компиляторы',
@@ -100,6 +126,44 @@ const dataBooksCompil = [
     author: 'Мозговой',
     authorName: 'Максим',
     pages: '316',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 2010,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Основы конструирования компиляторов',
+    author: 'Иванова',
+    pages: '47',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2015,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Конструирование компиляторов',
+    author: 'Свердлов',
+    authorName: 'Сергей',
+    pages: '575',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2015,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Языки программирования и компиляторы',
+    author: 'Дубров',
+    authorName: 'Д.В.',
+    pages: '282',
     isLearned: false,
     dateLearned: '',
   },

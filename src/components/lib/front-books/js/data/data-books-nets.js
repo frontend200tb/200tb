@@ -1213,6 +1213,19 @@ const dataBooksNets = [
   },
 
   {
+    id: 50,
+    year: 2019,
+    category: 'основы',
+    theme: 'Компьютерные сети',
+    title: 'Сети и системы передачи информации',
+    author: 'Чернокнижный',
+    authorName: 'Геннадий',
+    pages: '104',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 51,
     year: 2020,
     category: 'основы',
@@ -1234,6 +1247,19 @@ const dataBooksNets = [
     author: 'Мунистер',
     authorName: 'Вячеслав',
     pages: '100',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 51,
+    year: 2020,
+    category: 'основы',
+    theme: 'Компьютерные сети',
+    title: 'Промышленные сети',
+    author: 'Титаев',
+    authorName: 'Александр',
+    pages: '128',
     isLearned: false,
     dateLearned: '',
   },

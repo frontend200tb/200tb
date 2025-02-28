@@ -1,7 +1,7 @@
 const dataBooksComp = [
 
   {
-    id: 4,
+    id: 1,
     year: 1991,
     category: 'основы',
     theme: 'Компьютер',
@@ -14,7 +14,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 5,
+    id: 2,
     year: 1991,
     category: 'основы',
     theme: 'Компьютер',
@@ -27,7 +27,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 6,
+    id: 3,
     year: 1992,
     category: 'основы',
     theme: 'Компьютер',
@@ -39,7 +39,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 7,
+    id: 4,
     year: 1992,
     category: 'основы',
     theme: 'Компьютер',
@@ -51,9 +51,60 @@ const dataBooksComp = [
     dateLearned: '',
   },
 
+  {
+    id: 5,
+    year: 1992,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя (2е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '292',
+    isLearned: false,
+    dateLearned: '',
+  },
 
   {
-    id: 15,
+    id: 6,
+    year: 1993,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя (5е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '352',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 7,
+    year: 1994,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя (5е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '352',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 8,
+    year: 1995,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя (6е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '434',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 1999,
     category: 'основы',
     theme: 'Компьютер',
@@ -61,6 +112,32 @@ const dataBooksComp = [
     author: 'Гук',
     authorName: 'Михаил',
     pages: '402',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
+    year: 1999,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя (7е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '644',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 11,
+    year: 1999,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'IBM PC для пользователя. Краткий курс (7е)',
+    author: 'Фигурнов',
+    authorName: 'Виктор',
+    pages: '480',
     isLearned: false,
     dateLearned: '',
   },
@@ -412,6 +489,19 @@ const dataBooksComp = [
     author: 'Динман',
     authorName: 'М.И.',
     pages: '142',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 47,
+    year: 2006,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Устройство ПК',
+    author: 'Крылов',
+    authorName: 'Андрей',
+    pages: '63',
     isLearned: false,
     dateLearned: '',
   },
@@ -970,6 +1060,19 @@ const dataBooksComp = [
     author: 'Харрис',
     authorName: 'Дэвид',
     pages: '357',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 92,
+    year: 2020,
+    category: 'основы',
+    theme: 'Компьютер',
+    title: 'Основы компьютерной грамотности (6е)',
+    author: 'Беляева',
+    authorName: 'Т.А.',
+    pages: '274',
     isLearned: false,
     dateLearned: '',
   },
