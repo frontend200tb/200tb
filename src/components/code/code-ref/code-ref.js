@@ -3,6 +3,7 @@
 Объект codeRef содержит страницу code-ref
 Функция showCodeRef показывает страницу code-ref
 ******************** */
+import './scss/copy.scss';
 import './js/element-code-ref';
 import {createAside, createMain} from './js/f-create-aside';
 

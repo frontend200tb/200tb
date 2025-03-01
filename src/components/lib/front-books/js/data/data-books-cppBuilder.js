@@ -106,6 +106,19 @@ const dataBooksCppBuilder = [
 
   {
     id: 9,
+    year: 2002,
+    category: 'code',
+    theme: 'C++ Builder',
+    title: 'Программирование в C++ Builder 5',
+    author: 'Архангельский',
+    authorName: 'Алексей',
+    pages: '1152',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 9,
     year: 2003,
     category: 'code',
     theme: 'C++ Builder',

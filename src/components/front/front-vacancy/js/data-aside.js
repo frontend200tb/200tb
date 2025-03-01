@@ -1,5 +1,8 @@
 // Создаем массив asideThemes с темами для блока aside
 export const asideThemes = [
+  'Skills C',
+  'Skills C++',
+  'Skills JS',
   'Vacancy',
   'Epam',
   'DSR',
@@ -15,5 +18,4 @@ export const asideThemes = [
   'Приглашения',
   'Отказы',
   'Без ответа',
-  'Skills',
 ];
