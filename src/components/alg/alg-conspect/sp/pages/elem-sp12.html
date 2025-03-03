@@ -182,6 +182,47 @@ for (int i = 0; i &lt; n; i++) {
 1 23 67 45 21 13
 </pre>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Решим при помощи структур данных, но без вектора.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  stack&lt;int&gt; st;
+  queue&lt;int&gt; q;
+  int tmp = 1;
+
+  // решение
+  while (tmp != 0) {
+    cin >> tmp;
+    if (tmp != 0) {
+      if (tmp % 2 == 0) {
+        q.push(tmp);
+      } else {
+        st.push(tmp);
+      }
+    }
+  }
+
+  // вывод результата
+  while (!q.empty()) {
+    cout &lt;&lt; q.front() &lt;&lt; " ";
+    q.pop();
+  }
+  cout &lt;&lt; '\n';
+  while (st.size() > 0) {
+    cout &lt;&lt; st.top() &lt;&lt; " ";
+    st.pop();
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -438,7 +479,7 @@ L
   </ol>
 
   <h4>Входные данные</h4>
-  <p>В первой строке входных данных находится число T (1 ≤ T ≤ 2 * 10<sup>5</sup>) - число запросов В следующих T строках описан один из трёх вышеописанных запросов.</p>
+  <p>В первой строке входных данных находится число T (1 ≤ T ≤ 2 * 10⁵) - число запросов В следующих T строках описан один из трёх вышеописанных запросов.</p>
 
   <h4>Выходные данные</h4>
   <p>Выводить нужно ответ на запрос MIN - вывести минимум в текущем стеке, а если стек пуст - вывести STACK IS EMPTY. Вывод на каждый запрос осуществлять в отдельной строке</p>
@@ -462,6 +503,57 @@ POP
 5
 STACK IS EMPTY
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для запоминания минимального элемента в стеке обычный стек, в каждой ячейке которого записан один элемент, не подойдет. Нужен стек с двумя элементами в каждой ячейке. Первый элемент это текущее значение, а второй элемент это минимильное значение от этой ячейки и ниже.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, tmp;
+  cin >> n;
+  pair&lt;int, int&gt; buf;
+  stack&lt;pair&lt;int, int&gt; &gt;st;
+  string s;
+
+  // решение
+  for (int i = 0; i &lt; n; i++) {
+    cin >> s;
+    if (s == "ADD") {
+      cin >> tmp;
+      if (st.size() > 0) {
+        buf.first = tmp;
+        buf.second = min(tmp, st.top().second);
+        st.push(buf);
+      } else {
+        buf.first = tmp;
+        buf.second = tmp;
+        st.push(buf);
+      }
+    }
+    if (s == "POP") {
+      if (st.size() > 0) {
+        st.pop();
+      }
+    }
+
+    // вывод результата
+    if (s == "MIN") {
+      if (st.size() > 0) {
+        cout &lt;&lt; st.top().second &lt;&lt; '\n';
+      } else {
+        cout &lt;&lt; "STACK IS EMPTY\n";
+      }
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -560,8 +652,52 @@ QUEUE IS EMPTY
 
   <details>
     <summary>Решение</summary>
+    <p>Победитель станет известен, когда кто-то выиграет k партий подряд или когда все сыграют хотябы по одному разу, в этом случае победит сильнейший при любом даже очень большом k, потому что все остальные подряд победы будут за ним</p>
 <pre>
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
 
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, gamer1, gamer2, tmp;
+  long long k;
+  queue&lt;int&gt; q;
+  cin >> n >> k;
+  cin >> gamer1 >> gamer2;
+
+  // решение
+  if (gamer2 > gamer1) {
+    tmp = gamer2;
+    gamer2 = gamer1;
+    gamer1 = tmp;
+  }
+  for (int i = 2; i &lt; n; i++) {
+    cin >> tmp;
+    q.push(tmp);
+  }
+  int count_win = 0;
+  int iter = 0;
+  while (iter &lt; n && count_win &lt; k) {
+    if (gamer1 > gamer2) {
+      q.push(gamer2);
+      count_win++;
+      gamer2 = q.front();
+      q.pop();
+    } else {
+      q.push(gamer1);
+      gamer1 = gamer2;
+      gamer2 = q.front();
+      q.pop();
+      count_win = 1;
+    }
+    iter++;
+  }
+
+  // вывод результата
+  cout &lt;&lt; gamer1;
+}
 </pre>
   </details>
 </article>
@@ -825,12 +961,12 @@ Y5
   <p>Помогите Игорю – определите, кто из соседей в конце дня остался ночевать на даче, кто – уехал домой, а кто из соседей вообще не приезжал на дачу.</p>
 
   <h4>Входные данные</h4>
-  <p>Первая строка содержит два целых числа N, M (1≤N,M≤10<sup>5</sup>) – количество соседей и количество записей.</p>
+  <p>Первая строка содержит два целых числа N, M (1 ≤ N, M ≤ 10⁵) – количество соседей и количество записей.</p>
 
   <p>В следующих M строках содержатся записи в блокноте Игоря:</p>
   <ul>
-    <li>+ k (1≤k≤N) – на дачу с номером k приехал сосед.</li>
-    <li>- k (1≤k≤N) – с дачи номер k уезжает сосед.</li>
+    <li>+ k (1 ≤ k ≤ N) – на дачу с номером k приехал сосед.</li>
+    <li>- k (1 ≤ k ≤ N) – с дачи номер k уезжает сосед.</li>
   </ul>
 
   <p>Гарантируется, что перед операцией '+' соседа нет ни на участке, ни в машине рядом с участком.</p>
@@ -856,6 +992,67 @@ NO
 YES
 -1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Решается методом стека с маркировкой. Каждого участника будем маркировать (надевать на него бейджик). Mark[i] = 0 если соседа не было на даче. Mark[i] = 1 если сосед приехал на дачу. Mark[i] = -1 если сосед уехал с дачи.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+  stack&lt;int&gt; st;
+  st.push(n + 10); // несуществующий сосед
+  vector&lt;int&gt; Pos(n + 11), Park(n + 11), Uch(n + 11), Mark(n + 11);
+  char ch;
+  int k;
+  for (int i = 0; i &lt; m; i++) {
+    cin >> ch >> k;
+
+    // решение
+    if (ch == '+') {
+      Pos[k] = 1;
+      Mark[k] = -1;
+      if (st.top() &lt; k) {
+        Park[k] = 1;
+      } else {
+        Uch[k] = 1;
+        st.push(k);
+      }
+    } else {
+      if (Park[k] == 1) {
+        Mark[k] = 1;
+        Park[k] = 0;
+      } else {
+        Uch[k] = -1;
+        while (Uch[st.top()] == -1) {
+          Uch[st.top()] = 0;
+          Mark[st.top()] = 1;
+          st.pop();
+        }
+      }
+    }
+  }
+
+  // вывод результата
+  for (int i = 1; i &lt;= n; i++) {
+    if (Mark[i] == 0) {
+      cout &lt;&lt; "-1\n";
+    } else if (Mark[i] == 1) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

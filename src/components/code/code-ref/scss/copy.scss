@@ -1,5 +1,11 @@
+.copy-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 .copy-to-clipboard {
-  display: inline-block;
   width: 30px;
   text-align: center;
   background-color: aquamarine;
