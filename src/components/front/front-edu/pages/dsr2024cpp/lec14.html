@@ -1,0 +1,299 @@
+<article class="article">
+  <h1>Лекция 14 (04.03.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task1">Задача 1. Поиск корня</a></p>
+  <p><a href="#task2">Задача 2. Минимальная сторона квадрата</a></p>
+  <p><a href="#task3">Задача 3. Очень легкая задача</a></p>
+  <p><a href="#p1">Двусвязный список</a></p>
+</article>
+
+
+<!-- Задача 1. Поиск корня -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Поиск корня</h3>
+
+  <p>Поиск корня числа или ближайшего целого к нему</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+int binarySearch(int);
+
+int main() {
+  int target;
+  std::cout &lt;&lt; "enter number ";
+  std::cin >> target;
+  int result = binarySearch(target);
+  std::cout &lt;&lt; "sqrt = " &lt;&lt; result;
+}
+
+int binarySearch(int target) {
+  int left = 0;
+  int right = target;
+
+  while (right >= left) {
+    int middle = (left + right) / 2;
+    if (middle * middle > target) {
+      right = middle - 1;
+      continue;
+    }
+    if (middle * middle &lt; target) {
+      left = middle + 1;
+      continue;
+    }
+    return middle;
+  }
+
+  return right;
+}</pre>
+  </details>
+</article>
+
+
+<!-- Задача 2. Минимальная сторона квадрата -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача 2. Минимальная сторона квадрата</h3>
+
+  <p>Петя активно участвует во всех олимпиадах по математике и физике. Он накопил 9 дипломов, которые лежали в столе, и он не знал, что с ними делать. И вот Петя решил разместить свои награды на квадратной доске</p>
+
+  <h4>Пример</h4>
+  <p>9 прямоугольных дипломов размером 3 на 4, которые надо разместить на квадратной доске</p>
+  <p>Даны n дипломов и x на y размер доски. Необходимо найти минимальную сторону квадрата для размещения всех дипломов</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+int binarySearch(int, int, int);
+
+int main() {
+  int n, w, h;
+  std::cout &lt;&lt; "enter n w h ";
+  std::cin >> n >> w >> h;
+  int result = binarySearch(n, w, h);
+  std::cout &lt;&lt; "square side = " &lt;&lt; result;
+}
+
+int binarySearch(int n, int w, int h) {
+  int left = std::max(w, h);
+  int right = left * n;
+
+  while (right >= left) {
+    int middle = (left + right) / 2;
+    int res = (middle/w) * (middle/h);
+    if (res &lt; n) {
+      left = middle;
+    } else {
+      right = middle;
+    }
+    return middle;
+  }
+  return right;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача 3. Очень легкая задача -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача 3. Очень легкая задача</h3>
+
+  <p>Сегодня утром жюри решило добавить в вариант олимпиады еще одну очень легкую задачу.</p>
+
+  <p>Ответственный секретарь оргкомитета напечатал ее условие в одном экземпляре и теперь ему нужно до начала олимпиады успеть сделать еще N копий.</p>
+
+  <p>В его распоряжении имеются два ксерокса, один из которых копирует лист за X минут, а другой - за Y минут.</p>
+
+  <p>Разрешается использовать как один ксерокс, так и оба одновременно. Можно копировать не только с оригинала, но и с копии.</p>
+
+  <p>Помогите ему выяснить, какое минимальное время для этого потребуется.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+int binCopy(int, int, int);
+
+int main() {
+  int n, x, y;
+  std::cout &lt;&lt; "enter n x y ";
+  std::cin >> n >> x >> y;
+  int result = binCopy(n, x, y);
+  std::cout &lt;&lt; "time = " &lt;&lt; result;
+}
+
+int binCopy(int n, int x, int y) {
+  int left = 0;
+  int right = (n -1) * std::max(x, y);
+
+  while (left + 1 &lt; right) {
+    int middle = (right + left) / 2;
+    if (middle / x + middle / y &lt; n - 1) {
+      left = middle;
+    } else {
+      right = middle;
+    }
+  }
+
+  return right * std::min(x, y);
+}
+</pre>
+  </details>
+</article>
+
+
+
+<!-- Двусвязный список -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Двусвязный список</h3>
+
+  <p>Файл lec14.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "TDList.h"
+
+int main() {
+  TDList list("text.txt");
+  list.print();
+  std::cout &lt;&lt; '\n';
+  TDList list1("text.txt", [](int x, int y) {return x > y; });
+  list1.print();
+}
+</pre>
+
+  <p>Файл TDList.h</p>
+<pre>
+#pragma once
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;functional&gt;
+#include &lt;fstream&gt;
+
+struct Node {
+  int info;
+  Node* next, * prev;
+  Node(int _info, Node* _next = nullptr, Node* _prev = nullptr) :
+  info(_info), next(_next), prev(_prev) {};
+  ~Node() {
+    next = nullptr;
+    prev = nullptr;
+  }
+};
+
+struct TDList {
+  Node* head, * tail;
+  int size;
+
+  TDList() {
+    head = nullptr;
+    tail = nullptr;
+  }
+  TDList(std::string file_name);
+  TDList(std::string file_name, std::function&lt;bool(int, int)&gt; compare);
+  void first_node(int elem);
+  void insert_after(Node*, int elem);
+  void insert_before(Node*, int elem);
+  void print();
+};
+</pre>
+
+  <p>Файл TDList.cpp</p>
+<pre>
+#include "TDList.h"
+
+TDList::TDList(std::string file_name) {
+  std::ifstream file(file_name);
+  if (file.is_open()) {
+    int elem;
+    file >> elem;
+    first_node(elem);
+    while (file >> elem) {
+      insert_after(tail, elem);
+    }
+
+    file.close();
+  }
+}
+
+TDList::TDList(std::string file_name, std::function&lt;bool(int, int)&gt; compare) {
+  std::ifstream file(file_name);
+  if (file.is_open()) {
+    int elem;
+    file >> elem;
+    first_node(elem);
+    auto find_place = [this, compare](int elem)->Node* {
+      Node* p = head;
+      while (p && compare(p->info, elem)) {
+        p = p->next;
+      }
+      return p;
+    };
+    while (file >> elem) {
+      Node* place = find_place(elem);
+      if (place) {
+        insert_before(place, elem);
+      } else {
+        insert_after(place, elem);
+      }
+
+    }
+
+    file.close();
+  }
+}
+
+void TDList::first_node(int elem) {
+  head = new Node(elem);
+  tail = head;
+}
+
+void TDList::insert_after(Node *ptrNode, int elem) {
+  Node* NewPTR = new Node(elem, ptrNode->next, ptrNode);
+  if (ptrNode == tail) {
+    tail = NewPTR;
+  } else {
+    ptrNode->prev->next = NewPTR;
+  }
+  ptrNode->next = NewPTR;
+}
+
+void TDList::insert_before(Node* place, int elem) {
+  Node* p = new Node(elem, place, place->prev);
+  if (place == head) {
+    head = p;
+  } else {
+    place->prev->next = p;
+  }
+  place->prev = p;
+}
+
+void TDList::print() {
+  Node* ptr = head;
+  while (ptr) {
+    std::cout &lt;&lt; ptr->info &lt;&lt; " ";
+    ptr = ptr->next;
+  }
+}
+</pre>
+
+  <p>Файл text.txt</p>
+  <code>1 2 10 6 5 4</code>
+</article>

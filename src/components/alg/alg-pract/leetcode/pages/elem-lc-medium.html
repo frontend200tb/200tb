@@ -11,6 +11,7 @@
   <p><a href="#leetcode5">(Medium) LeetCode 5. Longest Palindromic Substring</a></p>
   <p><a href="#leetcode6">(Medium) LeetCode 6. Zigzag Conversion</a></p>
   <p><a href="#leetcode54">(Medium) LeetCode 54. Spiral Matrix</a></p>
+  <p><a href="#leetcode462">(Medium) LeetCode 462. Minimum Moves to Equal Array Elements II</a></p>
   <p><a href="#leetcode532">(Medium) LeetCode 532. K-diff Pairs in an Array</a></p>
   <p><a href="#leetcode658">(Medium) LeetCode 658. Find K Closest Elements</a></p>
 </div>
@@ -572,6 +573,7 @@ function convert(s, numRows) {
   <code>n == matrix[i].length</code>
   <code>1 &le; m, n &le; 10</code>
   <code>-100 &le; matrix[i][j] &le; 100</code>
+
   <details>
     <summary>Решение</summary>
 <pre>const rotateAgainst90 = (arr)=>{
@@ -597,6 +599,85 @@ var spiralOrder = function(m) {
     }
     return res
 };</pre>
+  </details>
+</article>
+
+
+<!-- (Medium) LeetCode 462. Minimum Moves to Equal Array Elements II -->
+<article class="article">
+  <div class="anchor" id="leetcode462"></div>
+  <h2>(Medium) LeetCode 462. Minimum Moves to Equal Array Elements II</h2>
+
+  <hr>
+  <a href="https://leetcode.com/problems/k-diff-pairs-in-an-array/" target="_blank">https://leetcode.com/problems/k-diff-pairs-in-an-array/</a>
+  <hr>
+
+  <p>Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal.</p>
+
+  <p>In one move, you can increment or decrement an element of the array by 1.</p>
+
+  <h4>Example 1:</h4>
+  <code>Input: nums = [1,2,3]</code>
+  <code>Output: 2</code>
+  <p>Explanation: Only two moves are needed (remember each move increments or decrements one element):</p>
+  <code>[1,2,3]  =>  [2,2,3]  =>  [2,2,2]</code>
+
+  <h4>Example 2:</h4>
+  <code>Input: nums = [1,10,2,9]</code>
+  <code>Output: 16</code>
+
+  <h4>Constraints:</h4>
+  <code>n == nums.length</code>
+  <code>1 &lt;= nums.length &lt;= 10⁵</code>
+  <code>-10⁹ &lt;= nums[i] &lt;= 10⁹</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Найти минимальное количество ходов, необходимых для того, чтобы все элементы массива стали равными. В одном ходе можно увеличить или уменьшить элемент массива на 1.</p>
+    <p>Для решения задачи нужно найти медиану массива и посчитать сумму абсолютных разностей между каждым элементом массива и медианой. Медиана — это оптимальное значение, к которому нужно привести все элементы, чтобы минимизировать количество ходов.</p>
+
+<pre>
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+
+class Solution {
+public:
+    int minMoves2(std::vector&lt;int&gt;& nums) {
+        // Сортируем массив
+        std::sort(nums.begin(), nums.end());
+
+        // Находим медиану
+        int median = nums[nums.size() / 2];
+
+        // Считаем сумму абсолютных разностей
+        int moves = 0;
+        for (int num : nums) {
+            moves += std::abs(num - median);
+        }
+
+        return moves;
+    }
+};
+</pre>
+  <p>Объяснение:</p>
+  <ol>
+    <li>Сортировка массива: Мы сортируем массив, чтобы легко найти медиану.</li>
+    <li>Медиана: Медиана — это средний элемент в отсортированном массиве. Если массив имеет четное количество элементов, можно выбрать любой из двух центральных элементов.</li>
+    <li>Сумма абсолютных разностей: Мы проходим по всем элементам массива и суммируем абсолютные разности между каждым элементом и медианой. Это и будет минимальное количество ходов.</li>
+  </ol>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+    Solution solution;
+    std::vector&lt;int&gt; nums = {1, 2, 3};
+    std::cout &lt;&lt; "Minimum moves: "
+              &lt;&lt; solution.minMoves2(nums)
+              &lt;&lt; std::endl; // Output: 2
+    return 0;
+}
+</pre>
   </details>
 </article>
 
