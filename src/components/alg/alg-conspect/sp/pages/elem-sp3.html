@@ -1621,5 +1621,60 @@ n = 4
 ..##..##
 ..##..##
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Цикл в цикле. Проходим по n строкам. Проходим по n столбцам. Если это четная строка (0,2,4...) и четный столбец, то выводим "##". Иначе выводим "..". После каждой строки выводим '\n' и повторяем вывод еще раз для следующей строки.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    for (int i = 0; i &lt; n; i++) {   // строки
+      for (int j = 0; j &lt; n; j++) { // столбцы
+
+        if (i % 2 == 0) {
+          if (j % 2 == 0) {
+            cout &lt;&lt; "##";
+          } else {
+            cout &lt;&lt; "..";
+          }
+        } else {
+          if (j % 2 == 0) {
+            cout &lt;&lt; "..";
+          } else {
+            cout &lt;&lt; "##";
+          }
+        }
+      }
+      cout &lt;&lt; '\n';
+      for (int j = 0; j &lt; n; j++) { // столбцы
+
+        if (i % 2 == 0) {
+          if (j % 2 == 0) {
+            cout &lt;&lt; "##";
+          } else {
+            cout &lt;&lt; "..";
+          }
+        } else {
+          if (j % 2 == 0) {
+            cout &lt;&lt; "..";
+          } else {
+            cout &lt;&lt; "##";
+          }
+        }
+      }
+      cout &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 

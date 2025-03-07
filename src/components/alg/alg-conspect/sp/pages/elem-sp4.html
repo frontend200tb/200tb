@@ -330,6 +330,41 @@ int main() {
   <h4>Пример 3</h4>
   <code>10 1000 1000 25 23 1 50 1</code>
   <code>0</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Посчитаем общий объем газировки, объем газировки для одного тоста, число тостов с газировкой. Посчитаем общее число долек, число долек для одного тоста, число тостов с дольками. Посчитаем общее число граммов соли, число граммов соли для одного тоста, число тостов с солью. Выберем минимальное число тостов.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n, k, l, c, d, p, nl, np;
+  cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+
+  // решение
+  int total_l = k * l; // общий объем газировки
+  int tost_l = n * nl; // объем газировки для одного тоста
+  int cnt_l = total_l / tost_l; // число тостов с газировкой
+
+  int total_d = c * d; // общее число долек
+  int tost_d = n;      // число долек для одного тоста
+  int cnt_d = total_d / tost_d; // число тостов с дольками
+
+  int total_p = p;     // общее число граммов соли
+  int tost_p = n * np; // граммов соли для одного тоста
+  int cnt_p = total_p / tost_p; // число тостов с солью
+
+  int min1 = min(cnt_l, cnt_d);
+  int min2 = min(min1, cnt_p);
+
+  cout &lt;&lt; min2;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -387,6 +422,35 @@ int main() {
     <li>a=5, b=2;</li>
     <li>a=4, b=3.</li>
   </ol>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Если конфет 1 или 2 то поделить их нельзя. Если конфет четное число, то есть n/2 - 1 способ, потому что их не может быть поровну. Если конфет нечетное число, то есть n/2 способов округленное вниз.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n;
+    cin >> n;
+    // решение
+    if (n &lt; 3) {
+      cout &lt;&lt; "0\n";
+    } else if (n % 2 == 0) {
+      cout &lt;&lt; n / 2 - 1 &lt;&lt; "\n";
+    } else {
+      cout &lt;&lt; n / 2 &lt;&lt; "\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

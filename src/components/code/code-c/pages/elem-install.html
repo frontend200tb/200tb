@@ -41,20 +41,36 @@
 </article>
 
 
-<!-- Командная строка -->
+<!-- Командная строка wsl -->
 <article class="article">
   <div class="anchor" id="wsl"></div>
-  <h3>Командная строка</h3>
+  <h3>Командная строка wsl</h3>
 
   <p>Проверим что установлена командная строка wsl</p>
   <code>wsl -v</code>
   <code>Версия WSL: 2.3.24.0</code>
   <p>(сокращение от wsl --version)</p>
 
-  <p>На Windows 10 рекомендуем установить WSL (Windows Subsystem for Linux) или WSL2</p>
-  <code><a href="https://learn.microsoft.com/ru-ru/windows/wsl/install">https://learn.microsoft.com/ru-ru/windows/wsl/install</a></code>
+  <h4>Способ 1</h4>
   <p>Команда установки wsl</p>
   <code>wsl --install</code>
+  <p>По умолчанию будет установлена WSL 2.</p>
+
+  <h4>Способ 2</h4>
+  <p>Включение подсистемы Windows для Linux</p>
+  <p>Перед установкой дистрибутивов Linux в Windows необходимо включить дополнительный компонент "Подсистема Windows для Linux". По умолчанию, компонент Подсистема Windows для Linux (WSL) выключен. Для включения поставьте галочку на пункте:</p>
+  <code>Панель управления - Программы и компоненты - Вкючение или отключение компонентов Windows - Подсистема Windows для Linux</code>
+
+  <h4>Способ 3</h4>
+  <p>Запустите PowerShell от имени администратора.</p>
+  <p>Чтобы проверить состояние подсистемы WSL выполните команду.</p>
+  <code>Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code>
+
+  <p>Для включения подсистемы WSL выполните команду.</p>
+  <code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code>
+
+  <p>Для отключения подсистемы WSL выполните команду.</p>
+  <code>Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code>
 </article>
 
 
@@ -291,7 +307,7 @@ int main() {
     </li>
     <li>
       <h4>Трансляция</h4>
-      <p><strong>Компилятор</strong> преобразует (транслирует)программу на языке Си в программу на языке Ассемблера. Создается новый текстовый файл с программой на языке Ассемблера и с расширением .s</p>
+      <p><strong>Компилятор</strong> преобразует (транслирует) программу на языке Си в программу на языке Ассемблера. Создается новый текстовый файл с программой на языке Ассемблера и с расширением .s</p>
     </li>
     <li>
       <h4>Сборка</h4>

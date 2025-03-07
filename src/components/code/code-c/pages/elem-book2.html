@@ -1630,11 +1630,338 @@ int main(int argc, char *argv[]) {
 <article class="article">
   <div class="anchor" id="p7.1"></div>
   <h3>7.1 Считалочка (131)</h3>
+
+  <p>Хранит строки в файл очень удобно: файл легко редактируется и вмещает сколько угодно слов. Начнем с задачи сортировки слов. Прежде чем писать программу сортировки целиком, создадим сначала программу чтения и хранения слов из файла. Как будем хранить слова? Переписывание с места на место длинных слов сильно загружает процессор и программа будет медленно.</p>
+  <p>Размер указателя постоянен и не зависит от длины строки, на который он указывает.Можно менять местами указатели, а слова пусть остаются на месте. Заводим массив указателей на char (их число равно числу слов)</p>
+  <p>Напишем программу которая прочитает слова из файла и по одному выведет их на экран</p>
+
+  <details>
+    <summary>Программа 47 (134)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define BSIZE 200
+
+int main(int argc, char *argv[]) {
+  char buf[BSIZE];
+  char *strgs[100];
+  FILE *in;
+
+  if (argc &lt; 2) {
+    printf("too small parameters\n");
+    return 1;
+  }
+
+  in = fopen(argv[1], "r+b");
+  if (in == NULL) {
+    printf("cannot open file %s\n", argv[1]);
+    return 1;
+  }
+
+  int i = 0;
+  while (fgets(buf, BSIZE-1, in) != NULL) {
+    strgs[i] = malloc(strlen(buf) + 1);
+    strcpy(strgs[i], buf);
+    i++;
+  }
+
+  int nofl = i;
+  // здесь будет Сортировка
+
+  // вывод на экран
+  for (int i = 0; i &lt; nofl; i++) {
+    printf("%s", strgs[i]);
+  }
+}
+</pre>
+  </details>
 </article>
 
 
-<br><a href="#p7.2">7.2 Сортировка строк (136)</a>
-<br><a href="#p7.3">7.3 Указатель на функцию (138)</a>
-<br><a href="#p7.4">7.4 Имена функций и указатели (144)</a>
+<!-- 7.2 Сортировка строк -->
+<article class="article">
+  <div class="anchor" id="p7.2"></div>
+  <h3>7.2 Сортировка строк (136)</h3>
+
+  <p>Для сортировки строк используется их сравнение. Большей из двух строк будем считать строку, у которой первая отличающаяся буква стоит позже в алфавитном списке. Этому определению соответствует библиотечная функция strcmp(char *str1, char *str2), принимающая указатели на начала строк и возвращающая 0 если строки равны, положительную величину, если str1 > str2 и отрицательную если str1 &lt; str2.</p>
+
+  <details>
+    <summary>Программа 48 (137)</summary>
+    <p>Почему то не сортирует</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define BSIZE 200
+
+int main(int argc, char *argv[]) {
+  char buf[BSIZE];
+  char *strgs[100];
+  FILE *in;
+
+  if (argc &lt; 2) {
+    printf("too small parameters\n");
+    return 1;
+  }
+
+  in = fopen(argv[1], "r+b");
+  if (in == NULL) {
+    printf("cannot open file %s\n", argv[1]);
+    return 1;
+  }
+
+  int i = 0;
+  while (fgets(buf, BSIZE-1, in) != NULL) {
+    strgs[i] = malloc(strlen(buf) + 1);
+    strcpy(strgs[i], buf);
+    i++;
+  }
+
+  int nofl = i;
+  // сортировка
+  char *tmp;
+  int mm;
+  for (int i = nofl - 1; i >= 1; i--) {
+    mm = 0;
+    for (int j = 1; j &lt;= i; j++) {
+      if (strcmp(strgs[j], strgs[mm]) > 0) {
+        mm = j;
+      }
+    }
+    tmp = strgs[i];
+    strgs[i] = strgs[mm];
+    strgs[mm] = tmp;
+  }
+
+  // вывод на экран
+  for (int i = 0; i &lt; nofl; i++) {
+    printf("%s", strgs[i]);
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.3 Указатель на функцию -->
+<article class="article">
+  <div class="anchor" id="p7.3"></div>
+  <h3>7.3 Указатель на функцию (138)</h3>
+
+  <p>Сортировку вынесем в отдельную функцию. Она будет принимать массив указателей и их число (число слов). Возвращать она ничего не будет. После ее выполнения массив указателей будет отсортирован.</p>
+
+  <details>
+    <summary>Программа 49 (139)</summary>
+    <p>Почему то не сортирует</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define BSIZE 200
+
+void strsort(char *[], int);
+
+int main(int argc, char *argv[]) {
+  char buf[BSIZE];
+  char *strgs[100];
+  FILE *in;
+
+  if (argc &lt; 2) {
+    printf("too small parameters\n");
+    return 1;
+  }
+
+  in = fopen(argv[1], "r+b");
+  if (in == NULL) {
+    printf("cannot open file %s\n", argv[1]);
+    return 1;
+  }
+
+  int i = 0;
+  while (fgets(buf, BSIZE-1, in) != NULL) {
+    strgs[i] = malloc(strlen(buf) + 1);
+    strcpy(strgs[i], buf);
+    i++;
+  }
+
+  int nofl = i;
+  // сортировка
+  strsort(strgs, nofl);
+
+  // вывод на экран
+  for (int i = 0; i &lt; nofl; i++) {
+    printf("%s", strgs[i]);
+  }
+}
+
+void strsort(char *s[], int N) {
+  char *tmp;
+  int mm;
+  for (int i = N - 1; i >= 1; i--) {
+    mm = 0;
+    for (int j = 1; j &lt;= i; j++) {
+      if (strcmp(s[j], s[mm]) > 0) {
+        mm = j;
+      }
+    }
+    tmp = s[i];
+    s[i] = s[mm];
+    s[mm] = tmp;
+  }
+}
+</pre>
+  </details>
+
+  <p>Функции для процессора - те же двоичные коды, и с виду они мало отличаются от строк или массивов. Они так же занимают последовательные ячейки памяти, где хранятся двоичные числа. Эту память процессор воспринимает как последовательность команд.</p>
+  <p>Функции в качестве параметра можно передать другую функцию. Надо понимать что передается не сама функция, а адрес ее начала. Это указатель на нее. Чтобы задать указатель на функцию надо записать</p>
+  <code>int (*f)(); // указатель на функцию возвращающую int</code>
+
+  <p>Напишем программу, где используется указатель на функцию, возвращающую сумму двух целых чисел.</p>
+
+  <details>
+    <summary>Программа 50 (142)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+int sum(int, int);
+
+int main() {
+  int i = 2, j = 3, k;
+  int (*f)(int, int);
+  printf("%d\n", sum(i, j));
+  f = &sum;
+  printf("%d\n", (*f)(i, j));
+}
+
+int sum(int f, int s) {
+  return f + s;
+}
+</pre>
+  </details>
+
+  <p>Объявление указателя на функцию</p>
+  <code>int (*f)(int, int)</code>
+  <p>только выделяет участок памяти для него. Разумное значение указателю на функцию придает оператор &. После присваивания</p>
+  <code>f = &sum</code>
+  <p>указатель f равен адресу с которого начинается функция sum().</p>
+  <p>Теперь мы можем написать функцию сортировки, принимающую функцию сравнения строк в качестве параметра.</p>
+
+  <details>
+    <summary>Программа 51 (143)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int cmplen(char *s1, char *s2) {
+  return (strlen(s1) - strlen(s2));
+}
+
+void strsort(char *s[], int N,
+int (*cmp)(char *, char*)) {
+  char *tmp;
+  int mm;
+  for (int i = N - 1; i >= 1; i--) {
+    mm = 0;
+    for (int j = 1; j &lt;= i; j++) {
+      if ((*cmp)(s[j], s[mm]) > 0) {
+        mm = j;
+      }
+    }
+    tmp = s[i];
+    s[i] = s[mm];
+    s[mm] = tmp;
+  }
+}
+
+int main() {
+  char *strgs[] = {"333", "22", "4444", "1"};
+  strsort(strgs, 4, &cmplen);
+
+  // вывод на экран
+  for (int i = 0; i &lt; 4; i++) {
+    printf("%s ", strgs[i]);
+  }
+}
+</pre>
+  </details>
+
+  <p>Напишем программу, которая читает строки из файла и выводит их на экран в порядке возрастания длины</p>
+
+  <details>
+    <summary>Программа 52 (144)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define BSIZE 200
+
+int cmplen(char *, char *);
+void strsort(char *[], int, int (*cmp)(char *, char*));
+
+int main(int argc, char *argv[]) {
+  char buf[BSIZE];
+  char *strgs[100];
+  FILE *in;
+
+  if (argc &lt; 2) {
+    printf("too small parameters\n");
+    return 1;
+  }
+
+  in = fopen(argv[1], "r+b");
+  if (in == NULL) {
+    printf("cannot open file %s\n", argv[1]);
+    return 1;
+  }
+
+  int i = 0;
+  while (fgets(buf, BSIZE-1, in) != NULL) {
+    strgs[i] = malloc(strlen(buf) + 1);
+    strcpy(strgs[i], buf);
+    i++;
+  }
+
+  int nofl = i;
+  // сортировка
+  strsort(strgs, nofl, &cmplen);
+
+  // вывод на экран
+  for (int i = 0; i &lt; nofl; i++) {
+    printf("%s", strgs[i]);
+  }
+}
+
+int cmplen(char *s1, char *s2) {
+  return (strlen(s1) - strlen(s2));
+}
+
+void strsort(char *s[], int N,
+int (*cmp)(char *, char*)) {
+  char *tmp;
+  int mm;
+  for (int i = N - 1; i >= 1; i--) {
+    mm = 0;
+    for (int j = 1; j &lt;= i; j++) {
+      if ((*cmp)(s[j], s[mm]) > 0) {
+        mm = j;
+      }
+    }
+    tmp = s[i];
+    s[i] = s[mm];
+    s[mm] = tmp;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.4 Имена функций и указатели -->
+<article class="article">
+  <div class="anchor" id="p7.3"></div>
+  <h3>7.4 Имена функций и указатели (144)</h3>
+</article>
+
+
 <br><a href="#p7.5">7.5 Функция Qsort (146)</a>
 <br><a href="#p7.6">7.6 Иголка, сено и лыко в строку (151)</a>
