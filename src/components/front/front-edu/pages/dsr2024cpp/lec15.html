@@ -1,0 +1,178 @@
+<article class="article">
+  <h1>Лекция 15 (11.03.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Стек</a></p>
+  <p><a href="#task1">Задача 1. Вагоны и тупик</a></p>
+</article>
+
+
+<!-- Стек -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Стек</h3>
+
+  <p>Напишем структуру данных стек в двух файлах stack.cpp и stack.h</p>
+  <p>Файл stack.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Stack.h"
+
+using namespace std;
+
+int main() {
+  Stack&lt;int&gt; stack1;
+
+  stack1.push(12);
+  stack1.push(123);
+  stack1.push(1235);
+  cout &lt;&lt; stack1.top() &lt;&lt; '\n';
+
+  stack1.pop();
+  cout &lt;&lt; stack1.top() &lt;&lt; '\n';
+}
+</pre>
+  <p>Файл Stack.h</p>
+<pre>
+#pragma once
+
+template &lt;typename T&gt;
+class Stack {
+
+  private:
+    struct Node {
+      T data;
+      Node* next;
+      Node(const T& value) :data(value), next(nullptr) {};
+    };
+    Node* topNode;
+  public:
+    Stack() :topNode(nullptr) {};
+    ~Stack() {
+      while (!isEmpty()) {
+        pop();
+      }
+    }
+    void push(const T& value) {
+      Node* newNode = new Node(value);
+      newNode->next = topNode;
+      topNode = newNode;
+    }
+    void pop() {
+      // проверка на пустоту
+      Node* temp = topNode;
+      topNode = topNode->next;
+      delete temp;
+    }
+    T top() {
+      // проверка на пустоту
+      return topNode->data;
+    }
+    bool isEmpty() {
+      return topNode == nullptr;
+    }
+};
+</pre>
+</article>
+
+
+<!-- Задача 1. Вагоны и тупик -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Вагоны и тупик</h3>
+
+  <p>Дано n вагонов. Вагоны стоят на первом пути.Их нужно перегнать на второй путь используя тупик. В качестве тупика будем использовать структуру данных стек. Вагоны можно брать только по порядку и только по одному. Вагон всегда сначала заходит в стек, а потом вагон из стека может быть отправлен да второй путь. Вагон из стека уже не может вернуться на первый путь.</p>
+  <p>Нужно вернуть "Success" если вагоны можно перегнать на второй путь так чтобы они стояли там по порядку возрастания номеров и "Fault" если нельзя.</p>
+  <p>Заведем переменную exp это ожидаемый вагон. Вначале мы ждем вагон номер 1</p>
+  <p>Файл wagons.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include "Stack.h"
+
+using namespace std;
+
+int main() {
+  Stack&lt;int&gt; stack1;
+  int N = 4;
+  vector&lt;int&gt; wagons(N);
+  for (int i{}; i &lt; N; i++) {
+    // добавление исправить
+    cin >> wagons[i];
+  }
+
+  int exp = 1;
+  for (int i = 0; i &lt; N; i++) {
+    if (wagons[i] == exp) {
+      // удаление элементов из вектора,
+      // перегонка их в стек и вывод из стека
+      exp++;
+    } else {
+      while (!stack1.isEmpty() && stack1.top() == exp) {
+        stack1.pop();
+        exp++;
+      }
+      stack1.push(wagons[i]);
+    }
+  }
+  while (!stack1.isEmpty() && stack1.top() == exp) {
+    stack1.pop();
+    exp++;
+  }
+  if (exp == N + 1) {
+    cout &lt;&lt; "Success";
+  } else {
+    cout &lt;&lt; "Fault";
+  }
+}
+</pre>
+  <p>Файл Stack.h</p>
+<pre>
+#pragma once
+
+template &lt;typename T&gt;
+class Stack {
+
+  private:
+    struct Node {
+      T data;
+      Node* next;
+      Node(const T& value) :data(value), next(nullptr) {};
+    };
+    Node* topNode;
+  public:
+    Stack() :topNode(nullptr) {};
+    ~Stack() {
+      while (!isEmpty()) {
+        pop();
+      }
+    }
+    void push(const T& value) {
+      Node* newNode = new Node(value);
+      newNode->next = topNode;
+      topNode = newNode;
+    }
+    void pop() {
+      // проверка на пустоту
+      Node* temp = topNode;
+      topNode = topNode->next;
+      delete temp;
+    }
+    T top() {
+      // проверка на пустоту
+      return topNode->data;
+    }
+    bool isEmpty() {
+      return topNode == nullptr;
+    }
+};
+</pre>
+</article>
+

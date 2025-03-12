@@ -179,7 +179,7 @@ int tmp = *st.begin();
   можете отключить ее следующим образом:</p>
   <p>Команды ускорения:</p>
 <pre>
-ios::sync_with_studio(0);
+ios::sync_with_stdio(0);
 cin.tie(0);
 </pre>
 </article>
@@ -280,6 +280,130 @@ School N 9
 42
 </pre>
   <p>В приведенном примере для участия в интернет-олимпиаде зарегистрировались: два ученика из школы с номером 18, один ученик из школы с номером 42 и шесть учеников из школы с номером 9. Таким образом, от 1 до 5 участников зарегистрировано от школ с номерами 18 и 42.</p>
+
+  <details>
+    <summary>Решение с map</summary>
+    <p>Номер школы это не целое число, а строка. Из входных строк необходимо вытащить номер школы как некоторую строку, состоящую из цифр.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  string s, str;
+  map&lt;string, int&gt; mp;
+  for (int i = 0; i &lt; n + 1; i++) {
+    getline(cin, s);
+    str = "";
+    for (int j = 0; j &lt; s.size(); j++) {
+      if (s[j] >= '0' && s[j] &lt;= '9') {
+        str += s[j];
+      }
+    }
+    if (str != "") {
+      // mp[str]++; // можно одной строчкой
+      if (mp.find(str) != mp.end()) {
+        mp[str]++;
+      } else {
+        mp[str] = 1;
+      }
+    }
+  }
+  vector&lt;string&gt; Result;
+  while (mp.size() > 0) {
+    if (mp.begin()->second &lt; 6) {
+      Result.push_back(mp.begin()->first);
+    }
+    mp.erase(mp.begin());
+  }
+
+  // вывод результата
+  cout &lt;&lt; Result.size() &lt;&lt; '\n';
+  for (int i = 0; i &lt; Result.size(); i++) {
+    cout &lt;&lt; Result[i] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение без map</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  string s, str;
+  vector&lt;string&gt; Buf;
+  for (int i = 0; i &lt; n + 1; i++) {
+    getline(cin, s);
+    str = "";
+    for (int j = 0; j &lt; s.size(); j++) {
+      if (s[j] >= '0' && s[j] &lt;= '9') {
+        str += s[j];
+      }
+    }
+    if (str != "") {
+      Buf.push_back(str);
+    }
+  }
+
+  sort(Buf.begin(), Buf.end());
+  Buf.push_back("?????");
+  string res = Buf[0];
+  int count_res = 1;
+  int count = 0;
+  for (int i = 1; i &lt; Buf.size(); i++) {
+    if (Buf[i] == res) {
+      count_res++;
+    } else {
+        if (count_res &lt; 6) {
+          count++;
+        }
+        res = Buf[i];
+        count_res = 1;
+    }
+  }
+  cout &lt;&lt; count &lt;&lt; '\n';
+
+  res = Buf[0];
+  count_res = 1;
+  count = 0;
+  for (int i = 1; i &lt; Buf.size(); i++) {
+    if (Buf[i] == res) {
+      count_res++;
+    } else {
+        if (count_res &lt; 6) {
+          cout &lt;&lt; res &lt;&lt; '\n';
+        }
+        res = Buf[i];
+        count_res = 1;
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -397,6 +521,55 @@ p 3
 </pre>
   <code>-1</code>
   <p>Во втором тестовом примере Дон Кихот убьёт драконов в клетках 3 и 5, но так как он убил двух драконов, а красота Дульсинеи равна 3, и поэтому Дон Кихот потерпит неудачу.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Нам нужна такая структура данных, в которую мы можем быстро помещать элементы и быстро доставать самый маленький элемент. Возьмем для этого мультисет.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  multiset&lt;int&gt; mst;
+  int n, tmp, sum = 0;
+  char ch;
+  cin >> n;
+
+  // ввод принцесс и драконов
+  for (int i = 2; i &lt;= n - 1; i++) {
+    cin >> ch >> tmp;
+    if (ch == 'd') {
+      mst.insert(tmp);
+    } else {
+      while (mst.size() >= tmp) {
+        mst.erase(mst.begin());
+      }
+    }
+  }
+
+  // ввод Дульсинеи
+  cin >> ch >> tmp;
+
+  // решение и вывод результата
+  if (mst.size() &lt; tmp) {
+    cout &lt;&lt; -1;
+  } else {
+    while (mst.size() > 0) {
+      sum += *mst.begin();
+      mst.erase(mst.begin());
+    }
+    cout &lt;&lt; sum;
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -431,6 +604,51 @@ NO
 NO
 </pre>
   <p>В приведенном тесте даны три числа. Первое число 4 имеет ровно три делителя — 1, 2 и 4, поэтому ответ для этого числа — «YES». Второе число 5 имеет два делителя (1 и 5), а третье число 6 — четыре делителя (1, 2, 3, 6), поэтому ответ для них — «NO».</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Выпишем несколько примеров на маленьких числах, переберем их чтобы посмотреть как получаются T-простые числа.</p>
+    <p>Число имеет ровно три делителя только если это квадрат простого числа - 4, 9, 25 ... Поэтому если число является квадратом простого чилса, то выводим YES, иначе NO. Поскольку во входных данных числа до 10¹², то мы найдем все простые числа до 10⁶, возведем их в квадрат и будем хранить в сете. Потом будем проверять если число есть в сете то оно T-простое.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // соберем решето Эратосфена
+  set&lt;long long&gt; st;
+  vector&lt;int&gt; A(1e6);
+  for (long long i = 2; i &lt; A.size(); i++) {
+    if (A[i] == 0) {
+      st.insert(i * i);
+      for (int j = 2 * i; j &lt; A.size(); j += 1) {
+        A[j] = 1;
+      }
+    }
+  }
+  // ввод данных
+  int n;
+  cin >> n;
+  long long tmp;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> tmp;
+
+    // решение и вывод результата
+    if (st.find(tmp) != st.end()) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -761,6 +979,56 @@ ABABB
 
   <p>Во втором наборе входных данных примера:</p>
   <p>Для единственного запроса второго набора входных данных мы можем выбрать третью конфету, из которой Тимур получает количество сахара равное 3. Также можно получить тот же ответ, выбрав четвертую конфету.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Выгодно съедать сначала конфеты с наибольшим количеством сахара, чтобы в итоге съесть меньше конфет. Мы эту задачу решали раньше бинарным поиском. Сейчас решим ее чере map и ее функцию lower_bound.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, q;
+    cin >> n >> q;
+    vector&lt;long long&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+    sort(A.begin(), A.end());
+    pair&lt;long long, int&gt; tmp;
+    map&lt;long long, int&gt; mp;
+    tmp.first = 0;
+    tmp.second = 0;
+    for (int i = n - 1; i >= 0; i--) {
+      tmp.first += A[i];
+      tmp.second++;
+      mp.insert(tmp);
+    }
+    for (int i = 0; i &lt; q; i++) {
+      long long u;
+      cin >> u;
+      if (mp.lower_bound(u) == mp.end()) {
+        cout &lt;&lt; "-1\n";
+      } else {
+        cout &lt;&lt; mp.lower_bound(u)->second &lt;&lt; '\n';
+      }
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1017,7 +1285,7 @@ bac roc lly iol iat
 
   <p>Игорь хочет заняться самоорганизацией, поэтому он решил составить огромный список дел и план, которого он будет придерживаться k дней.</p>
 
-  <p>В списке оказалось n дел. Занятие с номером i из этого списка Игорь посчитал необходимым повторять через ai дней, чтобы выработалась привычка. Определившись со списком и периодичностью повторения дел, Игорь незамедлительно выполнил все дела из списка, чтобы в дальнейшем их только повторять. Поэтому он очень устал и совсем забыл составить план на следующие k дней.</p>
+  <p>В списке оказалось n дел. Занятие с номером i из этого списка Игорь посчитал необходимым повторять через aᵢ дней, чтобы выработалась привычка. Определившись со списком и периодичностью повторения дел, Игорь незамедлительно выполнил все дела из списка, чтобы в дальнейшем их только повторять. Поэтому он очень устал и совсем забыл составить план на следующие k дней.</p>
 
   <p>Помогите Игорю составить план, указав для каждого из последующих дней количество дел, которое Игорю необходимо будет выполнить.</p>
 
@@ -1049,5 +1317,70 @@ bac roc lly iol iat
 1 2 3
 </pre>
   <code>0 1 1 2 0 2 0 2 1 1 0 3 0 1 1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В нулевой день все задания выполнены. Дела которые выполняются через 0 дней нужно делать каждый день. Дела которые выполняются через 1 день, нужно делать с пропуском в 1 день и т.д. Давайти объединять в группы все дела, которые делаются через одинаковое число дней. Для этого возьмем структуру данных map&lt;int, int&gt;, где map.first это период задачи, а map.second это количество таких задач.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+  vector&lt;int&gt; Res(m + 1);
+  map&lt;int, int&gt; mp;
+  pair&lt;int, int&gt; tmp;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> tmp.first;
+    tmp.first++;
+    if (mp.find(tmp.first) == mp.end()) {
+      tmp.second = 1;
+      mp.insert(tmp);
+    } else {
+      /*
+      // 1й способ
+      // удаление и добавление элемента
+      pair&lt;int, int&gt; tmp2;
+      tmp2 = *mp.find(tmp.first); // сохраняем значение элемента
+      mp.erase(mp.find(tmp.first)); // удаляем элемент из map
+      tmp2.second++; // изменяем значение элемента
+      mp.insert(tmp2); // возвращаем элемент в map
+
+      // 2й способ
+      // изменение значения элемента
+      mp[tmp.first]++;
+      */
+
+      // 3й способ
+      // изменение через итератор
+      mp.find(tmp.first)->second++;
+    }
+  }
+
+  while (mp.size() > 0) {
+    tmp = *mp.begin();
+    mp.erase(mp.begin());
+    int uk = 0;
+    while (uk &lt;= m) {
+      Res[uk] += tmp.second;
+      uk += tmp.first;
+    }
+  }
+
+  for (int i = 1; i &lt;= m; i++) {
+    cout &lt;&lt; Res[i] &lt;&lt; " ";
+  }
+}
+</pre>
+  </details>
 </article>
 

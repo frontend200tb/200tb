@@ -207,10 +207,19 @@ struct TDList {
     tail = nullptr;
   }
   TDList(std::string file_name);
+  ~TDList() {
+    while (!empty()) {
+      remove(head);
+    }
+  }
   TDList(std::string file_name, std::function&lt;bool(int, int)&gt; compare);
   void first_node(int elem);
   void insert_after(Node*, int elem);
   void insert_before(Node*, int elem);
+  bool empty();
+  void remove(Node*& ptr);
+  void remove_before(const Node*& ptr);
+
   void print();
 };
 </pre>
@@ -285,11 +294,49 @@ void TDList::insert_before(Node* place, int elem) {
   place->prev = p;
 }
 
+bool TDList::empty() {
+  return head == nullptr;
+}
+
+void TDList::remove(Node*& ptr) {
+  Node* p = ptr;
+  if (ptr == head) {
+    head = p->next;
+    if (p->next) {
+      p->next->prev = nullptr;
+    }
+  } else if (ptr == tail) {
+    tail = p->prev;
+    if (p->prev) {
+      p->prev->next = nullptr;
+    }
+  } else {
+    ptr = ptr->next;
+    p->next->prev = p->prev;
+    p->prev->next = p->next;
+  }
+  delete p;
+}
+
 void TDList::print() {
   Node* ptr = head;
   while (ptr) {
     std::cout &lt;&lt; ptr->info &lt;&lt; " ";
     ptr = ptr->next;
+  }
+}
+
+void TDList::remove_before(const Node*& ptr) {
+  Node* p = ptr->prev;
+  if (ptr != head) {
+    if (p == head) {
+      head = p->next;
+      p->next->prev = nullptr;
+    } else {
+      p->next->prev = p->prev;
+      p->prev->next = p->next;
+    }
+    delete p;
   }
 }
 </pre>
