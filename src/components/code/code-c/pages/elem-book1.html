@@ -1526,12 +1526,11 @@ void getnum() {
 
   <details>
     <summary>Программа 35 (97)</summary>
-    <p>Эта программа выдает ошибки ее надо дописывать</p>
     <p>Файл 35.c</p>
 <pre>
 #include &lt;stdio.h&gt;
-#include "35action.c"
 
+void action(int option);
 void menu();
 
 int main() {
@@ -1554,6 +1553,8 @@ void menu() {
     <p>Файл 35action.c</p>
 <pre>
 #include &lt;stdio.h&gt;
+
+void menu();
 
 static int square(int a) {
   return a * a;
@@ -1582,6 +1583,8 @@ void action(int option) {
   }
 }
 </pre>
+  <p>Чтобы скомпилировать программу из двух файлов запустим команду</p>
+  <code>gcc 35.c 35action.c</code>
   </details>
 </article>
 

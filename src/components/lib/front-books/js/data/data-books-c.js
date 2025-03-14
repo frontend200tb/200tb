@@ -281,8 +281,8 @@ const dataBooksC = [
     author: 'Крупник',
     authorName: 'Александр',
     pages: '233',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.03.12 ср',
   },
 
   {

@@ -1208,6 +1208,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 92,
+    year: 2010,
+    category: 'code',
+    theme: 'c++',
+    title: 'C++ и STL. Справочное руководство (2е)',
+    author: 'Мюссер',
+    authorName: 'Дэвид',
+    pages: '431',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 93,
     year: 2010,
     category: 'code',
@@ -1606,6 +1619,19 @@ const dataBooksCpp = [
     author: 'Вандевурд',
     authorName: 'Дэвид',
     pages: '849',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 122,
+    year: 2018,
+    category: 'code',
+    theme: 'c++',
+    title: 'C++ STL. Стандартная библиотека шаблонов',
+    author: 'Галовиц',
+    authorName: 'Яцек',
+    pages: '432',
     isLearned: false,
     dateLearned: '',
   },
