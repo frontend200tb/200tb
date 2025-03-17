@@ -2,6 +2,19 @@ const dataBooksStm = [
 
   {
     id: 1,
+    year: 2006,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Проrраммирование на языкe Си для АVR и PIC микроконтроллеров',
+    author: 'Шпак',
+    authorName: 'Ю.А.',
+    pages: '402',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2014,
     category: 'основы',
     theme: 'stm32',

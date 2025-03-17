@@ -118,6 +118,19 @@ const dataBooksCompil = [
   },
 
   {
+    id: 33,
+    year: 2004,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'GCC. Настольная книга пользователей',
+    author: 'Гриффитс',
+    authorName: 'Артур',
+    pages: '609',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 10,
     year: 2006,
     category: 'основы',

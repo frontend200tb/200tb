@@ -10,6 +10,7 @@ import htmlBook1      from './../pages/elem-book1.html';
 import htmlBook2      from './../pages/elem-book2.html';
 import htmlBook3      from './../pages/elem-book3.html';
 import htmlStepik1    from './../pages/elem-stepik1.html';
+import htmlOsnovicpp    from './../pages/elem-osnovicpp.html';
 
 export const pages = [
   htmlAbout,
@@ -23,4 +24,5 @@ export const pages = [
   htmlBook2,
   htmlBook3,
   htmlStepik1,
+  htmlOsnovicpp,
 ];

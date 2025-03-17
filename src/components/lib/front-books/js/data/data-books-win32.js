@@ -27,6 +27,19 @@ const dataBooksWin32 = [
   },
 
   {
+    id: 4,
+    year: 1999,
+    category: 'основы',
+    theme: 'Win32 API',
+    title: 'Азбука программирования в win32 API (2е)',
+    author: 'Румянцев',
+    authorName: 'Павел',
+    pages: '274',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 3,
     year: 2000,
     category: 'основы',
@@ -44,7 +57,7 @@ const dataBooksWin32 = [
     year: 2001,
     category: 'основы',
     theme: 'Win32 API',
-    title: 'Азбука программирования в win32 API',
+    title: 'Азбука программирования в win32 API (3е)',
     author: 'Румянцев',
     authorName: 'Павел',
     pages: '310',

@@ -2,6 +2,19 @@ const dataBooksCppBuilder = [
 
   {
     id: 1,
+    year: 1996,
+    category: 'code',
+    theme: 'C++ Builder',
+    title: 'Просто и ясно о Borland C++ (3е)',
+    author: 'Бабэ',
+    authorName: 'Бруно',
+    pages: '410',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 1999,
     category: 'code',
     theme: 'C++ Builder',

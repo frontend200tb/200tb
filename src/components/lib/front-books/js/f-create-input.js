@@ -73,6 +73,9 @@ import dataBooksMathFast from './data/data-books-math-fast';
 import dataBooksGames from './data/data-books-games';
 import dataBooksCrypt from './data/data-books-crypt';
 
+// Paper
+import dataBooksPaper from './data/data-books-paper';
+
 // 2. Создаем массив dataArray для импортированных массивов
 const dataArray = [
   // Code
@@ -86,7 +89,10 @@ const dataArray = [
   // Tools
   dataBooksAjax, dataBooksBios, dataBooksDocker, dataBooksGit, dataBooksGraphql, dataBooksRegexp, dataBooksSql, dataBooksFreebsd, dataBooksOop,
   // Theme
-  dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksTest, dataBooksMathDis, dataBooksMathFast, dataBooksGames, dataBooksCrypt];
+  dataBooksDataScience, dataBooksDl, dataBooksDevops, dataBooksMl, dataBooksWeb, dataBooksTest, dataBooksMathDis, dataBooksMathFast, dataBooksGames, dataBooksCrypt,
+  // Paper
+  dataBooksPaper,
+];
 
 // 3. Создаем массив с книгами dataBooks из массива dataArray
 const dataBooks = [].concat(...dataArray);

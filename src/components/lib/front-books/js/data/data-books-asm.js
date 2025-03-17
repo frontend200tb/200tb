@@ -53,6 +53,19 @@ const dataBooksAsm = [
   },
 
   {
+    id: 3,
+    year: 1987,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Микропроцессоры семейства 8086/8088. Архитектура, программирование',
+    author: 'Лю',
+    authorName: 'Ю-Чжен',
+    pages: '514',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 4,
     year: 1988,
     category: 'code',
@@ -1047,6 +1060,19 @@ const dataBooksAsm = [
     author: 'Гаркуша',
     authorName: 'Олег',
     pages: '136',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 58,
+    year: 2023,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Задачи и упражнения по языку ассемблера MASM (2е)',
+    author: 'Бордаченкова',
+    authorName: 'Елена',
+    pages: '113',
     isLearned: false,
     dateLearned: '',
   },

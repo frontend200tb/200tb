@@ -138,7 +138,7 @@ const dataBooksLinux = [
     title: 'Linux. Обработка текстов',
     author: 'Шевель',
     authorName: 'Андрей',
-    pages: '378',
+    pages: '380',
     isLearned: false,
     dateLearned: '',
   },
