@@ -9,6 +9,7 @@ import htmlRoadmapCpp from './../pages/elem-roadmapcpp.html';
 import htmlBook1      from './../pages/elem-book1.html';
 import htmlBook2      from './../pages/elem-book2.html';
 import htmlBook3      from './../pages/elem-book3.html';
+import htmlBook4      from './../pages/elem-book4.html';
 import htmlStepik1    from './../pages/elem-stepik1.html';
 import htmlOsnovicpp    from './../pages/elem-osnovicpp.html';
 
@@ -23,6 +24,7 @@ export const pages = [
   htmlBook1,
   htmlBook2,
   htmlBook3,
+  htmlBook4,
   htmlStepik1,
   htmlOsnovicpp,
 ];

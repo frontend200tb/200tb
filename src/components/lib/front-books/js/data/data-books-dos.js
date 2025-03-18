@@ -118,6 +118,19 @@ const dataBooksDos = [
   },
 
   {
+    id: 7,
+    year: 1992,
+    category: 'основы',
+    theme: 'dos',
+    title: 'Справочное руководство по MS-DOS',
+    author: 'Нортон',
+    authorName: 'Питер',
+    pages: '336',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 8,
     year: 1992,
     category: 'основы',

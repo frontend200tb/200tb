@@ -21,7 +21,7 @@ const dataBooksBasic = [
     title: 'Алгоритмы и программы на Бейсике',
     author: 'Гринчишин',
     authorName: 'Ярослав',
-    pages: '160',
+    pages: '161',
     isLearned: false,
     dateLearned: '',
   },

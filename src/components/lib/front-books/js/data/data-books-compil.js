@@ -66,6 +66,19 @@ const dataBooksCompil = [
   },
 
   {
+    id: 5,
+    year: 1989,
+    category: 'основы',
+    theme: 'Компиляторы',
+    title: 'Компилятор языка Си для микро ЭВМ',
+    author: 'Хендрикс',
+    authorName: 'Джеймс',
+    pages: '240',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 6,
     year: 2001,
     category: 'основы',

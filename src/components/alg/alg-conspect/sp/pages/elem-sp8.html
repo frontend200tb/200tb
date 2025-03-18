@@ -1,6 +1,7 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p><a href="https://vkvideo.ru/@sportprog_yarsu">vkvideo.ru/@sportprog_yarsu</a></p>
+  <p>Конспект курса</p>
+  <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
 
@@ -65,8 +66,8 @@
   <h3>Задача 1. Найти сумму от l до r</h3>
 
   <p>Дан целочисленный массив A длины n. Необходимо найти сумму элементов массива с позиции l до позиции r</p>
-  <code>A = {a<sub>1</sub>, a<sub>2</sub>, ... , a<sub>n-1</sub>, a<sub>n</sub>}</code>
-  <code>result = a<sub>l</sub> + a<sub>l+1</sub> + ... + a<sub>r-1</sub> + a<sub>r</sub></code>
+  <code>A = {a₁, a₂, ... , aₙ₋₁, aₙ}</code>
+  <code>result = aₗ + aₗ₊₁ + ... + a<sub>r-1</sub> + a<sub>r</sub></code>
 
   <p>Если запрос единственный, то мы можем посчитать сумму элементов через цикл</p>
 <pre>
@@ -80,14 +81,14 @@ for (int i = l; i &lt;= r; i++) {
   <p>Более эффективное решение в случае массовых запросов использовать префикс-сумму.</p>
   <p>Префиксная сумма - это подход, при котором предварительно вычисляются суммы элементов массива для быстрого получения суммы любого подмассива.</p>
   <p>Создадим дополнительный массив B, который будет являться префикс-суммой. Размер массива B должен быть как минимум на один элемент больше размера массива A.</p>
-  <code>A = {a<sub>1</sub>, a<sub>2</sub>, ... , a<sub>n-1</sub>, a<sub>n</sub>}</code>
-  <code>B = {b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, ... , b<sub>n-1</sub>, b<sub>n</sub>}</code>
+  <code>A = {a₁, a₂, ... , aₙ₋₁, aₙ}</code>
+  <code>B = {b₀, b₁, b₂, ... , bₙ₋₁, bₙ}</code>
   <p>Каждый элемент массива B хранит в себе сумму элементов массива A</p>
-  <code>b<sub>0</sub> = 0</code>
-  <code>b<sub>1</sub> = a<sub>1</sub></code>
-  <code>b<sub>2</sub> = a<sub>1</sub> + a<sub>2</sub></code>
+  <code>b₀ = 0</code>
+  <code>b₁ = a₁</code>
+  <code>b₂ = a₁ + a₂</code>
   <code>...</code>
-  <code>b<sub>n</sub> = a<sub>1</sub> + ... + a<sub>n</sub></code>
+  <code>bₙ = a₁ + ... + aₙ</code>
 
   <p>Для использования массива B необходимо решить две задачи</p>
   <ol>
