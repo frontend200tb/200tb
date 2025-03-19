@@ -1340,6 +1340,46 @@ int main() {
 </pre>
   <code>5</code>
   <p>В третьем примере расстояние между минимальным и максимальным элементов уже максимально возможное, поэтому нужно сделать какой-нибудь ничего не значащий обмен, например 5 и 2.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Найти индексы минимального и максимального элемента. Выбрать индекс ближайший краю. Найти максимум от индекса до края.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+  int a[100];
+  int mini; // индекс минимума
+  int maxi; // индекс максимума
+
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> a[i];
+    if (a[i] == 1) {
+      mini = i;
+    }
+    if (a[i] == n) {
+      maxi = i;
+    }
+  }
+
+  int mind; // от минимума до края
+  int maxd; // от максимума от края
+  mind = min(mini - 1, n - mini);
+  maxd = min(maxi - 1, n - maxi);
+
+  int res = 0;
+  res = n - min(mind, maxd) - 1;
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
