@@ -1,31 +1,46 @@
 /** *******************
 Скрипт из файла code-c.js
-Объект codeC содержит страницу code-c
 Функция showCodeC показывает страницу code-c
+Навигация по теме C
+Основы Конспекты книг Конспекты курсов
 ******************** */
-import './js/element-code-c';
-import {createAside, createMain} from './js/f-create-aside';
+import './element-c';
+import {dataCNav} from './data-c-nav';
 
-// 1. Создаем объект codeC
-const codeC = {};
+// Создаем ссылки для меню mainnav
+createMainNav(dataCNav);
 
-// 2. В объекте codeC создаем свойство aside
-codeC.aside = createAside();
+function createMainNav(navCode) {
+  navCode.forEach((el) => {
+    el.elem = document.createElement('a');
+    el.elem.href = '';
+    el.elem.innerHTML = el.text;
+    el.elem.addEventListener('click', (event) => {
+      const pascal = document.getElementById('c');
+      event.preventDefault();
+      // добавим class="active"
+      classActive(navCode, el.elem);
+      pascal.innerHTML = el.content;
+      el.act();
+    });
+  });
+}
 
-// 3. В объекте codeC создаем свойство main
-codeC.main = createMain();
+function classActive(menu, activElem) {
+  menu.forEach((el) => {
+    el.elem.classList.remove('active');
+  });
+  activElem.classList.add('active');
+}
 
-// 4. Экспортируем функцию showCodeC()
 export default function showCodeC() {
-  const mainAside = document.querySelector('.main__aside');
-
-  if (mainAside) {
-    mainAside.innerHTML = '';
-    mainAside.append(codeC.aside);
-    mainAside.append(codeC.main);
-
-    // 5. Создадим и вызовем событие click на первой ссылке aside элемента
-    const eventClick = new Event('click');
-    mainAside.firstElementChild.firstElementChild.dispatchEvent(eventClick);
-  }
+  const elemMainNav = document.getElementById('main-nav');
+  elemMainNav.innerHTML = '';
+  dataCNav.forEach((el) => {
+    elemMainNav.appendChild(el.elem);
+    el.elem.classList.remove('active');
+  });
+  // 6. Создадим и вызовем событие click на первом main-nav эелементе
+  const eventClick = new Event('click');
+  dataCNav[0].elem.dispatchEvent(eventClick);
 }

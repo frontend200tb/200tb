@@ -552,8 +552,8 @@ const dataBooksC = [
     title: 'Элементы языка Си',
     author: 'Иванов',
     pages: '39',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.03.20 чт',
   },
 
   {

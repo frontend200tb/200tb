@@ -1,0 +1,600 @@
+<h1>Стандартные библиотеки языка Си</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#lib">Стандартные библиотеки языка Си</a></p>
+  <br><a href="#stdio">stdio.h</a>
+  <br><a href="#stdlib">stdlib.h</a>
+  <br><a href="#ctype">ctype.h</a>
+  <br><a href="#string">string.h</a>
+  <br><a href="#limits">limits.h</a>
+  <br><a href="#math">math.h</a>
+  <br><a href="#float">float.h</a>
+  <br><a href="#assert">assert.h</a>
+  <br><a href="#stdarg">stdarg.h</a>
+  <br><a href="#setjmp">setjmp.h</a>
+  <br><a href="#signal">signal.h</a>
+  <br><a href="#time">time.h</a>
+</article>
+
+
+<!-- Стандартные библиотеки языка Си -->
+<article class="article">
+  <div class="anchor" id="lib"></div>
+  <h3>Стандартные библиотеки языка Си</h3>
+
+  <p>Стандарт языка Си определяет несколько стандартных библиотек, содержащих протестированные функции, которые могут быть использованы в любых программах на языке Си</p>
+  <p>Библиотеки содержатся в заголовочных файлах с расширением .h</p>
+</article>
+
+
+<!-- stdio.h -->
+<article class="article">
+  <div class="anchor" id="stdio"></div>
+  <h2>stdio.h</h2>
+
+  <h3>Работа с файлами</h3>
+  <p>Функции из билиотеки <strong>stdio.h</strong> составляют одну треть всей билиотеки языка Си. Они используются для передачи данных в программу и из нее.</p>
+  <p>Поток - это источник данных, который завершается символом новой стори '\n'. Поток присваивается указателю типа FILE, в котором хранится вся информация, необходимая для управления потоком.</p>
+
+  <h4>Функция fopen()</h4>
+  <code>FILE fopen(const char *filename, const char mode)</code>
+  <p>Функция fopen() открывает файл в заданном режиме и возвращает указатель типа FILE если файл открылся, иначе значение NULL.</p>
+
+  <h4>Функция freopen()</h4>
+  <code>FILE freopen(const char *filename, const char mode, FILE *stream)</code>
+  <p>Функция freopen() открывает файл в заданном режиме, привязывает его к заданному потоку и возвращает поток если файл открылся, иначе значение NULL.</p>
+
+  <h4>Функция fflush()</h4>
+  <code>int fflush(FILE *stream)</code>
+  <p>Функция fflush() очищает выходной поток. Буферизованные данные, находящиеся в выходном потоке, немедленно записываются. Если все хорошо возвращает значение NULL, при ошибке записи возвращает константу EOF. Вызов fflush(NULL) очищает все выходные потоки.</p>
+
+  <h4>Функция fclose()</h4>
+  <code>int fclose(FILE *stream)</code>
+  <p>Функция fclose() очищает все незаписанные данные из потока и закрывает поток. Если все хорошо возвращает значение NULL, иначе возвращает константу EOF.</p>
+
+  <h4>Функция remove()</h4>
+  <code>int remove(const char *filename)</code>
+  <p>Функция remove() удаляет указанный файл. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
+
+  <h4>Функция rename()</h4>
+  <code>int rename(const char *oldname, const char *newname)</code>
+  <p>Функция rename() изменяет имя указанного файла. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
+
+  <h4>Функция tmpfile()</h4>
+  <code>FILE *tmpfile(void)</code>
+  <p>Функция tmpfile() создает временный файл в режиме wb+, который будет удален по окончании работы программы. Если все хорошо возвращает поток, иначе значение NULL.</p>
+
+  <h4>Функция tmpnam()</h4>
+  <code>FILE *tmpnam(char arr[L_tmpnam])</code>
+  <p>Функция tmpnam() хранит строку, располагающуюся в массиве из L_tmpnam символов. Возвращает указатель с уникальным именем на этот массив. Функция tmpnam() генерирует новое имя при каждом вызове.</p>
+
+  <h4>Функция setvbuff()</h4>
+  <code>int setvbuff(FILE *stream, char *buffer, int mode, size_t size)</code>
+  <p>Функция setvbuff() начинает буферизацию указанного потока в буфер buffer размером size. Эта функция вызывается после того как поток был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Возвращает 0, если ошибка то ненулевое значение. Режим <strong>_IOFBF</strong> полная буферизация, <strong>_IOLBF</strong> буферизация строки, <strong>_IONBF</strong> отключает буферизацию</p>
+
+  <h4>Функция setbuf()</h4>
+  <code>void setbuf(FILE *stream, char *buffer)</code>
+  <p>Функция setbuf() определяет, как будет буферизирован поток. Эта функция вызывается после того как поток был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Аргумент buffer указывает на массив, который будет использован в качестве буфера.</p>
+
+  <h3>Форматирование выходных данных</h3>
+  <h4>Функция fprintf()</h4>
+  <code>int fprintf(FILE *stream, const char *format, ...)</code>
+  <p>Функция fprintf() преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</p>
+
+  <h4>Функция printf()</h4>
+  <code>int printf(const char *format, ...)</code>
+  <p>Функция printf() преобразует и записывает данные в поток stdout. Возвращает количество записанных символов, иначе отрицательное значение. Аналогично вызову fprintf(stdout, const char *format)</p>
+
+  <h4>Функция srintf()</h4>
+  <code>int srintf(char *s, const char *format)</code>
+  <p>Функция srintf() аналогична функции printf() за исключением того, что даные записываются в строку, которая завершается символом '\0'.</p>
+
+  <h4>Функция vfprintf()</h4>
+  <code>int vfprintf(FILE *stream, const char *format, va_list arg)</code>
+  <p>Функция vfprintf() аналогична функции vfprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+
+  <h4>Функция vprintf()</h4>
+  <code>int vprintf(const char *format, va_list arg)</code>
+  <p>Функция vprintf() аналогична функции vprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+
+  <h4>Функция vsrintf()</h4>
+  <code>int vsrintf(char *s, const char *format, va_list arg)</code>
+  <p>Функция vsrintf() аналогична функции sprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+
+  <h3>Форматирование входных данных</h3>
+  <h4>Функция fscanf()</h4>
+  <code>int fscanf(FILE *stream, const char *format, ...)</code>
+  <p>Функция fscanf() считывает данные из указанного потока и присваивает преобразованные значения указанным аргументам. Возвращает количество преобразованных символов, иначе константу EOF если достигнут конец файла или произошла ошибка.</p>
+
+  <h4>Функция scanf()</h4>
+  <code>int scanf(const char *format, ...)</code>
+  <p>Функция scanf() считывает данные из потока stdin Аналогично вызову fscanf(stdin, const char *format)</p>
+
+  <h4>Функция sscanf()</h4>
+  <code>int sscanf(char *s, const char *format)</code>
+  <p>Функция sscanf() аналогична функции printf() за исключением того, что даные считываются из указанной строки.</p>
+
+  <h3>Ввод и вывод символов</h3>
+  <h4>Функция fgetc()</h4>
+  <code>int fgetc(FILE *stream)</code>
+  <p>Функция fgetc() возвращает следующий символ указанного потока как переменную типа char, иначе константу EOF если достигнут конец файла или произошла ошибка.</p>
+
+  <h4>Функция getc()</h4>
+  <code>int getc(FILE *stream)</code>
+  <p>Функция getc() аналогична функции fgetc().</p>
+
+  <h4>Функция getchar()</h4>
+  <code>int getchar(void)</code>
+  <p>Функция getchar() аналогична функции getc(stdin).</p>
+
+  <h4>Функция ungetc()</h4>
+  <code>int ungetc(int c, FILE *stream)</code>
+  <p>Функция ungetc() помещает символ c обратно в поток, он будет считан при следующем обращении. Константу EOF вернуть в поток нельзя. Возвращает отправленный назад символ, иначе константу EOF если произошла ошибка.</p>
+
+  <h4>Функция fgets()</h4>
+  <code>int *fgets(char *s, int n, FILE *stream)</code>
+  <p>Функция fgets() считывает следующие n-1 симолов указанного потока, затем добавляет символ '\0' в конец массива. Возвращает указатель s, иначе значение NULL если достигнут конец файла или произошла ошибка.</p>
+
+  <h4>Функция gets()</h4>
+  <code>int *gets(char *s)</code>
+  <p>Функция gets() считывает введенную строку в массив, затем добавляет символ '\0' в конец массива. Возвращает указатель s, иначе значение NULL если достигнут конец файла или произошла ошибка.</p>
+
+  <h4>Функция fputc()</h4>
+  <code>int fputc(int c, FILE *stream)</code>
+  <p>Функция fputc() записывает символ в указанный поток и возвращает записанный символ, иначе константу EOF если произошла ошибка.</p>
+
+  <h4>Функция putc()</h4>
+  <code>int putc(int c, FILE *stream)</code>
+  <p>Функция putc() аналогична функции fputc().</p>
+
+  <h4>Функция putchar()</h4>
+  <code>int putchar(int c)</code>
+  <p>Функция putchar() аналогична функции putc(c, stdout).</p>
+
+  <h4>Функция fputs()</h4>
+  <code>int fputs(const char *s, FILE *stream)</code>
+  <p>Функция fputs() записывает строку в указанный поток и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</p>
+
+  <h4>Функция puts()</h4>
+  <code>int puts(const char *s)</code>
+  <p>Функция puts() записывает строку и символ новой строки '\n' в поток stdout и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</p>
+
+  <h3>Ввод и вывод данных напрямую из потоков</h3>
+  <h4>Функция fread()</h4>
+  <code>size_t fread(void *ptr, size_t size, size_t nobj, FILE *stream)</code>
+  <p>Функция fread() считывает данные из указанного потока в указанный массив ptr. Можно считать максимум nobj объектов размера size. Возвращает количество считанных объектов.</p>
+
+  <h4>Функция fwrite()</h4>
+  <code>size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *stream)</code>
+  <p>Функция fwrite() записывает в указанный поток nobj объектов размера size из указателя ptr. Возвращает количество записанных объектов.</p>
+
+  <h3>Работа с ошибками</h3>
+  <h4>Функция clearer()</h4>
+  <code>void clearer(FILE *stream)</code>
+  <p>Функция clearer() очищает индикаторы конца файла и ошибок для заданного потока.</p>
+
+  <h4>Функция feof()</h4>
+  <code>int feof(FILE *stream)</code>
+  <p>Функция feof() возвращает ненулевое значение, если для заданного потока был установлен индикатор конца файла.</p>
+
+  <h4>Функция ferror()</h4>
+  <code>int ferror(FILE *stream)</code>
+  <p>Функция ferror() возвращает ненулевое значение, если для заданного потока был установлен индикатор ошибки.</p>
+
+  <h4>Функция perror()</h4>
+  <code>void perror(const char *s)</code>
+  <p>Функция perror() выводит сообщение об ошибке, соответствующее целочисленному значению, содержащемуся в выражении <strong>errno</strong>.</p>
+
+  <h3>Позиционирование в файлах</h3>
+  <h4>Функция fseek()</h4>
+  <code>int fseek(FILE *stream, long offset, int original)</code>
+  <p>Функция fseek() устанавливает позицию для заданного потока. Все последующие операции чтения и записи будут производиться в новой позиции. Новая позиция задается смещением offset от оригинальной origin позиции. original может принимать значение SEEK_SET начало файл, SEEK_CUR текущая позиция, SEEK_END конец файла. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
+
+  <h4>Функция ftell()</h4>
+  <code>long ftell(FILE *stream)</code>
+  <p>Функция ftell() возвращает позицию в текущем файле указанного потока, иначе -1.</p>
+
+  <h4>Функция fgetpost()</h4>
+  <code>int fgetpost(FILE *stream, fpos_t *ptr)</code>
+  <p>Функция fgetpost() записывает текущую позицию файла указанного потока в заданный указатель ptr. Возвращает 0, если ошибка то ненулевое значение</p>
+
+  <h4>Функция fsetpost()</h4>
+  <code>int fsetpost(FILE *stream, const fpos_t *ptr)</code>
+  <p>Функция fsetpost() позиционирует файловый указатель в заданном потоке в позиции, записанной функцией fgetpos() в указатель ptr. Возвращает 0, если ошибка то ненулевое значение</p>
+</article>
+
+
+<!-- stdlib.h -->
+<article class="article">
+  <div class="anchor" id="stdlib"></div>
+  <h3>stdlib.h</h3>
+
+  <p>Содержит функции для преобразования чисел, выделения памяти и т.д.</p>
+
+  <h4>Функция atof()</h4>
+  <code>double atof(const char *s)</code>
+  <p>Функция atof() преобразовывает строку s к типу double.</p>
+
+  <h4>Функция atoi()</h4>
+  <code>int atoi(const char *s)</code>
+  <p>Функция atoi() преобразовывает строку s к типу int.</p>
+
+  <h4>Функция atol()</h4>
+  <code>long atol(const char *s)</code>
+  <p>Функция atol() преобразовывает строку s к типу long.</p>
+
+  <h4>Функция strtod()</h4>
+  <code>double strtod(const char *s, char **endp)</code>
+  <p>Функция strtod() преобразовывает начальный фрагмент строки s к переменной типа double, игнорируя пробелы в начале этой строки.</p>
+
+  <h4>Функция strtol()</h4>
+  <code>long strtol(const char *s, char **endp, int b)</code>
+  <p>Функция strtol() преобразовывает начальный фрагмент строки s к переменной типа long с основанием b, игнорируя пробелы в начале этой строки.</p>
+
+  <h4>Функция strtoul()</h4>
+  <code>unsigned long strtoul(const char *s, char **endp, int b)</code>
+  <p>Функция strtoul() преобразовывает начальный фрагмент строки s к переменной типа unsigned long с основанием b, игнорируя пробелы в начале этой строки.</p>
+
+  <h4>Функция rand()</h4>
+  <code>int rand(void)</code>
+  <p>Функция rand() возвращает псевдослучайное число.</p>
+
+  <h4>Функция srand()</h4>
+  <code>void srand(unsugned int seed)</code>
+  <p>Функция srand() устанавливает зерно для функции rand(). Зерно по умолчанию равно 1.</p>
+
+  <h4>Функция calloc()</h4>
+  <code>void *calloc(size_t nobj, size_t size)</code>
+  <p>Функция calloc() выделяет память для nobj объектов размером size и заполняет эту память нулями. Возвращает указатель на новую память или NULL если выделить память не удалось</p>
+
+  <h4>Функция malloc()</h4>
+  <code>void *malloc(size_t size)</code>
+  <p>Функция malloc() выделяет память для объекта размером size не изменяя значений в ячейках этой памяти. Возвращает указатель на новую память или NULL если выделить память не удалось</p>
+
+  <h4>Функция realloc()</h4>
+  <code>void *realloc(void *p, size_t size)</code>
+  <p>Функция realloc() увеличивает размер памяти созданной с помощью функций calloc() или malloc() на величину size. Возвращает указатель на новый фрагмент памяти или NULL если увеличить размер памяти не удалось</p>
+
+  <h4>Функция free()</h4>
+  <code>void *free(void *p)</code>
+  <p>Функция free() освобождает и возвращает в операционную систему память, выделенную функциями calloc(), malloc(), realloc()</p>
+
+  <h4>Функция abort()</h4>
+  <code>void abort(void)</code>
+  <p>Функция abort() аварийно завершает программу</p>
+
+  <h4>Функция exit()</h4>
+  <code>void exit(int status)</code>
+  <p>Функция exit() завершает программу и возвращает в систему значение status. status может иметь значения EXIT_SUCCESS или EXIT_FAILURE</p>
+
+  <h4>Функция atexit()</h4>
+  <code>void atexit(voif (*fcn)(void))</code>
+  <p>Функция atexit() вызывает функцию fcn перед завершением программы. Возвращает 0, иначе ненулевое значение если произошла ошибка</p>
+
+  <h4>Функция qsort()</h4>
+  <code>void qsort(void *base, size_t n, size_t size, int (*cmp) (const void*, const void*))</code>
+  <p>Функция qsort() выполняет сортировку диапазона base[0]...base[n-1] объектов, имеющих размер size, в порядке возрастания. Функция сравнения cmp() является аналогом функции bsearch()</p>
+
+  <h4>Функция abs()</h4>
+  <code>int abs(int n)</code>
+  <p>Функция abs() возвращает модуль числа int n</p>
+
+  <h4>Функция labs()</h4>
+  <code>long labs(long n)</code>
+  <p>Функция labs() возвращает модуль числа long n</p>
+</article>
+
+
+<!-- ctype.h -->
+<article class="article">
+  <div class="anchor" id="ctype"></div>
+  <h3>ctype.h</h3>
+
+  <p>Содержит функции для работы с символами. Принимают символ, возвращают ненулевое значение (true) если символ соответствует условиям, иначе 0 (false). Две функции преобразуют символ к верхнеиу или нижнему регистру и возвращают его.</p>
+
+  <h4>Функция isalpha()</h4>
+  <code>int isalpha(c)</code>
+  <p>Функция isalpha() проверяет является ли символ буквой.</p>
+
+  <h4>Функция isalnum()</h4>
+  <code>int isalnum(c)</code>
+  <p>Функция isalnum() проверяет является ли символ буквой или цифрой.</p>
+
+  <h4>Функция iscntrl()</h4>
+  <code>int iscntrl(c)</code>
+  <p>Функция iscntrl() проверяет является ли символ управляющим.</p>
+
+  <h4>Функция isdigit()</h4>
+  <code>int isdigit(c)</code>
+  <p>Функция isdigit() проверяет является ли символ десятичной цифрой.</p>
+
+  <h4>Функция isgraph()</h4>
+  <code>int isgraph(c)</code>
+  <p>Функция isgraph() проверяет является ли символ печатным (не включая пробел).</p>
+
+  <h4>Функция islower()</h4>
+  <code>int islower(c)</code>
+  <p>Функция islower() проверяет является ли символ буквой в нижнем регистре.</p>
+
+  <h4>Функция isprintf()</h4>
+  <code>int isprintf(c)</code>
+  <p>Функция isprintf() проверяет является ли символ печатным (включая пробел).</p>
+
+  <h4>Функция ispunct()</h4>
+  <code>int ispunct(c)</code>
+  <p>Функция ispunct() проверяет является ли символ печатным (кроме пробела, букв и цифр).</p>
+
+  <h4>Функция isspace()</h4>
+  <code>int isspace(c)</code>
+  <p>Функция isspace() проверяет является ли символ пробельным (' ', '\n', 'r', '\t', '\v').</p>
+
+  <h4>Функция isupper()</h4>
+  <code>int isupper(c)</code>
+  <p>Функция isupper() проверяет является ли символ буквой в верхнем регистре.</p>
+
+  <h4>Функция isxdigit()</h4>
+  <code>int isxdigit(c)</code>
+  <p>Функция isxdigit() проверяет является ли символ шестнадцатеричной цифрой.</p>
+
+  <h4>Функция tolower()</h4>
+  <code>int tolower(c)</code>
+  <p>Функция tolower() преобразует символ к нижнему регистру.</p>
+
+  <h4>Функция toupper()</h4>
+  <code>int toupper(c)</code>
+  <p>Функция toupper() преобразует символ к верхнему регистру.</p>
+</article>
+
+
+<!-- string.h -->
+<article class="article">
+  <div class="anchor" id="string"></div>
+  <h3>string.h</h3>
+
+  <p>Содержит функции для работы со строками</p>
+
+  <h4>Функция strcpy()</h4>
+  <code>char *strcpy(s1, s2)</code>
+  <p>Функция strcpy() копирует строку s2 в строку s1, затем возвращает строку s1.</p>
+
+  <h4>Функция strncpy()</h4>
+  <code>char *strncpy(s1, s2, n)</code>
+  <p>Функция strncpy() копирует n символов строки s2 в строку s1, затем возвращает строку s1.</p>
+
+  <h4>Функция strcat()</h4>
+  <code>char *strcat(s1, s2)</code>
+  <p>Функция strcat() добавляет строку s2 в строку s1, затем возвращает строку s1.</p>
+
+  <h4>Функция strncat()</h4>
+  <code>char *strncat(s1, s2, n)</code>
+  <p>Функция strncat() добавляет n символов строки s2 в строку s1, затем возвращает строку s1.</p>
+
+  <h4>Функция strcmp()</h4>
+  <code>char *strcmp(s1, s2)</code>
+  <p>Функция strcmp() сравнивает строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</p>
+
+  <h4>Функция strncmp()</h4>
+  <code>char *strncmp(s1, s2, n)</code>
+  <p>Функция strncmp() сравнивает n символов строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</p>
+
+  <h4>Функция strchr()</h4>
+  <code>char *strchr(s, c)</code>
+  <p>Функция strchr() возвращает индекс первого вхождения символа c в строку s, иначе значение NULL если символ не найден</p>
+
+  <h4>Функция strrchr()</h4>
+  <code>char *strrchr(s, c)</code>
+  <p>Функция strrchr() возвращает индекс последнегоо вхождения символа c в строку s, иначе значение NULL если символ не найден</p>
+
+  <h4>Функция strspn()</h4>
+  <code>size_t strspn(s1, s2)</code>
+  <p>Функция strspn() возвращает длину префикса строки s1, содержащего символы строки s2</p>
+
+  <h4>Функция strcspn()</h4>
+  <code>size_t strcspn(s1, s2)</code>
+  <p>Функция strcspn() возвращает длину префикса строки s1, содержащего символы, отсутствующие в строке s2</p>
+
+  <h4>Функция strlen()</h4>
+  <code>size_t strlen(s)</code>
+  <p>Функция strlen() возвращает длину строки s</p>
+
+  <h4>Функция strstr()</h4>
+  <code>char *strstr(s1, s2)</code>
+  <p>Функция strstr() возвращает указатель на первое включение строки s2 в строке s1, или значение NULL если совпадения не найдено</p>
+
+  <h4>Функция strerror()</h4>
+  <code>char *strerror(n)</code>
+  <p>Функция strerror() возвращает указатель на строку, связанную с кодом ошибки n</p>
+
+  <h4>Функция strok()</h4>
+  <code>char *strok(s1, s2)</code>
+  <p>Функция strok() разбивает строку s1 на фрагменты, используя раделители, содержащиеся в строке s2</p>
+
+  <h4>Функция memcpy()</h4>
+  <code>void *memcpy(s1, s2, n)</code>
+  <p>Функция memcpy() копирует n символов из строки s2 в строку s1, затем возвращает строку s1</p>
+
+  <h4>Функция memmove()</h4>
+  <code>void *memmove(s1, s2, n)</code>
+  <p>Функция memmove() аналогична функции memcpy(), но также работает в случае, если объекты пересекаются</p>
+
+  <h4>Функция memcmp()</h4>
+  <code>int *memcmp(s1, s2, n)</code>
+  <p>Функция memcmp() сравнивает первые n символов строк s1 и s2, возвращают те же значения, что и функция strcmp()</p>
+
+  <h4>Функция memchr()</h4>
+  <code>void *memchr(s, c, n)</code>
+  <p>Функция memchr() возвращает указатель на первое включение символа c в строке s или значение NULL если символ не найден в первых n символах строки</p>
+
+  <h4>Функция memset()</h4>
+  <code>void *memset(s, c, n)</code>
+  <p>Функция memset() заполняет первые n символов строки s указанным символом c</p>
+</article>
+
+
+<!-- limits.h -->
+<article class="article">
+  <div class="anchor" id="limits"></div>
+  <h3>limits.h</h3>
+
+  <p>Содержит константные определения размеров типов данных языка Си. Для каждого типа данных есть свои константы минимального и максимального значения</p> <p>CHAR_MIN, CHAR_MAX</p>
+  <p>SHRT_MIN, SHRT_MAX</p>
+  <p>INT_MIN, INT_MAX</p>
+  <p>LONG_MIN, LONG_MAX</p>
+  <p>LLONG_MIN, LLONG_MAX</p>
+</article>
+
+
+<!-- math.h -->
+<article class="article">
+  <div class="anchor" id="math"></div>
+  <h3>math.h</h3>
+
+  <p>Содержит математические функции. Переменные x и y имеют тип double. Переменная n имеет тип int. Все функции возвращают значение типа double.</p>
+
+  <h4>Функция sin(x)</h4>
+  <code>double sin(x)</code>
+  <p>Функция sin(x) возвращает синус переменной x.</p>
+
+  <h4>Функция asin(x)</h4>
+  <code>double asin(x)</code>
+  <p>Функция asin(x) возвращает арксинус переменной x.</p>
+
+  <h4>Функция sinh(x)</h4>
+  <code>double sinh(x)</code>
+  <p>Функция sinh(x) возвращает гиперболический синус переменной x.</p>
+
+  <h4>Функция cos(x)</h4>
+  <code>double cos(x)</code>
+  <p>Функция cos(x) возвращает косинус переменной x.</p>
+
+  <h4>Функция acos(x)</h4>
+  <code>double acos(x)</code>
+  <p>Функция acos(x) возвращает арккосинус переменной x.</p>
+
+  <h4>Функция cosh(x)</h4>
+  <code>double cosh(x)</code>
+  <p>Функция cosh(x) возвращает гиперболический косинус переменной x.</p>
+
+  <h4>Функция tan(x)</h4>
+  <code>double tan(x)</code>
+  <p>Функция tan(x) возвращает тангенс переменной x.</p>
+
+  <h4>Функция atan(x)</h4>
+  <code>double atan(x)</code>
+  <p>Функция atan(x) возвращает арктангенс переменной x.</p>
+
+  <h4>Функция atan2(x)</h4>
+  <code>double atan2(x)</code>
+  <p>Функция atan2(y, x) возвращает угол (в радианах) между осью x и точкой y.</p>
+
+  <h4>Функция tanh(x)</h4>
+  <code>double tanh(x)</code>
+  <p>Функция tanh(x) возвращает гиперболический тангенс переменной x.</p>
+
+  <h4>Функция exp(x)</h4>
+  <code>double exp(x)</code>
+  <p>Функция exp(x) возвращает значение e (основание натурального логарифма) в степени x.</p>
+
+  <h4>Функция log(x)</h4>
+  <code>double log(x)</code>
+  <p>Функция log(x) возвращает натуральный логарифма переменной x.</p>
+
+  <h4>Функция log10(x)</h4>
+  <code>double log10(x)</code>
+  <p>Функция log10(x) возвращает десятичный логарифма переменной x.</p>
+
+  <h4>Функция pow(x, y)</h4>
+  <code>double pow(x, y)</code>
+  <p>Функция pow(x, y) возвращает x в степени y.</p>
+
+  <h4>Функция sqrt(x)</h4>
+  <code>double sqrt(x)</code>
+  <p>Функция sqrt(x) возвращает квадратный корень из x.</p>
+
+  <h4>Функция ceil(x)</h4>
+  <code>double ceil(x)</code>
+  <p>Функция ceil(x) округляет к большему целому.</p>
+
+  <h4>Функция floor(x)</h4>
+  <code>double floor(x)</code>
+  <p>Функция floor(x) округляет к меньшему целому.</p>
+
+  <h4>Функция fabs(x)</h4>
+  <code>double fabs(x)</code>
+  <p>Функция fabs(x) возвращает модуль x.</p>
+
+  <h4>Функция ldexp(x, n)</h4>
+  <code>double ldexp(x, n)</code>
+  <p>Функция ldexp(x, n) возвращает x умноженное на 2 и возведенное в степень n.</p>
+
+  <h4>Функция frexp(x, int* exp)</h4>
+  <code>double frexp(x, int* exp)</code>
+  <p>Функция frexp(x, int* exp) разбивает x на две части - возвращает мантиссу (от 0.5 до 1) и сохраняет экспоненту в exp</p>
+
+  <h4>Функция modf(x, double* ip)</h4>
+  <code>double modf(x, double* ip)</code>
+  <p>Функция modf(x, double* ip) разбивает x на целую и дробную части - возвращает дробную часть и сохраняет целую в ip</p>
+
+  <h4>Функция fmod(x, y)</h4>
+  <code>double fmod(x, y)</code>
+  <p>Функция fmod(x, y) возвращает остаток от деления x на y.</p>
+</article>
+
+
+<!-- float.h -->
+<article class="article">
+  <div class="anchor" id="float"></div>
+  <h3>float.h</h3>
+
+  <p>Содержит определения констант для арифметики с плавующей точкой</p>
+</article>
+
+
+<!-- assert.h -->
+<article class="article">
+  <div class="anchor" id="assert"></div>
+  <h3>assert.h</h3>
+
+  <p>Содержит функции для диагностики программы</p>
+</article>
+
+
+<!-- stdarg.h -->
+<article class="article">
+  <div class="anchor" id="stdarg"></div>
+  <h3>stdarg.h</h3>
+
+  <p>Содержит функции для перебора аргументов функций</p>
+</article>
+
+
+<!-- setjmp.h -->
+<article class="article">
+  <div class="anchor" id="setjmp"></div>
+  <h3>setjmp.h</h3>
+
+  <p>Содержит функции чтобы нарушить обычную последовательность входа в функции и выхода из них</p>
+</article>
+
+
+<!-- signal.h -->
+<article class="article">
+  <div class="anchor" id="signal"></div>
+  <h3>signal.h</h3>
+
+  <p>Содержит функции для обработки исключительных ситуаций, которые могут возникнуть в программе</p>
+</article>
+
+
+<!-- time.h -->
+<article class="article">
+  <div class="anchor" id="time"></div>
+  <h3>time.h</h3>
+
+  <p>Содержит функции для работы с датой и временем</p>
+</article>
+

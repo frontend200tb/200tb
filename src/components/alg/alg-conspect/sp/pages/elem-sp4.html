@@ -1429,6 +1429,76 @@ int main() {
 5
 3
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Создадим массив B размером такой же как входной массив A. В клетку B[i] будем записывать сумму из клеток массива A на диагоналях которой она находится.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n, m;
+    cin >> n >> m;
+
+    vector&lt;vector&lt;int&gt; &gt; A(n, vector&lt;int&gt;(m));
+    for (int i = 0; i &lt; n; i++) {
+      for (int j = 0; j &lt; m; j++) {
+        cin >> A[i][j];
+      }
+    }
+
+  // решение
+    vector&lt;vector&lt;int&gt; &gt; B(n, vector&lt;int&gt;(m));
+    // смещение на одну клетку
+    int x = 1;
+    int res = 0;
+    for (int i = 0; i &lt; n; i++) {
+      for (int j = 0; j &lt; m; j++) {
+        int sum = A[i][j];
+        // влево вверх
+        x = 1;
+        while ((i - x >= 0) && (j - x >= 0)) {
+          sum += A[i - x][j - x];
+          x++;
+        }
+        // вправо вверх
+        x = 1;
+        while ((i - x >= 0) && (j + x &lt; m)) {
+          sum += A[i - x][j + x];
+          x++;
+        }
+        // вправо вниз
+        x = 1;
+        while ((i + x &lt; n) && (j + x &lt; m)) {
+          sum += A[i + x][j + x];
+          x++;
+        }
+        // влево вниз
+        x = 1;
+        while ((i + x &lt; n) && (j - x >= 0)) {
+          sum += A[i + x][j - x];
+          x++;
+        }
+        B[i][j] = sum;
+        res = max(res, B[i][j]);
+      }
+    }
+
+  // вывод результата
+  cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1480,5 +1550,35 @@ int main() {
 ###    ###
 </pre>
   <p>Во втором тестовом примере переключение гравитации не меняет высоты столбиков.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Поскольку гравитация переключается вправо, то есть кубики падают на правую стенку, то достаточно входной массив отсортировать по возрастанию.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+
+  // вывод результата
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 

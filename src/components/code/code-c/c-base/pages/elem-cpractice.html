@@ -1,0 +1,379 @@
+<h1>Язык Си</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#practice">Практика</a></p>
+  <ol>
+    <li><a href="#p1">Первая программа</a></li>
+    <li><a href="#p2">Входные параметры функции main()</a></li>
+    <li><a href="#p3">Версия языка Си и компилятора</a></li>
+    <li><a href="#p4">Локализация кириллицы в консоли</a></li>
+    <li><a href="#p5">Вывод целого числа в консоль</a></li>
+    <li><a href="#p6">Вывод целого числа в разных системах счисления</a></li>
+    <li><a href="#p7">Вывод дробного числа</a></li>
+    <li><a href="#p5">Вывод переменной типа char</a></li>
+    <li><a href="#p6">Выведем английский алфавит</a></li>
+    <li><a href="#p7">Выведем русский алфавит</a></li>
+    <li><a href="#p8">Выведем размеры разных типов</a></li>
+    <li><a href="#p9">Выведем константу</a></li>
+    <li><a href="#p10">Ввод двух дробных чисел</a></li>
+  </ol>
+
+</article>
+
+
+<!-- Практика -->
+<article class="article">
+  <div class="anchor" id="practice"></div>
+  <h3>Практика</h3>
+</article>
+
+
+<!-- Первая программа -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Первая программа</h3>
+
+  <ol>
+
+    <li>
+      <p>Создадим файл</p>
+      <code>hello.c</code>
+    </li>
+
+    <li>
+      <p>Запишем в него код первой программы</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello, world!");
+  return 0;
+}</pre>
+    </li>
+
+    <li>
+      <p>Откроем терминал и запустим компилятор gcc</p>
+      <code>gcc hello.c</code>
+    </li>
+
+    <li>
+      <p>По умолчанию компилятор создаст исполняемый файл <strong>a.exe</strong>. Запустим его</p>
+      <code>./a</code>
+    </li>
+
+    <li>
+      <p>Увидим результат работы программы</p>
+      <code>Hello, world!</code>
+    </li>
+  </ol>
+
+  <h4>Разберем код первой программы</h4>
+  <p><strong>#include &lt;stdio.h&gt;</strong> это директива препроцессора. Компилятор перед компиляцией, проходит строчка за строчкой по всей программе и выполняет все директивы.</p>
+  <p>Директива <strong>#include &lt;stdio.h&gt;</strong> заменяется на код из файла <strong>stdio.h</strong></p>
+  <p><strong>main()</strong> это функция, которая должна быть в каждой программе на языке Си. С нее начинается выполнение программы</p>
+  <p>Программы на языке Си вызываются и выполняются на уровне операционной системы. Поэтому после завершения они должны вернуть в систему код 0, если программа завершилась успешно и код ошибки, если программа завершилась с ошибкой.</p>
+  <p><strong>printf()</strong> это функция вывода на консоль, которая определена в заголовочном файле <strong>stdio.h</strong></p>
+</article>
+
+
+<!-- 2. Входные параметры функции main() -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2. Входные параметры функции main()</h3>
+
+  <p>Функция <strong>int main()</strong> возвращает в операционную систему целое число.</p>
+  <p>Кроме этого, она может принимать входные параметры от операционной системы при ее вызове.</p>
+  <p>Первый параметр это количество передаваемых параметров.</p>
+  <p>Второй параметр это массив строк. Первую строку в массиве передает операционная система и это всегда полный путь к файлу программы. Остальные строки попадают в массив из вызова программы и отделены пробелом (или пробелами)</p>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+  int i;
+  printf("%d parameter(s)\n", argc);
+
+  for (i = 0; i &lt; argc; i++) {
+    printf("%d %s\n", i, argv[i]);
+  }
+
+  return 0;
+}</pre>
+
+<p>Запустим программу без параметров</p>
+<code>./a</code>
+<pre>1 parameter(s)
+0 D:\code\c\01\a.exe</pre>
+
+<p>Запустим программу, передав в нее параметры через пробел</p>
+<code>./a frontend 200 tb</code>
+<pre>4 parameter(s)
+0 D:\code\c\01\a.exe
+1 frontend
+2 200
+3 tb</pre>
+</article>
+
+
+<!-- 3. Версия языка Си и компилятора -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3. Версия языка Си и компилятора</h3>
+
+  <p>Внутри программы можно узнать версию языка Си, которую использовал компилятор и версию компилятора.</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  printf("c standart %ld\n", __STDC_VERSION__);
+  printf("gcc standart %s\n", __VERSION__);
+}</pre>
+
+<p>Скомпилируем программу версией языка Си c99</p>
+<code>gcc -std=c99 a.c</code>
+<pre>c standart 199901
+gcc standart 14.1.0</pre>
+</article>
+
+
+<!-- 4. Локализация кириллицы в консоли -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4. Локализация кириллицы в консоли</h3>
+
+  <h4>Локализация русских букв для файлов сохраненных с кодировкой ANSI или Windows-1251, но не UTF-8</h4>
+  <p>По умолчанию язык Си работает только с таблицей ASCII, содержащей английские буквы. Для того чтобы язык Си мог работать другими алфавитами, в том числе с русскими буквами, нужно вызвать функцию setlocale() из заголовочного файла locale.h</p>
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  setlocale(LC_ALL, "");
+  printf("Привет, мир!\n");
+  return 0;
+}</pre>
+  <code>Привет, мир!</code>
+
+  <h4>Локализация unicode</h4>
+  <p>Для файлов сохраненных в формате unicode (UTF-8, UTF-16, UTF-32) надо использовать функцию wprintf() и перед первым параметром ставить букву L. Это происходит потому, что для кодировки ANSI необходим 1 байт, а для кодировки unicode нужно от 1 до 6 байтов.</p>
+
+<pre>#include &lt;stdio.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  setlocale(LC_ALL, "");
+  wprintf(L"Привет, мир!\n");
+  return 0;
+}</pre>
+  <code>Привет, мир!</code>
+</article>
+
+
+<!-- 5. Вывод целого числа в консоль -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5. Вывод целого числа в консоль</h3>
+
+  <p>Выведем в консоль целое число 100</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  printf("%d", 100);
+  return 0;
+}</pre>
+<code>100</code>
+</article>
+
+
+<!-- 6. Вывод целого числа в разных системах счисления -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6. Вывод целого числа в разных системах счисления</h3>
+
+  <p>Сохраним число 100 в переменную типа int и выведем его в десятичной, восьмеричной и шестнадцатеричной системе</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  int a = 100;
+  printf("%d %o %x", a, a, a);
+  return 0;
+}</pre>
+  <code>100 144 64</code>
+
+  <p>Запишем в переменные числа двоичной, восьмеричной и шестнадцатеричной системе и выведем их в десятичной системе</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  int a = 0b111;
+  int b = 077;
+  int c = 0xff;
+  printf("%d %d %d", a, b, c);
+  return 0;
+}</pre>
+  <code>7 63 255</code>
+</article>
+
+
+<!-- 7. Вывод дробного числа -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7. Вывод дробного числа</h3>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  double n = 5.f;
+  double m = 10;
+  printf("n = %.1f, m = %.2f", n, m);
+  return 0;
+}</pre>
+  <code>n = 5.0, m = 10.00</code>
+</article>
+
+
+<!-- 5. Вывод переменной типа char -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5. Вывод переменной типа char</h3>
+
+  <p>Переменной типа char можно присвоить символ в одинарных кавычках или код символа от 0 до 127</p>
+  <p>Присвоим переменной символ A и выведем символ и его код</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  char a = 'A';
+  printf("symbol %c, code %d", a, a);
+  return 0;
+}</pre>
+<code>symbol A, code 65</code>
+
+  <p>Присвоим переменной код 66 и выведем символ и его код</p>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  char b = 66;
+  printf("symbol %c, code %d", b, b);
+  return 0;
+}</pre>
+<code>symbol B, code 66</code>
+</article>
+
+
+<!-- 6. Выведем английский алфавит -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6. Выведем английский алфавит</h3>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  for (int i = 65; i &lt; 91; i++) {
+    printf("%d %c, ", i, i);
+  }
+  printf("\n");
+  for (int i = 97; i &lt; 123; i++) {
+    printf("%d %c, ", i, i);
+  }
+  return 0;
+}</pre>
+</article>
+
+
+<!-- 7. Выведем русский алфавит -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7. Выведем русский алфавит</h3>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  for (int i = 128; i &lt; 160; i++) {
+    printf("%d %c, ", i, i);
+  }
+  printf("\n");
+  for (int i = 160; i &lt; 176; i++) {
+    printf("%d %c, ", i, i);
+  }
+  for (int i = 224; i &lt; 240; i++) {
+    printf("%d %c, ", i, i);
+  }
+  return 0;
+}</pre>
+</article>
+
+
+<!-- 8. Выведем размеры разных типов -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8. Выведем размеры разных типов</h3>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  unsigned short a = 100u;
+  int b = 100;
+  long c = 100L;
+  long long d = 100LL;
+  printf("unsigned short %hu, int %d, ", sizeof(a), sizeof(b));
+  printf("long %ld, long long %lld", sizeof(c), sizeof(d));
+  return 0;
+}</pre>
+  <code>unsigned short 2, int 4, long 4, long long 8</code>
+</article>
+
+
+<!-- 9. Выведем константу -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9. Выведем константу</h3>
+
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+  const int a = 100;
+  const float PI = 3.14;
+  printf("const a = %d, PI = %f", a, PI);
+  return 0;
+}</pre>
+  <code>const a = 100, PI = 3.140000</code>
+</article>
+
+
+<!-- 10. Ввод двух дробных чисел -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10. Ввод двух дробных чисел</h3>
+
+  <p>Введем два числа (через пробел) и запишем их в переменные размером по 4 байта</p>
+<pre>#include &lt;stdio.h&gt;
+
+main() {
+  float a, b;
+  scanf_s("%f %f", &a, &b);
+  printf("a=%f b=%f", a, b);
+}</pre>
+<code>a=3.000000 b=4.000000</code>
+
+  <p>Введем два числа (через пробел) и запишем их в переменные размером по 8 байта</p>
+<pre>#include &lt;stdio.h&gt;
+
+main() {
+  double c, d;
+  scanf_s("%lf %lf", &c, &d);
+  printf("c=%f d=%f", c, d);
+}</pre>
+<code>c=5.000000 d=6.000000</code>
+
+  <p>Введем два числа (через запятую) и запишем их в переменные размером по 8 байта</p>
+<pre>#include &lt;stdio.h&gt;
+
+main() {
+  double c, d;
+  scanf_s("%lf,%lf", &c, &d);
+  printf("c=%f d=%f", c, d);
+}</pre>
+<code>c=7.000000 d=8.000000</code>
+</article>
+
+

@@ -226,6 +226,28 @@ getline(cin, str2, ':');
   <h4>Пример 2</h4>
   <code>konjac</code>
   <code>Konjac</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  string s;
+  cin >> s;
+
+  // решение
+  s[0] = toupper(s[0]);
+
+  // вывод результата
+  cout &lt;&lt; s;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -253,6 +275,31 @@ getline(cin, str2, ':');
   <h4>Пример</h4>
   <code>hello</code>
   <code>olleh</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  string s;
+  cin >> s;
+
+  // решение
+  string t;
+  int si = s.size() - 1;
+  for (int i = si; i >= 0; i--) {
+    t.push_back(s[i]);
+  }
+
+  // вывод результата
+  cout &lt;&lt; t;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -281,6 +328,38 @@ getline(cin, str2, ':');
   <h4>Пример 2</h4>
   <code>abacada</code>
   <code>No</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Заведем два указателя. p1 на начало строки, p2 на конец строки. Будем сравнивать символы строки и сдвигать указатели друг к другу.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  string s;
+  cin >> s;
+
+  // решение
+  int p1 = 0;
+  int p2 = s.size() - 1;
+  int si = s.size() - 1;
+  string pal = "Yes";
+  while (p2 > p1) {
+    if (s[p1] != s[p2]) {
+      pal = "No";
+    }
+    p1++;
+    p2--;
+  }
+
+  // вывод результата
+  cout &lt;&lt; pal;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -322,6 +401,35 @@ l10n
 i18n
 p43s
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+
+  // решение
+  for (int i = 0; i &lt; n; i++) {
+    string s;
+    string t;
+    cin >> s;
+    if (s.size() > 10) {
+      t = s[0] + to_string(s.size() - 2) + s[s.size() - 1];
+      cout &lt;&lt; t &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; s &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -361,6 +469,32 @@ lolkekcheburek
 keke
 </pre>
   <code>0</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  string s, t;
+  cin >> s >> t;
+
+  // решение
+  int res = 0;
+  while (s.find(t) != string::npos) {
+    res++;
+    s = s.substr(s.find(t) + 1);
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

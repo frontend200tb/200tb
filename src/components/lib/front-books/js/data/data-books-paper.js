@@ -746,8 +746,8 @@ const dataBooksPaper = [
     pages: '464',
     cover: 'мягкая',
     image: '2018 Мюллер - Алгоритмы для чайников.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.03.21 пт',
   },
 
   {

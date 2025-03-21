@@ -15,6 +15,19 @@ const dataBooksStm = [
 
   {
     id: 1,
+    year: 2006,
+    category: 'основы',
+    theme: 'stm32',
+    title: 'Программирование микроконтроллеров с нуля',
+    author: 'Корабельников',
+    authorName: 'Евгений',
+    pages: '287',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2014,
     category: 'основы',
     theme: 'stm32',
