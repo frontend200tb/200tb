@@ -51,7 +51,575 @@
   <div class="anchor" id="p3"></div>
   <h3>Глава 2. Обзор языка (15)</h3>
 
-  <p>Как можно быстрее начнем сами писать программы. Единственный способ обучиться новому языку программирования - начать писать на нем программы.</p>
+  <p>Как можно быстрее начнем сами писать программы.</p>
+
+  <h4>2.1 Начнем, пожалуй (15)</h4>
+
+  <p>Единственный способ обучиться новому языку программирования - начать писать на нем программы.</p>
   <p>Напишем первую программу, которая выводит на экран hello, world.</p>
+  <p>Первое препятствие - сначала надо где-то написать текст программы, потом его скомпилировать, запустить готовую программу и разобраться что у нас получилось.</p>
+  <p>Будем использовать операционную систему <strong>Windows 10</strong>  и редактор кода <strong>VSCode</strong>.</p>
+  <p>Создадим текстовый файл с расширением <strong>.c</strong>, назовем его, например, <strong>hello.c.</strong> Напишем в нем текст программы</p>
+
+  <h4>Программа 1 (16)</h4>
+  <p>Выводим на экран hello, world и переводим курсор на новую строку</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("hello, world\n");
+
+  return 0;
+}
+</pre>
+  <code>hello, world!</code>
+
+  <p>Откроем терминал и скомпилируем этот файл командой</p>
+  <code>gcc hello.c</code>
+  <p>Если нет ошибок и компиляция закончится успешно, то будет создан файл</p>
+  <code>a.exe</code>
+  <p>Запустим файл a.exe командой</p>
+  <code>./a</code>
+  <p>В консоли должен быть результат выполнения программы, выводится строчка</p>
+  <code>hello, world</code>
+
+  <p>Любая программа ня языке Си состоит из одной или более функций. Функциям можно давать любые имена, согласно правилам именования переменных и функций. Функция main() это особая функция. Она должна быть в каждой программе. С нее начинается выполнение программы.</p>
+
+  <h4>Программа 2 (17)</h4>
+  <p>Выводим на экран hello, world и переводим курсор на новую строку три раза вызвав функцию printf()</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("hello, ");
+  printf("world!");
+  printf("\n");
+
+  return 0;
+}
+</pre>
+  <code>hello, world!</code>
+
+  <h4>Программа 3 (17)</h4>
+  <p>Если в функцию printf() включить '\s', где s это не символ управляющей последовательности, то получим предупреждение. Программа скомпилируется и выполнится как будто символа '\' не было</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("\shello, world!\n");
+
+  return 0;
+}
+</pre>
+  <code>warning: unknown escape sequence: '\s'</code>
+  <code>shello, world!</code>
+
+  <h4>2.2 Переменные и арифметика (17)</h4>
+
+  <h4>Программа 4 (18)</h4>
+  <p>Программа печатает таблицу температур по Фаренгейту и  по Цельсию. Для перевода используется формула</p>
+  <code>C = (5/9)(F-32)</code>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int lower, upper, step;
+  float fahr, celsius;
+
+  lower = 0;
+  upper = 300;
+  step = 20;
+  fahr = lower;
+
+  while (fahr &lt;= upper) {
+    celsius = (5.0 / 9.0) * (fahr - 32.0);
+    printf("%4.0f %6.1f\n", fahr, celsius);
+    fahr = fahr + step;
+  }
+
+  return 0;
+}
+</pre>
+  <p>Спецификатор %4.0f означает что дробное число при печати должно занимать минимум 4 символа (если цифр меньше то перед ними ставятся пробелы) и без цифр после десятичной точки</p>
+  <p>Спецификатор %6.1f означает что дробное число при печати должно занимать минимум 6 символов (включая точку и цифры после нее, если цифр меньше то перед ними ставятся пробелы) и после десятичной точки доолжна быть одна цифра</p>
+
+  <h4>2.3 Цикл for (20)</h4>
+
+  <h4>Программа 5 (21)</h4>
+  <p>Программа печатает таблицу температур по Фаренгейту и  по Цельсию, используя цикл for</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int fahr;
+
+  for (fahr = 0; fahr &lt;= 300; fahr += 20) {
+    printf("%4d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 6 (21)</h4>
+  <p>Напечатаем температуры в обратном порядке от 300 до 0 градусов</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int fahr;
+
+  for (fahr = 300; fahr >= 0; fahr -= 20) {
+    printf("%4d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>2.4 Символические константы</h4>
+  <p>Плохо когда в программе встречаются загадочные числа вроде 300 или 20. Хорошо использовать для них конструкцию со словом #define в начале программы. Тогда можно определить символические константы. Препроцессор до выполнения компиляции заменит все символические константы на их значения. Так что полученная программа будет точно такое же, а вот читаемость программы на языке Си будет лучше.</p>
+
+  <h4>Программа 7 (22)</h4>
+  <p>Заменим цифры в программе символическими константами</p>
+<pre>
+#include &lt;stdio.h&gt;
+#define LOWER 0
+#define UPPER 300
+#define STEP 20
+
+int main() {
+  int fahr;
+
+  for (fahr = LOWER; fahr &lt;= UPPER; fahr += STEP) {
+    printf("%4d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>2.5 Некоторые простые программы</h4>
+  <p>Чтение одного символа (обычно из терминала)</p>
+  <code>c = getchar();</code>
+  <p>Запись одного символа (обысно в терминал)</p>
+  <code>putchar(c);</code>
+
+  <h4>Программа 8 (23)</h4>
+  <p>Копируем по одному символу со входа на выход после нажатия на клавишу ENTER. Если нужно остановать программу, надо нажать Ctrl+Z это константа EOF которая приведет к выходу из цикла while</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c;
+
+  c = getchar();
+  while (c != EOF) {
+    putchar(c);
+    c = getchar();
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 9 (23)</h4>
+  <p>Программа может стать компактнее, если записать getchar() прямо условии цикла while. Здесь считывается один символ, присваивается переменной, проверяется на равенство символу EOF</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c;
+
+  while ((c = getchar()) != EOF) {
+    putchar(c);
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 10 (24)</h4>
+  <p>Подсчитаем количество введенных символов в переменной типа int (включая пробелы и ENTER) пока не введем EOF</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int nc = 0;
+  while (getchar() != EOF) {
+    ++nc;
+  }
+  printf("count=%d\n", nc);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 11 (24)</h4>
+  <p>Подсчитаем количество введенных символов в переменной типа long (включая пробелы и ENTER) пока не введем EOF</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  long nc = 0;
+  while (getchar() != EOF) {
+    ++nc;
+  }
+  printf("count=%ld\n", nc);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 12 (24)</h4>
+  <p>Подсчитаем количество введенных символов в переменной типа double (включая пробелы и ENTER) пока не введем EOF</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  double nc = 0;
+  while (getchar() != EOF) {
+    ++nc;
+  }
+  printf("count=%.0f\n", nc);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 13 (25)</h4>
+  <p>Вместо цикла while напишем цикл for и всю работу цикл будет делать при проверке и повторной инициализации. Вместо пустого тела цикла необходимо поставить точку с запятой</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  double nc;
+  for (nc = 0; getchar() != EOF; ++nc) ;
+  printf("count=%.0f\n", nc);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 14 (25)</h4>
+  <p>Подсчитаем строки входного текста. Каждая строка заканчивается символом '\n'.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c, nl = 0;
+  while ((c = getchar()) != EOF) {
+    if (c == '\n') {
+      ++nl;
+    }
+  };
+    printf("count line = %d\n", nl);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 15 (26)</h4>
+  <p>Подсчитаем пробелы, символы табуляции и новые строки</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c,
+  n_ws = 0,
+  n_tab = 0,
+  n_l = 0;
+
+  while ((c = getchar()) != EOF) {
+    if (c == ' ') {
+      ++n_ws;
+    } else if (c == '\t') {
+      ++n_tab;
+    } else if (c == '\n') {
+      ++n_l;
+    }
+ };
+    printf("count whitespace = %d\n", n_ws);
+    printf("count tab = %d\n", n_tab);
+    printf("count new line = %d\n", n_l);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 16 (26)</h4>
+  <p>Напишем программу копирования ввода на вывод с заменой одного или более пробелов на один пробел</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c, w = ' ', flag = 0;
+
+  while ((c = getchar()) != EOF) {
+    if (c == ' ') {
+      flag = 1;
+    } else {
+      if (flag == 1) {
+        putchar(w);
+        flag = 0;
+      }
+      putchar(c);
+    }
+  };
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 17 (26)</h4>
+  <p>Напишем программу копирования ввода на вывод с заменой каждого символа табуляции на символы >>>, а каждого символа возврата на один шаг на символ &lt;</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char c;
+  char t = '\t', tt = '>';
+  char b = '\b', bb = '&lt;';
+
+  while ((c = getchar()) != EOF) {
+    if (c == t) {
+      putchar(tt);
+      putchar(tt);
+      putchar(tt);
+    } else if (c == b) {
+      putchar(bb);
+    } else {
+      putchar(c);
+    }
+  };
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 18 (26)</h4>
+  <p>Подсчитаем строки, слова и символы. Слово это последовательность символов, не содержащая пробелов, табуляции и символа перехода на новую строку. Как только программа встречает первый символ, она начинает считать</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+#define YES 1
+#define NO  0
+
+int main() {
+  int c, n_line, n_word, n_char, inword;
+  inword = NO;
+  n_line = n_word = n_char = 0;
+
+  while ((c = getchar()) != EOF) {
+    ++n_char;
+    if (c == '\n') {
+      ++n_line;
+    }
+    if (c == ' ' || c == '\t' || c == '\n') {
+      inword = NO;
+    } else if (inword == NO) {
+      inword = YES;
+      ++n_word;
+    }
+  }
+  printf("count line = %d\n", n_line);
+  printf("count word = %d\n", n_word);
+  printf("count char = %d\n", n_char);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 19 (28)</h4>
+  <p>Напечатаем вводимые слова по одному в строке</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c, w = 0;
+
+  while ((c = getchar()) != EOF) {
+    if (c == ' ' || c == '\t' || c == '\n') {
+      if (w == 0) {
+        putchar('\n');
+      }
+      w++;
+    } else {
+      putchar(c);
+      w = 0;
+    }
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 20 (28)</h4>
+  <p>Напечатаем вводимые слова по одному в строке. Слова должны начинаться с буквы</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+#define YES 1
+#define NO  0
+
+int main() {
+  int c;
+  int n_word = 0;
+  int inword = NO;
+
+  while ((c = getchar()) != EOF) {
+    if (c == ' ' || c == '\t' || c == '\n') {
+      inword = NO;
+    } else if (inword == NO && (
+              (c > 64 && c &lt; 91) ||
+              (c > 96 && c &lt; 123))) {
+      inword = YES;
+      ++n_word;
+    } else {
+      inword = YES;
+    }
+  }
+  printf("count word = %d\n", n_word);
+
+  return 0;
+}
+</pre>
+
+  <h4>2.6 Массивы (28)</h4>
+
+  <h4>Программа 21 (28)</h4>
+  <p>Посчитаем вхождения каждой из цифр, невидимых (пустых) симовол (пробелов, табуляций, перехода на новую строку) и других символов</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c, i;
+  int nwhite = 0, nother = 0;
+  int ndigit[10];
+
+  for (i = 0; i &lt; 10; i++) {
+    ndigit[i] = 0;
+  }
+
+  while ((c = getchar()) != EOF) {
+    if (c >= '0' && c &lt;= '9') {
+      ndigit[c - '0']++;
+    } else if (c == ' ' || c == '\t' || c == '\n') {
+      nwhite++;
+    } else {
+      nother++;
+    }
+  }
+  for (i = 0; i &lt; 10; i++) {
+    printf("%d %d\n", i, ndigit[i]);
+  }
+  printf("white space = %d\n", nwhite);
+  printf("other = %d\n", nother);
+
+  return 0;
+}
+</pre>
+
+  <h4>Программа 22 (29)</h4>
+  <p>Напечатаем гистограмму длин читаемых слов. Гистограмму расположим горизонтально</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+#define YES 1
+#define NO  0
+
+int main() {
+  int c;
+  int n_word = 0;
+  int inword = NO;
+  int inother = NO;
+  int len[256] = {0};
+
+  while ((c = getchar()) != EOF) {
+    // если пробельный символ
+    if (c == ' ' || c == '\t' || c == '\n') {
+      inword = NO;
+      inother = NO;
+    // если это первая буква после пробельного символа
+    } else if (inword == NO && inother == NO && (
+              (c > 64 && c &lt; 91) ||
+              (c > 96 && c &lt; 123))) {
+      inword = YES;    // мы внутри слова
+      ++n_word;        // увеличиваем число слов
+      len[n_word] = 1; // в слове одна буква
+    // если не пробельный символ и мы внутри слова
+    } else if (inword == YES) {
+        len[n_word]++;
+    } else {
+      inother = YES;
+    }
+  }
+
+  for (int i = 1; i &lt;= n_word; i++) {
+    for (int j = 1; j &lt;= len[i]; j++) {
+      printf("#");
+    }
+    printf("\n");
+  }
+
+  return 0;
+}
+</pre>
+
+  <h4>2.7 Функции</h4>
+
+  <h4>Программа 23 (30)</h4>
+  <p>Напишем функцию power для возведения целого числа в целую положительную степень. В программе вычисли 2⁵ и 2¹⁰</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int power(int, int);
+
+int main() {
+  printf("2**5=%d\n", power(2,5));
+  printf("2**10=%d\n", power(2,10));
+
+  return 0;
+}
+
+int power(int m, int n) {
+  int i, p = 1;
+  for (i = 0; i &lt; n; i++) {
+    p *= m;
+  }
+
+  return p;
+}
+</pre>
+  <code>2**5=32</code>
+  <code>2**10=1024</code>
+
+  <h4>Программа 24 (30)</h4>
+  <p>Напишем программу, которая принимает два целых числа и возводит первое число в степень равную второму числу</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int power(int, int);
+
+int main() {
+  int a, b;
+  printf("Enter integer ");
+  scanf("%d", &a);
+  printf("Enter power ");
+  scanf("%d", &b);
+  printf("%d**%d = %d\n", a, b, power(a, b));
+
+  return 0;
+}
+
+int power(int m, int n) {
+  int i, p = 1;
+  for (i = 0; i &lt; n; i++) {
+    p *= m;
+  }
+
+  return p;
+}
+</pre>
 </article>
 

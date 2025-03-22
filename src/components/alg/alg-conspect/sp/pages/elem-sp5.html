@@ -595,6 +595,47 @@ toosmallword
 TheQuickBrownFoxJumpsOverTheLazyDog
 </pre>
   <code>YES</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Переведем символы строки в нижний регистр и запишем в вектор. Сделаем сортировку векторов. Буквы будут соседние если разница между ними равна 1. Посчитаем число букв в векторе. Если ровно 26, то это панграмма</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+  string s;
+  cin >> s;
+
+  // решение
+  string res = "NO";
+  vector&lt;char&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    A[i] = tolower(s[i]);
+  }
+  sort(A.begin(), A.end());
+  int count = 0;
+  for (int i = 1; i &lt; n; i++) {
+    if (A[i] - A[i - 1] == 1) {
+      count++;
+    }
+  }
+  if (count == 25) {
+    res = "YES";
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -653,6 +694,51 @@ TheQuickBrownFoxJumpsOverTheLazyDog
   <p>В третьем наборе тестовых данных примера вы можете поменять местами a₁=1 и b₁=10, a₃=3 и b₃=10 и a₂=2 и b₄=10, и получить a=[10,10,10,4,5] и b=[1,9,3,2,9].</p>
   <p>В четвертом наборе тестовых данных примера вы не можете ничего поменять.</p>
   <p>В пятом наборе тестовых данных примера вы можете поменять местами массивы a и b и получить a=[4,4,5,4] и b=[1,2,2,1].</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Отсортировать два массива. В цикле от 0 до k менять местами меньшие элементы массива A с большими элементами массива B если они больше.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vector&lt;int&gt; A(n);
+    vector&lt;int&gt; B(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+    for (int i = 0; i &lt; n; i++) {
+      cin >> B[i];
+    }
+    // решение
+    sort(A.begin(), A.end());
+    sort(B.begin(), B.end());
+    for (int i = 0; i &lt; k; i++) {
+      if (B[n - 1 - i] > A[i]) {
+        A[i] = B[n - 1 - i];
+      }
+    }
+    int res = 0;
+    for (int i = 0; i &lt; n; i++) {
+      res += A[i];
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
