@@ -1151,6 +1151,18 @@ const dataBooksC = [
     dateLearned: '',
   },
 
+  {
+    id: 87,
+    year: 2025,
+    category: 'code',
+    theme: 'c',
+    title: 'Документация по языку Си',
+    author: 'Microsoft',
+    pages: '511',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

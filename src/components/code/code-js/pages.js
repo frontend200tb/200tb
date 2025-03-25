@@ -7,6 +7,7 @@ import showJsBom from './js-bom/js-bom';
 import showJsDom from './js-dom/js-dom';
 import showJsTheory from './js-theory/js-theory';
 import showJsPractice from './js-practice/js-practice';
+import showJsCourses from './js-courses/js-courses';
 import showJsInterview from './js-interview/js-interview';
 
 export default function pageLink() {
@@ -66,7 +67,16 @@ export default function pageLink() {
     });
   }
 
-  const navInterview = document.getElementById('js-7');
+  const navCourses = document.getElementById('js-7');
+  if (navCourses) {
+    navCourses.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<js-courses></js-courses>';
+      showJsCourses();
+    });
+  }
+
+  const navInterview = document.getElementById('js-8');
   if (navInterview) {
     navInterview.addEventListener('click', (e) => {
       e.preventDefault();

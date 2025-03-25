@@ -121,7 +121,7 @@
   <p>На Codeforces задачи в контестах нумеруются буквами от A до F. В задаче есть ограничение по времени и по памяти. Присутствует легенда.</p>
 
   <details>
-    <summary>Решение</summary>
+    <summary>Решение на C++</summary>
     <h4>Проверка четности веса арбуза</h4>
     <p>Для решения задачи необходимо определить, можно ли разделить арбуз весом w килограмм на две части, каждая из которых будет весить четное количество килограмм.</p>
     <p>Для этого нужно проверить 2 условия. w должно быть четным числом, так как сумма двух четных чисел всегда четная. w должно быть больше или равно 4, так как минимальный вес каждой части должен быть 2 кг (наименьшее четное положительное число).</p>
@@ -147,6 +147,33 @@ int main() {
 
   <p>После 2020 года можно писать <strong>and</strong> вместо <strong>&&</strong></p>
   <p>Если в функции int main() не написан return, то компилятор сам добавит return 0; в конце</p>
+
+  <details>
+    <summary>Решение на Node.js</summary>
+<pre>
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', (input) => {
+  const w = parseInt(input);
+
+  if (w % 2 === 0 && w >= 4) {
+    console.log("YES");
+  } else {
+    console.log("NO");
+  }
+
+  rl.close();
+});
+</pre>
+  <p>Модуль readline используется для чтения данных из стандартного потока ввода (stdin). Создаётся интерфейс rl, который связывает stdin и stdout.</p>
+  <p>Когда пользователь вводит данные и нажимает Enter, срабатывает событие line. Введённые данные передаются в функцию обратного вызова как строка.</p>
+  <p>Введённая строка преобразуется в число с помощью parseInt.</p>
+  <p>После обработки ввода интерфейс закрывается с помощью rl.close().</p>
+  </details>
 </article>
 
 
@@ -175,7 +202,7 @@ int main() {
   <code>3</code>
 
   <details>
-    <summary>Решение</summary>
+    <summary>Решение на C++</summary>
     <p>Чтобы минимизировать количество шагов, слоник должен делать максимально возможные шаги (т.е. шаги по 5 позиций). После этого, если останется расстояние, которое меньше 5, он сделает один дополнительный шаг.</p>
     <p>Выражение (x + 4) / 5 эквивалентно округлению вверх результата деления x на 5.</p>
 <pre>
@@ -191,6 +218,27 @@ int main() {
   // решение и вывод результата
   cout &lt;&lt; (x + 4) / 5;
 }
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение на Node.js</summary>
+<pre>
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', (input) => {
+  const x = parseInt(input);
+
+  const res = Math.floor((x + 4) / 5);
+  console.log(res);
+
+  rl.close();
+});
 </pre>
   </details>
 </article>

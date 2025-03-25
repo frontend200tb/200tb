@@ -45,14 +45,18 @@
   <div class="anchor" id="p3"></div>
   <h3>Глава 1. Общие понятия языка Си (7)</h3>
 
+  <h4>1.1 Интерфейс среды программирования Turbo C++ 3/0 (7)</h4>
+
   <p>Ядром любой программы на языке Си является функция <strong>main()</strong>. Напишем первую программу из минимального количества кода, она ничего не делает.</p>
 
-  <h4>Программа 1</h4>
+  <h4>Программа 1 (8)</h4>
   <code>main() {}</code>
+
+  <h4>1.2 Первая программа на Си (12)</h4>
 
   <p>Для того чтобы функция <strong>main()</strong> дала какой-либо результат, необходимо ее наполнить неким содержимым. Используем вызов функции вывода на экран <strong>printf()</strong>, которая содержится в библиотеке <strong>stdio.h</strong></p>
 
-  <h4>Программа 2</h4>
+  <h4>Программа 2 (13)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 
@@ -61,9 +65,11 @@ main() {
 }
 </pre>
 
+  <h4>1.3 Многошаговые программы (15)</h4>
+
   <p>Напишем программу, которая в каждой новой строке выводит последовательно символы #, $, @.</p>
 
-  <h4>Программа 3</h4>
+  <h4>Программа 3 (17)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 
@@ -76,7 +82,7 @@ main() {
 
   <p>Эту же задачу можно решить с помощью одного вызова функции <strong>printf()</strong>.</p>
 
-  <h4>Программа 4</h4>
+  <h4>Программа 4 (17)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 
@@ -87,7 +93,7 @@ main() {
 
   <p>Если после выполнения программы консольное окно сразу закрывается, то можно его задержать так, что программа закончится только после нажатия на какую-либо клавишу. для этого используем вызов функции <strong>getch()</strong>, которая содержится в библиотеке <strong>conio.h</strong></p>
 
-  <h4>Программа 5</h4>
+  <h4>Программа 5 (18)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -100,7 +106,7 @@ main() {
 
   <p>Очистим экран перед тем как выведем результат работы программы. Для этого используем вызов функции <strong>clrscr()</strong> из библиотеки <strong>conio.h</strong></p>
 
-  <h4>Программа 6</h4>
+  <h4>Программа 6 (18)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -112,9 +118,11 @@ main() {
 }
 </pre>
 
+  <h4>1.4 Управляющие последовательности (20)</h4>
+
   <p>Напишем программу, заставляющую компьютер подавать звуковой сигнал.</p>
 
-  <h4>Программа 7</h4>
+  <h4>Программа 7 (20)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -128,7 +136,7 @@ main() {
 
   <p>Напишем программу, выводящую на печать фразу Function "printf" should have a prototype</p>
 
-  <h4>Программа 8</h4>
+  <h4>Программа 8 (20)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -143,7 +151,7 @@ main() {
 
   <p>Напишем программу, выводящую на печать фразу Function 'printf' should have a prototype</p>
 
-  <h4>Программа 9</h4>
+  <h4>Программа 9 (21)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -158,7 +166,7 @@ main() {
 
   <p>Напишем программу, выводящую на печать фразу Format disk C:\ ?</p>
 
-  <h4>Программа 10</h4>
+  <h4>Программа 10 (21)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -172,7 +180,7 @@ main() {
 
   <p>Напишем программу, сдвигающую фразу в начало строки</p>
 
-  <h4>Программа 11</h4>
+  <h4>Программа 11 (22)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -186,7 +194,7 @@ main() {
 
   <p>Напишем программу, печатающую с табуляцией</p>
 
-  <h4>Программа 12</h4>
+  <h4>Программа 12 (22)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -200,7 +208,7 @@ main() {
 
   <p>Напишем программу, возвращающую курсор на одну позицию назад</p>
 
-  <h4>Программа 13</h4>
+  <h4>Программа 13 (22)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -212,10 +220,12 @@ main() {
 }
 </pre>
 
+  <h4>1.5 Оформление программ на Си (23)</h4>
+
   <p>Текст программы можно писать с одним пробелом или несколькими, на разных строках или на одной. Для компилятора нет разницы. Лишние пробелы и переводы строк он игнорирует.</p>
   <p>Цель программиста не в том, тчобы сделать текст программы компактным, а в том, чтобы сделать его наиболее удобным для чтения и понимания. Сравним программы 14 и 15.</p>
 
-  <h4>Программа 14</h4>
+  <h4>Программа 14 (23)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -227,7 +237,7 @@ main() {
 }
 </pre>
 
-  <h4>Программа 15</h4>
+  <h4>Программа 15 (24)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -236,7 +246,7 @@ main() {clrscr();printf("***");getch();}
 
   <p>Комментарии дают информацию о том что делает программа. Напишем программу с комментариями</p>
 
-  <h4>Программа 16</h4>
+  <h4>Программа 16 (25)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -256,7 +266,7 @@ main() {
 
   <p>Комментарии помогают во время отладки исключать куски кода. Исключим с помощью коментария вывод второго экрана</p>
 
-  <h4>Программа 17</h4>
+  <h4>Программа 17 (26)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -282,9 +292,11 @@ main() {
   <div class="anchor" id="p4"></div>
   <h3>Глава 2. Основы языка Си (27)</h3>
 
+  <h4>2.1 Переменные и их типы (27)</h4>
+
   <p>Напишем программу, в которой локально объявляются две переменные целого, одна символьного типа и одна с правающей точкой</p>
 
-  <h4>Программа 18</h4>
+  <h4>Программа 18 (29)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -301,7 +313,7 @@ main() {
 
   <p>Напишем программу, в которой глобально объявляются две переменые целого, одна символьного типа и одна с плавающей точкой</p>
 
-  <h4>Программа 19</h4>
+  <h4>Программа 19 (30)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -319,7 +331,7 @@ main() {
 
   <p>Напишем программу, в которой глобально и локально объявляются переменные целого типа</p>
 
-  <h4>Программа 20</h4>
+  <h4>Программа 20 (30)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -333,9 +345,11 @@ main() {
 }
 </pre>
 
+  <h4>2.2 Определение типа переменных (32)</h4>
+
   <p>Напишем программу, определяющую переменные для инициалов имени, отчества, фамилии</p>
 
-  <h4>Программа 21</h4>
+  <h4>Программа 21 (32)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -351,7 +365,7 @@ main() {
 
   <p>Можно объявить три переменные одного типа в одну строку</p>
 
-  <h4>Программа 22</h4>
+  <h4>Программа 22 (32)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -365,7 +379,7 @@ main() {
 
   <p>Напишем программу, определяющую переменные для возраста и веса человека</p>
 
-  <h4>Программа 23</h4>
+  <h4>Программа 23 (33)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -379,7 +393,7 @@ main() {
 
   <p>Напишем программу, определяющую переменные для возраста и веса человека. Вес указывается с точностью до граммов</p>
 
-  <h4>Программа 24</h4>
+  <h4>Программа 24 (33)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -394,7 +408,7 @@ main() {
 
   <p>Напишем программу, определяющую переменные для номера класса, буквы класса, числа учеников, среднего балла</p>
 
-  <h4>Программа 25</h4>
+  <h4>Программа 25 (33)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -409,9 +423,11 @@ main() {
 }
 </pre>
 
+  <h4>2.3 Оператор присваивания (34)</h4>
+
   <p>Напишем программу, хранящую информацию о человеке. Возраст 25 лет, зарплата 6125руб. 25коп. в месяц, двое детей.</p>
 
-  <h4>Программа 26</h4>
+  <h4>Программа 26 (35)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -432,7 +448,7 @@ main() {
 
   <p>Присвоить значения переменным можно при их объявлении</p>
 
-  <h4>Программа 27</h4>
+  <h4>Программа 27 (35)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -448,7 +464,7 @@ main() {
 
   <p>Напишем программу, хранящую информацию о двух работниках. Ваша зарплата 7645 руб. 46 коп. Вы устроили к себе в компанию своего друга на тот же оклад</p>
 
-  <h4>Программа 28</h4>
+  <h4>Программа 28 (36)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -467,7 +483,7 @@ main() {
 
   <p>Напишем программу, присваивающую инициалы G, M, P переменным символьного типа</p>
 
-  <h4>Программа 29</h4>
+  <h4>Программа 29 (36)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -483,9 +499,11 @@ main() {
 }
 </pre>
 
+  <h4>2.4 Функции printf и scanf (37)</h4>
+
   <p>Напишем программу, выводящую на печать значение переменной целого типа</p>
 
-  <h4>Программа 30</h4>
+  <h4>Программа 30 (37)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -500,7 +518,7 @@ main() {
 
   <p>Напишем прошграмму, выводящую на печать значения переменных целого, вещественного и символьного типов</p>
 
-  <h4>Программа 31</h4>
+  <h4>Программа 31 (38)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -519,7 +537,7 @@ main() {
 
   <p>Все три переменных можно вывести на печать одним вызовом функции printf() в одну строку, а затем в три строки</p>
 
-  <h4>Программа 32</h4>
+  <h4>Программа 32 (39)</h4>
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
@@ -534,6 +552,38 @@ main() {
   getch();
 }
 </pre>
+
+  <p>Напишем программу, принимающую с клавиатуры целое число</p>
+
+  <h4>Программа 33 (39)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x;
+  clrscr();
+  scanf("%d", &x);
+  getch();
+}
+</pre>
+
+  <p>Напишем программу, принимающую с клавиатуры целое число и печатающую его</p>
+
+  <h4>Программа 34 (40)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x;
+  clrscr();
+  printf("Enter integer number ");
+  scanf("%d", &x);
+  printf("\n Number is %d", x);
+  getch();
+}
+</pre>
 </article>
 
 
@@ -542,6 +592,463 @@ main() {
   <div class="anchor" id="p5"></div>
   <h3>Глава 3. Математика в Си (41)</h3>
 
+  <h4>3.1 Математические операторы (41)</h4>
+
+  <p>Напишем программу, складывающую два числа</p>
+
+  <h4>Программа 35 (41)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 5;
+  int y = 3;
+  int sum;
+  clrscr();
+  sum = x + y;
+  printf("summa x and y is %d", sum);
+  getch();
+}
+</pre>
+
+  <p>Сложение двух чисел можно выполнить в параметрах функции printf()</p>
+
+  <h4>Программа 36 (42)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 5;
+  int y = 3;
+  clrscr();
+  printf("summa x and y is %d", x + y);
+  getch();
+}
+</pre>
+
+  <p>Напишем программу, принимающую два целых числа и вычитающую одно число из другого.</p>
+
+  <h4>Программа 37 (42)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x;
+  int y;
+  clrscr();
+  printf("Enter first number ");
+  scanf("%d", &x);
+  printf("Enter second number ");
+  scanf("%d", &y);
+  printf("x - y = %d", x - y);
+  getch();
+}
+</pre>
+
+  <p>Напишем программу, принимающую сторону квадрата и печатающую его площадь.</p>
+
+  <h4>Программа 38 (43)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int a;
+  clrscr();
+  printf("Enter a side of square ");
+  scanf("%d", &a);
+  printf("S = %d", a * a);
+  getch();
+}
+</pre>
+
+  <p>Деление целых чисел</p>
+
+  <h4>Программа 39 (43)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 21;
+  int y = 4;
+  int z;
+  clrscr();
+  z = x / y;
+  printf("x / y = %d", z);
+  getch();
+}
+</pre>
+
+  <p>Деление вещественных чисел</p>
+
+  <h4>Программа 40 (44)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  float x = 21;
+  float y = 4;
+  float z;
+  clrscr();
+  z = x / y;
+  printf("x / y = %f", z);
+  getch();
+}
+</pre>
+
+  <h4>3.2 Операторы присваивания с математическими знаками (45)</h4>
+
+  <p>Увеличим значение переменной myAge = 15 на два.</p>
+
+  <h4>Программа 41 (45)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int myAge = 15;
+  int temp;
+  clrscr();
+  temp = myAge + 2;
+  myAge = temp;
+  printf("%d", myAge);
+  getch();
+}
+</pre>
+
+  <p>Можно не объявлять вспомогательную переменную temp, а поместить результат сложения сразу в переменную myAge.</p>
+
+  <h4>Программа 42 (46)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int myAge = 15;
+  clrscr();
+  myAge = myAge + 2;
+  printf("%d", myAge);
+  getch();
+}
+</pre>
+
+  <p>Есть более простой вариант прибавить число 2 к самому себе.</p>
+
+  <h4>Программа 43 (46)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int myAge = 15;
+  clrscr();
+  myAge += 2;
+  printf("%d", myAge);
+  getch();
+}
+</pre>
+
+  <p>Чтобы еще сократить программу, выполним операцию присваивания в параметрах функции printf().</p>
+
+  <h4>Программа 44 (47)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int myAge = 15;
+  clrscr();
+  printf("%d", myAge += 2);
+  getch();
+}
+</pre>
+
+  <h4>3.3 Инкремент и декремент, префикс и постфикс</h4>
+
+  <p>Есть переменная x = 44. Уменьшить ее значение на 1, используя декремент.</p>
+
+  <h4>Программа 45 (48)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 44;
+  clrscr();
+  x--;
+  printf("%d", x);
+  getch();
+}
+</pre>
+
+  <p>Есть переменная x = 44. Увеличить ее значение на 3, используя инкремент.</p>
+
+  <h4>Программа 46 (48)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 44;
+  clrscr();
+  x++;
+  x++;
+  x++;
+  printf("%d", x);
+  getch();
+}
+</pre>
+
+  <p>Разница префиксной и постфиксной формы инкремента.</p>
+
+  <h4>Программа 47 (49)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 4, y = 4;
+  clrscr();
+  printf("++x = %d", ++x);
+  printf("y++ = %d", y++);
+  getch();
+}
+</pre>
+
+  <p>Убедимся что y тоже увеличилось.</p>
+
+  <h4>Программа 48 (49)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 4, y = 4;
+  clrscr();
+  printf("++x = %d", ++x);
+  printf("y++ = %d", y++);
+  printf("y = %d", y);
+  getch();
+}
+</pre>
+
+  <p>Сложные выражения с префиксами и постфиксами.</p>
+
+  <h4>Программа 49 (50)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x = 4;
+  clrscr();
+  printf("++x + x = %d", ++x + x);
+  getch();
+}
+</pre>
+
+  <h4>3.4 Приоритеты операторов (51)</h4>
+
+  <p>Вычислить периметр треугольника по его сторонам.</p>
+
+  <h4>Программа 50 (51)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  float a, b, c, p;
+  clrscr();
+  printf("Enter side a ");
+  scanf("%f", &a);
+  printf("Enter side b ");
+  scanf("%f", &b);
+  printf("Enter side c ");
+  scanf("%f", &c);
+  p = a + b + c;
+  printf("\np = %f", p);
+  getch();
+}
+</pre>
+
+  <p>Вычислить длину окружности по радиусу.</p>
+
+  <h4>Программа 51 (52)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  float r, p;
+  clrscr();
+  printf("Enter radius ");
+  scanf("%f", &r);
+  p = 2 * 3.14 * r;
+  printf("\np = %f", p);
+  getch();
+}
+</pre>
+
+  <p>Число Пи постоянно. Для удобства его можно определить как константу.</p>
+
+  <h4>Программа 52 (52)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#define Pi 3.14
+
+main() {
+  float r, p;
+  clrscr();
+  printf("Enter radius ");
+  scanf("%f", &r);
+  p = 2 * Pi * r;
+  printf("\np = %f", p);
+  getch();
+}
+</pre>
+
+  <p>Вычислить периметр прямоугольника по его сторонам.</p>
+
+  <h4>Программа 53 (53)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  float a, b, p;
+  clrscr();
+  printf("Enter side a ");
+  scanf("%f", &a);
+  printf("Enter side b ");
+  scanf("%f", &b);
+  p = 2 * (a + b);
+  printf("\np = %f", p);
+  getch();
+}
+</pre>
+
+  <h4>3.5 Математическая библиотека math.h (54)</h4>
+
+  <p>Вычислить синус угла, заданного в радианах.</p>
+
+  <h4>Программа 54 (55)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  float ang, sinang;
+  clrscr();
+  printf("Enter angle in radian ");
+  scanf("%f", &ang);
+  sinang = sin(ang);
+  printf("\nsin of %f = %f", ang, sinang);
+  getch();
+}
+</pre>
+
+  <p>Вычислить косинус угла, заданного в радианах.</p>
+
+  <h4>Программа 55 (55)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  float ang, cosang;
+  clrscr();
+  printf("Enter angle in radian ");
+  scanf("%f", &ang);
+  cosang = cos(ang);
+  printf("\ncos of %f = %f", ang, cosang);
+  getch();
+}
+</pre>
+
+  <p>В библиотеке math.h кроме функций содержатся еще и математические константы. Напечатаем константу Пи из библиотеки math.h</p>
+
+  <h4>Программа 56 (57)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  printf("Const Pi = %f", M_PI);
+}
+</pre>
+
+  <h4>3.6 Решение задач (57)</h4>
+
+  <p>Угол, заданный в градусах, переведем в радианы.</p>
+
+  <h4>Программа 57 (58)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  float angle_degree;
+  float angle_radian;
+  clrscr();
+  printf("Enter angle in degree ");
+  scanf("%f", &angle_degree);
+  angle_radian = angle_degree * M_PI / 180;
+  printf("Angle in radian = %f", angle_radian);
+  getch();
+}
+</pre>
+
+  <p>Введите с клавиатуры две сторогны треугольника и угол между ними в градусах. Посчитайте площадь треугольника.</p>
+
+  <h4>Программа 58 (58)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  float a, b, angle_ab, s;
+  clrscr();
+  printf("Enter side a ");
+  scanf("%f", &a);
+  printf("Enter side b ");
+  scanf("%f", &b);
+  printf("Enter angle in degree ");
+  scanf("%f", &angle_ab);
+  // перевод в радианы
+  angle_ab = angle_ab * M_PI / 180;
+  s = a * b * sin(angle_ab) * 0.5;
+  printf("Area = %f", s);
+  getch();
+}
+</pre>
+
+  <p>Вычислить объем куба по его стороне.</p>
+
+  <h4>Программа 59 (59)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  float a;
+  clrscr();
+  printf("Enter side a ");
+  scanf("%f", &a);
+  printf("V = %f", pow(a, 3));
+  getch();
+}
+</pre>
 </article>
 
 
@@ -550,6 +1057,31 @@ main() {
   <div class="anchor" id="p6"></div>
   <h3>Глава 4. Служба помощи и отладка программ (61)</h3>
 
+  <h4>4.1 Служба помощи Turbo C++ 3.0 (61)</h4>
+
+  <p>Пункт меню Help позволяет получить помощь. Чтобы вызвать помощь можно нажать Shift+F1. Help -> contents это поиск по оглавлениям. Help -> index это поиск по индексам. Help -> topic search это поиск по теме. Чтобы воспользоваться поиском по теме, надо написать программу, навести курсор на нужное место и нажать Ctrl+F1.</p>
+
+  <p>Напишем текст программы, наведем курсор на библиотеку math.h и нажмем Ctrl+F1 чтобы получить помощь по библиотеке math.h</p>
+
+  <h4>Программа 60 (64)</h4>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+
+main() {
+  clrscr();
+  getch();
+}
+</pre>
+
+  <h4>4.2 Простейшая отладка программ в Turbo C++ 3.0 (66)</h4>
+
+  <p>Служба отладки запускается клавишей F7 и начинается с функции main(). Программа выполняется строчка за строчкой пошагово путем нажатия клавиши F7.</p>
+
+  <h4>4.3 Отладка программ с помощью окна Watch (69)</h4>
+
+  <p>Наиболее ценным свойством службы отладки является возможность отслеживать значения переменных. После запуска отладки клавишей F7 нужно выбрать пункт меню Window -> Watch. Внизу экрана появится окно Watch, в котором необходимо задать переменные для наблюдения за их значением.</p>
 </article>
 
 
@@ -558,6 +1090,497 @@ main() {
   <div class="anchor" id="p7"></div>
   <h3>Глава 5. Графика (75)</h3>
 
+  <h4>5.1 Графический режим (75)</h4>
+
+  <p>У монитора два режима - текстовый и графический.</p>
+  <p>В текстовом режиме минимальным объектом отображения на экране является символ. Экран монитора может содержать не более 80 символов по горизонтали и 25 символов по вертикали, то есть 2000 визуальных объектов. Имеются ограничения по управлению цветом символов.</p>
+  <p>В графическом режиме минимальным объектом отображения на экране является пиксель. Пиксель имеет меньшие размеры по сравнению с символом. Его размеры определяются разрешением монитора. Имеется минимально допустимое значение размера пикселя, определяемое техническими параметрами монитора.</p>
+  <p>Любое изображение формируется из простых геометрических фигур. Это точки, отрезки, окружности и т.д.</p>
+  <p>Графические координаты задают положение точки на экране дисплея. В качестве координат пикселя используется его номер по горизонтали и вертикали. Начальная точка это верхний левый угол экрана. Значения x отсчитываются слева направо, значения y - сверху вниз.</p>
+  <p>Библиотека graphics.h содержит функции, отвечающие за запуск графического режима.</p>
+
+  <h4>Программа 61 (77)</h4>
+  <p>Запустим экран в графическогом режиме. Функция initgraph() запускает графический режим. Функция closegraph() закрывает графический режим. В результате увидим темный экран.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.2 Точка. Отрезок. Окружность (79)</h4>
+
+  <p><strong>Точку</strong> можно задать через функцию putpixel(x, y, color), которая принимает координаты точки и ее цвет.</p>
+  <p>Цвет в Си можно задать цифрой или константой.</p>
+<pre>
+цифра константа цвет
+0     BLACK        черный
+1     BLUE         синий
+2     GREEN        зеленый
+3     CYAN         голубой
+4     RED          красный
+5     MAGENTA      розовый
+6     BROWN        коричневый
+7     LIGHTGRAY    светло-серый
+8     DARKGRAY     темно-серый
+9     LIGHTBLUE    светло-синий
+10    LIGHTGREEN   светло-зеленый
+11    LIGHTCYAN    светло-голубой
+12    LIGHTRED     светло-красный
+13    LIGHTMAGENTA светло-розовый
+14    YELLOW       желтый
+15    WHITE        белый
+</pre>
+
+  <h4>Программа 62 (80)</h4>
+  <p>Нарисуем точку красного цвета по центру экрана.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+  putpixel(320, 240, 4);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>Программа 63 (80)</h4>
+  <p>Использовать цифру в обозначении цвета бывает неудобным, поэтому часто применяют константы, обозначающие цвета. Поставим точку зеленого цвета.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+  putpixel(320, 240, GREEN);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p><strong>Отрезок</strong> можно задать через функцию line(x1, y1, x2, y2), которая принимает координаты начала отрезка и координаты конца.</p>
+
+  <h4>Программа 64 (81)</h4>
+  <p>Выведем на экран отрезок.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  int x1 = 0, y1 = 0, x2 = 320, y2 = 240;
+  initgraph(&gdriver, &gmode, "");
+  line(x1, y1, x2, y2);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p><strong>Окружность</strong> можно задать через функцию circle(x, y, radius), которая принимает координаты центра окружности и ее радиус.</p>
+
+  <h4>Программа 65 (81)</h4>
+  <p>Выведем окружность в центре экрана.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  int x = 320, y = 240, radius = 100;
+  initgraph(&gdriver, &gmode, "");
+  circle(x, y, radius);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.3 Прямоугольник. Эллипс. Раскраска (82)</h4>
+
+  <p><strong>Прямоугольник</strong> можно задать через функцию rectangle(x1, y1, x2, y2), которая принимает координаты верхнего левого угла и координаты нижнего правого угла.</p>
+
+  <h4>Программа 66 (83)</h4>
+  <p>Выведем на экран прямоугольник.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+  rectangle(0, 5, 60, 40);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p><strong>Эллипс</strong> можно задать через функцию ellipse(x, y, stangle, endangle, xr, yr), которая принимает координаты центра эллипса, начальный угол, конечный угол и радиус по оси x и радиус по оси y. Благодаря начальному и конечному углу можно задавать разрывы дуг эллипса. Чтобы получить эллипс без разрывов, следует начальный угол задать как 0, а конечный как 360. Если радиус по оси x равен радиусу по оси y xr = yr, то в этом частном случае эллипс будет кругом.</p>
+
+  <h4>Программа 67 (83)</h4>
+  <p>Выведем на экран эллипс.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+  ellipse(320, 240, 0, 36, 50);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Раскраска. Полученные фигуры можно раскрасить в любой из 16 цветов благодаря функции setcolor(color)</p>
+
+  <h4>Программа 68 (84)</h4>
+  <p>Выведем на экран зеленый прямоугольник и красный круг.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(GREEN);
+  rectangle(0, 5, 60, 40);
+
+  setcolor(RED);
+  circle(320, 240, 100);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.4 Брусок. Стили раскраски (85)</h4>
+
+  <p>Функция bar(x1, y1, x2, y2) принимает координаты верхнего левого угла и нижнего правого угла и задает брусок. В отличие от прямоугольника у которого можно раскрасить только периметр, брусок можно закрасить.</p>
+
+  <h4>Программа 69 (85)</h4>
+  <p>Выведем на экран закрашенный брусок.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  bar(0, 5, 60, 40);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Стили раскраски. Функция setcolor раскрашивает только периметр, а не саму фигуру.</p>
+
+  <h4>Программа 70 (86)</h4>
+  <p>Выведем на экран белый брусок с красной каймой.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(RED);
+  bar(0, 5, 60, 40);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Функция setfillstyle(style, color) задает цвет и стиль окраски. Она окрасит полностью брусок</p>
+
+  <h4>Программа 71 (87)</h4>
+  <p>Выведем на экран зеленый брусок.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(GREEN);
+  setfillstyle(SOLID_FILL, GREEN);
+  bar(0, 5, 60, 40);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Стили раскраски в Си можно задать цифрой или константой.</p>
+<pre>
+цифра константа       стиль
+0     EMPTY_FILL      цвет экрана
+1     SOLID_FILL      сплошная окраска
+2     LINE_FILL       ----
+3     LTSLASH_FILL    ////
+4     SLASH_FILL      //// жирные линии
+5     BKSLASH_FILL    \\\\ жирные линии
+6     LTBKSLASH_FILL  \\\\
+7     HATCH_FILL      клетка
+8     XHATCH_FILL     косая клетка
+9     INTERLEAVE_FILL расслоение
+10    WIDE_DOT_FILL   широко расположенные точки
+11    CLOSE_DOT_FILL  густо расположенные точки
+12    USER_FILL       пользовательский шаблон
+</pre>
+
+  <h4>Программа 72 (88)</h4>
+  <p>Выведем в центре зеленого экрана клетчатый квадрат красного цвета со стороной в 100 пикселей.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int midx = 320;
+  int midy = 240;
+
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setbcolor(GREEN);
+  setcolor(RED);
+
+  setfillstyle(HATCH_FILL, RED);
+  bar(midx - 50, midy - 50, midx + 50, midy + 50);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.5 Стилизованный окрашенный эллипс, окружность. Сектор (89)</h4>
+
+  <p>Функция fillellipse(x, y, xr, yr) которая принимает координаты центра эллипса, радиус по оси x и радиус по оси y, нарисует эллипс который можно заполнить цветом, как и bar.</p>
+
+  <h4>Программа 73 (89)</h4>
+  <p>Выведем на экран эллипс, окрашенный в синий цвет</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int midx = 320;
+  int midy = 240;
+  int xr = 100;
+  int yr = 50;
+
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(BLUE);
+  setfillstyle(SOLID_FILL, BLUE);
+  fillellipse(midx, midy, xr, yr);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Функция sector(x, y, stangle, endangle, xr, yr) которая принимает координаты центра эллипса, служащего основой для сектора, начальный и конечный угол, радиус по оси x и радиус по оси y, нарисует часть эллипса или окружности.</p>
+  <p>Создание сектора осуществляется путем задания углов.</p>
+  <p>Первая четверть эллипса</p>
+  <code>sector(x, y, 90, 0, xr, yr);</code>
+  <p>Вторая четверть эллипса</p>
+  <code>sector(x, y, 180, 90, xr, yr);</code>
+  <p>Третья четверть эллипса</p>
+  <code>sector(x, y, 270, 180, xr, yr);</code>
+
+  <h4>Программа 74 (90)</h4>
+  <p>Выведем на экран половину эллипса зеленого цвета.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int midx = 320;
+  int midy = 240;
+  int xr = 100;
+  int yr = 50;
+
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(GREEN);
+  setfillstyle(SOLID_FILL, GREEN);
+  sector(midx, midy, 180, 0, xr, yr);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.6 Прямоугольный параллелепипед (92)</h4>
+
+  <p>Прямоугольный параллелепипед это трехмерная фигура. Построить ее можно с помощью функции bar3d(x1, y1, x2, y2, depth, 1) которая принимает координаты верхнего левого угла, нижнего правого угла и глубину в трехмерном пространстве.</p>
+
+  <h4>Программа 75 (92)</h4>
+  <p>Выведем в центре экрана синий куб.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int midx = 320;
+  int midy = 240;
+
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(BLUE);
+  setfillstyle(SOLID_FILL, BLUE);
+  bar3d(midx-50, midy-50, midx+50, midy+50, 100, 1);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Фронтальная грань прямоугольного параллелепипеда в bar3d приспособлена для окраски по умолчанию. Для окраски правой и верзней граней необходимо использовать функцию floodfoll(x, y, color) которая принимает координаты произвольной точки внутри замкнутого пространства и цвет.</p>
+
+  <h4>Программа 76 (93)</h4>
+  <p>Выведем на экран полностью окрашенный куб.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(5);
+  setfillstyle(4, 5);
+  bar3d(340, 280, 500, 440, 80, 1);
+
+  setfillstyle(LINE_FILL, 5);
+  floodfill(350, 278, 5);
+  floodfill(510, 400, 5);
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <h4>5.7 Текст в графическом режиме (94)</h4>
+
+  <p>Функция outtextxy самая главная функция при работе с текстом в графическом режиме. Функция outtextxy(x, y, text) принимает координаты верхнего левого угла надписи и текст.</p>
+
+  <h4>Программа 77 (95)</h4>
+  <p>Выведем на экран в верхнем левом углу слово Yes.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  outtestxy(40, 80, "Yes");
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Текст, полученный из outtextxy, можно окрашивать в любой из 16 цветов с помощью функции setcolor.</p>
+
+  <h4>Программа 78 (95)</h4>
+  <p>Выведем в центре экрана слово No красным цветом.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(RED);
+  outtestxy(320, 240, "No");
+
+  getch();
+  closegraph();
+}
+</pre>
+
+  <p>Функция settextstyle определит размер, направление, гарнитуру шрифта текста. Функция settextstyle(font, direction, size) принимает гарнитуру, направление и размер.</p>
+  <p>Гарнитуру font можно задать цифрой или константой.</p>
+<pre>
+цифра константа       гарнитура
+0     DEFAULT_FONT    фонт по умолчанию
+1     TRIPLEX_FONT    тройной фонт
+2     SMALL_FONT      малый фонт
+3     SANS_SERIF_FONT фонт без засечек
+4     GOTHIC_FONT     готический фонт
+</pre>
+
+  <p>Направление текста direction можно задать цифрой или константой.</p>
+<pre>
+цифра константа  гарнитура
+0     HORIZ_DIR  горизонтальное направление
+1     VERT_DIR   вертикальное направление
+</pre>
+
+  <h4>Программа 79 (97)</h4>
+  <p>Выведем на экран текст XYZ готической гарнитурой, вертиикально, третьим размером, синим цветом.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;graphics.h.h&gt;
+
+main() {
+  int gdriver = DETECT, gmode;
+  initgraph(&gdriver, &gmode, "");
+
+  setcolor(BLUE);
+  settextstyle(GOTHIC_FONT, VERT_DIR, 3);
+  outtestxy(320, 240, "XYZ");
+
+  getch();
+  closegraph();
+}
+</pre>
 </article>
 
 
@@ -566,6 +1589,576 @@ main() {
   <div class="anchor" id="p8"></div>
   <h3>Глава 6. Логические операторы (98)</h3>
 
+  <h4>6.1 Операции отношения (98)</h4>
+
+  <p>Операции отношения == != > &lt; >= &lt;= служат для сравнения данных. Результатом операции отношения может быть либо 1 либо 0.</p>
+
+  <h4>6.2 Оператор if (101)</h4>
+
+  <h4>Программа 80 (102)</h4>
+  <p>Введем два числа и сравним их. Если первое число равно второму, выведем сообщение на экран.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1;
+  int num2;
+  clrscr();
+
+  printf("Enter number 1 ");
+  scanf("%d", &num1);
+  printf("Enter number 2 ");
+  scanf("%d", &num2);
+
+  if (num1 == num2) {
+    printf("\nnumber 1 = number2");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 81 (103)</h4>
+  <p>Введем два числа и сравним их. Если первое число больше второго, выведем сообщение на экран.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1;
+  int num2;
+  clrscr();
+
+  printf("Enter number 1 ");
+  scanf("%d", &num1);
+  printf("Enter number 2 ");
+  scanf("%d", &num2);
+
+  if (num1 > num2) {
+    printf("\nnumber 1 > number2");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>6.3 Использование оператора if (105)</h4>
+
+  <h4>Программа 82 (105)</h4>
+  <p>В магазине продавцам за продажи на сумму, большую, чем 5000 рублей в сутки, полагается премия 100 рублей. Напишем программу начисления премии.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int sales;
+  int bonus = 0;
+  clrscr();
+
+  printf("Enter sales ");
+  scanf("%d", &sales);
+
+  if (sales > 5000) {
+    bonus = 100;
+  }
+  printf("\nBonus is %d", bonus);
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 83 (106)</h4>
+  <p>Проверим что возраст студента не меньше 14 лет.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int age;
+  clrscr();
+
+  printf("Enter student's age ");
+  scanf("%d", &age);
+
+  if (age &lt; 14) {
+    printf("\nThe age less than 14");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 84 (107)</h4>
+  <p>Перед изготовлением детали станок с числовым программным управлением осуществляет замер площади заготовки, и если площадь меньше 400 - выбраковывает ее. Напишем программу, принимающую длину и ширину заготовки и определяющую подходит она для станка или нет.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  float a;
+  float b;
+  clrscr();
+
+  printf("Enter side a ");
+  scanf("%f", &a);
+  printf("Enter side b ");
+  scanf("%f", &b);
+
+  if (a * b &lt; 400) {
+    printf("\nERROR");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>6.4 Ветвление оператора if (108)</h4>
+
+  <h4>Программа 85 (108)</h4>
+  <p>Проверить что введенное целое число больше 5 и меньше 10.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter integer number ");
+  scanf("%d", &num);
+
+  if (num == 6) printf("Ok");
+  if (num == 7) printf("Ok");
+  if (num == 8) printf("Ok");
+  if (num == 9) printf("Ok");
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 86 (110)</h4>
+  <p>Перепишем программу покороче, используя ветвление.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter integer number ");
+  scanf("%d", &num);
+
+  if (num &lt; 10) {
+    if (num > 5) {
+      printf("Ok");
+    }
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 87 (111)</h4>
+  <p>Для того чтобы тяжелый транспортный самолет взлетел, необходимы три условия: его масса должна быть меньше 200т, скорость - больше 250км/ч, длина взлетно-посадочной полосы - больше 2500м.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int m; // mass
+  int v; // speed
+  int l; // length
+  clrscr();
+
+  printf("Enter mass ");
+  scanf("%d", &m);
+  printf("Enter speed ");
+  scanf("%d", &v);
+  printf("Enter length ");
+  scanf("%d", &l);
+
+  if (m &lt; 200) {
+    if (v > 250) {
+      if (l > 2500) {
+        printf("Ok");
+      }
+    }
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>6.5 Логические операторы (112)</h4>
+
+  <h4>Программа 88 (113)</h4>
+  <p>Проверить что целое число больше 5 и меньше 10.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter integer number ");
+  scanf("%d", &num);
+
+  if (num &lt; 10 && num > 5) {
+    printf("Ok");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 89 (115)</h4>
+  <p>Успеваемость учеников оценивают по двум показателям: прилежание и поведение. Ученик не успевает если у него либо за прилежание либо за поведение оценка два балла. Введите оценки за прилежание и за поведение и определите успевает ли ученик.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int x, y;
+  clrscr();
+
+  printf("Enter prilezhanie ");
+  scanf("%d", &x);
+  printf("Enter povedenie ");
+  scanf("%d", &y);
+
+  if (x == 2 || y == 2) {
+    printf("ne uspevaet");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>6.6 Оператор else (115)</h4>
+
+  <h4>Программа 90 (116)</h4>
+  <p>Введите два целых числа и выдайте сообщение равны или неравны эти числа. Используйте if else</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1, num2;
+  clrscr();
+
+  printf("Enter integer number 1 ");
+  scanf("%d", &num1);
+  printf("\nEnter integer number 2 ");
+  scanf("%d", &num2);
+
+  if (num1 == num2) {
+    printf("\nnumber 1 = number 2");
+  } else {
+    printf("\nnumber1 != number 2")
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 91 (118)</h4>
+  <p>Введите два целых числа и выдайте сообщение равны или неравны эти числа. Используйте только if</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1, num2;
+  clrscr();
+
+  printf("Enter integer number 1 ");
+  scanf("%d", &num1);
+  printf("\nEnter integer number 2 ");
+  scanf("%d", &num2);
+
+  if (num1 == num2) {
+    printf("\nnumber 1 = number 2");
+  }
+  if (num1 != num2) {
+    printf("\nnumber1 != number 2")
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 92 (118)</h4>
+  <p>Введите целое число и выдайте сообщение, больше нуля это число или нет.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter integer number ");
+  scanf("%d", &num);
+
+  if (num > 0) {
+    printf("\nMore than 0");
+  } else {
+    printf("\nLess or equal to 0")
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>6.7 Примеры использования оператора else (120)</h4>
+
+  <h4>Программа 93 (120)</h4>
+  <p>Найти максимальное из двух чисел.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1, num2, max;
+  clrscr();
+
+  printf("Enter number 1 ");
+  scanf("%d", &num1);
+  printf("Enter number 2 ");
+  scanf("%d", &num2);
+
+  if (num1 &lt; num2) {
+    max = num2;
+  } else {
+    max = num1;
+  }
+
+  printf("\nMax number = %d", max);
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 94 (121)</h4>
+  <p>Найти максимальное из трех чисел. Использовать только оператор if</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1, num2, num3, max;
+  clrscr();
+
+  printf("Enter number 1 ");
+  scanf("%d", &num1);
+  printf("Enter number 2 ");
+  scanf("%d", &num2);
+  printf("Enter number 3 ");
+  scanf("%d", &num2);
+
+  if (num1 &lt; num2) {
+    if (num2 &lt; num3) max = num3;
+    if (num3 &lt; num2) max = num2;
+  }
+  if (num2 &lt; num1) {
+    if (num1 &lt; num3) max = num3;
+    if (num3 &lt; num1) max = num1;
+  }
+
+  printf("\nMax number = %d", max);
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 95 (122)</h4>
+  <p>Найти максимальное из трех чисел. Использовать операторы if else</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num1, num2, num3, max;
+  clrscr();
+
+  printf("Enter number 1 ");
+  scanf("%d", &num1);
+  printf("Enter number 2 ");
+  scanf("%d", &num2);
+  printf("Enter number 3 ");
+  scanf("%d", &num2);
+
+  if (num1 &lt; num2) {
+    if (num2 &lt; num3) max = num3;
+    else max = num2;
+  }
+  if (num2 &lt; num1) {
+    if (num1 &lt; num3) max = num3;
+    else max = num1;
+  }
+
+  printf("\nMax number = %d", max);
+
+  getch();
+}
+</pre>
+
+  <h4>6.8 Оператор else if (123)</h4>
+
+  <h4>Программа 96 (124)</h4>
+  <p>Введите целое число и выдайте сообщение, оно больше, равно или меньше нуля.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter integer number ");
+  scanf("%d", &num);
+
+  if (num > 0) {
+    printf("\nMore than 0");
+  } else if (num &lt; 0) {
+    printf("\nLess than 0")
+  } else {
+    printf("\nEqual to 0");
+  }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 97 (125)</h4>
+  <p>Принять с клавиатуры цифру от 0 до 9 и сообщить какая цифра была принята.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter digit from 0 to 9 ");
+  scanf("%d", &num);
+
+  if (num == 0) printf("zero");
+  else if (num == 1) printf("one");
+  else if (num == 2) printf("two");
+  else if (num == 3) printf("three");
+  else if (num == 4) printf("four");
+  else if (num == 5) printf("five");
+  else if (num == 6) printf("six");
+  else if (num == 7) printf("seven");
+  else if (num == 8) printf("night");
+  else if (num == 9) printf("nine");
+  else printf("not digit from 0 to 9");
+
+  getch();
+}
+</pre>
+
+  <h4>6.9 Оператор множественного выбора switch (127)</h4>
+
+  <h4>Программа 98 (128)</h4>
+  <p>Принять с клавиатуры цифру от 1 до 5 и сообщить какая цифра была принята.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter digit from 1 to 5 ");
+  scanf("%d", &num);
+
+  if (num == 1) printf("one");
+  else if (num == 2) printf("two");
+  else if (num == 3) printf("three");
+  else if (num == 4) printf("four");
+  else if (num == 5) printf("five");
+  else printf("not digit from 1 to 5");
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 99 (128)</h4>
+  <p>В таких случаях лучше использовать оператор switch</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter digit from 1 to 5 ");
+  scanf("%d", &num);
+
+  switch (num) {
+    case 1:
+      printf("one");
+      break;
+    case 2:
+      printf("two");
+      break;
+    case 3:
+      printf("three");
+      break;
+    case 4:
+      printf("four");
+      break;
+    case 5:
+      printf("five");
+      break;
+    }
+
+  getch();
+}
+</pre>
+
+  <h4>Программа 100 (129)</h4>
+  <p>Блок операторов default выполняется если не подходит ни одно из выражений.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+main() {
+  int num;
+  clrscr();
+
+  printf("Enter digit from 1 to 5 ");
+  scanf("%d", &num);
+
+  switch (num) {
+    case 1:
+      printf("one");
+      break;
+    case 2:
+      printf("two");
+      break;
+    case 3:
+      printf("three");
+      break;
+    case 4:
+      printf("four");
+      break;
+    case 5:
+      printf("five");
+      break;
+    default:
+      printf("not digit from 1 to 5");
+    }
+
+  getch();
+}
+</pre>
 </article>
 
 
@@ -574,4 +2167,10 @@ main() {
   <div class="anchor" id="p8"></div>
   <h3>Список рекомендуемой литературы (132)</h3>
 
+  <ol>
+    <li>1992 Керниган, Ритчи - Язык программирования Си. 202с.</li>
+    <li>1992 Романовская, Русс, Свитковский - Программирование в среде Си для ПЭВМ ЕС. 352с.</li>
+    <li>1991 Уинер - Язык Турбо Си. 384с.</li>
+    <li>1994 Яншин, Калинин - Обработка изображений на языке Си для IBM PC. Алгоритмы и программы. 241с.</li>
+  </ol>
 </article>

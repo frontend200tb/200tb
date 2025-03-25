@@ -506,8 +506,8 @@ const dataBooksPaper = [
     pages: '132',
     cover: 'мягкая',
     image: '2007 Яновский - Язык Си - первый шаг к серьезному программированию.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.03.25 вт',
   },
 
   {

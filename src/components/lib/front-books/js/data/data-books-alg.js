@@ -716,6 +716,19 @@ const dataBooksAlg = [
   },
 
   {
+    id: 38,
+    year: 2017,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы и программы. Язык C++ (2е)',
+    author: 'Конова',
+    authorName: 'Елена',
+    pages: '386',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 40,
     year: 2017,
     category: 'основы',
