@@ -4954,6 +4954,62 @@ Unsorted!
 Sorted!
 Unsorted!
 </pre>
+  <p>Создадим второй массив B из элементов первого массива A и отсортируем его. Сравним элементы массивов A и B и посчитаем сколько элементов отличается.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  int n, q;
+  cin >> n >> q;
+  int a[10000], b[10000];
+  int not_sorted = 0;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> a[i];
+    b[i] = a[i];
+  }
+  sort(b, b + n);
+  for (int i = 0; i &lt; n; i++) {
+    if (a[i] != b[i]) {
+      not_sorted++;
+    }
+  }
+
+  // обрабатываем запросы
+  for (int i = 0; i &lt; q; i++) {
+    int x, y;
+    cin >> x >> y;
+    x--; y--;  // Приведение к нулевому индексу
+
+    // Проверяем сколько несортированных элементов участвуют в обмене
+    int before_swap = 0;
+    if (a[x] != b[x]) before_swap++;
+    if (a[y] != b[y]) before_swap++;
+
+    // Меняем элементы местами
+    swap(a[x], a[y]);
+
+    // После обмена проверяем несортированность этих двух элементов
+    int after_swap = 0;
+    if (a[x] != b[x]) after_swap++;
+    if (a[y] != b[y]) after_swap++;
+
+    // Обновляем количество неправильных позиций
+    not_sorted = not_sorted - before_swap + after_swap;
+
+    // Выводим результат
+    if (not_sorted == 0) {
+      cout &lt;&lt; "Sorted!" &lt;&lt; endl;
+    } else {
+      cout &lt;&lt; "Unsorted!" &lt;&lt; endl;
+    }
+  }
+
+  return 0;
+}
+</pre>
   </details>
 </article>
 

@@ -8,7 +8,6 @@
 <article class="article">
   <h1>Занятие 5. Основы С++ #4. string</h1>
   <p>Конспект видео от 2024.10.12</p>
-  <p><a href="https://vkvideo.ru/@sportprog_yarsu">vkvideo.ru/@sportprog_yarsu</a></p>
   <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/557609" target="_blank">Codeforces Контест 557609</a></p>
 </article>
 
@@ -1413,8 +1412,311 @@ ca
   <p>В четвертом наборе входных данных примера 3-е и 4-е слова могут быть использованы для составления интересного рассказа. Рассказ будет иметь вид «c bc».</p>
 
   <details>
+    <summary>Тесты</summary>
+<pre>
+1
+22
+abe
+ceacda
+ced
+ce
+edcadc
+adb
+da
+bad
+ead
+dad
+bcd
+ddca
+deaa
+ecc
+cd
+cae
+aabee
+aadea
+bdcae
+be
+cddc
+bceba
+</pre>
+  <code>5</code>
+<pre>
+1
+43
+a
+d
+bbc
+a
+dda
+c
+e
+bb
+cbd
+c
+dc
+e
+caab
+d
+c
+e
+e
+bd
+d
+a
+a
+b
+a
+c
+d
+c
+d
+ba
+e
+c
+ecdb
+bdbd
+d
+e
+cb
+ac
+ccd
+cb
+cda
+da
+bb
+d
+c
+</pre>
+  <code>19</code>
+<pre>
+1
+5
+eb
+cddcee
+eecbbc
+ebadabe
+aceeb
+</pre>
+  <code>0</code>
+<pre>
+1
+20
+ebadaeea
+eeeeaa
+ddbdadd
+debbbacebe
+badbbbbc
+eeaadb
+acadbe
+bcdeb
+ccececcdba
+cacab
+ba
+edddbdd
+bbaddcdab
+ccdecaecccace
+cdddbd
+eac
+accdedbbe
+bcdea
+aadeada
+cacad
+</pre>
+  <code>5</code>
+  </details>
+
+  <details>
     <summary>Решение</summary>
-    <p>Находим самую частую букву во всех словах. Запоминаем ее количество cnt_max. Считаем количество всех остальных букв cnt_oth. Если cnt_max > cnt_oth то ответ это все n слов</p>
+    <p>Сортировать слова по соотношению букв А (B,C,D,E) к другим буквам. Напишем функцию compare для такой сортировки. Для сравнения используем разницу между буквой A и остальными буквами в слове.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool compareA(string&, string&);
+bool compareB(string&, string&);
+bool compareC(string&, string&);
+bool compareD(string&, string&);
+bool compareE(string&, string&);
+int count_word(vector&lt;string&gt;, char);
+
+int main() {
+  // входные данные
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n; // число слов
+    cin >> n;
+    vector&lt;string&gt; S(0);
+    string temp;
+    for (int i = 0; i &lt; n; i++) {
+      cin >> temp;
+      S.push_back(temp);
+    }
+
+    // решение
+    sort(S.begin(), S.end(), compareA);
+    int resA = count_word(S, 'a');
+    sort(S.begin(), S.end(), compareB);
+    int resB = count_word(S, 'b');
+    sort(S.begin(), S.end(), compareC);
+    int resC = count_word(S, 'c');
+    sort(S.begin(), S.end(), compareD);
+    int resD = count_word(S, 'd');
+    sort(S.begin(), S.end(), compareE);
+    int resE = count_word(S, 'e');
+
+    int res = max(max(max(resA, resB), max(resC, resD)), resE);
+    // вывод результата
+  cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+
+bool compareA(string &s1, string &s2) {
+  int a1 = 0; // число букв 'a'
+  int b1 = 0; // число других букв
+  int d1;     // разница a1 - b1
+  for (char ch : s1) {
+    if (ch == 'a') {
+      a1++;
+    } else {
+      b1++;
+    }
+  }
+  d1 = a1 - b1;
+  int a2 = 0, b2 = 0, d2;
+  for (char ch : s2) {
+    if (ch == 'a') {
+      a2++;
+    } else {
+      b2++;
+    }
+  }
+  d2 = a2 - b2;
+  return d1 > d2;
+}
+
+bool compareB(string &s1, string &s2) {
+  int a1 = 0; // число букв 'b'
+  int b1 = 0; // число других букв
+  int d1;     // разница a1 - b1
+  for (char ch : s1) {
+    if (ch == 'b') {
+      a1++;
+    } else {
+      b1++;
+    }
+  }
+  d1 = a1 - b1;
+  int a2 = 0, b2 = 0, d2;
+  for (char ch : s2) {
+    if (ch == 'b') {
+      a2++;
+    } else {
+      b2++;
+    }
+  }
+  d2 = a2 - b2;
+  return d1 > d2;
+}
+
+bool compareC(string &s1, string &s2) {
+  int a1 = 0; // число букв 'c'
+  int b1 = 0; // число других букв
+  int d1;     // разница a1 - b1
+  for (char ch : s1) {
+    if (ch == 'c') {
+      a1++;
+    } else {
+      b1++;
+    }
+  }
+  d1 = a1 - b1;
+  int a2 = 0, b2 = 0, d2;
+  for (char ch : s2) {
+    if (ch == 'c') {
+      a2++;
+    } else {
+      b2++;
+    }
+  }
+  d2 = a2 - b2;
+  return d1 > d2;
+}
+
+bool compareD(string &s1, string &s2) {
+  int a1 = 0; // число букв 'd'
+  int b1 = 0; // число других букв
+  int d1;     // разница a1 - b1
+  for (char ch : s1) {
+    if (ch == 'd') {
+      a1++;
+    } else {
+      b1++;
+    }
+  }
+  d1 = a1 - b1;
+  int a2 = 0, b2 = 0, d2;
+  for (char ch : s2) {
+    if (ch == 'd') {
+      a2++;
+    } else {
+      b2++;
+    }
+  }
+  d2 = a2 - b2;
+  return d1 > d2;
+}
+
+bool compareE(string &s1, string &s2) {
+  int a1 = 0; // число букв 'e'
+  int b1 = 0; // число других букв
+  int d1;     // разница a1 - b1
+  for (char ch : s1) {
+    if (ch == 'e') {
+      a1++;
+    } else {
+      b1++;
+    }
+  }
+  d1 = a1 - b1;
+  int a2 = 0, b2 = 0, d2;
+  for (char ch : s2) {
+    if (ch == 'e') {
+      a2++;
+    } else {
+      b2++;
+    }
+  }
+  d2 = a2 - b2;
+  return d1 > d2;
+}
+
+int count_word(vector&lt;string&gt; s, char c) {
+  int count_w = 0;
+  int count_c = 0;
+  int count_oth = 0;
+  for (int i = 0; i &lt; s.size(); i++) {
+    for (int j = 0; j &lt; s[i].size(); j++) {
+      if (s[i][j] == c) {
+        count_c++;
+      } else {
+        count_oth++;
+      }
+    }
+    if (count_c > count_oth) {
+      count_w++;
+    } else {
+      break;
+    }
+  }
+  return count_w;
+}
+</pre>
   </details>
 </article>
 

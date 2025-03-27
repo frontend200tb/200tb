@@ -5,6 +5,7 @@ import htmlBook3      from './../pages/elem-book3.html';
 import htmlBook4      from './../pages/elem-book4.html';
 import htmlBook5      from './../pages/elem-book5.html';
 import htmlBook6      from './../pages/elem-book6.html';
+import htmlBook7      from './../pages/elem-book7.html';
 
 export const pages = [
   htmlBook1,
@@ -13,4 +14,5 @@ export const pages = [
   htmlBook4,
   htmlBook5,
   htmlBook6,
+  htmlBook7,
 ];

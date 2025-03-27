@@ -33,6 +33,7 @@ import htmlDsr2025Lec12 from './../pages/dsr2024cpp/lec12.html';
 import htmlDsr2025Lec13 from './../pages/dsr2024cpp/lec13.html';
 import htmlDsr2025Lec14 from './../pages/dsr2024cpp/lec14.html';
 import htmlDsr2025Lec15 from './../pages/dsr2024cpp/lec15.html';
+import htmlDsr2025Lec16 from './../pages/dsr2024cpp/lec16.html';
 
 // ВГУ 2024 сети lectures
 import htmlVgu2024Lec1  from './../pages/vgu2024nets/lec1.html';
@@ -162,6 +163,7 @@ const htmlDsr2024Lec = [
   htmlDsr2025Lec13,
   htmlDsr2025Lec14,
   htmlDsr2025Lec15,
+  htmlDsr2025Lec16,
 ];
 
 // Создаем массив страниц с лекциями ВГУ 2024 сети

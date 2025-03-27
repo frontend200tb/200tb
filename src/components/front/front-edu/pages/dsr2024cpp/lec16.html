@@ -1,0 +1,519 @@
+<article class="article">
+  <h1>Лекция 16 (25.03.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#task1">Задача 1. Скобочная последовательность</a></p>
+  <p><a href="#p1">Очередь</a></p>
+  <p><a href="#task2">Задача №50 Игра в пьяницу</a></p>
+  <p><a href="#task3">Задача A. Отгадай число</a></p>
+  <p><a href="#task4">Задача B. Запросы о количестве не превосходящих элементов</a></p>
+</article>
+
+
+<!-- Задача 1. Скобочная последовательность -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача 1. Скобочная последовательность</h3>
+
+  <p>Валидация скобочной последовательности. Во входной строке встречаются скобки трех видов (), {}, []. Нужно проверить что они расставлены правильно. Решается задача с помощью стека.</p>
+  <p>Файл brackets.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+bool isValid(string str) {
+  stack&lt;char&gt; st;
+  for (char c : str) {
+    if (c == '(' || c == '{' || c == '[') {
+      st.push(c);
+    } else if (c == ')' || c == '}' || c == ']') {
+      if (st.empty()) {
+        return false;
+      }
+      char top = st.top();
+      if (
+        (c == ')' && top != '(') ||
+        (c == '}' && top != '{') ||
+        (c == ']' && top != '[')
+      ) {
+        return false;
+      }
+      st.pop();
+    }
+  }
+  return st.empty();
+}
+
+int main() {
+  cout &lt;&lt; isValid("({})[]") &lt;&lt; endl;
+  cout &lt;&lt; isValid("(") &lt;&lt; endl;
+  cout &lt;&lt; isValid("]") &lt;&lt; endl;
+  cout &lt;&lt; isValid("}(){}") &lt;&lt; endl;
+  cout &lt;&lt; isValid("(){[]}") &lt;&lt; endl;
+}
+</pre>
+</article>
+
+
+<!-- Очередь -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Очередь</h3>
+
+  <p>Создадим структуру данных очередь. У нас будут два файла queue.cpp и Header.h</p>
+
+  <details>
+    <summary>Файл Header.h</summary>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+struct Queue {
+
+  struct Node {
+    T data;
+    Node* next;
+    Node* prev;
+    Node(const T& value) : data(value), prev(nullptr), next(nullptr) {}
+  };
+
+  Node* frontNode;
+  Node* backNode;
+  int count;
+
+  Queue() : frontNode(nullptr), backNode(nullptr), count(0) {};
+  ~Queue() {
+    // clear;
+  }
+  // = + - []
+  Queue(const Queue& other) : frontNode(nullptr), backNode(nullptr), count(0) {
+    Node* current = other.frontNode;
+    while (current) {
+      enqueue(current->data);
+      current = current->next;
+    }
+  }
+  void enqueue(const T& value) {
+    Node* newNode = new Node(value);
+    if (isEmpty()) {
+      frontNode = backNode = newNode;
+    } else {
+      newNode->prev = backNode;
+      backNode->next = newNode;
+      backNode = newNode;
+    }
+    count++;
+  }
+  void dequeue() {
+    if (isEmpty()) {
+      // исключение
+    }
+    Node* temp = frontNode;
+    frontNode = frontNode->next;
+    if (frontNode) {
+      frontNode->prev = nullptr;
+    } else {
+      backNode = nullptr;
+    }
+    delete temp;
+    count--;
+  }
+  T& front() {
+    if (isEmpty()) {
+      // исключение
+    }
+    return frontNode->data;
+  }
+  T& back() {
+    if (isEmpty()) {
+      // исключение
+    }
+    return backNode->data;
+  }
+  bool isEmpty() {
+    return count == 0;
+  }
+  int size() {
+    return count;
+  }
+  void clear() {
+    while (!isEmpty()) {
+      dequeue();
+    }
+  }
+};
+</pre>
+</details>
+
+  <p>Файл que.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Header.h"
+
+using namespace std;
+
+int main() {
+  Queue&lt;int&gt; que;
+
+  que.enqueue(1);
+  que.enqueue(2);
+  que.enqueue(3);
+
+  cout &lt;&lt; "Front: " &lt;&lt; que.front() &lt;&lt; endl;
+  cout &lt;&lt; "Back: " &lt;&lt; que.back() &lt;&lt; endl;
+
+  que.dequeue();
+  que.enqueue(4);
+
+  cout &lt;&lt; "Front: " &lt;&lt; que.front() &lt;&lt; endl;
+  cout &lt;&lt; "Back: " &lt;&lt; que.back() &lt;&lt; endl;
+}
+</pre>
+</article>
+
+
+<!-- Задача №50 Игра в пьяницу -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача №50 Игра в пьяницу</h3>
+
+  <p>В игре в пьяницу карточная колода раздается поровну двум игрокам. Далее они вскрывают по одной верхней карте, и тот, чья карта старше, забирает себе обе вскрытые карты, которые кладутся под низ его колоды. Тот, кто остается без карт - проигрывает.</p>
+  <p>Для простоты будем считать, что все карты различны по номиналу, а также, что самая младшая карта побеждает самую старшую карту (шестерка берет туза).</p>
+  <p>Игрок, который забирает себе карты, сначала кладет под низ своей колоды карту первого игрока, затем карту второго игрока (то есть карта второго игрока аказывается внизу колоды.</p>
+  <p>Напишите программу, которая моделирует игру в пьяницу и определяет, кто выигрывает. В игре участвует 10 карт, имеющих значения от 0 до 9, большая карта побеждает меньшую, карта со значением 0 побеждает карту 9.</p>
+
+  <h4>Входные данные</h4>
+  <p>Программа получает на вход две строки: первая строка содержит  чисел, разделенных пробелами - номера карт первого игрока, вторая - аналогично 5 карт второго игрока. Карты перечислены сверху вниз, то есть каждая строка начинается с той карты, которая будет открыта первой.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Программа должна определить, кто выигрывает при данной раздаче, и вывести слово first или second, после чего вывести количество ходов, сделанных до выигрыша. Если на протяжении 10⁶ ходов игра не заканчивается, программа доолжна вывести слово botva.</p>
+
+  <h4>Пример</h4>
+<pre>
+1 3 5 7 9
+2 4 6 8 0
+</pre>
+  <code>second 5</code>
+
+  <details>
+    <summary>Файл Header.h</summary>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+struct Queue {
+
+  struct Node {
+    T data;
+    Node* next;
+    Node* prev;
+    Node(const T& value) : data(value), prev(nullptr), next(nullptr) {}
+  };
+
+  Node* frontNode;
+  Node* backNode;
+  int count;
+
+  Queue() : frontNode(nullptr), backNode(nullptr), count(0) {};
+  ~Queue() {
+    // clear;
+  }
+  // = + - []
+  Queue(const Queue& other) : frontNode(nullptr), backNode(nullptr), count(0) {
+    Node* current = other.frontNode;
+    while (current) {
+      enqueue(current->data);
+      current = current->next;
+    }
+  }
+  void enqueue(const T& value) {
+    Node* newNode = new Node(value);
+    if (isEmpty()) {
+      frontNode = backNode = newNode;
+    } else {
+      newNode->prev = backNode;
+      backNode->next = newNode;
+      backNode = newNode;
+    }
+    count++;
+  }
+  void dequeue() {
+    if (isEmpty()) {
+      // исключение
+    }
+    Node* temp = frontNode;
+    frontNode = frontNode->next;
+    if (frontNode) {
+      frontNode->prev = nullptr;
+    } else {
+      backNode = nullptr;
+    }
+    delete temp;
+    count--;
+  }
+  T& front() {
+    if (isEmpty()) {
+      // исключение
+    }
+    return frontNode->data;
+  }
+  T& back() {
+    if (isEmpty()) {
+      // исключение
+    }
+    return backNode->data;
+  }
+  bool isEmpty() {
+    return count == 0;
+  }
+  int size() {
+    return count;
+  }
+  void clear() {
+    while (!isEmpty()) {
+      dequeue();
+    }
+  }
+};
+</pre>
+  </details>
+
+  <details>
+    <summary>Файл dsr.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+#include "Header.h"
+
+using namespace std;
+
+int main() {
+  Queue&lt;int&gt; first, second;
+  for (int i = 0; i &lt; 5; i++) {
+    int card;
+    cin >> card;
+    first.enqueue(card);
+  }
+  for (int i = 0; i &lt; 5; i++) {
+    int card;
+    cin >> card;
+    second.enqueue(card);
+  }
+  int moves{};
+  int MAX_MOVES = 10E06;
+  while (!first.isEmpty() && !second.isEmpty() && moves &lt; MAX_MOVES) {
+    int card1 = first.front();
+    first.dequeue();
+    int card2 = second.front();
+    second.dequeue();
+
+    if (card1 == 0 && card2 == 9) {
+      first.enqueue(card1);
+      first.enqueue(card2);
+    } else if (card2 == 0 && card1 == 9) {
+      second.enqueue(card1);
+      second.enqueue(card2);
+    } else if (card2 &lt; card1) {
+      first.enqueue(card1);
+      first.enqueue(card2);
+    } else {
+      second.enqueue(card1);
+      second.enqueue(card2);
+    }
+    moves++;
+  }
+
+  if (first.isEmpty()) {
+    cout &lt;&lt; "second " &lt;&lt; moves &lt;&lt; endl;
+  } else if (second.isEmpty()) {
+    cout &lt;&lt; "first " &lt;&lt; moves &lt;&lt; endl;
+  } else {
+    cout &lt;&lt; "botva" &lt;&lt; endl;
+  }
+}
+</pre>
+<pre>
+1 3 5 7 9
+2 4 6 8 0
+</pre>
+  <code>second 5</code>
+  </details>
+</article>
+
+
+<!-- Задача A. Отгадай число -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача A. Отгадай число</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <p>Эта задача немного необычна - в ней вам предстоит реализовать интерактивное взаимодействие с тестирующей системой. Это означает, что вы можете делать запросы и получать ответы в online режиме. Обратите внимание, что ввод-вывод в этой задаче стандартный (то есть с экрана на экран). После вывода очередного запроса обязательно используйте функции очистки потока, чтобы часть вашего вывода не осталась в каком-нибудь буфере. Например на C++ надо использовать функцию fflush(stdout), на Java вызов System.out.flush(), на Pfscal flush(output) и stdout.flush() для языка Python.</p>
+  <p>В этой задаче вам предстоит в интерактивном режиме угадать число x, которое загадала тестирующая система. Про загаданное число x известно, что оно целое и лежит в границах от 1 до n включительно (значение n известно заранее).</p>
+  <p>Вы можете делать запросы к тестирующей системе, каждый запрос - это вывод одного целого числа от 1 до n. Есть два варианта ответа тестирующей системы на запрос:</p>
+  <ol>
+    <li>строка "&lt;" (без кавычек), если загаданное число меньше числа из запроса</li>
+    <li>строка ">=" (без кавычек), если загаданное число больше либо равно числу из запроса</li>
+  </ol>
+  <p>В случае, если программа наверняка укадала нужное число x, выведите строку вида "! x", где x это ответ и завершите работу своей программы.</p>
+  <p>Вашей программе разрешается сделать не более 25 запросов.</p>
+
+  <h4>Входные данные</h4>
+  <p>Для чтения ответов на запросы программа должна использовать стандартный ввод.</p>
+  <p>В первой строке входных данных будет содержаться целое положительное число n (1 ≤ n ≤ 10⁶) - максимально возможное число, которое может быть загадано.</p>
+  <p>В следующих строках на вход вашей программе будут подаваться строки вида "&lt;" и ">=". i-я из этих строк является ответом систебы на ваш i-й запрос. После того, как ваша программа угадала число, выведите "! x" (без кавычек),где x это ответ, и завершите работу своей программы.</p>
+  <p>Тестирующая система даст вашей программе прочитать ответ на запрос из входных данных только после того, как ваша программа вывела соответствующий запрос системе и выполнила операцию flush.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Для осуществления запросов программа должна использовать стандартный ввод.</p>
+  <p>Ваша программа должна выводить запросы - целые числа xᵢ (1 ≤ xᵢ ≤ n) по одному в строке (не забывайте выводить перевод строки после каждого значения xᵢ). После вывода каждой строки программа должна выполнить операцию flush.</p>
+  <p>Каждое из значений xᵢ обозначает очередной запрос к системе. Ответ на запрос программа сможет прочесть из стандартного ввода. В случае, если ваша программа угадала число x, выведите строку вида "! x" (без кавычек), где x это ответ и завершите работу программы.</p>
+
+  <details>
+    <summary>Файл dsr.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  int left = 1;
+  int right = n + 1;
+  while (left + 1 &lt; right) {
+    int mid = (left + right) / 2;
+    cout &lt;&lt; mid &lt;&lt; endl;
+    string s;
+    cin >> s;
+    if (s == ">=") {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+  cout &lt;&lt; "! " &lt;&lt; left &lt;&lt; endl;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Запросы о количестве не превосходящих элементов -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача B. Запросы о количестве не превосходящих элементов</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <p>Заданы два массива чисел a и b. Для каждого b<sub>j</sub>элемента второго массива b нужно найти количество элементов в массиве a, которые меньше либо равны b<sub>j</sub>.</p>
+
+  <h4>Входные данные</h4>
+  <p>В первой строке находятся два целых числа n, m (1 ≤ n, m ≤ 2*10⁵) размеры массивов a и b.</p>
+  <p>Во второй строке находятся n целых чисел - элементы массива a (-10⁹ ≤ aᵢ ≤ 10⁹)</p>
+  <p>В третьей строке находятся m целых чисел - элементы массива b (-10⁹ ≤ b<sub>j</sub> ≤ 10⁹)</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите m чисел, разделенных пробелами. j-е из них равно количеству таких элементов a, которые меньше или равны числа b<sub>j</sub></p>
+
+  <h4>Пример 1</h4>
+<pre>
+5 4
+1 3 5 7 9
+6 4 2 8
+</pre>
+  <code>3 2 1 4</code>
+
+  <h4>Пример 2</h4>
+<pre>
+5 5
+1 2 1 2 5
+3 1 4 1 5
+</pre>
+  <code>4 2 4 2 5</code>
+
+  <p>Есть два варианта решения этой задачи.</p>
+
+  <details>
+    <summary>1 Вариант. Файл dsr.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+  vector&lt;int&gt; a(n);
+  for (auto& it : a) {
+    cin >> it;
+  }
+  sort(a.begin(), a.end());
+
+  // вариант 1
+  for (int i = 0, bi; i &lt; m; i++) {
+    cin >> bi;
+    int left = -1;
+    int right = n;
+    while (right - left > 1) {
+      int mid = (left + right) / 2;
+      if(a[mid] &lt;= bi) {
+        left = mid;
+      } else {
+        right = mid;
+      }
+    }
+    cout &lt;&lt; right &lt;&lt; " ";
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>2 Вариант. Файл dsr.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+  vector&lt;int&gt; a(n);
+  for (auto& it : a) {
+    cin >> it;
+  }
+  sort(a.begin(), a.end());
+
+  // вариант 2
+  for (int i = 0, bi; i &lt; m; i++){
+    cin >> bi;
+    cout &lt;&lt; upper_bound(a.begin(), a.end(), bi) - a.begin() &lt;&lt; " ";
+  }
+}
+</pre>
+  </details>
+
+  <p>Первый больший элемент upper_bound()</p>
+  <p>Первый больший либо равный элемент lower_bound()</p>
+  <p>equal_range() = [lower_bound(), upper_bound()]</p>
+  <p>binary_search() - true(есть), false(нет)</p>
+</article>
+
