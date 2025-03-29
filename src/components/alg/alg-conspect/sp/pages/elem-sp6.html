@@ -19,8 +19,10 @@
   <p>
     <a href="#p1">Функции</a>
     <br><a href="#p2">Рекурсия</a>
-    <br><a href="#p3">Компаратор</a>
-    <br><a href="#p4">Работа с файлами</a>
+    <br><a href="#p3">Числа Фибоначчи</a>
+    <br><a href="#p4">НОД</a>
+    <br><a href="#p5">Компаратор</a>
+    <br><a href="#p6">Работа с файлами</a>
   </p>
   <p>
     <a href="#task1">Задача A. НОД</a>
@@ -99,6 +101,14 @@ long long factorial(long long n) {
   }
 }
 </pre>
+</article>
+
+
+<!-- Числа Фибоначчи -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Числа Фибоначчи</h3>
+
   <p>Функция для подсчета чисел Фибоначчи, трудоемкость O(a<sup>n</sup>).</p>
 <pre>
 int Fib(int n) {
@@ -109,7 +119,15 @@ int Fib(int n) {
   }
 }
 </pre>
-  <p>Функция для подсчета НОД</p>
+</article>
+
+
+<!-- НОД -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>НОД</h3>
+
+  <p>Функция для подсчета НОД. Медленная версия</p>
 <pre>
 int gcd1(int a, int b) {
   while (a != 0 && b != 0) {
@@ -122,6 +140,8 @@ int gcd1(int a, int b) {
   return a + b;
 }
 </pre>
+
+<p>Функция для подсчета НОД. Быстрая версия</p>
 <pre>
 int gcd2(int a, int b) {
   while (a != 0 && b != 0) {
@@ -134,6 +154,8 @@ int gcd2(int a, int b) {
   return a + b;
 }
 </pre>
+
+<p>Функция для подсчета НОД. Рекурсивная версия</p>
 <pre>
 int gcd3(int a, int b) {
   if (b != 0) {
@@ -148,7 +170,7 @@ int gcd3(int a, int b) {
 
 <!-- Компаратор -->
 <article class="article">
-  <div class="anchor" id="p3"></div>
+  <div class="anchor" id="p5"></div>
   <h3>Компаратор</h3>
 
   <p>Компаратор - это специальная функция, которая умеет сравнивать два объекта.</p>
@@ -181,7 +203,7 @@ int main() {
 
 <!-- Работа с файлами -->
 <article class="article">
-  <div class="anchor" id="p4"></div>
+  <div class="anchor" id="p6"></div>
   <h3>Работа с файлами</h3>
 
   <p>Для работы с файлами необходимо подключить заголовочный файл fstream. В fstream определены несколько классов и подключены заголовочные файлы ifstream> — файловый ввод и ofstream — файловый вывод.
@@ -229,6 +251,33 @@ int main() {
   <h4>Пример</h4>
   <code>9 12</code>
   <code>3</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int a, b;
+  cin >> a >> b;
+
+  // решение
+  while (a != 0 && b != 0) {
+    if (a > b) {
+      a = a % b;
+    } else {
+      b = b % a;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; a + b;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -255,6 +304,34 @@ int main() {
 1 2 3
 </pre>
   <code>3 2 1</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void sequence(int i) {
+  i--;
+  int temp;
+  cin >> temp;
+  if (i > 0) {
+    sequence(i);
+  }
+  cout &lt;&lt; temp &lt;&lt; ' ';
+}
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+
+  // решение
+  sequence(n);
+}
+</pre>
+  </details>
 </article>
 
 
@@ -277,6 +354,40 @@ int main() {
   <h4>Пример</h4>
   <code>3 2 3</code>
   <code>2744</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+long long power(long long a, long long b) {
+  long long res = 1;
+  for (int i = 1; i &lt;= b; i++) {
+    res *= a;
+  }
+  return res;
+}
+
+int main() {
+  // входные данные
+  long long n, k, p;
+  cin >> n >> k >> p;
+
+  // решение
+  long long sum = 0;
+  for (int i = 1; i &lt;= n; i++) {
+    sum += power(i, k);
+  }
+
+  long long res = power(sum, p);
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

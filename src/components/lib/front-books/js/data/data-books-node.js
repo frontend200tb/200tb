@@ -92,7 +92,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 8,
+    id: 7,
     year: 2017,
     category: 'framework',
     theme: 'node',
@@ -110,7 +110,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 10,
+    id: 8,
     year: 2018,
     category: 'framework',
     theme: 'node',
@@ -122,7 +122,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 11,
+    id: 9,
     year: 2018,
     category: 'framework',
     theme: 'node',
@@ -135,7 +135,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 12,
+    id: 10,
     year: 2021,
     category: 'framework',
     theme: 'node',
@@ -148,7 +148,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 13,
+    id: 11,
     year: 2022,
     category: 'framework',
     theme: 'node',
@@ -161,7 +161,7 @@ const dataBooksNode = [
   },
 
   {
-    id: 14,
+    id: 12,
     year: 2023,
     category: 'framework',
     theme: 'node',

@@ -14,7 +14,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 1,
+    id: 2,
     year: 1988,
     category: 'code',
     theme: 'basic',
@@ -27,7 +27,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 1,
+    id: 3,
     year: 1989,
     category: 'code',
     theme: 'basic',
@@ -40,7 +40,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 1,
+    id: 4,
     year: 1994,
     category: 'code',
     theme: 'basic',
@@ -53,7 +53,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 1,
+    id: 5,
     year: 2002,
     category: 'code',
     theme: 'basic',
@@ -66,7 +66,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 1,
+    id: 6,
     year: 2003,
     category: 'code',
     theme: 'basic',
@@ -79,7 +79,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 2,
+    id: 7,
     year: 2004,
     category: 'code',
     theme: 'basic',
@@ -92,7 +92,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 3,
+    id: 8,
     year: 2004,
     category: 'code',
     theme: 'basic',
@@ -105,7 +105,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 4,
+    id: 9,
     year: 2005,
     category: 'code',
     theme: 'basic',
@@ -118,7 +118,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 5,
+    id: 10,
     year: 2005,
     category: 'code',
     theme: 'basic',
@@ -131,7 +131,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 6,
+    id: 11,
     year: 2006,
     category: 'code',
     theme: 'basic',
@@ -144,7 +144,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 7,
+    id: 12,
     year: 2006,
     category: 'code',
     theme: 'basic',
@@ -157,7 +157,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 8,
+    id: 13,
     year: 2013,
     category: 'code',
     theme: 'basic',
@@ -170,7 +170,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 9,
+    id: 14,
     year: 2014,
     category: 'code',
     theme: 'basic',
@@ -183,7 +183,7 @@ const dataBooksBasic = [
   },
 
   {
-    id: 10,
+    id: 15,
     year: 2022,
     category: 'code',
     theme: 'basic',

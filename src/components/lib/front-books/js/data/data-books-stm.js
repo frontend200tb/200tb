@@ -14,7 +14,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 1,
+    id: 2,
     year: 2006,
     category: 'основы',
     theme: 'stm32',
@@ -27,7 +27,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 1,
+    id: 3,
     year: 2014,
     category: 'основы',
     theme: 'stm32',
@@ -40,7 +40,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 1,
+    id: 4,
     year: 2014,
     category: 'основы',
     theme: 'stm32',
@@ -53,7 +53,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 2,
+    id: 5,
     year: 2015,
     category: 'основы',
     theme: 'stm32',
@@ -66,7 +66,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 2,
+    id: 6,
     year: 2016,
     category: 'основы',
     theme: 'stm32',
@@ -79,7 +79,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 3,
+    id: 7,
     year: 2018,
     category: 'основы',
     theme: 'stm32',
@@ -92,7 +92,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 4,
+    id: 8,
     year: 2019,
     category: 'основы',
     theme: 'stm32',
@@ -105,7 +105,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 5,
+    id: 9,
     year: 2020,
     category: 'основы',
     theme: 'stm32',
@@ -118,7 +118,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 6,
+    id: 10,
     year: 2023,
     category: 'основы',
     theme: 'stm32',
@@ -131,7 +131,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 7,
+    id: 11,
     year: 2024,
     category: 'основы',
     theme: 'stm32',
@@ -144,7 +144,7 @@ const dataBooksStm = [
   },
 
   {
-    id: 7,
+    id: 12,
     year: 2024,
     category: 'основы',
     theme: 'stm32',

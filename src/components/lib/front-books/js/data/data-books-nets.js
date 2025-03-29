@@ -90,7 +90,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2001,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -103,7 +103,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2001,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -116,7 +116,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -128,7 +128,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -141,7 +141,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 9,
+    id: 12,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -154,7 +154,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 10,
+    id: 13,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -167,7 +167,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 11,
+    id: 14,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -180,7 +180,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 2002,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -193,7 +193,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 13,
+    id: 16,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -206,7 +206,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 13,
+    id: 17,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -219,7 +219,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 13,
+    id: 18,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -232,7 +232,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 14,
+    id: 19,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -245,7 +245,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 14,
+    id: 20,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -258,7 +258,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 14,
+    id: 21,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -271,7 +271,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 15,
+    id: 22,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -284,7 +284,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 16,
+    id: 23,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -297,7 +297,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 17,
+    id: 24,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -310,7 +310,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 19,
+    id: 25,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -323,7 +323,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 20,
+    id: 26,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -336,7 +336,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 20,
+    id: 27,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -349,7 +349,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 21,
+    id: 28,
     year: 2003,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -362,7 +362,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 22,
+    id: 29,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -374,7 +374,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 23,
+    id: 30,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -387,7 +387,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 23,
+    id: 31,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -400,7 +400,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 23,
+    id: 32,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -413,7 +413,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 24,
+    id: 33,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -425,7 +425,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 25,
+    id: 34,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -438,7 +438,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 26,
+    id: 35,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -450,7 +450,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 26,
+    id: 36,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -463,7 +463,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 27,
+    id: 37,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -476,7 +476,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 28,
+    id: 38,
     year: 2004,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -489,7 +489,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 29,
+    id: 39,
     year: 2005,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -502,7 +502,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 30,
+    id: 40,
     year: 2005,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -514,7 +514,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 31,
+    id: 41,
     year: 2005,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -527,7 +527,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 32,
+    id: 42,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -540,7 +540,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 33,
+    id: 43,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -553,7 +553,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 1,
+    id: 44,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -566,7 +566,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 34,
+    id: 45,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -579,7 +579,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 34,
+    id: 46,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -591,7 +591,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 47,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -604,7 +604,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 48,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -617,7 +617,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 49,
     year: 2006,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -630,7 +630,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 50,
     year: 2007,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -643,7 +643,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 51,
     year: 2007,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -656,7 +656,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 35,
+    id: 52,
     year: 2007,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -669,7 +669,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 36,
+    id: 53,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -681,7 +681,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 36,
+    id: 54,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -694,7 +694,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 36,
+    id: 55,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -707,7 +707,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 37,
+    id: 56,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -720,7 +720,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 38,
+    id: 57,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -733,7 +733,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 38,
+    id: 58,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -746,7 +746,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 38,
+    id: 59,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -759,7 +759,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 38,
+    id: 60,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -772,7 +772,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 39,
+    id: 61,
     year: 2008,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -785,7 +785,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 40,
+    id: 62,
     year: 2009,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -798,7 +798,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 40,
+    id: 63,
     year: 2009,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -811,7 +811,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 40,
+    id: 64,
     year: 2009,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -824,7 +824,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 40,
+    id: 65,
     year: 2009,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -837,7 +837,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 2,
+    id: 66,
     year: 2010,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -850,7 +850,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 2,
+    id: 67,
     year: 2010,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -863,7 +863,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 41,
+    id: 68,
     year: 2010,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -876,7 +876,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 42,
+    id: 69,
     year: 2010,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -889,7 +889,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 42,
+    id: 70,
     year: 2010,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -902,7 +902,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 42,
+    id: 71,
     year: 2011,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -915,7 +915,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 42,
+    id: 72,
     year: 2011,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -928,7 +928,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 42,
+    id: 73,
     year: 2011,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -941,7 +941,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 3,
+    id: 74,
     year: 2012,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -954,7 +954,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 43,
+    id: 75,
     year: 2012,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -967,7 +967,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 44,
+    id: 76,
     year: 2012,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -980,7 +980,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 4,
+    id: 77,
     year: 2013,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -993,7 +993,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 4,
+    id: 78,
     year: 2013,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1006,7 +1006,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 45,
+    id: 79,
     year: 2014,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1019,7 +1019,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 46,
+    id: 80,
     year: 2014,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1031,7 +1031,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 47,
+    id: 81,
     year: 2014,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1044,7 +1044,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 47,
+    id: 82,
     year: 2015,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1057,7 +1057,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 47,
+    id: 83,
     year: 2015,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1070,7 +1070,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 5,
+    id: 84,
     year: 2016,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1083,7 +1083,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 48,
+    id: 85,
     year: 2016,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1096,7 +1096,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 49,
+    id: 86,
     year: 2016,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1109,7 +1109,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 49,
+    id: 87,
     year: 2016,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1122,7 +1122,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 49,
+    id: 88,
     year: 2016,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1135,7 +1135,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 4,
+    id: 89,
     year: 2017,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1148,7 +1148,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 49,
+    id: 90,
     year: 2018,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1161,7 +1161,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 49,
+    id: 91,
     year: 2018,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1174,7 +1174,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 6,
+    id: 92,
     year: 2018,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1187,7 +1187,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 7,
+    id: 93,
     year: 2019,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1200,7 +1200,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 50,
+    id: 94,
     year: 2019,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1213,7 +1213,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 50,
+    id: 95,
     year: 2019,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1226,7 +1226,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 51,
+    id: 96,
     year: 2020,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1239,7 +1239,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 51,
+    id: 97,
     year: 2020,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1252,7 +1252,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 51,
+    id: 98,
     year: 2020,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1265,7 +1265,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 8,
+    id: 99,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1278,7 +1278,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 52,
+    id: 100,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1291,7 +1291,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 10,
+    id: 101,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1304,7 +1304,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 10,
+    id: 102,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1317,7 +1317,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 51,
+    id: 103,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1330,7 +1330,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 53,
+    id: 104,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1343,7 +1343,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 53,
+    id: 105,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1356,7 +1356,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 11,
+    id: 106,
     year: 2021,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1369,7 +1369,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 54,
+    id: 107,
     year: 2022,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1382,7 +1382,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 54,
+    id: 108,
     year: 2022,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1395,7 +1395,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 55,
+    id: 109,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1408,7 +1408,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 55,
+    id: 110,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1421,7 +1421,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 12,
+    id: 111,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1434,7 +1434,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 56,
+    id: 112,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1447,7 +1447,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 57,
+    id: 113,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1460,7 +1460,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 58,
+    id: 114,
     year: 2023,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1473,7 +1473,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 13,
+    id: 115,
     year: 2024,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1486,7 +1486,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 14,
+    id: 116,
     year: 2024,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1499,7 +1499,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 15,
+    id: 117,
     year: 2024,
     category: 'основы',
     theme: 'Компьютерные сети',
@@ -1512,7 +1512,7 @@ const dataBooksNets = [
   },
 
   {
-    id: 58,
+    id: 118,
     year: 2024,
     category: 'основы',
     theme: 'Компьютерные сети',

@@ -14,7 +14,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 2,
     year: 1979,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -27,7 +27,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 3,
     year: 1979,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -40,7 +40,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 4,
     year: 1983,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -53,7 +53,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 5,
     year: 1983,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -66,7 +66,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 6,
     year: 1984,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -79,7 +79,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 1,
+    id: 7,
     year: 1984,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -92,7 +92,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 8,
     year: 1986,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -105,7 +105,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 9,
     year: 1986,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -118,7 +118,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 10,
     year: 1986,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -131,7 +131,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 11,
     year: 1986,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -144,7 +144,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 12,
     year: 1986,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -157,7 +157,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 2,
+    id: 13,
     year: 1987,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -170,7 +170,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 3,
+    id: 14,
     year: 1988,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -183,7 +183,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 3,
+    id: 15,
     year: 1988,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -196,7 +196,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 3,
+    id: 16,
     year: 1988,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -209,7 +209,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 4,
+    id: 17,
     year: 1989,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -222,7 +222,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 4,
+    id: 18,
     year: 1989,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -235,7 +235,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 5,
+    id: 19,
     year: 1989,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -248,7 +248,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 6,
+    id: 20,
     year: 1990,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -261,7 +261,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 6,
+    id: 21,
     year: 1990,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -274,7 +274,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 7,
+    id: 22,
     year: 1991,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -287,7 +287,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 8,
+    id: 23,
     year: 1992,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -300,7 +300,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 8,
+    id: 24,
     year: 1992,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -313,7 +313,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 9,
+    id: 25,
     year: 1993,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -326,7 +326,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 10,
+    id: 26,
     year: 1993,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -339,7 +339,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 11,
+    id: 27,
     year: 1993,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -351,7 +351,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 12,
+    id: 28,
     year: 1993,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -363,7 +363,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 13,
+    id: 29,
     year: 1993,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -375,7 +375,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 14,
+    id: 30,
     year: 1994,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -387,7 +387,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 15,
+    id: 31,
     year: 1998,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -400,7 +400,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 16,
+    id: 32,
     year: 2000,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -413,7 +413,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 17,
+    id: 33,
     year: 2001,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -426,7 +426,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 18,
+    id: 34,
     year: 2002,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -439,7 +439,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 19,
+    id: 35,
     year: 2004,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -452,7 +452,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 20,
+    id: 36,
     year: 2004,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -465,7 +465,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 21,
+    id: 37,
     year: 2004,
     category: 'основы',
     theme: 'Микропроцессоры',
@@ -478,7 +478,7 @@ const dataBooksMicro = [
   },
 
   {
-    id: 22,
+    id: 38,
     year: 2007,
     category: 'основы',
     theme: 'Микропроцессоры',

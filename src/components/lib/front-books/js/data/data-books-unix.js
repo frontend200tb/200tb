@@ -40,7 +40,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 1,
+    id: 4,
     year: 1987,
     category: 'основы',
     theme: 'Unix',
@@ -53,7 +53,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 2,
+    id: 5,
     year: 1987,
     category: 'основы',
     theme: 'Unix',
@@ -66,7 +66,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 1992,
     category: 'основы',
     theme: 'Unix',
@@ -79,7 +79,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 1997,
     category: 'основы',
     theme: 'Unix',
@@ -92,7 +92,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 6,
+    id: 8,
     year: 1998,
     category: 'основы',
     theme: 'Unix',
@@ -105,7 +105,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2001,
     category: 'основы',
     theme: 'Unix',
@@ -118,7 +118,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2002,
     category: 'основы',
     theme: 'Unix',
@@ -131,7 +131,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2002,
     category: 'основы',
     theme: 'Unix',
@@ -144,7 +144,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 10,
+    id: 12,
     year: 2002,
     category: 'основы',
     theme: 'Unix',
@@ -157,7 +157,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 11,
+    id: 13,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -170,7 +170,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 12,
+    id: 14,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -183,7 +183,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 13,
+    id: 15,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -196,7 +196,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 14,
+    id: 16,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -209,7 +209,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 15,
+    id: 17,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -222,7 +222,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 16,
+    id: 18,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -235,7 +235,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 17,
+    id: 19,
     year: 2003,
     category: 'основы',
     theme: 'Unix',
@@ -248,7 +248,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 18,
+    id: 20,
     year: 2004,
     category: 'основы',
     theme: 'Unix',
@@ -261,7 +261,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 19,
+    id: 21,
     year: 2004,
     category: 'основы',
     theme: 'Unix',
@@ -274,7 +274,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 20,
+    id: 22,
     year: 2005,
     category: 'основы',
     theme: 'Unix',
@@ -287,7 +287,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2005,
     category: 'основы',
     theme: 'Unix',
@@ -300,7 +300,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2005,
     category: 'основы',
     theme: 'Unix',
@@ -313,7 +313,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 23,
+    id: 25,
     year: 2006,
     category: 'основы',
     theme: 'Unix',
@@ -326,7 +326,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2006,
     category: 'основы',
     theme: 'Unix',
@@ -339,7 +339,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 25,
+    id: 27,
     year: 2006,
     category: 'основы',
     theme: 'Unix',
@@ -352,7 +352,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 26,
+    id: 28,
     year: 2006,
     category: 'основы',
     theme: 'Unix',
@@ -365,33 +365,33 @@ const dataBooksUnix = [
   },
 
   {
-    id: 27,
-    year: 2007,
-    category: 'основы',
-    theme: 'Unix',
-    title: 'Командный язык ОС UNIX. Лабораторный практикум',
-    author: 'Ктитров',
-    authorName: 'Сергей',
-    pages: '59',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 28,
-    year: 2007,
-    category: 'основы',
-    theme: 'Unix',
-    title: 'Командный язык ОС UNIX. Лабораторный практикум',
-    author: 'Ктитров',
-    authorName: 'Сергей',
-    pages: '59',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
     id: 29,
+    year: 2007,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Командный язык ОС UNIX. Лабораторный практикум',
+    author: 'Ктитров',
+    authorName: 'Сергей',
+    pages: '59',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 30,
+    year: 2007,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Командный язык ОС UNIX. Лабораторный практикум',
+    author: 'Ктитров',
+    authorName: 'Сергей',
+    pages: '59',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 31,
     year: 2007,
     category: 'основы',
     theme: 'Unix',
@@ -404,7 +404,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 30,
+    id: 32,
     year: 2007,
     category: 'основы',
     theme: 'Unix',
@@ -417,7 +417,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 31,
+    id: 33,
     year: 2010,
     category: 'основы',
     theme: 'Unix',
@@ -430,7 +430,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 32,
+    id: 34,
     year: 2010,
     category: 'основы',
     theme: 'Unix',
@@ -443,7 +443,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 33,
+    id: 35,
     year: 2018,
     category: 'основы',
     theme: 'Unix',
@@ -456,7 +456,7 @@ const dataBooksUnix = [
   },
 
   {
-    id: 34,
+    id: 36,
     year: 2021,
     category: 'основы',
     theme: 'Unix',

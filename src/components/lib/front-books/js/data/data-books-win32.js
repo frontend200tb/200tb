@@ -27,7 +27,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 4,
+    id: 3,
     year: 1999,
     category: 'основы',
     theme: 'Win32 API',
@@ -40,7 +40,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2000,
     category: 'основы',
     theme: 'Win32 API',
@@ -53,7 +53,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 2001,
     category: 'основы',
     theme: 'Win32 API',
@@ -66,7 +66,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 2002,
     category: 'основы',
     theme: 'Win32 API',
@@ -79,7 +79,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 2002,
     category: 'основы',
     theme: 'Win32 API',
@@ -92,7 +92,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2002,
     category: 'основы',
     theme: 'Win32 API',
@@ -105,7 +105,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 2003,
     category: 'основы',
     theme: 'Win32 API',
@@ -118,7 +118,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2004,
     category: 'основы',
     theme: 'Win32 API',
@@ -131,7 +131,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 10,
+    id: 11,
     year: 2004,
     category: 'основы',
     theme: 'Win32 API',
@@ -144,7 +144,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: 2004,
     category: 'основы',
     theme: 'Win32 API',
@@ -157,7 +157,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 12,
+    id: 13,
     year: 2004,
     category: 'основы',
     theme: 'Win32 API',
@@ -170,7 +170,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 2005,
     category: 'основы',
     theme: 'Win32 API',
@@ -183,7 +183,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 2005,
     category: 'основы',
     theme: 'Win32 API',
@@ -196,7 +196,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 2005,
     category: 'основы',
     theme: 'Win32 API',
@@ -209,7 +209,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 2006,
     category: 'основы',
     theme: 'Win32 API',
@@ -222,7 +222,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2006,
     category: 'основы',
     theme: 'Win32 API',
@@ -235,7 +235,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 18,
+    id: 19,
     year: 2007,
     category: 'основы',
     theme: 'Win32 API',
@@ -248,7 +248,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2008,
     category: 'основы',
     theme: 'Win32 API',
@@ -261,7 +261,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2008,
     category: 'основы',
     theme: 'Win32 API',
@@ -274,7 +274,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 20,
+    id: 22,
     year: 2008,
     category: 'основы',
     theme: 'Win32 API',
@@ -287,7 +287,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2008,
     category: 'основы',
     theme: 'Win32 API',
@@ -300,7 +300,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2009,
     category: 'основы',
     theme: 'Win32 API',
@@ -313,7 +313,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 23,
+    id: 25,
     year: 2009,
     category: 'основы',
     theme: 'Win32 API',
@@ -326,7 +326,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2010,
     category: 'основы',
     theme: 'Win32 API',
@@ -339,7 +339,7 @@ const dataBooksWin32 = [
   },
 
   {
-    id: 25,
+    id: 27,
     year: 2011,
     category: 'основы',
     theme: 'Win32 API',

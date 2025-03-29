@@ -66,7 +66,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 1989,
     category: 'основы',
     theme: 'Компиляторы',
@@ -79,7 +79,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 6,
+    id: 7,
     year: 2001,
     category: 'основы',
     theme: 'Компиляторы',
@@ -92,7 +92,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 7,
+    id: 8,
     year: 2002,
     category: 'основы',
     theme: 'Компиляторы',
@@ -105,7 +105,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: 2003,
     category: 'основы',
     theme: 'Компиляторы',
@@ -118,7 +118,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 9,
+    id: 10,
     year: 2004,
     category: 'основы',
     theme: 'Компиляторы',
@@ -131,7 +131,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 33,
+    id: 11,
     year: 2004,
     category: 'основы',
     theme: 'Компиляторы',
@@ -144,7 +144,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 10,
+    id: 12,
     year: 2006,
     category: 'основы',
     theme: 'Компиляторы',
@@ -157,7 +157,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 11,
+    id: 13,
     year: 2010,
     category: 'основы',
     theme: 'Компиляторы',
@@ -169,7 +169,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 12,
+    id: 14,
     year: 2015,
     category: 'основы',
     theme: 'Компиляторы',
@@ -182,7 +182,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 2015,
     category: 'основы',
     theme: 'Компиляторы',
@@ -195,7 +195,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 9,
+    id: 16,
     year: 2018,
     category: 'основы',
     theme: 'Компиляторы',
@@ -208,7 +208,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 10,
+    id: 17,
     year: 2021,
     category: 'основы',
     theme: 'Компиляторы',
@@ -221,7 +221,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 11,
+    id: 18,
     year: 2022,
     category: 'основы',
     theme: 'Компиляторы',
@@ -233,7 +233,7 @@ const dataBooksCompil = [
   },
 
   {
-    id: 12,
+    id: 19,
     year: 2024,
     category: 'основы',
     theme: 'Компиляторы',

@@ -1789,7 +1789,60 @@ y
   <p>В третьем наборе существует только одна возможная пара, и можно показать, что минимальное количество ходов, необходимое для того, чтобы строки стали равными, равно 35.</p>
   <p>В четвертом наборе есть пара строк, которые уже равны, поэтому ответ равен 0.</p>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Решение за O(n²). Цикл в цикле находим разницу между буквами по всем парам. Каждый раз определяя минимальную.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
+using namespace std;
+
+int main() {
+  // входные данные
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n, m;
+    cin >> n; // число слов
+    cin >> m; // число букв
+    vector&lt;string&gt; A(0);
+    string temp;
+    for (int i = 0; i &lt; n; i++) {
+      cin >> temp;
+      A.push_back(temp);
+    }
+
+    // решение
+    vector&lt;vector&lt;int&gt; &gt; B(n, vector&lt;int&gt;(m));
+    // минимальная разница всех возможных пар
+    int min_sum = m * 25;
+    for (int k = 0; k &lt; n; k++) {
+      // минимальная разница k-го слова
+      int min_k = m * 25;
+      for (int i = 0; i &lt; n; i++) {
+        if (i == k) {
+          continue;
+        }
+        int sumk = 0;
+        for (int j = 0; j &lt; m; j++) {
+          B[i][j] = abs(A[k][j] - A[i][j]);
+          sumk += B[i][j];
+        }
+        min_k = min(min_k, sumk);
+      }
+      min_sum = min(min_sum, min_k);
+    }
+
+    // вывод результата
+    cout &lt;&lt; min_sum &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

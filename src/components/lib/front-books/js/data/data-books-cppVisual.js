@@ -14,7 +14,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 1,
+    id: 2,
     year: 1999,
     category: 'code',
     theme: 'Visual C++',
@@ -27,7 +27,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 2000,
     category: 'code',
     theme: 'Visual C++',
@@ -40,7 +40,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 2002,
     category: 'code',
     theme: 'Visual C++',
@@ -53,7 +53,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 3,
+    id: 5,
     year: 2002,
     category: 'code',
     theme: 'Visual C++',
@@ -66,7 +66,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 2002,
     category: 'code',
     theme: 'Visual C++',
@@ -79,7 +79,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 2003,
     category: 'code',
     theme: 'Visual C++',
@@ -92,7 +92,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 6,
+    id: 8,
     year: 2004,
     category: 'code',
     theme: 'Visual C++',
@@ -105,7 +105,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 2004,
     category: 'code',
     theme: 'Visual C++',
@@ -118,7 +118,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 8,
+    id: 10,
     year: 2004,
     category: 'code',
     theme: 'Visual C++',
@@ -131,7 +131,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2005,
     category: 'code',
     theme: 'Visual C++',
@@ -144,7 +144,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 10,
+    id: 12,
     year: 2007,
     category: 'code',
     theme: 'Visual C++',
@@ -157,7 +157,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 11,
+    id: 13,
     year: 2007,
     category: 'code',
     theme: 'Visual C++',
@@ -170,7 +170,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 12,
+    id: 14,
     year: 2008,
     category: 'code',
     theme: 'Visual C++',
@@ -183,7 +183,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 13,
+    id: 15,
     year: 2009,
     category: 'code',
     theme: 'Visual C++',
@@ -196,7 +196,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 14,
+    id: 16,
     year: 2010,
     category: 'code',
     theme: 'Visual C++',
@@ -209,7 +209,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 15,
+    id: 17,
     year: 2011,
     category: 'code',
     theme: 'Visual C++',
@@ -222,7 +222,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 16,
+    id: 18,
     year: 2013,
     category: 'code',
     theme: 'Visual C++',
@@ -235,7 +235,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 17,
+    id: 19,
     year: 2015,
     category: 'code',
     theme: 'Visual C++',
@@ -248,7 +248,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 18,
+    id: 20,
     year: 2016,
     category: 'code',
     theme: 'Visual C++',
@@ -261,7 +261,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 19,
+    id: 21,
     year: 2016,
     category: 'code',
     theme: 'Visual C++',
@@ -274,7 +274,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 20,
+    id: 22,
     year: 2017,
     category: 'code',
     theme: 'Visual C++',
@@ -287,7 +287,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2022,
     category: 'code',
     theme: 'Visual C++',
@@ -300,7 +300,7 @@ const dataBooksCppVisual = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2023,
     category: 'code',
     theme: 'Visual C++',

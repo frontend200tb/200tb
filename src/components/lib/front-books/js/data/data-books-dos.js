@@ -14,7 +14,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 1,
+    id: 2,
     year: 1987,
     category: 'основы',
     theme: 'dos',
@@ -27,7 +27,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 1988,
     category: 'основы',
     theme: 'dos',
@@ -40,7 +40,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 3,
+    id: 4,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -53,7 +53,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 3,
+    id: 5,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -66,7 +66,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 4,
+    id: 6,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -79,7 +79,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 1991,
     category: 'основы',
     theme: 'dos',
@@ -92,7 +92,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 6,
+    id: 8,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -105,7 +105,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 7,
+    id: 9,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -118,7 +118,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 7,
+    id: 10,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -131,7 +131,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 8,
+    id: 11,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -144,7 +144,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 9,
+    id: 12,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -157,7 +157,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 9,
+    id: 13,
     year: 1992,
     category: 'основы',
     theme: 'dos',
@@ -170,7 +170,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 10,
+    id: 14,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -183,7 +183,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 10,
+    id: 15,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -196,7 +196,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 11,
+    id: 16,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -209,7 +209,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 11,
+    id: 17,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -222,7 +222,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 12,
+    id: 18,
     year: 1993,
     category: 'основы',
     theme: 'dos',
@@ -235,7 +235,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 13,
+    id: 19,
     year: 1994,
     category: 'основы',
     theme: 'dos',
@@ -248,7 +248,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 14,
+    id: 20,
     year: 1994,
     category: 'основы',
     theme: 'dos',
@@ -261,7 +261,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 15,
+    id: 21,
     year: 1995,
     category: 'основы',
     theme: 'dos',
@@ -274,7 +274,7 @@ const dataBooksDos = [
   },
 
   {
-    id: 16,
+    id: 22,
     year: 2009,
     category: 'основы',
     theme: 'dos',
