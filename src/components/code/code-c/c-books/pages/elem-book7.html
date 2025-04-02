@@ -50,6 +50,83 @@
   <div class="anchor" id="p3"></div>
   <h3>Лекция 3. Операции (32)</h3>
 
+  <h4>Программа 1 (54)</h4>
+  <p>Определить площадь боковой поверхности конуса радиуса r и имеющего длину образующей 1</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+const float pi = 3.14159;
+float r = 10, l = 50, s;
+
+int main() {
+  s = pi * r * l;
+  printf("\n s = %f", s);
+}
+</pre>
+  </details>
+
+  <h4>Программа 2 (55)</h4>
+  <p>Тело движется прямолинейно с ускорением. Даны a м/с² ускорение, v м/с начальная скорость. Требуется определить, какой путь пройдет тело за t секунд.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float a, v, t, s;
+
+int main() {
+  a = 20.2;
+  v = 50.3;
+  t = 65;
+  s = (v * t) + (a * t * t / 2);
+  printf("s = %f meters", s);
+}
+</pre>
+  </details>
+
+  <h4>Программа 3 (55)</h4>
+  <p>Вычислите среднее арифметическое и среднее геометрическое трех чисел a, b, c.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+float a = b = c = 2005.1, x, y;
+
+int main() {
+  x = (a + b + c) / 3;
+  y = pow((a * b * c), (1 / 3));
+  printf("arifm x = %f", x);
+  printf("geom y = %f", y);
+}
+</pre>
+  </details>
+
+  <h4>Программа 4 (55)</h4>
+  <p>Даны катеты прямоугольного треугольника. Найти его гипотенузу и площадь.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+float x = y = 50.7, z, s;
+
+int main() {
+  z = hypot(x, y);
+  s = x * y / 2;
+  printf("hypot z = %f", z);
+  printf("square s = %f", s);
+}
+</pre>
+  </details>
 </article>
 
 
@@ -58,6 +135,129 @@
   <div class="anchor" id="p4"></div>
   <h3>Лекция 4. Операторы (56)</h3>
 
+  <h4>Программа 5 (59)</h4>
+  <p>От города A до города B расстояние равно 20км. Велосипедист выехал из A и в первый день проехал 10км. В последующие дни он проезжал со скоростью, на 0,5 раз большей, чем в предыдущий день. За сколько дней велосимедист доберется до города B?</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+float km = 10;
+int d;
+
+int main() {
+  clrscr();
+  d = 1;
+  while (km &lt; 20) {
+    km += (km * 0.5);
+    d++;
+  }
+  printf("days = %d", d);
+  getch();
+}
+</pre>
+  </details>
+
+  <h4>Программа 6 (60)</h4>
+  <p>Применение функции printf()</p>
+<pre>
+#include &lt;stdio.h&gt;
+#define PI 3.14159
+
+int main() {
+  int number = 2003;
+  printf("in year %d\n", number);
+  printf("pi = %f", PI);
+}
+</pre>
+
+  <h4>Программа 7 (63)</h4>
+  <p>Применение функции scanf()</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int age;
+  float assets;
+  char fio[50];
+  printf("Enter age, assets anf family");
+  scanf("%d %f", &age, &assets);
+  scanf("%s", fio);
+  printf("%d $%.0f %s", age, assets, fio);
+}
+</pre>
+
+  <h4>Программа 8 (66)</h4>
+  <p>Вычислить величину дохода по вкладу. Процентная ставка годовых, время хранения дней и сумма задаются во время работы программы.</p>
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float p, t, s, d;
+
+int main() {
+  puts("Enter sum s");
+  scanf("%f", &s);
+  puts("Enter percents p");
+  scanf("%f", &p);
+  puts("Enter time in days t");
+  scanf("%f", &t);
+
+  d = p * s * t / 36500;
+
+  printf("Dohod d = %.2f", d);
+}
+</pre>
+  </details>
+
+  <h4>Программа 9 (67)</h4>
+  <p>По заданной стороне куба A определить его объем, площадь грани и площадь поверхности.</p>
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float a, v, s, si;
+
+int main() {
+  puts("Enter side a");
+  scanf("%f", &a);
+
+  v = a * a * a;
+  s = a * a;
+  si = s * 6;
+
+  printf("Volume cube v = %.2f\n", v);
+  printf("Square side s = %.2f\n", s);
+  printf("Square cube si = %.2f", si);
+}
+</pre>
+  </details>
+
+  <h4>Программа 10 (67)</h4>
+  <p>Определить реальное расстояние между населенными пунктами. Указан масштаб карты и расстояние между двумя точками, изображающими населенные пункты.</p>
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float m, s, si;
+
+int main() {
+  puts("Enter mashtab m");
+  scanf("%f", &m);
+  puts("Enter distance in map s");
+  scanf("%f", &s);
+
+  si = s * m;
+
+  printf("Real distance si = %.2f\n", si);
+}
+</pre>
+  </details>
 </article>
 
 
@@ -73,6 +273,88 @@
 <article class="article">
   <div class="anchor" id="p6"></div>
   <h3>Лекция 6. Функции и переключение ввода-вывода (74)</h3>
+
+  <h4>Программа 11 (74)</h4>
+  <p>Напишем программу, которая принимает один символ и выводит его на экран.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char ch;
+  ch = getchar();
+  putchar(ch);
+}
+</pre>
+
+  <h4>Программа 12 (75)</h4>
+  <p>Изменим нашу программу</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  putchar(getchar());
+}
+</pre>
+
+  <h4>Программа 13 (76)</h4>
+  <p>Ввод и вывод нескольких символов</p>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '!'
+
+int main() {
+  char ch;
+  ch = getchar();
+  while (ch != STOP) {
+    putchar(ch);
+    ch = getchar();
+  }
+}
+</pre>
+
+  <h4>Программа 14 (77)</h4>
+  <p>Изменим программу</p>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '!'
+
+int main() {
+  char ch;
+  while ((ch = getchar()) != STOP) {
+    putchar(ch);
+  }
+}
+</pre>
+
+  <h4>Программа 15 (77)</h4>
+  <p>Усложним пример ввода-вывода. Будем подсчитывать символы.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '\n'
+
+int main() {
+  char ch;
+  int count = 0;
+  while ((ch = getchar()) != STOP) {
+    putchar(ch);
+    count++;
+  }
+  printf("%d symbols", count);
+}
+</pre>
+
+  <h4>Программа 16 (78)</h4>
+  <p>Считывать символы пока не достигнем конца файла</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char ch;
+  while ((ch = getchar()) != EOF) {
+    putchar(ch);
+  }
+}
+</pre>
 
 </article>
 

@@ -17,7 +17,9 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="p1">Базовые алгоритмы #6. Битовые операции</a>
+    <a href="#p1">Двоичные числа</a>
+    <br><a href="#p2">Битовые операции</a>
+    <br><a href="#p3">Битовые маски</a>
   </p>
   <p>
     <a href="#task1">Задача A. 2 в степени n</a>
@@ -41,6 +43,118 @@
     <br><a href="#task19">Задача S. Крош и задача на битовые операции</a>
     <br><a href="#task20">Задача T. Даша и кошмары</a>
   </p>
+</article>
+
+
+<!-- Двоичные числа -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Двоичные числа</h3>
+
+  <p>Любое число можно представить в двоичном виде.</p>
+  <code>11<sub>10</sub> = 1011<sub>2</sub></code>
+  <code>11 = 1*2³ + 0*2² + 1*2¹ + 1*2⁰</code>
+  <code>a = bₙ*2ⁿ + ... + b₁*2¹ + b₀*2⁰</code>
+  <p>Для числа int число двоичных разрядов 32. Для числа long long число двоичных разрядов 64.</p>
+  <p>Чтобы перевести число  в двоичную запись</p>
+  <code>a -> bₙ...b₂b₁b₀</code>
+  <p>нужен vector&lt;int&gt; A, который собирается следующим образом</p>
+<pre>
+int n;
+cin >> n;
+int tmp = n;
+vector&lt;int&gt; A;
+while (tmp > 0) {
+  A[i] = tmp % 2;
+  tmp /= 2;
+  i++;
+}
+</pre>
+
+  <p>В общем виде перевести число из 10-чной системы в двоичную можно по формуле N = k*2 + b, где b это остаток</p>
+<pre>
+11 = 5*2 + 1
+5  = 2*2 + 1
+2  = 1*2 + 0
+1  = 0*2 + 1
+</pre>
+  <p>Собрав все остатки получим 1101 число в двоичной системе</p>
+  <p>Так же можно собрать число в троичной системе или любой другой N = k*3 + b</p>
+</article>
+
+
+<!-- Битовые операции -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Битовые операции</h3>
+
+  <p>Рассмотрим операции & (битовое И) и | (битовое ИЛИ) на примере двух чисел a = 3, b = 5</p>
+<pre>
+a = 3 = ... 0 0 1 1
+b = 5 = ... 0 1 0 1
+
+a & b = ... 0 0 0 1 = 1
+a | b = ... 0 1 1 1 = 7
+</pre>
+
+  <p>Рассмотрим операцию ^ (XOR, исключающее ИЛИ). Возвращает 1 если различны, возвращает 0 если одинаковые.</p>
+<pre>
+a = 3 = ... 0 0 1 1
+b = 5 = ... 0 1 0 1
+
+a ^ b = ... 0 1 1 0 = 6
+</pre>
+
+  <p>Рассмотрим операцию ~ (порязрядная инверсия). Возвращает 1 если бит равен 0, возвращает 0 если бит равен 1.</p>
+<pre>
+a = 3 = ... 0 0 0 1 1
+b = 5 = ... 0 0 1 0 1
+c = 9 = ... 0 1 0 0 1
+
+~ a   = ... 1 1 1 0 0 = -4
+~ b   = ... 1 1 0 0 1 = -7
+~ c   = ... 1 0 1 1 0 = -10
+</pre>
+  <p>Числа со знаком, имеющие в старшем разряде 1, считаются отрицательными</p>
+
+  <p>Рассмотрим операцию &lt;&lt; (порязрядный сдвиг влево). Освободившиеся разряды справа заполняются нулями.</p>
+  <code>a &lt;&lt; k это то же самое что a*2ᵏ</code>
+<pre>
+a = 3   = ... 0 0 0 1 1
+
+a &lt;&lt; 2  = ... 0 1 1 0 0 = 12
+</pre>
+  <p>Рассмотрим операцию &gt;&gt; (порязрядный сдвиг вправо). Освободившиеся разряды справа заполняются.</p>
+  <code>a &gt;&gt; k это a / 2ᵏ</code>
+<pre>
+b = 5   = ... 0 0 1 0 1
+
+b &gt;&gt; 2  = ...0 0 0 0 1 = 1
+</pre>
+
+  <p>Операции сдвиг влево и вправо работают быстрее чем равные им умножение и деление. Например, нахождение середины в двоичном поиске</p>
+  <code>mid = (left + right) / 2;</code>
+  <code>mid = (left + right) >> 1;</code>
+</article>
+
+
+<!-- Битовые маски -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Битовые маски</h3>
+
+  <p>Пусть есть n чисел (n ≤ 20) и нужно поделить их на две группы. Есть два способа. Первый способ рекурсия. Второй способ бит-маски. Переберем все числа от 0 до 2ⁿ - 1.</p>
+<pre>
+for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {
+  int mask = i;
+  for (int j = 0; j &lt; n; j++) {
+    Mask[i] = mask % 2;
+    mask /= 2; // mask = mask >> 1
+  }
+}
+</pre>
+  <p>Этот алгоритм хорош при небольших n.</p>
+  <code>При n = 20. 2ⁿ = 2²⁰ ≈ 10⁶. 20 * 10⁶ = 2 * 10⁷</code>
 </article>
 
 
@@ -104,9 +218,73 @@
   <h4>Выходные данные</h4>
   <p>Выведите значение i-го бита числа A, то есть 0 или 1.</p>
 
-  <h4>Пример</h4>
+  <h4>Пример 1</h4>
   <code>5 1</code>
   <code>0</code>
+
+  <h4>Пример 2</h4>
+  <code>5 2</code>
+  <code>1</code>
+
+  <details>
+    <summary>Решение. Первый способ</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  long long A, i;
+  cin >> A >> i;
+
+  // решение
+  vector&lt;int&gt; Bit(64);
+  for (int j = 0; j &lt; 64; j++) {
+    Bit[j] = A % 2;
+    A /= 2;
+  }
+
+  // вывод результата
+  cout &lt;&lt; Bit[i];
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение. Второй способ</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  long long A, i;
+  cin >> A >> i;
+
+  // решение и вывод результата
+  long long res = 1 &lt;&lt; i;
+  if ( (A & res) != 0) {
+    cout &lt;&lt; 1;
+  } else {
+    cout &lt;&lt; 0;
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -193,6 +371,50 @@
 4
 76
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Посчитаем XORиначчи для f(0) = 3 и f(1) = 4</p>
+    <code>f(2) = 011 ^ 100 = 111 = 7</code>
+    <code>f(3) = 100 ^ 111 = 011 = 3</code>
+    <code>f(4) = 111 ^ 011 = 100 = 4</code>
+    <p>Пришли к тому что было в самом начале. Видим закономерность, что числа повторяются бесконечно. Повторяются первые три элемента f(0), f(1), f(2).</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int a, b, n;
+    cin >> a >> b >> n;
+
+    // решение
+    int c = a ^ b;
+
+    // периодическия последовательность
+    // a, b, c, a, b, c ...
+
+    if (n % 3 == 0) {
+      cout &lt;&lt; a &lt;&lt; '\n';
+    } else if (n % 3 == 1) {
+      cout &lt;&lt; b &lt;&lt; '\n';
+    } else if (n % 3 == 2) {
+      cout &lt;&lt; c &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -313,6 +535,59 @@
 1 2 3 3 10
 </pre>
   <code>1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Это задача на полный перебор. Нужно перебрать все возможные комбинации распределения весов на разные гири.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  vector&lt;int&gt; Mask(n);
+  long long res = 1e9; // разница веса на весах
+  long long sum_left, sum_right;
+  for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {
+    int mask = i;
+    sum_left = 0;
+    sum_right = 0;
+    for (int j = 0; j &lt; n; j++) {
+      Mask[j] = mask % 2; // a & 1
+      mask /= 2;
+    }
+    for (int j = 0; j &lt; n; j++) {
+      if (Mask[j] == 0) {
+        sum_left += A[j];
+      } else {
+        sum_right += A[j];
+      }
+    }
+    if (abs(sum_left - sum_right) &lt; res) {
+      res = abs(sum_left - sum_right);
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -397,6 +672,66 @@
     <li>_&z = 63&61 = 61 = z</li>
     <li>z&z = 61&61 = 61 = z</li>
   </ol>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Буква z в этой кодировке равна 61. Представим ее в виде степеней двойки</p>
+    <code>61₁₀ = 32 + 16 + 8 + 4 + 1 = 111101₂</code>
+    <p>Нужно собрать битовую маску. Там где 1 должна быть тоже 1, там где 0 может быть любой символ.</p>
+    <p>Задача решается за O(n³). Но мы воспользуемся ДП. Сократим постоянный перерасчет действующих пар. Сложность O(64*n)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  string s1 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_";
+  vector&lt;long long&gt; A(64);
+  vector&lt;long long&gt; B(64);
+
+  for (int i = 0; i &lt; 64; i++) {
+    int mask = i;
+    int count = 0;
+    for (int j = 0; j &lt; 6; j++) {
+      if (mask % 2 == 0) {
+        count++;
+      }
+      mask /= 2; // mask >>= 1
+    }
+    A[i] = count;
+    long long res = 1;
+    for (int j = 0; j &lt; count; j++) {
+      res *= 3;
+    }
+    B[i] = res;
+  }
+
+  long long result = 1;
+  long long mod = 1e9 + 7;
+  for (int i = 0; i &lt; s.size(); i++) {
+    for (int j = 0; j &lt; 64; j++) {
+      if (s[i] == s1[j]) {
+        result = (result * B[j]) % mod;
+      }
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; result;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -536,6 +871,53 @@ TAK
   <p>В первом примере вы можете поменять местами биты с такими индексами: (1,4), (2,3), (3,4) и (3,5).</p>
 
   <p>Во втором примере вы можете поменять местами биты с такими индексами: (1,2), (1,3), (2,4), (3,4), (3,5) и (3,6).</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Требуется поменять местами два бита в первом числе. Если в первом числе менять местами биты, в которых 1, то побитовое ИЛИ a | b не изменится. Если в первом числе менять местами биты, значения которых равно 1 во втором числе, также не изменит результат. Остается только два варианта. Первый: меняем местами биты с 0 и 1 в первом числе, те же биты во втором числе так же равны 0 и 1. Второй: меняем местами биты с 0 и 1 в первом числе, те же биты во втором числе равны 1 и 0.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  string s1, s2;
+  cin >> s1 >> s2;
+
+  // решение
+  long long cnt00 = 0;
+  long long cnt01 = 0;
+  long long cnt10 = 0;
+  long long cnt11 = 0;
+  for (int i = 0; i &lt; s1.size(); i++) {
+    if (s1[i] == '0' && s2[i] == '0') {
+      cnt00++;
+    }
+    if (s1[i] == '0' && s2[i] == '1') {
+      cnt01++;
+    }
+    if (s1[i] == '1' && s2[i] == '0') {
+      cnt10++;
+    }
+    if (s1[i] == '1' && s2[i] == '1') {
+      cnt11++;
+    }
+  }
+  long long res = cnt00 * cnt11 + cnt01 * cnt10 + cnt00 * cnt10;
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

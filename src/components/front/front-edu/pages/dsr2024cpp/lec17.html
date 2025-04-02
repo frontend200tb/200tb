@@ -1,0 +1,242 @@
+<article class="article">
+  <h1>Лекция 17 (01.04.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">ООП. Структуры. Классы</a></p>
+  <p><a href="#task1">Программа 1. Битва покемонов</a></p>
+  <p><a href="#p2">Переопределение операторов</a></p>
+</article>
+
+
+<!-- ООП. Структуры. Классы -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>ООП. Структуры. Классы</h3>
+
+  <p>Выделяют 4 парадигмы ООП (раньше были только первые три)</p>
+  <ol>
+    <li>Инкапсуляция</li>
+    <li>Наследование</li>
+    <li>Полиморфизм</li>
+    <li>Абстракция</li>
+  </ol>
+  <p>От процедурного стиля программирования отказались.</p>
+  <p>В структурах есть и данные и функции для работы с ними.</p>
+
+  <h4>Инкапсуляция</h4>
+  <p>Инкапсуляция это когда извне нельзя получить доступ к внутренним объектам. Три ключевых слова определяют доступность объекта</p>
+  <ol>
+    <li>public</li>
+    <li>protected</li>
+    <li>private</li>
+  </ol>
+
+  <h4>Наследование</h4>
+  <p>Мы пишем компьютерную игру</p>
+  <p>Напишем класс Орк</p>
+<pre>
+class Орк {
+  имя,
+  здоровье,
+  сила,
+  скорость
+}
+</pre>
+  <p>Напишем класс Гоблин</p>
+<pre>
+class Орк {
+  имя,
+  здоровье,
+  сила,
+  скорость
+}
+</pre>
+  <p>Теперь у нас есть два класса с одинаковыми полями. Создадим класс Персонаж в котором будут все повторяющиеся поля.</p>
+<pre>
+class Персонаж {
+  имя,
+  здоровье,
+  сила,
+  скорость
+}
+</pre>
+  <p>Теперь для описания Орков и Гоблинов нужно написать только их особые качества.</p>
+<pre>
+class Орк {
+  принести жертву
+}
+
+class Гоблин {
+  жадность
+}
+</pre>
+  <p>Если в обновлении игры каждый персонаж должен получить еще одно качество, то его выносят в родительский класс.</p>
+  <p>Наследник имеет доступ к protected полям родителя.</p>
+
+  <h4>Полиморфизм</h4>
+  <p>Напишем класс Зелье. Есть 50 персонажей. Нужно каждому добавить свое зелье. В класс Персонаж добавим функцию применить Зелье</p>
+
+  <h4>Абстракция</h4>
+  <p>На примере покемонов посмотрим как устроено ООП.</p>
+</article>
+
+
+<!-- Программа 1. Битва покемонов -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Программа 1. Битва покемонов</h3>
+
+  <p>Файл dsr.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "pokemons.h"
+
+int main() {
+  FirePokemon charizard("Charizard", 120, 80, 60);
+  WaterPokemon blastoise("Blastoise", 140, 30, 10);
+
+  simulateBattle(&charizard, &blastoise);
+}
+</pre>
+
+  <p>Файл pokemons.h</p>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class Pokemon {
+
+  protected:
+
+    string name;
+    int hp;
+    int attack;
+    int defense;
+    string type;
+
+  public:
+
+    Pokemon(string name, int hp, int attack, int defense, string type)
+    : hp(hp), attack(attack), defense(defense), type(type)
+    {
+      this->name = name;
+    };
+    virtual void attackEnemy(Pokemon* enemy);
+    virtual void specialAttack(Pokemon* enemy) = 0;
+    void displayStat() const;
+    bool isFained() const {
+      return hp &lt; 0;
+    };
+
+    void setHP(int hp);
+    string getName()const { return name; }
+    int getHP()const { return hp; }
+    int getDefense()const { return defense; }
+    string getType()const { return type; }
+};
+
+class FirePokemon : public Pokemon {
+
+  public:
+
+    FirePokemon(string name, int hp, int attack, int defense)
+    :Pokemon(name, hp, attack, defense, "Fire") {};
+
+    void specialAttack(Pokemon* enemy) override {
+      cout &lt;&lt; name &lt;&lt; " use FireStorm\n";
+      if (enemy->getType() == "Travanoy") {
+        int damage = 2 * attack - enemy->getDefense() / 2;
+        enemy->hp -= damage;
+        cout &lt;&lt; name &lt;&lt; " attack "
+            &lt;&lt; enemy->getName() &lt;&lt; " and puts"
+            &lt;&lt; damage &lt;&lt; "crack\n";
+      } else {
+        attackEnemy(enemy);
+      }
+    }
+};
+
+class WaterPokemon : public Pokemon {
+
+  public:
+
+    WaterPokemon(string name, int hp, int attack, int defense)
+    :Pokemon(name, hp, attack, defense, "Water") {};
+
+    void specialAttack(Pokemon* enemy) override {
+      cout &lt;&lt; name &lt;&lt; " use WaterStorm\n";
+      if (enemy->getType() == "Fire") {
+        int damage = 2 * attack - enemy->getDefense() / 2;
+        enemy->hp -= damage;
+        cout &lt;&lt; name &lt;&lt; " attack "
+            &lt;&lt; enemy->getName() &lt;&lt; " and puts"
+            &lt;&lt; damage &lt;&lt; "crack\n";
+      } else {
+        attackEnemy(enemy);
+      }
+    }
+};
+
+void simulateBattle(Pokemon* pok1, Pokemon* pok2) {
+  pok1->displayStat();
+  pok2->displayStat();
+
+  int turn{};
+  while (!pok1->isFained() && !pok2->isFained()) {
+    if (turn % 2 == 0) {
+      pok1->specialAttack(pok2);
+    } else {
+      pok2->specialAttack(pok1);
+    }
+  }
+
+  if (pok2->isFained()) {
+    cout &lt;&lt; "Win " &lt;&lt; pok1->getName() &lt;&lt; "\n";
+  } else {
+    cout &lt;&lt; "Win " &lt;&lt; pok2->getName() &lt;&lt; "\n";
+  }
+}
+</pre>
+
+  <p>Файл pokemons.cpp</p>
+<pre>
+#include "pokemons.h"
+
+void Pokemon::attackEnemy(Pokemon* enemy) {
+  int damage = attack - enemy->defense / 2;
+  if (damage &lt; 1) {
+    damage = 1;
+  }
+  enemy->hp -= damage;
+  cout &lt;&lt; name &lt;&lt; " attack" &lt;&lt; enemy->name
+       &lt;&lt; " and puts " &lt;&lt; damage &lt;&lt; "crash\n";
+}
+
+void Pokemon::displayStat() const {
+  cout &lt;&lt; name &lt;&lt; " " &lt;&lt; hp &lt;&lt; " "
+       &lt;&lt; attack &lt;&lt; "\n";
+}
+
+void Pokemon::setHP(int hp) {
+  this->hp = hp;
+};
+</pre>
+</article>
+
+
+<!-- Переопределение операторов -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Переопределение операторов</h3>
+</article>
+

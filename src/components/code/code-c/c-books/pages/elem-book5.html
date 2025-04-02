@@ -50,7 +50,7 @@
   <p>Ядром любой программы на языке Си является функция <strong>main()</strong>. Напишем первую программу из минимального количества кода, она ничего не делает.</p>
 
   <h4>Программа 1 (8)</h4>
-  <code>main() {}</code>
+  <code>int main() {}</code>
 
   <h4>1.2 Первая программа на Си (12)</h4>
 
@@ -60,7 +60,7 @@
 <pre>
 #include &lt;stdio.h&gt;
 
-main() {
+int main() {
   printf("Hello!");
 }
 </pre>
@@ -73,7 +73,7 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 
-main() {
+int main() {
   printf("#\n");
   printf("$\n");
   printf("@\n");
@@ -86,7 +86,7 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 
-main() {
+int main() {
   printf("#\n$\n@\n");
 }
 </pre>
@@ -98,7 +98,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   printf("#\n$\n@\n");
   getch();
 }
@@ -111,7 +111,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("#\n$\n@\n");
   getch();
@@ -127,7 +127,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("#\a");
   getch();
@@ -141,7 +141,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("Function \"printf\" should");
   printf(" have a prototype");
@@ -156,7 +156,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("Function \'printf\' should");
   printf(" have a prototype");
@@ -171,7 +171,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("Format disk C:\\ \?");
   getch();
@@ -185,7 +185,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("            \rYES");
   getch();
@@ -199,7 +199,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("a\tf");
   getch();
@@ -213,7 +213,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("a\bf");
   getch();
@@ -230,7 +230,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   clrscr();
   printf("***");
   getch();
@@ -241,7 +241,7 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-main() {clrscr();printf("***");getch();}
+int main() {clrscr();printf("***");getch();}
 </pre>
 
   <p>Комментарии дают информацию о том что делает программа. Напишем программу с комментариями</p>
@@ -251,7 +251,7 @@ main() {clrscr();printf("***");getch();}
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   // display one
   clrscr();    // to clear display
   printf("@"); // print @
@@ -259,7 +259,7 @@ main() {
 
   // display two
   clrscr();    // to clear display
-  printf("%"); // print %
+  printf("%%"); // print %
   getch();     // to stop display
 }
 </pre>
@@ -271,7 +271,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   // display one
   clrscr();    // to clear display
   printf("@"); // print @
@@ -279,7 +279,7 @@ main() {
 /*
   // display two
   clrscr();    // to clear display
-  printf("%"); // print %
+  printf("%%"); // print %
   getch();     // to stop display
 */
 }
@@ -301,7 +301,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int i;
   int j;
   char c;
@@ -323,7 +323,7 @@ int j;
 char c;
 float x;
 
-main() {
+int main() {
   clrscr();
   getch();
 }
@@ -338,7 +338,7 @@ main() {
 
 int i;
 
-main() {
+int main() {
   int j;
   clrscr();
   getch();
@@ -354,7 +354,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   char first;   // имя
   char middle; // отчество
   char last; // фамилия
@@ -370,7 +370,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   char first, middle, last;
   clrscr();
   getch();
@@ -384,7 +384,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int age, weight;
   clrscr();
   getch();
@@ -398,7 +398,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int age;
   float weight;
   clrscr();
@@ -413,7 +413,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int class_number;
   char class_letter;
   int class_size;
@@ -432,7 +432,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int age;
   float salary;
   int child;
@@ -453,7 +453,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int age = 25;
   float salary = 6125.25;
   int child = 2;
@@ -469,7 +469,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float my_salary;
   float friend_salary;
 
@@ -488,7 +488,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   char first, middle, last;
   first = 'G';
   middle = 'M';
@@ -508,7 +508,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 8;
   clrscr();
   printf("%d\n", x);
@@ -523,7 +523,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = -55;
   float y = 55.55;
   char z = 'c';
@@ -542,13 +542,13 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = -55;
   float y = 55.55;
   char z = 'c';
   clrscr();
-  printf("%d %f %c\n", x, y, c);
-  printf("%d\n%f\n%c\n", x, y, c);
+  printf("%d %f %c\n", x, y, z);
+  printf("%d\n%f\n%c\n", x, y, z);
   getch();
 }
 </pre>
@@ -560,7 +560,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x;
   clrscr();
   scanf("%d", &x);
@@ -575,12 +575,12 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x;
   clrscr();
   printf("Enter integer number ");
   scanf("%d", &x);
-  printf("\n Number is %d", x);
+  printf("Number is %d", x);
   getch();
 }
 </pre>
@@ -601,7 +601,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 5;
   int y = 3;
   int sum;
@@ -619,7 +619,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 5;
   int y = 3;
   clrscr();
@@ -635,7 +635,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x;
   int y;
   clrscr();
@@ -655,7 +655,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int a;
   clrscr();
   printf("Enter a side of square ");
@@ -672,7 +672,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 21;
   int y = 4;
   int z;
@@ -690,7 +690,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float x = 21;
   float y = 4;
   float z;
@@ -710,7 +710,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int myAge = 15;
   int temp;
   clrscr();
@@ -728,7 +728,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int myAge = 15;
   clrscr();
   myAge = myAge + 2;
@@ -744,7 +744,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int myAge = 15;
   clrscr();
   myAge += 2;
@@ -760,7 +760,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int myAge = 15;
   clrscr();
   printf("%d", myAge += 2);
@@ -777,7 +777,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 44;
   clrscr();
   x--;
@@ -793,7 +793,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 44;
   clrscr();
   x++;
@@ -811,10 +811,10 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 4, y = 4;
   clrscr();
-  printf("++x = %d", ++x);
+  printf("++x = %d\n", ++x);
   printf("y++ = %d", y++);
   getch();
 }
@@ -827,11 +827,11 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 4, y = 4;
   clrscr();
-  printf("++x = %d", ++x);
-  printf("y++ = %d", y++);
+  printf("++x = %d\n", ++x);
+  printf("y++ = %d\n", y++);
   printf("y = %d", y);
   getch();
 }
@@ -844,7 +844,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x = 4;
   clrscr();
   printf("++x + x = %d", ++x + x);
@@ -861,7 +861,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float a, b, c, p;
   clrscr();
   printf("Enter side a ");
@@ -871,7 +871,7 @@ main() {
   printf("Enter side c ");
   scanf("%f", &c);
   p = a + b + c;
-  printf("\np = %f", p);
+  printf("p = %f", p);
   getch();
 }
 </pre>
@@ -883,13 +883,13 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float r, p;
   clrscr();
   printf("Enter radius ");
   scanf("%f", &r);
   p = 2 * 3.14 * r;
-  printf("\np = %f", p);
+  printf("p = %f", p);
   getch();
 }
 </pre>
@@ -902,13 +902,13 @@ main() {
 #include &lt;conio.h&gt;
 #define Pi 3.14
 
-main() {
+int main() {
   float r, p;
   clrscr();
   printf("Enter radius ");
   scanf("%f", &r);
   p = 2 * Pi * r;
-  printf("\np = %f", p);
+  printf("p = %f", p);
   getch();
 }
 </pre>
@@ -920,7 +920,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float a, b, p;
   clrscr();
   printf("Enter side a ");
@@ -928,7 +928,7 @@ main() {
   printf("Enter side b ");
   scanf("%f", &b);
   p = 2 * (a + b);
-  printf("\np = %f", p);
+  printf("p = %f", p);
   getch();
 }
 </pre>
@@ -943,13 +943,13 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   float ang, sinang;
   clrscr();
   printf("Enter angle in radian ");
   scanf("%f", &ang);
   sinang = sin(ang);
-  printf("\nsin of %f = %f", ang, sinang);
+  printf("sin of %.2f = %f", ang, sinang);
   getch();
 }
 </pre>
@@ -962,13 +962,13 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   float ang, cosang;
   clrscr();
   printf("Enter angle in radian ");
   scanf("%f", &ang);
   cosang = cos(ang);
-  printf("\ncos of %f = %f", ang, cosang);
+  printf("cos of %.2f = %f", ang, cosang);
   getch();
 }
 </pre>
@@ -980,7 +980,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   printf("Const Pi = %f", M_PI);
 }
 </pre>
@@ -995,7 +995,7 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   float angle_degree;
   float angle_radian;
   clrscr();
@@ -1015,7 +1015,7 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   float a, b, angle_ab, s;
   clrscr();
   printf("Enter side a ");
@@ -1040,7 +1040,7 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   float a;
   clrscr();
   printf("Enter side a ");
@@ -1069,7 +1069,7 @@ main() {
 #include &lt;conio.h&gt;
 #include &lt;math.h&gt;
 
-main() {
+int main() {
   clrscr();
   getch();
 }
@@ -1104,9 +1104,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1144,9 +1144,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
   putpixel(320, 240, 4);
@@ -1161,9 +1161,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
   putpixel(320, 240, GREEN);
@@ -1180,9 +1180,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   int x1 = 0, y1 = 0, x2 = 320, y2 = 240;
   initgraph(&gdriver, &gmode, "");
@@ -1200,9 +1200,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   int x = 320, y = 240, radius = 100;
   initgraph(&gdriver, &gmode, "");
@@ -1222,9 +1222,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
   rectangle(0, 5, 60, 40);
@@ -1241,9 +1241,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
   ellipse(320, 240, 0, 36, 50);
@@ -1260,9 +1260,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1286,9 +1286,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1306,9 +1306,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1327,9 +1327,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1365,9 +1365,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int midx = 320;
   int midy = 240;
 
@@ -1394,9 +1394,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int midx = 320;
   int midy = 240;
   int xr = 100;
@@ -1428,9 +1428,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int midx = 320;
   int midy = 240;
   int xr = 100;
@@ -1457,9 +1457,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int midx = 320;
   int midy = 240;
 
@@ -1482,9 +1482,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1510,9 +1510,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1530,9 +1530,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1567,9 +1567,9 @@ main() {
 <pre>
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
-#include &lt;graphics.h.h&gt;
+#include &lt;graphics.h&gt;
 
-main() {
+int main() {
   int gdriver = DETECT, gmode;
   initgraph(&gdriver, &gmode, "");
 
@@ -1601,7 +1601,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1;
   int num2;
   clrscr();
@@ -1625,7 +1625,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1;
   int num2;
   clrscr();
@@ -1651,7 +1651,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int sales;
   int bonus = 0;
   clrscr();
@@ -1674,7 +1674,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int age;
   clrscr();
 
@@ -1695,7 +1695,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   float a;
   float b;
   clrscr();
@@ -1721,7 +1721,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -1743,7 +1743,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -1766,7 +1766,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int m; // mass
   int v; // speed
   int l; // length
@@ -1799,7 +1799,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -1820,7 +1820,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int x, y;
   clrscr();
 
@@ -1845,7 +1845,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1, num2;
   clrscr();
 
@@ -1870,7 +1870,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1, num2;
   clrscr();
 
@@ -1896,7 +1896,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -1921,7 +1921,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1, num2, max;
   clrscr();
 
@@ -1948,7 +1948,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1, num2, num3, max;
   clrscr();
 
@@ -1980,7 +1980,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num1, num2, num3, max;
   clrscr();
 
@@ -2014,7 +2014,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -2039,7 +2039,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -2070,7 +2070,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -2094,7 +2094,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 
@@ -2129,7 +2129,7 @@ main() {
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
-main() {
+int main() {
   int num;
   clrscr();
 

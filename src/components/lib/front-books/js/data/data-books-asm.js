@@ -394,9 +394,9 @@ const dataBooksAsm = [
     year: 1999,
     category: 'code',
     theme: 'assembler',
-    title: 'Assembler Учебный курс',
+    title: 'Assembler. Учебный курс',
     author: 'Юров',
-    authorName: 'В.',
+    authorName: 'Виктор',
     pages: '672',
     isLearned: false,
     dateLearned: '',
@@ -508,6 +508,19 @@ const dataBooksAsm = [
 
   {
     id: 40,
+    year: 2001,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Assembler. Практикум',
+    author: 'Юров',
+    authorName: 'Виктор',
+    pages: '402',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 41,
     year: 2002,
     category: 'code',
     theme: 'assembler',
@@ -520,7 +533,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 41,
+    id: 42,
     year: 2002,
     category: 'code',
     theme: 'assembler',
@@ -533,7 +546,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 42,
+    id: 43,
     year: 2002,
     category: 'code',
     theme: 'assembler',
@@ -546,7 +559,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 43,
+    id: 44,
     year: 2003,
     category: 'code',
     theme: 'assembler',
@@ -559,7 +572,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 44,
+    id: 45,
     year: 2003,
     category: 'code',
     theme: 'assembler',
@@ -572,7 +585,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 45,
+    id: 46,
     year: 2003,
     category: 'code',
     theme: 'assembler',
@@ -585,7 +598,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 46,
+    id: 47,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -598,7 +611,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 47,
+    id: 48,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -611,7 +624,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 48,
+    id: 49,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -624,7 +637,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 49,
+    id: 50,
     year: 2004,
     category: 'code',
     theme: 'assembler',
@@ -637,7 +650,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 50,
+    id: 51,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -650,7 +663,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 51,
+    id: 52,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -663,7 +676,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 52,
+    id: 53,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -676,7 +689,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 53,
+    id: 54,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -689,7 +702,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 54,
+    id: 55,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -702,7 +715,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 55,
+    id: 56,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -715,7 +728,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 56,
+    id: 57,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -728,7 +741,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 57,
+    id: 58,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -741,7 +754,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 58,
+    id: 59,
     year: 2005,
     category: 'code',
     theme: 'assembler',
@@ -754,7 +767,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 59,
+    id: 60,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -767,7 +780,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 60,
+    id: 61,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -780,7 +793,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 61,
+    id: 62,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -793,7 +806,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 62,
+    id: 63,
     year: 2006,
     category: 'code',
     theme: 'assembler',
@@ -806,7 +819,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 63,
+    id: 64,
     year: 2007,
     category: 'code',
     theme: 'assembler',
@@ -819,7 +832,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 64,
+    id: 65,
     year: 2008,
     category: 'code',
     theme: 'assembler',
@@ -832,7 +845,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 65,
+    id: 66,
     year: 2008,
     category: 'code',
     theme: 'assembler',
@@ -845,7 +858,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 66,
+    id: 67,
     year: 2009,
     category: 'code',
     theme: 'assembler',
@@ -858,7 +871,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 67,
+    id: 68,
     year: 2010,
     category: 'code',
     theme: 'assembler',
@@ -871,7 +884,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 68,
+    id: 69,
     year: 2010,
     category: 'code',
     theme: 'assembler',
@@ -884,7 +897,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 69,
+    id: 70,
     year: 2010,
     category: 'code',
     theme: 'assembler',
@@ -897,7 +910,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 70,
+    id: 71,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -910,7 +923,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 71,
+    id: 72,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -923,7 +936,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 72,
+    id: 73,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -936,7 +949,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 73,
+    id: 74,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -949,7 +962,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 74,
+    id: 75,
     year: 2011,
     category: 'code',
     theme: 'assembler',
@@ -962,7 +975,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 75,
+    id: 76,
     year: 2012,
     category: 'code',
     theme: 'assembler',
@@ -975,7 +988,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 76,
+    id: 77,
     year: 2015,
     category: 'code',
     theme: 'assembler',
@@ -988,7 +1001,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 77,
+    id: 78,
     year: 2016,
     category: 'code',
     theme: 'assembler',
@@ -1001,7 +1014,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 78,
+    id: 79,
     year: 2017,
     category: 'code',
     theme: 'assembler',
@@ -1014,7 +1027,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 79,
+    id: 80,
     year: 2017,
     category: 'code',
     theme: 'assembler',
@@ -1027,7 +1040,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 80,
+    id: 81,
     year: 2018,
     category: 'code',
     theme: 'assembler',
@@ -1040,7 +1053,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 81,
+    id: 82,
     year: 2021,
     category: 'code',
     theme: 'assembler',
@@ -1052,7 +1065,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 82,
+    id: 83,
     year: 2021,
     category: 'code',
     theme: 'assembler',
@@ -1065,7 +1078,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 83,
+    id: 84,
     year: 2022,
     category: 'code',
     theme: 'assembler',
@@ -1078,7 +1091,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 84,
+    id: 85,
     year: 2023,
     category: 'code',
     theme: 'assembler',
@@ -1091,7 +1104,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 85,
+    id: 86,
     year: 2024,
     category: 'code',
     theme: 'assembler',
@@ -1104,7 +1117,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 86,
+    id: 87,
     year: 2024,
     category: 'code',
     theme: 'assembler',
@@ -1117,7 +1130,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 87,
+    id: 88,
     year: 2024,
     category: 'code',
     theme: 'assembler',
