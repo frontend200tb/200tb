@@ -17,7 +17,7 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="#p1">Функции</a>
+        <a href="#p1">Функции</a>
     <br><a href="#p2">Рекурсия</a>
     <br><a href="#p3">Числа Фибоначчи</a>
     <br><a href="#p4">НОД</a>
@@ -25,7 +25,7 @@
     <br><a href="#p6">Работа с файлами</a>
   </p>
   <p>
-    <a href="#task1">Задача A. НОД</a>
+        <a href="#task1">Задача A. НОД</a>
     <br><a href="#task2">Задача B. Без массивов</a>
     <br><a href="#task3">Задача C. Длинное выражение</a>
     <br><a href="#task4">Задача D. Факториал (очень простой)</a>
@@ -1092,6 +1092,61 @@ int main() {
 2 379.99
 3 379.99
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для каждого участника вычислим максимальную высоту гриба, рассчитанную для двух вариантов порядка скоростей. Отсортировать участников по убыванию высоты гриба, а при равенстве - по порядковым номерам</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool compare(const pair&lt;int, double&gt;& a, const pair&lt;int, double&gt;& b) {
+  if (a.second != b.second) {
+    return a.second > b.second;
+  } else {
+    return a.first &lt; b.first;
+  }
+
+}
+
+int main() {
+  // ввод данных
+  int n, t1, t2, k;
+  cin >> n >> t1 >> t2 >> k;
+
+  // рост
+  vector&lt;pair&lt;int, double&gt; &gt; A(n);
+
+  int tmp1, tmp2;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> tmp1 >> tmp2;
+
+    // рост если первой пришла скорость до перерыва
+    double r1 = t1 * tmp1 - t1 * tmp1 * k / 100.0 + t2 * tmp2;
+
+    // рост если первой пришла скорость после перерыва
+    double r2 = t1 * tmp2 - t1 * tmp2 * k / 100.0 + t2 * tmp1;
+
+    A[i].first = i;
+    A[i].second = (r1 > r2) ? r1 : r2;
+  }
+
+  // решение
+  sort(A.begin(), A.end(), compare);
+
+  // вывод результата
+  cout &lt;&lt; fixed;
+  cout.precision(2);
+
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; A[i].first + 1 &lt;&lt; ' ' &lt;&lt; A[i].second &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1132,6 +1187,47 @@ int main() {
 1 3 2 2 5
 </pre>
   <code>1 5 2 3 2</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Нужно отсортировать массив. Завести два указателя на начало и конец массива. Потом в новый массив класть по очереди элементы то сначала, то с конца.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+  int l = 0;
+  int r = A.size() - 1;
+  vector&lt;int&gt; B(0);
+
+  while (r >= l) {
+    B.push_back(A[l]);
+    B.push_back(A[r]);
+    l++;
+    r--;
+  }
+
+  // вывод результата
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; B[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

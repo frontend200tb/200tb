@@ -364,6 +364,133 @@ int main() {
   <div class="anchor" id="p7"></div>
   <h3>Лекция 7. Выбор вариантов (83)</h3>
 
+  <h4>Программа 17 (83)</h4>
+  <p>Подсчитаем число строк в файле</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int ch;
+  int line_count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch == '\n') {
+      line_count++;
+    }
+  }
+  printf("%d lines", line_count);
+}
+</pre>
+
+  <h4>Программа 18 (84)</h4>
+  <p>Подсчитаем число символов и строк в файле</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int ch;
+  int char_count = 0;
+  int line_count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    char_count++;
+    if (ch == '\n') {
+      line_count++;
+    }
+  }
+  printf("%d chars", char);
+  printf("%d lines", line_count);
+}
+</pre>
+
+  <h4>Программа 19 (85)</h4>
+  <p>Проверим входной символ больше 5 или нет</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int ch;
+  ch = getchar();
+  if (ch > 5) {
+    printf("%d > 5", ch);
+  }
+  if (ch &lt; 5) {
+    printf("%d &lt; 5", ch);
+  }
+}
+</pre>
+
+  <h4>Программа 20 (85)</h4>
+  <p>Заменим каждый символ из таблицы ASCII на следующий символ, кроме символа "новая строка"</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  char ch;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch == '\n') {
+      putchar(ch);
+    } else {
+      putchar(ch+1);
+    }
+  }
+}
+</pre>
+
+  <h4>Программа 21 (88)</h4>
+  <p>Проверим оценку</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int mark;
+  mark = getchar();
+
+  if (mark == 4) {
+    printf("mark = 4");
+  } else if (mark > 4) {
+    printf("mark > 4");
+  } else {
+    mark++;
+    printf("mark++");
+  }
+}
+</pre>
+
+  <p>В языке Си все ненулевые значения являются истинными и только 0 является ложью.</p>
+
+  <h4>Программа 22 (89)</h4>
+  <p>Проверим оценку</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int true, false;
+
+  true = (12 > 2);
+  false = (12 == 2);
+  printf("true = %d\nfalse = %d", true, false);
+}
+</pre>
+
+  <h4>Программа 23 (91)</h4>
+  <p>Посчитаем сколько символов не являются пробелами, табуляцией и символом новой строки.</p>
+<pre>
+#include &lt;stdio&gt;
+
+int main() {
+  int ch;
+  int count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch != ' ' && ch != '\t' && ch != '\n') {
+      count++;
+    }
+  }
+  printf("chars = %d", ch);
+}
+</pre>
 </article>
 
 
