@@ -233,5 +233,230 @@ Enter second integer
 Sum is 8
 </pre>
   </details>
+
+  <h4>2.4 Общие понятия о памяти компьютера (53)</h4>
+
+  <p>Имена переменных в действительности соответствуют ячейкам памяти. Когда присваивается значение переменной, то это значение сохранается в соответствующей ячейке памяти. При этом старое значение в этой ячейке памяти уничтожается.</p>
+
+  <h4>2.5 Арифметика в Си (54)</h4>
+
+  <h4>2.6 Принятие решений. Операции равенства и отношения (58)</h4>
+
+  <details>
+    <summary>Программа 5 (59)</summary>
+    <p>Программа вызывает scanf чтобы считать два числа. Шесть операторов if сравнивают два введенных числа.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int num1;
+  int num2;
+
+  printf("Enter two integers \n");
+  scanf("%d %s", &num1, &num2);
+
+  if (num1 == num2) {
+    printf("%d is equal to %d", num1, num2);
+  }
+
+  if (num1 != num2) {
+    printf("%d is not equal to %d", num1, num2);
+  }
+
+  if (num1 &lt; num2) {
+    printf("%d is less than %d", num1, num2);
+  }
+
+  if (num1 > num2) {
+    printf("%d is greater than %d", num1, num2);
+  }
+
+  if (num1 &lt;= num2) {
+    printf("%d is less than or equal to %d", num1, num2);
+  }
+
+  if (num1 >= num2) {
+    printf("%d is greater than or equal to %d", num1, num2);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>2.7 Безопасное программирование (62)</h4>
+</article>
+
+
+<!-- 3 Структурная разработка программ на C -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3 Структурная разработка программ на C (71)</h3>
+
+  <h4>3.1 Введение (72)</h4>
+
+  <h4>3.2 Алгоритмы (72)</h4>
+
+  <h4>3.3 Псевдокод (73)</h4>
+
+  <p>Программы на псевдокоде не выполняются на компьютерах. Они помогают программисту продумывать программу перед написанием ее на языке программирования.</p>
+
+  <h4>3.4 Управляющие структуры (74)</h4>
+
+  <p>В 60-е годы последовательное выполнение программ, при котором оператор GOTO передавал управление по одному из возможных путей, сильно затрудняло программирование. В 70-е годы структурное программирование, также известное как программирование без GOTO, стало эпохальным девизом профессиональных программистов. Уменьшилось время разработки, программы стали более понятные, их проще отлаживать, модифицировать и в них меньше ошибок.</p>
+  <p>Всего в языке Си семь типов управляющих структур. Три типа структуры выбора if, if else, switch. Три типа структур повторение for, while, do while. И, наконец, последовательное выполнение команд.</p>
+
+  <h4>3.5 Оператор выбора if (76)</h4>
+
+  <h4>3.6 Оператор выбора if else (77)</h4>
+
+  <h4>3.7 Оператор повторения while (81)</h4>
+</article>
+
+
+<!-- 4 Управление программой в C -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Управление программой в C (113)</h3>
+</article>
+
+
+<!-- 5 Функции в C -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5 Функции в C (153)</h3>
+</article>
+
+
+<!-- 6 Массивы в C -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Массивы в C (207)</h3>
+</article>
+
+
+<!-- 7 Указатели в C -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Указатели в C (263)</h3>
+</article>
+
+
+<!-- 8 Символы и строки в C -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Символы и строки в C (320)</h3>
+</article>
+
+
+<!-- 9 Форматированный ввод/вывод в C -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Форматированный ввод/вывод в C (364)</h3>
+</article>
+
+
+<!-- 10 Структуры, объединения, перечисления и операции с битами в C -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Структуры, объединения, перечисления и операции с битами в C (392)</h3>
+</article>
+
+
+<!-- 11 Работа с файлами в C -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h3>11 Работа с файлами в C (426)</h3>
+</article>
+
+
+<!-- 12 Структуры данных в C -->
+<article class="article">
+  <div class="anchor" id="p12"></div>
+  <h3>12 Структуры данных в C (461)</h3>
+</article>
+
+
+<!-- 13 Препроцессор C -->
+<article class="article">
+  <div class="anchor" id="p13"></div>
+  <h3>13 Препроцессор C (513)</h3>
+</article>
+
+
+<!-- 14 Специальные вопросы языка C -->
+<article class="article">
+  <div class="anchor" id="p14"></div>
+  <h3>14 Специальные вопросы языка C (524)</h3>
+</article>
+
+
+<!-- 15 C++ как улучшенный C -->
+<article class="article">
+  <div class="anchor" id="p15"></div>
+  <h3>15 C++ как улучшенный C (545)</h3>
+</article>
+
+
+<!-- 16 Введение в классы и объекты -->
+<article class="article">
+  <div class="anchor" id="p16"></div>
+  <h3>16 Введение в классы и объекты (576)</h3>
+</article>
+
+
+<!-- 17 Классы: часть 1 -->
+<article class="article">
+  <div class="anchor" id="p17"></div>
+  <h3>17 Классы: часть 1 (618)</h3>
+</article>
+
+
+<!-- 18 Классы: часть 2 -->
+<article class="article">
+  <div class="anchor" id="p18"></div>
+  <h3>18 Классы: часть 2 (654)</h3>
+</article>
+
+
+<!-- 19 Перегрузка операций. Объекты Array и String -->
+<article class="article">
+  <div class="anchor" id="p19"></div>
+  <h3>19 Перегрузка операций. Объекты Array и String (690)</h3>
+</article>
+
+
+<!-- 20 ООП. Наследование -->
+<article class="article">
+  <div class="anchor" id="p20"></div>
+  <h3>20 ООП. Наследование (758)</h3>
+</article>
+
+
+<!-- 21 ООП. Полиморфизм -->
+<article class="article">
+  <div class="anchor" id="p21"></div>
+  <h3>21 ООП. Полиморфизм (810)</h3>
+</article>
+
+
+<!-- 22 Шаблоны -->
+<article class="article">
+  <div class="anchor" id="p22"></div>
+  <h3>22 Шаблоны (866)</h3>
+</article>
+
+
+<!-- 23 Потоковый ввод/вывод -->
+<article class="article">
+  <div class="anchor" id="p23"></div>
+  <h3>23 Потоковый ввод/вывод (885)</h3>
+</article>
+
+
+<!-- 24 Управление исключениями -->
+<article class="article">
+  <div class="anchor" id="p24"></div>
+  <h3>24 Управление исключениями (925)</h3>
 </article>
 

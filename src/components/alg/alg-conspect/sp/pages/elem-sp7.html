@@ -464,6 +464,56 @@ int main() {
 3 4 7 3 5 1
 </pre>
   <code>1 3</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Начнем с предположения, что максимальная разница — это разница между вторым и первым элементами. Запомним эти индексы (1 и 2). Будем поддерживать индекс min_index, который указывает на минимальный элемент в пройденной части массива. Для каждого следующего элемента вычисляем разницу с этим минимальным элементом. Если текущая разница больше максимальной найденной, обновляем максимальную разницу и сохраняем индексы. При обновлении максимальной разницы всегда выбираем пару с наименьшим j, а при равенстве — с наименьшим i.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int best_i = 0;
+  int best_j = 1;
+  int max_dif = A[best_j] - A[best_i];
+  int min_index = 0;
+  for (int j = 1; j &lt; n; ++j) {
+    if (A[j] - A[min_index] > max_dif) {
+      max_dif = A[j] - A[min_index];
+      best_i = min_index;
+      best_j = j;
+    } else if (A[j] - A[min_index] == max_dif) {
+      if (j &lt; best_j) {
+        best_j = j;
+        best_i = min_index;
+      } else if (j == best_j && min_index &lt; best_i) {
+        best_i = min_index;
+      }
+    }
+
+    if (A[j] &lt; A[min_index]) {
+      min_index = j;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; best_i + 1 &lt;&lt; ' ' &lt;&lt; best_j + 1;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -565,6 +615,47 @@ int main() {
 3 2 1
 </pre>
   <code>3</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, k;
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long sum = 0;
+  for (int i = 0; i &lt; k; i++) {
+    sum += A[i];
+  }
+  long long max_sum = sum;
+  int pl = 0;
+  int pr = k;
+  while (pr &lt; n) {
+    sum -= A[pl];
+    sum += A[pr];
+    if (sum > max_sum) {
+      max_sum = sum;
+    }
+    pl++;
+    pr++;
+  }
+
+  // вывод результата
+  cout &lt;&lt; max_sum;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -583,6 +674,31 @@ int main() {
 
   <h4>Выходные данные</h4>
   <p>Выведите число, которое повторяется один раз.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>По формуле Гаусса для суммы чисел от 1 до n находим сумму всех чисел массива. Вычитаем сумму чисел на входе и получаем отсутствующее число.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // формула гаусса для суммы
+  // чисел от 1 до n
+  int gaus100 = 100 * 101 / 2;
+  int sum = 2 * gaus100;
+  int temp;
+  for (int i = 0; i &lt; 199; i++) {
+    cin >> temp;
+    sum -= temp;
+  }
+
+  // вывод результата
+  cout &lt;&lt; sum;
+}
+</pre>
+  </details>
 </article>
 
 

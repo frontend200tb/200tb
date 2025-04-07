@@ -72,7 +72,7 @@
   <p>где m — количество рёбер графа.</p>
   <p><strong>Лемма 2.</strong> В произвольном графе обязательно найдутся две вершины одинаковой степени.</p>
 
-  <p><strong>Определение 8.</strong> Путь — это последовательность вершин p = (x0, x1, ..., xk), где для всех i (0 ≤ i ≤ k) верно (xi, xi+1) ∈ E.</p>
+  <p><strong>Определение 8.</strong> Путь — это последовательность вершин p = (x0, x1, ..., xk), где для всех i (0 ≤ i &lt; k) верно (xi, xi+1) ∈ E.</p>
   <p><strong>Определение 9.</strong> Длина пути — количество рёбер, входящих в путь (на 1 меньше количества вершин в пути).</p>
   <p><strong>Определение 10.</strong> Простой путь — это путь, в котором все вершины различны.</p>
   <p><strong>Определение 11.</strong> Цикл — такой путь, длина которого не менее 1 и который начинается и заканчивается в одной и той же вершине (то есть x0 = xk).</p>
@@ -362,6 +362,55 @@ for (int i = 0; i &lt; m; i++) {
 1 1 1 1 1 3 3
 </pre>
   <code>4</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1, vector&lt;int&gt;(n + 1));
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= n; j++) {
+      cin >> G[i][j];
+    }
+  }
+
+  vector&lt;int&gt; Color(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> Color[i];
+  }
+
+
+  // решение
+  int res = 0;
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = i + 1; j &lt;= n; j++) {
+      if (G[i][j] == 1) {
+        if (Color[i] != Color[j]) {
+          res++;
+        }
+      }
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -403,6 +452,49 @@ for (int i = 0; i &lt; m; i++) {
   <p>В первом примере самолету 2 нравится самолет 4, самолету 4 нравится самолет 1, а самолету 1 нравится самолет 2, поэтому это любовный треугольник.</p>
 
   <p>Во втором примере любовных треугольников нет.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Задача на ориентированный граф. Показано кто на кого ссылается. Будем искать цыклы длины 3. Проверим что 1 → 2 → 3 → 1</p>
+    <code>G[G[G[i]]] == i</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; G(n + 1);
+  for (int i = 1; i &lt; n; i++) {
+    cin >> G[i];
+  }
+
+  // решение
+  bool flag = false;
+  for (int i = 0; i &lt;= n; i++) {
+    if (G[i] != i && G[G[G[i]]] == i) {
+      flag = true;
+    }
+  }
+
+  // вывод результата
+  if (flag == true) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -507,6 +599,45 @@ for (int i = 0; i &lt; m; i++) {
 0 1 0 0 0 1
 0 1 0 0 1 0
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1, vector&lt;int&gt;(n + 1));
+  int x, y;
+  for (int i = 1; i &lt; m; i++) {
+    cin >> x >> y;
+
+    // решение
+    G[x][y] = 1;
+    G[y][x] = 1;
+  }
+
+  // вывод результата
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= n; j++) {
+      cout &lt;&lt; G[i][j] &lt;&lt; " ";
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

@@ -20,6 +20,7 @@ export const asideThemes = [
   '18 Алгоритмы 6',
   '19 Графы 1',
   '20 Графы 2',
+  '21 Графы 3',
   'Demidov Cup 2022',
   'New Year 2025',
   'Round 988',

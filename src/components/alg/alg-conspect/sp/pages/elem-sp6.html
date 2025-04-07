@@ -1306,6 +1306,69 @@ int main() {
     <li>Выбирается отрезок a[1…2] и сдвигается на 1 влево: [1,3,2,4,5]⟶[3,1,2,4,5]</li>
     <li>Выбирается отрезок a[1…3] и сдвигается на 1 влево: [3,1,2,4,5]⟶[1,2,3,4,5]</li>
   </ol>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для каждого элемента массива находим минимальный элемент в оставшейся части. Если минимальный элемент уже на месте, пропускаем итерацию. Иначе выполняем циклический сдвиг подмассива от текущей позиции до позиции минимального элемента так, чтобы минимальный элемент переместился на текущую позицию.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector&lt;int&gt; a(n);
+    for (int i = 0; i &lt; n; ++i) {
+        cin >> a[i];
+    }
+
+    vector&lt;tuple&lt;int, int, int&gt; &gt; operations;
+
+    for (int i = 0; i &lt; n; ++i) {
+        // Находим позицию минимального элемента в оставшейся части
+        int min_pos = i;
+        for (int j = i + 1; j &lt; n; ++j) {
+            if (a[j] &lt; a[min_pos]) {
+                min_pos = j;
+            }
+        }
+
+        if (min_pos == i) continue; // Уже на месте
+
+        // Выполняем циклический сдвиг подмассива a[i..min_pos] на d = min_pos - i
+        int d = min_pos - i;
+        vector&lt;int&gt; temp(a.begin() + i, a.begin() + min_pos + 1);
+        rotate(temp.begin(), temp.begin() + d, temp.end());
+        copy(temp.begin(), temp.end(), a.begin() + i);
+
+        operations.emplace_back(i + 1, min_pos + 1, d);
+    }
+
+    cout &lt;&lt; operations.size() &lt;&lt; endl;
+    for (auto& op : operations) {
+        cout &lt;&lt; get&lt;0&gt;(op) &lt;&lt; " "
+             &lt;&lt; get&lt;1&gt;(op) &lt;&lt; " "
+             &lt;&lt; get&lt;2&gt;(op) &lt;&lt; endl;
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1360,6 +1423,61 @@ int main() {
 1
 2
 </pre>
+
+  <details>
+    <summary>Мое решение</summary>
+    <p>Пример</p>
+<pre>
+1 10
+2 2
+1 1
+</pre>
+<pre>
+1
+1
+</pre>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool compare(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
+  return a.second &lt; b.second;
+}
+
+int main() {
+  // входные данные
+  int n, d, a, b;
+  cin >> n >> d >> a >> b;
+  vector&lt;pair&lt;int, int&gt; &gt; A(n);
+  int n1, n2;
+
+  // решение
+  for (int i = 0; i &lt; n; i++) {
+    cin >> n1;
+    cin >> n2;
+    A[i].first = i + 1;
+    A[i].second = n1 * a + n2 * b;
+  }
+  sort(A.begin(), A.end(), compare);
+  long long sum = 0;
+  int count = 0;
+  while (count &lt; n && sum + A[count].second &lt;= d) {
+    sum += A[count].second;
+    count++;
+  }
+
+  // вывод результата
+  cout &lt;&lt;count &lt;&lt; '\n';
+  for (int i = 0; i &lt; count; i++) {
+    cout &lt;&lt; A[i].first &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1432,6 +1550,391 @@ int main() {
 1 5 D
 3
 </pre>
+
+  <details>
+    <summary>Мое решение</summary>
+    <p>Разделим координатную плоскость на 4 четверти. Для каждой четверти заполним свой vector&lt;pair&lt;int, int&gt; &gt; A1,A2,A3,A4. Отсортируем вектора в каждой четверти. Робот сначала обойдет 1 четверть, потом 2,3,4.</p>
+    <p>Пример для 1 четверти</p>
+<pre>
+3
+0 5
+5 0
+5 5
+</pre>
+<pre>
+14
+1 5 U
+2
+1 5 D
+3
+1 5 R
+2
+1 5 L
+3
+1 5 R
+1 5 U
+2
+1 5 D
+1 5 L
+3
+</pre>
+    <p>Пример для 2 четверти</p>
+<pre>
+2
+-5 0
+-5 5
+</pre>
+<pre>
+10
+1 5 L
+2
+1 5 R
+3
+1 5 L
+1 5 U
+2
+1 5 D
+1 5 R
+3
+</pre>
+    <p>Пример для 3 четверти</p>
+<pre>
+2
+-5 -5
+-5 -10
+</pre>
+<pre>
+12
+1 5 L
+1 5 D
+2
+1 5 U
+1 5 R
+3
+1 5 L
+1 10 D
+2
+1 10 U
+1 5 R
+3
+</pre>
+    <p>Пример для 4 четверти</p>
+<pre>
+2
+0 -5
+5 -5
+</pre>
+<pre>
+10
+1 5 D
+2
+1 5 U
+3
+1 5 R
+1 5 D
+2
+1 5 U
+1 5 L
+3
+</pre>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+// сортировка по y если x равны, иначе по x
+bool compare(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
+  if (a.first == b.first) {
+    return abs(a.second) &lt; abs(b.second);
+  } else {
+    return abs(a.first) &lt; abs(b.first);
+  }
+}
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+
+  // создадим координаты по четвертям
+  // 1 четверть x>=0, y>=0
+  vector&lt;pair&lt;int, int&gt; &gt; A1;
+  // 2 четверть x&lt;0, y>=0
+  vector&lt;pair&lt;int, int&gt; &gt; A2;
+  // 3 четверть x&lt;0, y&lt;0
+  vector&lt;pair&lt;int, int&gt; &gt; A3;
+  // 4 четверть x>=0, y&lt;0
+  vector&lt;pair&lt;int, int&gt; &gt; A4;
+
+  int x, y;
+  pair&lt;int, int&gt; p;
+
+  // соберем массивы
+  for (int i = 0; i &lt; n; i++) {
+    cin >> x;
+    cin >> y;
+
+    // соберем 1 четверть
+    if (x >= 0 && y >= 0) {
+      p.first = x;
+      p.second = y;
+      A1.push_back(p);
+    }
+
+    // соберем 2 четверть
+    if (x &lt; 0 && y >= 0) {
+      p.first = x;
+      p.second = y;
+      A2.push_back(p);
+    }
+
+    // соберем 3 четверть
+    if (x &lt; 0 && y &lt; 0) {
+      p.first = x;
+      p.second = y;
+      A3.push_back(p);
+    }
+
+    // соберем 4 четверть
+    if (x >= 0 && y &lt; 0) {
+      p.first = x;
+      p.second = y;
+      A4.push_back(p);
+    }
+  }
+
+  // решение
+  sort(A1.begin(), A1.end(), compare);
+  sort(A2.begin(), A2.end(), compare);
+  sort(A3.begin(), A3.end(), compare);
+  sort(A4.begin(), A4.end(), compare);
+
+  // число операций
+  vector&lt;string&gt; Res;
+  int b1{}, b2{}, b3{}, b4{};
+  string step1; // идти вправо или влево
+  string step2; // идти вверх или вниз
+  string step3 = "2"; // взять бомбу
+  string step4; // идти обратно вниз или вверх
+  string step5; // идти обратно влево или вправо
+  string step6 = "3"; // уничтожить бомбу
+  string dir;   // направление
+  string s1 = "1 ";
+
+  // робот идет в 1 четверть
+  while (b1 &lt; A1.size()) {
+    if (A1[b1].first == 0) {
+      dir = " U";
+      step2 = s1 + to_string(A1[b1].second) + dir;
+      Res.push_back(step2);
+      Res.push_back(step3);
+      dir = " D";
+      step4 = s1 + to_string(A1[b1].second) + dir;
+      Res.push_back(step4);
+      Res.push_back(step6);
+    } else if (A1[b1].second == 0) {
+      dir = " R";
+      step1 = s1 + to_string(A1[b1].first) + dir;
+      Res.push_back(step1);
+      Res.push_back(step3);
+      dir = " L";
+      step5 = s1 + to_string(A1[b1].first) + dir;
+      Res.push_back(step5);
+      Res.push_back(step6);
+    } else {
+      dir = " R";
+      step1 = s1 + to_string(A1[b1].first) + dir;
+      Res.push_back(step1);
+      dir = " U";
+      step2 = s1 + to_string(A1[b1].second) + dir;
+      Res.push_back(step2);
+      Res.push_back(step3);
+      dir = " D";
+      step4 = s1 + to_string(A1[b1].second) + dir;
+      Res.push_back(step4);
+      dir = " L";
+      step5 = s1 + to_string(A1[b1].first) + dir;
+      Res.push_back(step5);
+      Res.push_back(step6);
+    }
+    b1++;
+  }
+
+  // робот идет во 2 четверть
+  while (b2 &lt; A2.size()) {
+    if (A2[b2].second == 0) {
+      dir = " L";
+      step1 = s1 + to_string(abs(A2[b2].first)) + dir;
+      Res.push_back(step1);
+      Res.push_back(step3);
+      dir = " R";
+      step5 = s1 + to_string(abs(A2[b2].first)) + dir;
+      Res.push_back(step5);
+      Res.push_back(step6);
+    } else {
+      dir = " L";
+      step1 = s1 + to_string(abs(A2[b2].first)) + dir;
+      Res.push_back(step1);
+      dir = " U";
+      step2 = s1 + to_string(A2[b2].second) + dir;
+      Res.push_back(step2);
+      Res.push_back(step3);
+      dir = " D";
+      step4 = s1 + to_string(A2[b2].second) + dir;
+      Res.push_back(step4);
+      dir = " R";
+      step5 = s1 + to_string(abs(A2[b2].first)) + dir;
+      Res.push_back(step5);
+      Res.push_back(step6);
+    }
+    b2++;
+  }
+
+  // робот идет в 3 четверть
+  while (b3 &lt; A3.size()) {
+    dir = " L";
+    step1 = s1 + to_string(abs(A3[b3].first)) + dir;
+    Res.push_back(step1);
+    dir = " D";
+    step2 = s1 + to_string(abs(A3[b3].second)) + dir;
+    Res.push_back(step2);
+    Res.push_back(step3);
+    dir = " U";
+    step4 = s1 + to_string(abs(A3[b3].second)) + dir;
+    Res.push_back(step4);
+    dir = " R";
+    step5 = s1 + to_string(abs(A3[b3].first)) + dir;
+    Res.push_back(step5);
+    Res.push_back(step6);
+    b3++;
+  }
+
+  // робот идет в 4 четверть
+  while (b4 &lt; A4.size()) {
+    if (A4[b4].first == 0) {
+      dir = " D";
+      step2 = s1 + to_string(abs(A4[b4].second)) + dir;
+      Res.push_back(step2);
+      Res.push_back(step3);
+      dir = " U";
+      step4 = s1 + to_string(abs(A4[b4].second)) + dir;
+      Res.push_back(step4);
+      Res.push_back(step6);
+    } else {
+      dir = " R";
+      step1 = s1 + to_string(A4[b4].first) + dir;
+      Res.push_back(step1);
+      dir = " D";
+      step2 = s1 + to_string(abs(A4[b4].second)) + dir;
+      Res.push_back(step2);
+      Res.push_back(step3);
+      dir = " U";
+      step4 = s1 + to_string(abs(A4[b4].second)) + dir;
+      Res.push_back(step4);
+      dir = " L";
+      step5 = s1 + to_string(A4[b4].first) + dir;
+      Res.push_back(step5);
+      Res.push_back(step6);
+    }
+    b4++;
+  }
+
+  int steps = Res.size();
+
+  // вывод результата
+  cout &lt;&lt; steps &lt;&lt; '\n';
+  for (int i = 0; i &lt; Res.size(); i++) {
+    cout &lt;&lt; Res[i] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+struct Bomb {
+    int x, y;
+    int index;
+};
+
+bool compareBombs(const Bomb &a, const Bomb &b) {
+    // Сортируем по расстоянию от начала координат (манхэттенское расстояние)
+    return (abs(a.x) + abs(a.y)) &lt; (abs(b.x) + abs(b.y));
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector&lt;Bomb&gt; bombs(n);
+    for (int i = 0; i &lt; n; ++i) {
+        cin >> bombs[i].x >> bombs[i].y;
+        bombs[i].index = i;
+    }
+
+    // Сортируем бомбы по удаленности от (0, 0)
+    sort(bombs.begin(), bombs.end(), compareBombs);
+
+    vector&lt;string&gt; operations;
+
+    for (const Bomb &bomb : bombs) {
+        int x = bomb.x;
+        int y = bomb.y;
+
+        // Движение по X
+        if (x > 0) {
+            operations.push_back("1 " + to_string(x) + " R");
+        } else if (x &lt; 0) {
+            operations.push_back("1 " + to_string(-x) + " L");
+        }
+
+        // Движение по Y
+        if (y > 0) {
+            operations.push_back("1 " + to_string(y) + " U");
+        } else if (y &lt; 0) {
+            operations.push_back("1 " + to_string(-y) + " D");
+        }
+
+        // Подобрать бомбу
+        operations.push_back("2");
+
+        // Вернуться по Y
+        if (y > 0) {
+            operations.push_back("1 " + to_string(y) + " D");
+        } else if (y &lt; 0) {
+            operations.push_back("1 " + to_string(-y) + " U");
+        }
+
+        // Вернуться по X
+        if (x > 0) {
+            operations.push_back("1 " + to_string(x) + " L");
+        } else if (x &lt; 0) {
+            operations.push_back("1 " + to_string(-x) + " R");
+        }
+
+        // Уничтожить бомбу
+        operations.push_back("3");
+    }
+
+    cout &lt;&lt; operations.size() &lt;&lt; endl;
+    for (const string &op : operations) {
+        cout &lt;&lt; op &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1565,6 +2068,54 @@ int main() {
   <p>В третьем наборе входных данных можно вставить два элемента, a=[6,4,2,1].</p>
   <p>В четвертом наборе входных данных можно вставить один элемент, a=[1,2,4,2].</p>
   <p>В пятом наборе входных данных массив a уже плотный.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Считаем разницу между двумя соседними элементами. Если больше 2, то если первый элемент меньше второго, то умножаем его на 2 и прибавляем к счетчику 1. Если первый элемент больше второго и делится на 2 без остатка, то делим его на два, иначе делим его на два и прибавляем 1.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n;
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int count = 0;
+    int prev = A[0];
+    double ref;
+    for (int i = 1; i &lt; n; i++) {
+      ref = (double)max(prev, A[i]) / min(prev, A[i]);
+      while (ref > 2) {
+        if (prev &lt; A[i]) {
+          prev *= 2;
+        } else {
+          prev = prev % 2 ? prev / 2 + 1 : prev / 2;
+        }
+        ref = (double)max(prev, A[i]) / min(prev, A[i]);
+        count++;
+      }
+      prev = A[i];
+    }
+
+    // вывод результата
+    cout &lt;&lt; count &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1735,8 +2286,9 @@ int main() {
   <br>Ограничение по памяти 256мб</i></div>
 
   <p>Изначально у вас есть одна куча золотых самородков, содержащая n самородков. За одну операцию вы можете сделать следующее:</p>
-
-  <p>Разделить любую кучу на две кучи так, чтобы одна из полученных куч содержала в два раза больше золотых самородков, чем другая. (Все кучи должны содержать целое число самородков.)</p>
+  <ul>
+    <li>Разделить любую кучу на две кучи так, чтобы одна из полученных куч содержала в два раза больше золотых самородков, чем другая. (Все кучи должны содержать целое число самородков.)</li>
+  </ul>
 
   <p>Одно из возможных действий - взять кучу размера 6 и разделить ее на кучи размеров 2 и 4, что является допустимым, так как 4 в два раза больше, чем 2.</p>
 
@@ -1783,6 +2335,51 @@ NO
   <p>Во втором тесте мы можем выполнить следующие операции: {9}→{6,3}→{4,2,3}. Куча, которая разделяется, выделена красным цветом перед каждой операцией.</p>
   <p>В третьем тесте мы не можем выполнить ни одной операции.</p>
   <p>В четвертом тесте мы не можем получить кучу большего размера, чем у нас изначально.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Напишем рекурсивную функцию three(n, m). Если n == m то возвращаем true. Если m > n или n не делится на 3 то возвращаем false. Вызываем саму себя для (1/3)n и (2/3)n.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool three(int n, int m) {
+  if (n == m) {
+    return true;
+  }
+  int a, b;
+  if (n % 3 || m > n) {
+    return false;
+  } else {
+    a = n / 3;
+    b = n / 3 * 2;
+    return (three(a, m) || three(b, m));
+  }
+}
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n, m;
+    cin >> n >> m;
+
+    // решение
+    bool gold = three(n, m);
+
+    // вывод результата
+    if (gold) {
+      cout &lt;&lt; "YES" &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; "NO" &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

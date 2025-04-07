@@ -504,11 +504,14 @@ int main() {
     // решение
     long long res = 0;
     long long level = 1;
-    long long left1, left2, right1, right2;
+    long long left1, right1, left2, right2;
     while (level &lt;= 1e9) {
       left1 = l1;
       right1 = r1;
       left2 = l2 / level;
+      if (l2 % level != 0) {
+        left2++;
+      }
       right2 = r2 / level;
       right1++;
       right2++;
@@ -629,6 +632,76 @@ YES
   <details>
     <summary>Решение</summary>
     <p>Задача по теории Графов на удаление циклов. Во втором тесте ориентированный граф, все ребра идут друг за другом. В третьем тесте есть цикл. Все элементы в цикле всегда имеют единицы. Все вершины которые ведут в циклы, нужно посчитать расстояние до цикла.</p>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+#define FOR(i,a,b) for (int i = (a); i &lt; (b); ++i)
+#define F0R(i,a) FOR(i,0,a)
+#define int long long
+#define vt vector
+#define endl "\n"
+
+const int N = 4e5 + 5;
+bool apos[N], aneg[N], bpos[N], bneg[N], posspos[N], possneg[N];
+
+signed main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    int n,m,q;
+    cin >> n >> m >> q;
+    vector&lt;int&gt; a(n), b(m);
+    int asum = 0, bsum = 0;
+    F0R(i, n) {
+        cin >> a[i];
+        asum += a[i];
+    }
+    F0R(i, m) {
+        cin >> b[i];
+        bsum += b[i];
+    }
+    F0R(i, n) {
+        if(abs(asum-a[i]) &lt; N) {
+            if(asum-a[i] &lt; 0) aneg[a[i]-asum]=true;
+            else apos[asum-a[i]]=true;
+        }
+    }
+    F0R(i, m) {
+        if(abs(bsum-b[i]) &lt; N) {
+            if(bsum-b[i] &lt; 0) bneg[b[i]-bsum]=true;
+            else bpos[bsum-b[i]]=true;
+        }
+    }
+    FOR(i, 1, N) {
+        FOR(j, 1, N) {
+            if(i * j > N) break;
+            if(apos[i]&&bpos[j]) posspos[i*j]=true;
+            if(apos[i]&&bneg[j]) possneg[i*j]=true;
+            if(aneg[i]&&bpos[j]) possneg[i*j]=true;
+            if(aneg[i]&&bneg[j]) posspos[i*j]=true;
+        }
+    }
+    while(q--) {
+        int x;
+        cin >> x;
+        if(x>0) {
+            if(posspos[x]) {
+                cout &lt;&lt; "YES" &lt;&lt; endl;
+            } else {
+                cout &lt;&lt; "NO" &lt;&lt; endl;
+            }
+        } else {
+            if(possneg[-x]) {
+                cout &lt;&lt; "YES" &lt;&lt; endl;
+            } else {
+                cout &lt;&lt; "NO" &lt;&lt; endl;
+            }
+        }
+    }
+    return 0;
+}
+</pre>
   </details>
 </article>
 
@@ -696,6 +769,170 @@ YES
     <li>В год 4 следующий массив показывает количество плюшевых игрушек у каждого паука: [1,1,0,0,0]. Затем происходит обмен в год 4.</li>
     <li>В год 5 следующий массив показывает количество плюшевых игрушек у каждого паука: [1,1,0,0,0]. Поскольку этот массив такой же, как в предыдущем году, этот год является стабильным.</li>
   </ul>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+void dfs(vector&lt;int&gt;& Pred, vector&lt;int&gt;& Mark,
+         int x, stack&lt;int&gt; &st, bool &flag) {
+  Mark[x] = 1;
+  st.push(x);
+  if (Mark[Pred[x]] == 0) {
+    dfs(Pred, Mark, Pred[x], st, flag);
+  } else {
+    if (Mark[Pred[x]] == 1) {
+      st.push(Pred[x]);
+      flag = false;
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n;
+    cin >> n;
+
+    // решение
+    vector&lt;int&gt; A(n + 1);
+    vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i];
+      G[A[i]].push_back(i);
+    }
+
+    vector&lt;int&gt; Mark(n + 1);
+    stack&lt;int&gt; st;
+    bool flag;
+
+    // собираем циклы
+    for (int i = 1; i &lt;= n; i++) {
+      if (Mark[i] == 0) {
+        flag = true;
+        dfs(A, Mark, i, st, flag);
+        if (flag) {
+          while (st.size() > 0) {
+            Mark[st.top()] = 3;
+            st.pop();
+          }
+        } else {
+          int g = st.top();
+          Mark[st.top()] = 2;
+          st.pop();
+          while (st.top() != g) {
+            Mark[st.top()] = 2;
+            st.pop();
+          }
+          st.pop();
+          while (st.size() > 0) {
+            Mark[st.top()] = 3;
+            st.pop();
+          }
+        }
+      }
+    }
+
+    // собираем очереди
+    vector&lt;int&gt; Level(n + 1);
+    vector&lt;int&gt; Mark_new(n + 1);
+    queue&lt;int&gt; q;
+    for (int i = 1; i &lt;= n; i++) {
+      if (Mark[i] == 2) {
+        q.push(i);
+        Mark_new[i] = 1;
+      }
+    }
+    while (q.size() > 0) {
+      int tmp = q.front();
+      q.pop();
+      for (int i = 0; i &lt; G[tmp].size(); i++) {
+        if (Mark_new[G[tmp][i]] == 0) {
+          Mark_new[G[tmp][i]] = 1;
+          Level[G[tmp][i]] = 1 + Level[tmp];
+          q.push(G[tmp][i]);
+        }
+      }
+    }
+    int res = 0;
+    for (int i = 1; i &lt;= n; i++) {
+      res = max(res, Level[i]);
+    }
+
+    // вывод результата
+    cout &lt;&lt; res + 2 &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение Codeforces</summary>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int n;
+        cin>>n;
+        vector&lt;int&gt; r(n+1),d(n+1);
+        for(int i=1;i &lt;=n;i++)
+        {
+            cin>>r[i];
+            d[r[i]]++;
+        }
+        set&lt;pair&lt;int,int&gt; &gt; s;
+        for(int i=1;i &lt;=n;i++)
+            s.insert({d[i],i});
+        int ans=2;
+        queue&lt;int&gt; q;
+        while(!s.empty()&&(*s.begin()).first==0)
+        {
+            while(!s.empty()&&(*s.begin()).first==0)
+            {
+                int k=(*s.begin()).second;
+                auto it=s.find({d[r[k]],r[k]});
+                d[r[k]]--;
+                if(it!=s.end())
+                {
+                    s.erase(it);
+                    q.push(r[k]);
+                }
+                s.erase(s.begin());
+            }
+            while(!q.empty())
+                s.insert({d[q.front()],q.front()}),q.pop();
+            ans++;
+        }
+        cout &lt;&lt; ans &lt;&lt; '\n';
+    }
+    return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -762,6 +999,183 @@ YES
     <li>В год 4 следующий массив показывает количество плюшевых игрушек у каждого паука: [1,4,0,0,0]. Затем происходит обмен в год 4.</li>
     <li>В год 5 следующий массив показывает количество плюшевых игрушек у каждого паука: [1,4,0,0,0]. Поскольку этот массив такой же, как в предыдущем году, этот год является стабильным.</li>
   </ul>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+void dfs(vector&lt;int&gt;& Pred, vector&lt;int&gt;& Mark,
+         int x, stack&lt;int&gt; &st, bool &flag) {
+  Mark[x] = 1;
+  st.push(x);
+  if (Mark[Pred[x]] == 0) {
+    dfs(Pred, Mark, Pred[x], st, flag);
+  } else {
+    if (Mark[Pred[x]] == 1) {
+      st.push(Pred[x]);
+      flag = false;
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n;
+    cin >> n;
+
+    // решение
+    vector&lt;int&gt; A(n + 1);
+    vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i];
+      G[A[i]].push_back(i);
+    }
+
+    vector&lt;int&gt; Mark(n + 1);
+    stack&lt;int&gt; st;
+    bool flag;
+
+    // собираем циклы
+    for (int i = 1; i &lt;= n; i++) {
+      if (Mark[i] == 0) {
+        flag = true;
+        dfs(A, Mark, i, st, flag);
+        if (flag) {
+          while (st.size() > 0) {
+            Mark[st.top()] = 3;
+            st.pop();
+          }
+        } else {
+          int g = st.top();
+          Mark[st.top()] = 2;
+          st.pop();
+          while (st.top() != g) {
+            Mark[st.top()] = 2;
+            st.pop();
+          }
+          st.pop();
+          while (st.size() > 0) {
+            Mark[st.top()] = 3;
+            st.pop();
+          }
+        }
+      }
+    }
+
+    // собираем очереди
+    vector&lt;int&gt; Level(n + 1);
+    vector&lt;int&gt; Mark_new(n + 1);
+    vector&lt;int&gt; Pool;
+    vector&lt;int&gt; DP(n + 1, 1);
+    queue&lt;int&gt; q;
+
+    for (int i = 1; i &lt;= n; i++) {
+      if (Mark[i] == 2) {
+        q.push(i);
+        Mark_new[i] = 1;
+      }
+    }
+
+    while (q.size() > 0) {
+      int tmp = q.front();
+      q.pop();
+      for (int i = 0; i &lt; G[tmp].size(); i++) {
+        if (Mark_new[G[tmp][i]] == 0) {
+          Mark_new[G[tmp][i]] = 1;
+          Level[G[tmp][i]] = 1 + Level[tmp];
+          q.push(G[tmp][i]);
+          Pool.push_back(G[tmp][i]);
+        }
+      }
+    }
+
+    for (int i = Pool.size() - 1; i >= 0; i--) {
+      DP[A[Pool[i]]] += DP[Pool[i]];
+    }
+    int res = 0;
+    for (int i = 1; i &lt;= n; i++) {
+      if (Mark[i] == 3) {
+        res = max(res, DP[i]);
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res + 2 &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение Codeforces</summary>
+<pre>
+#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int n;
+        cin>>n;
+        vector&lt;int&gt; r(n+1),d(n+1),v(n+1,1);
+        for(int i=1;i &lt;=n;i++)
+        {
+            cin>>r[i];
+            d[r[i]]++;
+        }
+        set&lt;pair&lt;int,int&gt; &gt; s;
+        for(int i=1;i &lt;=n;i++)
+        {
+            s.insert({d[i],i});
+        }
+        int ans=2;
+        queue&lt;int&gt; q;
+        while(!s.empty()&&(*s.begin()).first==0)
+        {
+            while(!s.empty()&&(*s.begin()).first==0)
+            {
+                int k=(*s.begin()).second;
+                ans=max(ans,v[k]+2);v[r[k]]+=v[k];
+                auto it=s.find({d[r[k]],r[k]});
+                d[r[k]]--;
+                if(it!=s.end())
+                {
+                    s.erase(it);
+                    q.push(r[k]);
+                }
+                s.erase(s.begin());
+            }
+            while(!q.empty())
+                s.insert({d[q.front()],q.front()}),q.pop();
+        }
+        cout &lt;&lt; ans &lt;&lt; '\n';
+    }
+    return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -822,4 +1236,74 @@ YES
 14 42 5
 </pre>
   <p>Во втором запросе первого набора входных данных, A=[9,5,5,2]. Поэтому сумма равна 1⋅9+2⋅5+3⋅5+4⋅2=42.</p>
+
+  <details>
+    <summary>Решение Codeforces</summary>
+<pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+using ll = long long;
+using vll = vector &lt;ll&gt;;
+using ii = pair &lt;ll, ll&gt;;
+using vii = vector &lt;ii&gt;;
+
+void tc () {
+    ll n, Q;
+    cin >> n >> Q;
+    vector &lt;vll&gt; mat(n, vll(n));
+    for (vll &ve : mat) {
+        for (ll &i : ve) cin >> i;
+    }
+    vector &lt;vll&gt; psR(n, vll(n+1)), psRr(n, vll(n+1)), psRc(n+1, vll(n+1)), ps(n+1, vll(n+1)), psRrc(n+1, vll(n+1));
+    for (ll i = 0; i &lt; n; i++) {
+        for (ll j = 0; j &lt; n; j++) {
+            psR[i][j+1] = psR[i][j] + mat[i][j];
+        }
+    }
+    for (ll i = 0; i &lt; n; i++) {
+        for (ll j = 0; j &lt; n; j++) {
+            psRr[i][j+1] = psRr[i][j] + mat[i][j]*(j+1);
+        }
+    }
+    for (ll i = 0; i &lt; n; i++) {
+        for (ll j = 0; j &lt;= n; j++) {
+            psRc[i+1][j] = psRc[i][j] + psR[i][j]*(i+1);
+        }
+    }
+    for (ll i = 0; i &lt; n; i++) {
+        for (ll j = 0; j &lt;= n; j++) {
+            psRrc[i+1][j] = psRrc[i][j] + psRr[i][j];
+        }
+    }
+    for (ll i = 0; i &lt; n; i++) {
+        for (ll j = 0; j &lt;= n; j++) {
+            ps[i+1][j] = ps[i][j] + psR[i][j];
+        }
+    }
+    while (Q--) {
+        ll x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        x1--; y1--; x2--; y2--;
+        ll ans = 0;
+        ans += -(ps[x2+1][y2+1]-ps[x2+1][y1]-ps[x1][y2+1]+ps[x1][y1])*x1*(y2-y1+1);
+        ans += (psRc[x2+1][y2+1] - psRc[x1][y2+1] - (ps[x2+1][y2+1]-ps[x1][y2+1]))*(y2-y1+1);
+
+        ans += (psRc[x2+1][y1] - psRc[x1][y1] - (ps[x2+1][y1]-ps[x1][y1]))*-(y2-y1+1);
+        ans += (ps[x2+1][y2+1]-ps[x1][y2+1])*-y1;
+        ans += (ps[x2+1][y1]-ps[x1][y1])*y1;
+
+        ans += psRrc[x2+1][y2+1] - psRrc[x1][y2+1];
+        ans +=-(psRrc[x2+1][y1] - psRrc[x1][y1]);
+        cout &lt;&lt; ans &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+}
+
+int main () {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    ll T; cin >> T; while (T--) { tc(); }
+    return 0;
+}
+</pre>
+  </details>
 </article>
