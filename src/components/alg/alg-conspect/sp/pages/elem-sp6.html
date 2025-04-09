@@ -2435,5 +2435,149 @@ int main() {
   <p>Во втором наборе входных данных A={0,1,2},B=∅ является возможным выбором разделения.</p>
   <p>В третьем наборе входных данных A={0,1,2},B={0} является возможным выбором разделения.</p>
   <p>В четвертом наборе входных данных A={1,3,5},B={2,4,6} является возможным выбором разделения.</p>
+
+  <details>
+    <summary>Мое решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n;
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    sort(A.begin(), A.end());
+    int mexA = -1, mexB = -1;
+    int a = 0;
+
+    // разделяем на 2 подмножества
+    for (int i = 0; (i &lt; n) && ((mexA &lt; 0) || (mexB &lt; 0)); i++) {
+      if (A[i] &lt; a) {
+        continue;
+      }
+      if ( (A[i] == a) && ( (i + 1 &lt; n) && (A[i + 1] == a) ) ) {
+        a++;
+        i++;
+        continue;
+      } else if (A[i] == a && mexA >= 0) {
+        a++;
+        continue;
+      } else if (A[i] == a && mexA &lt; 0) {
+        mexA = a;
+        a++;
+      } else {
+        if (mexA &lt; 0) {
+          mexA = a;
+          mexB = a;
+        } else {
+          mexB = a;
+        }
+      }
+    }
+    if (mexA == -1) {
+      mexA = A[n-1] + 1;
+    }
+    if (mexB == -1) {
+      mexB = A[n-1] + 1;
+    }
+
+    sort(A.begin(), A.end());
+    int mex = -1;
+    a = 0;
+    // считаем на одном подмножестве, второе = 0
+    for (int i = 0; (i &lt; n) && (mex &lt; 0); i++) {
+      if (A[i] &lt; a) {
+        continue;
+      }
+      if (A[i] == a) {
+        a++;
+        continue;
+      } else {
+        mex = a;
+      }
+    }
+    if (mex == -1) {
+      mex = A[n-1] + 1;
+    }
+
+    mex = max(mex, mexA + mexB);
+
+    // вывод результата
+    cout &lt;&lt; mex &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int computeMex(const vector&lt;int&gt;& v) {
+    int mex = 0;
+    for (int num : v) {
+        if (num == mex) mex++;
+    }
+    return mex;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+        vector&lt;int&gt; A(n);
+        for (int i = 0; i &lt; n; i++) {
+            cin >> A[i];
+        }
+
+        sort(A.begin(), A.end());
+
+        // Самый простой способ максимизировать mex(A) + mex(B) -
+        // это взять все элементы в одном множестве (mex будет максимальным),
+        // а второе множество оставить пустым (mex = 0)
+        int mex_all = computeMex(A);
+        int max_mex_sum = mex_all + 0;
+
+        // Также можно попробовать разделить элементы так,
+        // чтобы оба mex были как можно больше
+        // Например, разделить элементы на те, что меньше некоторого x и остальные
+        for (int x = 0; x &lt;= mex_all; x++) {
+            vector&lt;int&gt; part1, part2;
+            for (int num : A) {
+                if (num &lt; x) part1.push_back(num);
+                else part2.push_back(num);
+            }
+            int mex1 = computeMex(part1);
+            int mex2 = computeMex(part2);
+            max_mex_sum = max(max_mex_sum, mex1 + mex2);
+        }
+
+        cout &lt;&lt; max_mex_sum &lt;&lt; '\n';
+    }
+    return 0;
+}
+</pre>
+  </details>
 </article>
 

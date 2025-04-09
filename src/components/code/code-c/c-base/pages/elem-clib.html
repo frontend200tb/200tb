@@ -12,9 +12,12 @@
   <br><a href="#ctype">ctype.h</a>
   <br><a href="#errno">errno.h</a>
   <br><a href="#float">float.h</a>
+  <br><a href="#getopt">getopt.h</a>
   <br><a href="#limits">limits.h</a>
   <br><a href="#locale">locale.h</a>
   <br><a href="#math">math.h</a>
+  <br><a href="#malloc">malloc.h</a>
+  <br><a href="#memory">memory.h</a>
   <br><a href="#setjmp">setjmp.h</a>
   <br><a href="#signal">signal.h</a>
   <br><a href="#stdarg">stdarg.h</a>
@@ -62,6 +65,9 @@
   <h3>Работа с файлами</h3>
   <p>Функции из билиотеки <strong>stdio.h</strong> составляют одну треть всей билиотеки языка Си. Они используются для передачи данных в программу и из нее.</p>
   <p>Поток - это источник данных, который завершается символом новой стори '\n'. Поток присваивается указателю типа FILE, в котором хранится вся информация, необходимая для управления потоком.</p>
+
+  <h4>Тип данных FILE</h4>
+  <p>Тип данных FILE нужен для обозначения потоков (файлов), обмен с которыми происходит с помощью функций потокового ввода-вывода.</p>
 
   <h4>Функция fopen()</h4>
   <code>FILE fopen(const char *filename, const char mode)</code>
@@ -568,12 +574,21 @@
 </article>
 
 
-<!-- float.h -->
+<!-- malloc.h -->
 <article class="article">
-  <div class="anchor" id="float"></div>
-  <h3>float.h</h3>
+  <div class="anchor" id="malloc"></div>
+  <h3>malloc.h</h3>
 
-  <p>Содержит определения констант для арифметики с плавующей точкой</p>
+  <p>Содержит функции для работы с памятью</p>
+</article>
+
+
+<!-- memory.h -->
+<article class="article">
+  <div class="anchor" id="memory"></div>
+  <h3>memory.h</h3>
+
+  <p>Содержит функции для манипулирования байтовым потоком.</p>
 </article>
 
 
@@ -583,6 +598,24 @@
   <h3>assert.h</h3>
 
   <p>Содержит функции для диагностики программы</p>
+</article>
+
+
+<!-- float.h -->
+<article class="article">
+  <div class="anchor" id="float"></div>
+  <h3>float.h</h3>
+
+  <p>Содержит определения констант для арифметики с плавующей точкой</p>
+</article>
+
+
+<!-- getopt.h -->
+<article class="article">
+  <div class="anchor" id="getopt"></div>
+  <h3>getopt.h</h3>
+
+  <p>Содержит определения констант для арифметики с плавующей точкой</p>
 </article>
 
 
@@ -600,7 +633,7 @@
   <div class="anchor" id="setjmp"></div>
   <h3>setjmp.h</h3>
 
-  <p>Содержит функции чтобы нарушить обычную последовательность входа в функции и выхода из них</p>
+  <p>Содержит функции которые позволяют процессу вызывать оператор перехода goto из одной функции в другую. Без этой библиотеки язык Си позволяет процессу передать управление оператором goto от одного операнда другому только в рамках одной функции.</p>
 </article>
 
 

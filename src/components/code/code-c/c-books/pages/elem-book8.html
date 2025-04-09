@@ -252,31 +252,31 @@ int main() {
   int num1;
   int num2;
 
-  printf("Enter two integers \n");
-  scanf("%d %s", &num1, &num2);
+  printf("Enter two integers by space \n");
+  scanf("%d %d", &num1, &num2);
 
   if (num1 == num2) {
-    printf("%d is equal to %d", num1, num2);
+    printf("%d is equal to %d\n", num1, num2);
   }
 
   if (num1 != num2) {
-    printf("%d is not equal to %d", num1, num2);
+    printf("%d is not equal to %d\n", num1, num2);
   }
 
   if (num1 &lt; num2) {
-    printf("%d is less than %d", num1, num2);
+    printf("%d is less than %d\n", num1, num2);
   }
 
   if (num1 > num2) {
-    printf("%d is greater than %d", num1, num2);
+    printf("%d is greater than %d\n", num1, num2);
   }
 
   if (num1 &lt;= num2) {
-    printf("%d is less than or equal to %d", num1, num2);
+    printf("%d is less than or equal to %d\n", num1, num2);
   }
 
   if (num1 >= num2) {
-    printf("%d is greater than or equal to %d", num1, num2);
+    printf("%d is greater than or equal to %d\n", num1, num2);
   }
 
   return 0;
@@ -311,6 +311,142 @@ int main() {
   <h4>3.6 Оператор выбора if else (77)</h4>
 
   <h4>3.7 Оператор повторения while (81)</h4>
+
+  <h4>3.8 Формулирование алгоритмов: пример 1 (повторение, управляемое счетчиком) (82)</h4>
+
+  <details>
+    <summary>Программа 6 (83)</summary>
+    <p>Программа подсчета средней оценки за экзамен десяти студентов.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int counter = 1;
+  int total = 0;
+  int grade;
+  int average;
+
+  while (counter &lt;= 10) {
+    printf("%s", "Enter grade ");
+    scanf("%d", &grade);
+    total += grade;
+    counter++;
+  }
+
+  average = total / 10;
+  printf("Average = %d", average);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>3.9 Формулирование алгоритмов методом нисходящего последовательного уточнения: пример 2 (повторение, управляемое контрольным значением) (84)</h4>
+
+  <details>
+    <summary>Программа 7 (88)</summary>
+    <p>Программа подсчета средней оценки за экзамен. Число студентов заранее неизвестно.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int counter = 0;
+  int total = 0;
+  int grade;
+  float average;
+
+  printf("%s", "Enter grade, -1 to end ");
+  scanf("%d", &grade);
+
+  while (grade != -1) {
+    total += grade;
+    counter++;
+    printf("%s", "Enter grade, -1 to end ");
+    scanf("%d", &grade);
+  }
+
+  if (counter != 0) {
+    average = (float)total / counter;
+    printf("Average = %.2f", average);
+  } else {
+    puts("No grades were entered");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>При делении двух целых чисел total / counter получается целое число. Унарная операция приведения типа (float)total создает для своего операнда total временную копию с плавающей точкой. Значение, хранимое в переменной total, по-прежнему является целым числом. Компилятор Си вычисляет выражение только с одинаковым типом операндов, поэтому встретив операнд типа float, он автоматически делает временную копию второго операнда и выполняет неявное преобразове в тип float. Вычисленный результат деления двух переменных типа float будет типа float и запишется в переменную average типа float.</p>
+
+  <h4>3.10 Формулирование алгоритмов методом нисходящего последовательного уточнения: пример 3 (вложенные управляющие структуры) (91)</h4>
+
+  <details>
+    <summary>Программа 8 (94)</summary>
+    <p>Студент после экзамена имеет результат 1, если сдал экзамен, и 0 если не сдал. Из 10 студентов подсчитать число сдавших и не сдавших экзамен. Если экзамен сдали больше 8 студентов, то премировать преподавателя.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int passes = 0;
+  int failures = 0;
+  int student = 1;
+  int result;
+
+  while (student &lt;= 10) {
+    printf("Enter result %d (0 or 1) ", student);
+    scanf("%d", &result);
+
+    if (result == 1) {
+      passes++;
+    } else {
+      failures++;
+    }
+
+    student++;
+  }
+
+  printf("Passed %d\n", passes);
+  printf("Failed %d\n", failures);
+
+  if (passes > 8) {
+    puts("Bonus to teacher");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>3.11 Операции присваивания (95)</h4>
+
+  <p>+=, -=, *=, /=, %=</p>
+
+  <h4>3.12 Операции инкремента и декремента (96)</h4>
+
+  <details>
+    <summary>Программа 9 (97)</summary>
+    <p>Студент после экзамена имеет результат 1, если сдал экзамен, и 0 если не сдал. Из 10 студентов подсчитать число сдавших и не сдавших экзамен. Если экзамен сдали больше 8 студентов, то премировать преподавателя.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int c = 5;
+
+  printf("c = %d\n", c);
+  printf("c++ = %d\n", c++);
+  printf("c = %d\n", c);
+  printf("++c = %d\n", ++c);
+  printf("c = %d\n", c);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>3.13 Безопасное программирование (99)</h4>
+
+  <p>Материал изложен на стр.977</p>
 </article>
 
 

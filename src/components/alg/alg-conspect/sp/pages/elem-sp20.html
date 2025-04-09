@@ -45,6 +45,268 @@
   <div class="anchor" id="p1"></div>
   <h3>Графы#2. Поиск в ширину</h3>
 
+  <h4>Поиск в ширину. BFS</h4>
+
+  <p>Алгоритм поиск в ширину bfs (breadth first search) имеет огромное приложение в теории графов, как и алгоритм dfs. Алгоритм основан на трех принципах, а именно:</p>
+  <ol>
+    <li>обходим граф, посещая каждую вершину только один раз;</li>
+    <li>использование структуры данных queue&lt;int&gt;;</li>
+    <li>обходим граф по удаленности от вершины start, или так называемый
+обход графа по слоям.</li>
+  </ol>
+
+  <p>При реализации алгоритма bfs будем выполнять последовательность действий:</p>
+  <ol>
+    <li>создаем очередь и добавляем в нее вершину start;</li>
+    <li>вытаскиваем первую вершину x из очереди;</li>
+    <li>рассматриваем все смежные вершины с x. Если смежная вершина не
+была помечена, добавляем ее в очередь и помечаем;</li>
+    <li>повторяем действия до тех пор, пока очередь не окажется пустой.</li>
+  </ol>
+
+  <p>Рассмотрим способы применения алгоритма bfs, приведем идеи решений и их реализации:</p>
+  <ol>
+    <li>поиск количества компонент связности;</li>
+    <li>проверка существования пути от вершины a к вершине b;</li>
+    <li>поиск кратчайшего пути от вершины start до вершины finish в
+неориентированном невзвешенном графе;</li>
+    <li>восстановление кратчайшего пути в неориентированном невзвешенном
+графе;</li>
+    <li>проверка графа на двудольность;</li>
+    <li>поиск мостов между вершинами a и b (определенное ребро на
+кратчайшем пути от a до b);</li>
+    <li>поиск диаметра графа (дерева);</li>
+    <li>поиск циклов (плохо).</li>
+  </ol>
+
+  <h4>Поиск количества компонент связности</h4>
+  <p>Одной из самых простых задач является поиск количества компонент связности. Для ее решения воспользуемся алгоритмом bfs. Для решения задачи в main программы создадим переменную cnt, которая будет хранить ответ на задачу. Обойдем все вершины в графе. Если вершина x не была помечена, то запустим алгоритм bfs из вершины x.</p>
+
+  <p>Приведем реализацию алоритма в виде функции bfs_number_comp. В аргументах функции bfs_number_comp передаем:</p>
+  <ol>
+    <li>vector &lt;vector&lt; int&gt; &gt; G — граф, представленный в виде списка смежности, где в каждой i строке каждая ячейка — это номер вершины, с которой смежна вершина с номером i;</li>
+    <li>vector &lt;int&gt; Mark — вектор посещаемости. Mark[i] равняется 1, если до вершины с номером i построен путь, иначе равняется 0. Изначально каждая вершина считается не посещенной;</li>
+    <li>start — вершина старта.</li>
+  </ol>
+  <p>Трудоемкость алгоритма O(m), где m — количество ребер.</p>
+<pre>
+void bfs_number_comp(
+     vector&lt;vector&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     int start) {
+  queue&lt;int&gt; q;
+  q.push(start);
+  Mark[start] = 1;
+  int tmp;
+
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        q.push(G[tmp][i]);
+      }
+    }
+  }
+}
+
+int cnt = 0;
+for (int i = 1; i &lt;= n; i++) {
+  if (Mark[i] == 0) {
+    cnt++;
+    bfs_number_comp(G, Mark, i);
+  }
+}
+cout &lt;&lt; cnt;
+</pre>
+
+  <p>Реализация BFS без очереди</p>
+<pre>
+void bfs_number_comp_no_queue(
+     vector&lt;vector&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     int start) {
+  vector&lt;int&gt; Arr;
+  int uk = 0, tmp;
+  Arr.push_back(start);
+  Mark[start] = 1;
+
+  while (uk &lt; Arr.size()) {
+    tmp = Arr[uk];
+    uk++;
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        Arr.push_back(G[tmp][i])
+      }
+    }
+  }
+}
+</pre>
+
+  <h4>Проверка существования пути от вершины a к вершине b</h4>
+
+  <p>Для поверки на запрос, существует ли путь от вершины a к вершине b, достаточно запустить функцию bfs_number_comp из вершины a и проверить Mark[b]. Это неплохое решение задачи, однако, если запросов на проверку много, программа будет долго работать. Для решения задачи воспользуемся вспомогательной памятью для запоминания, в какой компоненте связности располагается каждая вершина графа.</p>
+
+  <p>Создадим дополнительный vector&lt;int&gt; Color, где для каждой i вершины будем хранить номер компоненты связности, в которой располагается вершина i. Если Color[a] == Color[b], это будет означать, что вершины лежат в одной компоненте связности.</p>
+
+  <p>Улучшим реализацию функции bfs_number_comp. Добавим в аргументы функции:</p>
+  <ol>
+    <li>vector &lt;int&gt; Color — вектор покраски компонент связности. Color[i] равняется номеру цвета компоненты связности, в которой располагается вершина i;</li>
+    <li>number_color — номер цвета компоненты связности.</li>
+  </ol>
+<pre>
+void bfs_color(
+     vector&lt;vector&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     vector&lt;int&gt;& Color,
+     int number_color,
+     int start) {
+  queue&lt;int&gt; q;
+  q.push(start);
+  Mark[start] = 1;
+  Color[start] = number_color;
+  int tmp
+
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        Color[G[tmp][i]] = number_color;
+        q.push(G[tmp][i]);
+      }
+    }
+  }
+}
+</pre>
+
+  <h4>Поиск кратчайшего пути от вершины start до вершины finish</h4>
+
+  <p>Поставим перед собой задачу определить длину кратчайшего пути от вершины start в вершину finish в неориентированном не взвешенном графе.</p>
+  <p>Для поиска длины кратчайшего пути улучшим реализацию функции bfs_number_comp. Добавим вспомогательный vector &lt;int&gt; Len, где в Len[i] будет храниться целое число, длина кратчайшего пути от вершины start до i вершины. Ответом на задачу будет значение Len[finish].</p>
+  <p>Реализуем функцию bfs_path, дополнив функцию bfs_number_comp. Добавим в аргументы функции:</p>
+  <ol>
+    <li>vector &lt;int&gt; Len — вектор длин путей. Len[i] равняется длине кратчайшего пути от вершины start до вершины i.</li>
+  </ol>
+
+<pre>
+void bfs_path(
+     vector&lt;vector&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     vector&lt;int&gt;& Len,
+     int start) {
+  queue&lt;int&gt; q;
+  q.push(start);
+  Mark[start] = 1;
+  Len[start] = 0;
+  int tmp;
+
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        Len[G[tmp][i]] = 1 + Len[tmp];
+        q.push(G[tmp][i]);
+      }
+    }
+  }
+}
+</pre>
+
+  <h4>Восстановление кратчайшего пути в неориентированном невзвешенном графе</h4>
+
+  <p>В задачах иногда требуется не только определить длину кратчайшего пути, но и вывести сам кратчайший путь между парой вершин start и finish. Для вывода самого пути мы можем запомнить для каждой вершины x, из какой смежной вершины мы в нее прибыли. Для этого создадим вспомогательный vector&lt;int&gt; Putty, где в Putty[i] будет храниться номер смежной вершины, из которой мы при прибыли в вершину i.</p>
+
+<pre>
+void bfs_save_path(
+     vector&lt;vector&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     vector&lt;int&gt;& Len,
+     vector&lt;int&gt; Putty,
+     int start) {
+  queue&lt;int&gt; q;
+  q.push(start);
+  Mark[start] = 1;
+  Len[start] = 0;
+  Putty[start] = start;
+  int tmp;
+
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        Len[G[tmp][i]] = 1 + Len[tmp];
+        Putty[G[tmp][i]] = tmp;
+        q.push(G[tmp][i]);
+      }
+    }
+  }
+}
+</pre>
+
+  <p>Для восстановления пути из вершины start в вершину finish мы пройдем по Putty от вершины finish в вершину start. Таким образом, мы пройдем ребра в обратном порядке и сможем восстановить путь.</p>
+<pre>
+void find_path(
+     vector&lt;int&gt; Putty,
+     vector&lt;int&gt; Path,
+     int start,
+     int finish,
+     int n) {
+  Path.push_back(finish);
+  int u = finish;
+
+  while (u != Putty[u]) {
+    Path.push_back(Putty[u]);
+    u = Putty[u];
+  }
+  reverse(Path.begin(), Path.end());
+}
+</pre>
+
+  <h4>Проверка графа на двудольность</h4>
+
+  <p>Для проверки графа на двудольность мы должны покрасить его вершины в два цвета таким образом, чтобы любые две смежные вершины были покрашены в два разных цвета. Воспользуемся вспомогательным vector&lt;int&gt; Color, где в Color[i] будем запоминать, в какой цвет покрасили i вершину. Для проверки графа на двудольность потребуется проверить каждую компоненту связности, что она является двудольной, то есть в каждой компоненте связности потребуется запустить алгоритм bfs.</p>
+  <p>Изменим реализацию функции bfs_color. Поменяем в ней способ использования vector&lt;int&gt; Color, добавим переменную flag для проверки на двудольность:</p>
+  <ol>
+    <li>vector&lt;int&gt; Color — вектор покраски вершин. Color[i] равняется цвету двудольности для вершины i 0 или 1;</li>
+    <li>flag — флаг, проверяющий, что граф двудольный. Если flag равняется false, то граф не является двудольным, если true — граф двудольный.</li>
+  </ol>
+
+<pre>
+void bfs_bipartite(
+     vector&lt;vrctor&lt;int&gt; &gt;& G,
+     vector&lt;int&gt;& Mark,
+     vector&lt;int&gt;& Color,
+     bool& flag,
+     int start) {
+  queue&lt;int&gt; q;
+  q.push(start);
+  Mark[start] = 1;
+  Color[start] = 1;
+  int tmp;
+
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; G[tmp].size(); i++) {
+      if (Mark[G[tmp][i]] == 0) {
+        Mark[G[tmp][i]] = 1;
+        Color[G[tmp][i]] = (Color[tmp] + 1) % 2;
+        q.push(G[tmp][i]);
+      } else if (Color[G[tmp][i]] == Color[tmp]) {
+        flag = false;
+      }
+    }
+  }
+}
+</pre>
 </article>
 
 

@@ -799,6 +799,67 @@ YES
   <p>Во втором примере четыре шестиклассника связаны в цепочку, а еще два бегают отдельно. Сначала Аня с Машей выгонят двух крайних шестиклассников из цепочки (1 и 4), а затем — двух оставшихся из цепочки (2 и 3). При этом бегающие отдельно от остальных шестиклассники останутся в классе.</p>
 
   <p>В третьем примере Аня с Машей сразу же выгонят всех шестиклассников, кроме четвертого, и на этом процесс закончится. Правильный ответ — один.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Сложность O(n³). При n = 100 это приемлемо.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+
+  // список смежности
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+  int x, y;
+  for (int i = 0; i &lt; m; i++) {
+    cin >> x >> y;
+    G[x].push_back(y);
+    G[y].push_back(x);
+  }
+
+  // решение
+  int res = 0;
+  vector&lt;int&gt; Mark(n + 1);
+  vector&lt;int&gt; Level(n + 1);
+  bool flag = true;
+
+  while (flag) {
+    flag = false;
+    for (int i = 1; i &lt;= n; i++) {
+      for (int j = 0; j &lt; G[i].size(); j++) {
+        if (Mark[G[i][j]] == 0 && Mark[i] == 0) {
+          Level[i]++;
+        }
+      }
+    }
+    for (int i = 1; i &lt;= n; i++) {
+      if (Level[i] == 1) {
+        if (flag == false) {
+          res++;
+        }
+        flag = true;
+        Mark[i] = 1;
+      }
+      Level[i] = 0;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
