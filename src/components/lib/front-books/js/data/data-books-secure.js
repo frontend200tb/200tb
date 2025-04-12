@@ -2,6 +2,45 @@ const dataBooksSecure = [
 
   {
     id: 1,
+    year: 1990,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Компьютерная вирусология. Часть 1',
+    author: 'Безруков',
+    authorName: 'Николай',
+    pages: '450',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 1991,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Пишем вирус и антивирус',
+    author: 'Хижняк',
+    authorName: 'П.Л.',
+    pages: '90',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 2,
+    year: 1998,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Как написать компьютерный вирус',
+    author: 'Коваль',
+    authorName: 'И.',
+    pages: '194',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 1,
     year: 2001,
     category: 'основы',
     theme: 'Безопасность',

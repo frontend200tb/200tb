@@ -5,6 +5,7 @@ import htmlVideo   from './../pages/elem-video.html';
 import htmlCourses from './../pages/elem-courses.html';
 import htmlYoutube from './../pages/elem-youtube.html';
 import htmlLayout  from './../pages/elem-layout.html';
+import htmlDay  from './../pages/elem-day.html';
 
 export const pages = [
   htmlAll,
@@ -13,4 +14,5 @@ export const pages = [
   htmlCourses,
   htmlYoutube,
   htmlLayout,
+  htmlDay,
 ];

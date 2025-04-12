@@ -454,6 +454,182 @@ int main() {
 <article class="article">
   <div class="anchor" id="p4"></div>
   <h3>4 Управление программой в C (113)</h3>
+
+  <h4>4.1 Введение (114)</h4>
+
+  <h4>4.2 Основы структур повторения (114)</h4>
+
+  <h4>4.3 Повторение, управляемое счетчикм (115)</h4>
+
+  <p>Выведем числа от 1 до 10.</p>
+
+  <details>
+    <summary>Программа 10 (115)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int counter = 1;
+
+  while (counter &lt;=10) {
+    printf("%d ", counter);
+    counter++;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>4.4 Оператор повторения for (117)</h4>
+
+  <p>Выведем числа от 1 до 10.</p>
+
+  <details>
+    <summary>Программа 11 (117)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int counter;
+
+  for (counter = 1; counter &lt;=10; counter++) {
+    printf("%d ", counter);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>4.5 Оператор for. Замечания и рекомендации (119)</h4>
+
+  <p>Сначала выполняется инициализация управляющей переменной (int i = 0), затем проверка условия (i != 10), затем выполняется тела цикла. После этого изменяется управляющая переменная (i++). Управляющую переменную можно изменять и в теле цикла, но это не рекомендуется из-за трудно уловимых ошибок в коде. Управляющую переменную можно как увеличивать так и уменьшать (i--). Шаг переменной может быть любым (i += 10).</p>
+
+  <h4>4.6 Примеры структур for (120)</h4>
+
+  <p>Найдем сумму всех четных чисел от 2 до 100.</p>
+
+  <details>
+    <summary>Программа 12 (121)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int sum = 0;
+
+  for (int i = 2; i &lt;=100; i += 2) {
+    sum += i;
+  }
+
+  printf("sum = %d", sum);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Задача. Клиент открыл в банке 5%-ый счет на 1000$. Предполагая, что вся прибыль остается на депозите счета, расчитайте и выведите сумму денег на счете на конец каждого года за 10 лет по формуле</p>
+  <code>a = p * (1 + r)ⁿ</code>
+  <p>где p - первоначальная сумма, r - годовая процентная ставка, n - число лет, a - сумма на депозите  на конец n-го года.</p>
+
+  <details>
+    <summary>Программа 13 (122)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+  double amount; // сумма на счете
+  double principal = 1000.0; // начальная сумма
+  double rate = .05; // процентная ставка
+  int year; // счетчик лет
+
+  // вывести заголовки колонок таблицы
+  printf("%4s%21s\n", "Year", "Amount on deposit");
+
+  // вычислить сумму на счете для каждого из 10 лет
+  for (year = 1; year &lt;=10; year++) {
+    amount = principal * pow(1.0 + rate, year);
+    printf("%4d%21.2f\n", year, amount);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>4.7 Оператор множественного выбора switch (124)</h4>
+
+  <p>Подсчитаем количество различных буквенных оценок, полученных студентами на экзамене.</p>
+
+  <details>
+    <summary>Программа 14 (124)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int grade; // одна оценка
+  int aCount = 0; // число оценок A
+  int bCount = 0; // число оценок B
+  int cCount = 0; // число оценок C
+  int dCount = 0; // число оценок D
+  int fCount = 0; // число оценок F
+
+  puts("Enter the letter grades (a,b,c,d,f)");
+  puts("Enter the EOF for end");
+
+  while ((grade = getchar()) != EOF) {
+    switch (grade) {
+      case 'A':
+      case 'a':
+        ++aCount;
+        break;
+      case 'B':
+      case 'b':
+        ++bCount;
+        break;
+      case 'C':
+      case 'c':
+        ++cCount;
+        break;
+      case 'D':
+      case 'd':
+        ++dCount;
+        break;
+      case "F":
+      case 'f':
+        ++fCount;
+        break;
+      case '\n':
+      case '\t':
+      case ' ':
+        break;
+      default:
+        printf("%s is incorrect letter grade", grade);
+        puts("Enter new grade");
+        break;
+    }
+  }
+
+  puts("\nTotal:\n");
+  printf("A %d\n", aCount);
+  printf("B %d\n", bCount);
+  printf("C %d\n", cCount);
+  printf("D %d\n", dCount);
+  printf("F %d\n", fCount);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Для Windows EOF можно ввести нажав CTRL+z.</p>
+  <p>Оператор switch проверяет переданное ему выражение на равенство <strong>константному целочисленному значению</strong>. Это просто целые значения, символьная константа, заключенная в одиночные кавычки, также равна целому значению.</p>
+
+  <h4>4.8 Оператор повторения do...while (129)</h4>
+
+  <p>Оператор while проверяет условие до выполнения тела цикла. Оператор do while проверяет условие после выполнения тела цикла. После конструкции while не ставится точка с запятой. После конструкции do while ставится точка с запятой.</p>
 </article>
 
 

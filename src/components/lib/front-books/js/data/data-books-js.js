@@ -1268,6 +1268,19 @@ const dataBooksJs = [
     dateLearned: '',
   },
 
+  {
+    id: 92,
+    year: 2025,
+    category: 'code',
+    theme: 'javascript',
+    title: 'Искусство юнит-тестирования с примерами на JavaScript (3е)',
+    author: 'Ошеров',
+    authorName: 'Рой',
+    pages: 320,
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

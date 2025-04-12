@@ -962,6 +962,41 @@ int main() {
 1 3 4 8 10 11 12
 </pre>
   <code>4</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Положим бетонного осла одним концом на первый элемент, потом на следующий не накрытый элемент и т.д.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, d;
+  cin >> n >> d;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int res = 0;
+  int i = 0;
+  while (i &lt; n) {
+    int x = A[i];
+    res++;
+    while ( (i &lt; n) && (A[i] &lt;= x + d) ) {
+      i++;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -991,6 +1026,53 @@ int main() {
 2 4 6 2 4 8
 </pre>
   <code>1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Пример 2</p>
+<pre>
+8 3
+2 4 2 4 2 4 2 4
+</pre>
+  <code>6</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, k;
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int count = 0;
+  int lp = 0;  // левый указатель
+  int rp = lp; // правый указатель
+
+  while (rp &lt; n) {
+    if (A[rp] % 2 == 0 && A[rp] % 6 != 0) {
+      if (rp - lp + 1 == k) {
+        count++;
+        lp++;
+      }
+      rp++;
+    } else {
+      lp = rp + 1;
+      rp = lp;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; count;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1025,6 +1107,74 @@ int main() {
 1 14 5 7 2
 </pre>
   <code>5</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Пример 3</p>
+<pre>
+2
+14 14
+</pre>
+  <code>1</code>
+    <p>Пример 4</p>
+<pre>
+3
+14 14 14
+</pre>
+  <code>3</code>
+    <p>Пример 5</p>
+<pre>
+4
+14 14 14 14
+</pre>
+  <code>6</code>
+    <p>Пример 6</p>
+<pre>
+5
+2 2 7 7 7
+</pre>
+  <code>6</code>
+    <p>Если пара чисел делится на 14 то это хорошая пара. Хорошая пара образуется только в двух случаях. Если число делится на 14, с любым числом оно образует хорошую пару. Если число делится на 2, то любое число, которое делится на 7 образует с ним хорошую пару. Линейным алгоритмом переберем все числа. Будем считать сколько чисел делятся на 14, сколько на 2 и сколько на 7.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long cnt = 0, cnt2 = 0, cnt7 = 0, cnt14 = 0;
+  for (int i = 0; i &lt; n; i++) {
+    if (A[i] % 14 == 0) {
+      cnt14++;
+    } else if (A[i] % 2 == 0) {
+      cnt2++;
+    } else if (A[i] % 7 == 0) {
+      cnt7++;
+    }
+  }
+  if (cnt14 == 1) {
+    cnt += (n - 1) * cnt14;
+  } else if (cnt14 > 1) {
+    cnt += (n - 1) * cnt14 - (cnt14 - 1) * cnt14 / 2;
+  }
+
+  cnt += cnt2 * cnt7;
+
+  // вывод результата
+  cout &lt;&lt; cnt;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1053,6 +1203,47 @@ int main() {
   <h4>Пример 2</h4>
   <code>abccba</code>
   <code>abaaba</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Будем сравнивать 4 буквы на которые указывают 4 указателя. Вначале поставим два указателя на первую и последнюю букву первой половины слова, и два указателя на первую и последнюю букву второй половины слова. Если какая-то буква повторяется дважды, то выбираем ее, иначе все равно какую. Заменяем остальные буквы в указателях на выбранную.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  int pl = 0, pr = s.size() - 1;
+  int pm1 = s.size() / 2 - 1, pm2 = pm1 + 1;
+  char el;
+  while (pl &lt;= pm1) {
+    if (s[pr] == s[pm1] || s[pr] == s[pm2]) {
+      el = s[pr];
+    } else if (s[pm1] == s[pm2]) {
+      el = s[pm1];
+    } else {
+      el = s[pl];
+    }
+    s[pl] = el;
+    s[pm1] = el;
+    s[pm2] = el;
+    s[pr] = el;
+    pl++;
+    pm1--;
+    pm2++;
+    pr--;
+  }
+
+  // вывод результата
+  cout &lt;&lt; s;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1098,6 +1289,80 @@ int main() {
 1 -2 3 -4 5
 </pre>
   <code>5</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Будем отдельно считать длину плообразной последовательности для двух случаев: 1 когда в первой паре числа возрастают, 2 - убывают. Если в паре числа равны, то обе последователности прерываются.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int res = 0;
+  // первая пара возрастающая
+  int cnt_inc = 1;
+  // первая пара убывающая
+  int cnt_dec = 1;
+
+  for (int i = 1; i &lt; n; i++) {
+
+    if (i % 2) { // 1,3,5,7..
+      if (A[i] > A[i - 1]) {
+        cnt_inc++;
+        res = max(res, cnt_dec);
+        cnt_dec = 1;
+      } else if (A[i - 1] > A[i]) {
+        cnt_dec++;
+        res = max(res, cnt_inc);
+        cnt_inc = 1;
+      } else {
+        res = max(res, cnt_dec);
+        res = max(res, cnt_inc);
+        cnt_dec = 1;
+        cnt_inc = 1;
+      }
+
+    } else { // 2,4,6,8...
+      if (A[i - 1] > A[i]) {
+        cnt_inc++;
+        res = max(res, cnt_dec);
+        cnt_dec = 1;
+      } else if (A[i] > A[i - 1]) {
+        cnt_dec++;
+        res = max(res, cnt_inc);
+        cnt_inc = 1;
+      } else {
+        res = max(res, cnt_dec);
+        res = max(res, cnt_inc);
+        cnt_dec = 1;
+        cnt_inc = 1;
+      }
+    }
+
+  }
+  res = max(res, cnt_dec);
+  res = max(res, cnt_inc);
+
+
+
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

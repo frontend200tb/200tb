@@ -6,4 +6,5 @@ export const asideThemes = [
   'Online courses',
   'Youtube',
   'Верстка',
+  'Дневник',
 ];
