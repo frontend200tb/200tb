@@ -249,6 +249,35 @@ int main() {
   <h4>Пример 2</h4>
   <code>wasitadogoracatiate</code>
   <code>wasitacaroracatisaw</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Паттерн два указателя с двух сторон. Заведем левый и правый указатели. Пока левый указатель меньше правого, сравниваем буквы. Если буквы совпадают, то двигаем левый указатель вправо, правый влево. Если буквы не совпадают, то в правый указатель пишем букву из левого указателя и двигаем их.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  int pl = 0, pr = s.size() - 1;
+  while (pl &lt; pr) {
+    if (s[pl] != s[pr]) {
+      s[pr] = s[pl];
+    }
+    pl++;
+    pr--;
+  }
+
+  // вывод результата
+  cout &lt;&lt; s;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -281,6 +310,56 @@ int main() {
 3 4 7 3 5 1
 </pre>
   <code>1 3</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Начнем с предположения, что максимальная разница — это разница между вторым и первым элементами. Запомним эти индексы (1 и 2). Будем поддерживать индекс min_index, который указывает на минимальный элемент в пройденной части массива. Для каждого следующего элемента вычисляем разницу с этим минимальным элементом. Если текущая разница больше максимальной найденной, обновляем максимальную разницу и сохраняем индексы. При обновлении максимальной разницы всегда выбираем пару с наименьшим j, а при равенстве — с наименьшим i.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int best_i = 0;
+  int best_j = 1;
+  int max_dif = A[best_j] - A[best_i];
+  int min_index = 0;
+  for (int j = 1; j &lt; n; ++j) {
+    if (A[j] - A[min_index] > max_dif) {
+      max_dif = A[j] - A[min_index];
+      best_i = min_index;
+      best_j = j;
+    } else if (A[j] - A[min_index] == max_dif) {
+      if (j &lt; best_j) {
+        best_j = j;
+        best_i = min_index;
+      } else if (j == best_j && min_index &lt; best_i) {
+        best_i = min_index;
+      }
+    }
+
+    if (A[j] &lt; A[min_index]) {
+      min_index = j;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; best_i + 1 &lt;&lt; ' ' &lt;&lt; best_j + 1;
+}
+</pre>
+  </details>
 </article>
 
 

@@ -20,10 +20,16 @@ import htmlSp18        from './../pages/elem-sp18.html';
 import htmlSp19        from './../pages/elem-sp19.html';
 import htmlSp20        from './../pages/elem-sp20.html';
 import htmlSp21        from './../pages/elem-sp21.html';
+import htmlSp22        from './../pages/elem-sp22.html';
+import htmlSp23        from './../pages/elem-sp23.html';
 import htmlSpDemCup    from './../pages/elem-spDemCup.html';
 import htmlSpNewYear   from './../pages/elem-spNewYear.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
+import htmlSpRound991  from './../pages/elem-spRound991.html';
 import htmlSpRound993  from './../pages/elem-spRound993.html';
+import htmlSpRound995  from './../pages/elem-spRound995.html';
+import htmlSpRound998  from './../pages/elem-spRound998.html';
+import htmlSpRound1003 from './../pages/elem-spRound1003.html';
 
 export const pages = [
   htmlSp1,
@@ -47,8 +53,14 @@ export const pages = [
   htmlSp19,
   htmlSp20,
   htmlSp21,
+  htmlSp22,
+  htmlSp23,
   htmlSpDemCup,
   htmlSpNewYear,
   htmlSpRound988,
+  htmlSpRound991,
   htmlSpRound993,
+  htmlSpRound995,
+  htmlSpRound998,
+  htmlSpRound1003,
 ];

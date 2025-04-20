@@ -1276,6 +1276,19 @@ const dataBooksCpp = [
     year: 2009,
     category: 'code',
     theme: 'c++',
+    title: 'Программирование на языках C и C++. Лабораторный практикум',
+    author: 'Корчагин',
+    authorName: 'Юрий',
+    pages: '253',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 100,
+    year: 2009,
+    category: 'code',
+    theme: 'c++',
     title: 'C/C++ в задачах и примерах (2е)',
     author: 'Культин',
     authorName: 'Никита',
@@ -1285,7 +1298,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 100,
+    id: 101,
     year: 2009,
     category: 'code',
     theme: 'c++',
@@ -1298,7 +1311,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 101,
+    id: 102,
     year: 2009,
     category: 'code',
     theme: 'c++',
@@ -1311,7 +1324,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 102,
+    id: 103,
     year: 2010,
     category: 'code',
     theme: 'c++',
@@ -1324,7 +1337,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 103,
+    id: 104,
     year: 2010,
     category: 'code',
     theme: 'c++',
@@ -1337,7 +1350,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 104,
+    id: 105,
     year: 2010,
     category: 'code',
     theme: 'c++',
@@ -1350,7 +1363,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 105,
+    id: 106,
     year: 2010,
     category: 'code',
     theme: 'c++',
@@ -1363,7 +1376,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 106,
+    id: 107,
     year: 2011,
     category: 'code',
     theme: 'c++',
@@ -1376,7 +1389,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 107,
+    id: 108,
     year: 2011,
     category: 'code',
     theme: 'c++',
@@ -1389,7 +1402,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 108,
+    id: 109,
     year: 2011,
     category: 'code',
     theme: 'c++',
@@ -1402,7 +1415,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 109,
+    id: 110,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1415,7 +1428,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 110,
+    id: 111,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1428,7 +1441,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 111,
+    id: 112,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1441,7 +1454,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 112,
+    id: 113,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1454,7 +1467,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 113,
+    id: 114,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1467,7 +1480,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 114,
+    id: 115,
     year: 2012,
     category: 'code',
     theme: 'c++',
@@ -1480,7 +1493,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 115,
+    id: 116,
     year: 2013,
     category: 'code',
     theme: 'c++',
@@ -1493,7 +1506,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 116,
+    id: 117,
     year: 2013,
     category: 'code',
     theme: 'c++',
@@ -1506,7 +1519,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 117,
+    id: 118,
     year: 2013,
     category: 'code',
     theme: 'c++',
@@ -1519,7 +1532,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 118,
+    id: 119,
     year: 2014,
     category: 'code',
     theme: 'c++',
@@ -1532,7 +1545,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 119,
+    id: 120,
     year: 2014,
     category: 'code',
     theme: 'c++',
@@ -1545,7 +1558,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 120,
+    id: 121,
     year: 2014,
     category: 'code',
     theme: 'c++',
@@ -1558,7 +1571,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 121,
+    id: 122,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1571,7 +1584,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 122,
+    id: 123,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1584,7 +1597,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 123,
+    id: 124,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1597,7 +1610,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 124,
+    id: 125,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1610,7 +1623,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 125,
+    id: 126,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1623,7 +1636,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 126,
+    id: 127,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1636,7 +1649,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 127,
+    id: 128,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1649,7 +1662,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 128,
+    id: 129,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1662,7 +1675,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 129,
+    id: 130,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1675,7 +1688,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 130,
+    id: 131,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1688,7 +1701,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 131,
+    id: 132,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1701,7 +1714,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 132,
+    id: 133,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1714,7 +1727,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 133,
+    id: 134,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1727,7 +1740,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 134,
+    id: 135,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1740,7 +1753,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 135,
+    id: 136,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1753,7 +1766,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 136,
+    id: 137,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1766,7 +1779,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 137,
+    id: 138,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1779,7 +1792,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 138,
+    id: 139,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1792,7 +1805,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 139,
+    id: 140,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1805,7 +1818,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 140,
+    id: 141,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1818,7 +1831,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 141,
+    id: 142,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1830,7 +1843,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 142,
+    id: 143,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1843,7 +1856,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 143,
+    id: 144,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1856,7 +1869,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 144,
+    id: 145,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1869,7 +1882,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 145,
+    id: 146,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1882,7 +1895,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 146,
+    id: 147,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1895,7 +1908,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 147,
+    id: 148,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1908,7 +1921,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 148,
+    id: 149,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1921,7 +1934,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 149,
+    id: 150,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1934,7 +1947,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 150,
+    id: 151,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -1947,7 +1960,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 151,
+    id: 152,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -1960,7 +1973,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 152,
+    id: 153,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -1973,7 +1986,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 153,
+    id: 154,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -1986,7 +1999,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 154,
+    id: 155,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -1999,7 +2012,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 155,
+    id: 156,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2012,7 +2025,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 156,
+    id: 157,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2025,7 +2038,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 157,
+    id: 158,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2038,7 +2051,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 158,
+    id: 159,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2051,7 +2064,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 159,
+    id: 160,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2064,7 +2077,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 160,
+    id: 161,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2077,7 +2090,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 161,
+    id: 162,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2090,7 +2103,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 162,
+    id: 163,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2103,7 +2116,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 163,
+    id: 164,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2116,7 +2129,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 164,
+    id: 165,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2129,7 +2142,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 165,
+    id: 166,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2142,7 +2155,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 166,
+    id: 167,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2155,7 +2168,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 167,
+    id: 168,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2168,7 +2181,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 168,
+    id: 169,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2181,7 +2194,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 169,
+    id: 170,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2194,7 +2207,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 170,
+    id: 171,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2207,7 +2220,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 171,
+    id: 172,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2220,7 +2233,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 172,
+    id: 173,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2233,7 +2246,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 173,
+    id: 174,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2246,7 +2259,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 174,
+    id: 175,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2259,7 +2272,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 175,
+    id: 176,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2272,7 +2285,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 176,
+    id: 177,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2285,7 +2298,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 177,
+    id: 178,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2298,7 +2311,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 178,
+    id: 179,
     year: 2024,
     category: 'code',
     theme: 'c++',
@@ -2311,7 +2324,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 179,
+    id: 180,
     year: 2024,
     category: 'code',
     theme: 'c++',

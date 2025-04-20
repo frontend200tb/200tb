@@ -36,6 +36,7 @@ import dataBooksNets from './data/data-books-nets';
 import dataBooksSecure from './data/data-books-secure';
 import dataBooksStm from './data/data-books-stm';
 import dataBooksCompil from './data/data-books-compil';
+import dataBooksZx from './data/data-books-zx';
 import dataBooksInf from './data/data-books-inf';
 import dataBooksInfSchool from './data/data-books-infschool';
 
@@ -81,7 +82,7 @@ const dataArray = [
   // Code
   dataBooksHtmlcss, dataBooksJs, dataBooksTs, dataBooksAsm, dataBooksBasic, dataBooksPascal, dataBooksC, dataBooksCpp, dataBooksCppBuilder, dataBooksCppQt, dataBooksCppVisual, dataBooksCsharp, dataBooksPhp, dataBooksJava, dataBooksPython,
   // Base
-  dataBooksBase, dataBooksArch, dataBooksAlg, dataBooksOlimp, dataBooksComp, dataBooksMicro, dataBooksDos, dataBooksWin32, dataBooksLinux, dataBooksUnix, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksStm, dataBooksCompil, dataBooksInf, dataBooksInfSchool,
+  dataBooksBase, dataBooksArch, dataBooksAlg, dataBooksOlimp, dataBooksComp, dataBooksMicro, dataBooksDos, dataBooksWin32, dataBooksLinux, dataBooksUnix, dataBooksOs, dataBooksNets, dataBooksSecure, dataBooksStm, dataBooksCompil, dataBooksZx, dataBooksInf, dataBooksInfSchool,
   // Framework
   dataBooksNode, dataBooksAngular, dataBooksReact, dataBooksVue, dataBooksBootstrap, dataBooksJquery,
   // CMS

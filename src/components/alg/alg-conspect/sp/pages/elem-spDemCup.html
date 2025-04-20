@@ -136,6 +136,73 @@
 1 2 20
 </pre>
   <code>-1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Решение такое же как у задачи C. Поездка в город. Нужно только немножко изменить пару строк под условие.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;set&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n, m, s, f;
+  cin >> n >> m >> s >> f;
+  vector&lt;vector&lt;pair&lt;long long, int&gt; &gt; &gt; G(n + 1);
+  vector&lt;int&gt; Mark(n + 1);
+  vector&lt;long long&gt; Dist(n + 1);
+  long long a, b, w;
+  pair&lt;long long, int&gt; tmp1, tmp2;
+
+  // соберем список смежности
+  for (int i = 0; i &lt; m; i++) {
+    cin >> a >> b >> w;
+    tmp1.first = w;
+    tmp1.second = a;
+    G[b].push_back(tmp1);
+    tmp1.second = b;
+    G[a].push_back(tmp1);
+  }
+
+  // инициализация
+  set&lt;pair&lt;long long, int&gt; &gt; st;
+  tmp1.first = 0;
+  tmp1.second = s;
+  st.insert(tmp1);
+
+  // алгоритм Дейкстры
+  while (st.size() > 0) {
+    tmp1 = *st.begin();
+    st.erase(st.begin());
+    if (Mark[tmp1.second] == 0) {
+      Mark[tmp1.second] = 1;
+      Dist[tmp1.second] = tmp1.first;
+      for (int i = 0; i &lt; G[tmp1.second].size(); i++) {
+        tmp2 = G[tmp1.second][i];
+        tmp2.first += tmp1.first;
+        st.insert(tmp2);
+      }
+    }
+  }
+
+  // если нет пути из s в f
+  if (Mark[f] == 0) {
+    cout &lt;&lt; -1;
+    return 0;
+  }
+
+  cout &lt;&lt; Dist[f];
+}
+</pre>
+  </details>
 </article>
 
 

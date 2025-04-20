@@ -1,0 +1,399 @@
+<article class="article">
+  <h1>Лекция 18 (17.04.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">ООП. Паттерны</a></p>
+  <p><a href="#task1">Программа 1. Оплата</a></p>
+  <p><a href="#task2">Программа 2. Свет</a></p>
+  <p><a href="#task3">Программа 3. Покемоны</a></p>
+</article>
+
+
+<!-- ООП. Паттерны -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>ООП. Паттерны</h3>
+
+  <p>В финальном проекте надо будет написать консольное приложение "Битва Покемонов". После можно расширить игру и добавить сохранение в json. Посмотрим графическую библиотеку Reni</p>
+  <p>Сегодня рассмотрим три паттерна:</p>
+  <ol>
+    <li>Стратегия</li>
+    <li>Команда</li>
+    <li>Компоновщик</li>
+  </ol>
+
+  <h4>1 Паттерн Стратегия</h4>
+  <p>Первый пример. Есть класс Утка. От него наследуется еще три класса - Красные Утки, Деревянные Утки, Белые Утки. Все утки должны уметь крякать и двигаться и делать это по разному. Для этого создадим два интерфейса Кряк и Move и расширим класс Утка этими интерфейсами. Интерфейсы это набор функций, которые надо реализовать в классе.</p>
+  <p>Второй пример. Есть класс Runner (бегун). От него наследуется еще три класса - Fast, Middle, Slow. Все бегуны должны уметь бегать и делать это по разному. Для этого создадим интерфейс IRun и расширим класс Runner этим интерфейсом. Интерфейс IRun описывает один виртуальный метод virtual run(). Этот метод должен быть реализован в каждом из калассов Fast, Middle, Slow.</p>
+<pre>
+IRun TypeofRun
+
+class Runner {
+  private:
+    IRun TypeofRun;
+  public:
+    Runner(IRun type);
+    TypeofRun(type) {}
+    void SetRun(IRun type) {
+      TypeofRun = type
+    }
+    void Run() {
+      TypeofRun.Run()
+    }
+}
+</pre>
+
+  <p>Эволюция Покемонов может происходить по опыту. Покемон набирается опыта и может эволюционировать до нового уровня.</p>
+
+  <h4>2 Паттерн Команда</h4>
+
+  <h4>2 Паттерн Компоновщик</h4>
+
+  <p>Паттерн Компоновщик применяется к структуре данных "дерево".</p>
+  <p>Есть три способа сделать эволюцию Покемонов.</p>
+  <p>1 способ через Наследование. Это самый плохой способ.</p>
+  <p>2 способ через паттерн Компоновщик. Это самый хороший способ.</p>
+  <p>3 способ через паттерн Стратегия.</p>
+</article>
+
+
+<!-- Программа 1. Оплата -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Программа 1. Оплата</h3>
+
+  <p>Реализуем паттерн Стратегия</p>
+  <p>Файл payment.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "ps.h"
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+  PaymentProcessor*CCP = new PaymentProcessor(new CreditCardPay());
+  CCP->processPayment(6);
+  CCP->SetStrategy(new CashPay());
+  CCP->processPayment(6);
+}
+</pre>
+  <p>Файл ps.h</p>
+<pre>
+#pragma once
+
+using namespace std;
+
+class PaymentStrategy {
+public:
+  virtual void pay(int amount) = 0;
+};
+
+class CreditCardPay : public PaymentStrategy {
+public:
+  void pay(int amount) override {
+    cout &lt;&lt; "Оплата прошла по кредитной карте и составила "
+    &lt;&lt; amount &lt;&lt; " рублей" &lt;&lt; endl;
+  }
+};
+
+class CashPay : public PaymentStrategy {
+public:
+  void pay(int amount) override {
+    cout &lt;&lt; "Оплата прошла наличными и составила "
+    &lt;&lt; amount &lt;&lt; " рублей" &lt;&lt; endl;
+  }
+};
+
+class PaymentProcessor {
+private:
+  PaymentStrategy* strategy;
+public:
+  PaymentProcessor(PaymentStrategy* str) : strategy(str) {}
+
+  void SetStrategy(PaymentStrategy* str) {
+    strategy = str;
+  }
+
+  void processPayment(int amount) {
+    strategy->pay(amount);
+  }
+};
+</pre>
+</article>
+
+
+<!-- Программа 2. Свет -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Программа 1. Свет</h3>
+
+  <p>Реализуем паттерн Команда</p>
+  <p>Файл light.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "cp.h"
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+
+  Light livingRoom;
+  RemoteControl remote;
+
+  remote.SetCommand(new LightOnCommand(&livingRoom));
+  remote.pressButton();
+
+  remote.SetCommand(new LightOffCommand(&livingRoom));
+  remote.pressButton();
+}
+</pre>
+  <p>Файл cp.h</p>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Command {
+  virtual void execute() = 0;
+  // virtual void undo() = 0;
+};
+
+class Light {
+public:
+  void on() {
+    cout &lt;&lt; "Свет включен\n";
+  }
+  void off() {
+    cout &lt;&lt; "Свет выключен\n";
+  }
+};
+
+class LightOnCommand : public Command {
+  Light* light;
+public:
+  LightOnCommand(Light* _light) : light(_light) {}
+  void execute() override {
+    light->on();
+  }
+};
+
+class LightOffCommand : public Command {
+  Light* light;
+public:
+  LightOffCommand(Light* _light) : light(_light) {}
+  void execute() override {
+    light->off();
+  }
+};
+
+class RemoteControl {
+  Command* command;
+public:
+  void SetCommand(Command* cmd) {
+    command = cmd;
+  }
+  void pressButton() {
+    if (command) {
+      command->execute();
+    }
+  }
+};
+</pre>
+</article>
+
+
+<!-- Программа 3. Покемоны -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Программа 3. Свет</h3>
+
+  <p>Реализуем паттерн Компоновщик. Проект из 4 файлов.</p>
+  <p>Файл dsr.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Header.h"
+#include "Command.h"
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+
+
+}
+</pre>
+
+  <p>Файл Header.h</p>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Character {
+private:
+  string name;
+  int health;
+  bool blocking;
+public:
+  Character(string name, int hp = 100) {
+    this->name = name;
+    health = hp;
+    blocking = false;
+  }
+  void attack(Character& target);
+  void specialAttack(Character& target);
+  void takeDamage(int damage);
+  void block();
+  int getHealth() {
+    return health;
+  }
+  void heal(int hp) {
+    if (health > 100) {
+      health = 100;
+    }
+  }
+  string getName() {
+    return name;
+  }
+  void resetBlock() {
+    blocking = false;
+  }
+};
+</pre>
+
+  <p>Файл Source.cpp</p>
+<pre>
+#include "Header.h"
+
+void Character::attack(Character& target) {
+  int damage = blocking ? 5 : 10;
+  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
+  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; endl;
+  target.takeDamage(damage);
+}
+
+void Character::specialAttack(Character& target) {
+  int damage = blocking ? 15 : 30;
+  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
+  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; endl;
+  target.takeDamage(damage);
+}
+
+void Character::takeDamage(int damage) {
+  if (blocking) {
+    damage /= 2;
+  }
+  health -= damage;
+  if (health &lt; 0) {
+    health = 0;
+  }
+  blocking = false;
+}
+
+void Character::block() {
+  cout &lt;&lt; name &lt;&lt; " блокирует следующий удар!\n";
+  blocking = true;
+}
+</pre>
+
+  <p>Файл Command.h</p>
+<pre>
+#pragma once
+#include &lt;stack&gt;
+#include "Header.h"
+
+class Command {
+public:
+  virtual void execute() = 0;
+  virtual void undo() = 0;
+};
+
+// конкретные команды
+
+class AttackCommand : public Command {
+private:
+  Character& attacker;
+  Character& target;
+  int prevHealth;
+public:
+  AttackCommand(Character& attacker, Character& target):
+    attacker(attacker), target(target), prevHealth(target.getHealth()) {}
+  void execute() override {
+    attacker.attack(target);
+  }
+  void undo() override {
+    target.heal(prevHealth - target.getHealth());
+    cout &lt;&lt; "Отмена атаки: восстановлено "
+    &lt;&lt; prevHealth - target.getHealth()
+    &lt;&lt; target.getName();
+  }
+};
+
+class SpecialAttackCommand : public Command {
+private:
+  Character& attacker;
+  Character& target;
+  int prevHealth;
+public:
+  SpecialAttackCommand(Character& attacker, Character& target) :
+    attacker(attacker), target(target), prevHealth(target.getHealth()) {}
+  void execute() override {
+    attacker.specialAttack(target);
+  }
+  void undo() override {
+    target.heal(prevHealth - target.getHealth());
+    cout &lt;&lt; "Отмена атаки: восстановлено "
+    &lt;&lt; prevHealth - target.getHealth()
+    &lt;&lt; target.getName();
+  }
+};
+
+class BlockCommand : public Command {
+private:
+  Character& user;
+public:
+  BlockCommand(Character& user) : user(user) {}
+  void execute() override {
+    user.block();
+  }
+  void undo() override {
+    user.resetBlock();
+    cout &lt;&lt; "Отмена защиты у игрока " &lt;&lt; user.getName();
+  }
+};
+
+class Game {
+private:
+  Character& player1;
+  Character& player2;
+
+  Character& currentPl;
+  Character& opponent;
+  stack&lt;Command&gt; history;
+public:
+  Game(Character& player1, Character& player2) :
+    player1(player1), player2(player2), currentPl(player1), opponent(player2) {}
+  void nextTurn() {
+    swap(currentPl, opponent);
+  }
+  void makeMove(Command* cmd) {
+    cmd->execute();
+    history.push(cmd);
+  }
+  void undoMove() {
+    if (!history.empty()) {
+      history.top().undo();
+      history.pop();
+    } else {
+      cout &lt;&lt; "Отменять нечего!" &lt;&lt; endl;
+    }
+  }
+};
+</pre>
+</article>
+

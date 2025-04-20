@@ -196,7 +196,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 13,
+    id: 14,
     year: 1998,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -211,7 +211,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 14,
+    id: 15,
     year: 1999,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -226,7 +226,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 15,
+    id: 16,
     year: 2000,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -241,7 +241,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 16,
+    id: 17,
     year: 2000,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -256,7 +256,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2001,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -271,7 +271,22 @@ const dataBooksPaper = [
   },
 
   {
-    id: 18,
+    id: 19,
+    year: 2001,
+    category: 'paper',
+    theme: 'Бумажные книги',
+    title: 'Энциклопедия компьютерных вирусов',
+    author: 'Козлов',
+    authorName: 'Д.А.',
+    pages: '458',
+    cover: 'мягкая',
+    image: '2001 Козлов - Энциклопедия компьютерных вирусов.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 20,
     year: 2001,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -286,7 +301,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 19,
+    id: 21,
     year: 2001,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -301,7 +316,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 20,
+    id: 22,
     year: 2002,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -316,7 +331,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 21,
+    id: 23,
     year: 2002,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -331,7 +346,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 22,
+    id: 24,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -346,7 +361,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 23,
+    id: 25,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -361,7 +376,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 24,
+    id: 26,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -376,7 +391,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 25,
+    id: 27,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -391,7 +406,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 26,
+    id: 28,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -406,7 +421,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 27,
+    id: 29,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -421,7 +436,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 28,
+    id: 30,
     year: 2004,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -436,7 +451,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 29,
+    id: 31,
     year: 2005,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -451,7 +466,22 @@ const dataBooksPaper = [
   },
 
   {
-    id: 30,
+    id: 32,
+    year: 2005,
+    category: 'paper',
+    theme: 'Бумажные книги',
+    title: 'C++ Специальный справочник (2е)',
+    author: 'Карпов',
+    authorName: 'Борис',
+    pages: '381',
+    cover: 'мягкая',
+    image: '2005 Карпов - C++ Специальный справочник.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 32,
     year: 2005,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -466,7 +496,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 31,
+    id: 33,
     year: 2005,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -481,7 +511,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 32,
+    id: 34,
     year: 2005,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -496,7 +526,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 33,
+    id: 35,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -511,7 +541,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 34,
+    id: 36,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -526,7 +556,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 35,
+    id: 37,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -541,7 +571,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 36,
+    id: 38,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -556,7 +586,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 37,
+    id: 39,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -571,7 +601,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 38,
+    id: 40,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -586,7 +616,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 39,
+    id: 41,
     year: 2006,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -601,7 +631,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 40,
+    id: 42,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -616,7 +646,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 41,
+    id: 43,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -631,7 +661,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 42,
+    id: 44,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -646,7 +676,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 43,
+    id: 45,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -661,7 +691,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 44,
+    id: 46,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -676,7 +706,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 45,
+    id: 47,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -686,12 +716,12 @@ const dataBooksPaper = [
     pages: '126',
     cover: 'мягкая',
     image: '2007 Яновский - Компьютерные игры на языке программирования Си.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.04.15 вт',
   },
 
   {
-    id: 46,
+    id: 48,
     year: 2007,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -706,7 +736,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 47,
+    id: 49,
     year: 2008,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -721,7 +751,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 48,
+    id: 50,
     year: 2008,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -736,7 +766,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 49,
+    id: 51,
     year: 2008,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -751,7 +781,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 50,
+    id: 52,
     year: 2009,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -766,7 +796,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 51,
+    id: 53,
     year: 2009,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -781,7 +811,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 52,
+    id: 54,
     year: 2011,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -796,7 +826,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 53,
+    id: 55,
     year: 2012,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -811,7 +841,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 54,
+    id: 56,
     year: 2012,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -826,7 +856,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 55,
+    id: 57,
     year: 2013,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -841,7 +871,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 56,
+    id: 58,
     year: 2013,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -856,7 +886,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 57,
+    id: 59,
     year: 2014,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -871,7 +901,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 58,
+    id: 60,
     year: 2015,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -886,7 +916,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 59,
+    id: 61,
     year: 2016,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -901,7 +931,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 60,
+    id: 62,
     year: 2016,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -916,7 +946,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 61,
+    id: 63,
     year: 2017,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -931,7 +961,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 62,
+    id: 64,
     year: 2018,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -946,7 +976,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 63,
+    id: 65,
     year: 2018,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -961,7 +991,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 64,
+    id: 66,
     year: 2019,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -976,7 +1006,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 65,
+    id: 67,
     year: 2019,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -991,7 +1021,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 66,
+    id: 68,
     year: 2020,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1006,7 +1036,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 67,
+    id: 69,
     year: 2020,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1021,7 +1051,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 68,
+    id: 70,
     year: 2021,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1036,7 +1066,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 69,
+    id: 71,
     year: 2021,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1051,7 +1081,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 70,
+    id: 72,
     year: 2022,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1066,7 +1096,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 71,
+    id: 73,
     year: 2022,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1081,7 +1111,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 72,
+    id: 74,
     year: 2022,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1096,7 +1126,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 73,
+    id: 75,
     year: 2022,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1111,7 +1141,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 74,
+    id: 76,
     year: 2022,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1126,7 +1156,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 75,
+    id: 77,
     year: 2023,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1141,7 +1171,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 76,
+    id: 78,
     year: 2023,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1156,7 +1186,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 77,
+    id: 79,
     year: 2023,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1171,7 +1201,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 78,
+    id: 80,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1185,7 +1215,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 79,
+    id: 81,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1200,7 +1230,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 80,
+    id: 82,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',

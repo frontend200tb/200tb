@@ -333,6 +333,30 @@ int main() {
 1000000000 2000000000 3000000000
 </pre>
   <code>1000000000 1000000000 1000000000</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;long long&gt; Pref(n + 1, 0);
+  vector&lt;long long&gt; A(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> Pref[i];
+    A[i] = Pref[i] - Pref[i - 1];
+    cout &lt;&lt; A[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -374,6 +398,38 @@ int main() {
 -1
 5
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;long long&gt; A(n + 1, 0);
+  vector&lt;long long&gt; Pref(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+    Pref[i] = Pref[i - 1] + A[i];
+  }
+
+  int q, i, j;
+  cin >> q;
+
+
+  while (q--) {
+    cin >> i >> j;
+    cout &lt;&lt; Pref[j] - Pref[i-1] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -387,7 +443,7 @@ int main() {
 
   <p>В одномерном массиве, заполненном произвольными целыми числами, за один проход найдите непрерывный кусок, сумма чисел в котором максимальна.</p>
 
-  <p>Примечание. Фактически требуется найти такие i и j (i≤j), что сумма всех элементов массива от a<sub>i</sub> до a<sub>j</sub> включительно будет максимальна.</p>
+  <p>Примечание. Фактически требуется найти такие i и j (i ≤ j), что сумма всех элементов массива от a<sub>i</sub> до a<sub>j</sub> включительно будет максимальна.</p>
 
   <h4>Входные данные</h4>
   <p>На вход программе сначала подается натуральное n&lt;=100000 — количество элементов в массиве. Далее, по одному в строке расположены сами элементы массива — целые числа, по модулю не превосходящие 30000.</p>
@@ -398,13 +454,37 @@ int main() {
   <h4>Пример</h4>
 <pre>
 5
--1
-2
-3
--2
-2
+-1 2 3 -2 2
 </pre>
   <code>2 3</code>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 2</h4>
+<pre>
+5
+-50 -40 -30 -20 -10
+</pre>
+  <code>5 5</code>
+
+    <h4>Пример 3</h4>
+<pre>
+5
+-10 0 -10 10 10
+</pre>
+  <code>4 5</code>
+
+    <h4>Пример 4</h4>
+<pre>
+5
+-10 -10 10 10 10
+</pre>
+  <code>3 5</code>
+  <p>Если нет положительных чисел, то выводится индекс первого максимального (отрицательного или нуля).</p>
+<pre>
+
+</pre>
+  </details>
 </article>
 
 
@@ -605,7 +685,7 @@ int main() {
   cin >> s;
 
   // создадим префикс-функцию
-  vector<int> Pref(s.size());
+  vector&lt;int&gt; Pref(s.size());
   for (int i = 1; i &lt; s.size(); i++) {
     Pref[i] = Pref[i - 1];
     if (s[i] == s[i - 1]) {
