@@ -234,6 +234,19 @@ const dataBooksC = [
   },
 
   {
+    id: 18,
+    year: 1999,
+    category: 'code',
+    theme: 'c',
+    title: 'Сборник задач и упражнений по языку Си',
+    author: 'Руденко',
+    authorName: 'Т.В.',
+    pages: '80',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 19,
     year: 2000,
     category: 'code',
@@ -1004,6 +1017,19 @@ const dataBooksC = [
     author: 'Дорогов',
     authorName: 'Виктор',
     pages: '225',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 78,
+    year: 2020,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование в UNIX на Си (2е)',
+    author: 'Казачук',
+    authorName: 'Мария',
+    pages: '106',
     isLearned: false,
     dateLearned: '',
   },

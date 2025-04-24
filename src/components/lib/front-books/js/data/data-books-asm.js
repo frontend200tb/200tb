@@ -286,6 +286,19 @@ const dataBooksAsm = [
   },
 
   {
+    id: 22,
+    year: 1996,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Как написать компьютерную игру на ассемблере',
+    author: 'Шалаев',
+    authorName: 'Н.',
+    pages: '307',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 23,
     year: 1997,
     category: 'code',

@@ -6,8 +6,8 @@
 
 
 <article class="article">
-  <h1>Контест Round 1003 (Div.3)</h1>
-  <p><a href="https://codeforces.com/contest/2065" target="_blank">Codeforces Round 1003 (Div.3)</a></p>
+  <h1>Контест Round 1003 (Div.4)</h1>
+  <p><a href="https://codeforces.com/contest/2065" target="_blank">Codeforces Round 1003 (Div.4)</a></p>
 </article>
 
 
@@ -92,17 +92,19 @@ skibidi
 using namespace std;
 
 int main() {
-	int t;
-	cin >> t;
+  int t;
+  cin >> t;
 
-	while (t--) {
-		string w;
-		cin >> w;
-		string res;
-		res = w.erase(w.size() - 2, 2) + "i";
+  while (t--) {
+    string w;
+    cin >> w;
 
-		cout &lt;&lt; res &lt;&lt; '\n';
-	}
+    for (int i = 0; i &lt; w.size() - 2; i++) {
+      cout &lt;&lt; w[i];
+    }
+
+    cout &lt;&lt; "i\n";
+  }
 }
 </pre>
   </details>
@@ -157,29 +159,29 @@ ohio
 
   <details>
     <summary>Решение</summary>
-    <p>нетрудно заметить, что если в строке есть два подрвд идущих одинаковых символа, то всю строку можно сократить до 1 символа. этим циклом я просто ищу такуие два символа. вывожу единичку, если они находятся, и длину строки, если нет</p>
+    <p>Нетрудно заметить, что если в строке есть два подряд идущих одинаковых символа, то всю строку можно сократить до 1 символа. этим циклом я просто ищу такуие два символа. вывожу единичку, если они находятся, и длину строки, если нет</p>
 <pre>
 #include &lt;iostream&gt;
 
 using namespace std;
 
 int main() {
-	int t;
-	cin >> t;
+  int t;
+  cin >> t;
 
-	while (t--) {
-		string s;
-		cin >> s;
-		int res = s.size();
-		for (int i = 1; i &lt; s.size(); i++) {
-			if (s[i] == s[i - 1]) {
-				res = 1;
-				break;
-			}
-		}
+  while (t--) {
+    string s;
+    cin >> s;
+    int res = s.size();
+    for (int i = 1; i &lt; s.size(); i++) {
+      if (s[i] == s[i - 1]) {
+        res = 1;
+        break;
+      }
+    }
 
-		cout &lt;&lt; res &lt;&lt; '\n';
-	}
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
 }
 </pre>
   </details>
@@ -268,41 +270,38 @@ int main() {
   cin >> t;
 
   while (t--) {
-    int n, m, b;
+    int n, m;
     cin >> n >> m;
-    vector&lt;int&gt; A(n);
-    bool f = false;
+    vector&lt;long long&gt; A(n + 1, 3'000'000'000'000);
     for (int i = 0; i &lt; n; i++) {
       cin >> A[i];
     }
 
-    //так как в этой версии задачи m = 1,
-    // считываем единственный элемент массива b
-    cin >> b;
+    long long buf;
+    cin >> buf;
+    bool flag = true;
+    long long h1, h2, tmp1, tmp2;
 
-    //выбираем максимальное возможное значение последнего элемента
-    if (A[n - 1] &lt; b - A[n - 1]) A[n - 1] = b - A[n - 1];
+    for (int i = n - 1; i >= 0; i--) {
+      tmp1 = A[i];
+      tmp2 = buf - A[i];
+      h1 = max(tmp1, tmp2);
+      h2 = min(tmp1, tmp2);
 
-    //идем с предпоследнего элемента до первого, пытаемся установить
-    //максимальное возможное значение, но так, чтобы
-    // оно не превышало значение следующего элемента
-    for (int i = n - 2; i >= 0; i--) {
-      if (b - A[i] > A[i] && b - A[i] &lt;= A[i + 1]) {
-        A[i] = b - A[i];
-      } else if (A[i] > A[i + 1]) {
-        A[i] = b - A[i];
+      if (h1 &lt;= A[i + 1]) {
+        A[i] = h1;
+      } else if (h2 &lt;= A[i + 1]) {
+        A[i] = h2;
+      } else {
+        flag = false;
       }
     }
 
-    //проверка, отсортирован ли массив
-    for (int i = 1; i &lt; n; i++)
-      if (A[i] &lt; A[i - 1])
-      {
-        cout &lt;&lt; "NO" &lt;&lt; endl;
-        f = true;
-        break;
-      }
-    if (!f) cout &lt;&lt; "YES" &lt;&lt; endl;
+    if (flag) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
   }
 }
 </pre>
@@ -441,6 +440,95 @@ int main() {
 }
 </pre>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Это решение не зашло на тесте 2</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // наборы тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // входные данные
+    int n, m;
+    cin >> n >> m;
+    vector&lt;long long&gt; A(n + 1, 3'000'000'000'000);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    vector&lt;long long&gt; B(m);
+    for (int i = 0; i &lt; m; i++) {
+      cin >> B[i];
+    }
+
+    // решение
+    bool flag = true;
+    B.push_back(0);
+    sort(B.begin(), B.end());
+
+    for (int i = n - 1; i >= 0; i--) {
+      int left = 0;
+      int right = B.size() - 1;
+      int mid;
+
+      while (right - left > 1) {
+        mid = (left + right) / 2;
+        if (B[mid] &lt;= A[i] + A[i + 1]) {
+          left = mid;
+        } else {
+          right = mid;
+        }
+      }
+
+      if (B[right] &lt;= A[i] + A[i + 1]) {
+        mid = right;
+      } else if (B[left] &lt;= A[i] + A[i + 1]) {
+        mid = left;
+      } else {
+        mid = -1;
+      }
+
+      if (mid == 0 || mid == -1) {
+        if (A[i] > A[i + 1]) {
+          flag = false;
+        }
+      } else {
+        int h1, h2, tmp1, tmp2;
+        tmp1 = A[i];
+        tmp2 = B[mid] - A[i];
+        h1 = max(tmp1, tmp2);
+        h2 = min(tmp1, tmp2);
+
+        if (h1 &lt;= A[i + 1]) {
+          A[i] = tmp1;
+        } else if (h2 &lt;= A[i + 1]) {
+          A[i] = tmp2;
+        } else {
+          flag = false;
+        }
+      }
+    }
+
+
+    // вывод результата
+    if (flag) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -560,6 +648,58 @@ int main() {
 }
 </pre>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // наборы тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // входные данные
+    int n, m;
+    cin >> n >> m;
+    vector&lt;pair&lt;long long, vector&lt;long long&gt; &gt; &gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      A[i].first = 0;
+      for (int j = 0; j &lt; m; j++) {
+        int tmp;
+        cin >> tmp;
+        A[i].second.push_back(tmp);
+        A[i].first += tmp;
+      }
+    }
+
+    // решение
+    sort(A.begin(), A.end());
+    vector&lt;long long&gt; B;
+    for (int i = n - 1; i >= 0; i--) {
+      for (int j = 0; j &lt; m; j++) {
+        B.push_back(A[i].second[j]);
+      }
+    }
+
+    long long res = 0;
+    long long mult = n * m;
+    for (int i = 0; i &lt; B.size(); i++) {
+      res += B[i] * mult;
+      mult--;
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -656,6 +796,69 @@ int main(){
         use1.first--;
       }
       cout &lt;&lt; "\n";
+    }
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // наборы тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // входные данные
+    int n, m, k;
+    cin >> n >> m >> k;
+
+    if (abs(n - m) > k) {
+      cout &lt;&lt; "-1\n";
+    } else if (n &lt; k && m &lt; k) {
+      cout &lt;&lt; -1;
+    } else {
+      if (n >= m) {
+        for (int i = 0; i &lt; k; i++) {
+          cout &lt;&lt; 0;
+        }
+        n -= k;
+        while (n > 0 || m > 0) {
+          if (m > 0) {
+            cout &lt;&lt; 1;
+            m--;
+          }
+          if (n > 0) {
+            cout &lt;&lt; 0;
+            n--;
+          }
+        }
+        cout &lt;&lt; '\n';
+      } else {
+        for (int i = 0; i &lt; k; i++) {
+          cout &lt;&lt; 1;
+        }
+        m -= k;
+        while (n > 0 || m > 0) {
+          if (n > 0) {
+            cout &lt;&lt; 0;
+            n--;
+          }
+          if (m > 0) {
+            cout &lt;&lt; 1;
+            m--;
+          }
+        }
+        cout &lt;&lt; '\n';
+      }
     }
   }
 }
@@ -967,6 +1170,111 @@ int main()
 	{
 		solve();
 	}
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Неправильный ответ на тесте 2</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  vector&lt;long long&gt; Count(1000000);
+  vector&lt;long long&gt; Count2(1000000);
+
+  // наборы тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // входные данные
+    int n;
+    cin >> n;
+
+    // решение
+    long long res = 0;
+    vector&lt;long long&gt; Elem(n);
+    int count_simple = 0;
+    for (int i = 0; i &lt; n; i++) {
+      cin >> Elem[i];
+      int z = 0;
+      int tmp = Elem[i];
+      vector&lt;int&gt; F;
+      for (long long j = 2; j * j &lt;= tmp; j++) {
+        while (tmp % j == 0) {
+          z++;
+          tmp /= j;
+          F.push_back(j);
+        }
+      }
+      if (tmp > 1) {
+        z++;
+        F.push_back(tmp);
+      }
+      tmp = Elem[i];
+      if (z == 1) {
+        res += count_simple - Count[tmp];
+        res += Count2[tmp];
+        Count[tmp]++;
+        count_simple++;
+      }
+      if (z == 2) {
+        res++;
+        if (F[0] == F[1]) {
+          res += Count2[F[0]];
+          res += Count[F[0]];
+          Count2[tmp]++;
+          Count2[F[0]]++;
+        } else {
+          res += Count[F[0]];
+          res += Count[F[1]];
+          res += Count2[tmp];
+          Count2[tmp]++;
+          Count[F[0]]++;
+          Count[F[1]]++;
+        }
+      }
+    }
+    cout &lt;&lt; res &lt;&lt; '\n';
+
+    for (int i = 0; i &lt; n; i++) {
+      int z = 0;
+      int tmp = Elem[i];
+      vector&lt;int&gt; F;
+      for (long long j = 2; j * j &lt;= tmp; j++) {
+        while (tmp % j == 0) {
+          z++;
+          tmp /= j;
+          F.push_back(j);
+        }
+      }
+      if (tmp > 1) {
+        z++;
+        F.push_back(tmp);
+      }
+      tmp = Elem[i];
+      if (z == 1) {
+        Count[tmp]--;
+      }
+      if (z == 2) {
+        if (F[0] == F[1]) {
+          Count2[tmp]--;
+          Count2[F[0]]--;
+        } else {
+          Count2[tmp]--;
+          Count[F[0]]--;
+          Count[F[1]]--;
+        }
+      }
+    }
+  }
 }
 </pre>
   </details>

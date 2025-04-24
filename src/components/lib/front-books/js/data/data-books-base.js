@@ -248,6 +248,19 @@ const dataBooksBase = [
   },
 
   {
+    id: 19,
+    year: 2006,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Операционная система UNIX',
+    author: 'Столяров',
+    authorName: 'Андрей',
+    pages: '62',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 20,
     year: 2007,
     category: 'основы',

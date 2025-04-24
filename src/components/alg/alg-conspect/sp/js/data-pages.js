@@ -22,6 +22,8 @@ import htmlSp20        from './../pages/elem-sp20.html';
 import htmlSp21        from './../pages/elem-sp21.html';
 import htmlSp22        from './../pages/elem-sp22.html';
 import htmlSp23        from './../pages/elem-sp23.html';
+import htmlSp24        from './../pages/elem-sp24.html';
+import htmlSp25        from './../pages/elem-sp25.html';
 import htmlSpDemCup    from './../pages/elem-spDemCup.html';
 import htmlSpNewYear   from './../pages/elem-spNewYear.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
@@ -30,6 +32,10 @@ import htmlSpRound993  from './../pages/elem-spRound993.html';
 import htmlSpRound995  from './../pages/elem-spRound995.html';
 import htmlSpRound998  from './../pages/elem-spRound998.html';
 import htmlSpRound1003 from './../pages/elem-spRound1003.html';
+import htmlSpRound1006 from './../pages/elem-spRound1006.html';
+import htmlSpRound1013 from './../pages/elem-spRound1013.html';
+import htmlSpRound1016 from './../pages/elem-spRound1016.html';
+import htmlSpRound1017 from './../pages/elem-spRound1017.html';
 
 export const pages = [
   htmlSp1,
@@ -55,6 +61,8 @@ export const pages = [
   htmlSp21,
   htmlSp22,
   htmlSp23,
+  htmlSp24,
+  htmlSp25,
   htmlSpDemCup,
   htmlSpNewYear,
   htmlSpRound988,
@@ -63,4 +71,8 @@ export const pages = [
   htmlSpRound995,
   htmlSpRound998,
   htmlSpRound1003,
+  htmlSpRound1006,
+  htmlSpRound1013,
+  htmlSpRound1016,
+  htmlSpRound1017,
 ];

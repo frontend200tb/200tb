@@ -283,8 +283,6 @@ int main() {
 }
 </pre>
   </details>
-
-  <h4>2.7 Безопасное программирование (62)</h4>
 </article>
 
 
@@ -443,10 +441,6 @@ int main() {
 }
 </pre>
   </details>
-
-  <h4>3.13 Безопасное программирование (99)</h4>
-
-  <p>Материал изложен на стр.977</p>
 </article>
 
 
@@ -707,8 +701,6 @@ int main() {
   <p>Ошибка написания оператора присваивания = вместо оператора равенства == очень частая и опасная. Эта ошибка не вызывает синтаксических ошибок при компиляции потому что присваивание так же возвращает значение как и сравнение. Однако программа выдает неверные результаты при выполнении.</p>
 
   <h4>4.12 Резюме структурного программирования (137)</h4>
-
-  <h4>4.13 Безопасное программирование (142)</h4>
 </article>
 
 
@@ -1101,8 +1093,6 @@ long fibonacci(int n) {
   <p>Рекурсия имеет много отрицательных сторон. Она многократно инициирует механизм вызова функции. Это дорого стоит в плане процессорного времени и в плане расхода памяти. Итерация происходит в пределах функции, поэтому дополнительных расходов на вызовы функции и выделение памяти нет.</p>
   <p>Любая проблема, которая может быть решена рекурсивно, может быть решена и итеративно (без рекурсии). Рекурсивное решение проще для понимания и отладки.</p>
 
-  <h4>5.17 Безопасное программирование (190)</h4>
-
   <p>Стандарт ANSI не определяет порядок, в котором должны вычисляться значения операндов большинства операций. Порядок определен только в четырех операциях: логическое И "&&"",  логическое ИЛИ ""||", запятая ",", тернарный оператор "?:". В этих операциях порядок слева направо.</p>
 </article>
 
@@ -1119,6 +1109,809 @@ long fibonacci(int n) {
   <h4>6.2 Массивы (208)</h4>
 
   <p>Для обращения к элементу массива, мы указываем имя массива и номер позиции элемента относительно начала массива. Номера позиций (индексы) элементов массива начинаются с 0.</p>
+
+  <h4>6.3 Определение массивов (210)</h4>
+
+  <h4>6.4 Примеры действий над массивами (210)</h4>
+
+  <p>Определение массива и использование цикла для инициализации его элементов.</p>
+
+  <details>
+    <summary>Программа 26 (211)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int n[10];
+  int i;
+
+  for (i = 0; i &lt; 10; i++) {
+    n[i] = 0;
+  }
+
+  printf("%s%13s\n", "Element", "Value");
+
+  for (i = 0; i &lt; 10; i++) {
+    printf("%7d%13d\n", i, n[i]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Инициализация массива в определении с помощью списка инициализации.</p>
+
+  <details>
+    <summary>Программа 27 (212)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int n[10] = {32, 27, 64, 18, 95, 14, 90, 70, 60, 37};
+  int i;
+
+  printf("%s%13s\n", "Element", "Value");
+
+  for (i = 0; i &lt; 10; i++) {
+    printf("%7d%13d\n", i, n[i]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Если инициализирующих значений меньше, чем элементов массива, то оставшиеся элементы автоматически инициализируются нулями. Массивы не инициализируются нулями автоматически, нужно инициализировать хотя бы один элемент, чтобы оставшиеся элементы были заполнены нулями автоматически.</p>
+
+  <p>Инициализируем элементы массива четными числами от 2 до 20</p>
+
+  <details>
+    <summary>Программа 28 (213)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 10
+
+int main() {
+  int n[SIZE];
+  int i;
+
+  for (i = 0; i &lt; SIZE; i++) {
+    n[i] = 2 + 2 * i;
+  }
+
+  printf("%s%13s\n", "Element", "Value");
+
+  for (i = 0; i &lt; SIZE; i++) {
+    printf("%7d%13d\n", i, n[i]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Вычисление суммы элементов массива (215)</p>
+
+  <details>
+    <summary>Программа 29 (215)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 12
+
+int main() {
+  int n[SIZE] = {1,3,5,4,7,2,99,16,45,67,89,45};
+  int i;
+  int total = 0;
+
+  for (i = 0; i &lt; SIZE; i++) {
+    total += n[i];
+  }
+
+  printf("Total is %d\n", total);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Задача. Сорок студентов попросили оценить качество питания в студенческой столовой по шкале от 1 до 10. Поместите 40 ответов в целочисленный массив и определите результат опроса.</p>
+
+  <details>
+    <summary>Программа 30 (216)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define RESPONSE_SIZE 40
+#define FREQUENCY_SIZE 11
+
+int main() {
+  int answer;
+  int raiting;
+
+  int frequency[FREQUENCY_SIZE] = {0};
+  int responses[RESPONSE_SIZE] = {1,2,6,4,8,5,9,7,8,10,1,6,3,8,6,10,3,8,2,7,6,5,7,6,8,6,7,5,6,6,5,6,7,5,6,4,8,6,8,10};
+
+  for (answer = 0; answer &lt; RESPONSE_SIZE; answer++) {
+    ++frequency[responses[answer]];
+  }
+
+  printf("%s%17s\n", "Raiting", "Frequency");
+
+  for (raiting = 1; raiting &lt; FREQUENCY_SIZE; raiting++) {
+    printf("%6%17d\n", raiting, frequensy[raiting]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Вывести элементы массива в виде гистограммы.</p>
+
+  <details>
+    <summary>Программа 31 (218)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 10
+
+int main() {
+  int n[SIZE] = {19,3,15,7,11,9,13,5,17,1};
+
+  printf("%s%13s%17s\n", "Element", "Value", "Histogram");
+
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%7d%13d     ", i, n[i]);
+
+    for (int j = 1; j &lt;= n[i]; j++) {
+      printf("%c", '*');
+    }
+
+    puts("");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Бросание игральной кости 6000 раз</p>
+
+  <details>
+    <summary>Программа 32 (219)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#define SIZE 7
+
+int main() {
+  int face;
+  int roll;
+  int frequency[SIZE] = {0};
+
+  srand(time(NULL));
+
+  for (roll = 1; roll &lt;= 6000; roll++) {
+    face = 1 + rand() % 6;
+    ++frequency[face];
+  }
+
+  printf("%s%17s\n", "Face", "Frequency");
+
+  for (face = 1; face &lt; SIZE; face++) {
+    printf("%4d%17d\n", face, frequency[face]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Использование символьных массивов для хранения строк и действий над ними</h4>
+
+  <p>Символьный массив может быть инициализирован строковым литералом.</p>
+  <code>char string1[] = "first";</code>
+
+  <p>Компилятор определяет размер массива исходя из длины строки. Строка "first" содержит пять символов и специальный символ окончания строки - нулевой символ '\0'. Все строки языка Си заканчиваются нулевым символом '\0'.</p>
+  <p>Символьный массив может быть также инициализирован списком символьных констант.</p>
+  <code>char string1[] = {'f', 'i', 'r', 's', 't', '\0'};</code>
+
+  <p>Символьный массив можно ввести с помощью функции scanf() и спецификатора %s.</p>
+  <code>char string2[20];</code>
+  <code>scanf("%s", string2)</code>
+  <code>printf("%s\n", string2);</code>
+  <p>Создаем символьный массив на 19 символов и завершающий нулевой символ. Имя массива является адресом его начала в памяти, поэтому символ & перед ним не ставится.</p>
+  <p>Программист должен следить за размером массива сам. Если пользователь введет больше символов, чем содержит символьный массив, переданный в функцию scanf(), то функция scanf() запишет информацию за пределы массива это может привести к потере других данных и ошибкам в программе.</p>
+  <p>Функция printf(), также как и функция scanf(), не следит за размером массива, она будет выводить символы до тех пор, пока не встетит завершающий символ '\0'.</p>
+
+  <p>Инициализация символьного массива строковым литералом, чтение строки в символьный массив, вывод символьного массива в виде строки и доступ к отдельным символам строки.</p>
+
+  <details>
+    <summary>Программа 33 (221)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char string1[20];
+  char string2[] = "string literal";
+
+  printf("Enter a string (less than 20 chars) ");
+  scanf("%s", string1);
+
+  printf("%s", "string1 is %s\nstring2 is %s\n", "string1 with spaces between characters is\n", string1, string2);
+
+  for (int i = 0; string1[i] != '\0'; i++) {
+    printf("%c", string1[i]);
+  }
+
+  puts("");
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Статические и автоматические локальные массивы</h4>
+
+  <p>Статическая локальная переменная (объявленная со словом static внутри функции) существует всегда, но видна только в теле функции. Если локальный массив объявить как статический, он будет создан и проинициализирован один раз. Каждый раз при вызове функции массив не будет создаваться и потом уничтожаться. Это уменьшит время выполнения программы.</p>
+
+  <p>Напишем две функции. Функция staticArrayInit с локальным статическим массивом. В ней массив создается один раз и сразу инициализируется нулями. Вызовем эту функцию дважды. Каждый вызов значения в массиве сохраняются после предыдущего вызова функциии. Функция automaticArrayInit с локальным автоматическим массивом. В ней массив создается при каждом вызове функции и инициализируется значениями 1, 2, 3. Вызываем эту функцию тоже дважды.</p>
+
+  <details>
+    <summary>Программа 34 (222)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void staticArrayInit();
+void automaticArrayInit();
+
+int main() {
+  puts("First call to each function ");
+  staticArrayInit();
+  automaticArrayInit();
+
+  puts("Second call to each function ");
+  staticArrayInit();
+  automaticArrayInit();
+
+  return 0;
+}
+
+void staticArrayInit() {
+  static init array[3]; // {0, 0, 0}
+  puts("Values on entering of static array ");
+  for (int i = 0; i &lt; 3; i++) {
+    printf("array[%d] = %d ", i, array[i]);
+  }
+  puts("Values on exiting of static array ");
+  for (int i = 0; i &lt; 3; i++) {
+    printf("array[%d] = %d ", i, array[i] += 5);
+  }
+}
+
+void automaticArrayInit() {
+  static init array[3] = {1, 2, 3}
+  puts("Values on entering of automatic array ");
+  for (int i = 0; i &lt; 3; i++) {
+    printf("array[%d] = %d ", i, array[i]);
+  }
+  puts("Values on exiting of automatic array ");
+  for (int i = 0; i &lt; 3; i++) {
+    printf("array[%d] = %d ", i, array[i] += 5);
+  }
+}
+</pre>
+  </details>
+
+  <h4>6.5 Передача массивов функциям (224)</h4>
+
+  <p>Для передачи функции массива, нужно указать его имя. Также необходимо передавать размер массива отдельным параметром. Имя массива является адресом его первого элемента. Поэтому такая передача массива в функцию является передачей по ссылке. Функция в этом случае работает не с копиями значений, а с оригинальными элементами массива, находящимися по переданному адресу.</p>
+
+  <p>Покажем что имя массива array и адрес его первого элемента &array[0] это одно и то же.</p>
+
+  <details>
+    <summary>Программа 35 (225)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char array[5];
+
+  printf("array = %p\n", array);
+  printf("&array = %p\n", &array);
+  printf("&array[0] = %p\n", &array[0]);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Покажем что массив передается по ссылке, а отдельные элементы массива передаются по значению.</p>
+
+  <details>
+    <summary>Программа 36 (226)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 5
+
+void modifyArray(int [], int);
+void modifyElement(int);
+
+int main() {
+  int a[SIZE] = {1, 2, 3, 4, 5};
+  puts("Values of original array ");
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%3d", a[i]);
+  }
+  puts("");
+
+  modifyArray(a, SIZE);
+  puts("Values of modified array ");
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%3d", a[i]);
+  }
+  puts("");
+
+  puts("Value of array element [3] ");
+  printf("%d", a[3]);
+
+  modifyElement(a[3]);
+  puts("Value of modified element [3] ");
+  printf("%d", a[3]);
+
+  return 0;
+}
+
+void modifyArray(int b[], int size) {
+  for (int i = 0; i &lt; size; i++) {
+    b[i] *= 2;
+  }
+}
+
+void modifyElement(int e) {
+  e *= 2;
+  printf("Value in modifyElement is %d", e);
+}
+</pre>
+  </details>
+
+  <p>Чтобы уберечь элементы массива от изменений, при передаче массива в функцию по ссылке, нужно использовать слово const.</p>
+  <code>void change(const int array[], int size);</code>
+  <p>Теперь любая попытка изменить элемент приведет к ошибке компиляции.</p>
+
+  <details>
+    <summary>Программа 37 (228)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void tryToModifyArray(const int []);
+
+int main() {
+  int a[] = {10, 20, 30};
+  printf("%d %d %d", a[0], a[1], a[2]);
+
+  tryToModifyArray(a);
+  printf("%d %d %d", a[0], a[1], a[2]);
+
+  return 0;
+}
+
+void tryToModifyArray(const int b[]) {
+  for (int i = 0; i &lt; size; i++) {
+    b[i] *= 2; // ошибка компиляции
+  }
+}
+</pre>
+  </details>
+
+  <h4>6.6 Сортировка массивов (229)</h4>
+
+  <p>Напишем сортировку пузырьком массива из 10 целых чисел.</p>
+
+  <details>
+    <summary>Программа 38 (229)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 10
+
+int main() {
+  int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+  int tmp;
+
+  puts("Original order ");
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%4d ", a[i]);
+  }
+  puts("");
+
+  for (int i = 1; i &lt; SIZE; i++) {
+    for (int j = 0; j &lt; SIZE - 1; j++) {
+      if (a[j] > a[j+1]) {
+        tmp = a[j];
+        a[j] = a[j+1];
+        a[j+1] = tmp;
+      }
+    }
+  }
+
+  puts("Ascending order ");
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%4d ", a[i]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>6.7 Пример: вычисление среднего, медианы и наиболее вероятного значения массива (231)</h4>
+
+  <details>
+    <summary>Программа 39 (231)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 99
+
+void mean(const int []);
+void median(int []);
+void mode(int [], const int []);
+void bubbleSort(int []);
+void printArray(const int []);
+
+int main() {
+  int frequency[10] = {0};
+  int response[SIZE] = {
+    6,7,8,9,8,7,8,9,8,9,
+    7,8,9,5,9,8,7,8,7,8,
+    6,7,8,9,3,9,8,7,8,7,
+    7,8,9,8,9,8,9,7,8,9,
+    6,7,8,7,8,7,9,8,9,2,
+    7,8,9,8,9,8,9,7,5,3,
+    5,6,7,2,5,3,9,4,6,4,
+    7,8,9,6,8,7,8,9,7,8,
+    7,4,4,2,5,3,8,7,5,6,
+    4,5,6,1,6,5,7,8,7
+  }
+
+  mean(response);
+  median(response);
+  mode(frequency, response);
+
+  return 0;
+}
+
+// вычислить среднее значение
+void mean(const int answer[]) {
+  int total = 0;
+  printf("%s\n%s\n%s\n", "********", "  Mean", "********");
+  for (int i = 0; i &lt; SIZE; i++) {
+    total += answer[i];
+  }
+  printf("Average is %d\n", total);
+}
+
+// вычислить медианный элемент
+void median(int answer[]) {
+  printf("%s\n%s\n%s\n", "********", "  Median", "********");
+  puts("Unsorted array\n");
+  printArray(answer);
+  bubbleSort(answer);
+  puts("Sorted array\n");
+  printArray(answer);
+  printf("Median is %d\n", answer[SIZE / 2]);
+}
+
+// определить наиболее частый отклик
+void mode(int freq[], const int answer[]) {
+  int raiting;
+  int h;
+  int largest = 0;
+  int modeValue = 0;
+  printf("%s\n%s\n%s\n", "********", "  Mode", "********");
+  for (raiting = 1; raiting &lt;= 9; raiting++) {
+    freq[raiting] = 0;
+  }
+  for (int i = 0; i &lt; SIZE; i++) {
+    freq[answer[i]]++;
+  }
+  printf("%s%11s%19s\n\n%54s\n%54s\n\n",
+         "Response", "Frequency", "Histogram",
+         "1   1   2   2", "5   0   5   0   5");
+  for (raiting = 1; raiting &lt;= 9; raining++) {
+    printf("%8d%11d       ", raiting, freq[raiting]);
+    if (freq[raiting] > largest) {
+      largest = freq[raiting];
+      modeValue = raiting;
+    }
+    for (h = 1; h &lt;= freq[raiting]; h++) {
+      printf("%s", "*");
+    }
+    puts("");
+    printf("Mode is %d occurred %d times\n", modeValue, largest);
+  }
+}
+
+// пузырьковая сортировка
+void bubbleSort(int a[]){
+  int pass;
+  int hold;
+  for (pass = 1; pass &lt; SIZE; pass++){
+    for (int i = 0; i &lt; SIZE - 1; i++) {
+      if (a[i] > a[i + 1]) {
+        hold = a[i];
+        a[i] = a[i + 1];
+        a[i + 1] = hold;
+      }
+    }
+  }
+}
+
+// печать массива
+void printArray(const int a[]) {
+  for (int i = 0; i &lt; SIZE; i++) {
+    if (i % 20 == 0) {
+      puts("");
+    }
+    printf("%2d", a[i]);
+  }
+}
+</pre>
+  </details>
+
+  <h4>6.8 Поиск в массивах (236)</h4>
+
+  <h4>Линейный поиск</h4>
+
+  <p>При линейном поиске сравнивают значения каждого элемента с ключом поиска. Алгоритм проводится на несортированном массиве.</p>
+
+  <details>
+    <summary>Программа 40 (236)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 100
+
+int linearSearch(const int [], int, int);
+
+int main() {
+  int a[SIZE];
+  int key;
+  int element;
+  for (int i = 0; i &lt; SIZE; i++) {
+    a[i] = 2 * i;
+  }
+  puts("Enter integer key ");
+  scanf("%d", &key);
+  element = linearSearch(a, key, SIZE);
+  if (element != -1) {
+    printf("Fount in element %d\n", element);
+  } else {
+    puts("Element not found");
+  }
+
+  return 0;
+}
+
+// линейнй поиск
+int linearSearch(const int array[], int key, int size) {
+  for (int i = 0; i &lt; size; i++) {
+    if (array[i] == key) {
+      return i;
+    }
+  }
+  return -1;
+}
+</pre>
+  </details>
+
+  <h4>Двоичный поиск</h4>
+
+  <p>При двоичном поиске после каждого сравнения исключается половина массива. Алгоритм проводится на сортированном массиве.</p>
+
+  <details>
+    <summary>Программа 41 (238)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 15
+
+int binarySearch(const int [], int, int, int);
+void printHeader();
+void printRow(const int [], int, int, int);
+
+int main() {
+  int a[SIZE];
+  int key;
+  int element;
+  for (int i = 0; i &lt; SIZE; i++) {
+    a[i] = 2 * i;
+  }
+  puts("Enter number from 0 to 28 ");
+  scanf("%d", &key);
+  printHeader();
+  element = binarySearch(a, key, 0, SIZE - 1);
+  if (element != -1) {
+    printf("%d found in element %d\n", key, element);
+  } else {
+    printf("Element %d not found", key);
+  }
+
+  return 0;
+}
+
+// двоичный поиск
+int binarySearch(const int b[], int key, int low, int high) {
+  int middle;
+  while (low &lt;= high) {
+    middle = (low + high) / 2;
+    printRow(b, low, middle, high);
+    if (key == b[middle]) {
+      return middle;
+    } else if (key &lt; b[middle]) {
+      high = middle - 1;
+    } else {
+      low = middle + 1;
+    }
+  }
+
+  return -1;
+}
+
+// печать заголовка
+void printHeader() {
+  puts("\nSubscripts:");
+  for (int i = 0; i &lt; SIZE; i++) {
+    printf("%3d", i)
+  }
+  puts("";)
+  for (int i = 0; i &lt; 4 * SIZE; i++) {
+    printf("%s", "-");
+  }
+  puts("";)
+}
+
+// напечатать ряд массива
+void printRow(const int b[], int low, int mid, int high) {
+  for (int i = 0; i &lt; SIZE; i++) {
+    if (i &lt; low || i > high) {
+      printf("%s", "   ");
+    } else if (i == mid) {
+      printf("%3d", b[i]);
+    } else {
+      printf("%3d", b[i]);
+    }
+  }
+  puts("";)
+}
+</pre>
+  </details>
+
+  <h4>6.9 Многомерные массивы (241)</h4>
+
+  <p>Для работы с таблицами используют двумерные массивы. Каждую ячейку таблицы можно указать с помощью двух индексов: первый индекс указывает строку таблицы, второй индекс - столбец.</p>
+  <p>Определим и инициализируем массив 2 на 2.</p>
+  <code>int b[2][2] = { {1,2}, {3,4} };</code>
+  <p>Если указывать не все значения, то последние в каждой строке инициализируются нулями</p>
+  <code>int b[2][2] = { {1}, {3} }; // { {1,0}, {3,0}}</code>
+
+  <details>
+    <summary>Программа 42 (242)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void printArray(const int [][3]);
+
+int main() {
+  int array1[2][3] = { {1,2,3}, {4,5,6} };
+  int array1[2][3] = { 1, 2, 3, 4, 5, 6 };
+  int array1[2][3] = { {1,2}, {4} };
+
+  puts("array1");
+  printArray(array1);
+
+  puts("array2");
+  printArray(array2);
+
+  puts("array3");
+  printArray(array3);
+
+  return 0;
+}
+
+void printArray(const int a[][3]) {
+  for (int i = 0; i &lt;= 1; i++) {
+    for (int j = 0; j &lt;= 2; j++) {
+      printf("%d", a[i][j]);
+    }
+  }
+  puts("");
+}
+</pre>
+  </details>
+
+  <p>Все элементы многомерного массива хранятся в памяти последовательно , независимо от количества индексов. В двумерных массивах каждая строка является одномерным массивом.</p>
+  <p>В следующей программе есть массив studentGrages размером 3 на 4. Каждая строка массива это студент, а каждый столбец это оценка за экзамен. Функция minimum() определяет самую низкую оценку. Функция maximum() - самую высокую. Функция average() для каждого студента определяет среднюю оценку.</p>
+
+  <details>
+    <summary>Программа 43 (245)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define STUDENTS 3
+#define EXAMS 4
+
+int minimum(const int [][EXAMS], int, int);
+int maximum(const int [][EXAMS], int, int);
+double average(const int [][EXAMS], int);
+void printArray(const int [][EXAMS], int, int);
+
+int main() {
+  int student;
+  const int studentGrades[STUDENTS][EXAMS] = {
+    {77, 68, 86, 73},
+    {96, 87, 89, 78},
+    {70, 90, 86, 81}
+  }
+
+  puts("Array is");
+  printArray(studentGrades, STUDENTS, EXAMS);
+
+  printf("Lowest grade %d\n Highest grade %d\n",
+    minimum(studentGrades, STUDENTS, EXAMS),
+    maximum(studentGrades, STUDENTS, EXAMS),)
+
+  for (student = 0; student &lt; STUDENTS, student++) {
+    printf("Average for student %d is %d\n",
+    student,
+    average(studentGrades[student], EXAMS));
+  }
+
+  return 0;
+}
+
+int minimum(const int grades[][EXAMS], int pupils, int tests){
+  int lowGrade = 100;
+  for (int i = 0; i &lt; pupils; i++) {
+    for (int j = 0; j &lt; tests; j++) {
+      if (grades[i][j] &lt; lowGrade) {
+        lowGrade = grades[i][j];
+      }
+    }
+  }
+  return lowGrade;
+}
+
+int maximum(const int grades[][EXAMS], int pupils, int tests){
+  int highGrade = 0;
+  for (int i = 0; i &lt; pupils; i++) {
+    for (int j = 0; j &lt; tests; j++) {
+      if (grades[i][j] > highGrade) {
+        highGrade = grades[i][j];
+      }
+    }
+  }
+  return highGrade;
+}
+
+double average(const int setOfGrades[][EXAMS], int tests) {
+  int total = 0;
+  for (int i = 0; i &lt; tests; i++) {
+    total += setOgGrades[i];
+  }
+
+  return (double)total / tests;
+}
+
+void printArray(const int grades[][EXAMS], int pupils, int tests) {
+  printf("%s", "            [0]  [1]  [2]  [3]");
+  for (int i = 0; i &lt; pupils; i++) {
+    printf("\nstudentGrades[%d] ", i);
+    for (int j = 0; j &lt; tests; j++) {
+      printf("%-5d", grades[i][j]);
+    }
+  }
+}
+</pre>
+  </details>
+
+  <p>Двумерный массив это одномерный массив одномерных массивов. Имя одномерного массива является адресом этого массива в памяти.</p>
 </article>
 
 

@@ -480,9 +480,75 @@ int main() {
 -10 -10 10 10 10
 </pre>
   <code>3 5</code>
-  <p>Если нет положительных чисел, то выводится индекс первого максимального (отрицательного или нуля).</p>
-<pre>
 
+    <h4>Пример 5</h4>
+<pre>
+6
+0 0 10 10 0 0
+</pre>
+  <code>3 4</code>
+
+    <h4>Пример 6</h4>
+<pre>
+5
+10 0 10 0 0
+</pre>
+  <code>1 3</code>
+  <p>Сначала находим максимальное число. Если оно меньше или равно нулю, значит нет положительных чисел, и в ответ выводим индекс первого максимального (отрицательного или нуля).</p>
+  <p>Правым указателем проходим и складываем по очереди числа и смотрим, если текущая сумма больше максимальной, то обновляем максимум и границы ответа. Если текущая сумма меньше или равна 0, то увеличиваем левый указатель.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; ++i) {
+    cin >> A[i];
+  }
+
+  int maxA = A[0];
+  int i_maxA = 0;
+  int sum = 0;
+  int max_sum = 0;
+  int i = 0, j = 0;
+  int pl = 0; // левый указатель
+  int pr = 0; // правый указатель
+
+  // двигаем правый указатель до конца массива
+  while (pr &lt; n) {
+    if (A[pr] > maxA) {
+      maxA = A[pr];
+      i_maxA = pr;
+    }
+
+    sum += A[pr];
+
+    if (sum > max_sum) {
+      max_sum = sum;
+      i = pl;
+      j = pr;
+    }
+
+    if (sum &lt;= 0) {
+      sum = 0;
+      pl = pr + 1;
+    }
+
+    pr++;
+  }
+
+  // вывод результата
+  if (maxA > 0) {
+    cout &lt;&lt; i + 1 &lt;&lt; ' ' &lt;&lt; j + 1;
+  } else {
+    cout &lt;&lt; i_maxA + 1 &lt;&lt; ' ' &lt;&lt; i_maxA + 1;
+  }
+}
 </pre>
   </details>
 </article>
@@ -723,7 +789,7 @@ int main() {
   <p>Напишите программу, которая вычисляет наименьшее время, которое может пройти от момента прихода Юли на остановку у университета до ее появления на остановке у дома, если она будет действовать оптимально.</p>
 
   <h4>Входные данные</h4>
-  <p>В первой строке входных данных записано целое число N (1≤N≤100000) — количество отрезков маршрута между соседними остановками. Во второй строке записано N целых чисел A<sub>i</sub> (1≤A<sub>i</sub>≤360, 1≤i≤N), где A<sub>i</sub> обозначает время, за которое автобус проезжает отрезок маршрута от остановки i-1 до остановки i. В третьей строке записано N целых чисел B<sub>i</sub> (1≤B<sub>i</sub>≤360, 1≤i≤N), где B<sub>i</sub> обозначает время, за которое Юля проходит отрезок маршрута от остановки i-1 до остановки i.</p>
+  <p>В первой строке входных данных записано целое число N (1≤N≤100000) — количество отрезков маршрута между соседними остановками. Во второй строке записано N целых чисел Aᵢ (1 ≤ Aᵢ ≤ 360, 1 ≤ i ≤ N), где Aᵢ обозначает время, за которое автобус проезжает отрезок маршрута от остановки i-1 до остановки i. В третьей строке записано N целых чисел Bᵢ (1 ≤ Bᵢ ≤ 360, 1 ≤ i ≤ N), где Bᵢ обозначает время, за которое Юля проходит отрезок маршрута от остановки i-1 до остановки i.</p>
 
   <h4>Выходные данные</h4>
   <p>Выведите единственное число — ответ на задачу.</p>
@@ -751,6 +817,154 @@ int main() {
 1 2 5
 </pre>
   <code>8</code>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 4. Сначала пешком, потом на автобусе</h4>
+<pre>
+6
+5 5 5 1 1 1
+2 2 2 4 4 4
+</pre>
+  <code>9</code>
+
+    <h4>Пример 5. Сначала на автобусе, потом пешком</h4>
+<pre>
+6
+3 2 2 4 4 4
+5 5 5 1 1 1
+</pre>
+  <code>10</code>
+
+    <h4>Пример 6. Сначала пешком, потом на автобусе, потом пешком</h4>
+<pre>
+6
+5 5 1 2 4 4
+2 2 5 5 2 2
+</pre>
+  <code>11</code>
+
+    <h4>Пример 7</h4>
+<pre>
+9
+5 5 1 1 5 1 1 5 5
+1 1 5 5 1 5 5 1 1
+</pre>
+  <code>13</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  // время на автобусе
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  // время пешком
+  vector&lt;int&gt; B(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  // префиксная сумма на автобусе
+  vector&lt;int&gt; prefA(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefA[i] = prefA[i - 1] + A[i];
+  }
+
+  // суффиксная сумма на автобусе
+  vector&lt;int&gt; sufA(n + 2, 0);
+  for (int i = n; i > 0; i--) {
+    sufA[i] = sufA[i + 1] + A[i];
+  }
+
+  // префиксная сумма пешком
+  vector&lt;int&gt; prefB(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefB[i] = prefB[i - 1] + B[i];
+  }
+
+  // суффиксная сумма пешком
+  vector&lt;int&gt; sufB(n + 2, 0);
+  for (int i = n; i > 0; i--) {
+    sufB[i] = sufB[i + 1] + B[i];
+  }
+
+  // разница во времени
+  vector&lt;int&gt; Dif(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    Dif[i] = A[i] - B[i];
+  }
+  // префикс разницы
+  vector&lt;int&gt; prefD(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefD[i] = prefD[i - 1] + Dif[i];
+  }
+
+  // пусть ответ это минимальное из
+  // времени на автобусе или пешком
+  int res = min(prefA[n], prefB[n]);
+
+  // метод двух указателей
+  // левый указатель left
+  // правый указатель right
+  //       left      right
+  //   1    2    3    4    5    6
+  // .____.____.____.____.____.____.
+
+  // собираем вектор отрезков, на которых
+  // вермя на автобусе меньше чем пешком
+  vector&lt;pair&lt;int, int&gt; &gt; NegA;
+  pair&lt;int, int&gt; tmp, tmp_max;
+  for (int left = 1; left &lt;= n; left++) {
+    int right = left;
+    while (right &lt;= n && Dif[right] &lt; 0) {
+      right++;
+    }
+    if (right > left) {
+      tmp.first = left;
+      tmp.second = right - 1;
+      NegA.push_back(tmp);
+    }
+  }
+
+  // собираем соседние выгодные отрезки вместе
+  // ищем максимальный выгодный отрезок
+  int cur, next, max_r;
+  for (int left = 0; left &lt; NegA.size(); left++) {
+    int right = left;
+    tmp.first = NegA[left].first;
+    tmp.second = NegA[right].second;
+    max_r = tmp.second;
+    cur = prefD[tmp.second] - prefD[tmp.first];
+    right++;
+    while (right &lt; NegA.size()) {
+      tmp.second = NegA[right].second;
+      next = prefD[tmp.second] - prefD[tmp.first];
+      if (next &lt; cur) {
+        max_r = tmp.second;
+      }
+      cur = next;
+      right++;
+    }
+    res = min(res, prefB[tmp.first - 1] + (prefA[max_r] - prefA[tmp.first - 1]) + sufB[max_r + 1]);
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
