@@ -852,6 +852,13 @@ int main() {
 </pre>
   <code>13</code>
 
+  <h4>Пример 8</h4>
+<pre>
+55
+195 51 83 36 251 252 1 31 34 137 328 71 356 4 318 143 115 3 333 352 273 16 78 124 354 151 233 107 136 3 118 129 316 297 103 158 196 20 203 117 159 215 269 134 74 86 122 220 263 214 151 215 273 224 9
+163 194 210 235 8 245 125 332 240 212 184 182 164 130 220 127 7 34 22 196 209 31 96 289 189 330 57 355 347 55 336 303 55 360 221 351 65 265 360 108 179 226 95 111 214 120 52 78 301 164 141 173 328 290 123
+</pre>
+  <code>8758</code>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -925,7 +932,7 @@ int main() {
   // собираем вектор отрезков, на которых
   // вермя на автобусе меньше чем пешком
   vector&lt;pair&lt;int, int&gt; &gt; NegA;
-  pair&lt;int, int&gt; tmp, tmp_max;
+  pair&lt;int, int&gt; tmp;
   for (int left = 1; left &lt;= n; left++) {
     int right = left;
     while (right &lt;= n && Dif[right] &lt; 0) {
@@ -935,29 +942,30 @@ int main() {
       tmp.first = left;
       tmp.second = right - 1;
       NegA.push_back(tmp);
+      left = right;
     }
   }
 
   // собираем соседние выгодные отрезки вместе
   // ищем максимальный выгодный отрезок
-  int cur, next, max_r;
+  int cur, next;
   for (int left = 0; left &lt; NegA.size(); left++) {
     int right = left;
     tmp.first = NegA[left].first;
     tmp.second = NegA[right].second;
-    max_r = tmp.second;
-    cur = prefD[tmp.second] - prefD[tmp.first];
+    cur = prefB[tmp.first - 1] + (prefA[tmp.second] - prefA[tmp.first - 1]) + sufB[tmp.second + 1];
     right++;
+
     while (right &lt; NegA.size()) {
       tmp.second = NegA[right].second;
-      next = prefD[tmp.second] - prefD[tmp.first];
+      next = prefB[tmp.first - 1] + (prefA[tmp.second] - prefA[tmp.first - 1]) + sufB[tmp.second + 1];
       if (next &lt; cur) {
-        max_r = tmp.second;
+        cur = next;
       }
-      cur = next;
       right++;
     }
-    res = min(res, prefB[tmp.first - 1] + (prefA[max_r] - prefA[tmp.first - 1]) + sufB[max_r + 1]);
+
+    res = min(res, cur);
   }
 
   // вывод результата
@@ -1111,6 +1119,100 @@ int main() {
 4
 </pre>
   <code>0 1 2</code>
+
+  <details>
+    <summary>Решение</summary>
+
+  <h4>Пример 3</h4>
+<pre>
+10 4 11
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4
+</pre>
+  <code>2 5 9 3 4 5 6 6 5 3</code>
+
+  <h4>Пример 4</h4>
+<pre>
+5 4 6
+1 2 3 4 5
+1 2 3 4
+</pre>
+  <code>2 5 2 5 3</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода и вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // ввод данных
+  int n, m, c;
+  cin >> n >> m >> c;
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+  vector&lt;int&gt; B(m + 1);
+  for (int i = 1; i &lt;= m; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  // число этапов шифрования
+  int e = n - m + 1;
+  vector&lt;int&gt; D(n + 2, 0);
+
+  // заполняем вектор D
+  for (int i = 1; i &lt;= n; i++) {
+    if (i &lt;= m) {
+      // вариант 1
+      if (i &lt;= n + 1 - m) {
+        D[i] = (D[i - 1] + B[i]) % c;
+      // вариант 2
+      } else {
+        D[i] = (D[i - 1] + B[i] - B[m - (n + 1 - i)]) % c;
+        if (D[i] &lt; 0) {
+          D[i] = D[i] + c;
+        }
+      }
+
+    } else {
+      // вариант 3
+      if (i &lt;= n + 1 - m) {
+        D[i] = D[i - 1];
+      // вариант 4
+      } else {
+        D[i] = (D[i - 1] - B[m - (n + 1 - i)]) % c;
+        if (D[i] &lt; 0) {
+          D[i] = D[i] + c;
+        }
+      }
+    }
+
+  }
+  //for (int i = 1; i &lt;= n; i++) {
+  //  cout &lt;&lt; D[i] &lt;&lt; ' ';
+  //}
+  //cout &lt;&lt; '\n';
+
+  // собираем результат
+  for (int i = 1; i &lt;= n; i++) {
+    A[i] = (A[i] + D[i]) % c;
+  }
+
+  // вывод результата
+  for (int i = 1; i &lt;= n; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1122,18 +1224,18 @@ int main() {
   <div><i>Ограничение по времени 1.5с
   <br>Ограничение по памяти 256мб</i></div>
 
-  <p>У Егора есть массив a = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> и m операций. Каждая операция имеет вид: l<sub>i</sub>, r<sub>i</sub>, d<sub>i</sub>, (1 ≤ l<sub>i</sub> ≤ r<sub>i</sub> ≤ n). Применить операцию i к массиву значит, элементы массива c номерами l<sub>i</sub>, l<sub>i</sub> + 1, ..., r<sub>i</sub>, увеличить на величину d<sub>i</sub>.</p>
+  <p>У Егора есть массив a = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> и m операций. Каждая операция имеет вид: lᵢ , rᵢ , dᵢ , (1 ≤ lᵢ ≤ rᵢ ≤ n). Применить операцию i к массиву значит, элементы массива c номерами lᵢ , lᵢ + 1 , ... , rᵢ , увеличить на величину dᵢ .</p>
 
-  <p>Егор записал на листочке бумаги k запросов. Каждый запрос имеет вид: x<sub>i</sub>, y<sub>i</sub>, (1 ≤ x<sub>i</sub> ≤ y<sub>i</sub> ≤ m), что означает, что нужно применить к массиву операции с номерами x<sub>i</sub>, x<sub>i</sub> + 1, ..., y<sub>i</sub>.</p>
+  <p>Егор записал на листочке бумаги k запросов. Каждый запрос имеет вид: xᵢ , yᵢ , (1 ≤ xᵢ ≤ yᵢ ≤ m), что означает, что нужно применить к массиву операции с номерами xᵢ , xᵢ + 1, ..., yᵢ .</p>
 
   <p>Сейчас Егор хочет узнать, какой будет массив a после выполнения всех запросов. Помогите Егору.</p>
 
   <h4>Входные данные</h4>
-  <p>В первой строке заданы целые числа n, m, k (1 ≤ n, m, k ≤ 10<sup>5</sup>). Во второй строке заданы n целых чисел: a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> (0 ≤ a<sub>i</sub> ≤ 10<sup>5</sup>) — изначальный массив.</p>
+  <p>В первой строке заданы целые числа n, m, k (1 ≤ n, m, k ≤ 10<sup>5</sup>). Во второй строке заданы n целых чисел: a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> (0 ≤ aᵢ ≤ 10<sup>5</sup>) — изначальный массив.</p>
 
-  <p>В следующих m строках заданы операции, операция с номером i записана тремя целыми числами: l<sub>i</sub>, r<sub>i</sub>, d<sub>i</sub>, (1 ≤ l<sub>i</sub> ≤ r<sub>i</sub> ≤ n), (0 ≤ d<sub>i</sub> ≤ 10<sup>5</sup>).</p>
+  <p>В следующих m строках заданы операции, операция с номером i записана тремя целыми числами: lᵢ , rᵢ , dᵢ , (1 ≤ lᵢ ≤ rᵢ ≤ n), (0 ≤ dᵢ ≤ 10<sup>5</sup>).</p>
 
-  <p>В следующих k строках заданы запросы, запрос с номером i записан двумя целыми числами: x<sub>i</sub>, y<sub>i</sub>, (1 ≤ x<sub>i</sub> ≤ y<sub>i</sub> ≤ m).</p>
+  <p>В следующих k строках заданы запросы, запрос с номером i записан двумя целыми числами: xᵢ , yᵢ , (1 ≤ xᵢ ≤ yᵢ ≤ m).</p>
 
   <p>Числа в строках разделяются одиночными пробелами.</p>
 

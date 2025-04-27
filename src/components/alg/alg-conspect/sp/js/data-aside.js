@@ -25,6 +25,8 @@ export const asideThemes = [
   '23 Математика 2',
   '24 Математика 3',
   '25 ДП 3',
+  '26 ДП 4',
+  '27 Графы 5',
   'Demidov Cup 2022',
   'New Year 2025',
   'Round 988',

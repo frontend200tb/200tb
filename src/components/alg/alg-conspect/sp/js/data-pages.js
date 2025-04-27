@@ -24,6 +24,8 @@ import htmlSp22        from './../pages/elem-sp22.html';
 import htmlSp23        from './../pages/elem-sp23.html';
 import htmlSp24        from './../pages/elem-sp24.html';
 import htmlSp25        from './../pages/elem-sp25.html';
+import htmlSp26        from './../pages/elem-sp26.html';
+import htmlSp27        from './../pages/elem-sp27.html';
 import htmlSpDemCup    from './../pages/elem-spDemCup.html';
 import htmlSpNewYear   from './../pages/elem-spNewYear.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
@@ -63,6 +65,8 @@ export const pages = [
   htmlSp23,
   htmlSp24,
   htmlSp25,
+  htmlSp26,
+  htmlSp27,
   htmlSpDemCup,
   htmlSpNewYear,
   htmlSpRound988,

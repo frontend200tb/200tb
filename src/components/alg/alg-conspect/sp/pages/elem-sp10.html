@@ -195,6 +195,32 @@ for (int j = 0; j &lt; q; j++) {
   <h4>Пример</h4>
   <code>5</code>
   <code>3</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  // решение
+  int k = 1;
+  int res = 0;
+  while (n > k) {
+    k *= 2;
+    res++;
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
