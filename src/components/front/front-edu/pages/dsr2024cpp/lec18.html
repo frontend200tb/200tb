@@ -13,6 +13,7 @@
   <p><a href="#task1">Программа 1. Оплата</a></p>
   <p><a href="#task2">Программа 2. Свет</a></p>
   <p><a href="#task3">Программа 3. Покемоны</a></p>
+  <p><a href="#task4">Программа 4. Консольное приложение</a></p>
 </article>
 
 
@@ -70,6 +71,7 @@ class Runner {
   <h3>Программа 1. Оплата</h3>
 
   <p>Реализуем паттерн Стратегия</p>
+
   <p>Файл payment.cpp</p>
 <pre>
 #include &lt;iostream&gt;
@@ -77,12 +79,14 @@ class Runner {
 
 int main() {
   setlocale(LC_ALL, "Russian");
-  PaymentProcessor*CCP = new PaymentProcessor(new CreditCardPay());
+
+  PaymentProcessor *CCP = new PaymentProcessor(new CreditCardPay());
   CCP->processPayment(6);
   CCP->SetStrategy(new CashPay());
   CCP->processPayment(6);
 }
 </pre>
+
   <p>Файл ps.h</p>
 <pre>
 #pragma once
@@ -113,6 +117,7 @@ public:
 class PaymentProcessor {
 private:
   PaymentStrategy* strategy;
+
 public:
   PaymentProcessor(PaymentStrategy* str) : strategy(str) {}
 
@@ -125,15 +130,22 @@ public:
   }
 };
 </pre>
+
+  <h4>Результат</h4>
+<pre>
+Оплата прошла по кредитной карте и составила 6 рублей
+Оплата прошла наличными и составила 6 рублей
+</pre>
 </article>
 
 
 <!-- Программа 2. Свет -->
 <article class="article">
   <div class="anchor" id="task2"></div>
-  <h3>Программа 1. Свет</h3>
+  <h3>Программа 2. Свет</h3>
 
   <p>Реализуем паттерн Команда</p>
+
   <p>Файл light.cpp</p>
 <pre>
 #include &lt;iostream&gt;
@@ -152,16 +164,16 @@ int main() {
   remote.pressButton();
 }
 </pre>
+
   <p>Файл cp.h</p>
 <pre>
 #pragma once
-#include &lt;iostream&gt;
 
 using namespace std;
 
 class Command {
+public:
   virtual void execute() = 0;
-  // virtual void undo() = 0;
 };
 
 class Light {
@@ -205,32 +217,76 @@ public:
   }
 };
 </pre>
+
+  <h4>Результат</h4>
+<pre>
+Свет включен
+Свет выключен
+</pre>
 </article>
 
 
 <!-- Программа 3. Покемоны -->
 <article class="article">
   <div class="anchor" id="task3"></div>
-  <h3>Программа 3. Свет</h3>
+  <h3>Программа 3. Покемоны</h3>
 
-  <p>Реализуем паттерн Компоновщик. Проект из 4 файлов.</p>
+  <p>Реализуем паттерн Компоновщик. Игра - Битва Покемонов. Проект из 4 файлов.</p>
+
   <p>Файл dsr.cpp</p>
 <pre>
 #include &lt;iostream&gt;
-#include "Header.h"
 #include "Command.h"
 
 int main() {
   setlocale(LC_ALL, "Russian");
 
+  Character subZero("Sub-Zero");
+  Character scorpion("Scorpion");
+  Game game(subZero, scorpion);
 
+  while (!subZero.isDead() && !scorpion.isDead()) {
+    cout &lt;&lt; game.getCurrentName() &lt;&lt; " атакует "
+    &lt;&lt; "(HP: " &lt;&lt; game.getCurrentHP() &lt;&lt; ")\n";
+    cout &lt;&lt; "Соперник " &lt;&lt; game.getOpponentName()
+    &lt;&lt; " (HP: " &lt;&lt; game.getOpponentHP() &lt;&lt; ")\n";
+    cout &lt;&lt; "1 - Удар\n2 - Супер удар\n3 - Блокировать атаку\n4 - Отмена хода\nВыбор: ";
+
+    int choice;
+    cin >> choice;
+
+    switch (choice) {
+      case 1:
+        game.makeMove(new AttackCommand(*game.getCurrent(), *game.getOpponent()));
+        game.nextTurn();
+        break;
+      case 2:
+        game.makeMove(new SpecialAttackCommand(*game.getCurrent(), *game.getOpponent()));
+        game.nextTurn();
+        break;
+      case 3:
+        game.makeMove(new BlockCommand(*game.getCurrent()));
+        game.nextTurn();
+        break;
+      case 4:
+        game.undoMove();
+        game.nextTurn();
+        break;
+      default:
+        cout &lt;&lt; "Неверный выбор\n";
+    }
+  }
+
+  cout &lt;&lt; "Игра закончилсь. Победил " &lt;&lt;
+    (subZero.isDead() ? scorpion.getName() : subZero.getName()) &lt;&lt; "\n";
+
+  return 0;
 }
 </pre>
 
   <p>Файл Header.h</p>
 <pre>
 #pragma once
-#include &lt;iostream&gt;
 
 using namespace std;
 
@@ -239,6 +295,7 @@ private:
   string name;
   int health;
   bool blocking;
+
 public:
   Character(string name, int hp = 100) {
     this->name = name;
@@ -253,6 +310,7 @@ public:
     return health;
   }
   void heal(int hp) {
+    health = hp;
     if (health > 100) {
       health = 100;
     }
@@ -263,45 +321,13 @@ public:
   void resetBlock() {
     blocking = false;
   }
+  bool isDead() {
+    return getHealth() == 0;
+  }
 };
 </pre>
 
-  <p>Файл Source.cpp</p>
-<pre>
-#include "Header.h"
-
-void Character::attack(Character& target) {
-  int damage = blocking ? 5 : 10;
-  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
-  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; endl;
-  target.takeDamage(damage);
-}
-
-void Character::specialAttack(Character& target) {
-  int damage = blocking ? 15 : 30;
-  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
-  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; endl;
-  target.takeDamage(damage);
-}
-
-void Character::takeDamage(int damage) {
-  if (blocking) {
-    damage /= 2;
-  }
-  health -= damage;
-  if (health &lt; 0) {
-    health = 0;
-  }
-  blocking = false;
-}
-
-void Character::block() {
-  cout &lt;&lt; name &lt;&lt; " блокирует следующий удар!\n";
-  blocking = true;
-}
-</pre>
-
-  <p>Файл Command.h</p>
+<p>Файл Command.h</p>
 <pre>
 #pragma once
 #include &lt;stack&gt;
@@ -320,17 +346,17 @@ private:
   Character& attacker;
   Character& target;
   int prevHealth;
+
 public:
-  AttackCommand(Character& attacker, Character& target):
+  AttackCommand(Character& attacker, Character& target) :
     attacker(attacker), target(target), prevHealth(target.getHealth()) {}
   void execute() override {
     attacker.attack(target);
   }
   void undo() override {
-    target.heal(prevHealth - target.getHealth());
-    cout &lt;&lt; "Отмена атаки: восстановлено "
-    &lt;&lt; prevHealth - target.getHealth()
-    &lt;&lt; target.getName();
+    cout &lt;&lt; "Отмена атаки: восстановлено " &lt;&lt; prevHealth - attacker.getHealth()
+    &lt;&lt; " " &lt;&lt; attacker.getName() &lt;&lt; "\n\n";
+    attacker.heal(prevHealth);
   }
 };
 
@@ -339,6 +365,7 @@ private:
   Character& attacker;
   Character& target;
   int prevHealth;
+
 public:
   SpecialAttackCommand(Character& attacker, Character& target) :
     attacker(attacker), target(target), prevHealth(target.getHealth()) {}
@@ -346,16 +373,16 @@ public:
     attacker.specialAttack(target);
   }
   void undo() override {
-    target.heal(prevHealth - target.getHealth());
-    cout &lt;&lt; "Отмена атаки: восстановлено "
-    &lt;&lt; prevHealth - target.getHealth()
-    &lt;&lt; target.getName();
+    cout &lt;&lt; "Отмена атаки: восстановлено " &lt;&lt; prevHealth - attacker.getHealth()
+    &lt;&lt; " " &lt;&lt; attacker.getName() &lt;&lt; "\n\n";
+    attacker.heal(prevHealth);
   }
 };
 
 class BlockCommand : public Command {
 private:
   Character& user;
+
 public:
   BlockCommand(Character& user) : user(user) {}
   void execute() override {
@@ -363,7 +390,7 @@ public:
   }
   void undo() override {
     user.resetBlock();
-    cout &lt;&lt; "Отмена защиты у игрока " &lt;&lt; user.getName();
+    cout &lt;&lt; "Отмена защиты у игрока " &lt;&lt; user.getName() &lt;&lt; "\n\n";
   }
 };
 
@@ -374,7 +401,8 @@ private:
 
   Character& currentPl;
   Character& opponent;
-  stack&lt;Command&gt; history;
+  stack&lt;Command*&gt; history;
+
 public:
   Game(Character& player1, Character& player2) :
     player1(player1), player2(player2), currentPl(player1), opponent(player2) {}
@@ -387,13 +415,144 @@ public:
   }
   void undoMove() {
     if (!history.empty()) {
-      history.top().undo();
+      history.top()->undo();
       history.pop();
     } else {
-      cout &lt;&lt; "Отменять нечего!" &lt;&lt; endl;
+      cout &lt;&lt; "Отменять нечего!" &lt;&lt; "\n\n";
     }
   }
+  string getCurrentName() {
+    return currentPl.getName();
+  }
+  string getOpponentName() {
+    return opponent.getName();
+  }
+  Character* getCurrent() {
+    return &amp;currentPl;
+  }
+  Character* getOpponent() {
+    return &amp;opponent;
+  }
+  int getCurrentHP() {
+    return currentPl.getHealth();
+  }
+  int getOpponentHP() {
+    return opponent.getHealth();
+  }
 };
+</pre>
+
+  <p>Файл Source.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Header.h"
+
+void Character::attack(Character& target) {
+  int damage = blocking ? 5 : 10;
+  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
+  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; "\n\n";
+  target.takeDamage(damage);
+}
+
+void Character::specialAttack(Character& target) {
+  int damage = blocking ? 15 : 30;
+  cout &lt;&lt; name &lt;&lt; " атакует " &lt;&lt; target.name
+  &lt;&lt; " наносит " &lt;&lt; damage &lt;&lt; " урона" &lt;&lt; "\n\n";
+  target.takeDamage(damage);
+}
+
+void Character::takeDamage(int damage) {
+  if (blocking) {
+    damage /= 2;
+  }
+  health -= damage;
+  if (health &lt; 0) {
+    health = 0;
+  }
+  blocking = false;
+}
+
+void Character::block() {
+  cout &lt;&lt; name &lt;&lt; " блокирует следующий удар!\n\n";
+  blocking = true;
+}
+</pre>
+</article>
+
+
+<!-- Программа 4. Консольное приложение -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Программа 4. Консольное приложение</h3>
+
+  <p>Реализуем консольное приложение. Создадим иерархию файлов и папок в операционной системе и красиво покажем их на экране. На самом деле файлы и папки не создаются, все находится только в программе.</p>
+
+  <p>Файл dsr.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+class FileSystem {
+public:
+  virtual void display(int indent = 0) = 0;
+};
+
+class File : public FileSystem {
+  string name;
+
+public:
+  File(const string& name) : name(name) {}
+  void display(int indent = 0) override {
+    cout &lt;&lt; string(indent, ' ') &lt;&lt; "- " &lt;&lt; name &lt;&lt; "\n";
+  }
+};
+
+class Folder : public FileSystem {
+  string name;
+  vector&lt;FileSystem*&gt; children;
+
+public:
+  Folder(const string& name) : name(name) {}
+  void display(int indent = 0) override {
+    cout &lt;&lt; string(indent, ' ') &lt;&lt; "+ " &lt;&lt; name &lt;&lt; "\n";
+    for (auto child : children) {
+      child->display(indent + 2);
+    }
+  }
+  void add(FileSystem* fileSystem) {
+    children.push_back(fileSystem);
+  }
+};
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+
+  Folder* root = new Folder("Root");
+  root->add(new File("file1.txt"));
+  root->add(new File("file2.txt"));
+
+  Folder* subFolder = new Folder("SubFolder");
+  subFolder->add(new File("resume.docx"));
+  subFolder->add(new File("magazin.pdf"));
+
+  root->add(subFolder);
+
+  root->display();
+
+  return 0;
+}
+</pre>
+
+  <h4>Результат</h4>
+<pre>
++ Root
+  - file1.txt
+  - file2.txt
+  + SubFolder
+    - resume.docx
+    - magazin.pdf
 </pre>
 </article>
 

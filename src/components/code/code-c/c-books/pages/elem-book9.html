@@ -2190,6 +2190,348 @@ void swap(int *ptr1, int *ptr2) {
 }
 </pre>
   </details>
+
+  <h4> 7.7 Операция sizeof (282)</h4>
+
+  <p>Операция sizeof может определить размер типа данных, переменной, массива. Например, массив типа int из 20 элементов определится как 80 байт, потому что каждый элемент типа int занимает 4 байта.</p>
+  <p>Операция sizeof выполняется во время компиляции, поэтому она не вносит никаких затрат времени выполнения.</p>
+
+  <p>Операция sizeof, примененная к имени массива, возвращает число байт в массиве.</p>
+
+  <details>
+    <summary>Программа 53 (282)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+size_t getSize(float *ptr);
+
+int main() {
+  float array[20];
+  printf("number bytes in array %d\n", sizeof(array));
+  printf("number bytes returned by getSize %d\n", getSize(array));
+
+  return 0;
+}
+
+size_t getSize(float *ptr) {
+  return sizeof(ptr);
+}
+</pre>
+  </details>
+
+  <p>sizeof возвращает тип данных size_t, который определен в заголовочном файле stddef.h и некоторых других, например stdio.h</p>
+  <p>Определим размер стандартных типов данный с помощью операции sizeof.</p>
+
+  <details>
+    <summary>Программа 54 (283)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char c;
+  short s;
+  int i;
+  long l;
+  float f;
+  double d;
+  long double ld;
+  int array[20];
+  int *ptr = array;
+
+  printf("sizeof char = %d sizeof c = %d\n", sizeof(char), sizeof(c));
+  printf("sizeof short = %d sizeof s = %d\n", sizeof(short), sizeof(s));
+  printf("sizeof int = %d sizeof i = %d\n", sizeof(int), sizeof(i));
+  printf("sizeof long = %d sizeof l = %d\n", sizeof(long), sizeof(l));
+  printf("sizeof float = %d sizeof f = %d\n", sizeof(float), sizeof(f));
+  printf("sizeof double = %d sizeof d = %d\n", sizeof(double), sizeof(d));
+  printf("sizeof long double = %d sizeof ld = %d\n", sizeof(long double), sizeof(ld));
+  printf("sizeof array = %d\n", sizeof(array));
+  printf("sizeof ptr = %d\n", sizeof(ptr));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>7.8 Выражения и арифметические операции с указателями (284)</h4>
+
+  <p>К указателям может применяться только ограниченный набор арифметических операций. Инкремент (++), декремент (--), прибавить целое число (+, +=), вычесть целое число (-, -=), вычесть указатель из указателя.</p>
+  <p>В символьном массиве под каждый символ отводится 1 байт. Если указатель указывает на символьный массив, то при прибавлении или вычитании из указателя целого числа значение будет изменяться на это число.</p>
+  <p>В целочисленном массиве под каждое число отводится 4 байта. Если указатель указывает на целочисленный массив, то при прибавлении или вычитании из указателя целого числа  n значение будет изменяться на n * 4.</p>
+  <p>Обычно арифметические операции с указателями имеют смысл только при работе с элементами одного массива. Элементы одного массива всегда находятся одной области памяти в соседних ячейках последовательно друг за другом.</p>
+  <p>Указатель типа void может быть присвоен указателю любого типа и наоборот. Указатель типа void не может быть разыменован, поскольку компилятор не знает сколько байт в памяти занимает переменная, на которую он указывает.</p>
+  <p>Указатели можно сравнивать операциями сравнения (==, !=, >, >=, &lt;, &lt;=). Сравнение указателей длуг с другом имеет смысл только при работе с элементами одного массива. Часто проверяют равенство указателя значению NULL.</p>
+
+  <h4>7.9 Связь между указателями и массивами (287)</h4>
+
+  <p>Имя массива можно рассматривать как указатель-константу.</p>
+  <p>Указателю можно присвоить адрес первого элемента через его имя и через ссылку на первый элемент.</p>
+  <code>aPtr = array;</code>
+  <code>aPtr = &array[0];</code>
+  <p>Имя массива рассматривается как указатель, поэтому его можно использовать в арифметике указателей. Найдем значение третьего элемента массива.</p>
+  <code>el3 = *(aPtr + 2);</code>
+  <code>el3 = *(array + 2);</code>
+  <p>Все имена массивов с индексами могут быть преобразованы в указатели со смещениями.</p>
+
+  <p>Есть 4 способа обратиться к элементам массива. В программе ниже показано использование для массивов нотаций индексов и указателей.</p>
+
+  <details>
+    <summary>Программа 55 (288)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int b[] = {10, 20, 30, 40};
+  int *bPtr = b;
+
+  // имя массива и нотация индексации
+  puts("Name and subscript notation\n");
+  for (int i = 0; i &lt; 4; i++) {
+    printf("b[%d] = %d ", i, b[i]);
+  }
+  puts("");
+
+  // имя массива и нотация указателя
+  puts("Name and pointer notation\n");
+  for (int i = 0; i &lt; 4; i++) {
+    printf("*(b + %d) = %d ", i, *(b + i));
+  }
+  puts("");
+
+  // указатель и нотация индексации
+  puts("Pointer and subscript notation\n");
+  for (int i = 0; i &lt; 4; i++) {
+    printf("bPtr[%d] = %d ", i, bPtr[i]);
+  }
+  puts("");
+
+  // указатель и нотация указателя
+  puts("Pointer and pointer notation\n");
+  for (int i = 0; i &lt; 4; i++) {
+    printf("*(bPtr + %d) = %d ", i, *(bPtr + i));
+  }
+  puts("");
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>В следующей программе две функции копируют строки, но делают это по разному - с помощью индексов и указателей.</p>
+
+  <details>
+    <summary>Программа 56 (290)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void copy1(char *, const char *);
+void copy2(char *, const char *);
+
+int main() {
+  char string1[10];
+  char *string2 = "Hello";
+  char string3[10];
+  char string4[] = "Good bye";
+
+  copy1(string3, string4);
+  printf("string3 = %s\n", string3;)
+
+  copy2(string1, string2);
+  printf("string1 = %s\n", string1;)
+
+  return 0;
+}
+
+// копирование с нотацией индексов массива
+void copy1(char *s1, const char *s2) {
+  for (int i = 0; (s1[i] = s2[i]) != '\0'; i++) { ; }
+}
+
+// копирование с нотацией указателей
+void copy2(char *s1, const char *s2) {
+  for ( ; (*s1 = *s2) != '\0'; s1++, s2++) { ; }
+}
+</pre>
+  </details>
+
+  <h4>7.10 Массивы указателей (291)</h4>
+
+  <p>Пример массива указателей это массив строк. Строка это указатель на первый символ строки.</p>
+  <code>char *suit[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};</code>
+  <p>Эти четыре строки "Hearts", "Diamonds", "Clubs", "Spades" состоят из 6, 8, 5 и 6 символов плюс символ '\0', распологаются в памяти и занимают в памяти место 7,9,9 и 7 байт. Но сам массив хранит только указатели на эти строки. Каждый указатель ссылается на первый символ строки. Поэтому массив suits имеет фиксированный размер, но может хранить строки произвольной длины.</p>
+
+  <h4>7.11 Пример: программа тасования и сдачи карт (292)</h4>
+
+  <p>Напишем программу, которая перетасует колоду из 52 карт и затем все их раздаст. Для представления колоды мы используем двумерный массив deck размером 4 на 13. Четыре строки от 0 до 3 это масти. 13 столбцов от 0 до 12 это номиналы от туза до короля.</p>
+  <p>Перед перетасовкой карт, заполним массив нулями. Затем случайным образом разместим в массиве числа от 1 до 52. Каждое число это порядок в котором будут сдаваться карты. Эта программа не эффективная, ее можно улучшить.</p>
+
+  <details>
+    <summary>Программа 57 (295)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+void shuffle(int wDeck[][13]);
+void deal(const int wDeck[][13],
+          constchar *wFace[],
+          const char *wSuit[]);
+
+int main() {
+  const char *suit[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+  const char *face[13] = {"Ace", "Deuse", "Three", "Four", "Five",
+  "Six", " Seven", "Eight", "Nine", "Ten", "Jack", "Queen, "King"}
+  int deck[4][13] = {0};
+  srand(time(0));
+  shuffle(deck);
+  deal(deck, face, suit);
+
+  return 0;
+}
+
+void shuffle(int wDeck[][13]) {
+  int row, column, card;
+  for (card = 1; card &lt;= 52; card++) {
+    do {
+      row = rand() % 4;
+      column = rand() % 13;
+    } while (wDeck[row][column] != 0);
+    wDeck[row][column] = card;
+  }
+}
+
+void deal(const int wDeck[][13],
+          constchar *wFace[],
+          const char *wSuit[]) {
+  int row, column, card;
+  for (card = 1; card &lt;= 52; card++) {
+    for (row = 0; row &lt;= 3; row++) {
+      for (column = 0; column &lt;= 12; column++) {
+        if (wDeck[row][column] == card) {
+          printf("%5s of %-8s%c", wFace[column], wSuit[row], card % 2 == 0 ? '\n' : '\t');
+        }
+      }
+    }
+  }
+}
+</pre>
+  </details>
+
+  <h4>7.12 Указатели на функции (297)</h4>
+
+  <p>Указатель на функцию - это переменная, содержащая адрес в памяти, по которому расположена функция.</p>
+  <p>Напишем программу пузырьковой сортировки, использующую указатели на функцию.</p>
+
+  <details>
+    <summary>Программа 58 (297)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define SIZE 10
+
+void bubble(int work[], const int size,
+  int (*compare)(int a, int b));
+int ascending(int a, int b);
+int descending(int a, int b);
+
+int main() {
+  int order;
+  int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+  puts("Enter 1 to sort in ascending order");
+  puts("Enter 2 to sort in descending order ");
+  scanf("%d", &order);
+
+  puts("Original order\n");
+  for (i = 0; i &lt; SIZE; i++) {
+    printf("%5", a[i]);
+  }
+
+  if (order == 1) {
+    bubble(a, SIZE, ascending);
+    puts("Ascending order");
+  } else {
+    bubble(a, SIZE, descending);
+    puts("Descending order");
+  }
+  for (i = 0; i &lt; SIZE; i++) {
+    printf("%5", a[i]);
+  }
+
+  return 0;
+}
+
+void bubble(int work[], const int size,
+  int (*compare)(int a, int b)) {
+  int pass;
+  int count;
+
+  void swap(int *aPtr, int *bPtr);
+  for (pass = 1; pass &lt; size; pass++) {
+    for (count = 0; count &lt; size - 1; count++) {
+      if ((*compare)(work[count], work[count + 1])) {
+        swap(&work[count], &work[count + 1]);
+      }
+    }
+  }
+}
+
+void swap(int *aPtr, int *bPtr) {
+  int hold;
+  hold = *aPtr;
+  *aPtr = *bPtr;
+  *bPtr = hold;
+}
+
+int ascending(int a, int b) {
+  return a > b;
+}
+
+int descending(int a, int b) {
+  return b > a;
+}
+</pre>
+  </details>
+
+  <p>В следующей программе используется массив указателей на функцию.</p>
+
+  <details>
+    <summary>Программа 59 (301)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void function1(int);
+void function2(int);
+void function3(int);
+
+int main() {
+  void (*f[3])(int) = {function1, function2, function3};
+  int choice;
+  puts("Enter number 0, 1, 2 or 3 to end");
+  scanf("%d", &choice);
+
+  while (choice >= 0 && choice &lt; 3) {
+    (*f[choice])(choice);
+    puts("Enter number 0, 1, 2 or 3 to end");
+    scanf("%d", &choice);
+  }
+
+  puts("The end");
+
+  return 0;
+}
+
+void function1(int a) {
+  printf("You enter number %d", a);
+}
+
+void function2(int b) {
+  printf("You enter number %d", b);
+}
+
+void function3(int c) {
+  printf("You enter number %d", c);
+}
+</pre>
+  </details>
 </article>
 
 

@@ -1,7 +1,7 @@
 /******************
 Скрипт из файла alg-conspect.js
 Навигация по теме Конспекты
-МФ МГ Stepik ДП СП Курс1 Курс2
+МФ МГ Stepik ДП Курс1 Курс2 СП1 СП2
 *******************/
 import './element-conspect';
 import {dataConspectNav} from './data-conspect-nav';
