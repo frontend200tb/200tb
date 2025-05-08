@@ -1,6 +1,6 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>Конспект курса</p>
+  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
@@ -1625,6 +1625,59 @@ int main() {
 }
 </pre>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--)	{
+    // ввод данных
+    int n;
+    cin >> n;
+    vector&lt;int&gt; S(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> S[i];
+    }
+
+    // решение
+    long long res = 0;
+    vector&lt;long long&gt; prefS(n + 2, 0);
+
+    for (int i = 1; i &lt;= n; i++) {
+
+      if (S[i] - 1 > prefS[i]) {
+        res += S[i] - prefS[i] - 1;
+      }
+
+      if (prefS[i] > S[i] - 1) {
+        prefS[i + 1] += prefS[i] - S[i] + 1;
+      }
+
+      for (int j = i + 2; j &lt;= min(n, S[i] + i); j++) {
+        prefS[j]++;
+      }
+
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1772,6 +1825,61 @@ int main() {
 2 3
 </pre>
   <code>33</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n, q;
+  cin >> n >> q;
+
+  vector&lt;int> A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  vector&lt;pair&lt;int, int&gt; &gt; Q(q);
+  for (int i = 0; i &lt; q; i++) {
+    cin >> Q[i].first >> Q[i].second;
+  }
+
+  // решение
+  long long res = 0;
+
+  // собираем префиксный массив
+  vector&lt;int&gt; prefA(n + 1, 0);
+  for (int i = 0; i &lt; q; i++) {
+    int left = Q[i].first;
+    int right = Q[i].second;
+    prefA[left - 1] += 1;
+    prefA[right] -= 1;
+  }
+  for (int i = 1; i &lt; n; i++) {
+    prefA[i] += prefA[i - 1];
+  }
+
+  sort(A.begin(), A.end());
+  sort(prefA.begin(), prefA.end()-1);
+
+  for (int i = 0; i &lt; n; i++) {
+    res += (long long)A[i] * (long long)prefA[i];
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1813,5 +1921,115 @@ int main() {
 3
 2
 </pre>
+
+  <details>
+    <summary>Решение с TL</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+
+  // работа с файлами
+  ifstream fin("input.txt");
+  ofstream fout("output.txt");
+
+  // ввод данных
+  int n, k;
+  fin >> n >> k;
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    fin >> A[i];
+  }
+
+  // решение
+  // обрабатываем запросы
+  while (k--) {
+    int l, r;
+    fin >> l >> r;
+    vector&lt;int&gt; freq(256, 0);
+    int res = 0;
+
+    for (int i = l; i &lt;= r; i++) {
+      if (!freq[A[i]]) {
+        res++;
+        freq[A[i]] = 1;
+      }
+    }
+
+    // вывод результата
+    fout &lt;&lt; res &lt;&lt; '\n';
+  }
+
+  fin.close();
+  fout.close();
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+
+  // работа с файлами
+  ifstream fin("input.txt");
+  ofstream fout("output.txt");
+
+  // ввод данных
+  int n, k;
+  fin >> n >> k;
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    fin >> A[i];
+  }
+
+
+  // решение
+  // префиксный массив
+  vector&lt;vector&lt;int&gt; &gt; prefA(256, vector&lt;int&gt;(n+1,0));
+  for (int i = 1; i &lt;= n; i++) {
+    prefA[A[i]][i] = 1;
+  }
+  for (int i = 1; i &lt;= 255; i++) {
+    for (int j = 1; j &lt;= n; j++) {
+      prefA[i][j] += prefA[i][j-1];
+    }
+  }
+
+  // обрабатываем запросы
+  while (k--) {
+    int l, r;
+    fin >> l >> r;
+    int res = 0;
+
+    for (int i = 1; i &lt;= 255; i++) {
+      if (prefA[i][r] - prefA[i][l-1] > 0) {
+        res++;
+      }
+    }
+
+    // вывод результата
+    fout &lt;&lt; res &lt;&lt; '\n';
+  }
+
+  fin.close();
+  fout.close();
+}
+</pre>
+  </details>
 </article>
 

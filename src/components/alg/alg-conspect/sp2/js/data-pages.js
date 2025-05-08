@@ -13,6 +13,13 @@ import htmlSp11    from './../pages/elem-sp11.html';
 import htmlSp12    from './../pages/elem-sp12.html';
 import htmlSp13    from './../pages/elem-sp13.html';
 import htmlSp14    from './../pages/elem-sp14.html';
+import htmlSp15    from './../pages/elem-sp15.html';
+import htmlSp16    from './../pages/elem-sp16.html';
+import htmlSp17    from './../pages/elem-sp17.html';
+import htmlSp18    from './../pages/elem-sp18.html';
+import htmlSp19    from './../pages/elem-sp19.html';
+import htmlSp20    from './../pages/elem-sp20.html';
+import htmlSp21    from './../pages/elem-sp21.html';
 
 export const pages = [
   htmlSp1,
@@ -29,4 +36,11 @@ export const pages = [
   htmlSp12,
   htmlSp13,
   htmlSp14,
+  htmlSp15,
+  htmlSp16,
+  htmlSp17,
+  htmlSp18,
+  htmlSp19,
+  htmlSp20,
+  htmlSp21,
 ];

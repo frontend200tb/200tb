@@ -2539,6 +2539,788 @@ void function3(int c) {
 <article class="article">
   <div class="anchor" id="p8"></div>
   <h3>8 Символы и строки в C (320)</h3>
+
+  <h1>8.1 Введение (321)</h1>
+
+  <p>В этой главе мы познакомимся с функциями стандартных библиотек <strong>ctype, stdio, stdlib, string</strong> для обработки строк и символов.</p>
+
+  <h4>8.2 Элементарные сведения о строках и символах (321)</h4>
+
+  <p>Символы записываются в одинарных кавычках. Строки записываются в двойных кавычках. Строка может быть записана в виде массива символов, который заканчивается символом '\0'. Имя строки это переменная в которую записан адрес на первый символ строки. Сама строка располагается в памяти по адресу, на который указывает имя строки. Доступ к строке осуществляется через указатель на первый символ строки. Строка аналогична массиву. Массив указывает на адрес первого элемента массива.</p>
+  <p>Два способа объявить строку: в виде указателя на строку, в виде указателя на массив символов.</p>
+  <code>char *sPtr = "string";</code>
+  <p>Объявляется переменная sPtr, которая указывает на первый символ строки "string", которая находится в каком-то месте в памяти.</p>
+  <code>char s[] = "string";</code>
+  <p>Это тоже самое, что и</p>
+  <code>char s[] = { 's', 't', 'r', 'i', 'n', 'g', '\0' };</code>
+  <p>Объявляется массив s, состоящий из 7 элементов и содержащий символы 's', 't', 'r', 'i', 'n', 'g', '\0'. Переменная s ссылается на первый символ массива, который находится в каком-то месте в памяти.</p>
+  <p>Когда нужно использовать функцию scanf() чтобы считать с клавиатуры массив символов или строку, то использовать амперсанд &amp; для взятия адреса переменной не нужно, потому что имя массива или имя строки уже являются указателями на адрес начала массива или строки.</p>
+  <code>scanf("%s", s);</code>
+
+  <h4>8.3 Библиотека обработки символов ctype.h (323)</h4>
+
+  <p>Функции из библиотеки обработки символов ctype.h:</p>
+
+  <p>isalnum(), isalpha(), isdigit(), isxdigit(), islower(), isupper(), tolower(), toupper(), isspace(), ispunct(), iscntrl(), isprint(), isgraph()</p>
+
+  <p>Напишем программу, использующую функции isalnum(), isalpha(), isdigit(), isxdigit().</p>
+
+  <details>
+    <summary>Программа 60 (324)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+  printf("%s\n%s%s\n%s%s\n\n", "isdigit ",
+          isdigit('8') ? "8 is " : " 8 is not ", "digit",
+          isdigit('#') ? "# is " : " # is not ", "digit");
+
+  printf("%s\n%s%s\n%s%s\n%s%s\n%s%s\n\n", "isalpha ",
+          isalpha('A') ? "A is " : " A is not ", "letter",
+          isalpha('b') ? "b is " : " b is not ", "letter",
+          isalpha('&') ? "& is " : " & is not ", "letter",
+          isalpha('4') ? "4 is " : " 4 is not ", "letter");
+
+  printf("%s\n%s%s\n%s%s\n%s%s\n\n", "isalnum ",
+          isalnum('A') ? "A is " : " A is not ", "digit or letter",
+          isalnum('8') ? "8 is " : " 8 is not ", "digit or letter",
+          isalnum('#') ? "# is " : " # is not ", "digit or letter");
+
+  printf("%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n\n", "isxdigit ",
+          isxdigit('F') ? "F is " : " F is not ", "hex digit",
+          isxdigit('J') ? "J is " : " J is not ", "hex digit",
+          isxdigit('7') ? "7 is " : " 7 is not ", "hex digit",
+          isxdigit('$') ? "$ is " : " $ is not ", "hex digit",
+          isxdigit('f') ? "f is " : " f is not ", "hex digit");
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Напишем программу, использующую функции islower(), isupper(), tolower(), toupper().</p>
+
+  <details>
+    <summary>Программа 61 (326)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+  printf("%s\n%s%s\n%s%s\n%s%s\n%s%s\n\n", "islower ",
+          islower('y') ? "y is " : " y is not ", "lowercase",
+          islower('Y') ? "Y is " : " Y is not ", "lowercase",
+          islower('5') ? "5 is " : " 5 is not ", "lowercase",
+          islower('!') ? "! is " : " ! is not ", "lowercase");
+
+  printf("%s\n%s%s\n%s%s\n%s%s\n%s%s\n\n", "isupper ",
+          isupper('D') ? "D is " : " D is not ", "uppercase",
+          isupper('d') ? "d is " : " d is not ", "uppercase",
+          isupper('8') ? "8 is " : " 8 is not ", "uppercase",
+          isupper('$') ? "$ is " : " $ is not ", "uppercase");
+
+  printf("%s%c\n%s%c\n%s%c\n%s%c\n\n", "toupper ",
+          "u to uppercase is ", toupper('u'),
+          "7 to uppercase is ", toupper('7'),
+          "$ to uppercase is ", toupper('$'));
+
+  printf("%s\n%s%s\n\n", "tolower ",
+          "L to lowercase is ", tolower('L'),);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Напишем программу, использующую функции isspace(), iscntrl(), ispunct(), isprint(), isgraph().</p>
+
+  <details>
+    <summary>Программа 62 (327)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+  printf("%s\n%s%s%s\n%s%s%s\n%s%s\n\n", "isspace ",
+      "Newline", isspace('\n') ? " is " : " is not ", "whitespace",
+      "Horiz tab", isspace('\t') ? " is " : " is not ", "whitespace",
+      "Whitespace", isspace(' ') ? " is " : " is not ", "whitespace");
+
+  printf("%s\n%s%s%s\n%s%s\n\n", "iscntrl ",
+      "Newline", iscntrl('\n') ? " is " : " is not ", "control",
+      iscntrl('$') ? "$ is " : "$ is not ", "control");
+
+  printf("%s\n%s%s\n%s%s\n%s%s\n\n", "ispunct ",
+      ispunct(';') ? "; is " : "; is not ", "punctuation",
+      ispunct('Y') ? "Y is " : "Y is not ", "punctuation",
+      ispunct('#') ? "# is " : "# is not ", "punctuation");
+
+  printf("%s\n%s%s\n%s%s%s\n\n", "isprint ",
+      isprint('$') ? "$ is " : "$ is not ", "printing",
+      "Alert", isprint('\a') ? " is " : " is not ", "printing");
+
+  printf("%s\n%s%s\n%s%s%s\n\n", "isgraph ",
+      isgraph('Q') ? "Q is " : "Q is not ", "graph",
+      "Space", isgraph(' ') ? " is " : " is not ", "graph");
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.4 Функции преобразования строк stdlib.h (329)</h4>
+
+  <p>Функции преобразования строк из библиотеки stdlib.h:</p>
+
+  <p>double atof(), int atoi(), long atol(), double strtod(), long strtol(), unsigned long strtoul().</p>
+
+  <p>Функция atof()</p>
+
+  <details>
+    <summary>Программа 63 (329)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  double d;
+  d = atof("99.0");
+
+  printf("%s%.3f\n%s%.3f\n",
+    "The string \"99.0\" converted to double is ", d,
+    "The converted value divided by 2 is ", d / 2.0);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция atoi()</p>
+
+  <details>
+    <summary>Программа 64 (330)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  int i;
+  i = atoi("2593");
+
+  printf("%s%d\n%s%d\n",
+    "The string \"2593\" converted to int is ", i,
+    "The converted value minus 593 is ", i - 593);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция atol()</p>
+
+  <details>
+    <summary>Программа 65 (330)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  long l;
+  l = atol("1000000");
+
+  printf("%s%ld\n%s%ld\n",
+    "The string \"1000000\" converted to long is ", l,
+    "The converted value divided by 2 is ", l / 2);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strtod()</p>
+
+  <details>
+    <summary>Программа 66 (331)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  const char *string = "51.2% are admitted";
+  double d;
+  char *stringPtr;
+  d = strtod(string, &stringPtr);
+
+  printf("The string \"%s\" converted to double is ", string,
+    "%.2f and the string \"%s\"\n", d, stringPtr);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strtol()</p>
+
+  <details>
+    <summary>Программа 67 (332)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  const char *string = "-1234567abc";
+  char *stringPtr;
+  long l;
+  l = strtol(string, &stringPtr, 0);
+
+  printf("%s\"%s\"\n%s%ld\n%s\"%s\"\n%s%ld\n",
+    "The string is ", string,
+    "The converted value is ", l,
+    "The remainder is ", stringPtr,
+    "The converted value plus 567 is ", l + 567);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strtoul()</p>
+
+  <details>
+    <summary>Программа 68 (332)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+  const char *string = "1234567abc";
+  char *stringPtr;
+  unsigned long ul;
+  ul = strtoul(string, &stringPtr, 0);
+
+  printf("%s\"%s\"\n%s%lu\n%s\"%s\"\n%s%lu\n",
+    "The string is ", string,
+    "The converted value is ", ul,
+    "The remainder is ", stringPtr,
+    "The converted value minus 567 is ", ul - 567);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.5 Функции стандартной библиотеки ввода-вывода stdio.h (333)</h4>
+
+  <p>getchar(), gets(), putchar(), puts(), sprintf(), sscanf()</p>
+
+  <p>Функции gets() и putchar().</p>
+
+  <details>
+    <summary>Программа 69 (334)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void reverse(const char * const sPtr);
+
+int main() {
+  char sentence[80];
+  puts("Enter a line of text: ");
+  gets(sentence);
+  puts("Text in reverse order: ");
+  reverse(sentence);
+
+  return 0;
+}
+
+void reverse(const char * const sPtr) {
+  if (sPtr[0] == '\0') {
+    return;
+  } else {
+    reverse(&sPtr[1]);
+    putchar(sPtr[0]);
+  }
+}
+</pre>
+  </details>
+
+  <p>Функции puts() и getchar().</p>
+
+  <details>
+    <summary>Программа 70 (335)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char c;
+  char sentence[80];
+  int i = 0;
+  puts("Enter a line of text: ");
+
+  while ( (c == getchar()) != '\n') {
+    sentence[i++] = c;
+  }
+
+  sentence[i] = '\0';
+
+  puts("The line entered was: ");
+  puts(sentence);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция sprintf().</p>
+
+  <details>
+    <summary>Программа 71 (336)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char s[80];
+  int x;
+  double y;
+
+  puts("Enter int and double: ");
+  scanf("%d%lf", &x, &y);
+
+  sprintf(s, "integer: %6d\ndouble: %8.2f", x, y);
+
+  printf("%s\n%s\n", "Array s is: ", s);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция sscanf().</p>
+
+  <details>
+    <summary>Программа 72 (337)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char s[] = "31298 87.375";
+  int x;
+  double y;
+
+  sscanf(s, "%d%lf", &x, &y);
+
+  printf("%s\n%s%6d\n%s%8.3f\n", "Values in array s are: ",
+         "integer: ", x, "double: ", y);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.6 Функции операций над строками из библиотеки обработки строк string (337)</h4>
+
+  <p>strcpy(), strncpy(), strcft(), strncat()</p>
+
+  <p>size_t это тип данных, который возвращает оператор sizeof. Тип size_t это системно-зависимый синоним либо для unsigned int, либо unsigned long.</p>
+
+  <p>Функции strcpy(), strncpy().</p>
+
+  <details>
+    <summary>Программа 73 (338)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char x[] = "Happy birthday to You";
+  char y[25];
+  char z[15];
+
+  printf("%s%s\n%s%s\n",
+         "The string in array x is: ", x,
+         "The string in array y is: ", strcpy(y, x));
+  strncpy(z, x, 14);
+  z[14] = '\0';
+
+  printf("The string in array z is: %s\n", z);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функции strcat(), strncat().</p>
+
+  <details>
+    <summary>Программа 74 (339)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s1[20] = "Happy ";
+  char s2[] = "New Year ";
+  char s3[40] = "";
+
+  printf("s1 = %s\ns2 = %s\n", s1, s2);
+  printf("strcat(s1, s2) = %s\n", strcat(s1, s2));
+  printf("strncat(s3, s1, 6) = %s\n", strncat(s3, s1, 6));
+  printf("strcat(s3, s1) = %s\n", strcat(s3, s1));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.7 Функции сравнения из библиотеки обработки строк string.h (340)</h4>
+
+  <p>Функции strcmp(), strncmp().</p>
+
+  <p>Когда компьютер сравнивает две строки, он сравнивает числовые коды символов этих строк.</p>
+
+  <details>
+    <summary>Программа 75 (341)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "Happy New Year";
+  const char *s2 = "Happy New Year";
+  const char *s2 = "Happy Holidays";
+
+  printf("%s%s\n%s%s\n%s%s\n\n%s%2d\n%s%2d\n%s%2d\n\n",
+         "s1 = ", s1, "s2 = ", s2, "s3 = ", s3,
+         "strcmp(s1, s2) = ", strcmp(s1, s2),
+         "strcmp(s1, s3) = ", strcmp(s1, s3),
+         "strcmp(s3, s1) = ", strcmp(s3, s1));
+
+  printf("%s%2d\n%s%2d\n%s%2d\n\n",
+         "strncmp(s1, s3, 6) = ", strncmp(s1, s3, 6),
+         "strncmp(s1, s3, 7) = ", strncmp(s1, s3, 7),
+         "strncmp(s3, s1, 7) = ", strncmp(s3, s1, 7));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.8 Функции поиска из библиотеки обработки строк string.h (342)</h4>
+
+  <p>strchr(), strcspn(), strspn(), strprbk(), strrchr(), strstr(), strtok()</p>
+
+  <p>Функция strchr()</p>
+
+  <details>
+    <summary>Программа 76 (343)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s = "This is a test";
+  char c1 = 'a';
+  char c2 = 'z';
+
+  if (strchr(s, c1) != NULL) {
+    printf("\'%c\' was found in \"%s\"\n", c1, s);
+  } else {
+    printf("\'%c\' was not found in \"%s\"\n", c1, s);
+  }
+
+  if (strchr(s, c2) != NULL) {
+    printf("\'%c\' was found in \"%s\"\n", c2, s);
+  } else {
+    printf("\'%c\' was not found in \"%s\"\n", c2, s);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strcspn()</p>
+
+  <details>
+    <summary>Программа 77 (344)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "This value is 3.14159";
+  const char *s2 = "1234567890";
+
+  printf("%s%s\n%s%s\n\n%n%s%u",
+         "s1 = ", s1, "s2 = ", s2,
+         "length of s1 without char in s2 = ", strcspn(s1, s2));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strpbrk()</p>
+
+  <details>
+    <summary>Программа 78 (344)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "This is a test";
+  const char *s2 = "beware";
+
+  printf("%s\"%s\"\n'%c'%s\n\"%s\"\n",
+         "Of the characters in ", s2,
+         *strpbrk(s1, s2), " appears earliest in ", s1);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strrchr()</p>
+
+  <details>
+    <summary>Программа 79 (345)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "A zoo has many zebras";
+  int c = "z";
+
+  printf("%s\n%s'%c'%s\"%s\"\n",
+         "Last character ", c,
+         " is ", strrchr(s1, c));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strspn()</p>
+
+  <details>
+    <summary>Программа 80 (345)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "This value is 3.14159";
+  const char *s2 = "aehi lsTuv";
+
+  printf("%s%s\n%s%s\n\n%s\n%s%u\n",
+         "s1 = ", s1, "s2 = ", s2,
+         "The length s1 contains only chars of s2 is ", strspn(s1, s2));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strstr()</p>
+
+  <details>
+    <summary>Программа 81 (346)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "abcdefabcdef";
+  const char *s2 = "def";
+
+  printf("%s%s\n%s%s\n\n%s\n%s%s\n",
+         "s1 = ", s1, "s2 = ", s2,
+         "The remainder s1 beginning with s2 is ", strstr(s1, s2));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strtok()</p>
+
+  <details>
+    <summary>Программа 82 (347)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s = "This is a sentence with 7 tokens";
+  char *tokenPtr;
+
+  printf("%s\n%s\n\n%s\n",
+         "s = ", s, "The tokens are: ");
+
+  tokenPtr = strtok(s, " ");
+
+  while (tokenPtr != NULL) {
+    printf("%s\n", tokenPtr);
+    tokenPtr = strtok(NULL, " ");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.9 Функции памяти из библиотеки обработки строк string.h (348)</h4>
+
+  <p>memcpy(), memmove(), memcmp(), memchr(), memset()</p>
+
+  <p>Эти функции обращаются с блоками памяти как с массивами символов и могут оперировать с любыми блоками данных.</p>
+
+  <p>Функция memcpy() копирует заданное число символов из объекта, на который ссылается ее второй аргумент, в объект, на который ссылается первый аргумент. Если два объекта перекрываются в памяти, то поведение функции не определено.</p>
+
+  <details>
+    <summary>Программа 83 (349)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s1[17];
+  char s2[] = "Copy this string";
+
+  memcpy(s1, s2, 17);
+  printf("%s\n%s\"%s\"\n",
+         "s2 copied in s1 = ",
+         "s1 contains ", s1);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция memmove() сначала копирует заданное число байтов из объекта, на который ссылается ее второй аргумент, во временный символьный массив. Затем копирует этот массив в объект, на который ссылается первый аргумент. Это позволяет копировать символы даже если два объекта перекрываются в памяти. Так копируются символы внутри одной строки или массива.</p>
+
+  <details>
+    <summary>Программа 84 (350)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s[] = "Home Sweet Home";
+
+  printf("%s%s\n", "string befor memmove = ", s);
+  printf("%s%s\n", "string after memmove = ", memmove(s, &s[5], 10));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция memcmp() сравнивает заданное число символов первого аргумента с соответствующими символами второго аргумента.</p>
+
+  <details>
+    <summary>Программа 85 (350)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s1[] = "ABCDEFG";
+  char s2[] = "ABCDXYZ";
+
+  printf("%s%s\n%s%s\n\n%s%2d\n%s%2d\n%s%2d\n",
+         "s1 = ", s1, "s2 = ", s2,
+         "memcmp(s1, s2, 4) = ", memcmp(s1, s2, 4),
+         "memcmp(s1, s2, 7) = ", memcmp(s1, s2, 7),
+         "memcmp(s2, s1, 7) = ", memcmp(s2, s1, 7));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция memchr() выполняет поиск байта и возвращает указатель на найденный байт.</p>
+
+  <details>
+    <summary>Программа 86 (351)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *s1 = "This is a string";
+
+  printf("%s\'%c\'%s\"%s\"\n",
+         "The reminder of s after character  ", 'r',
+         "is found is ", memchr(s, 'r', 16));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция memset() копирует значение байта второго аргумента в заданное число байтов объекта, на который указывает первый аргумент.</p>
+
+  <details>
+    <summary>Программа 87 (351)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s[15] = "BBBBBBBBBBBBB";
+
+  printf("s = %s\n", s);
+  printf("s after memset = %s\n", memset(s, 'b', 7));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>8.10 Другие функции из библиотеки обработки строк string.h (352)</h4>
+
+  <p>strerror(), strlen()</p>
+
+  <p>Функция strerror() принимает номер ошибки и создает строку сообщения об ошибке.</p>
+
+  <details>
+    <summary>Программа 88 (352)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  printf("%s\n", strerror(2));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strlen() принимает строку и возвращает число символов в строке не включая последний символ '\0'.</p>
+
+  <details>
+    <summary>Программа 89 (352)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  const char *s1 = "abcdefghijklmn";
+  const char *s2 = "four";
+  const char *s3 = "Boston";
+
+  printf("s1 = %s, length = %lu\n", s1, (unsigned long) strlen(s1));
+  printf("s2 = %s, length = %lu\n", s2, (unsigned long) strlen(s2));
+  printf("s3 = %s, length = %lu\n", s3, (unsigned long) strlen(s3));
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -2546,6 +3328,101 @@ void function3(int c) {
 <article class="article">
   <div class="anchor" id="p9"></div>
   <h3>9 Форматированный ввод/вывод в C (364)</h3>
+
+  <h4>9.1 Введение (365)</h4>
+
+  <p>6 функций работают со страндартными потоками ввода-вывода: <strong>printf(), scanf(), puts(), gets(), putchar(), getchar()</strong>. Форматированный вывод только у функции <strong>printf()</strong>. Форматированный ввод только у функции <strong>scanf()</strong>. Вывод строки <strong>puts()</strong>. Ввод строки <strong>gets()</strong>. Вывод символа <strong>putchar()</strong>. Ввод символа <strong>getchar()</strong>.</p>
+
+  <h4>9.2 Потоки (365)</h4>
+
+  <p>Весь ввод и вывод выполняется посредством потоков - последовательностей символов с построчной огранизацией. Каждая строка заканчивается символом новой строки. Стандарт языка поддерживает строки длиной 254 символа, включая символ новой строки.</p>
+  <p>При запуске программы к ней автоматически присодиняются три потока. <strong>Стандартный поток ввода</strong> обычно присоединяется к клавиатуре. <strong>Стандартный поток вывода</strong> - к экрану монитора. <strong>Стандартный поток ошибок</strong> - к экрану монитора. Операционные системы позволяют переадресовать эти потоки на другие устройства.</p>
+
+  <h4>9.3 Форматированный вывод функцией printf() (366)</h4>
+
+  <p>Функция printf() первым аргументом принимает <strong>строку управления форматом</strong>. <strong>Строка управления форматом</strong> содержит спецификаторы преобразования, флаги, ширину полей, точность и литеральные символы.</p>
+
+  <h4>9.4 Печать целых чисел (366)</h4>
+
+  <p>Целые числа не содержат десятичную точку.</p>
+  <p>Спецификаторы для целых чисел:</p>
+  <ol>
+    <li>d целое десятичное число со знаком</li>
+    <li>i целое десятичное число со знаком</li>
+    <li>u целое десятичное число без знака</li>
+    <li>o целое восьмеричное число без знака</li>
+    <li>x целое шестнадцатеричное число без знака, с маленькими a-f</li>
+    <li>X целое шестнадцатеричное число без знака, с большими A-F</li>
+  </ol>
+  <p>Отличие между d и i проявляется в функции scanf().</p>
+  <p>Перед спецификатором может стоять модификатор длины.</p>
+  <p>Модификаторы длины:</p>
+  <ol>
+    <li>h для типа short</li>
+    <li>l для типа long</li>
+  </ol>
+
+  <details>
+    <summary>Программа 90 (367)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("d 455 = %d\n", 455);
+  printf("i 455 = %i\n", 455);
+  printf("d +455 = %d\n", +455);
+  printf("d -455 %d\n", -455);
+  printf("hd 32000 %hd\n", 32000);
+  printf("ld 2000000000 %ld\n", 2000000000);
+  printf("o 455 %o\n", 455);
+  printf("u 455 %u\n", 455);
+  printf("u -455 %u\n", -455);
+  printf("x 455 %x\n", 455);
+  printf("X 455 %X\n", 455);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>9.5 Печать чисел с плавающей точкой (368)</h4>
+
+  <p>Числа с плавающей точкой содержат десятичную точку.</p>
+  <p>Спецификаторы для чисел с плавающей точкой:</p>
+  <ol>
+    <li>f число с плавающй точкой</li>
+    <li>e число в экспоненциальной нотации, с маленькой e</li>
+    <li>E число в экспоненциальной нотации, с большой E</li>
+    <li>g число в формате f или e</li>
+    <li>G число в формате f или E</li>
+  </ol>
+  <p>Перед спецификатором может стоять модификатор длины.</p>
+  <p>Модификаторы длины:</p>
+  <ol>
+    <li>L для типа long double</li>
+  </ol>
+  <p>Спецификаторы e, E, f по умолчанию выводят 6 разрядов после точки.</p>
+  <p>Спецификаторы g, G выводят число в формате f, но нули справа в дробной части не печатаются. Если значение экспоненты меньше -4 или значение экспоненты равно заданной точности представления (по умолчанию 6 значащих цифр), то выводится число в формате e, E.</p>
+  <p>При выводе данных, форматирование может давать неточные данные, связанные с округлением числа до заданной точности.</p>
+
+  <details>
+    <summary>Программа 91 (369)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("e 1234567.89 = %e\n", 1234567.89);
+  printf("e +1234567.89 = %e\n", +1234567.89);
+  printf("e -1234567.89 = %e\n", -1234567.89);
+  printf("E 1234567.89 = %E\n", 1234567.89);
+  printf("f 1234567.89 = %f\n", 1234567.89);
+  printf("g 1234567.89 = %g\n", 1234567.89);
+  printf("G 1234567.89 = %G\n", 1234567.89);
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 

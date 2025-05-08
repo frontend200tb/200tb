@@ -27,6 +27,9 @@ import htmlSp25        from './../pages/elem-sp25.html';
 import htmlSp26        from './../pages/elem-sp26.html';
 import htmlSp27        from './../pages/elem-sp27.html';
 import htmlSp28        from './../pages/elem-sp28.html';
+import htmlSp29        from './../pages/elem-sp29.html';
+import htmlSp30        from './../pages/elem-sp30.html';
+import htmlSp31        from './../pages/elem-sp31.html';
 import htmlSpDemCup    from './../pages/elem-spDemCup.html';
 import htmlSpNewYear   from './../pages/elem-spNewYear.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
@@ -70,6 +73,9 @@ export const pages = [
   htmlSp26,
   htmlSp27,
   htmlSp28,
+  htmlSp29,
+  htmlSp30,
+  htmlSp31,
   htmlSpDemCup,
   htmlSpNewYear,
   htmlSpRound988,

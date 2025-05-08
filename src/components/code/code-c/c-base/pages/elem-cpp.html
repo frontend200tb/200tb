@@ -12,7 +12,7 @@
     <li><a href="#clang">Компилятор clang</a></li>
     <li><a href="#vscode">Редактор кода VS Code</a></li>
     <li><a href="#visualstudio">IDE Visual Studio</a></li>
-    <li><a href="#console">Первая программа</a></li>
+    <li><a href="#first">Первая программа</a></li>
     <li><a href="#gcc-setup">Настройка компилятора g++ и clang++</a></li>
   </ol>
   <p>Практика</p>
@@ -41,12 +41,18 @@
     <li><a href="#sizeof">Оператор sizeof()</a></li>
     <li><a href="#char">Символьные типы</a></li>
     <li><a href="#auto">Спецификатор auto</a></li>
+    <li><a href="#cast1">Неявное преобразование типа</a></li>
+    <li><a href="#cast2">Явное преобразование типа</a></li>
   </ol>
-  <p><a href="#console">Ввод и вывод в консоли</a></p>
   <p><a href="#using">using Пространство имен и псевдонимы</a></p>
   <p><a href="#assoc">Ассоциативность операторов</a></p>
-  <p><a href="#type-conv-no">Неявное преобразование типа</a></p>
-  <p><a href="#type-conv">Явное преобразование типа</a></p>
+  <p><a href="#inout">Ввод и вывод</a></p>
+  <ol>
+    <li><a href="#inout1">Ввод и вывод в консоли</a></li>
+    <li><a href="#inout2">Ввод и вывод из файла</a></li>
+    <li><a href="#inout3">Перенаправление потока stdin, stdout</a></li>
+    <li><a href="#freopen">Как решить ошибку компиляции freopen</a></li>
+  </ol>
 </article>
 
 
@@ -203,9 +209,9 @@
 </article>
 
 
-<!-- Первая программа. Вывод в консоль-->
+<!-- Первая программа-->
 <article class="article">
-  <div class="anchor" id="console"></div>
+  <div class="anchor" id="first"></div>
   <h3>Первая программа</h3>
 
   <ol>
@@ -620,7 +626,7 @@ int main() {
 
 <!-- Неявное преобразование типа -->
 <article class="article">
-  <div class="anchor" id="type-conv-no"></div>
+  <div class="anchor" id="cast1"></div>
   <h3>Неявное преобразование типа</h3>
 
   <p>Все целочисленные литералы без суффиксов по умолчанию имеют тип int (signed int). При инициализации переменной с типом unsigned int произойдет неявное преобразование. Компилятор автоматически преобразует тип signed int к типу unsigned int</p>
@@ -648,30 +654,15 @@ int main() {
   <p>Если значение выходит за диапазон допустимых, то присваивается остаток от деления по модулю</p>
   <code>unsigned char a = -5; // 251</code>
   <code>unsigned short b = -3500; // 62036</code>
+</article>
 
 
 <!-- Явное преобразование типа -->
 <article class="article">
-  <div class="anchor" id="type-conv"></div>
+  <div class="anchor" id="cast2"></div>
   <h3>Явное преобразование типа</h3>
 
   <p>Для выполнения явных преобразований типов (explicit type conversion) применяется оператор static_cast</p>
-</article>
-
-
-<!-- Ввод и вывод в консоли -->
-<article class="article">
-  <div class="anchor" id="console"></div>
-  <h3>Ввод и вывод в консоли</h3>
-
-  <p>Ввод и вывод в консоли предоставляются библиотекой <strong>iostream</strong>. Поток - это последовательность символов, которая записывается на устройство ввода-вывода или считывается с него.Консоль - это устройство ввода-вывода.</p>
-  <p>Для вывода символов на консоль применяется объект <strong>cout</strong>. Для чтения с консоли применяется объект <strong>cin</strong></p>
-  <p>Для вывода на консоль применяется оператор <strong>&lt;&lt;</strong></p>
-  <code>std::cout &lt;&lt; "Name" &lt;&lt; std::endl;</code>
-  <p><strong>endl</strong> - это перевод на новую строку и сброс буфера</p>
-  <p>Для ввода с консоли применяется оператор <strong>&gt;&gt;</strong></p>
-  <code>int age;</code>
-  <code>std::cout &gt;&gt; age</code>
 </article>
 
 
@@ -701,4 +692,128 @@ int main() {
   <p>Операторы могут быть <strong>левоассоциативными</strong> - выполняются слева направо и <strong>правоассоциативными</strong> - выполняются справа налево</p>
   <p>В основном все операторы левоассоциативные</p>
   <p>Правоассоциативные операторы - унарные операторы, операторы присваивания и условный оператор</p>
+</article>
+
+
+<!-- Ввод и вывод -->
+<article class="article">
+  <div class="anchor" id="inout"></div>
+  <h3>Ввод и вывод</h3>
+</article>
+
+
+<!-- Ввод и вывод в консоли -->
+<article class="article">
+  <div class="anchor" id="inout1"></div>
+  <h3>Ввод и вывод в консоли</h3>
+
+  <p>Для ввода и вывода в консоли нужно подключить библиотеку <strong>iostream</strong>.</p>
+  <code>#include &lt;iostream&gt;</code>
+  <p>Поток - это последовательность символов, которая записывается на устройство ввода-вывода или считывается с него.Консоль - это устройство ввода-вывода.</p>
+  <p>Для чтения с консоли применяется объект <strong>cin</strong> и оператор <strong>&gt;&gt;</strong>.</p>
+  <code>std::cin >> n;</code>
+  <p>Для вывода символов на консоль применяется объект <strong>cout</strong> и оператор <strong>&lt;&lt;</strong>.</p>
+  <code>std::cout &lt;&lt; n;</code>
+</article>
+
+
+<!-- Ввод и вывод из файла -->
+<article class="article">
+  <div class="anchor" id="inout2"></div>
+  <h3>Ввод и вывод из файла</h3>
+
+  <p>Для ввода и вывода из файла нужно подключить библиотеку <strong>fstream</strong>.</p>
+  <code>#include &lt;fstream&gt;</code>
+  <p>Для ввода символов из файла нужно файл связать с входным потоком</p>
+  <code>ifstream fin("input.txt");</code>
+  <code>fin >> n;</code>
+  <p>Для вывода символов в файл нужно файл связать с выходным потоком</p>
+  <code>ofstream fout("output.txt");</code>
+  <code>fout &lt;&lt; n;</code>
+  <p>После работы с файлами, нужно их закрыть</p>
+  <code>fin.close();</code>
+  <code>fin.close();</code>
+</article>
+
+
+<!-- Перенаправление потока stdin, stdout -->
+<article class="article">
+  <div class="anchor" id="inout3"></div>
+  <h3>Перенаправление потока stdin, stdout</h3>
+
+  <h4>Перенаправление stdin, stdout и stderr на файлы, определенные пользователем</h4>
+
+  <p>Используем функцию freopen() для перенаправления заранее открытых файлов stdin, stdout и stderr на файлы, определенные пользователем.</p>
+  <ul>
+    <li>"r" Открывает для чтения. Если файл не существует или не удается найти, вызов завершается ошибкой freopen.</li>
+    <li>"w"	Открывает пустой файл для записи. Если указанный файл существует, его содержимое удаляется.</li>
+  </ul>
+<pre>
+freopen("input.txt", "rt", stdin);
+freopen("output.txt", "wt", stdout);
+
+int n;
+cin >> n;
+cout &lt;&lt; n * n;
+</pre>
+
+  <h4>Использование файлов</h4>
+  <p>Мы запускаем часть кода в Debug режиме. В Release он не будет виден, поэтому при запуске на сервере Codeforces не будет происходить подключение файлов</p>
+<pre>
+int main() {
+
+#ifdef _DEBUG
+freopen("input1.txt", "rt", stdin);
+freopen("output1.txt", "wt", stdout);
+#endif
+}
+</pre>
+  <p>Добавим файлы <strong>input1.txt</strong> и <strong>output1.txt</strong> в проект.</p>
+  <ol>
+    <li>
+      <p>В окне <strong>Обозреватель решений</strong> выбираем</p>
+      <code>Исходный файл - Добавить - Создать элемент (Ctrl+Shift+A)</code>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Добавление нового элемента</strong> выбираем <strong>Файл C++ (.cpp)</strong>. Задаем имя файла <strong>input1.txt</strong>. Нажимаем <strong>Добавить</strong></p>
+    </li>
+    <li>
+      <p>В окне <strong>Обозреватель решений</strong> создается текстовый файл</p>
+      <code>Исходные файлы - input1.txt</code>
+    </li>
+    <li>Также создаем файл <strong>output2.txt</strong></li>
+  </ol>
+</article>
+
+
+<!-- Как решить ошибку компиляции freopen -->
+<article class="article">
+  <div class="anchor" id="freopen"></div>
+  <h3>Как решить ошибку компиляции freopen</h3>
+
+  <p>Если в проекте на C++ изпользовать функцию freopen().</p>
+  <p>Если при компиляции выдается предупреждение</p>
+  <code>error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.</code>
+
+  <p>Microsoft объявила ряд функций устаревшими (deprecated) - freopen, fopen, fscanf, chsize и т.д. Это связано с тем, что данные функции не проверяют возможности переполнения буфера. Например, может произойти запись за пределами выделенного буфера, что может привести к изменению значений других данных, затиранию информации на стеке - к трудно находимым ошибкам при выполнении программы. Для устранения этого недостатка были разработаны безопасные функции с суффиксом _s (freopen_s)</p>
+
+  <p>Есть 2 способа решения этой проблемы.</p>
+
+  <h4>1 способ</h4>
+  <p>Изменяем настройки в Visual Studio и этой проблемы на этой Visual Studio больше не будет.</p>
+  <p>В Visual Studio выбрать пункт меню</p>
+  <code>Проект - Свойства Alt+F7</code>
+  <p>Откроется окно <strong>Страница свойств</strong>. Выбрать пункт</p>
+  <code>Свойства конфигурации - C/C++ - Препроцессор</code>
+  <p>В строке <strong>Определения препроцессора</strong> справа будет стрелочка выбора, нажать на нее и выбрать <strong>Изменить</strong></p>
+  <p>Откроется окно <strong>Определения препроцессора</strong>. В верхнем текстовом поле надо добавить строчку, для того чтобы снять ограничения на открытия других файлов функцией freopen().</p>
+  <code>_CRT_SECURE_NO_WARNINGS</code>
+  <p>Нажимаем <strong>OK</strong>, <strong>Применить</strong>, <strong>ОК</strong></p>
+
+  <h4>2 способ</h4>
+  <p>Добавляем директиву в исходный код программы и этой проблемы для этой программы больше не будет.</p>
+  <p>Чтобы продолжать пользоваться старыми функциями, можно попробовать отключить сообщения с ошибкой C4996. Для этого объявите макросы <strong>перед заголовочными файлами</strong> стандартных библиотек. Мне помог первый макрос</p>
+  <code>#define _CRT_SECURE_NO_WARNINGS</code>
+  <code>#define _CRT_SECURE_NO_DEPRECATE</code>
+  <code>#define _CRT_NONSTDC_NO_DEPRECATE</code>
 </article>

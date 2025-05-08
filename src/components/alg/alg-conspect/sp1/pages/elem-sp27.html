@@ -1,12 +1,12 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>Конспект курса</p>
+  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
 
 <article class="article">
-  <h1>Занятие 27 Графы#5. Обход в ширину на гридах</h1>
+  <h1>Занятие 27 Графы #5. Обход в ширину на гридах</h1>
   <p>Конспект видео от 2025.04.05</p>
   <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/601495" target="_blank">Codeforces Контест 601495</a></p>
 </article>
@@ -17,7 +17,7 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="#p1">Графы#5. Обход в ширину на гридах</a>
+    <a href="#p1">Графы #5. Обход в ширину на гридах</a>
   </p>
   <p>
         <a href="#task1">Задача A. Ладья, слон и король</a>
@@ -40,10 +40,10 @@
 </article>
 
 
-<!-- Графы#5. Обход в ширину на гридах -->
+<!-- Графы #5. Обход в ширину на гридах -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>Графы#5. Обход в ширину на гридах</h3>
+  <h3>Графы #5. Обход в ширину на гридах</h3>
 
   <h4>Гриды</h4>
 
@@ -166,9 +166,24 @@ void Hod(vector&lt;vector&lt;int&gt; &gt; &DP,
   <h4>Странные гриды</h4>
   <p>Иногда в задачах встречаются таблица не в виде квадратной сетки, но и в  более изощрённых, например соты или треугольники:</p>
   <p>В принципе идея решения останется такой же, за исключением момента с соседями. Связь между ячейками становится более сложной.</p>
+  <p>У шестиугольников шесть соседей. У треугольников три соседа.</p>
+<pre>
+грид А
+# S S # #
+ S P S # #
+# S S # #
+ # # # # #
+</pre>
+<pre>
+грид Б
+# S S # #
+ S P S # #
+  S S # #
+   # # # #
+</pre>
   <p>Список соседей ячейки (2,2):</p>
-  <p>a) (2,1),(2,3),(1,2),(1,3),(3,2),(3,3)</p>
-  <p>b) (2,1),(2,3),(1,2),(1,3),(3,1),(3,2)</p>
+  <p>грид А (2,1),(2,3),(1,2),(1,3),(3,2),(3,3)</p>
+  <p>грид Б (2,1),(2,3),(1,2),(1,3),(3,1),(3,2)</p>
 </article>
 
 
@@ -430,6 +445,68 @@ hhh
 4 1
 </pre>
   <code>0</code>
+
+  <details>Решение</details>
+  <p>Все сугробы, до которых можно добраться начиная движения от одного из этих сугробов, образуют компонент связности. Среди всех сугробов может быть несколько таких компонент связности. Чтобы объединить 2 компонента связности в один, нужно поставить ровно один сугроб на пересечении горизонтали и вертикали любых двух сугробов из разных компонент звязности. Чтобы объединить N компонет связности в один компонент нужно поставить ровно N-1 сугроб.</p>
+  <p>По условию у нас n ≤ 100 сугробов. Мы можем сделать полный перебор, то есть цикл в цикле.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;pair&lt;int, int&gt; &gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i].first >> A[i].second;
+  }
+
+  // решение
+  // отмечаем посещенные сугробы
+  vector&lt;int&gt; Mark(n, 0);
+  // количество компонент связности
+  int cnt = 0;
+  queue&lt;pair&lt;int, int&gt; &gt; q;
+  pair&lt;int, int&gt; tmp;
+
+  // bfs
+  for (int i = 0; i &lt; n; i++) {
+    if (Mark[i] == 0) {
+      cnt++;
+      tmp = A[i];
+      q.push(tmp);
+      Mark[i] = 1;
+
+      while (q.size() > 0) {
+        tmp = q.front();
+        q.pop();
+
+        // проходим по всем сугробам
+        // потому что их меньше 100
+        for (int j = 0; j &lt; n; j++) {
+          if (Mark[j] == 0) {
+            if (A[j].first == tmp.first || A[j].second == tmp.second) {
+              Mark[j] = 1;
+              q.push(A[j]);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; cnt - 1;
+}
+</pre>
 </article>
 
 
@@ -569,6 +646,102 @@ X#..
 ...#
 .#.#
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>У нас есть лабиринт из стен '#' и проходов '.', где все проходы связаны. То есть имеется одна компонента связности. Нам нужно расставить дополнительно k стен 'X' так, чтобы все проходы остались в одной компоненте связности.</p>
+    <p>Решение может иметь множество вариантов. Поэтому, начнем с любой вершины в проходе '.' и будем помечать все вершины, насколько они удалены от начальной вершины. Потом будем ставить новые стены 'X' в тех вершинах, которые наиболее удалены от начальной вершины. Когда мы поставим стену 'X' в самую удаленную вершину, то мы гарантируем, что все оставшиеся вершины останутся в одной компоненте связности. Последовательно расставим все k стен.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n, m, k;
+  cin >> n >> m >> k;
+  vector&lt;string&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  // выберем начальную вершину
+  // пусть это будет последняя вершина
+  pair&lt;int, int&gt; pos;
+  for (int i = 0; i &lt; A.size(); i++) {
+    for (int j = 0; j &lt; A[i].size(); j++) {
+      if (A[i][j] == '.') {
+        pos.first = i;
+        pos.second = j;
+      }
+    }
+  }
+
+  // вектор удаленности вершин
+  // от начальной вершины
+  vector&lt;pair&lt;int, int&gt; &gt; Len;
+  Len.push_back(pos);
+  vector&lt;pair&lt;int, int&gt; &gt; Step;
+  Step.push_back(make_pair( 1,  0));
+  Step.push_back(make_pair(-1,  0));
+  Step.push_back(make_pair( 0,  1));
+  Step.push_back(make_pair( 0, -1));
+
+  queue&lt;pair&lt;int, int&gt; &gt; q;
+  q.push(pos);
+  vector&lt;vector&lt;int&gt; &gt; Mark(n, vector&lt;int&gt;(m));
+  Mark[pos.first][pos.second] = 1;
+
+  // bfs по всей компоненте связности
+  while (q.size() > 0) {
+    pair&lt;int, int&gt; tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; Step.size(); i++) {
+
+      // проверяем что не вышли за границы
+      // это пример реализации без рамки
+      if (tmp.first + Step[i].first >= 0 &&
+          tmp.first + Step[i].first &lt; n &&
+          tmp.second + Step[i].second >= 0 &&
+          tmp.second + Step[i].second &lt; m) {
+        pair&lt;int, int&gt; gg;
+        gg.first = tmp.first + Step[i].first;
+        gg.second = tmp.second + Step[i].second;
+
+        // если вершина не посещена, и не стена
+        // мы должны ее посетить
+        // и пометить ее удаленность от начала
+        if (Mark[gg.first][gg.second] == 0
+            && A[gg.first][gg.second] == '.') {
+          Mark[gg.first][gg.second] = 1;
+          Len.push_back(gg);
+          q.push(gg);
+        }
+      }
+    }
+  }
+
+  int uk = Len.size();
+  while (k > 0) {
+    k--;
+    uk--;
+    A[Len[uk].first][Len[uk].second] = 'X';
+  }
+
+  // вывод результата
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -931,6 +1104,186 @@ MS......
 16
 21
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В сетке размером n x m находятся несколько озер, разделенных между собой сушей. Суша это ячеки со значением 0. Озера это компоненты связности. Глубина озера это сумма глубин всех его ячеек. То есть нам надо найти компоненту связности с самой большой суммой чисел во всех его ячейках.</p>
+    <p>Сразу сделаем вокруг сетки рамку из суши. Это нужно чтобы не проверять случаи выхода за границы сетки. Пройдем, начиная с первой (левой верхней) ячейки, по матрице и посчитаем количество компонент связности и сумму чисел в каждой компоненте.</p>
+    <p>Послокльку размер сетки ≤ 1000, каждый элемент ≤ 1000, то нам хватит типа данных int.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int Hod(vector&lt;vector&lt;int&gt; &gt; &G,
+        vector&lt;pair&lt;int, int&gt; &gt; &Step,
+        int x, int y) {
+  queue&lt;pair&lt;int, int&gt; &gt; q;
+  pair&lt;int, int&gt; tmp;
+  tmp.first = x;
+  tmp.second = y;
+  q.push(tmp);
+  int sum = G[x][y];
+  G[x][y] = 0;
+
+  // bfs
+  while (q.size() > 0) {
+    tmp = q.front();
+    q.pop();
+    for (int i = 0; i &lt; Step.size(); i++) {
+      if (G[tmp.first + Step[i].first][tmp.second + Step[i].second] != 0) {
+        sum += G[tmp.first + Step[i].first][tmp.second + Step[i].second];
+        G[tmp.first + Step[i].first][tmp.second + Step[i].second] = 0;
+        q.push(make_pair(tmp.first + Step[i].first, tmp.second + Step[i].second));
+      }
+    }
+  }
+
+  return sum;
+}
+
+int main() {
+  // ускорение ввода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n, m;
+    cin >> n >> m;
+    vector&lt;vector&lt;int&gt; &gt; G(n + 2, vector&lt;int&gt;(m + 2));
+    for (int i = 1; i &lt;= n; i++) {
+      for (int j = 1; j &lt;= m; j++) {
+        cin >> G[i][j];
+      }
+    }
+
+    // решение
+    int res = 0;
+    vector&lt;pair&lt;int, int&gt; &gt; Step;
+    Step.push_back(make_pair( 1,  0));
+    Step.push_back(make_pair(-1,  0));
+    Step.push_back(make_pair( 0,  1));
+    Step.push_back(make_pair( 0, -1));
+
+    for (int i = 1; i &lt;= n; i++) {
+      for (int j = 1; j &lt;= m; j++) {
+        if (G[i][j] != 0) {
+          res = max(res, Hod(G, Step, i, j));
+        }
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Некрасивое решение</summary>
+    <p>Не используем функцию Hod(), все пишем в main(). Не используем вектор Step, для каждого шага пишем свой if. В этой задаче клетка это квадрат и имеет 4 соседей, значит пишем четыре if. Если в задаче будет клета это восьмиугольник и иметь 8 соседей, значит напишем восемь if.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n, m;
+    cin >> n >> m;
+    vector&lt;vector&lt;int&gt; &gt; G(n + 2, vector&lt;int&gt;(m + 2));
+    for (int i = 1; i &lt;= n; i++) {
+      for (int j = 1; j &lt;= m; j++) {
+        cin >> G[i][j];
+      }
+    }
+
+    // решение
+    int res = 0;
+
+    for (int i = 1; i &lt;= n; i++) {
+      for (int j = 1; j &lt;= m; j++) {
+        if (G[i][j] != 0) {
+          int buf = 0;
+          queue&lt;pair&lt;int, int&gt; &gt; q;
+          pair&lt;int, int&gt; tmp;
+          tmp.first = i;
+          tmp.second = j;
+          q.push(tmp);
+          buf += G[i][j];
+          G[i][j] = 0;
+
+          while (q.size() > 0) {
+            tmp = q.front();
+            q.pop();
+            pair&lt;int, int&gt; tmp2;
+
+            // шаг вправо
+            tmp2.first = tmp.first + 1;
+            tmp2.second = tmp.second;
+            if (G[tmp2.first][tmp2.second] != 0) {
+              buf += G[tmp2.first][tmp2.second];
+              G[tmp2.first][tmp2.second] = 0;
+              q.push(tmp2);
+            }
+
+            // шаг влево
+            tmp2.first = tmp.first - 1;
+            tmp2.second = tmp.second;
+            if (G[tmp2.first][tmp2.second] != 0) {
+              buf += G[tmp2.first][tmp2.second];
+              G[tmp2.first][tmp2.second] = 0;
+              q.push(tmp2);
+            }
+
+            // шаг вверх
+            tmp2.first = tmp.first;
+            tmp2.second = tmp.second + 1;
+            if (G[tmp2.first][tmp2.second] != 0) {
+              buf += G[tmp2.first][tmp2.second];
+              G[tmp2.first][tmp2.second] = 0;
+              q.push(tmp2);
+            }
+
+            // шаг вниз
+            tmp2.first = tmp.first;
+            tmp2.second = tmp.second - 1;
+            if (G[tmp2.first][tmp2.second] != 0) {
+              buf += G[tmp2.first][tmp2.second];
+              G[tmp2.first][tmp2.second] = 0;
+              q.push(tmp2);
+            }
+          }
+          res = max(res, buf);
+        }
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

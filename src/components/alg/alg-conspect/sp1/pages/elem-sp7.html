@@ -1,6 +1,6 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>Конспект курса</p>
+  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
@@ -96,7 +96,7 @@ int main() {
   <code>error C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.</code>
 
   <p>Microsoft объявила ряд функций устаревшими (deprecated) - freopen, fopen, fscanf, chsize и т.д. Это связано с тем, что данные функции не проверяют возможности переполнения буфера. Например, может произойти запись за пределами выделенного буфера, что может привести к изменению значений других данных, затиранию информации на стеке - к трудно находимым ошибкам при выполнении программы. Для устранения этого недостатка были разработаны безопасные функции с суффиксом _s (freopen_s)</p>
-  <p>Чтобы продолжать пользоваться старыми функциями, можно попробовать отключить сообщения с ошибкой C4996. Для этого объявите макросы перед заголовочными файлами стандартных библиотек. Мне помог первый макрос</p>
+  <p>Чтобы продолжать пользоваться старыми функциями, можно попробовать отключить сообщения с ошибкой C4996. Для этого объявите макросы <strong>перед заголовочными файлами</strong> стандартных библиотек. Мне помог первый макрос</p>
   <code>#define _CRT_SECURE_NO_WARNINGS</code>
   <code>#define _CRT_SECURE_NO_DEPRECATE</code>
   <code>#define _CRT_NONSTDC_NO_DEPRECATE</code>

@@ -1,6 +1,6 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>Конспект курса</p>
+  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
@@ -599,6 +599,56 @@ int main() {
 </pre>
   <p>В первом наборе входных данных последовательность a совпадает с последовательностью из условия. Состояния доски после каждого шага выглядят так:</p>
   <code>[3]⇒[3,1]⇒[3,4,1]⇒[3,4,1,1]⇒[3,4,5,1,1]⇒[3,4,5,9,1,1]⇒[3,4,5,2,9,1,1].</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n;
+    cin >> n;
+    vector&lt;int&gt; B(n + 1, 0);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> B[i];
+    }
+
+    // решение
+    vector&lt;int&gt; A;
+    int left = 1, right = n;
+
+    while (right > left) {
+      A.push_back(B[left]);
+      A.push_back(B[right]);
+      left++;
+      right--;
+    }
+
+    if (left == right) {
+      A.push_back(B[left]);
+    }
+
+    // вывод результата
+    for (int i = 0; i &lt; A.size(); i++) {
+      cout &lt;&lt; A[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -636,6 +686,59 @@ int main() {
 1 2 3 4 5 6 7
 </pre>
   <code>16 12</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n;
+  cin >> n;
+
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  int s = 0, d = 0;
+  int l = 1, r = n;
+
+  while (r > l) {
+    if (A[r] > A[l]) {
+      s += A[r];
+      r--;
+    } else {
+      s += A[l];
+      l++;
+    }
+    if (A[r] > A[l]) {
+      d += A[r];
+      r--;
+    } else {
+      d += A[l];
+      l++;
+    }
+  }
+
+  if (r == l) {
+    s += A[r];
+  }
+
+  // вывод результата
+  cout &lt;&lt; s &lt;&lt; ' ' &lt;&lt; d;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -794,6 +897,64 @@ int main() {
 1 2 3
 </pre>
   <code>2</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Отсортируем оба массива и пойдем указателями выбирая элементы, оторые отличаются не более чем на 1.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+
+  // юноши
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // девушки
+  int m;
+  cin >> m;
+  vector&lt;int&gt; B(m);
+  for (int i = 0; i &lt; m; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  int res = 0;
+  sort(A.begin(), A.end());
+  sort(B.begin(), B.end());
+  int p1 = 0, p2 = 0;
+
+  while (p1 &lt; n && p2 &lt; m) {
+    if (abs(A[p1] - B[p2]) &lt; 2) {
+      res++;
+      p1++;
+      p2++;
+    } else if (A[p1] >= B[p2]) {
+      p2++;
+    } else {
+      p1++;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -942,6 +1103,61 @@ int main() {
   <p>В третьем примере Алиса и Боб не могут съесть наборы конфет одинакового ненулевого веса, поэтому ответ равен 0.</p>
 
   <p>В четвертом примере Алиса съест конфеты весом [7,3,20], а Боб съест конфеты весом [10,8,11,1], каждый из них съест набор конфет суммарным весом 30. Лучшего способа съесть конфеты нет, поэтому ответ 7.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n;
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int res = 0;
+    int l = 0, r = n - 1;
+    int wl = 0, wr = 0;
+    int cnt = 0;
+
+    while (r >= l) {
+      if (wl &lt;= wr) {
+        wl += A[l];
+        l++;
+      } else {
+        wr += A[r];
+        r--;
+      }
+      cnt++;
+      if (wl == wr) {
+        res = cnt;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -994,6 +1210,49 @@ int main() {
 </pre>
   <code>6</code>
   <p>В третьем примере любой подмассив содержит хотя бы 1 число. Всего их 6: (1), (1), (1), (1,1), (1,1) и (1,1,1).</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+  int n, k;
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long res = 0;
+  int p1 = 0;
+  unordered_map&lt;int, int&gt; Cnt;
+
+  for (int p2 = p1; p2 &lt; n; p2++) {
+    Cnt[A[p2]]++;
+    while (Cnt[A[p2]] >= k) {
+      res += n - p2;
+      Cnt[A[p1]]--;
+      p1++;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res &lt;&lt; '\n';
+}
+</pre>
+  </details>
 </article>
 
 

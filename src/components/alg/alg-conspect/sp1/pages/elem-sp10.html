@@ -1,6 +1,6 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>Конспект курса</p>
+  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
@@ -1095,13 +1095,18 @@ s -5
 using namespace std;
 
 int main() {
-  // ввод данных
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
   int t;
   cin >> t;
-  for (int test = 0; test &lt; t; test++) {
+
+  while (t--) {
+    // ввод данных
     int n, q;
     cin >> n >> q;
-    vector&lt;int&lt; A(n + 1);
+    vector&lt;int&gt; A(n + 1);
     for (int i = 0; i &lt; n; i++) {
       cin >> A[i];
     }
@@ -1109,7 +1114,7 @@ int main() {
     // решение
     sort(A.begin(), A.end());
     int uk = n;
-    vector&lt;int&lt; Pref(n + 1);
+    vector&lt;int&gt; Pref(n + 1);
     for (int i = 1; i &lt;= n; i++) {
       Pref[i] = Pref[i - 1] + A[uk];
       uk--;
@@ -1144,5 +1149,4 @@ int main() {
 </pre>
   </details>
 </article>
-
 
