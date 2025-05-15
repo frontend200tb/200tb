@@ -1,0 +1,105 @@
+const dataVkSport = [
+
+  {
+    id: 1,
+    theme: 'Спорт',
+    title: 'ЕГЭ Информатика 2025 Открытый курс',
+    author: 'Алексей Кабанов',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@ege_info_open',
+    site: '',
+    dateFirstVideo: '2021.07.10',
+    dateLastVideo: '2025.05.10',
+    amountVideos: 1085,
+  },
+
+  {
+    id: 2,
+    theme: 'Спорт',
+    title: 'БинПоиск МЭИ',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@icpc_appmat',
+    site: '',
+    dateFirstVideo: '2019.03.24',
+    dateLastVideo: '2020.12.07',
+    amountVideos: 42,
+  },
+
+  {
+    id: 2,
+    theme: 'Спорт',
+    title: 'Спортивное программирование ЯрГУ (ICPC)',
+    author: 'Игорь Маслеников',
+    city: 'Ярославль',
+    country: 'Россия',
+    link: 'https://vkvideo.ru/@yaracm',
+    site: '',
+    dateFirstVideo: '2024.08.08',
+    dateLastVideo: '2025.04.22',
+    amountVideos: 39,
+  },
+
+  {
+    id: 2,
+    theme: 'Спорт',
+    title: 'Спортивное программирование. ЯрГУ',
+    author: 'Игорь Маслеников',
+    city: 'Ярославль',
+    country: 'Россия',
+    link: 'https://vkvideo.ru/@sportprog_yarsu',
+    site: '',
+    dateFirstVideo: '2024.09.16',
+    dateLastVideo: '2025.05.03',
+    amountVideos: 34,
+  },
+
+  {
+    id: 2,
+    theme: 'Спорт',
+    title: 'Олимпиадное программирование Игорь Мамай',
+    author: 'Игорь Мамай',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@igor_mamay',
+    site: '',
+    dateFirstVideo: '2023.03.29',
+    dateLastVideo: '2024.04.01',
+    amountVideos: 24,
+  },
+
+  {
+    id: 3,
+    theme: 'Спорт',
+    title: 'ЕГЭ Информатика 2025 Открытый курс',
+    author: 'Алексей Кабанов',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@itcube.rostov',
+    site: '',
+    dateFirstVideo: '2020.09.30',
+    dateLastVideo: '2021.03.10',
+    amountVideos: 21,
+  },
+
+  {
+    id: 4,
+    theme: 'Спорт',
+    title: 'КТП ПетрГУ',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@ktp_olymp',
+    site: '',
+    dateFirstVideo: '2024.09.13',
+    dateLastVideo: '2024.10.16',
+    amountVideos: 13,
+  },
+
+  {},
+
+];
+
+export default dataVkSport;

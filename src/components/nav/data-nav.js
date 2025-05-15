@@ -20,12 +20,14 @@ import showFrontLearned from '../front/front-learned/front-learned';
 import showFrontNode from '../front/front-node/front-node';
 import showFrontOffline from '../front/front-offline/front-offline';
 import showFrontOnline from '../front/front-online/front-online';
+import showFrontSoft from '../front/front-soft/front-soft';
 import showFrontVacancy from '../front/front-vacancy/front-vacancy';
 
 // lib
-import showFrontBooks from '../lib/front-books/front-books';
-import showFrontVideo from '../lib/front-video/front-video';
-import showFrontYt from '../lib/front-yt/front-yt';
+import showLibBooks from '../lib/lib-books/lib-books';
+import showLibVideo from '../lib/lib-video/lib-video';
+import showLibYt from '../lib/lib-yt/lib-yt';
+import showLibVk from '../lib/lib-vk/lib-vk';
 
 // alg
 export const dataNavAlg = [
@@ -174,6 +176,14 @@ export const dataNavFront = [
     },
   },
   {
+    url: 'front-soft.html',
+    text: 'Soft',
+    content: '<front-soft></front-soft>',
+    act() {
+      showFrontSoft();
+    },
+  },
+  {
     url: 'front-vacancy.html',
     text: 'Vacancy',
     content: '<front-vacancy></front-vacancy>',
@@ -186,27 +196,35 @@ export const dataNavFront = [
 // lib
 export const dataNavLib = [
   {
-    url: 'front-books.html',
+    url: 'lib-books.html',
     text: 'Books',
-    content: '<front-books></front-books>',
+    content: '<lib-books></lib-books>',
     act() {
-      showFrontBooks();
+      showLibBooks();
     },
   },
   {
-    url: 'front-video.html',
+    url: 'lib-video.html',
     text: 'Video',
-    content: '<front-video></front-video>',
+    content: '<lib-video></lib-video>',
     act() {
-      showFrontVideo();
+      showLibVideo();
     },
   },
   {
-    url: 'front-yt.html',
+    url: 'lib-yt.html',
     text: 'Youtube',
-    content: '<front-yt></front-yt>',
+    content: '<lib-yt></lib-yt>',
     act() {
-      showFrontYt();
+      showLibYt();
+    },
+  },
+  {
+    url: 'lib-vk.html',
+    text: 'Vk',
+    content: '<lib-vk></lib-vk>',
+    act() {
+      showLibVk();
     },
   },
 ];

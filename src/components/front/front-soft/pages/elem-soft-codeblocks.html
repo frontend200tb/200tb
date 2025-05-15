@@ -1,0 +1,172 @@
+<h2>Code::Blocks 20.03 (2020)</h2>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#links">links</a></p>
+  <p><a href="#install">install</a></p>
+  <p><a href="#first1">Первая программа в консоли (проект)</a></p>
+  <p><a href="#first2">Первая программа в консоли (файл)</a></p>
+  <p><a href="#setup">Настройка</a></p>
+  <p><a href="#hotkeys">Горячие клавиши</a></p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h3>links</h3>
+
+  <p><a href="https://www.codeblocks.org/downloads/">https://www.codeblocks.org/downloads/</a>
+  <br>Бесплатная среда разработки для языков Си, C++ и Fortran
+  <br>Кросс-платформенная для Linux, Windows и Mac OS X
+  <br>codeblocks-20.03mingw-nosetup.zip 168mb</p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>install</h3>
+
+  <p>Устанавливаем в папку</p>
+  <code>d:\Programs\CodeBlocks\</code>
+  <p>Запускаем файл</p>
+  <code>d:\Programs\CodeBlocks\codeblocks.exe</code>
+</article>
+
+
+<!-- Первая программа в консоли (проект) -->
+<article class="article">
+  <div class="anchor" id="first1"></div>
+  <h3>Первая программа в консоли (проект)</h3>
+
+  <p>Откроем CodeBlocks</p>
+  <ol>
+    <li>
+      <p>Создадим новый проект. Для этого есть два способа</p>
+      <p>1. В окне <strong>Start here</strong> выберем</p>
+      <code>Create a new project</code>
+      <p>2. Выберем меню</p>
+      <code>File - New - Project</code>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>New from template</strong> выберем</p>
+      <code>Projects - Console application</code>
+      <p>И нажмем Go</p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Console application</strong> выберем язык C или C++ и нажмем Next</p>
+    </li>
+    <li>
+      <p>В следующем окне <strong>Console application</strong> выберем Project title и Folder to create project in и нажмем Next</p>
+    </li>
+    <li>
+       <p>В следующем окне <strong>Console application</strong> выберем Compiler, остальное оставим как есть и нажмем Finish</p>
+    </li>
+    <li>
+      <p>В окне <strong>Management</strong> откроем файл</p>
+      <code>Sources - main.c</code>
+    </li>
+    <li>
+      <p>Увидим в нем код первой программы</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello, world!");
+  return 0;
+}
+</pre>
+    </li>
+    <li>
+      <p>Соберем и запустим наш проект. Есть два способа сделать это:</p>
+      <ol>
+        <li>Выбрать меню Build - Build and run F9</li>
+        <li>Нажать иконку Build and run</li>
+      </ol>
+    </li>
+    <li>
+      <p>Откроется консоль и мы увидим результат</p>
+      <code>Hello, world!</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Первая программа в консоли (файл) -->
+<article class="article">
+  <div class="anchor" id="first2"></div>
+  <h3>Первая программа в консоли (файл)</h3>
+
+  <p>Откроем CodeBlocks. Для олимпиадного программирования создавать проект не нужно. Достаточно написать программу в одном файле.</p>
+  <ol>
+    <li>Создадим новый файл. Для этого выберем пункт меню</li>
+    <code>File - New - Empty file Ctrl-Shift-N</code>
+    <li>В окне <strong>Start here</strong> появится новый пустой текстовый файл с заголовком *Untitled1</li>
+    <li>
+      Сразу сохраним его. Есть три способа сохранить новый файл
+      <ol>
+        <li>Выбрать меню
+          <code>File - Save file Ctrl-S</code>
+        </li>
+        <li>Выбрать меню
+          <code>File - Save file as</code></li>
+        <li>Нажать иконку Save</li>
+      </ol>
+    </li>
+    <li>В открывшемся окне <strong>Save file</strong> выберем папку и имя файла и нажмем <strong>Сохранить</strong></li>
+    <li>
+      <p>Напишем код первой программы</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello, world!");
+  return 0;
+}
+</pre>
+    </li>
+    <li>
+      <p>Соберем и запустим нашу программу. Есть два способа сделать это:</p>
+      <ol>
+        <li>Выбрать меню Build - Build and run F9</li>
+        <li>Нажать иконку Build and run</li>
+      </ol>
+    </li>
+    <li>
+      <p>Откроется консоль и мы увидим результат</p>
+      <code>Hello, world!</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- Настройка -->
+<article class="article">
+  <div class="anchor" id="setup"></div>
+  <h3>Настройка</h3>
+
+  <h4>Выбрать компилятор</h4>
+  <p>Выбрать пункт меню</p>
+  <code>Settings - Compiler</code>
+  <p>Откроется окно <strong>Compiler setings</strong></p>
+  <p>Слева выбираем <strong>Global compiler settings</strong></p>
+  <p>В разделе <strong>Selected compiler</strong> выбираем</p>
+  <code>GNU GCC Compiler</code>
+  <p>На вкладке <strong>Compiler settings</strong> выбираем вкладку <strong>Other compiler options</strong> и прописываем</p>
+  <code>-std=c++17</code>
+
+
+</article>
+
+
+<!-- Горячие клавиши -->
+<article class="article">
+  <div class="anchor" id="hotkeys"></div>
+  <h3>Горячие клавиши</h3>
+
+</article>
+

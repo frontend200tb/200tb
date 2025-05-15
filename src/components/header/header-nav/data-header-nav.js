@@ -1,7 +1,7 @@
 import showAlg from '../../alg/alg-base/alg-base';
 import showCode from '../../code/code-html/code-html';
 import showFront from '../../front/front-edu/front-edu';
-import showLib from '../../lib/front-books/front-books';
+import showLib from '../../lib/lib-books/lib-books';
 
 const dataHeaderNav = [
   {
@@ -31,7 +31,7 @@ const dataHeaderNav = [
  {
     url: '/lib.html',
     text: 'Lib',
-    content: '<front-books></front-books>',
+    content: '<lib-books></lib-books>',
     act() {
       showLib();
     },

@@ -4,7 +4,6 @@
 import showFrontBase from './../front-base/front-base';
 import showFrontNets from './../front-nets/front-nets';
 import showFrontFramework from './../front-framework/front-framework';
-import showFrontTools from './../front-tools/front-tools';
 import showFrontArticles from './../front-articles/front-articles';
 
 export default function pageLink() {
@@ -37,16 +36,7 @@ export default function pageLink() {
     });
   }
 
-  const navTools = document.getElementById('offline-4');
-  if (navTools) {
-    navTools.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentContent.innerHTML = '<front-tools></front-tools>';
-      showFrontTools();
-    });
-  }
-
-  const navArticles = document.getElementById('offline-5');
+  const navArticles = document.getElementById('offline-4');
   if (navArticles) {
     navArticles.addEventListener('click', (e) => {
       e.preventDefault();

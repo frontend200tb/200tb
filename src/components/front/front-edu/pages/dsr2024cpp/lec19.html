@@ -1,0 +1,278 @@
+<article class="article">
+  <h1>Лекция 19 (14.05.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">ООП. Паттерны</a></p>
+</article>
+
+
+<!-- ООП. Паттерны -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>ООП. Паттерны</h3>
+
+  <p>Поговорим про библиотеку, на которой пишут игры.</p>
+  <p>raylib.com</p>
+  <p>Есть демонстрация игр. В открытом доступе в примерах можно посмотреть исходный код. База моделей 2d и 3d. Мы постараемся сделать отрисовку картинки, чтобы не просто квадратик бегал. Начнем с примитивного. С отрисовки обычных полей.</p>
+  <p>Открываем Visual Studio</p>
+  <p>Надо настроить пакеты, которые будем подгружать к проекту. Надо нажать управление пакетами nuget. Идем в обзор. в поиск вбиваем raylib. последняя стабильная 5.5.0 нажимаем установить.</p>
+  <p>подкключаем raylib</p>
+<pre>
+#include &lt;string&gt;
+#include &lt;locale&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include "raylib.h"
+
+using namespace std;
+
+enum GameState {
+  GAME_PLAYING,
+  GAME_OVER
+  // сделать перключение между разными экранами
+};
+
+float MyLerp(float start, float end, float t) {
+  return start + t * (end - start);
+}
+
+// проверка стенки
+bool isForbiddenCell(int x, int y, vector&lt;Vector2&gt; forbiddenCells) {
+  for (const auto& cell: forbiddenCells) {
+    if (cell.x == x && cell.y == y) {
+      return true;
+    }
+  }
+  return false;
+}
+
+int main () {
+  // локализация
+  locale::global(locale(""));
+
+  // инициализация окна
+  const int screenWidth = 800;
+  const int screenHeight = 800;
+
+  InitWindow(screenWidth, screenHeight, "Window");
+
+  // размер доски
+  const int boardSize = 8;
+  // размер клетки
+  const int cellSize = screenWidth / boardSize;
+
+  Color lightColor = LIGHTGRAY;
+  Color darkColor = DARKGREEN;
+  Color playerColor = DARKBLUE;
+  Color highlightColor = GREEN;
+  Color forbiddenColor = YELLOW;
+
+  // позиция персонажа
+  Vector2 targetPos = {0, 0};
+  Vector2 actualPos = {0, 0};
+  Vector2 newTergetPos = {0, 0};
+  float moveSpeed = 8.0f;
+
+  // шрифты
+  Font font = LoadFontEx("resources/arial.ttf", 32, 0, 0);
+  SetTextureFilter(font.texture, TEXTURE_FILTER_BILINEAR);
+
+  // задача текстур
+  Texture2D playerTexture = LoadTexture("resources/player.png");
+  Texture2D obstacleTexture = LoadTexture("resources/obstacle.png");
+  Texture2D rectBut = LoadTexture("resources/restart.png");
+  Texture2D extBut = LoadTexture("resources/exit.png");
+
+  // звук
+  InitAudioDevice();
+  // загрузка звука
+  Sound moveSound = LoadSound("resources/move.wav");
+  Sound winSound = LoadSound("resources/win.wav");
+
+  // стенки
+  vector&lt;Vector2&gt; forbiddenCells = { {2, 2}, {4, 5}};
+
+  // состояние игры
+  GameStatecurrent = GAME_PLAYING;
+  bool playedWinSound = false;
+
+  // установка FPS
+  SetTargetFPS(60);
+
+  // бесконечный цикл игры
+  while (!WindowShouldClose()) {
+
+    if (current == GAME_PLAYING) {
+
+      // движение персонажа
+      newTargetPos = targetPos;
+      bool moved = false;
+      if(IsKeyPressed(KEY_RIGHT) && newTargetPos.x &lt; boardSize - 1) {
+        newTargetPos.x += 1;
+        moved = true;
+      }
+      if(IsKeyPressed(KEY_LEFT) && newTargetPos.x > 0) {
+        newTargetPos.x -= 1;
+        moved = true;
+      }
+      if(IsKeyPressed(KEY_UP) && newTargetPos.y > 0) {
+        newTargetPos.y -= 1;
+        moved = true;
+      }
+      if(IsKeyPressed(KEY_DOWN) && newTargetPos.y &lt; boardSize - 1) {
+        newTargetPos.y += 1;
+        moved = true;
+      }
+
+      if (!isForbiddenCell(newTargetPos.x, newTargetPos.y, forbiddenCells)) {
+        targetPos = newTargetPos;
+        moved = true;
+      } else {
+        // звук врезания в стенку
+      }
+
+      if (moved) {
+        PlaySound(moveSound);
+      }
+
+      if (targetPos.x == boardSize - 1 && targetPos.y == boardSize - 1 && !playedWinSound) {
+        PlaySound(winSound);
+        playedWinSound = true;
+        current = GAME_OVER;
+
+      }
+
+      actualPos.x = MyLerp(actualPos.x, targetPos.x, moveSpeed* GetFrameTime());
+      actualPos.y = MyLerp(actualPos.y, targetPos.y, moveSpeed* GetFrameTime());
+    }
+
+
+
+
+    BeginDrawing();
+
+    ClearBackground(RAYWHITE);
+
+    // отрисовка шахматки
+    for (int row = 0; row &lt; boardSize; row++) {
+      for (int col = 0; row &lt; boardSize; col++) {
+        Color color = ((row + col) % 2 == 0) ? lightColor : darkColor;
+
+        // отрисовка финиша
+        if (row == boardSize - 1 && col == boardSize - 1) {
+          color = ColorAlpha(highlightColor, 0.5f);
+
+        // отрисовка стенок
+        } else if (isForbiddenCell(col, row, forbiddenCells)) {
+          color = forbiddenColor;
+        }
+
+        DrawRectangle(col * cellSize, row * cellSize, cellSize, cellSize, color);
+
+        if (isForbiddenCell(col, row, forbiddenCells)) {
+          DrawTexturePro(
+            obstacleTexture,
+            {0, 0, (float)obstacleTexture.width, (float)obstacleTexture.height },
+            {
+              actualPos.x * cellSize,
+              actualPos.y * cellSize,
+              (float)cellSize,
+              (float)cellSize,
+            },
+            {0, 0}, 0.0f, WHITE);
+
+        }
+      }
+    }
+
+    for (int i = 0; i &lt;= boardSize; i++) {
+      DrawLine(i * cellSize, 0, i * cellSize, screenHeight, BLACK);
+      DrawLine(0, i * cellSize, screenWidth, i * cellSize, BLACK);
+    }
+
+    // орисовка персонажа кружок /*
+    DrawCircle(
+      actualPos.x * cellSize + cellSize / 2,
+      actualPos.y * cellSize + cellSize / 2,
+      cellSize / 2 - 10,
+      playerColor); */
+
+    if (current == GAME_PLAYING) {
+      DrawTexturePro(
+        playerTexture,
+        {0, 0, (float)playerTexture.width, (float)playerTexture.height },
+        {
+          actualPos.x * cellSize,
+          actualPos.y * cellSize,
+          (float)cellSize,
+          (float)cellSize,
+        },
+        {0, 0}, 0.0f, WHITE);
+    }
+
+
+
+
+    DrawText(TextFormat("Position: [%d, %d]", (int)targetPos.x, (int)targetPos.y), 10, 10, 20, BLACK);
+
+    DrawTextEx(font, "Arrow: ", {10, static_cast&lt;float&gt;(screenHeight - 3)}, 20, 2, BLACK);
+
+    if (current == GAME_OVER) {
+      DrawRectangle(0, 0, screenWidth, screenWidth, ColorAlpha(BLACK, 0.5f));
+      DrawTextEx(font, "Win!!!", {screenWidth / 2 - MeasureTextEx(font, "WIN!!!", 50, 2).x / 2, 200}, 50, 2, GREEN);
+
+      Rectangle rectB = {screenWidth / 2 - 150, 300, 300, 80};
+      DrawTexturePro(
+        rectBut,
+        {0, 0, (float)rectBut.width, (float)rectBut.height },
+        rectB,
+        {0, 0},
+        0.0f,
+        WHITE
+      );
+      Rectangle extB = {screenWidth / 2 - 150, 400, 300, 80};
+      DrawTexturePro(
+        extBut,
+        {0, 0, (float)rectBut.width, (float)rectBut.height },
+        extB,
+        {0, 0},
+        0.0f,
+        WHITE
+      );
+
+      if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        Vector2 mousePos = GetMousePosition();
+        if (CheckCollisionPointRec(mousePos, rectB)) {
+          targetPos = {0, 0};
+          actualPos = {0, 0};
+          current = GAME_PLAYING;
+          playedWinSound = false;
+        } else if (CheckCollisionPointRec(mousePos, extB)) {
+
+        }
+      }
+    }
+
+
+    EndDrawing();
+
+  }
+
+  // очистка
+  UnloadSound(moveSound);
+  UnloadFont(font);
+
+  // закрытие
+  CloseAudioDevice();
+  CloseWindow();
+}
+</pre>
+</article>
+

@@ -1,7 +1,6 @@
 import showFrontBase from './../front-base/front-base';
 import showFrontNets from './../front-nets/front-nets';
 import showFrontFramework from './../front-framework/front-framework';
-import showFrontTools from './../front-tools/front-tools';
 import showFrontArticles from './../front-articles/front-articles';
 
 export const dataOfflineNav = [
@@ -27,14 +26,6 @@ export const dataOfflineNav = [
     content: '<front-framework></front-framework>',
     act() {
       showFrontFramework();
-    },
-  },
-  {
-    url: 'front-tools.html',
-    text: 'tools',
-    content: '<front-tools></front-tools>',
-    act() {
-      showFrontTools();
     },
   },
   {

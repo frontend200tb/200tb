@@ -1301,6 +1301,66 @@ int main() {
   <p>В этой таблице все участники расположены по убыванию количества баллов, и для участника показано, сколько баллов он набрал в первом и во втором туре.</p>
 
   <p>В худшем случае, он может занять пятое место, если таблица выглядит так — {4:8, 4:6, 6:4, 5:4, 4:3, 3:0}, а он набрал в первом и втором турах 4 и 3 балла соответственно.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Комбинировать баллы из первого и второго тура можно любым образом. Наилучшее место всегда будет первое. Чтобы найти наихудшее место, нужно найти количество участников, набравших менее чем x баллов.</p>
+
+  <h4>Пример 1</h4>
+<pre>
+6 8
+1 2 3 4 5 6
+1 2 3 4 5 6
+</pre>
+  <code>1 5</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+  int n, x;
+  cin >> n >> x;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+  vector&lt;int&gt; B(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  int min = n;
+  int max = 1;
+  int p1 = 0, p2 = n - 1;
+  sort(A.begin(), A.end());
+  sort(B.begin(), B.end());
+
+  while (p1 &lt; n && p2 >= 0) {
+    if (A[p1] + B[p2] &lt; x) {
+      p1++;
+      min--;
+    } else {
+      p1++;
+      p2--;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; max &lt;&lt; ' ' &lt;&lt; min;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1344,6 +1404,98 @@ int main() {
 </pre>
   <code>-1</code>
   <p>Во втором примере строки нельзя сдвинуть так, чтобы образовался столбец, содержащий только единицы.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+  <h4>Пример 3</h4>
+  <pre>
+  1 1
+  0
+  </pre>
+    <code>-1</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+  vector&lt;string&gt; A(n);
+
+  // считываем массив
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long res = 1e18;
+
+  for (int i = 0; i &lt; n; i++) {
+    // счетчик единиц в строке
+    int cnt1 = 0;
+    for (int j = 0; j &lt; m; j++) {
+
+      // для каждой 1 в строке
+      if (A[i][j] == '1') {
+        cnt1++;
+        long long resi = 0;
+
+        // проходим по всем строкам
+        for (int k = 0; k &lt; n; k++) {
+          // счетчик нулей в строке
+          int cnt0 = 0;
+          int l = j, r = j;
+
+          // поиск ближайшей 1 в каждой строке
+          while (A[k][l] != '1' && A[k][r] != '1') {
+            // проверка что в строке все 0
+            cnt0++;
+            if (cnt0 == m / 2 + 1) {
+              cout &lt;&lt; -1;
+              return 0;
+            }
+
+            resi++;
+            if (l == 0) {
+              l = m - 1;
+            } else {
+              l--;
+            }
+            if (r == m - 1) {
+              r = 0;
+            } else {
+              r++;
+            }
+          }
+        }
+        res = min(res, resi);
+      }
+
+    }
+    if (cnt1 == 0) {
+      cout &lt;&lt; -1;
+      return 0;
+    }
+
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1392,6 +1544,77 @@ int main() {
 </pre>
   <code>4 2</code>
   <p>В третьем примере нужно один раз увеличить второй элемент массива и один раз увеличить пятый элемент массива. Таким образом, получим последовательность 3, 2, 2, 2, 2, в которой число 2 встречается 4 раза.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Отсортируем массив. Постараемся получить каждое число, прибавляя к соседним меньшим числам единицу не более k раз. Выберем число с максимальным вхождением. Если их несколько то выберем минимальное из них.</p>
+    <p>Превышено ограничение времени на тесте 45</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool comp(int a, int b) {
+  return a > b;
+}
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n, k;
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end(), comp);
+  int cur_k = 0;
+  int cnt = 0; // макс число вхождений
+  int cur_cnt = 1;
+  int pr = 0;
+  int num = A[pr]; // мин число
+
+  // проходим по числам от большего к меньшему
+  for (int pl = 0; pl &lt; n; pl++) {
+    int cur_num = A[pl];
+    cur_cnt--;
+    if (pl) {
+      int dif = A[pl - 1] - A[pl];
+      cur_k -= dif * cur_cnt;
+    }
+
+    while (k >= cur_k && pr &lt; n) {
+      cur_k += A[pl] - A[pr];
+      if (k >= cur_k) {
+        pr++;
+        cur_cnt++;
+      }
+    }
+
+    if (cur_k > k) {
+      cur_k -= A[pl] - A[pr];
+    }
+
+    if (cur_cnt >= cnt) {
+      cnt = cur_cnt;
+      num = cur_num;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; cnt &lt;&lt; ' ' &lt;&lt; num;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 

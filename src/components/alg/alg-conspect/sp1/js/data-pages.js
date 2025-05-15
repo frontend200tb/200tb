@@ -32,6 +32,7 @@ import htmlSp30        from './../pages/elem-sp30.html';
 import htmlSp31        from './../pages/elem-sp31.html';
 import htmlSpDemCup    from './../pages/elem-spDemCup.html';
 import htmlSpNewYear   from './../pages/elem-spNewYear.html';
+import htmlSpMay       from './../pages/elem-spMay.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
 import htmlSpRound991  from './../pages/elem-spRound991.html';
 import htmlSpRound993  from './../pages/elem-spRound993.html';
@@ -78,6 +79,7 @@ export const pages = [
   htmlSp31,
   htmlSpDemCup,
   htmlSpNewYear,
+  htmlSpMay,
   htmlSpRound988,
   htmlSpRound991,
   htmlSpRound993,

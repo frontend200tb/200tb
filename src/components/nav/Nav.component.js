@@ -4,7 +4,7 @@
 Alg      Алгоритмы Конспекты Практика
 Code     HTML CSS JS TS Pascal C/C++ Asm Other Справка
 Frontend Edu Learned Node Offline Online Vacancy
-Lib      Books Video Youtube
+Lib      Books Video Youtube Vk
 ****************** */
 
 import './Nav.class';

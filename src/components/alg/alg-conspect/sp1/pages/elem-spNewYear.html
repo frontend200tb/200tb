@@ -72,6 +72,39 @@
 1 1
 </pre>
   <code>7</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;math.h&gt; // ceil
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;     // число культур
+  cin >> n;
+  vector&lt;pair&lt;double, int&gt; &gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i].first >> A[i].second;
+  }
+
+  // решение
+  int res = 0;
+
+  for (int i = 0; i &lt; n; i++) {
+    res += ceil(A[i].first / A[i].second);
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -121,6 +154,43 @@
 7
 </pre>
   <code>6</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Сумму чисел от 1 до n можно быстро найти по формуле Гауса</p>
+    <code>sum = n * (n + 1) / 2;</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  vector&lt;int&gt; A;
+  int tmp;
+  while (cin >> tmp) {
+    A.push_back(tmp);
+  }
+
+  // решение
+  int max_num = A.size() + 1;
+  long long sum_num = 0;
+
+  for (int i = 0; i &lt; A.size(); i++) {
+    sum_num += A[i];
+  }
+
+  long long sum = (long long)max_num * (max_num + 1) / 2;
+  int res = sum - sum_num;
+
+  // вывод результата
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 

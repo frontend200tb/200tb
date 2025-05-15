@@ -1,0 +1,105 @@
+const dataVkAlg = [
+
+  {
+    id: 1,
+    theme: 'Алгоритмы',
+    title: 'Лекторий ФПМИ',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@lectorium_fpmi',
+    site: '',
+    dateFirstVideo: '2024.08.25',
+    dateLastVideo: '2025.05.07',
+    amountVideos: 1277,
+  },
+
+  {
+    id: 2,
+    theme: 'Алгоритмы',
+    title: 'CT Lectures',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@ctlectures',
+    site: '',
+    dateFirstVideo: '2024.09.02',
+    dateLastVideo: '2025.05.07',
+    amountVideos: 713,
+  },
+
+  {
+    id: 3,
+    theme: 'Алгоритмы',
+    title: 'Всероссийский ИТ-фестиваль RuCode',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@rucodefestival',
+    site: '',
+    dateFirstVideo: '2015.09.15',
+    dateLastVideo: '2025.05.07',
+    amountVideos: 449,
+  },
+
+  {
+    id: 4,
+    theme: 'Алгоритмы',
+    title: 'AvitoTech',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@avitotech',
+    site: '',
+    dateFirstVideo: '2017.09.08',
+    dateLastVideo: '2025.05.08',
+    amountVideos: 324,
+  },
+
+  {
+    id: 5,
+    theme: 'Алгоритмы',
+    title: 'Young&&Yandex',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@young_and_yandex',
+    site: '',
+    dateFirstVideo: '2023.06.06',
+    dateLastVideo: '2025.04.26',
+    amountVideos: 319,
+  },
+
+  {
+    id: 6,
+    theme: 'Алгоритмы',
+    title: 'Яндекс Образование',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@yandex_education',
+    site: '',
+    dateFirstVideo: '2017.01.13',
+    dateLastVideo: '2025.04.11',
+    amountVideos: 209,
+  },
+
+  {
+    id: 7,
+    theme: 'Алгоритмы',
+    title: 'Т-Образование',
+    author: '',
+    city: '',
+    country: '',
+    link: 'https://vkvideo.ru/@teducation',
+    site: '',
+    dateFirstVideo: '2017.06.09',
+    dateLastVideo: '2025.04.12',
+    amountVideos: 201,
+  },
+
+  {},
+
+];
+
+export default dataVkAlg;
