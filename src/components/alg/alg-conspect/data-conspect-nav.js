@@ -6,6 +6,7 @@ import showKurs1 from './kurs1/kurs1';
 import showKurs2 from './kurs2/kurs2';
 import showSp1 from './sp1/sp1';
 import showSp2 from './sp2/sp2';
+import showFtl from './ftl/ftl';
 
 export const dataConspectNav = [
   {
@@ -70,6 +71,14 @@ export const dataConspectNav = [
     content: '<alg-sp2></alg-sp2>',
     act() {
       showSp2();
+    },
+  },
+  {
+    url: 'ftl.html',
+    text: 'ФТЛ',
+    content: '<alg-ftl></alg-ftl>',
+    act() {
+      showFtl();
     },
   },
 ];

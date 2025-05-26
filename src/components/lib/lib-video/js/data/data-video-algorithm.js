@@ -256,7 +256,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 7,
+    id: 16,
     year: 2021,
     date: '2021.06.30',
     category: 'основы',
@@ -274,7 +274,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 8,
+    id: 17,
     year: 2021,
     date: '2021.10.01',
     category: 'основы',
@@ -292,7 +292,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 9,
+    id: 18,
     year: 2022,
     date: '2022.08.02',
     category: 'основы',
@@ -310,7 +310,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 10,
+    id: 19,
     year: 2023,
     date: '2023.03.10',
     category: 'основы',
@@ -328,7 +328,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 11,
+    id: 20,
     year: 2023,
     date: '2023.11.18',
     category: 'основы',
@@ -346,7 +346,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 12,
+    id: 21,
     year: 2024,
     date: '2024.03.29',
     category: 'основы',
@@ -364,7 +364,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 13,
+    id: 22,
     year: 2024,
     date: '2024.01.07',
     category: 'основы',
@@ -379,6 +379,24 @@ const dataVideoAlgorithm = [
     link: '<a href="https://www.youtube.com/watch?v=_o8DXIRZdCY">Алгоритмы. База для собесов и жизни</a>',
     isLearned: true,
     dateLearned: '2024.01.10 ср',
+  },
+
+  {
+    id: 23,
+    year: 2025,
+    date: '2025.05.03',
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Спортивное программирование в ЯрГУ',
+    author: 'Маслеников',
+    authorName: 'Игорь',
+    name: '',
+    numberLessons: '34',
+    time_h_m: [80, 48],
+    size: '22 gb',
+    link: '<a href="https://vkvideo.ru/@sportprog_yarsu">ЯрГУ. Кружок. Школьники 2024/2025</a>',
+    isLearned: true,
+    dateLearned: '2025.05.08 чт',
   },
 
   {},

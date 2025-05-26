@@ -19,17 +19,42 @@
   <h3>ООП. Паттерны</h3>
 
   <p>Поговорим про библиотеку, на которой пишут игры.</p>
-  <p>raylib.com</p>
+
+  <h4>raylib</h4>
+
+  <p>Зайдем на сайт библиотеки</p>
+  <code><a href="https://www.raylib.com/">https://www.raylib.com/</a></code>
+
   <p>Есть демонстрация игр. В открытом доступе в примерах можно посмотреть исходный код. База моделей 2d и 3d. Мы постараемся сделать отрисовку картинки, чтобы не просто квадратик бегал. Начнем с примитивного. С отрисовки обычных полей.</p>
   <p>Открываем Visual Studio</p>
-  <p>Надо настроить пакеты, которые будем подгружать к проекту. Надо нажать управление пакетами nuget. Идем в обзор. в поиск вбиваем raylib. последняя стабильная 5.5.0 нажимаем установить.</p>
-  <p>подкключаем raylib</p>
+  <p>Надо настроить пакеты, которые будем подгружать к проекту. Выбераем пункт меню</p>
+  <code>Tools - NuGet Package Manager - Manage NuGet Packages for Solution</code>
+  <p>Выбираем вкладку <strong>Browse</strong> и в поле поиска вбиваем raylib</p>
+  <p>Выбираем последнюю стабильную версию 5.5.0 от v_2samg. Нажимаем установить.</p>
+
+  <p>В окне Solution Explorer нажимаем правой кнопкой мыши на названии проекта и выбираем</p>
+  <code>Open Folder in File Explorer</code>
+  <p>В открывшейся папке создать папку с ресурсами resources и записать в нее несколько файлов</p>
+  <code>resources/arial.ttf</code>
+  <code>resources/player.png</code>
+  <code>resources/obstacle.png</code>
+  <code>resources/restart.png</code>
+  <code>resources/exit.png</code>
+  <code>resources/move.wav</code>
+  <code>resources/win.wav</code>
+  <code>resources/hit.wav</code>
+
+  <p>Звуки можно скачать с сейта</p>
+  <code><a href="https://zvukogram.com/">https://zvukogram.com/</a></code>
+
+  <p>Первой строчкой в коде подкключаем raylib</p>
+  <p>Файл dsr.cpp</p>
 <pre>
+#include "raylib.h"
 #include &lt;string&gt;
 #include &lt;locale&gt;
 #include &lt;cmath&gt;
 #include &lt;vector&gt;
-#include "raylib.h"
 
 using namespace std;
 
@@ -44,7 +69,7 @@ float MyLerp(float start, float end, float t) {
 }
 
 // проверка стенки
-bool isForbiddenCell(int x, int y, vector&lt;Vector2&gt; forbiddenCells) {
+bool isForbiddenCell(int x, int y, const vector&lt;Vector2&gt;& forbiddenCells) {
   for (const auto& cell: forbiddenCells) {
     if (cell.x == x && cell.y == y) {
       return true;
@@ -65,6 +90,7 @@ int main () {
 
   // размер доски
   const int boardSize = 8;
+
   // размер клетки
   const int cellSize = screenWidth / boardSize;
 
@@ -77,7 +103,7 @@ int main () {
   // позиция персонажа
   Vector2 targetPos = {0, 0};
   Vector2 actualPos = {0, 0};
-  Vector2 newTergetPos = {0, 0};
+
   float moveSpeed = 8.0f;
 
   // шрифты
@@ -87,20 +113,21 @@ int main () {
   // задача текстур
   Texture2D playerTexture = LoadTexture("resources/player.png");
   Texture2D obstacleTexture = LoadTexture("resources/obstacle.png");
-  Texture2D rectBut = LoadTexture("resources/restart.png");
+  Texture2D restBut = LoadTexture("resources/restart.png");
   Texture2D extBut = LoadTexture("resources/exit.png");
 
   // звук
   InitAudioDevice();
   // загрузка звука
   Sound moveSound = LoadSound("resources/move.wav");
-  Sound winSound = LoadSound("resources/win.wav");
+  Sound winSound  = LoadSound("resources/win.wav");
+  Sound hitSound  = LoadSound("resources/hit.wav");
 
   // стенки
-  vector&lt;Vector2&gt; forbiddenCells = { {2, 2}, {4, 5}};
+  vector&lt;Vector2&gt; forbiddenCells = { {2, 2}, {4, 5} };
 
   // состояние игры
-  GameStatecurrent = GAME_PLAYING;
+  GameState current = GAME_PLAYING;
   bool playedWinSound = false;
 
   // установка FPS
@@ -112,23 +139,20 @@ int main () {
     if (current == GAME_PLAYING) {
 
       // движение персонажа
-      newTargetPos = targetPos;
+      Vector2 newTargetPos = targetPos;
       bool moved = false;
+
       if(IsKeyPressed(KEY_RIGHT) && newTargetPos.x &lt; boardSize - 1) {
         newTargetPos.x += 1;
-        moved = true;
       }
       if(IsKeyPressed(KEY_LEFT) && newTargetPos.x > 0) {
         newTargetPos.x -= 1;
-        moved = true;
       }
       if(IsKeyPressed(KEY_UP) && newTargetPos.y > 0) {
         newTargetPos.y -= 1;
-        moved = true;
       }
       if(IsKeyPressed(KEY_DOWN) && newTargetPos.y &lt; boardSize - 1) {
         newTargetPos.y += 1;
-        moved = true;
       }
 
       if (!isForbiddenCell(newTargetPos.x, newTargetPos.y, forbiddenCells)) {
@@ -136,9 +160,11 @@ int main () {
         moved = true;
       } else {
         // звук врезания в стенку
+        PlaySound(hitSound);
       }
 
       if (moved) {
+        // звук движения
         PlaySound(moveSound);
       }
 
@@ -162,7 +188,7 @@ int main () {
 
     // отрисовка шахматки
     for (int row = 0; row &lt; boardSize; row++) {
-      for (int col = 0; row &lt; boardSize; col++) {
+      for (int col = 0; col &lt; boardSize; col++) {
         Color color = ((row + col) % 2 == 0) ? lightColor : darkColor;
 
         // отрисовка финиша
@@ -174,6 +200,13 @@ int main () {
           color = forbiddenColor;
         }
 
+        /*Рисует прямоугольник с указанными координатами, шириной и высотой.
+        Параметры:
+        int x – координата X верхнего левого угла.
+        int y – координата Y верхнего левого угла.
+        int width – ширина прямоугольника.
+        int height – высота прямоугольника.
+        Color color – цвет прямоугольника.*/
         DrawRectangle(col * cellSize, row * cellSize, cellSize, cellSize, color);
 
         if (isForbiddenCell(col, row, forbiddenCells)) {
@@ -181,13 +214,12 @@ int main () {
             obstacleTexture,
             {0, 0, (float)obstacleTexture.width, (float)obstacleTexture.height },
             {
-              actualPos.x * cellSize,
-              actualPos.y * cellSize,
+              (float)col * cellSize,
+              (float)row * cellSize,
               (float)cellSize,
               (float)cellSize,
             },
             {0, 0}, 0.0f, WHITE);
-
         }
       }
     }
@@ -197,14 +229,26 @@ int main () {
       DrawLine(0, i * cellSize, screenWidth, i * cellSize, BLACK);
     }
 
-    // орисовка персонажа кружок /*
+    // орисовка персонажа кружок
+    /*
     DrawCircle(
       actualPos.x * cellSize + cellSize / 2,
       actualPos.y * cellSize + cellSize / 2,
       cellSize / 2 - 10,
-      playerColor); */
+      playerColor);
+    */
 
     if (current == GAME_PLAYING) {
+      /*
+      Рисует текстуру с настройками масштабирования, поворота и точки опоры
+        Параметры:
+        texture  - текстура (Texture2D)
+        source   - область исходной текстуры (Rectangle)
+        dest     - целевой прямоугольник на экране (Rectangle)
+        origin   - точка вращения (Vector2)
+        rotation - угол поворота в градусах (float)
+        tint     - цвет оттенка (Color)
+      */
       DrawTexturePro(
         playerTexture,
         {0, 0, (float)playerTexture.width, (float)playerTexture.height },
@@ -219,28 +263,58 @@ int main () {
 
 
 
+    /*
+    Рисует текст на экране с указанными параметрами
+   Текст для отрисовки (const char*)
+   Позиция X верхнего левого угла (int)
+   Позиция Y верхнего левого угла (int)
+   Размер шрифта в пикселях (int)
+   Цвет текста (Color)
+   */
+   /*
+    TextFormat Форматирует текст
+    Пример:
+    Текст (char*)
+    Координаты по х (int)
+    Координаты по y (const char*)
+    Аргументы для подстановки (...)
 
-    DrawText(TextFormat("Position: [%d, %d]", (int)targetPos.x, (int)targetPos.y), 10, 10, 20, BLACK);
+    Возвращает указатель на буфер
+    */
+    DrawText(TextFormat("Position: [%d, %d]", (int)targetPos.x,
+    (int)targetPos.y), 10, 10, 20, BLACK);
 
-    DrawTextEx(font, "Arrow: ", {10, static_cast&lt;float&gt;(screenHeight - 3)}, 20, 2, BLACK);
 
     if (current == GAME_OVER) {
       DrawRectangle(0, 0, screenWidth, screenWidth, ColorAlpha(BLACK, 0.5f));
-      DrawTextEx(font, "Win!!!", {screenWidth / 2 - MeasureTextEx(font, "WIN!!!", 50, 2).x / 2, 200}, 50, 2, GREEN);
+      /*
+      Рисует текст с дополнительными параметрами форматирования
+       Шрифт для отрисовки (Font)
+       Текст для вывода (const char*)
+       Позиция текста (Vector2)
+       Размер шрифта (float)
+       Межсимвольный интервал (float)
+       Цвет текста (Color)
+       */
+      DrawTextEx(font, "Win!!!", {screenWidth / 2 -
+        MeasureTextEx(font, "WIN!!!", 50, 2).x / 2, 200}, 50, 2, GREEN);
 
-      Rectangle rectB = {screenWidth / 2 - 150, 300, 300, 80};
+      Rectangle restB = {screenWidth / 2 - 150, 300, 300, 80};
+
       DrawTexturePro(
-        rectBut,
-        {0, 0, (float)rectBut.width, (float)rectBut.height },
-        rectB,
+        restBut,
+        {0, 0, (float)restBut.width, (float)restBut.height },
+        restB,
         {0, 0},
         0.0f,
         WHITE
       );
+
       Rectangle extB = {screenWidth / 2 - 150, 400, 300, 80};
+
       DrawTexturePro(
         extBut,
-        {0, 0, (float)rectBut.width, (float)rectBut.height },
+        {0, 0, (float)extBut.width, (float)extBut.height },
         extB,
         {0, 0},
         0.0f,
@@ -249,13 +323,13 @@ int main () {
 
       if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         Vector2 mousePos = GetMousePosition();
-        if (CheckCollisionPointRec(mousePos, rectB)) {
+        if (CheckCollisionPointRec(mousePos, restB)) {
           targetPos = {0, 0};
           actualPos = {0, 0};
           current = GAME_PLAYING;
           playedWinSound = false;
         } else if (CheckCollisionPointRec(mousePos, extB)) {
-
+          break;
         }
       }
     }
@@ -267,6 +341,8 @@ int main () {
 
   // очистка
   UnloadSound(moveSound);
+  UnloadSound(winSound);
+  UnloadSound(hitSound);
   UnloadFont(font);
 
   // закрытие

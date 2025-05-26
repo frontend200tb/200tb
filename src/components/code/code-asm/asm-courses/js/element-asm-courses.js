@@ -1,4 +1,4 @@
-class CodeAsm extends HTMLElement {
+class AsmCourses extends HTMLElement {
   constructor() {
     super();
   }
@@ -8,8 +8,8 @@ class CodeAsm extends HTMLElement {
     <section class="main__aside">
     </section>
     `;
-    this.className = 'code-asm';
+    this.className = 'asm-courses';
   }
 }
 
-customElements.define('code-asm', CodeAsm);
+customElements.define('asm-courses', AsmCourses);

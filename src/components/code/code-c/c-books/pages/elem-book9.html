@@ -4181,6 +4181,162 @@ void displayBits(unsigned value) {
 }
 </pre>
   </details>
+
+  <p>Использование операций поразрядного сдвига</p>
+
+  <details>
+    <summary>Программа 113 (410)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void displayBits(unsigned);
+
+int main() {
+  unsigned n1 = 960;
+
+  puts("number");
+  displayBits(n1);
+  puts("8 bit of left shifting");
+  displayBits(n1 &lt;&lt; 8);
+
+  puts("number");
+  displayBits(n1);
+  puts("8 bit of right shifting");
+  displayBits(n1 >> 8);
+
+  return 0;
+}
+
+void displayBits(unsigned value) {
+  unsigned mask = 1 &lt&lt 31;
+  printf("%10u = ", value);
+
+  for (int i = 1; i &lt;= 32; i++) {
+    putchar(value & mask ? '1' : '0');
+    value &lt;&lt; 1;
+    if (i % 8 == 0) {
+      putchar(' ');
+    }
+  }
+
+  putchar('\n');
+}
+</pre>
+  </details>
+
+  <h4>Порязрядные операции присваивания</h4>
+
+  <p>&=, |=, ^=, &lt;&lt;=, >>=</p>
+
+  <h4>10.10 Битовые поля (413)</h4>
+
+  <p>В языке Си существует возможность задать число бит для хранения элемента структуры или объединения типа unsigned или int посредством определения битовых полей. Битовые поля экономят память.</p>
+<pre>
+struct bitCard {
+  unsigned face : 4;
+  unsigned suit : 2;
+  ubsigned color : 1;
+};
+</pre>
+  <p>Битовое поле объявляется с помощью двоеточия и целой константы, задающей число бит для хранения элемента. Обращение к битовым полям происходит точно так же, как и к любым другим элементам структуры.</p>
+  <p>Представление карт битовыми полями в структурах</p>
+
+  <details>
+    <summary>Программа 114 (413)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct bitCard {
+  unsigned face : 4;
+  unsigned suit : 2;
+  ubsigned color : 1;
+};
+
+typedef struct bitCard Card;
+
+void fillDeck(Card* const wDeck);
+void deal(const Card* const wDeck);
+
+int main() {
+  Card deck[52];
+  fillDeck(deck);
+  deal(deck);
+
+  return 0;
+}
+
+void fillDeck(Card* const wDeck) {
+  for (int i = 0; i &lt; 52; i++) {
+    wDeck[i].face = i % 13;
+    wDeck[i].suit = i / 13;
+    wDeck[i].color = i / 26;
+  }
+}
+
+void deal(const Card* const wDeck) {
+  for (int k1 = 0, k2 = k1 + 26; k1 &lt;= 25; k1++, k2++) {
+    printf("Card:%3d Suit:%2d Color:%2d ",
+      wDeck[k1].face, wDeck[k1].suit, wDeck[k1].color);
+    printf("Card:%3d Suit:%2d Color:%2d ",
+      wDeck[k2].face, wDeck[k2].suit, wDeck[k2].color);
+  }
+}
+</pre>
+  </details>
+
+  <p>Допускается определение неименованного поля. Такое поле служит заполнителем структуры. В битах неименованного поля невозможно что-либо сохранить.</p>
+<pre>
+struct example {
+  unsigned a : 13;
+  unsigned   : 19;
+  unsigned b : 4;
+};
+</pre>
+  <p>Если в компьютере используются 32 разрядные ячейки памяти (4 байта), то структура будет занимать 2 ячейки памяти. В первой элемент a размером 13 бит. Дальше в первой ячейке будет 19 бит, которые невозможно использовать. Во второй ячейке элемент b размером 4 бита.</p>
+  <p>Неименованное битовое поле нулевой ширины служит для выравнивания следующего битового поля по границе новой ячейки памяти.</p>
+<pre>
+struct example {
+  unsigned a : 13;
+  unsigned   : 0;
+  unsigned b : 4;
+};
+</pre>
+  <p>Элементы a и b будут записаны в разных ячейках. Поле длиной 0 объявлено для того чтобы перескочить через оставшиеся биты первой ячейки памяти.</p>
+  <p>Битовые поля позволяют экономить память, но обращение к ним и операции с ними медленнее.</p>
+
+  <h4>10.11 Перечисляемые константы (416)</h4>
+
+  <p>Перечисление объявляется словом enum и названием, далее в фигурных скобках перечисляются его элементы. Значение первого элемента по умолчанию равно нулю, каждого следующего на 1 больше. Можно любым элементам присвоить свои целочисленные значения.</p>
+  <code>enum months {JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};</code>
+  <p>Здесь идентификаторы нового типа enum month имеют значения от 0 до 11</p>
+  <code>enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};</code>
+  <p>Здесь идентификаторы нового типа enum month имеют значения от 1 до 12</p>
+  <p>В перечислении элементы должны иметь разные имена, но могут иметь одинаковое значение.</p>
+  <p>Использование перечислимого типа.</p>
+
+  <details>
+    <summary>Программа 115 (416)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+enum months {JAN = 1, FEB, MAR, APR, MAY,
+  JUN, JUL, AUG, SEP, OCT, NOV, DEC};
+
+int main() {
+  enum months month;
+  const char *monthName[] = {"", "January",
+    "February", "March", "April", "May",
+    "June", "July", "August", "September",
+    "October", "November", "December"};
+
+  for (month = Jan; month &lt;= DEC; month++) {
+    printf("%2d%11s\n", month, monthName[month]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -4188,6 +4344,518 @@ void displayBits(unsigned value) {
 <article class="article">
   <div class="anchor" id="p11"></div>
   <h3>11 Работа с файлами в C (426)</h3>
+
+  <h4>11.1 Введение (427)</h4>
+
+  <p>Хранение данных в переменных и массивах является временным, пока работает программа. По завершению работы программы эти данные уничтожаются. Для постоянного хранения данных используются файлы на жестком диске или ином носителе.</p>
+
+  <h4>11.2 Иерархия данных (427)</h4>
+
+  <p>Данные в программах и в файлах хранятся в двоичном виде - в виде последовательностей 1 и 0. Наименьший элемент данных это бит, в котором может храниться только одно значение или 0 или 1.</p>
+  <p>Бит это слишком маленькая единица информации. Компьютеры за один такт обрабатывают сразу набор бит. Первые, 8-разрядные, процессоры работали с 8 битами сразу. 8 бит это 1 байт. Далее, 16-разрядные процессоры работали уже с 2 байтами за один такт. Сейчас 64 разрядные процессоры каждый такт обрабатывают 64 бита. 64 бита это машинное слово для 64-разрядных процессоров.</p>
+  <p>Чтобы программисты работали не с битами, а с цифрами, буквами и другими символами, создаются специальные таблицы, например ASCII, в которой каждому символу однозначно определен набор бит со своим значением. Программист работает с символами, символы по таблице ASCII кодируются в двоичные данные, с двоичными данными работает процессор.</p>
+  <p>Данные хранятся в файлах в виде структур данных. Иерархия структур данных такова: биты образуют байты, байты образуют машинное слово, машинные слова образуют поля записей. Поля образуют структуру данных, структуры данных хранятся в файлах, файлы образуют базу данныйх.</p>
+
+  <h4>11.3 Файлы и потоки (429)</h4>
+
+  <p>Язык Си рассматривает любой файл как последовательный поток байтов. Каждый файл заканчивается символом конца файла EOF. Когда файл открывается, ему ставится в соответствие поток. При запуске любой программы автоматически открываются три файла и связанные с ними потоки - стандартный поток ввода, стандартный поток вывода и стандартный поток ошибок. Открытый файл возвращает указатель на структуру FILE (определенную в stdio.h), которая содержит информацию для работы с файлом. Эта структура содержит дескриптор файла - индекс в массиве, который называется таблицей открытых файлов операционной системы. Каждый элемент массива содерит блок управления файлом FCB.</p>
+
+  <h4>Функции для работы с файлами</h4>
+
+  <p>Функция fgetc() считывает один символ из файла. fgetc(stdin) считывает один символ из входного потока, как и функция getchar()</p>
+  <p>Функция fputc() записывает один символ в файл. fputc('a', stdout) записывает символ 'a' в выходной поток, как и функция putchar('a')</p>
+  <p>Функция fgets() считывает одну строку из файла. fgets(stdin) считывает одну строку из входного потока, как и функция gets()</p>
+  <p>Функция fputs() записывает одну строку в файл. fputs("aa", stdout) записывает строку "aa" в выходной поток, как и функция puts("aa")</p>
+  <p>Функция fscanf() это аналог функции scanf(), но работает с файлами.</p>
+  <p>Функция fprintf() это аналог функции printf(), но работает с файлами.</p>
+  <p>Функции fread() и fwrite() рассмотрим позже.</p>
+
+  <h4>11.4 Создание файла последовательного доступа (430)</h4>
+
+  <p>Создание пользовательского файла</p>
+
+  <details>
+    <summary>Программа 116 (430)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int account;
+  char name[30];
+  double balance;
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("client.dat", "w")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    puts("Enter account, name, balance");
+    puts("Enter EOF to end");
+    printf("%s", "? ");
+    scanf("%d%s%lf", &account, name, &balance);
+
+    while (!feof(stdin)) {
+      fprintf(cfPtr, "%d %s %.2f\n", account, name, balance);
+      printf("%s", "? ");
+      scanf("%d%s%lf", &account, name, &balance);
+    }
+
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Структура FILE косвенно ссылается на блок управления файлом FCB операционной системы для заданного файла.</p>
+  <p>Ctrl-z комбинация клавиш для ввода символа EOF в Windows</p>
+  <p>Ctrl-d комбинация клавиш для ввода символа EOF в Linux и Macintosh</p>
+
+  <h4>11.5 Чтение данных из файла последовательного доступа (435)</h4>
+
+  <p>Чтение и распечатка последовательного файла</p>
+
+  <details>
+    <summary>Программа 117 (436)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int account;
+  char name[30];
+  double balance;
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("client.dat", "r")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    printf("%-10s%-13s%s\n", "account", "name", "balance");
+    fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+
+    while (!feof(cfPtr)) {
+      printf("%-10d%-13s%7.2f\n", account, name, balance);
+      fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+    }
+
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Указатель позиции файла - это целое значение, определяющее байт в файле, который будет считан, или в который будет записан байт информации. Указатель позиции файла это смещение относительно начала файла, нулевого байта файла.</p>
+  <p>Функция rewind() перемещает в начало указатель файла.</p>
+
+  <p>Программа для справок о кредите. Получает список клиентов, которые не должны денег, которым компания должна денег, которые компании должны денег.</p>
+
+  <details>
+    <summary>Программа 118 (437)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int request;
+  int account;
+  char name[30];
+  double balance;
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("client.dat", "r")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    printf("%s", "Enter request\n"
+    "1 - List accounts wuth zero balances\n"
+    "2 - List accounts with credit balances\n"
+    "3 - List accounts with debit balances\n"
+    "4 - End of run\n");
+    scanf("%d", &request);
+
+    while (request != 4) {
+      fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+
+      switch (request) {
+
+        case 1:
+          puts("Accounts with zero balances");
+          while (!feof(cfPtr)) {
+            if (balance == 0) {
+              printf("%-10d%-13s%7.2f\n", account, name, balance);
+            }
+            fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+          }
+          break;
+
+        case 2:
+          puts("Accounts with credit balances");
+          while (!feof(cfPtr)) {
+            if (balance &lt; 0) {
+              printf("%-10d%-13s%7.2f\n", account, name, balance);
+            }
+            fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+          }
+          break;
+
+        case 3:
+          puts("Accounts with debit balances");
+          while (!feof(cfPtr)) {
+            if (balance > 0) {
+              printf("%-10d%-13s%7.2f\n", account, name, balance);
+            }
+            fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+          }
+          break;
+      }
+      rewind(cfPtr);
+      printf("%s", "\n? ");
+      scanf("%d", &request);
+    }
+
+    puts("End of run");
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Если в файле последовательного доступа нужно обновить запись, которая больше чем первоначальная, то она будет записана поверх первоначальной и следующей записи. Поэтому последовательный доступ с помощью fprintf и fscanf обычно не используется для обновления записей в файле. Вместо этого переписывают весь файл целиком.</p>
+  <p>Записи в файлах, созданных функцией fprintf() могут иметь разную длину и чтобы дойти до нужной записи нужно последовательно пройти по всем предыдущим записям. Это файлы последовательного доступа к данным.</p>
+
+  <h4>11.6 Файлы произвольного доступа (440)</h4>
+
+  <p>Записи в файле произвольного доступа имеют фиксированную длину, что позволяет получить к ним быстрый доступ без прохода по всем записям. Поэтому файлы с произвольным доступам используют там где необходим быстрый доступ к данным.</p>
+  <p>Даже когда размер файла очень велик, можно вычислить точное положение записи относительно начала файла из-за того что записи имеют одинаковую длину.</p>
+  <p>Записи не идут последовательно, между ними могут быть пропуски. Поэтому можно вставлять новые данные, не разрушая при этом те, что уже находятся в файле. Данные также можно обновить или удалить без перезаписывания всего файла.</p>
+
+  <h4>11.7 Создание файла произвольного доступа (441)</h4>
+
+  <p>Функция fwrite() записывает в файл заданное число байт, начиная с указанного адреса памяти. Место записи в файл определяется указателем позиции файла.</p>
+  <p>Функция fread() читает из файла заданное число байт, начиная с указателя позиции файла в память, начиная с указанного адреса.</p>
+  <code>fprintf(fPtr, "%d", number);</code>
+  <p>Функция fprintf() запишет целое число от одной до 11 цифр требующие по одному байту каждый для четырехбайтного целого.</p>
+  <code>fwrite(&number, sizeof(int), 1, fPtr);</code>
+  <p>Функция fwrite() записывает на диск одно целое число, всегда записывает 4 байта из переменной number в файл, определяемый fPtr.</p>
+  <p>Функции fwrite и fread дают возможность чтения и записи массивов данных с диска на диск. Третий аргумент это число элементов массива.</p>
+  <p>Последовательное создание файла произвольного доступа.</p>
+
+  <details>
+    <summary>Программа 119 (442)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct clientData {
+  int acctNum;
+  char lastName[15];
+  char firstName[10];
+  double balance;
+};
+
+int main() {
+  struct clientData blankClient = {0, "", "", 0.0};
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("credit.dat", "wb")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    for (int i = 1; i &lt;= 100; i++) {
+      fwrite(&blankClient, sizeof(struct clientData), 1, cfPtr);
+    }
+
+    // закрываем файл
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Здесь fwrite записывает один объект, который не является элементом массива. Поэтому в вызове fwrite третьим аргументом стоит 1.</p>
+
+  <h4>11.8 Произвольная запись данных в файл произвольного доступа (443)</h4>
+
+  <p>Запись в файл произвольного доступа.</p>
+
+  <details>
+    <summary>Программа 120 (443)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct clientData {
+  int acctNum;
+  char lastName[15];
+  char firstName[10];
+  double balance;
+};
+
+int main() {
+  struct clientData client = {0, "", "", 0.0};
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("credit.dat", "rb+")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    //запросить у пользователя номер счета
+    puts("Enter account number 1 to 100 (0 to end input)\n");
+    scanf("%d", &client.accntNum);
+
+    while (acctNum != 0) {
+      // запросить имя, фамилию, баланс
+      puts("Enter lastname, firstname, balance\n");
+      fscanf(stdin, "%s%s%lf", client.lastName,
+      client.firstName, &client.balance);
+
+      // найти позицию счета в файле
+      fseek(cfPtr, (client.acctNum - 1) *
+        sizeof(struct clientData), SEEK_SET);
+
+      // записать информацию в файл
+      fwrite(&client, sizeof(struct clientData), 1, cfPtr);
+
+      //запросить номер другого счета
+      puts("Enter account number 1 to 100 (0 to end input)\n");
+      scanf("%d", &client.accntNum);
+    }
+
+    // закрываем файл
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция fseek() устанавливает указатель позиции файла в заданное положение, после чего fwrite() записывает данные. Константа SEEK_SET показывает, что указатель позиции файла устанавливается относительно начала файла на величину смещения.</p>
+  <p>Прототип функции fseek</p>
+  <code>int fseek(FILE *stream, long int offset, int whence);</code>
+  <p>где offset это число байт от положения, задаваемого параметром whence. whence может иметь одно из трех значений - SEEK_SET, SEEK_CUR, SEEK_END. Что означает, начинать поиск с начала, с текущего места или с конца.</p>
+
+  <h4>11.9 Чтение данных из файла произвольного доступа (445)</h4>
+
+  <p>Последовательное чтение файла произвольного доступа</p>
+
+  <details>
+    <summary>Программа 121 (446)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct clientData {
+  int acctNum;
+  char lastName[15];
+  char firstName[10];
+  double balance;
+};
+
+int main() {
+  struct clientData client = {0, "", "", 0.0};
+  FILE *cfPtr;
+
+  if ((cfPtr = fopen("credit.dat", "rb")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    printf("%-6s%-16s%-11s%10s\n", "Acct", "Last Name",
+      "First Name", "Balance");
+
+    // пока не достигнут конец файла
+    while (!feof(cfPtr)) {
+      fread(&client, sizeof(struct clientData), 1, cfPtr);
+
+      if (client.acctNum != 0) {
+        printf("%-6d%-16s%-11s%10.2f\n", client.acctNum,
+        client.lastName, client.firstName, client.balance);
+      }
+    }
+
+    // закрываем файл
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>11.10 Пример: программа обработки транзакций (447)</h4>
+
+  <p>Сначала нужно выполнить программу 119, создающую файл credit.dat.</p>
+  <p>Следующая программа имеет 5 опций.</p>
+  <ol>
+    <li>Опция 1 вызывает функцию textFile для сохранения отформатированного списка всех счетов в текстовом файле accounts.dat</li>
+    <li>Опция 2 вызывавет функцию updateRecord для обновления счета.</li>
+    <li>Опция 3 вызывает функцию newRecord для добавления в файл нового счета.</li>
+    <li>Опция 4 вызывает функцию deleteRecord для удаления записи из файла.</li>
+    <li>Опция 5 прерывает выполнение программы.</li>
+  </ol>
+
+  <p>Программа последовательно читает файл произвольного доступа, обновляет данные, уже записанные в файл, создает новые данные для размещения в файле и удаляет ранее записанные данные.</p>
+
+  <details>
+    <summary>Программа 122 (448)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct clientData {
+  int acctNum;
+  char lastName[15];
+  char firstName[10];
+  double balance;
+};
+
+int enterChoice();
+void textFile(FILE *readPtr);
+void updateRecord(FILE *fPtr);
+void deleteRecord(FILE *fPtr);
+void newRecord(FILE *fPtr);
+
+int main() {
+  FILE *cfPtr;
+  int choice;
+
+  if ((cfPtr = fopen("credit.dat", "rb+")) == NULL) {
+    puts("File could not be opened");
+  } else {
+    while ((choice = enterChoice()) != 5) {
+      switch (choice) {
+
+        // создать текстовый файл
+        case 1:
+          textFile(cfPtr);
+          break;
+
+        // обновить запись
+        case 2:
+          updateRecord(cfPtr);
+          break;
+
+        // создать запись
+        case 3:
+          newRecord(cfPtr);
+          break;
+
+        // удалить запись
+        case 4:
+          deleteRecord(cfPtr);
+          break;
+
+        // если указан неверный номер
+        default:
+          puts("Incorrect choice");
+          break;
+      }
+    }
+    fclose(cfPtr);
+  }
+
+  return 0;
+}
+
+void textFile(FILE *readPtr) {
+  FILE *writePtr;
+  struct clientData client = {0, "", "", 0.0};
+
+  if ((writePtr = fopen("accounts.txt", "w")) == NULL) {
+    puts("File cpuld not be opened");
+  } else {
+    rewind(readPtr);
+    fprints(writePtr, "%-6s%-16s%-11s%10s\n",
+    "Acct", "Last Name", "First Name", "Balance");
+
+    while (!feof(readPtr)) {
+      fread(&client, sizeof(struct clientData), 1, readPtr);
+      if (client.acctNum != 0) {
+        fprints(writePtr, "%-6s%-16s%-11s%10.2f\n",
+        client.acctNum, client.lastName,
+        client.firstName, client.balance);
+      }
+    }
+    fclose(writePtr);
+  }
+}
+
+void updateRecord(FILE *fPtr) {
+  int account;
+  double transaction;
+  struct clientData client = {0, "", "", 0.0};
+
+  printf("%s", "Enter account to update (1-100) ");
+  scanf("%d", &account);
+
+  fseek(fPtr, (account - 1) * sizeof(struct clientData), SEEK_SET);
+  fread(&client, sizeof(struct clientData), 1, fPtr);
+
+  if (client.acctNum == 0) {
+    printf("Account #%d has no information\n", account);
+  } else {
+    printf("%-6d%-16s%-11s%10.2f\n\n",
+    client.acctNum, client.lastName,
+    client.firstName, client.balance);
+
+    fseek(fPtr, (account - 1) * sizeof(struct clientData), SEEK_SET);
+    fwrite(&client, sizeof(struct clientData), 1, fPtr);
+  }
+}
+
+void deleteRecord(FILE *fPtr) {
+  struct clientData client;
+  struct clientData blankClient = {0, "", "", 0.0};
+  int accountNum;
+
+  printf("%s", "Enter account to update (1-100) ");
+  scanf("%d", &account);
+
+  fseek(fPtr, (account - 1) * sizeof(struct clientData), SEEK_SET);
+  fread(&client, sizeof(struct clientData), 1, fPtr);
+
+  if (client.acctNum == 0) {
+    printf("Account #%d does not exist\n", account);
+  } else {
+    fseek(fPtr, (account - 1) * sizeof(struct clientData), SEEK_SET);
+    fwrite(&blankClient, sizeof(struct clientData), 1, fPtr);
+  }
+}
+
+void newRecord(FILE *fPtr) {
+  struct clientData client = {0, "", "", 0.0};
+  int accountNum;
+
+  printf("%s", "Enter account to update (1-100) ");
+  scanf("%d", &account);
+
+  fseek(fPtr, (account - 1) * sizeof(struct clientData), SEEK_SET);
+  fread(&client, sizeof(struct clientData), 1, fPtr);
+
+  if (client.acctNum != 0) {
+    printf("Account #%d already contains information\n", client.acctNum);
+  } else {
+    printf("%s", "Enter lastname, firstname, balance\n ");
+    scanf("%s%s%lf", &client.lastName,
+    &client.firstName, &client.balance);
+    client.acctNum = accountNum;
+
+    fseek(fPtr, (client.acctNum - 1) * sizeof(struct clientData), SEEK_SET);
+    fwrite(&client, sizeof(struct clientData), 1, fPtr);
+  }
+}
+
+int enterChoice() {
+  int menuChoice;
+
+  printf("%s", "Enter your choice\n"
+  "1 - store information of account in text file\n"
+  "2 - update an account\n"
+  "3 - add a new account\n"
+  "4 - delete an account\n"
+  "5 - end program\n");
+
+  scanf("%d", &menuChoice);
+  return menuChoice;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -4195,6 +4863,545 @@ void displayBits(unsigned value) {
 <article class="article">
   <div class="anchor" id="p12"></div>
   <h3>12 Структуры данных в C (461)</h3>
+
+  <h4>12.1 Введение (462)</h4>
+
+  <p>Мы изучили структуры данных фиксированного размера: массивы, матрицы, структуры. В этой главе изучим динамические структуры данных, их размер может изменяться во время работы программы: связные списки, стеки, очереди, деревья</p>
+
+  <h4>12.2 Автореферентные структуры (463)</h4>
+
+  <p>Автореферентные структуры содержат в качестве элемента указатель на структуру того же типа.</p>
+<pre>
+struct node {
+  int data;
+  struct node *nextPtr;
+}
+</pre>
+  <p>Автореферентные структуры используются для построения связных списков, стеков, очередей, деревьев. Указатель NULL обозначает конец структуры, так же как символ '\0' обозначает конец строки.</p>
+
+  <h3>12.3 Динамическое распределение памяти (464)</h3>
+
+  <p>Динамическое распределение памяти - это возможность получать дополнительные блоки памяти и освобождать ненужные блоки памяти. Максимальный размер выделяемой динамической памяти определяется доступной физической памятью, однако этот размер значительно меньше, потому что память разделяется между многими программами.</p>
+  <p>Получить дополнительную память можно с помощью функций malloc, calloc, realloc.</p>
+  <code>newPtr = malloc(sizeof(struct node));</code>
+  <p>Функция malloc принимает число байт, которое необходимо выделить и возвращает указатель типа void* на первый байт выделенной памяти. Указатель типа void* можно присвоить любому типу указателя. Если память выделить не удалось, то возвращает указатель NULL.</p>
+  <code>free(newPtr);</code>
+  <p>Функция free принимает указатель на память выделенную с помощью функция malloc, calloc, realloc и освобождает ее.</p>
+  <p>Если не освобождать память после ее использования, то это всегда приводит к утечке памяти.</p>
+
+  <h4>12.4 Связные списки (465)</h4>
+
+  <p>Связный список это набор узлов с данными задается на первый узел списка, где каждый узел содержит указатель на следующий узел, а последний узел содержит указатель на NULL. Узел может содержать данные любого типа, даже другие структуры. Связные списки, стеки и очереди это линейные структуры данных. Деревья являются нелинейными структурами данных.</p>
+  <p>Связный список удобен когда заранее неизвестно сколько элементов будет содержать структура. Новый узел легко вставить в любое место связного списка. Связный список это непрерывная последовательность, хотя элементы списка могут располагаться не в соседних ячейках памяти.</p>
+  <p>Напишем программу, которая управляет списком символов. Программа может вставить символ в алфавитном порядке и удалить символ из списка.</p>
+
+  <details>
+    <summary>Программа 123 (466)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct listNode {
+  char data;
+  struct listNode *nextPtr;
+};
+
+typedef struct listNode ListNode;
+typedef ListNode *ListNodePtr;
+
+void instructions();
+void insert(ListNodePtr *sPtr, char value);
+char delete(ListNodePtr *sPtr, char value);
+int isEmpty(ListNodePtr sPtr);
+void printList(ListNodePtr currentPtr);
+
+int main() {
+  ListNodePtr startPtr = NULL;
+  int choice;
+  char item;
+
+  instructions();
+  printf("%s", "? ");
+  scanf("%d", &choice);
+
+  while (choice != 3) {
+
+    switch (choice) {
+
+      case 1:
+        printf("%s", "Enter a character: "");
+        scanf("\n%c", &item);
+        insert(&startPtr, item);
+        printList(startPtr);
+        break;
+
+      case 2:
+        if (!isEmpty(startPtr)) {
+          printf("%s", "Enter character to delete: "");
+          scanf("\n%c", &item);
+          if (delete(&startPtr, item)) {
+            printf("%c deleted\n", item);
+            printList(startPtr);
+          } else {
+            printf("%c not found\n", item);
+          }
+        } else {
+          puts("List is empty\n");
+        }
+        break;
+
+      default:
+        puts("Invalid choice\n");
+        instructions();
+        break;
+    }
+
+    printf("%s", "? ");
+    scanf("%d", &choice);
+  }
+
+  puts("End of run");
+
+  return 0;
+}
+
+void instructions() {
+  puts("Enter your choice:\n"
+  "1 to insert an element into the list\n"
+  "2 to delete an element from the list"
+  "3 to end");
+}
+
+void insert(ListNodePtr *sPtr, char value) {
+  ListNodePtr newPtr;
+  ListNodePtr prevPtr;
+  ListNodePtr curPtr;
+
+  newPtr = malloc(sizeof(ListNode));
+
+  if (newPtr != 0) {
+    newPtr->data = value;
+    newPtr->nextPtr = NULL;
+    prevPtr = NULL;
+    curPtr = *sPtr;
+
+    while (curPtr != NULL && value > curPtr->data) {
+      prevPtr = curPtr;
+      curPtr = curPtr->nextPtr;
+    }
+
+    if (prevPtr == NULL) {
+      newPtr->nextPtr = *sPtr;
+      *sPtr = newPtr;
+    } else {
+      prevPtr->nextPtr = newPtr;
+      newPtr->nextPtr = curPtr;
+    }
+  } else {
+    printf("%c not inserted. No mamory available\n", value);
+  }
+}
+
+char delete(ListNodePtr *sPtr, char value) {
+  ListNodePtr prevPtr;
+  ListNodePtr curPtr;
+  ListNodePtr tempPtr;
+
+  if (value == (*sPtr)->data) {
+    tempPtr = *sPtr;
+    *sPtr = (*sPtr)->nextPtr;
+    free(tempPtr);
+    return value;
+  } else {
+    prevPtr = *sPtr;
+    curPtr = (*sPtr)->nextPtr;
+
+    while (curPtr != NULL && curPtr->data != value) {
+      prevPtr = curPtr;
+      curPtr = curPtr->nextPtr;
+    }
+
+    if (curPtr != NULL) {
+      tempPtr = curPtr;
+      prevPtr->nextPtr = curPtr->nextPtr;
+      free(tempPtr);
+      return value;
+    }
+  }
+  return '\0';
+}
+
+int isEmpty(ListNodePtr sPtr) {
+  return sPtr == NULL;
+}
+
+void printList(ListNodePtr curPtr) {
+  if (curPtr == NULL) {
+    puts("List is empty");
+  } else {
+    puts("The list is:");
+
+    while (curPtr != NULL) {
+      printf("%c --&gt; ", curPtr->data);
+      curPtr = curPtr->nextPtr;
+    }
+
+    puts("NULL\n");
+  }
+}
+</pre>
+  </details>
+
+  <p>Функции insert передается адрес списка и символ. Передача адреса позволяет изменять список через вызов по ссылке. Так как список это указатель на первый элемент, то при передаче адреса списка создается указатель на указатель, т.е. двойная адресация.</p>
+
+  <h4>12.5 Стеки (474)</h4>
+
+  <p>Стек это упрощенный вариант связного списка. Новые узлы могут вставляться и удаляться из стека только в конце. Это структура вида LIFO (последний пришел - первый вышел). На стек ссылаются через указатель на последний элемент стека. Основные функции работы со стеками - push добавить новый узел на вершину стека, pop удалить узел с вершины стека и вернуть его значение.</p>
+  <p>Напишем программу динамического стека, которая выполняет три действия: помещает значение в стек, достает значение из стека и завершает работу.</p>
+
+  <details>
+    <summary>Программа 124 (474)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct stackNode {
+  char data;
+  struct stackNode *nextPtr;
+};
+
+typedef struct stackNode StackNode;
+typedef StackNode *StackNodePtr;
+
+void instructions();
+void push(StackNodePtr *topPtr, int info);
+int pop(StackNodePtr *topPtr);
+void printStack(StackNodePtr currentPtr);
+int isEmpty(StackNodePtr topPtr);
+
+int main() {
+  StackNodePtr stackPtr = NULL;
+  int choice;
+  int value;
+
+  instructions();
+  printf("%s", "? ");
+  scanf("%d", &choice);
+
+  while (choice != 3) {
+
+    switch (coice) {
+
+      case 1:
+        printf("%s", "Enter an integer: ");
+        scanf("%d", &value);
+        push(&stackPtr, value);
+        printStack(stackPtr);
+        break;
+
+      case 2:
+        if (!isEmpty(stackPtr)) {
+          printf("Value is %d\n", pop(&stackPtr));
+        }
+        printStack(stackPtr);
+        break;
+
+      default:
+        puts("Invalid choice\n");
+        instructions();
+        break;
+    }
+
+    printf("%s", "? ");
+    scanf("%d", &choice);
+  }
+
+  puts("End of run");
+
+  return 0;
+}
+
+void instructions() {
+  puts("Enter choice\n"
+       "1 to push a value on the stack\n"
+       "2 to pop a value off the stack\n"
+       "3 to end");
+}
+
+void push(StackNodePtr *topPtr, int info) {
+  StackNodePtr newPtr;
+  newPtr = malloc(sizeof(StackNode));
+
+  if (newPtr != NULL) {
+    newPtr->data = info;
+    newPtr->nextPtr = *topPtr;
+    *topPtr = newPtr;
+  } else {
+    printf("%d not inserted. No memory available\n", info);
+  }
+}
+
+int pop(StackNodePtr *topPtr) {
+  StackNodePtr tempPtr;
+  int popValue;
+  tempPtr = *topPtr;
+  popValue = (*topPtr)->data;
+  *topPtr = (*topPtr)->nextPtr;
+  free(tempPtr);
+
+  return popValue;
+}
+
+void printStack(StackNodePtr currentPtr) {
+  if (currentPtr == NULL) {
+    puts("The stack is empty\n");
+  } else {
+    puts("The stack is\n");
+
+    while (currentPtr != NULL) {
+      printf("%d --&gt; ", currentPtr->data);
+      currentPtr = currentPtr->nextPtr;
+    }
+    puts("NULL\n")
+  }
+}
+
+int isEmpty(StackNodePtr topPtr) {
+  return topPtr == NULL;
+}
+</pre>
+  </details>
+
+  <p>На стеке выделяется память для автоматических переменных при каждом вызове функции. Когда происходит выход из функции, автоматические переменные удаляются из стека и память освобождается.</p>
+
+  <h4>12.6 Очереди (479)</h4>
+
+  <p>Очередь это упрощенный вариант связного списка. Новые узлы могут добавляться только в конец, а удаляться только сначала. Это структура вида FIFO (первым пришел - первым вышел). На стек ссылаются через указатель на последний элемент стека. Основные функции работы со стеками - enqueue добавить новый узел в конец очереди, dequeue удалить узел с начала очереди и вернуть его значение.</p>
+  <p>Очереди используются для организации буфера печати, для передачи пакетов в сети.</p>
+  <p>Напишем программу, которая может поставить узел в очередь, удалить узел из очереди и выйти из программы.</p>
+
+  <details>
+    <summary>Программа 125 (480)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct queueNode {
+  char data;
+  struct queueNode *nextPtr;
+};
+
+typedef struct queueNode QueueNode;
+typedef QueueNode *QueueNodePtr;
+
+void instructions();
+void enqueue(QueueNodePtr *headPtr, QueueNodePtr *tailPtr, char value);
+void dequeue(QueueNodePtr *headPtr, QueueNodePtr *tailPtr);
+void printQueue(QueueNodePtr currentPtr);
+int isEmpty(QueueNodePtr headPtr);
+
+int main() {
+  QueueNodePtr headPtr = NULL;
+  QueueNodePtr tailPtr = NULL;
+  int choice;
+  char item;
+
+  instructions();
+  printf("%s", "? ");
+  scanf("%d", &choice);
+
+  while (choice != 3) {
+
+    switch (coice) {
+
+      case 1:
+        printf("%s", "Enter an character: ");
+        scanf("%c", &item);
+        enqueue(&headPtr, &tailPtr, item);
+        printQueue(headPtr);
+        break;
+
+      case 2:
+        if (!isEmpty(headPtr)) {
+          item = dequeue(&headPtr, &tailPtr);
+          printf("%c is qedueued\n", item);
+        }
+        printQueue(headPtr);
+        break;
+
+      default:
+        puts("Invalid choice\n");
+        instructions();
+        break;
+    }
+
+    printf("%s", "? ");
+    scanf("%d", &choice);
+  }
+
+  puts("End of run");
+
+  return 0;
+}
+
+void instructions() {
+  puts("Enter choice\n"
+       "1 to add an item to the queue\n"
+       "2 to remove an item from the queue\n"
+       "3 to end");
+}
+
+void enqueue(QueueNodePtr *headPtr, QueueNodePtr *tailPtr, char value) {
+  QueueNodePtr newPtr;
+  newPtr = malloc(sizeof(QueueNode));
+
+  if (newPtr != NULL) {
+    newPtr->data = value;
+    newPtr->nextPtr = NULL;
+    if (isEmpty(*headPtr)) {
+      *headPtr = newPtr;
+    } else {
+      (*tailPtr)->nextPtr = newPtr;
+    }
+    *tailPtr = newPtr;
+  } else {
+    printf("%c not inserted. No memory available\n", value);
+  }
+}
+
+void dequeue(QueueNodePtr *headPtr, QueueNodePtr *tailPtr) {
+  QueueNodePtr tempPtr;
+  char value;
+  tempPtr = *headPtr;
+  value = (*headPtr)->data;
+  *headPtr = (*headPtr)->nextPtr;
+
+  if (*headPtr == NULL) {
+    *tailPtr = NULL;
+  }
+
+  free(tempPtr);
+
+  return value;
+}
+
+void printQueue(QueueNodePtr currentPtr) {
+  if (currentPtr == NULL) {
+    puts("The queue is empty\n");
+  } else {
+    puts("The queue is\n");
+
+    while (currentPtr != NULL) {
+      printf("%c --&gt; ", currentPtr->data);
+      currentPtr = currentPtr->nextPtr;
+    }
+    puts("NULL\n")
+  }
+}
+
+int isEmpty(QueueNodePtr headPtr) {
+  return headPtr == NULL;
+}
+</pre>
+  </details>
+
+  <h4>12.7 Деревья (485)</h4>
+
+  <p>Дерево - это нелинейная, двумерная структура данных. Узлы дерева содержат две или более связей. Двоичные деревья - деревья, узлы которых содержат две связи. Одна или обе связи могут быть NULL. Дерево представлено своим первым узлом, который называется корнем дерева. От корня связь идет влево в левого потомка и вараво в правого потомка. Если у узла нет потомков, то он называется лист. Двоичное дерево поиска это двоичное дерево с неповторяющимися значениями в листах, значения в любом узле левого поддерева меньше чем в родительском узле, а значения в любом узле правого поддерева больше чем в родительском узле. Форма двоичного дерева с одинаковыми значениями может быть разной в зависимости от порядка, в котором эти значения вставлялись в дерево.</p>
+  <p>Напишем программу, которая создает двоичное дерево поиска и обходит его тремя способами: с порядковой выборкой (inorder), предварительной выборкой (preoeder) и отложенной выборкой (postorder).</p>
+
+  <details>
+    <summary>Программа 126 (486)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+struct treeNode {
+  int data;
+  struct treeNode *leftPtr;
+  struct treeNode *rightPtr;
+};
+
+typedef struct treeNode TreeNode;
+typedef TreeNode *TreeNode;
+
+void insertNode(TreeNodePtr *treePtr, int value);
+void inOrder(TreeNodePtr treePtr);
+void preOrder(TreeNodePtr treePtr);
+void postOrder(TreeNodePtr treePtr);
+
+int main() {
+  int item;
+  TreeNodePtr rootPtr = NULL;
+
+  srand(time(NULL));
+  puts("Numbers in tree:");
+
+  for (int i = 1; i &lt;=10; i++) {
+    item = rand() % 15;
+    printf("%3d", item);
+  }
+
+  puts("\nThe preOrder traversal is:"");
+  preOrder(rootPtr);
+
+  puts("\nThe inOrder traversal is:"");
+  inOrder(rootPtr);
+
+  puts("\nThe postOrder traversal is:"");
+  postOrder(rootPtr);
+
+  return 0;
+}
+
+void insertNode(TreeNodePtr *treePtr, int value) {
+  if (*treePtr == NULL) {
+    *treePtr = malloc(sizeof(TreeNode));
+    if (*treePtr != NULL) {
+      (*treePtr)->data = value;
+      (*treePtr)->leftPtr = NULL;
+      (*treePtr)->rightPtr = NULL;
+    } else {
+      printf("%d not inserted. No memory available\n", value);
+    }
+  } else {
+    if (value &lt; (*treePtr)->data) {
+      insertNode(&((*treePtr)->leftPtr), value);
+    } else if (value > (*treePtr)->data) {
+      insertNode(&((*treePtr)->rightPtr), value);
+    } else {
+      printf("%s", "dup");
+    }
+  }
+}
+
+void inOrder(TreeNodePtr treePtr) {
+  if (treePtr != NULL) {
+    inOrder(treePtr->leftPtr);
+    printf("%3d", treePtr->data);
+    inOrder(treePtr->rightPtr;)
+  }
+}
+
+void preOrder(TreeNodePtr treePtr) {
+  if (treePtr != NULL) {
+    printf("%3d", treePtr->data);
+    preOrder(treePtr->leftPtr);
+    preOrder(treePtr->rightPtr;)
+  }
+}
+
+void postOrder(TreeNodePtr treePtr) {
+  if (treePtr != NULL) {
+    postOrder(treePtr->leftPtr);
+    postOrder(treePtr->rightPtr;)
+    printf("%3d", treePtr->data);
+  }
+}
+
+</pre>
+  </details>
 </article>
 
 
@@ -4202,6 +5409,8 @@ void displayBits(unsigned value) {
 <article class="article">
   <div class="anchor" id="p13"></div>
   <h3>13 Препроцессор C (513)</h3>
+
+  <h4>13.1 Введение (514)</h4>
 </article>
 
 

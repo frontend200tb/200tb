@@ -30,9 +30,9 @@ import htmlSp28        from './../pages/elem-sp28.html';
 import htmlSp29        from './../pages/elem-sp29.html';
 import htmlSp30        from './../pages/elem-sp30.html';
 import htmlSp31        from './../pages/elem-sp31.html';
-import htmlSpDemCup    from './../pages/elem-spDemCup.html';
-import htmlSpNewYear   from './../pages/elem-spNewYear.html';
-import htmlSpMay       from './../pages/elem-spMay.html';
+import htmlSpDem2022   from './../pages/elem-spDem2022.html';
+import htmlSpNY2025    from './../pages/elem-spNY2025.html';
+import htmlSpNvsb2018  from './../pages/elem-spNvsb2018.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
 import htmlSpRound991  from './../pages/elem-spRound991.html';
 import htmlSpRound993  from './../pages/elem-spRound993.html';
@@ -77,9 +77,9 @@ export const pages = [
   htmlSp29,
   htmlSp30,
   htmlSp31,
-  htmlSpDemCup,
-  htmlSpNewYear,
-  htmlSpMay,
+  htmlSpDem2022,
+  htmlSpNY2025,
+  htmlSpNvsb2018,
   htmlSpRound988,
   htmlSpRound991,
   htmlSpRound993,

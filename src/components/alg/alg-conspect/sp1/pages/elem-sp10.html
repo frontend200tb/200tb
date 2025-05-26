@@ -377,6 +377,63 @@ int main() {
 -788
 </pre>
   <code>YES</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Первый массив отсортирован по возрастанию, поэтому в бинарный поиск будем передавать именно его.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+bool binarySearch(const vector&lt;int&gt;& C, int size, int target) {
+  int left = 0, right = size;
+  int mid = left + (right - left) / 2;
+  while (right - left > 1) {
+    if (C[mid] > target) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+    mid = left + (right - left) / 2;
+  }
+  if (C[left] == target) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+  int m;
+  cin >> m;
+  vector&lt;int&gt; B(m);
+  for (int i = 0; i &lt; m; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  for (int i = 0; i &lt; m; i++) {
+    int target = 10000 - B[i];
+    if (binarySearch(A, n, target)) {
+      cout &lt;&lt; "YES";
+      return 0;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; "NO";
+}
+</pre>
+  </details>
 </article>
 
 
@@ -413,6 +470,55 @@ int main() {
 3
 -1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// позиция в массиве, начиная с 1
+int binarySearch(const vector&lt;int&gt;& C, int size, int target) {
+  int left = 0, right = size;
+  int mid = left + (right - left) / 2;
+  while (right - left > 1) {
+    if (C[mid] > target) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+    mid = left + (right - left) / 2;
+  }
+  if (C[left] == target) {
+    return left + 1;
+  } else {
+    return -1;
+  }
+}
+
+int main() {
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+  vector&lt;int&gt; Q(m);
+  for (int i = 0; i &lt; m; i++) {
+    cin >> Q[i];
+  }
+
+  // решение  и вывод результата
+  for (int i = 0; i &lt; m; i++) {
+    int target = Q[i];
+    cout &lt;&lt; binarySearch(A, n, target) &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

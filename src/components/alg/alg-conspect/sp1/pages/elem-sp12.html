@@ -8,7 +8,7 @@
 <article class="article">
   <h1>Занятие 12. Структуры данных #1. stack, queue, deque</h1>
   <p>Конспект видео от 2024.11.30</p>
-  <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/568747" target="_blank">Codeforces Контест 570478</a></p>
+  <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/570478" target="_blank">Codeforces Контест 570478</a></p>
 </article>
 
 
@@ -340,6 +340,46 @@ int main() {
   <code>(()(()(</code>
   <code>(()(()()))</code>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Эта задача решается только через стек. Перебираем в цикле символы входной строки со скобками. Если символ - открывающая скобка, то кладем символ в стек. Если символ - закрывающая скобка, проверяем не пустой ли стек, Если не пустой, то удаляем последний символ из стека. Иначе невозможно достроить последовательность, выводим IMPOSSIBLE и заканчиваем программу.</p>
+    <p>Если последовательность закончилась, проверяем стек и добавляем в конец исходной последовательности столько закрывающих скобок, сколько открывающих скобок осталось в стеке. Выводим правильную скобочную последовательность.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  stack&lt;char&gt; st;
+  for (int i = 0; i &lt; s.size(); i++) {
+    if (s[i] == '(') {
+      st.push(s[i]);
+    } else if (s[i] == ')') {
+      if (st.empty()) {
+        cout &lt;&lt; "IMPOSSIBLE";
+        return 0;
+      } else {
+        st.pop();
+      }
+    }
+  }
+
+  for (int i = 0; i &lt; st.size(); i++) {
+    s.append(")");
+  }
+
+  // вывод результата
+  cout &lt;&lt; s;
+}
+</pre>
+  </details>
 </article>
 
 

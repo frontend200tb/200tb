@@ -520,6 +520,45 @@ int main() {
   <h4>Пример</h4>
   <code>2</code>
   <code>2</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int n;
+  cin >> n;
+
+  // решение
+  vector&lt;int&gt; A(n + 1, 0);
+  // вектор простых чисел
+  vector&lt;int&gt; S;
+
+  // решето Эратосфена
+  for (long long i = 2; i &lt;= n; i++) {
+    if (A[i] == 0) {
+      S.push_back(i);
+      A[i] = 1;
+      for (long long j = i * i; j &lt;= n; j += i) {
+        A[j] = 1;
+      }
+    }
+  }
+
+  // вывод результата
+  for (int i = 0; i &lt; S.size(); i++) {
+    cout &lt;&lt; S[i] &lt;&lt; ' ';
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -550,6 +589,53 @@ int main() {
   <h4>Пример 2</h4>
   <code>4 4</code>
   <code>-1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Собиракем Решето Эратосфена и выбираем из него числа от m до n.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int m, n;
+  cin >> m >> n;
+
+  // решение
+  vector&lt;int&gt; A(n + 1, 0);
+  // вектор простых чисел
+  vector&lt;int&gt; S;
+
+  // решето Эратосфена
+  for (long long i = 2; i &lt;= n; i++) {
+    if (A[i] == 0) {
+      A[i] = 1;
+      for (long long j = i * i; j &lt;= n; j += i) {
+        A[j] = 1;
+      }
+      if (i >= m) {
+        S.push_back(i);
+      }
+    }
+  }
+
+  // вывод результата
+  if (S.empty()) {
+    cout &lt;&lt; -1;
+  } else {
+    for (int i = 0; i &lt; S.size(); i++) {
+      cout &lt;&lt; S[i] &lt;&lt; '\n';
+    }
+
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -580,6 +666,53 @@ int main() {
   <h4>Пример 2</h4>
   <code>4 4</code>
   <code>-1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Собиракем Решето Эратосфена и выбираем из него числа от m до n.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // входные данные
+  int m, n;
+  cin >> m >> n;
+
+  // решение
+  vector&lt;int&gt; A(n + 1, 0);
+  // вектор простых чисел
+  vector&lt;int&gt; S;
+
+  // решето Эратосфена
+  for (long long i = 2; i &lt;= n; i++) {
+    if (A[i] == 0) {
+      A[i] = 1;
+      for (long long j = i * i; j &lt;= n; j += i) {
+        A[j] = 1;
+      }
+      if (i >= m) {
+        S.push_back(i);
+      }
+    }
+  }
+
+  // вывод результата
+  if (S.empty()) {
+    cout &lt;&lt; -1;
+  } else {
+    for (int i = 0; i &lt; S.size(); i++) {
+      cout &lt;&lt; S[i] &lt;&lt; '\n';
+    }
+
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -768,6 +901,48 @@ int main() {
   <code>1</code>
   <code>0</code>
   <p>Из пары (1,1) можно за три хода получить пару, содержащую 5: (1,1) → (1,2) → (3,2) → (5,2).</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+long long cnt;
+
+long long gcd(long long a, long long b) {
+  if (b == 0) {
+    if (a != 1) {
+      cnt += 1'000'000;
+    }
+    cnt += a - 1;
+    return a;
+  } else {
+    cnt += a / b;
+    return gcd(b, a % b);
+  }
+}
+
+int main() {
+  long long n;
+  cin >> n;
+  long long min_count = 10'000'000;
+  for (long long i = 1; i &lt; n; i++) {
+    cnt = 0;
+    gcd(n, i);
+    min_count = min(min_count, cnt);
+  }
+  if (min_count == 10'000'000) {
+    cout &lt;&lt; 0;
+    return 0;
+  }
+
+  cout &lt;&lt; min_count - 1;
+}
+</pre>
+  </details>
 </article>
 
 

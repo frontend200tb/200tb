@@ -33,7 +33,7 @@ export const asideThemes = [
   '31 Алгоритмы 7 Интерактивные задачи',
   'Demidov Cup 2022',
   'New Year 2025',
-  'May 2025',
+  'Novosibirsk 2018',
   'Round 988',
   'Round 991',
   'Round 993',

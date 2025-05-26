@@ -1,0 +1,406 @@
+<article class="article">
+  <h1>Лекция 20 (20.05.2025)</h1>
+</article>
+
+<div id="link-to-dsr2024cpp" class="btn-back">назад</div>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Архитектура</a></p>
+</article>
+
+
+<!-- Архитектура -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Архитектура</h3>
+
+  <p>Сегодня посмотрим как строить архитектуру. Которую в дальнейшем можно использовать. Как все разбить на файлики. И сделаем чтобы все исправно работало в нашем приложении.</p>
+
+  <p>Выбираем пункт меню</p>
+  <code>Project - Add Module</code>
+  <p>Создаем файл заголовка Resource.h</p>
+
+  <p>Выбираем пункт меню</p>
+  <code>Project - Add Module</code>
+  <p>Создаем файл с кодом Resource.cpp</p>
+
+  <p>Структура проекта</p>
+<pre>
+Project
+   -   src/
+   -    -   main.cpp
+   -    -   Game/  базовый запуск игры
+   -    -      -    game.h
+   -    -      -    game.cpp
+   -    -   Entities/ информация о игроках
+   -    -      -    player.h
+   -    -      -    player.cpp
+   -    -   Core/
+   -    -      -    board.h
+   -    -      -    board.cpp
+   -    -   Resources/
+   -    -      -    ResourceManager.h
+   -    -      -    ResourceManager.cpp
+   -    resources/
+   -    -   fonts/
+   -    -      -    arial.ttf
+   -    -   sounds/
+   -    -      -    move.wav
+</pre>
+
+  <p>Файл dsr.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Resource.h"
+
+int main()
+{
+  ResourceManager::Load();
+}
+</pre>
+
+
+  <p>Файл Resource.h</p>
+<pre>
+#pragma once
+#include &lt;raylib.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+class ResourceManager {
+  static unordered_map&lt;string, Texture2D&gt; textures;
+  static unordered_map&lt;string, Sound&gt; sounds;
+  static unordered_map&lt;string, Font&gt; fonts;
+
+  static void LoadTextures();
+  static void LoadSounds();
+  static void LoadFonts();
+
+public:
+  static void Load();
+  static void Unload();
+  static Texture2D& GetTexture(const string&);
+  static Sound& GetSound(const string&);
+
+};
+
+// инициализация
+unordered_map&lt;string, Texture2D&gt; ResourceManager::textures;
+unordered_map&lt;string, Sound&gt; ResourceManager::sounds;
+unordered_map&lt;string, Font&gt; ResourceManager::fonts;
+
+// начиная со стандарта с++17 можно делать так инициализацию
+//   static inline unordered_map&lt;string, Texture2D&gt; textures;
+
+</pre>
+
+
+<p>Файл Resource.cpp</p>
+<pre>
+#include "Resource.h"
+
+void ResourceManager::Load() {
+  LoadTextures();
+  LoadSounds();
+  LoadFonts();
+}
+
+void ResourceManager::LoadTextures() {
+  const string basePath = "resource/textures/";
+
+  // лямбда функция
+  auto loadTexture = [&](const string& name, const string& fileName) {
+    string fullPath = basePath + fileName;
+    Texture2D texture = LoadTexture(fullPath.c_str());
+    if (texture.id == 0) {
+      TraceLog(LOG_ERROR, "Failed to load texture: %s", fullPath.c_str());
+      return;
+    }
+    textures[name] = texture;
+    TraceLog(LOG_INFO, "Loaded texture: %s", name.c_str());
+  };
+
+  loadTexture("player", "player.png");
+  loadTexture("obstacle", "obstacle.png");
+  loadTexture("restart", "restart.png");
+  loadTexture("exit", "exit.png");
+}
+
+void ResourceManager::LoadSounds() {
+  const string basePath = "resource/textures/";
+
+  // лямбда функция
+  auto loadSound = [&](const string& name, const string& fileName) {
+    string fullPath = basePath + fileName;
+    Sound sound = LoadSound(fullPath.c_str());
+    // проверить есть ли эта функция
+    if (!IsSoundValid(sound)) {
+      TraceLog(LOG_ERROR, "Failed to load sound: %s", fullPath.c_str());
+      return;
+    }
+    sounds[name] = sound;
+    TraceLog(LOG_INFO, "Loaded sound: %s", name.c_str());
+  };
+
+  loadSound("move", "move.wav");
+  loadSound("win", "win.wav");
+  loadSound("forbidden", "forbidden.wav");
+}
+
+void ResourceManager::LoadFonts() {
+  const string basePath = "resource/textures/";
+
+  // лямбда функция
+  auto loadFont = [&](const string& name, const string& fileName) {
+    string fullPath = basePath + fileName;
+    Font font = LoadFont(fullPath.c_str());
+    // проверить есть ли эта функция
+    if (!IsSoundValid(sound)) {
+      TraceLog(LOG_ERROR, "Failed to load sound: %s", fullPath.c_str());
+      return;
+    }
+    sounds[name] = sound;
+    TraceLog(LOG_INFO, "Loaded sound: %s", name.c_str());
+    };
+
+  loadFont("arial", "arial.ttf");
+}
+
+
+
+void ResourceManager::Unload() {
+  for (auto& texture : textures) {
+    UnloadTexture(texture.second);
+  }
+  textures.clear();
+  for (auto& sound : sounds) {
+    UnloadSound(sound.second);
+  }
+  sounds.clear();
+  for (auto& font : fonts) {
+    UnloadFont(font.second);
+  }
+  fonts.clear();
+}
+
+Texture2D& ResourceManager::GetTexture(const string& name) {
+  if (textures.find(name) == textures.end()) {
+    TraceLog(LOG_ERROR, "Texture not found: %s", name.c_str());
+    throw runtime_error("Texture not found" + name);
+  }
+  return textures.at(name);
+}
+
+Sound& ResourceManager::GetSound(const string& name) {
+  if (sounds.find(name) == sounds.end()) {
+    TraceLog(LOG_ERROR, "Sound not found: %s", name.c_str());
+    throw runtime_error("Sound not found" + name);
+  }
+  return sounds.at(name);
+}
+</pre>
+
+
+  <p>Файл Board.h</p>
+<pre>
+#pragma once
+#include &lt;raylib.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "GameState.h"
+#include &lt;unordered_map&gt;
+#include "Resource.h"
+
+using namespace std;
+
+class Board {
+  vector&lt;Vector2&gt; forbiddenCells = { {2,2}, {3,4}, {5,6} };
+
+public:
+  static const int SIZE = 8;
+  Board() {
+    TraceLog(LOG_INFO, "Board initialized with %d forbidden cells", forbiddenCells.size());
+  }
+  bool IsWinCell(int x, int y) {
+    return x == SIZE - 1 && y == SIZE - 1;
+  }
+  int GetCellSize() const {
+    return SCREEN_WIDTH / SIZE;
+  }
+
+  bool IsCellForbidden(int x, int y) {
+    for (const auto cell : forbiddenCells) {
+      if (cell.x == x && cell.y == y) {
+        return true;
+      }
+      return false;
+    }
+  }
+  void Draw() {
+    const int cellSize = GetCellSize();
+
+    for (int row = 0; row &lt; SIZE; row++) {
+      for (int col = 0; col &lt; SIZE; col++) {
+        // определяем цвет клетки
+        Color color = ((row + col) % 2 == 0) ? LIGHTGRAY : DARKBLUE;
+        // цвет стенок
+        if (IsCellForbidden(col, row)) {
+          color = FORBIDDEN_COLOR;
+        // цвет финиша
+        } else if (IsWinCell(col, row)) {
+          color = ColorAlpha(GREEN, 0.5f);
+        }
+
+        // отрисовка клеток
+        DrawRectangle(col * cellSize, row * cellSize, cellSize, cellSize, color);
+        // отрисовка стенок
+        if (IsCellForbidden(col, row)) {
+          DrawTextPro(ResourceManager::GetTexture("obstacle"),
+            {0,0, (float)(ResourceManager::GetTexture("obstacle")).width,
+            (float)(ResourceManager::GetTexture("obstacle")).height},
+            { (float)(col * cellSize),
+              (float)(row * cellSize),
+              (float)cellSize,
+              (float)cellSize})
+        }
+      }
+    }
+  }
+};
+</pre>
+
+
+  <p>Файл GameState.h</p>
+<pre>
+#pragma once
+#include &lt;raylib.h&gt;
+
+enum GameState {PLAYING, GAME_OVER};
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 800;
+const Color FORBIDDEN_COLOR = { 150, 50, 50, 255 };
+
+float Mylerp(float start, float end, float t) {
+  // ограничения по t
+  t = (t &lt; 0) ? 0 : (t > 1) ? 1 : t;
+  return start + t * (end - start);
+}
+</pre>
+
+
+  <p>Файл Player.h</p>
+<pre>
+#pragma once
+#include &lt;raylib.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "GameState.h"
+#include &lt;unordered_map&gt;
+#include "Resource.h"
+#include "Board.h"
+
+class Player {
+  Vector2 position = { 0,0 };
+  Vector2 targetPosition = { 0,0 };
+  Vector2 actualPosition = { 0,0 };
+  float moveSpeed = 8.0f;
+
+public:
+  Player() {
+    TraceLog(LOG_INFO, "Player initialized at position (0,0)");
+  }
+
+  void Update(float deltaTime, const Board& board) {
+    // используем функцию интерполяции
+    actualPosition.x = Mylerp(actualPosition.x, targetPosition.x, moveSpeed * deltaTime);
+    actualPosition.y = Mylerp(actualPosition.y, targetPosition.y, moveSpeed * deltaTime);
+  }
+
+  void Draw() const {
+    const int cellSize == Board::SIZE;
+    DrawTexturePro(ResourceManager::GetTexture("player"),
+    { 0, 0, (float)ResourceManager::GetTexture("player").width,
+            (float)ResourceManager::GetTexture("player").height },
+    { (float)(actualPosition.x * cellSize),
+      (float)(actualPosition.y * cellSize),
+      (float)cellSize, (float)cellSize
+    },
+    { 0, 0 }, 0.0f, WHITE);
+  }
+
+  void Reset() {
+    position = { 0, 0 };
+    targetPosition = { 0, 0 };
+    actualPosition = { 0, 0 };
+    TraceLog(LOG_INFO, "Player reset to initial position (0,0)");
+  }
+
+  void SetTargetPosition(Vector2 newPos, const Board& board) {
+    if (!board.IsCellForbidden(newPos.x, newPos.y)) {
+      targetPosition = newPos;
+      PlaySound(ResoutceManager::GetSound("move"));
+      TraceLog(LOG_INFO, "Player target position set to (%d, %d)",
+      (int)newPos.x, (int)newPos.y);
+    } else {
+      // по запрещенному ходу
+    }
+  }
+};
+</pre>
+
+
+  <p>Файл Game.h</p>
+<pre>
+#pragma once
+#include &lt;raylib.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "GameState.h"
+#include &lt;unordered_map&gt;
+#include "Resource.h"
+#include "Board.h"
+#include "Player.h"
+
+class Game {
+  GameState state = PLAYING;
+  Board board;
+  Player player;
+  bool playedWinSound = false;
+
+public:
+  void Run() {
+    Initialize();
+    while (!WindowShouldClose()) {
+      float deltaTime = GetFrameTime();
+      ProcessInput();
+      Update(deltaTime);
+      Render();
+    }
+    Down();
+  }
+
+  // объявление окна, подгрузка текстур, fps и т.п.
+  void Initialize();
+
+  // обработка нажатия кнопок, управление игроком
+  void ProcessInput();
+
+  // проверка победы
+  void Update(float deltaTime);
+
+  // отрисовка доски, игрока, экрана выхода и всей графики.
+  void Render();
+
+  // закрытие всего и завершение игры
+  void Down();
+};
+</pre>
+</article>
+

@@ -1548,7 +1548,6 @@ int main() {
   <details>
     <summary>Решение</summary>
     <p>Отсортируем массив. Постараемся получить каждое число, прибавляя к соседним меньшим числам единицу не более k раз. Выберем число с максимальным вхождением. Если их несколько то выберем минимальное из них.</p>
-    <p>Превышено ограничение времени на тесте 45</p>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -1660,6 +1659,49 @@ int main() {
 </pre>
   <code>111</code>
   <p>Во втором тесте из условия мы можем взять всех друзей.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Метод скользящего окна с переменной шириной.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+bool compare(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
+  return a.first &lt; b.first;
+}
+
+int main() {
+  // входные данные
+  int n, d;
+  cin >> n >> d;
+  vector&lt;pair&lt;int, int&gt; &gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i].first >> A[i].second;
+  }
+
+  // решение
+  long long cnt = 0, res = 0;
+  int pl = 0, pr = 0;
+  sort(A.begin(), A.end(), compare);
+
+  while (pl &lt; n) {
+    while ( (pr &lt; n) && (abs(A[pr].first - A[pl].first) &lt; d) ) {
+      cnt += A[pr].second;
+      pr++;
+    }
+    res = max(res, cnt);
+    cnt -= A[pl].second;
+    pl++;
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1717,6 +1759,107 @@ int main() {
 0 0 0 0 0
 </pre>
   <p>Во втором примере стабилизация наступает через два шага: 01010 -> 00100 -> 00000, а последовательность 00000, как нетрудно заметить, является стабильной.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для решения задачи медианного сглаживания с использованием метода двух указателей, мы можем оптимизировать процесс, отслеживая только изменяющиеся участки последовательности. Это позволит сократить количество операций на каждом шаге.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+// медианное сглаживание
+vector&lt;int&gt; median(vector&lt;int&gt;& E, int n) {
+  vector&lt;int> D(n);     // новая последовательность
+  D[0] = E[0];         // первый
+  D[n - 1] = E[n - 1]; // последний
+
+  // для каждого элемента
+  for (int i = 1; i &lt; n - 1; i++) {
+    int a = E[i - 1], b = E[i], c = E[i + 1];
+    // медиана трех бинарных чисел
+    D[i] = (a & b) | (b & c) | (a & c);
+  }
+  return D;
+}
+
+// проверка стабильности
+bool isStable(vector&lt;int&gt;& F, int n) {
+  // для каждого элемента
+  for (int i = 1; i &lt; n - 1; i++) {
+    int a = F[i - 1], b = F[i], c = F[i + 1];
+    // медиана трех бинарных чисел
+    int med = (a & b) | (b & c) | (a & c);
+    // если элемент не равен медиане
+    if (F[i] != med) {
+      return false;
+    }
+  }
+  return true;
+}
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; ++i) {
+    cin >> A[i];
+  }
+
+  // решение
+  // число шагов
+  int steps = 0;
+
+  // если уже стабильна
+  if (isStable(A, n)) {
+    cout &lt;&lt; steps &lt;&lt; '\n';
+    // последовательность
+    for (int i = 0; i &lt; n; i++) {
+      cout &lt;&lt; A[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; "\n";
+
+    return 0;
+  }
+
+  vector&lt;int&gt; B = A;
+  vector&lt;int&gt; C = median(B, n);
+
+  // основной цикл
+  while (steps &lt; n && C != B) {
+    steps++;
+    B = C;
+
+    // если стабильна
+    if (isStable(C, n)) {
+      cout &lt;&lt; steps &lt;&lt; '\n';
+      // последовательность
+      for (int i = 0; i &lt; n; i++) {
+        cout &lt;&lt; C[i] &lt;&lt; ' ';
+      }
+      cout &lt;&lt; '\n';
+
+      return 0;
+    }
+
+    // делаем сглаживание
+    C = median(B, n);
+  }
+
+  // последовательность не стабильна
+  cout &lt;&lt; -1;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
