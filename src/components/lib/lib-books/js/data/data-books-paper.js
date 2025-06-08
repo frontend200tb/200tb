@@ -911,8 +911,8 @@ const dataBooksPaper = [
     pages: '144',
     cover: 'мягкая',
     image: '2015 Кузин - Программирование на языке Си.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.05.30 пт',
   },
 
   {

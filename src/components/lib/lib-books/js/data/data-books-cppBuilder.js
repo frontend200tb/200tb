@@ -364,6 +364,19 @@ const dataBooksCppBuilder = [
     dateLearned: '',
   },
 
+  {
+    id: 29,
+    year: 2024,
+    category: 'code',
+    theme: 'C++ Builder',
+    title: 'Основы программирования в С++Builder CE',
+    author: 'Литвиненко',
+    authorName: 'Василий',
+    pages: '122',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

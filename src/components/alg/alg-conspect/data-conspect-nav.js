@@ -1,12 +1,13 @@
-import showFatin from './fatin/fatin';
+import showFatin       from './fatin/fatin';
 import showGustokashin from './gustokashin/gustokashin';
-import showStepik from './stepik/stepik';
-import showDp from './dp/dp';
-import showKurs1 from './kurs1/kurs1';
-import showKurs2 from './kurs2/kurs2';
-import showSp1 from './sp1/sp1';
-import showSp2 from './sp2/sp2';
-import showFtl from './ftl/ftl';
+import showYargu1      from './yargu1/yargu1';
+import showYargu2      from './yargu2/yargu2';
+import showYargu3      from './yargu3/yargu3';
+import showFtl         from './ftl/ftl';
+import showStepik      from './stepik/stepik';
+import showDp          from './dp/dp';
+import showKurs1       from './kurs1/kurs1';
+import showKurs2       from './kurs2/kurs2';
 
 export const dataConspectNav = [
   {
@@ -23,6 +24,38 @@ export const dataConspectNav = [
     content: '<alg-gustokashin></alg-gustokashin>',
     act() {
       showGustokashin();
+    },
+  },
+  {
+    url: 'yargu1.html',
+    text: 'ЯрГУ1',
+    content: '<alg-yargu1></alg-yargu1>',
+    act() {
+      showYargu1();
+    },
+  },
+  {
+    url: 'yargu2.html',
+    text: 'ЯрГУ2',
+    content: '<alg-yargu2></alg-yargu2>',
+    act() {
+      showYargu2();
+    },
+  },
+  {
+    url: 'yargu3.html',
+    text: 'ЯрГУ3',
+    content: '<alg-yargu3></alg-yargu3>',
+    act() {
+      showYargu3();
+    },
+  },
+  {
+    url: 'ftl.html',
+    text: 'ФТЛ',
+    content: '<alg-ftl></alg-ftl>',
+    act() {
+      showFtl();
     },
   },
   {
@@ -55,30 +88,6 @@ export const dataConspectNav = [
     content: '<alg-kurs2></alg-kurs2>',
     act() {
       showKurs2();
-    },
-  },
-  {
-    url: 'sp1.html',
-    text: 'СП1',
-    content: '<alg-sp1></alg-sp1>',
-    act() {
-      showSp1();
-    },
-  },
-  {
-    url: 'sp2.html',
-    text: 'СП2',
-    content: '<alg-sp2></alg-sp2>',
-    act() {
-      showSp2();
-    },
-  },
-  {
-    url: 'ftl.html',
-    text: 'ФТЛ',
-    content: '<alg-ftl></alg-ftl>',
-    act() {
-      showFtl();
     },
   },
 ];

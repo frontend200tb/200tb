@@ -1,5 +1,6 @@
-import showAcmp from './acmp/acmp';
+import showSilver from './silver/silver';
 import showInformatics from './informatics/informatics';
+import showAcmp from './acmp/acmp';
 import showTimus from './timus/timus';
 import showCodeforces from './codeforces/codeforces';
 import showCoderun from './coderun/coderun';
@@ -8,11 +9,11 @@ import showLeetcode from './leetcode/leetcode';
 
 export const dataPractNav = [
   {
-    url: 'acmp.html',
-    text: 'acmp',
-    content: '<alg-acmp></alg-acmp>',
+    url: 'silver.html',
+    text: 'silver',
+    content: '<alg-silver></alg-silver>',
     act() {
-      showAcmp();
+      showSilver();
     },
   },
   {
@@ -21,6 +22,14 @@ export const dataPractNav = [
     content: '<alg-informatics></alg-informatics>',
     act() {
       showInformatics();
+    },
+  },
+  {
+    url: 'acmp.html',
+    text: 'acmp',
+    content: '<alg-acmp></alg-acmp>',
+    act() {
+      showAcmp();
     },
   },
   {
