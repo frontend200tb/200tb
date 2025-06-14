@@ -1216,6 +1216,46 @@ int main() {
   <code>4</code>
   <code>-1</code>
   <p>В третьем тестовом примере корней у уравнения нет.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+long long sum(long long a) {
+  long long c = 0;
+  while (a > 0) {
+    c += a % 10;
+    a /= 10;
+  }
+  return c;
+}
+
+int main() {
+  // ввод данных
+  long long n;
+  cin >> n;
+
+  // решение
+  long long r = (long long)sqrt(n);
+  long long min_ans = -1;
+
+  for (long long i = r - 100000; i &lt;= 100000 + r; i++) {
+    long long x = i * i + sum(i) * i;
+    if (x == n && i > 0) {
+      min_ans = i;
+      break;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; min_ans;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1304,6 +1344,138 @@ s -5
     <li>После запроса s -5 массив сдвигается на 5 позиций влево: [6,7,1,2,3,4,5]</li>
     <li>Число 6 находится на позиции 1, поэтому выводим 1.</li>
   </ol>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 3</h4>
+<pre>
+7
+1 1 2 2 3 3 4
+2
+s -1
+? 1
+</pre>
+<pre>
+1
+</pre>
+
+    <p>Offset мы будем отслеживать по запросам.</p>
+    <p>Для бинарного поиска первого и последнего вхождения будем использовать две функции goodFirst и goodLast. Функция goodFirst для поиска первого вхождения делит массив A на две части. Плохая часть для всех элементов меньше target и хорошая часть для всех элементов больше или равно target. Ответ будет в правом указателе. Функция goodLast для поиска последнего вхождения делит массив A на две части. Плохая часть для всех элементов больше target и хорошая часть для всех элементов меньше или равно target. Ответ будет в левом указателе.</p>
+<pre>
+bool goodFirst(vector&lt;long long&gt;& A, int i, long long target) {
+  return A[i] >= target;
+}
+</pre>
+<pre>
+bool goodLast(vector&lt;long long&gt;& A, int i, long long target) {
+  return A[i] &lt;= target;
+}
+</pre>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+bool goodFirst(vector&lt;long long&gt;& A, int i, long long target) {
+  return A[i] >= target;
+}
+
+bool goodLast(vector&lt;long long&gt;& A, int i, long long target) {
+  return A[i] &lt;= target;
+}
+
+int main() {
+  // ускорение ввода и вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // ввод данных
+  int N;
+  cin >> N;
+  vector&lt;long long&gt; a(N);
+  for (int i = 0; i &lt; N; ++i) {
+    cin >> a[i];
+  }
+  int Q;
+  cin >> Q;
+
+  // решение
+  int offset = 0;
+
+  // принимаем запросы
+  while (Q--) {
+    char type; // тип запроса
+    cin >> type;
+
+    // запрос на сдвиг массива
+    if (type == 's') {
+      int k; // сдвиг на k позиций
+      cin >> k;
+      offset += k;
+      offset = ((offset % N) + N) % N;
+      //cout &lt;&lt; "offset " &lt;&lt; offset &lt;&lt; '\n';
+
+    // запрос на бинарный поиск
+    } else if (type == '?') {
+      long long x; // искомое число
+      cin >> x;
+
+      int res = -1;
+      // ответ будет в правом указателе
+      int left1 = -1;   // за границами массива
+      int right1 = N - 1;  // на последнем элементе массива
+      int pos1 = -1;
+
+      // бинарный поиск первого вхождения
+      while (right1 - left1 > 1) {
+        int mid = (left1 + right1) / 2;
+
+        if (goodFirst(a, mid, x)) {
+          right1 = mid;
+        } else {
+          left1 = mid;
+        }
+      }
+      pos1 = (a[right1] == x) ? (right1 + offset) % N : -1;
+
+      // ответ будет в левом указателе
+      int left2 = 0;   // на первом элементе массива
+      int right2 = N;  // за границами массива
+      int pos2 = -1;
+
+      // бинарный поиск последнего вхождения
+      while (right2 - left2 > 1) {
+        int mid = (left2 + right2) / 2;
+
+        if (goodLast(a, mid, x)) {
+          left2 = mid;
+        } else {
+          right2 = mid;
+        }
+      }
+      pos2 = (a[left2] == x) ? (left2 + offset) % N : -1;
+
+      if (pos1 > pos2) {
+        res = 0;
+      } else {
+        res = pos1;
+      }
+
+      // вывод результата
+      if (res != -1) {
+        cout &lt;&lt; res + 1 &lt;&lt; '\n';
+      } else {
+        cout &lt;&lt; -1 &lt;&lt; '\n';
+      }
+    }
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 

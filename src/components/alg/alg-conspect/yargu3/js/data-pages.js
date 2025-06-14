@@ -14,6 +14,7 @@ import htmlSpRound1016 from './../pages/elem-spRound1016.html';
 import htmlSpRound1017 from './../pages/elem-spRound1017.html';
 import htmlSpRound1020 from './../pages/elem-spRound1020.html';
 import htmlSpRound1027 from './../pages/elem-spRound1027.html';
+import htmlSpRound1029 from './../pages/elem-spRound1029.html';
 
 export const pages = [
   htmlSpDem2022,
@@ -31,4 +32,5 @@ export const pages = [
   htmlSpRound1017,
   htmlSpRound1020,
   htmlSpRound1027,
+  htmlSpRound1029,
 ];

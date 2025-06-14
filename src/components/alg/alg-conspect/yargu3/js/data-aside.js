@@ -15,4 +15,5 @@ export const asideThemes = [
   'Round 1017',
   'Round 1020',
   'Round 1027',
+  'Round 1029',
 ];

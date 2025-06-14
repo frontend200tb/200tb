@@ -345,6 +345,51 @@ int main() {
 <pre>
 664579
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Соберем решето Эратосфена от 1 до 10⁷. Создадим префикс-функцию, в которой для каждого числа i в этом диапазоне будет храниться количество простых чисел от 1 до i включительно.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  int n;
+  cin >> n;
+
+  int m = 10000000;
+  vector&lt;int&gt; A(m + 1, 0);
+  //vector&lt;int&gt; B;
+  vector&lt;int&gt; prefB(m + 1, 0);
+  A[0] = 1;
+  A[1] = 1;
+
+  for (long long i = 2; i &lt;= m; i++) {
+    if (A[i] == 0) {
+      //B.push_back(i);
+      prefB[i] = prefB[i - 1] + 1;
+      for (long long j = i * i; j &lt;= m; j += i) {
+        A[j] = 1;
+      }
+    } else {
+      prefB[i] = prefB[i - 1];
+    }
+  }
+
+  // обработка запросов
+  while (n--) {
+    int li, ri;
+    cin >> li >> ri;
+    cout &lt;&lt; prefB[ri] - prefB[li - 1] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

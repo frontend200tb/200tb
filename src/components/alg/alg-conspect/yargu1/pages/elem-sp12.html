@@ -516,6 +516,71 @@ L
 L
 </pre>
   <code>1</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Всего возможно четыре ситуации.</p>
+    <ol>
+      <li>С двух сторон едут прямо и направо. Тогда они проезжают за 1 секунду</li>
+      <li>С одной стороны едут прямо и направо. Они проезают за 1 секунду. С другой стороны едут налево. Они ждут</li>
+      <li>С одной стороны едут налево. Они ждут. С другой стороны едут прямо и направо. Они проезжают за 1 секунду.</li>
+      <li>С двух сторон едут налево. Тогда они проезжают за 1 секунду</li>
+    </ol>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string kol; // машины на ул.Колокольчиков
+  string mar; // машины на ул.Маргариток
+  cin >> kol >> mar;
+
+  // решение
+  int s = 0; // время в секундах
+  queue&lt;char&gt; K;
+  queue&lt;char&gt; M;
+
+  for (int i = 0; i &lt; kol.length(); i++) {
+    K.push(kol[i]);
+  }
+
+  for (int i = 0; i &lt; mar.length(); i++) {
+    M.push(mar[i]);
+  }
+
+  while (!K.empty() && !M.empty()) {
+    char nextK = K.front();
+    char nextM = M.front();
+
+    if ((nextK == 'F' || nextK == 'R') && (nextM == 'F' || nextM == 'R')) {
+      s++;
+      K.pop();
+      M.pop();
+    } else if ((nextK == 'F' || nextK == 'R') && (nextM == 'L')) {
+      s++;
+      K.pop();
+    } else if ((nextK == 'L') && (nextM == 'F' || nextM == 'R')) {
+      s++;
+      M.pop();
+    } else if ((nextK == 'L') && (nextM == 'L')) {
+      s++;
+      K.pop();
+      M.pop();
+    }
+  }
+
+  s += K.size() + M.size();
+
+  // вывод результата
+  cout &lt;&lt; s;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 

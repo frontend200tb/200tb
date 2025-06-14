@@ -6495,6 +6495,407 @@ int main() {
 <article class="article">
   <div class="anchor" id="p17"></div>
   <h3>17 Классы: часть 1 (618)</h3>
+
+  <h4>17.1 Введение (619)</h4>
+
+  <p>Класс в программе может определяться только один раз. Нужно использовать препроцессорную обработку в заголовочных файлах, чтобы исключить повторное включение кода из заголовочного файла в исходный файл.</p>
+  <p>К отдельным элементам класса можно обращаться через дескрипторы. Есть три типа дескриптора: имя объекта, ссылка на объект, указатель на объект. Имя и ссылка на объект предоставляют доступ к элементу через операцию "." точка. Указатель на объект - через операцию "->" стрелка.</p>
+  <p>Объекты одного класса могут присваиваться друг другу посредством поэлементного присваивания, которое копирует элементы объекта.</p>
+
+  <h4>17.2 Пример: класс Time(620)</h4>
+
+  <details>
+    <summary>Файл Time.h (620)</summary>
+<pre>
+#ifndef TIME_H
+#define TIME_H
+
+class Time {
+public:
+  Time();
+  void setTime(int, int, int);
+  void printUniversal();
+  void printStandard();
+
+private:
+  int hour;
+  int minute;
+  int second;
+};
+
+#endif
+</pre>
+  </details>
+
+  <p>Директивы #ifndef, #define, #endif используются для препроцессорной обертки, предотвращающей многократное включение заголовочного файла в программу.</p>
+
+  <details>
+    <summary>Файл Time.cpp (622)</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include "Time.h"
+
+using namespace std;
+
+Time::Time() {
+  hour = minute = second = 0;
+}
+
+void Time::setTime(int h, int m, int s) {
+  hour = (h >= 0 && n &lt; 24) ? h : 0;
+  minute = (m >= 0 && m &lt; 60) ? m : 0;
+  second = (s >= 0 && s &lt; 60) ? s : 0;
+}
+
+void Time::printUniversal() {
+  cout &lt;&lt; setfill('0') &lt;&lt; setw(2)
+  &lt;&lt; hour &lt;&lt; ":" &lt;&lt; setw(2)
+  &lt;&lt; minute &lt;&lt; ":" &lt;&lt; setw(2)
+  &lt;&lt; second;
+}
+
+void Time::printStandard() {
+  cout &lt;&lt; ((hour == 0 || hour == 12) ? 12 : hour % 12)
+  &lt;&lt; ":" &lt;&lt; setfill('0') &lt;&lt; setw(2)
+  &lt;&lt; minute &lt;&lt; ":" &lt;&lt; setw(2)
+  &lt;&lt; second &lt;&lt; (hour &lt; 12 ? " AM" : " PM");
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 145 (625)</summary>
+<pre>
+#include &lt;iostream&gt;
+#include "Time.h"
+
+using namespace std;
+
+int main() {
+  Time t;
+
+  cout &lt;&lt; "initial universal time is ";
+  t.printUniversal();
+  cout &lt;&lt; "initial standard time is ";
+  t.printStandard();
+
+  t.setTime(13, 27, 6);
+
+  cout &lt;&lt; "initial universal time is ";
+  t.printUniversal();
+  cout &lt;&lt; "initial standard time is ";
+  t.printStandard();
+
+  t.setTime(99, 99, 99);
+
+  cout &lt;&lt; "initial universal time is ";
+  t.printUniversal();
+  cout &lt;&lt; "initial standard time is ";
+  t.printStandard();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>О композиции и наследовании</h4>
+
+  <p>Включение объектов класса в качестве элементов других классов называется композицией. Порождение новых классов от существующих называется наследованием.</p>
+
+  <h4>Размер объекта</h4>
+
+  <p>Объекты содержат только данные, поэтому они меньше, чем если бы они содержали еще и функции. Применение к имени класса или объекту операции sizeof покажет только размер данных этого класса. Компилятор создает всего один экземпляр элемент-функций, отдельный от всех объектов класса.</p>
+
+  <h4>17.3 Область действия класса и доступ к элементам класса (627)</h4>
+
+  <details>
+    <summary>Программа 146 (628)</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Count {
+public:
+  void setX(int value) {
+    x = value;
+  }
+
+  void print() {
+    cout &lt;&lt; x &lt;&lt; endl;
+  }
+
+private:
+  int x;
+}
+
+int main() {
+  Count counter;
+  Count *counterPtr = &counter;
+  Count &counterRef = counter;
+
+  cout &lt;&lt; "Set x to 1 and print";
+  counter.setX(1);
+  counter.print();
+
+  cout &lt;&lt; "Set x to 2 and print";
+  counterRef.setX(2);
+  counterRef.print();
+
+  cout &lt;&lt; "Set x to 3 and print";
+  counterPtr->setX(3);
+  counterPtr->print();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>17.4 Отделение интерфейса от реализации (629)</h4>
+
+  <p>Чтобы использовать класс, его клиентам не требуется доступ к исходному коду класса. Производители классовых библиотек поставляют заголовочные файлы и объектные модули. Информация, важная для клиента в плане использования интерфейса класса, должна включаться в заголовочный файл.</p>
+
+  <h4>17.5 Функции доступа и сервисные функции (630)</h4>
+
+  <p>Функции доступа читают или выводят данные, а также могут проверять истинность некоторого условия. Функция isEmpty может проверять любой объект класса-контейнер не пустой ли он, перед попыткой прочитать из него данные. Функция isFull может проверять любой объект класса контейнер есть ли в нем еще свободное место, перед попыткой записать в него данные.</p>
+  <p>Сервисная функция не входит в состав открытого интерфейса класса. Сервисные функции не предназначены для использования клиентами класса, но могут вызываться другими функциями класса.</p>
+
+  <details>
+    <summary>Файл SalesPerson.h</summary>
+<pre>
+#ifndef SALESP_H
+#define SALESP_H
+
+class SalesPerson {
+public:
+  SalesPersoon();
+  void getSalesFromUser();
+  void setSales(int, double);
+  void printAnnualSales();
+
+private:
+  double totalAnnualSales();
+  double sales[12];
+};
+
+#endif
+</pre>
+  </details>
+
+  <details>
+    <summary>Файл SalesPerson.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include "SalesPerson.h"
+
+using namespace std;
+
+SalesPerson::SalesPerson() {
+  for (int i = 0; i &lt; 12; i++) {
+    sales[i] = 0.0;
+  }
+}
+
+void SalesPerson::getSalesFromUser() {
+  double salesFigure;
+  for (int i = 1; i &lt;= 12; i++) {
+    cout &lt;&lt; "Enter sales amount for month " &lt;&lt; i;
+    cin >> salesFigure;
+    setSales(i, salesFigure);
+  }
+}
+
+void SalesPerson::setSales(int month, double amount) {
+  if (month >= 1 && month &lt;= 12 && amount > 0) {
+    sales[month - 1] = amount;
+  } else {
+    cout &lt;&lt; "Invalid month or sales figure" &lt;&lt; endl;
+  }
+}
+
+void SalesPerson::printAnnualSales() {
+  cout &lt;&lt; setprecision(2) &lt;&lt; fixed
+  &lt;&lt; "\nThe total annual sales are: $"
+  &lt;&lt; totalAnnualSales() &lt;&lt; endl;
+}
+
+double SalesPerson::totalAnnualSales() {
+  double total = 0.0;
+  for (int i = 0; i &lt; 12; i++) {
+    total += sales[i];
+  }
+  return total;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 147 (632)</summary>
+<pre>
+#include "SalesPerson.h"
+
+int main() {
+  SalesPerson s;
+
+  s.getSalesFromUser();
+  s.printAnnualSales();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>17.6 Пример: класс Time. Конструкторы с аргументами по умолчанию</h4>
+
+  <details>
+    <summary>Файл Time.h</summary>
+<pre>
+#ifndef TIME_H
+#define TIME_H
+
+class Time {
+public:
+  Time(int = 0, int = 0, int = 0);
+
+  void setTime(int, int, int);
+  void setHour(int);
+  void setMinute(int);
+  void setSecond(int);
+
+  int getHour();
+  int getMinute();
+  int getSecond();
+
+  void printUniversal();
+  void printStandard();
+
+private:
+  int hour;
+  int minute;
+  int second;
+};
+
+#endif
+</pre>
+  </details>
+
+  <details>
+    <summary>Файл Time.cpp</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include "Time.h"
+
+using namespace std;
+
+Time::Time(int hr, int min, int sec) {
+  setTime(hr, min, sec);
+}
+
+void Time::setTime(int h, int m, int s) {
+  setHour(h);
+  setMinute(m);
+  setSecond(s);
+}
+
+void Time::setHour(int h) {
+  hour = (h >= 0 && h &lt; 24) ? h : 0;
+}
+
+void Time::setMinute(int m) {
+  minute = (m >= 0 && m &lt; 60) ? m : 0;
+}
+
+void Time::setSecond(int s) {
+  second = (s >= 0 && s &lt; 60) ? s : 0;
+}
+
+int Time::getHour() {
+  return hour;
+}
+
+int Time::getMinute() {
+  return minute;
+}
+
+int Time::getSecond() {
+  return second;
+}
+
+void Time::printUniversal() {
+  cout &lt;&lt; setfill('0')
+  &lt;&lt; setw(2) &lt;&lt; getHour() &lt;&lt; ":"
+  &lt;&lt; setw(2) &lt;&lt; getMinute() &lt;&lt; ":"
+  &lt;&lt; setw(2) &lt;&lt; getSecond();
+
+}
+
+void Time::printStandard() {
+  cout &lt;&lt; ((getHour() == 0 || getHour() == 12) ? 12 : getHour() % 12)
+  &lt;&lt; ":" &lt;&lt; setfill('0')
+  &lt;&lt; setw(2) &lt;&lt; getMinute() &lt;&lt; ":"
+  &lt;&lt; setw(2) &lt;&lt; getSecond()
+  &lt;&lt; (hour &lt; 12 ? " AM" : " PM");
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 148 (636)</summary>
+<pre>
+#include &lt;iostream&gt;
+#include "Time.h"
+
+using namespace std;
+
+int main() {
+  Time t1;
+  Time t2(2);
+  Time t3(21, 34);
+  Time t4(12, 25, 42);
+  Time t5(27, 74, 99);
+
+  cout &lt;&lt; "t1 = ";
+  t1.printUniversal();
+  t1.printStandard();
+
+  cout &lt;&lt; "t2 = ";
+  t2.printUniversal();
+  t2.printStandard();
+
+  cout &lt;&lt; "t3 = ";
+  t3.printUniversal();
+  t3.printStandard();
+
+  cout &lt;&lt; "t4 = ";
+  t4.printUniversal();
+  t4.printStandard();
+
+  cout &lt;&lt; "t5 = ";
+  t5.printUniversal();
+  t5.printStandard();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>set и get функции вызываются в теле класса в других функциях повсюду. Функция setTime вызывает функции setHour, setMinute, setSecond. Функции printUniversal и printStandard вызывают функции getHour, getMinute, getSecond. Конечно, можно было бы обращаться к закрытым данным напрямую, но если представление данных изменится, то все эти функции придется тоже изменять. А когда обращаются к данным через set и get функции, то достаточно будет изменить только их.</p>
+
+  <h4>17.7 Деструкторы (638)</h4>
+
+  <p>Деструктор это специальная элемент-функция класса, которая образуется из имени класса, перед которым ставит символ тильды ~. Деструктор вызывается неявно при уничтожении объекта. Например, когда программа выходит из области видимости объекта. Сам деструктор не освобождает память, но позволяет выполнить некоторые действия перед тем, как система освободит память.</p>
+  <p>Деструктор не принимает параметров, ничего не возвращает и не может иметь возвращаемый тип, даже void.</p>
+  <p>Деструктор, как и конструктор, есть в каждом классе. Если деструктор не определяется явным образом, то компилятор создаст автоматически деструктор по умолчанию.</p>
+
+  <h4>17.8 Когда вызываются конструкторы и деструкторы (639)</h4>
+
+  <p>Конструкторы и деструкторы вызываются компилятором неявно. Порядок вызовов зависит от области действия и класса памяти объекта.</p>
+  <p>Конструктор объекта в глобальной области вызывается до выполнения любых функций (даже функции main). Деструкторы вызываются по завершении функции main. Функции exit и abort заставляют завершиться программу немедленно, не вызывая никаких деструкторов глобальных объектов.</p>
+  <p>Конструктор автоматического объекта вызывается в том месте, где объект определяется. Деструктор вызывается, когда программа выходит из области действия объекта. Конструкторы и деструкторы вызываются каждый раз когда программа входит и выходит из области действия объекта. Функции exit и abort заставляют завершиться программу немедленно, не вызывая никаких деструкторов автоматических объектов.</p>
+  <p>Конструктор статического локального объекта вызывается только один раз в точке определения объекта. Деструктор вызывается когда завершается функция main или вызывается функция exit. Функция abort не вызывает деструктора статического локального объекта.</p>
 </article>
 
 
