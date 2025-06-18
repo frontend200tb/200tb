@@ -34,8 +34,8 @@ const dataBooksC = [
     author: 'Джехани',
     authorName: 'Нарайян',
     pages: '274',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.06.15 вс',
   },
 
   {
