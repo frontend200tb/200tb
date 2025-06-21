@@ -3,6 +3,7 @@ export const asideThemes = [
   'Demidov Cup 2022',
   'New Year 2025',
   'Novosibirsk 2018',
+  'Round 295',
   'Round 988',
   'Round 991',
   'Round 993',

@@ -2,6 +2,7 @@
 import htmlSpDem2022   from './../pages/elem-spDem2022.html';
 import htmlSpNY2025    from './../pages/elem-spNY2025.html';
 import htmlSpNvsb2018  from './../pages/elem-spNvsb2018.html';
+import htmlSpRound295  from './../pages/elem-spRound295.html';
 import htmlSpRound988  from './../pages/elem-spRound988.html';
 import htmlSpRound991  from './../pages/elem-spRound991.html';
 import htmlSpRound993  from './../pages/elem-spRound993.html';
@@ -20,6 +21,7 @@ export const pages = [
   htmlSpDem2022,
   htmlSpNY2025,
   htmlSpNvsb2018,
+  htmlSpRound295,
   htmlSpRound988,
   htmlSpRound991,
   htmlSpRound993,

@@ -1,6 +1,6 @@
 <article class="article">
   <strong>Спортивное программирование в ЯрГУ</strong>
-  <p>ЯрГУ. Кружок. Школьники 2024/2025</p>
+  <p><a href="https://codeforces.com/group/1LSR3R5twn/contests" target="_blank">ЯрГУ. Кружок. Школьники</a></p>
   <p><a href="https://vkvideo.ru/@sportprog_yarsu" target="_blank">vkvideo.ru/@sportprog_yarsu</a></p>
 </article>
 
@@ -1007,6 +1007,67 @@ int main() {
   <h4>Пример 2</h4>
   <code>SOLVEMEPLS</code>
   <code>No solution</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В любой системе счисления с основанием k число делится на k-1 тогда и только тогда, когда сумма его цифр в этой системе счисления делится на k-1. Это аналогично правилу делимости на 9 в десятичной системе (где 9 — это 10-1). Для заданного основания k все цифры числа должны быть меньше k.</p>
+    <p>Сначала находим максимальное значение цифры dmax в заданном числе. Минимально возможное основание k должно быть не меньше dmax+1.</p>
+    <p>Для каждого k от max(dmax+1,2) до 36 вычисляем сумму цифр числа, интерпретированного в системе счисления с основанием k. Проверяем, делится ли эта сумма на k-1. Первое k, для которого это условие выполняется, является ответом.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+// определяем цифру
+int getDigitValue(char c) {
+  if (c >= '0' && c &lt;= '9') {
+    return c - '0';
+  } else if (c >= 'A' && c &lt;= 'Z') {
+    return 10 + (c - 'A');
+  }
+  return 0; // не должно произойти по условию задачи
+}
+
+int main() {
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  // находим максимальную цифру
+  int max_digit = 0;
+  for (char c : s) {
+    int d = getDigitValue(c);
+    if (d > max_digit) {
+      max_digit = d;
+    }
+  }
+
+  // находи минимальную систему счисления
+  // для максимальной цифры
+  int start_k = max_digit + 1;
+  if (start_k &lt; 2) {
+    start_k = 2;
+  }
+
+  // перебираем системы счисления
+  for (int k = start_k; k &lt;= 36; k++) {
+    int sum = 0;
+    for (char c : s) {
+      int d = getDigitValue(c);
+      sum += d;
+    }
+    if (sum % (k - 1) == 0) {
+      cout &lt;&lt; k &lt;&lt; endl;
+      return 0;
+    }
+  }
+
+  // нет ответа
+  cout &lt;&lt; "No solution" &lt;&lt; endl;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1193,6 +1254,73 @@ int main() {
 </pre>
   <code>No</code>
   <p>Можно показать, что во втором тесте невозможно сделать все ставки равными.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/573/problem/A">Задача 573А</a>
+      <br><a href="https://codeforces.com/contest/573">Codeforces Round 318 [RussianCodeCup Thanks-Round] (Div. 1) 2015-08-29</a>
+    </div>
+
+    <h4>Пример 3</h4>
+    <pre>
+    4
+    7 14 21 28
+    </pre>
+      <code>Yes</code>
+
+    <p>Основная теорема арифметики: Любое целое положительное число, большее 1, можно единственным образом представить в виде произведения простых чисел, взятых в определенных степенях. Это означает, что для любого числа n>1 существует единственное представление вида</p>
+    <code>2ᵃ·3ᵇ·5ᶜ·7ᵈ·....</code>
+    <p>По условию задачи, ставки можно только удваивать и утраивать. Все ставки смогут стать одинаковыми только в том случае, если начальные ставки состоят поделить на произведения степеней двойки и тройки и получить одинаковый остаток.</p>
+    <p>Проверим, что все числа делятся на 2 и 3 с одинаковым остатком и выведем ответ.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  bool d23 = 1; // делится на 2 и 3
+  int b = -1;   // остаток после деления на 2 и 3
+
+  for (int i = 0; i &lt; n; i++) {
+
+    while (A[i] % 2 == 0) {
+      A[i] /= 2;
+    }
+
+    while (A[i] % 3 == 0) {
+      A[i] /= 3;
+    }
+
+    if (b != -1 && b != A[i]) {
+      // не делится на 2 и 3
+      // с одинаковым остатком
+      d23 = 0;
+    }
+
+    b = A[i]; // остаток от деления на 2 и 3
+  }
+
+  // вывод результата
+  if (d23) {
+    cout &lt;&lt; "Yes";
+  } else {
+    cout &lt;&lt; "No";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
