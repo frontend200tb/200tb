@@ -6,7 +6,7 @@ class CodeC extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="code-c" id="code-c">
-      <h1>C/C++</h1>
+      <h1>C</h1>
       <nav class="nav" id="main-nav"></nav>
       <div id="c"></div>
     </div>

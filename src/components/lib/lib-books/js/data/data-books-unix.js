@@ -456,6 +456,19 @@ const dataBooksUnix = [
   },
 
   {
+    id: 78,
+    year: 2020,
+    category: 'основы',
+    theme: 'Unix',
+    title: 'Программирование в UNIX на Си (2е)',
+    author: 'Казачук',
+    authorName: 'Мария',
+    pages: '106',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 36,
     year: 2021,
     category: 'основы',

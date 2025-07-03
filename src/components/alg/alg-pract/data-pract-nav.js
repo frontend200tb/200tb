@@ -6,6 +6,7 @@ import showCodeforces from './codeforces/codeforces';
 import showCoderun from './coderun/coderun';
 import showCodewars from './codewars/codewars';
 import showLeetcode from './leetcode/leetcode';
+import showAllcups from './allcups/allcups';
 
 export const dataPractNav = [
   {
@@ -70,6 +71,14 @@ export const dataPractNav = [
     content: '<alg-leetcode></alg-leetcode>',
     act() {
       showLeetcode();
+    },
+  },
+  {
+    url: 'allcups.html',
+    text: 'All Cups',
+    content: '<alg-allcups></alg-allcups>',
+    act() {
+      showAllcups();
     },
   },
 ];

@@ -65,7 +65,7 @@ const dataVideoC = [
   },
 
   {
-    id: 4,
+    id: 5,
     year: 2017,
     date: '',
     category: 'code',
@@ -81,7 +81,7 @@ const dataVideoC = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 2018,
     date: '',
     category: 'code',
@@ -97,7 +97,7 @@ const dataVideoC = [
   },
 
   {
-    id: 5,
+    id: 7,
     year: 2018,
     date: '',
     category: 'code',
@@ -113,23 +113,7 @@ const dataVideoC = [
   },
 
   {
-    id: 6,
-    year: 2018,
-    date: '',
-    category: 'code',
-    theme: 'c',
-    title: 'Курс молодого бойца МФТИ (Язык Си)',
-    author: 'Михаил Хирьянов',
-    name: 'МФТИ',
-    numberLessons: '37 уроков',
-    time_h_m: [9, 18],
-    size: '3.6 gb',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 7,
+    id: 8,
     year: 2018,
     date: '2018-12-12',
     category: 'code',
@@ -145,7 +129,23 @@ const dataVideoC = [
   },
 
   {
-    id: 8,
+    id: 9,
+    year: 2018,
+    date: '',
+    category: 'code',
+    theme: 'c',
+    title: 'Курс молодого бойца МФТИ (Язык Си)',
+    author: 'Тимофей Хирьянов',
+    name: 'МФТИ',
+    numberLessons: '37 уроков',
+    time_h_m: [9, 18],
+    size: '3.6 gb',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 10,
     year: 2019,
     date: '',
     category: 'code',
@@ -161,7 +161,7 @@ const dataVideoC = [
   },
 
   {
-    id: 9,
+    id: 11,
     year: 2019,
     date: '',
     category: 'code',
@@ -177,7 +177,7 @@ const dataVideoC = [
   },
 
   {
-    id: 10,
+    id: 12,
     year: 2020,
     date: '',
     category: 'code',
@@ -193,7 +193,7 @@ const dataVideoC = [
   },
 
   {
-    id: 11,
+    id: 13,
     year: 2020,
     date: '',
     category: 'code',
@@ -209,7 +209,7 @@ const dataVideoC = [
   },
 
   {
-    id: 12,
+    id: 14,
     year: 2022,
     date: '',
     category: 'code',

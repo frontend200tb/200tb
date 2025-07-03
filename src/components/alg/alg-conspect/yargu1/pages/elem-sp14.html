@@ -237,6 +237,78 @@ second1
 OK
 third1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/4/problem/C" target="_blank">Задача 4C</a>
+      <br><a href="https://codeforces.com/contest/480" target="_blank">Codeforces Beta Round 4 (Дивизион 2) 2010-03-12</a>
+    </div>
+
+    <h4>Пример 3</h4>
+<pre>
+6
+q
+q
+q
+q
+q
+q
+</pre>
+<pre>
+OK
+q1
+q2
+q3
+q4
+q5
+</pre>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // число запросов
+  int q;
+  cin >> q;
+
+  // решение
+  // база данных с уникальными ключами
+  map&lt;string, int&gt; db;
+
+  while (q--) {
+    // следующее имя
+    string name;
+    cin >> name;
+    auto ptr = db.find(name);
+    if (ptr == db.end()) {
+
+      // если такого имени нет
+      // добавление в базу данных
+      // 1 - число одинаковых имен
+      pair&lt;string, int&gt; p = { name, 1 };
+      db.insert(p);
+      cout &lt;&lt; "OK\n";
+    } else {
+
+      // если такое имя уже есть
+      int idx = ptr->second;
+      string new_name = name + to_string(idx);
+      pair&lt;string, int&gt; p = { new_name, 1 };
+      // добавление в базу данных
+      db.insert(p);
+      cout &lt;&lt; new_name &lt;&lt; '\n';
+      // обновим число одинаковых имен
+      ptr->second = idx + 1;
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -608,6 +680,12 @@ NO
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/230/problem/B" target="_blank">Задача 230B</a>
+      <br><a href="https://codeforces.com/contest/230" target="_blank">Codeforces Round 142 (Div. 2) 2012-10-01</a>
+    </div>
+
     <p>Выпишем несколько примеров на маленьких числах, переберем их чтобы посмотреть как получаются T-простые числа.</p>
     <p>Число имеет ровно три делителя только если это квадрат простого числа - 4, 9, 25 ... Поэтому если число является квадратом простого чилса, то выводим YES, иначе NO. Поскольку во входных данных числа до 10¹², то мы найдем все простые числа до 10⁶, возведем их в квадрат и будем хранить в сете. Потом будем проверять если число есть в сете то оно T-простое.</p>
 <pre>
@@ -711,6 +789,16 @@ a
 b
 </pre>
   <code>NO</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/755/problem/B" target="_blank">Задача 755B</a>
+      <br><a href="https://codeforces.com/contest/755" target="_blank">8VC Venture Cup 2017 - Elimination Round 2017-01-15</a>
+    </div>
+
+  </details>
 </article>
 
 
@@ -755,6 +843,17 @@ ABABB
 </pre>
   <code>YES</code>
   <p>Во втором примере дверь B открывается перед приходом второго гостя, но единственный охранник не может покинуть дверь A, потому что третий гость должен через нее пройти.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/834/problem/B" target="_blank">Задача 834B</a>
+      <br><a href="https://codeforces.com/contest/834" target="_blank">Codeforces Round 426 (Div. 2) 2017-07-30</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -799,6 +898,17 @@ ABABB
 2 1
 </pre>
   <code>6 4 6</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/522/problem/B" target="_blank">Задача 522B</a>
+      <br><a href="https://codeforces.com/contest/522" target="_blank">VK Cup 2015 - Квалификация 1 2015-03-07</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -863,6 +973,17 @@ ABABB
 2 2 2 3 9
 1 2 6
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1512/problem/D" target="_blank">Задача 1512D</a>
+      <br><a href="https://codeforces.com/contest/1512" target="_blank">Codeforces Round 713 (Div. 3) 2021-04-10</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -904,6 +1025,17 @@ ABABB
 1
 1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/195/problem/B" target="_blank">Задача 195B</a>
+      <br><a href="https://codeforces.com/contest/195" target="_blank">Codeforces Round 123 (Div. 2) 2012-06-10</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -983,6 +1115,12 @@ ABABB
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1676/problem/E" target="_blank">Задача 1676E</a>
+      <br><a href="https://codeforces.com/contest/1676" target="_blank">Codeforces Round 790 (Div. 4) 2022-05-10</a>
+    </div>
+
     <p>Выгодно съедать сначала конфеты с наибольшим количеством сахара, чтобы в итоге съесть меньше конфет. Мы эту задачу решали раньше бинарным поиском. Сейчас решим ее чере map и ее функцию lower_bound.</p>
 <pre>
 #include &lt;iostream&gt;
@@ -1090,6 +1228,17 @@ int main() {
 -1
 1 4
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1676/problem/F" target="_blank">Задача 1676F</a>
+      <br><a href="https://codeforces.com/contest/1676" target="_blank">Codeforces Round 790 (Div. 4) 2022-05-10</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1142,6 +1291,17 @@ int main() {
 1 1 2 1
 </pre>
   <code>129</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1648/problem/A" target="_blank">Задача 1648A</a>
+      <br><a href="https://codeforces.com/contest/1648" target="_blank">Codeforces Round 775 (Div. 1, по задачам Открытой олимпиады школьников по программированию) 2022-03-06</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1215,6 +1375,17 @@ int main() {
   <p>В первом наборе входных данных, для получения d₁<sup>min</sup> = 5 можно выбрать, например, d=[5,10,6]. Тогда b = [2+5,3+10,5+6] = [7,13,11] = [7,11,13].</p>
 
   <p>Для d₂<sup>min</sup> = 4 можно выбрать d = [9,4,8]. Тогда b = [2+9,3+4,5+8] = [11,7,13] = [7,11,13].</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1721/problem/C" target="_blank">Задача 1721C</a>
+      <br><a href="https://codeforces.com/contest/1721" target="_blank">Educational Codeforces Round 134 (Rated for Div. 2) 2022-08-27</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1273,6 +1444,17 @@ bac roc lly iol iat
     <li>слово abc было написано первым и третьим другом — они получают по 1 очку;</li>
     <li>слово def было написано только вторым другом — он получает 3 очка.</li>
   </ul>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1722/problem/C" target="_blank">Задача 1722C</a>
+      <br><a href="https://codeforces.com/contest/1722" target="_blank">Codeforces Round 817 (Div. 4) 2022-08-30</a>
+    </div>
+
+  </details>
+
 </article>
 
 

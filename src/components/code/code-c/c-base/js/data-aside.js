@@ -6,6 +6,4 @@ export const asideThemes = [
   'Си',
   'Си Библиотеки',
   'Си Практика',
-  'C++',
-  'Roadmap C++',
 ];

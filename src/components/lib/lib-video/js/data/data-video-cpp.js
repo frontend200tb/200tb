@@ -6,7 +6,7 @@ const dataVideoCpp = [
     date: '',
     category: 'code',
     theme: 'c++',
-    title: '2015 [] Введение в c++',
+    title: 'Введение в c++',
     author: 'Павел Кротков',
     name: 'Foxford',
     numberLessons: '14 уроков',

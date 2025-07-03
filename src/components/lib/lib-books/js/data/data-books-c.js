@@ -967,8 +967,8 @@ const dataBooksC = [
     author: 'Кольцов',
     authorName: 'Дмитрий',
     pages: '288',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.07.03 чт',
   },
 
   {
@@ -1017,19 +1017,6 @@ const dataBooksC = [
     author: 'Дорогов',
     authorName: 'Виктор',
     pages: '225',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 78,
-    year: 2020,
-    category: 'code',
-    theme: 'c',
-    title: 'Программирование в UNIX на Си (2е)',
-    author: 'Казачук',
-    authorName: 'Мария',
-    pages: '106',
     isLearned: false,
     dateLearned: '',
   },

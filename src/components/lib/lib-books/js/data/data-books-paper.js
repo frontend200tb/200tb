@@ -371,8 +371,8 @@ const dataBooksPaper = [
     pages: '304',
     cover: 'мягкая',
     image: '2004 Галисеев - Ассемблер IBM PC.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.06.26 чт',
   },
 
   {
@@ -1001,8 +1001,8 @@ const dataBooksPaper = [
     pages: '288',
     cover: 'мягкая',
     image: '2019 Кольцов - Си на примерах.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.07.03 чт',
   },
 
   {

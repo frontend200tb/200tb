@@ -10,6 +10,7 @@
 
       <a href="#p1">Как решать</a>
   <br><a href="#task-1">1. Средний элемент</a>
+  <br><a href="#task-144">144. Великое Лайнландское переселение</a>
   <br><a href="#task-166">166. Яндексформеры</a>
   <br><a href="#task-170">170. Объединение отсортированных массивов</a>
   <br><a href="#task-228">228. Поиск чисел в массиве с определённой суммой</a>
@@ -109,11 +110,11 @@ std::cout &lt;&lt; a + b &lt;&lt; std::endl;
   <div class="anchor" id="task-1"></div>
   <h2>1. Средний элемент</h2>
 
+  <p>лёгкая - backend</p>
+  <a href="https://coderun.yandex.ru/problem/median-out-of-three" target="_blank">https://coderun.yandex.ru/problem/median-out-of-three</a>
+
   <details>
     <summary>Условие</summary>
-    <p>лёгкая - backend</p>
-
-    <p><a href="https://coderun.yandex.ru/problem/median-out-of-three">https://coderun.yandex.ru/problem/median-out-of-three</a></p>
 
     <p>Ограничение времени 1 с
     <br>Ограничение памяти 256 МБ</p>
@@ -192,7 +193,100 @@ int main() {
   sort(a, a + 3);
   cout &lt;&lt; a[1] &lt;&lt; endl;
 
-	return 0;
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 144. Великое Лайнландское переселение -->
+<article class="article">
+  <div class="anchor" id="task-144"></div>
+  <h2>144. Великое Лайнландское переселение</h2>
+
+  <p>лёгкая</p>
+  <a href="https://coderun.yandex.ru/problem/great-lineland-migration" target="_blank">https://coderun.yandex.ru/problem/great-lineland-migration</a>
+
+  <details>
+    <summary>Условие</summary>
+
+    <p>Ограничение времени 1 с
+    <br>Ограничение памяти 256 МБ</p>
+
+    <p>Лайнландия представляет из себя одномерный мир, являющийся прямой, на котором располагаются N городов, последовательно пронумерованных от 0 до N - 1 . Направление в сторону от первого города к нулевому названо западным, а в обратную — восточным.</p>
+
+    <p>Когда в Лайнландии неожиданно начался кризис, все были жители мира стали испытывать глубокое смятение. По всей Лайнландии стали ходить слухи, что на востоке живётся лучше, чем на западе.</p>
+
+    <p>Так и началось Великое Лайнландское переселение. Обитатели мира целыми городами отправились на восток, покинув родные улицы, и двигались до тех пор, пока не приходили в город, в котором средняя цена проживания была меньше, чем в родном.</p>
+
+    <h4>Формат ввода</h4>
+    <p></p>В первой строке дано одно число N (2 ≤ N ≤ 10⁵) — количество городов в Лайнландии. Во второй строке дано N чисел ai(0 ≤ ai ≤ 10⁹) — средняя цена проживания в городах с нулевого по (N - 1)-ый соответственно.
+
+    <h4>Формат вывода</h4>
+    <p>Для каждого города в порядке с нулевого по (N - 1)-ый выведите номер города, в который переселятся его изначальные жители. Если жители города не остановятся в каком-либо другом городе, отправившись в Восточное Бесконечное Ничто, выведите -1 .</p>
+
+  <h4>Пример</h4>
+  <pre>
+  10
+  1 2 3 2 1 4 2 5 3 1
+  </pre>
+    <code>-1 4 3 4 -1 6 9 8 9 -1 </code>
+  </details>
+
+  <details>
+    <summary>Решение на C++</summary>
+    <p>Задача сводится к поиску для каждого города первого города справа (восточнее) с меньшей ценой проживания. Это классическая задача типа "следующий меньший элемент".</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n; // число городов
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i]; // цена проживания в городе i
+  }
+
+  // решение
+  vector&lt;int&gt; Res(n, -1);
+  stack&lt;pair&lt;int, int&gt; &gt; grad;
+  pair&lt;int, int&gt; tmp = { n - 1, A[n - 1] };
+
+  // добавить в стек самый восточный город
+  grad.push(tmp);
+
+  for (int i = n - 2; i >= 0; i--) {
+    while (!grad.empty() && grad.top().second >= A[i]) {
+      // пока цена проживания меньше или равна
+      // цене в восточном городе
+      // удалять восточный город
+      grad.pop();
+    }
+    if (!grad.empty()) {
+      // если на востоке есть
+      // город дешевле
+      Res[i] = grad.top().first;
+    }
+    // добавить текущий город в стек
+    tmp = { i, A[i] };
+    grad.push(tmp);
+  }
+
+  // вывод результата
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; Res[i] &lt;&lt; ' ';
+  }
 }
 </pre>
   </details>
@@ -204,11 +298,14 @@ int main() {
   <div class="anchor" id="task-166"></div>
   <h2>166. Яндексформеры</h2>
 
+  <p>сложная - frontend</p>
+  <a href="https://coderun.yandex.ru/problem/yandexformers" target="_blank">https://coderun.yandex.ru/problem/yandexformers</a>
+
   <details>
     <summary>Условие</summary>
-    <p>лёгкая - sort - algorithms - first_2023_frontend</p>
 
-    <p><a href="https://coderun.yandex.ru/problem/yandexformers">https://coderun.yandex.ru/problem/yandexformers</a></p>
+    <p>Ограничение времени 2.5 с
+    <br>Ограничение памяти 524 МБ</p>
 
     <h4>Описание</h4>
     <p>Яндексоиды научились образовывать Гештальд. Гештальд — это когда разработчики меньшего уровня собираются в одного Яндексформера и решают большую и сложную задачу. У каждого яндексоида есть свой грейд. Грейд яндексоида - это целое число, обозначающее максимальный уровень задачи, которую сотрудник способен решить. Грейд же Яндексформера - это сумма грейдов входящих в гештальд.</p>
@@ -226,18 +323,35 @@ int main() {
 
   <details>
     <summary>Решение на JS</summary>
-<pre>function yandexFormers(N, staff, K) {
-  let result = 0;
-  // отсортировать массив по убыванию
-  staffSort = staff.toSorted((a, b) => b - a);
-
-  // взять первые K элементов
-  for (i = 0; i &lt; K; i++) {
-    result += staffSort[i];
+<pre>
+module.exports = function (N, staff, K) {
+  // поскольку грейд staff[i] от 0 до 25
+  // соберем частотный массив
+  let freq = Array(26).fill(0);
+  for (let i = 0; i &lt; N; i++) {
+    freq[staff[i]]++;
   }
 
-  return result;
-}</pre>
+  let maxLevel = 0;
+
+  // взять K максимальных грейдов
+  // i - грейд
+  // freq[i] количество яндексоидов с грейдом i
+  for (let i = 25; i > 0; i--) {
+    if (K && freq[i]) {
+      if (K > freq[i]) {
+        maxLevel += freq[i] * i;
+        K -= freq[i];
+      } else {
+        maxLevel += K * i;
+        K = 0;
+      }
+    }
+  }
+
+  return maxLevel;
+}
+</pre>
   </details>
 </article>
 
@@ -247,11 +361,11 @@ int main() {
   <div class="anchor" id="task-170"></div>
   <h2>170. Объединение отсортированных массивов</h2>
 
+  <p>средняя - frontend</p>
+  <a href="https://coderun.yandex.ru/problem/merge-sorted-array" target="_blank">https://coderun.yandex.ru/problem/merge-sorted-array</a>
+
   <details>
     <summary>Условие</summary>
-    <p>лёгкая - sort - algorithms - first_2023_frontend</p>
-
-    <p><a href="https://coderun.yandex.ru/problem/merge-sorted-array">https://coderun.yandex.ru/problem/merge-sorted-array</a></p>
 
     <h4>Описание</h4>
     <p>Вам даны два отсортированных целочисленных массива nums1 и nums2, нужно поместить все элементы nums2 в nums1 так, чтобы элементы итогового массива остались отсортированными.</p>
@@ -305,13 +419,12 @@ int main() {
   <div class="anchor" id="task-228"></div>
   <h2>228. Поиск чисел в массиве с определённой суммой</h2>
 
+  <p>лёгкая - frontend</p>
+  <a href="https://coderun.yandex.ru/problem/search-for-numbers" target="_blank">https://coderun.yandex.ru/problem/search-for-numbers</a>
+
   <details>
     <summary>Условие</summary>
-    <p>лёгкая - brute force - algorithms - first_2023_frontend</p>
 
-    <p><a href="https://coderun.yandex.ru/problem/search-for-numbers">https://coderun.yandex.ru/problem/search-for-numbers</a></p>
-
-    <h4>Описание</h4>
     <p>Дан массив целых чисел и целое число k. Нужно определить, есть ли в массиве два числа, сумма которых равна k .</p>
 
     <h4>Пример</h4>

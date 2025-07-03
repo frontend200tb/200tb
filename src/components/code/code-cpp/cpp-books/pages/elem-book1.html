@@ -1,0 +1,492 @@
+<article class="article">
+  <h1>2007 Липпман - Язык программирования C++ (4е). 896c</h1>
+  <p>Конспект книги</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  Введение (19)
+  <br><a href="#p1">1 Первые шаги (23)</a>
+  <br>Часть 1. Основы (53)
+  <br><a href="#p2">2 Переменные и базовые типы (55)</a>
+  <br><a href="#p3">3 Библиотечные типы данных (101)</a>
+  <br><a href="#p4">4 Массивы и указатели (133)</a>
+  <br><a href="#p5">5 Выражения (171)</a>
+  <br><a href="#p6">6 Операторы (217)</a>
+  <br><a href="#p7">7 Функции (251)</a>
+  <br><a href="#p8">8 Библиотека ввода-вывода (309)</a>
+  <br>Часть 2. Контейнеры и алгоритмы (331)
+  <br><a href="#p9">9 Последовательные контейнеры (333)</a>
+  <br><a href="#p10">10 Ассоциативные контейнеры (383)</a>
+  <br><a href="#p11">11 Общие алгоритмы (417)</a>
+  <br>Часть 3. Абстракция, классы и данные (455)
+  <br><a href="#p12">12 Классы (457)</a>
+  <br><a href="#p13">13 Управление копированием (505)</a>
+  <br><a href="#p14">14 Перегрузка операторов и преобразования (535)</a>
+  <br>Часть 4. Объектно-ориентированное и общее программирование (585)
+  <br><a href="#p15">15 Объектно-ориентированное программирование (587)</a>
+  <br><a href="#p16">16 Шаблоны и общее программирование (655)</a>
+  <br>Часть 5. Дополнительные темы (717)
+  <br><a href="#p17">17 Инструменты для крупномасштабных программ (719)</a>
+  <br><a href="#p18">18 Специализированные инструменты и технологии (783)</a>
+</article>
+
+
+<!-- 1 Первые шаги -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>1 Первые шаги (23)</h3>
+
+  <p>Лучше всего изучать новый язык программирования в процессе создания программ. В этой главе будет создана программа, которая способна решить простую задачу. Речь идет о вполне обычной задаче по обработке данных: книжный магазин хранит файл транзакций, каждая из записей которого соответствует проданной книге. Каждая транзакция содержит три значения: ISBN, представляющий уникальный идентификатор, присваиваемый большинству книг, количество проданных копий и цену. Каждая транзакция выглядит так</p>
+  <code>0-201-70353-X 4 24.99</code>
+  <p>Владелец книжного магазина периодически читает этот файл и вычисляет количество проданных экземпляров каждой книги, общий доход по ней и среднюю цену за экземпляр. Нужно создать программу, которая и осуществит эти вычисления.</p>
+
+  <h4>1.1 Создание простой программы на языке C++ (24)</h4>
+
+  <p>Вернем в операционную систему значение 0.</p>
+
+  <details>
+    <summary>Программа 1 (24)</summary>
+    <p>Файл p24.cpp</p>
+<pre>
+int main() {
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.1.1 Компиляция и запуск программы (25)</h4>
+
+  <p>Запустим компилятор, чтобы получить исполняемый файл</p>
+  <code>g++ p24.cpp</code>
+  <p>Запустим исполняемый файл</p>
+  <code>./a</code>
+  <p>Когда программа завершится, функция main() вернет в систему значение. Посмотреть это значение можно командой</p>
+  <code>echo $?</code>
+  <code>0</code>
+  <p>Напишем после оператора return другое число. Поэкспериментируем с числами и заметим, что система может получить коды возврата только от 0 до 255. Числа меньшие 0 и большие 255 автоматически приводятся к беззнаковому однобайтовому числу, чтобы укладывались в этот диапазон.</p>
+
+  <h4>1.2 Первый взгляд на ввод-вывод (27)</h4>
+
+  <h4>1.2.2 Программа, использующая библиотеку ввода-вывода (28)</h4>
+
+  <p>Запросим у пользователя 2 числа и выведем на экран их сумму.</p>
+
+  <details>
+    <summary>Программа 2 (28)</summary>
+    <p>Файл p28.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  std::cout &lt;&lt; "Enter two numbers:" &lt;&lt; std::endl;
+  int v1, v2;
+  std::cin >> v1 >> v2;
+  std::cout &lt;&lt; "The sum of " &lt;&lt; v1 &lt;&lt; " and " &lt;&lt; v2
+            &lt;&lt; " is " &lt;&lt; v1 + v2 &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.4 Средства управления (34)</h4>
+
+  <h4>1.4.1 Оператор while (34)</h4>
+
+  <p>Используя оператор while просуммируем числа от 1 до 10 включительно.</p>
+
+  <details>
+    <summary>Программа 3 (34)</summary>
+    <p>Файл p34.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  int sum = 0, val = 1;
+  while (val &lt;= 10) {
+    sum += val;
+    val++;
+  }
+  std::cout &lt;&lt; "Sum of 1 to 10 inclusive is " &lt;&lt; sum &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.4.2 Оператор for (36)</h4>
+
+  <p>Используя оператор for просуммируем числа от 1 до 10 включительно.</p>
+
+  <details>
+    <summary>Программа 4 (36)</summary>
+    <p>Файл p36.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  int sum = 0;
+  for (int val = 1; val &lt;= 10; val++) {
+    sum += val;
+  }
+  std::cout &lt;&lt; "Sum of 1 to 10 inclusive is " &lt;&lt; sum &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.4.3 Оператор if (39)</h4>
+
+  <p>Запросим у пользователя два числа и просуммируем все числа между ними включительно.</p>
+
+  <details>
+    <summary>Программа 5 (39)</summary>
+    <p>Файл p39.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  std::cout &lt;&lt; "Enter two numbers:" &lt;&lt; std::endl;
+  int v1, v2;
+  std::cin >> v1 >> v2;
+  int lower, upper;
+  if (v1 &lt;= v2) {
+    lower = v1;
+    upper = v2;
+  } else {
+    lower = v2;
+    upper = v1;
+  }
+  int sum = 0;
+  for (int val = lower; val &lt;= upper; val++) {
+    sum += val;
+  }
+
+  std::cout &lt;&lt; "Sum of " &lt;&lt; lower &lt;&lt; " to " &lt;&lt; upper
+            &lt;&lt; " inclusive is " &lt;&lt; sum &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.4.4 Ввод неизвестного количества данных (41)</h4>
+
+  <p>Просуммируем все числа, введенные пользователем.</p>
+
+  <details>
+    <summary>Программа 6 (41)</summary>
+    <p>Файл p41.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  int sum = 0, value;
+  std::cout &lt;&lt; "Enter integers by space. Enter Ctrl+Z to end" &lt;&lt; std::endl;
+  while (std::cin >> value) {
+    sum += value;
+  }
+
+  std::cout &lt;&lt; "Sum is " &lt;&lt; sum &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Выражение std::cin >> value возвращает левый операнд, то есть объект std::cin. Таким образом, в условии проверяется объект std::cin класса istream. Результат зависит от состояния потока. Если поток допустим, т.е. ввод следующего значения еще возможен, то условие считается истинным. Объект класса istream становится недопустимым при достижении конца файла EOF (end of file) или при вводе недопустимых данных, например строки когда ожидается число. В Windows для EOF используется комбинация клавиш Ctrl+Z.</p>
+
+  <h4>1.5 Введение в классы (42)</h4>
+
+  <p>Для определения собственных структур данных, язык C++ предоставляет классы. Каждый класс является определением типа. Имя типа совпадает с именем класса.</p>
+
+  <h4>1.5.1 Класс Sales_item (43)</h4>
+
+  <p>Класс Sales_item предназначен для хранения ISBN, количества проданных экземпляров, полученной суммы и средней цены проданных книг. Определение класса помещают файл, который потом нужно подключить к файлу, использующему данный класс. Класс Sales_item определен в файле Sales_item.h</p>
+  <p>Создадим объект item класса Sales_item</p>
+  <code>Sales_item item;</code>
+
+  <h4>Чтение и запись объектов класса Sales_item</h4>
+
+  <p>Запросим у пользователя данные для объекта класса Sales_item, введем их в объект и выведем объект на экран.</p>
+
+  <details>
+    <summary>Программа 7 (44)</summary>
+    <p>Файл p44.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Sales_item.h"
+
+int main() {
+  Sales_item book;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space" &lt;&lt; std::endl;
+  std::cin >> book;
+
+  std::cout &lt;&lt; book &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Суммирование объектов класса Sales_item</h4>
+
+  <p>Запросим у пользователя данные для двух объектов класса Sales_item, просуммируем их и выведем результат на экран. У объектов должны быть одинаковые ISBN.</p>
+
+  <details>
+    <summary>Программа 8 (45)</summary>
+    <p>Файл p45.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Sales_item.h"
+
+int main() {
+  Sales_item item1, item2;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space for item1" &lt;&lt; std::endl;
+  std::cin >> item1;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space for item2" &lt;&lt; std::endl;
+  std::cin >> item2;
+
+  std::cout &lt;&lt; item1 + item2 &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.5.2 Первый взгляд на функции-члены (46)</h4>
+
+  <p>Запросим у пользователя данные для двух объектов класса Sales_item, проверим что у них одинаковые ISBN, просуммируем их и выведем результат на экран.</p>
+
+  <details>
+    <summary>Программа 9 (46)</summary>
+    <p>Файл p46.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Sales_item.h"
+
+int main() {
+  Sales_item item1, item2;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space for item1" &lt;&lt; std::endl;
+  std::cin >> item1;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space for item2" &lt;&lt; std::endl;
+  std::cin >> item2;
+
+  if (compareIsbn(item1, item2)){
+    std::cout &lt;&lt; item1 + item2 &lt;&lt; std::endl;
+  } else {
+    std::cerr &lt;&lt; "Must be same ISBN" &lt;&lt; std::endl;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>1.6 Программа на языке C++ (48)</h4>
+
+  <p>Программа считывает несколько транзакций и создаст отчет где для каждой книги будет подсчитана общая выручка, средняя цена и количество проданных экземпляров.</p>
+
+  <details>
+    <summary>Программа 10 (48)</summary>
+    <p>Файл p48.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Sales_item.h"
+
+int main() {
+  Sales_item total, trans;
+  std::cout &lt;&lt; "Enter ISBN quantity price by space" &lt;&lt; std::endl;
+
+  if (std::cin >> total) {
+    while (std::cin >> trans) {
+      if (compareIsbn(total, trans)){
+        total = total + trans;
+      } else {
+        std::cout &lt;&lt; total &lt;&lt; std::endl;
+        total = trans;
+      }
+    }
+    std::cout &lt;&lt; total &lt;&lt; std::endl;
+  } else {
+    std::cout &lt;&lt; "no data" &lt;&lt; std::endl;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2 Переменные и базовые типы -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2 Переменные и базовые типы (55)</h3>
+
+  <h4>2.2 Литеральные константы (61)</h4>
+
+  <h4>Многострочные литералы</h4>
+
+  <p>Если последним символом строки в коде написать '/', то символ перевода строки будет проигнорирован и следующая строка будет состовлять единое целое с данной строкой.</p>
+
+  <h4>2.3 Переменные (66)</h4>
+
+  <p>Возведем число 2 в степень 10.</p>
+
+  <details>
+    <summary>Программа 11 (66)</summary>
+    <p>Файл p66.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  int value = 2;
+  int pow = 10;
+  int result = 1;
+
+  for (int cnt = 0; cnt != pow; cnt++) {
+    result *= value;
+  }
+
+  std::cout &lt;&lt; result &lt;&lt; std::endl;
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3 Библиотечные типы данных -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3 Библиотечные типы данных (101)</h3>
+
+</article>
+
+
+<!-- 4 Массивы и указатели -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Массивы и указатели (133)</h3>
+
+</article>
+
+
+<!-- 5 Выражения -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5 Выражения (171)</h3>
+
+</article>
+
+
+<!-- 6 Операторы -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Операторы (217)</h3>
+
+</article>
+
+
+<!-- 7 Функции -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Функции (251)</h3>
+
+</article>
+
+
+<!-- 8 Библиотека ввода-вывода -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Библиотека ввода-вывода (309)</h3>
+
+</article>
+
+
+<!-- 9 Последовательные контейнеры -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Последовательные контейнеры (333)</h3>
+
+</article>
+
+
+<!-- 10 Ассоциативные контейнеры -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Ассоциативные контейнеры (383)</h3>
+
+</article>
+
+
+<!-- 11 Общие алгоритмы -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h3>11 Общие алгоритмы (417)</h3>
+
+</article>
+
+
+<!-- 12 Классы -->
+<article class="article">
+  <div class="anchor" id="p12"></div>
+  <h3>12 Классы (457)</h3>
+
+</article>
+
+
+<!-- 13 Управление копированием -->
+<article class="article">
+  <div class="anchor" id="p13"></div>
+  <h3>13 Управление копированием (505)</h3>
+
+</article>
+
+
+<!-- 14 Перегрузка операторов и преобразования -->
+<article class="article">
+  <div class="anchor" id="p14"></div>
+  <h3>14 Перегрузка операторов и преобразования (535)</h3>
+
+</article>
+
+
+<!-- 15 Объектно-ориентированное программирование -->
+<article class="article">
+  <div class="anchor" id="p15"></div>
+  <h3>15 Объектно-ориентированное программирование (587)</h3>
+
+</article>
+
+
+<!-- 16 Шаблоны и общее программирование -->
+<article class="article">
+  <div class="anchor" id="p16"></div>
+  <h3>16 Шаблоны и общее программирование (655)</h3>
+
+</article>
+
+
+<!-- 17 Инструменты для крупномасштабных программ -->
+<article class="article">
+  <div class="anchor" id="p17"></div>
+  <h3>17 Инструменты для крупномасштабных программ (719)</h3>
+
+</article>
+
+
+<!-- 18 Специализированные инструменты и технологии -->
+<article class="article">
+  <div class="anchor" id="p17"></div>
+  <h3>18 Специализированные инструменты и технологии (783)</h3>
+
+</article>
+

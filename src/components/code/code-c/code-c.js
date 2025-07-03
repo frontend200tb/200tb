@@ -16,11 +16,11 @@ function createMainNav(navCode) {
     el.elem.href = '';
     el.elem.innerHTML = el.text;
     el.elem.addEventListener('click', (event) => {
-      const pascal = document.getElementById('c');
+      const c = document.getElementById('c');
       event.preventDefault();
       // добавим class="active"
       classActive(navCode, el.elem);
-      pascal.innerHTML = el.content;
+      c.innerHTML = el.content;
       el.act();
     });
   });

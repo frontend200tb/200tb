@@ -5,8 +5,6 @@ import htmlInstall    from './../pages/elem-install.html';
 import htmlC          from './../pages/elem-c.html';
 import htmlCLib       from './../pages/elem-clib.html';
 import htmlCPractice  from './../pages/elem-cpractice.html';
-import htmlCpp        from './../pages/elem-cpp.html';
-import htmlRoadmapCpp from './../pages/elem-roadmapcpp.html';
 
 export const pages = [
   htmlAbout,
@@ -15,6 +13,4 @@ export const pages = [
   htmlC,
   htmlCLib,
   htmlCPractice,
-  htmlCpp,
-  htmlRoadmapCpp,
 ];

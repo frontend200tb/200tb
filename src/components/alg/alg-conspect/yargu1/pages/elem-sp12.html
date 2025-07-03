@@ -619,6 +619,78 @@ int main() {
   <h4>Пример 3</h4>
   <code>((]]]</code>
   <code>-1</code>
+
+  <details>
+    <summary>Решение</summary>
+
+  <h4>Пример 4</h4>
+  <code>(([]]</code>
+  <code>-1</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+  stack&lt;char&gt; st;
+  int cnt = 0;
+  for (int i = 0; i &lt; s.size(); i++) {
+
+    if (s[i] == '(' || s[i] == '[') {
+      // открывающую скобку кладем в стек
+      st.push(s[i]);
+
+    } else if (s[i] == ')') {
+
+      if (st.empty()) {
+        // закрывающая скобка и стек пустой
+        cout &lt;&lt; -1;
+        return 0;
+      } else {
+
+        if (st.top() == '[') {
+          // делаем одну замену скобки
+          cnt++;
+        }
+        st.pop();
+      }
+
+    } else if (s[i] == ']') {
+
+      if (st.empty()) {
+        // закрывающая скобка и стек пустой
+        cout &lt;&lt; -1;
+        return 0;
+      } else {
+
+        if (st.top() == '(') {
+          // делаем одну замену скобки
+          cnt++;
+        }
+        st.pop();
+      }
+    }
+  }
+
+  // если были лишние открывающие скобки
+  if (!st.empty()) {
+    cout &lt;&lt; -1;
+    return 0;
+  }
+
+  // вывод результата
+  cout &lt;&lt; cnt;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -665,7 +737,9 @@ STACK IS EMPTY
 
   <details>
     <summary>Решение</summary>
-    <p>Для запоминания минимального элемента в стеке обычный стек, в каждой ячейке которого записан один элемент, не подойдет. Нужен стек с двумя элементами в каждой ячейке. Первый элемент это текущее значение, а второй элемент это минимильное значение от этой ячейки и ниже.</p>
+    <p>Решим задачу нахождения наименьшего элемента стека за O(1).</p>
+    <p>Для запоминания минимального элемента в стеке обычный стек, в каждой ячейке которого записан один элемент, не подойдет. Нужен стек с двумя элементами в каждой ячейке. Для этого будем хранить в стеке не сами элементы, а пары. Первый элемент это текущее значение, а второй элемент это минимильное значение от этой ячейки и ниже.</p>
+    <p>Нахождение минимума во всём стеке будет заключаться просто во взятии значения stack.top().second. При добавлении нового элемента в стек величина second будет равна min (stack.top().second, new_element). Удаление элемента из стека ничем не отличается от удаления из обычного стека, поскольку удаляемый элемент никак не мог повлиять на значения second для оставшихся элементов.</p>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
@@ -673,37 +747,44 @@ STACK IS EMPTY
 using namespace std;
 
 int main() {
-  // ввод данных
-  int n, tmp;
-  cin >> n;
+  // число запросов
+  int q;
+  cin >> q;
+
   pair&lt;int, int&gt; buf;
   stack&lt;pair&lt;int, int&gt; &gt;st;
   string s;
+  int a; // добавляемое число
 
-  // решение
-  for (int i = 0; i &lt; n; i++) {
+  // запросы
+  while (q--) {
+
+    // следующий запрос
     cin >> s;
     if (s == "ADD") {
-      cin >> tmp;
-      if (st.size() > 0) {
-        buf.first = tmp;
-        buf.second = min(tmp, st.top().second);
-        st.push(buf);
+
+      // добавление элемента
+      cin >> a; // добавляемое число
+      buf.first = a;
+      if (st.empty()) {
+        buf.second = a;
       } else {
-        buf.first = tmp;
-        buf.second = tmp;
-        st.push(buf);
+        buf.second = min(a, st.top().second);
       }
+      st.push(buf);
     }
     if (s == "POP") {
-      if (st.size() > 0) {
+
+      // извлечение элемента
+      if (!st.empty()) {
         st.pop();
       }
     }
 
-    // вывод результата
     if (s == "MIN") {
-      if (st.size() > 0) {
+
+      // нахождение минимума
+      if (!st.empty()) {
         cout &lt;&lt; st.top().second &lt;&lt; '\n';
       } else {
         cout &lt;&lt; "STACK IS EMPTY\n";
@@ -757,6 +838,87 @@ MIN
 15
 QUEUE IS EMPTY
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Решим задачу нахождения наименьшего элемента очереди за O(1).</p>
+    <p>Идея заключается в том, чтобы свести задачу к задаче на стеках, которая уже была нами решена. Научимся моделировать очередь с помощью двух стеков.</p>
+    <p>Заведём два стека: st1 и st2; разумеется, имеются в виду стеки, модифицированные для нахождения минимума за O (1). Добавлять новые элементы будет всегда в стек st1, а извлекать элементы - только из стека st2. При этом, если при попытке извлечения элемента из стека st2 он оказался пустым, просто перенесём все элементы из стека st1 в стек st2 (при этом элементы в стеке st2 получатся уже в обратном порядке, что нам и нужно для извлечения элементов; стек st1 же станет пустым). Наконец, нахождение минимума в очереди будет фактически заключаться в нахождении минимума из минимума в стеке st1 и минимума в стеке st2.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // число запросов
+  int q;
+  cin >> q;
+
+  pair&lt;int, int&gt; buf;
+  stack&lt;pair&lt;int, int&gt; &gt;st1, st2;
+  string s;
+  int a; // добавляемое число
+
+  // запросы
+  while (q--) {
+
+    // следующий запрос
+    cin >> s;
+
+    if (s == "ADD") {
+
+      // добавление элемента
+      cin >> a; // добавляемое число
+      buf.first = a;
+      if (st1.empty()) {
+        buf.second = a;
+      } else {
+        buf.second = min(a, st1.top().second);
+      }
+      st1.push(buf);
+    }
+
+    if (s == "POP") {
+
+      // извлечение элемента
+      if (st2.empty()) {
+
+        // перенесем в st2 элементы из st1
+        while (!st1.empty()) {
+          buf.first = st1.top().first;
+          if (st2.empty()) {
+            buf.second = buf.first;
+          } else {
+            buf.second = min(buf.first, st2.top().second);
+          }
+          st2.push(buf);
+          st1.pop();
+        }
+      }
+
+      if (!st2.empty()) {
+        st2.pop();
+      }
+    }
+
+    if (s == "MIN") {
+
+      // нахождение минимума
+      if (st1.empty() && st2.empty()) {
+        cout &lt;&lt; "QUEUE IS EMPTY\n";
+      } else if (st1.empty()) {
+        cout &lt;&lt; st2.top().second &lt;&lt; '\n';
+      } else if (st2.empty()) {
+        cout &lt;&lt; st1.top().second &lt;&lt; '\n';
+      } else {
+        cout &lt;&lt; min(st1.top().second, st2.top().second) &lt;&lt; '\n';
+      }
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -811,6 +973,12 @@ QUEUE IS EMPTY
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/879/problem/B" target="_blank">Задача 879B</a>
+      <br><a href="https://codeforces.com/contest/879" target="_blank">Codeforces Round 443 (Div. 2) 2017-10-26</a>
+    </div>
+
     <p>Победитель станет известен, когда кто-то выиграет k партий подряд или когда все сыграют хотябы по одному разу, в этом случае победит сильнейший при любом даже очень большом k, потому что все остальные подряд победы будут за ним</p>
 <pre>
 #include &lt;iostream&gt;
@@ -888,6 +1056,63 @@ int main() {
 1 2 3 2 1 4 2 5 3 1
 </pre>
   <code>-1 4 3 4 -1 6 9 8 9 -1 </code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Задача сводится к поиску для каждого города первого города справа (восточнее) с меньшей ценой проживания. Это классическая задача типа "следующий меньший элемент".</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n; // число городов
+  cin >> n;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i]; // цена проживания в городе i
+  }
+
+  // решение
+  vector&lt;int&gt; Res(n, -1);
+  stack&lt;pair&lt;int, int&gt; &gt; grad;
+  pair&lt;int, int&gt; tmp = { n - 1, A[n - 1] };
+
+  // добавить в стек самый восточный город
+  grad.push(tmp);
+
+  for (int i = n - 2; i >= 0; i--) {
+    while (!grad.empty() && grad.top().second >= A[i]) {
+      // пока цена проживания меньше или равна
+      // цене в восточном городе
+      // удалять восточный город
+      grad.pop();
+    }
+    if (!grad.empty()) {
+      // если на востоке есть
+      // город дешевле
+      Res[i] = grad.top().first;
+    }
+    // добавить текущий город в стек
+    tmp = { i, A[i] };
+    grad.push(tmp);
+  }
+
+  // вывод результата
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; Res[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -919,6 +1144,91 @@ int main() {
 3
 1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Решим задачу нахождения минимума на отрезках за линейное время, т.е. O (N).</p>
+    <p>Для этого достаточно завести очередь, модифицированную для нахождения минимума за O (1), что было рассмотрено нами в предыдущей задаче. Далее решение уже понятно: добавим в очередь первые K элементов массива, найдём в ней минимум и выведем его, затем добавим в очередь следующий элемент, и извлечём из неё первый элемент массива, снова выведем минимум, и т.д. Поскольку все операции с очередью выполняются в среднем за константное время, то и асимптотика всего алгоритма получится O (N).</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n, k;
+  cin >> n >> k;
+
+  // число сдвигов окна
+  int q = n - k;
+
+  pair&lt;int, int&gt; buf;
+  stack&lt;pair&lt;int, int&gt; &gt;st1, st2;
+  int a; // добавляемое число
+
+  // добавим в очередь первые k элементов
+  while (k--) {
+    // добавление элемента
+    cin >> a; // добавляемое число
+    buf.first = a;
+    if (st1.empty()) {
+      buf.second = a;
+    } else {
+      buf.second = min(a, st1.top().second);
+    }
+    st1.push(buf);
+  }
+
+  // выведем минимум первых k элементов
+  cout &lt;&lt; st1.top().second &lt;&lt; '\n';
+
+  // сдвиги окна
+  while (q--) {
+
+    // добавление элемента в конец окна
+    cin >> a; // добавляемое число
+    buf.first = a;
+    if (st1.empty()) {
+      buf.second = a;
+    } else {
+      buf.second = min(a, st1.top().second);
+    }
+    st1.push(buf);
+
+    // извлечение элемента из начала окна
+    if (st2.empty()) {
+
+      // перенесем в st2 элементы из st1
+      while (!st1.empty()) {
+        buf.first = st1.top().first;
+        if (st2.empty()) {
+          buf.second = buf.first;
+        } else {
+          buf.second = min(buf.first, st2.top().second);
+        }
+        st2.push(buf);
+        st1.pop();
+      }
+    }
+
+    if (!st2.empty()) {
+      st2.pop();
+    }
+
+    // выведем минимум k элементов
+    if (st1.empty()) {
+      cout &lt;&lt; st2.top().second;
+    } else if (st2.empty()) {
+      cout &lt;&lt; st1.top().second;
+    } else {
+      cout &lt;&lt; min(st1.top().second, st2.top().second);
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -949,6 +1259,67 @@ int main() {
   <code>31.1818181818181798803379933815</code>
   <p>Тесты из примеров соответствуют следующему выражению:</p>
   <code>4 + 3 * 2 * 4 + (37 - 2) / (3 * 2 + 5)</code>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Принимаем строки разделенные пробелом. Если пришел символ операции, то извлекаем из стека два последних числа, выполняем над ними операцию, результат возвращаем в стек. Если это не символ операции, то это число, добавляем число в стек. После выполнения всех операций в стеке останется одно число - ответ.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;stack&gt;
+#include &lt;cctype&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // ввод строки
+  string s;
+
+  // решение
+  stack&lt;double&gt; st;
+
+  while (cin >> s) {
+    if (s == "+") {
+      double b = st.top();
+      st.pop();
+      double a = st.top();
+      st.pop();
+      double c = a + b;
+      st.push(c);
+    } else if (s == "-") {
+      double b = st.top();
+      st.pop();
+      double a = st.top();
+      st.pop();
+      double c = a - b;
+      st.push(c);
+    } else if (s == "*") {
+      double b = st.top();
+      st.pop();
+      double a = st.top();
+      st.pop();
+      double c = a * b;
+      st.push(c);
+    } else if (s == "/") {
+      double b = st.top();
+      st.pop();
+      double a = st.top();
+      st.pop();
+      double c = a / b;
+      st.push(c);
+    } else {
+      double a = stod(s);
+      st.push(a);
+    }
+  }
+  double res = st.top();
+
+  // вывод результата
+  cout &lt;&lt; fixed &lt;&lt; setprecision(6) &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1067,6 +1438,16 @@ Y5
   <h4>Пример 2</h4>
   <code>((()())</code>
   <code>6</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/26/problem/B" target="_blank">Задача 26B</a>
+      <br><a href="https://codeforces.com/contest/26" target="_blank">Codeforces Beta Round 26 (Codeforces format) 2010-08-16</a>
+    </div>
+
+  </details>
 </article>
 
 
@@ -1154,6 +1535,12 @@ YES
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/gym/104453/problem/J" target="_blank">Задача 104453J</a>
+      <br><a href="https://codeforces.com/gym/104453" target="_blank">ICPC Central Russia Regional Qualyfing Round, 2021 2010-08-16</a>
+    </div>
+
     <p>Решается методом стека с маркировкой. Каждого участника будем маркировать (надевать на него бейджик). Mark[i] = 0 если соседа не было на даче. Mark[i] = 1 если сосед приехал на дачу. Mark[i] = -1 если сосед уехал с дачи.</p>
 <pre>
 #include &lt;iostream&gt;
@@ -1258,6 +1645,16 @@ int main() {
 </pre>
   <code>10 6 6</code>
   <p>Во втором примере придать максимальную высоту всем небоскрёбам нельзя, так как это нарушает ограничение дизайн-кода. Ответ [10,6,6]  является оптимальным. Обратите внимание, что ответ [6,6,8] также удовлетворяет всем ограничениям, но оптимальным не является.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1313/problem/C2" target="_blank">Задача 1313C2</a>
+      <br><a href="https://codeforces.com/contest/1313" target="_blank">Codeforces Round 622 (Div. 2) 2020-02-23</a>
+    </div>
+
+  </details>
 </article>
 
 
@@ -1289,6 +1686,17 @@ int main() {
 1 2 3 4 5 4 3 2 1 6
 </pre>
   <code>6 4 4 3 3 2 2 1 1 1</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/547/problem/B" target="_blank">Задача 547B</a>
+      <br><a href="https://codeforces.com/contest/547" target="_blank">Codeforces Round 305 (Div. 1) 2015-05-26</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1340,6 +1748,17 @@ Q L
 Q R
 </pre>
   <code>baabcddc</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/gym/100488/problem/L" target="_blank">Задача 100488L</a>
+      <br><a href="https://codeforces.com/gym/100488" target="_blank">2014, Отборочный контест СГАУ на четвертьфинал ACM ICPC 2014-09-21</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1393,11 +1812,22 @@ moveRight
 moveLEFT
 print
 </pre>
-<PRE>
+<pre>
 1
 2
 5
 4
-</PRE>
+</pre>
+
+<details>
+  <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/gym/100090/problem/J" target="_blank">Задача 100090J</a>
+    <br><a href="https://codeforces.com/gym/100090" target="_blank">2012, Отборочный контест СГАУ на четвертьфинал ACM ICPC 2012-10-06</a>
+  </div>
+
+</details>
+
 </article>
 

@@ -1,33 +1,34 @@
 // alg
-import showAlgBase from '../alg/alg-base/alg-base';
+import showAlgBase     from '../alg/alg-base/alg-base';
 import showAlgConspect from '../alg/alg-conspect/alg-conspect';
-import showAlgPract from '../alg/alg-pract/alg-pract';
+import showAlgPract    from '../alg/alg-pract/alg-pract';
 
 // code
-import showCodeHtml from '../code/code-html/code-html';
-import showCodeCss from '../code/code-css/code-css';
-import showCodeJs from '../code/code-js/code-js';
-import showCodeTs from '../code/code-ts/code-ts';
+import showCodeHtml   from '../code/code-html/code-html';
+import showCodeCss    from '../code/code-css/code-css';
+import showCodeJs     from '../code/code-js/code-js';
+import showCodeTs     from '../code/code-ts/code-ts';
 import showCodePascal from '../code/code-pascal/code-pascal';
-import showCodeC from '../code/code-c/code-c';
-import showCodeAsm from '../code/code-asm/code-asm';
-import showCodeOther from '../code/code-other/code-other';
-import showCodeRef from '../code/code-ref/code-ref';
+import showCodeAsm    from '../code/code-asm/code-asm';
+import showCodeC      from '../code/code-c/code-c';
+import showCodeCpp    from '../code/code-cpp/code-cpp';
+import showCodeOther  from '../code/code-other/code-other';
+import showCodeRef    from '../code/code-ref/code-ref';
 
 // front
-import showFrontEdu from '../front/front-edu/front-edu';
+import showFrontEdu     from '../front/front-edu/front-edu';
 import showFrontLearned from '../front/front-learned/front-learned';
-import showFrontNode from '../front/front-node/front-node';
+import showFrontNode    from '../front/front-node/front-node';
 import showFrontOffline from '../front/front-offline/front-offline';
-import showFrontOnline from '../front/front-online/front-online';
-import showFrontSoft from '../front/front-soft/front-soft';
+import showFrontOnline  from '../front/front-online/front-online';
+import showFrontSoft    from '../front/front-soft/front-soft';
 import showFrontVacancy from '../front/front-vacancy/front-vacancy';
 
 // lib
 import showLibBooks from '../lib/lib-books/lib-books';
 import showLibVideo from '../lib/lib-video/lib-video';
-import showLibYt from '../lib/lib-yt/lib-yt';
-import showLibVk from '../lib/lib-vk/lib-vk';
+import showLibYt    from '../lib/lib-yt/lib-yt';
+import showLibVk    from '../lib/lib-vk/lib-vk';
 
 // alg
 export const dataNavAlg = [
@@ -100,19 +101,27 @@ export const dataNavCode = [
     },
   },
   {
+    url: 'code-asm.html',
+    text: 'Asm',
+    content: '<code-asm></code-asm>',
+    act() {
+      showCodeAsm();
+    },
+  },
+  {
     url: 'code-c.html',
-    text: 'C/C++',
+    text: 'C',
     content: '<code-c></code-c>',
     act() {
       showCodeC();
     },
   },
   {
-    url: 'code-asm.html',
-    text: 'Asm',
-    content: '<code-asm></code-asm>',
+    url: 'code-cpp.html',
+    text: 'C++',
+    content: '<code-cpp></code-cpp>',
     act() {
-      showCodeAsm();
+      showCodeCpp();
     },
   },
   {

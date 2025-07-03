@@ -238,7 +238,6 @@ int main() {
       <li>Округление вверх можно реализовать с помощью формулы: x/y = (x+y-1) / y</li>
     </ol>
 
-
 <pre>
 #include &lt;iostream&gt;
 
@@ -600,7 +599,7 @@ int main() {
 
 <!-- Задача I. Экзамены -->
 <article class="article">
-  <div class="anchor" id="task12"></div>
+  <div class="anchor" id="task9"></div>
   <h3>Задача I. Экзамены</h3>
 
   <div><i>Ограничение по времени 1с
@@ -654,12 +653,129 @@ int main() {
   <p>Во втором тестовом примере Вася должен готовиться к экзамену номер 3 первые четыре дня и сдать его в пятый день. Затем в шестой день подготовиться к экзамену номер 2 и сдать его в седьмой день. После этого ему нужно подготовиться к экзамену номер 1 за восьмой день и сдать его в девятый день.</p>
 
   <p>В третьей тестовом примере Вася не сможет сдать единственный экзамен, так как не успеет к нему подготовиться.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/732/problem/D" target="_blank">Задача 732D</a>
+      <br><a href="https://codeforces.com/contest/732" target="_blank">Codeforces Round 377 (Div. 2) 2016-10-17</a>
+    </div>
+
+    <p>Мы будем использовать бинарный поиск для проверки возможности сдачи всех экзаменов к определенному дню mid. Для каждого предмета находим последний день, когда можно сдать экзамен по этому предмету</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool Bin(int mid, vector&lt;int&gt;& D, vector&lt;int&gt;& A, int m) {
+  // для каждого экзамена запишем
+  // последний день от 1 до mid
+  // когда его можно сдать
+  vector&lt;int&gt; last(m+1, -1);
+  for (int day = 1; day &lt;= mid; day++) {
+    if (D[day] != 0) {
+      last[D[day]] = day;
+    }
+  }
+
+  // если какой-нибудь экзамен
+  // нельзя сдать до дня mid
+  // вернуть false
+  for (int exam = 1; exam &lt;= m; exam++) {
+    if (last[exam] == -1) {
+      return false;
+    }
+  }
+
+  // соберем структуру &lt;номер дня, номер экзамена&gt;
+  // i - номер экзамена
+  // last[i] - номер дня
+  vector&lt;pair&lt;int, int&gt; &gt; exams;
+  for (int i = 1; i &lt;= m; i++) {
+    exams.push_back({ last[i], i });
+  }
+
+  // сортируем по возрастанию дня сдачи экзамена
+  sort(exams.begin(), exams.end());
+
+  // число дней подготовки
+  int days_prep = 0;
+
+  // Для каждого последнего дня сдачи экзамена
+  for (int exday = 0; exday &lt; m; exday++) {
+  // прибавим к дням для подготовки предыдущих экзаменов
+  // дни для подготовки к текущему экзамену
+    days_prep += A[exams[exday].second];
+
+    // если для подготовки к экзамену
+    // и всем предыдущим экзаменам
+    // дней больше чем дней до сдачи экзамена
+    // то сдать все экзамены невозможно
+    if (days_prep > exams[exday].first - 1) {
+      return false;
+    }
+    // добавим день для текущего экзамена
+    days_prep++;
+  }
+
+  return true;
+}
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n; // число дней от 1 до n
+  int m; // число экзаменов от 1 до m
+  cin >> n >> m;
+
+  // day - номер дня от 1 до n
+  // D[day] - какой экзамен можно сдать в день day
+  vector&lt;int&gt; D(n+1);
+  for (int day = 1; day &lt;= n; day++) {
+    cin >> D[day];
+  }
+
+  // exam - номер экзамена от 1 до m
+  // A[exam] - сколько дней нужно готовиться к экзамену exam
+  vector&lt;int&gt; A(m+1);
+  for (int exam = 1; exam &lt;= m; exam++) {
+    cin >> A[exam];
+  }
+
+  // решение
+  int res = -1;
+  int left = 1; // минимальный элемент
+  int right = n + 1; // за границей диапазона
+
+  // бинарный поиск по ответу
+  // ответ будет в левом указателе
+  while (right - left > 1) {
+    int mid = left + (right - left) / 2;
+    if (Bin(mid, D, A, m)) {
+      res = mid;
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
 <!-- Задача J. Кузнечик и строка -->
 <article class="article">
-  <div class="anchor" id="task13"></div>
+  <div class="anchor" id="task10"></div>
   <h3>Задача J. Кузнечик и строка</h3>
 
   <div><i>Ограничение по времени 1с
@@ -684,6 +800,54 @@ int main() {
   <h4>Пример 2</h4>
   <code>AAA</code>
   <code>1</code>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/733/problem/A" target="_blank">Задача 733A</a>
+      <br><a href="https://codeforces.com/contest/733" target="_blank">Codeforces Round 378 (Div. 2) 2016-10-31</a>
+    </div>
+
+    <h4>Пример 3</h4>
+    <code>QQQ</code>
+    <code>4</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;set&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string str;
+  cin >> str;
+
+  // решение
+  int res = 0; // прыгучесть
+  int cnt = 0; // число согласных букв
+  set&lt;char&gt; vowels = { 'A', 'E', 'I', 'O', 'U', 'Y' };
+
+  for (int i = 0; i &lt; str.size(); i++) {
+    // если буква согласная
+    if (vowels.find(str[i]) == vowels.end()) {
+      cnt++;
+      res = max(res, cnt);
+    } else {
+      cnt = 0;
+    }
+  }
+
+  res = max(res, cnt) + 1;
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1022,5 +1186,34 @@ int main() {
   <h4>Пример 3</h4>
   <code>15 15 10 10</code>
   <code>No</code>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int a, b, c, d;
+  cin >> a >> b >> c >> d;
+
+  // решение
+  string res = "No";
+  // оставшиеся места на 10 часов
+  int rest10 = d - (a - c);
+  // оставшиеся места на 12 часов
+  int rest12 = d - (b - c);
+  // если оставшихся мест больше чем оставшихся студентов
+  if (rest10 >= 0 && rest12 >= 0 && rest10 + rest12 >= c) {
+    res = "Yes";
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
