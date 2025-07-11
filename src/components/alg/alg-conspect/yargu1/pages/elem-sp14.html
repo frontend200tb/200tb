@@ -697,29 +697,35 @@ using namespace std;
 
 int main() {
   // ускорение ввода-вывода
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
 
-  // соберем решето Эратосфена
+  // T-простым числом будтет только квадрат простого числа
+  // соберем решето Эратосфена в векторе A
+  // соберем квадраты простых чисел в сете st
   set&lt;long long&gt; st;
-  vector&lt;int&gt; A(1e6);
+  vector&lt;int&gt; A(1e6, 0);
   for (long long i = 2; i &lt; A.size(); i++) {
     if (A[i] == 0) {
       st.insert(i * i);
-      for (int j = 2 * i; j &lt; A.size(); j += 1) {
+      for (int j = 2 * i; j &lt; A.size(); j += i) {
         A[j] = 1;
       }
     }
   }
+
   // ввод данных
   int n;
   cin >> n;
   long long tmp;
+
   for (int i = 0; i &lt; n; i++) {
+    // следующее число
     cin >> tmp;
 
-    // решение и вывод результата
+    // проверяем есть ли число в наборе T-простых чисел
     if (st.find(tmp) != st.end()) {
+      //вывод результата
       cout &lt;&lt; "YES\n";
     } else {
       cout &lt;&lt; "NO\n";

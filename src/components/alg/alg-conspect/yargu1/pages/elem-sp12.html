@@ -1447,6 +1447,31 @@ Y5
       <br><a href="https://codeforces.com/contest/26" target="_blank">Codeforces Beta Round 26 (Codeforces format) 2010-08-16</a>
     </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  stack&lt;char&gt; St;
+  char c;
+  int cnt = 0;
+
+  while (cin.get(c) && c != '\n') {
+    if (c == '(') {
+      St.push(c);
+    } else {
+      if (!St.empty()) {
+        St.pop();
+        cnt += 2;
+      }
+    }
+  }
+
+  cout &lt;&lt; cnt;
+}
+</pre>
   </details>
 </article>
 

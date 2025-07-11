@@ -1,11 +1,20 @@
 // Создаем массив asideThemes с темами для блока aside
 export const asideThemes = [
-  'Round 3',
+  'Round 1 Beta',
+  'Round 3 Testing',
+  'Round 142',
   'Round 186',
   'Round 223',
   'Round 295',
+  'Round 640',
   'Round 770',
+  'Round 784',
+  'Round 790',
   'Round 799',
+  'Round 806',
+  'Round 817',
+  'Round 827',
+  'Round 835',
   'Round 860',
   'Round 886',
   'Round 898',
@@ -24,4 +33,5 @@ export const asideThemes = [
   'Round 1029',
   'Round 1032',
   'Round 1034',
+  'Round 1035',
 ];

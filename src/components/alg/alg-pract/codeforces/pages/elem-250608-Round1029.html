@@ -1,8 +1,5 @@
 <article class="article">
-  <strong>Спортивное программирование в ЯрГУ</strong>
-  <p><a href="https://codeforces.com/group/CkAC2YcRrZ/contests" target="_blank">ЯрГУ. Кружок. Контесты</a></p>
-  <p>Автор кружка Игорь Маслеников</p>
-  <p><a href="https://codeforces.com/contest/2117" target="_blank">Codeforces Round 1029 (Div.3) 2025-06-08</a></p>
+  <a href="https://codeforces.com/contest/2117" target="_blank">Codeforces Round 1029 (Div.3) 2025-06-08</a>
 </article>
 
 
@@ -10,16 +7,14 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p>
-        <a href="#task1">Задача A. Ложная тревога</a>
-    <br><a href="#task2">Задача B. Сжатие</a>
-    <br><a href="#task3">Задача C. Классное разделение</a>
-    <br><a href="#task4">Задача D. Месть</a>
-    <br><a href="#task5">Задача E. Потерянная душа</a>
-    <br><a href="#task6">Задача F. Дикие цветы</a>
-    <br><a href="#task7">Задача G. ОМГраф</a>
-    <br><a href="#task8">Задача H. Непрекращающийся дождь</a>
-  </p>
+      <a href="#task1">Задача A. Ложная тревога</a>
+  <br><a href="#task2">Задача B. Сжатие</a>
+  <br><a href="#task3">Задача C. Классное разделение</a>
+  <br><a href="#task4">Задача D. Месть</a>
+  <br><a href="#task5">Задача E. Потерянная душа</a>
+  <br><a href="#task6">Задача F. Дикие цветы</a>
+  <br><a href="#task7">Задача G. ОМГраф</a>
+  <br><a href="#task8">Задача H. Непрекращающийся дождь</a>
 </article>
 
 
@@ -95,6 +90,62 @@ NO
   </ul>
   <p>Во втором наборе входных данных у Юсефа есть кнопка на 3 секунды, но ему нужно как минимум 4 секунды, чтобы добраться до выхода. Поэтому ответ NO.</p>
   <p>В третьем наборе входных данных Юсеф может включить кнопку перед тем, как начать двигаться. Все двери останутся открытыми, пока он не доберется до выхода.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Найдем крайнюю левую единицу и крайнюю правую единицу. Посчитаем сколько между ними расстояние. Если оно меньше x то Юсуф пройдет, иначе нет.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число дверей
+    int x; // число секунд
+    cin >> n >> x;
+    vector&lt;int&gt; A(n); // состояние дверей
+    //
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int first = -1; // первая закрытая дверь
+    int last = -1; // последняя закрытая дверь
+
+    // пробежим по всем дверям
+    for (int i = 0; i &lt; n; i++) {
+      if (A[i] == 1) {
+        if (first == -1) {
+          first = i;
+        }
+        last = i;
+      }
+    }
+
+    string res = "YES";
+    if (last + 1 - first > x) {
+      res = "NO";
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -154,6 +205,54 @@ NO
     <li>Выбираем индекс 2 и удаляем p2 из массива. Массив становится p=[2,1].</li>
   </ul>
   <p>Максимальное количество операций, которые мы можем выполнить, равно 4. Любая перестановка со счётом 4 является допустимой.</p>
+
+  <details>
+    <summary>Решение</summary>
+    <p>На вход приходит число n это значит что у нас есть все числа от 1 до n. Построим из них "пик", то есть до середины числа будут возрастать, на середине будет максимальное число, а после середины числа будут убывать.</p>
+    <p>Например, сначала выведем все нечетные числа от 1 до n, потом все четные от n до 1.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // размер перестановки
+    cin >> n;
+
+    // решение
+    int max_even; // максимальное четное
+    int max_odd; // максимальное нечетное
+    if (n % 2 == 0) {
+      max_even = n;
+      max_odd = n - 1;
+    } else {
+      max_even = n - 1;
+      max_odd = n;
+    }
+    vector&lt;int&gt; Res;
+    for (int i = 1; i &lt;= max_odd; i += 2) {
+      Res.push_back(i);
+    }
+    for (int i = max_even; i > 0; i -= 2) {
+      Res.push_back(i);
+    }
+
+    // вывод результата
+    for (int i = 0; i &lt; n; i++) {
+      cout &lt;&lt; Res[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -221,6 +320,58 @@ NO
   <p>Первый пример разобран в условии. Мы можем разделить его на b1=[1,2], b2=[2,3,1,5]. Можно показать, что нет другого разделения с большим количеством отрезков.</p>
   <p>Во втором примере мы можем разделить массив на b1=[1,2], b2=[1,3,2], b3=[1,3,2]. Максимальное количество отрезков равно 3.</p>
   <p>В третьем примере единственное разделение, которое мы можем сделать, это b1=[5,4,3,2,1]. Любое другое разделение не будет удовлетворять условию. Поэтому ответ равен 1.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // размер массива
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    map&lt;int, int&gt; mp;
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+      mp[A[i]]++;
+    }
+
+    // решение
+    int res = 0;
+    set&lt;int&gt; st;
+    int cnt = mp.size();
+    for (int i = n - 1; i >= 0; i--) {
+      st.insert(A[i]);
+      mp.find(A[i])->second--;
+      if (mp.find(A[i])->second == 0) {
+        mp.erase(A[i]);
+      }
+      if (st.size() == cnt) {
+        res++;
+        while (st.size() > 0) {
+          st.erase(st.begin());
+        }
+        cnt = mp.size();
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -287,6 +438,77 @@ NO
     <li>Выполнить 4 операции второго типа. Массив становится [0,0,0,0,0].</li>
   </ul>
   <p>В первом, третьем, четвертом и шестом наборах входных данных можно доказать, что невозможно сделать все элементы равными нулю, используя любое количество операций.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n;
+    cin >> n;
+    vector&lt;long long&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    long long find_el = A[1] - A[0];
+    bool flag_res = true;
+    vector&lt;long long&gt; B(n);
+    if (find_el >= 0) {
+      for (int i = 0; i &lt; n; i++) {
+        B[i] = A[i] - find_el * (i + 1);
+      }
+      for (int i = 0; i &lt; n - 1; i++) {
+        if (B[i] != B[i + 1]) {
+          flag_res = false;
+        }
+        if (B[i] % (n + 1) != 0) {
+          flag_res = false;
+        }
+        if (B[i] &lt; 0) {
+          flag_res = false;
+        }
+      }
+    } else {
+      reverse(A.begin(), A.end());
+      find_el = -find_el;
+      for (int i = 0; i &lt; n; i++) {
+        B[i] = A[i] - find_el * (i + 1);
+      }
+      for (int i = 0; i &lt; n - 1; i++) {
+        if (B[i] != B[i + 1]) {
+          flag_res = false;
+        }
+        if (B[i] % (n + 1) != 0) {
+          flag_res = false;
+        }
+        if (B[i] &lt; 0) {
+          flag_res = false;
+        }
+      }
+    }
+
+    // вывод результата
+    if (flag_res) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
