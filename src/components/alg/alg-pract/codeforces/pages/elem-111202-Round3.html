@@ -31,6 +31,8 @@
 
   <p>Если искомых элементов не существует, то первая строка выходных данных должна содержать число 0. В этом случае вторую строку можно не выводить или вывести пустую строку.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 5
@@ -50,6 +52,7 @@
 4
 1 2 3 4
 </pre>
+  </details>
 
   <details>
     <summary>Решение</summary>
@@ -119,14 +122,17 @@ int main() {
   <h4>Выходные данные</h4>
   <p>Выведите единственное число k.</p>
 
-  <h4>Пример 1</h4>
-  <code>5</code>
-  <code>3</code>
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>5</code>
+    <code>3</code>
 
-  <h4>Пример 2</h4>
-  <code>1</code>
-  <code>0</code>
-  <p>Из пары (1,1) можно за три хода получить пару, содержащую 5: (1,1) → (1,2) → (3,2) → (5,2).</p>
+    <h4>Пример 2</h4>
+    <code>1</code>
+    <code>0</code>
+    <p>Из пары (1,1) можно за три хода получить пару, содержащую 5: (1,1) → (1,2) → (3,2) → (5,2).</p>
+  </details>
 
   <details>
     <summary>Решение</summary>
@@ -203,6 +209,8 @@ int main() {
   <h4>Выходные данные</h4>
   <p>Выведите в первой строке «No», если такая последовательность обменов невозможна, и «Yes» в противном случае. Если ответ положительный, выведите далее число k — количество обменов. Далее в k строках опишите обмены — парой номеров меняющихся игроков. Обмены и номера в обменах выводите в любом порядке.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 4 8
@@ -241,5 +249,71 @@ Yes
 <pre>
 No
 </pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;queue>
+#include &lt;vector>
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число цветов
+  int s; // число карт
+  cin >> n >> s;
+  vector&lt;int> A(n + 1); // число карт у каждого игрока
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  priority_queue&lt;pair&lt;int, int> > q;
+  for (int i = 1; i &lt;= n; i++) {
+    if (A[i]) q.push(make_pair(A[i], i));
+  }
+  vector&lt;pair&lt;int, int> > ret;
+  while (!q.empty()) {
+    pair&lt;int, int> fu = q.top();
+    q.pop();
+    vector&lt;pair&lt;int, int> > tmp;
+    while (fu.first > 0) {
+      if (q.empty()) {
+        cout &lt;&lt; "No\n";
+        return 0;
+      }
+
+      pair&lt;int, int> fv = q.top();
+      q.pop();
+      ret.push_back(make_pair(fu.second, fv.second));
+      fv.first--;
+      fu.first--;
+      if (fv.first > 0) {
+        tmp.push_back(fv);
+      }
+    }
+    for (int i = 0; i &lt; tmp.size(); i++) {
+      q.push(tmp[i]);
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; "Yes\n";
+  cout &lt;&lt; ret.size() &lt;&lt; '\n';
+  for (int i = 0; i &lt; ret.size(); i++) {
+    cout &lt;&lt; ret[i].first &lt;&lt; ' ' &lt;&lt; ret[i].second &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 

@@ -54,7 +54,7 @@
     <li>Битовые операции</li>
   </ol>
 
-  <p>На базовом алгоритме <strong>префикс-функции</strong> основан сложный алгоритм <strong>КМП (Кнута - Морриса - Пратта)</strong></p>
+  <p>На базовом алгоритме <strong>префикс-функции</strong> основан сложный алгоритм <strong>КМП (Кнута - Морриса - Пратта)</strong>. Алгоритм КМП позволяет быстро найти подстроку в строке.</p>
   <p>Простым вариантом <strong>префикс-функции</strong> является массив префиксных сумм</p>
   <p>Усложненным вариантом <strong>префикс-функции</strong> является матрица префиксных сумм</p>
 </article>
@@ -119,7 +119,7 @@ int main() {
   }
 
   // решение
-  vector&lt;int&gt; B(n + 1);
+  vector&lt;int&gt; B(n + 1); // префикс суммы
   for (int i = 0; i &lt; n; i++) {
     B[i + 1] = B[i] + A[i];
   }
@@ -141,7 +141,7 @@ int main() {
   <p>Ограничения для использования алгоритма префикс-функции:</p>
   <ol>
     <li>Функция, на которой собирается дополнительный массив, должна быть обратимой. Например, мы можем собирать на следующих операциях: сложение (вычитание), умножение (деление), xor (xor). Но не можем использовать операции max и min.</li>
-    <li>Исходный массив не должени меняться. Изменение одного элемента исходного массива влечет к изменению большого количества элементов в массиве префикс-функции</li>
+    <li>Исходный массив не должен меняться. Изменение одного элемента исходного массива влечет к изменению большого количества элементов в массиве префикс-функции</li>
   </ol>
 
   <h4>Входные данные</h4>
@@ -163,24 +163,25 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int n;
+  int n; // размер массива
   cin >> n;
-  vector&lt;int&gt; A(n);
+  vector&lt;int&gt; A(n); // входной массив
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
   }
 
   // решение
-  vector&lt;int&gt; B(n + 1);
+  // соберем префикс суммы
+  vector&lt;int&gt; B(n + 1); // префикс сумма
   for (int i = 0; i &lt; n; i++) {
     B[i + 1] = B[i] + A[i];
   }
 
-  int q;
+  int q; // число запросов
   cin >> q;
   for (int i = 0; i &lt; q; i++) {
     int l, r;
-    cin >> l >> r;
+    cin >> l >> r; // следующий запрос
     int result;
     result = B[r] - B[l-1];
 
@@ -215,9 +216,25 @@ b<sub>20</sub> b<sub>21</sub> b<sub>22</sub> ... b<sub>2m</sub>
 b<sub>n0</sub> b<sub>n1</sub> b<sub>n2</sub> ... b<sub>nm</sub>
 </pre>
 
-  <p>В дополнительном массиве каждый элемент b<sub>i</sub> хранит сумму элементов исходного массива от a<sub>1</sub> до a<sub>i</sub>.</p>
+  <p>В дополнительном массиве каждый элемент b<sub>i</sub> хранит сумму элементов исходного массива от a<sub>1</sub> до a<sub>i</sub>. Первый элемент b<sub>0</sub> должен быть нейтральный, для префикса сумм b<sub>0</sub> = 0 (для произведения это 1).</p>
+<pre>
+  a<sub>1</sub>  a<sub>2</sub>  a<sub>3</sub>  a<sub>n</sub>
+b<sub>0</sub>  b<sub>1</sub>  b<sub>3</sub>  b<sub>n-1</sub>  b<sub>n</sub>
+</pre>
   <code>b<sub>i</sub> = a<sub>1</sub> + a<sub>2</sub> + ... + a<sub>i</sub></code>
-  <p>В дополнительной матрице каждый элемент b<sub>ij</sub> хранит сумму элементов в прямоугольнике от a<sub>11</sub> до a<sub>ij</sub></p>
+
+  <p>В дополнительной матрице каждый элемент b<sub>ij</sub> хранит сумму элементов в прямоугольнике от a<sub>11</sub> до a<sub>ij</sub>. Все элементы первой строки и все элементы первого столбца должны быть нейтральные, для префикса сумм b<sub>00</sub> = b<sub>01</sub> = b<sub>0n</sub> = 0, b<sub>10</sub> = b<sub>n0</sub> = 0 (для произведение это 1)</p>
+<pre>
+b<sub>00</sub>    b<sub>01</sub>    b<sub>02</sub>    b<sub>03</sub>    b<sub>0n</sub>
+    a<sub>11</sub>    a<sub>12</sub>    a<sub>13</sub>      a<sub>1n</sub>
+b<sub>10</sub>    b<sub>11</sub>    b<sub>12</sub>    b<sub>13</sub>    b<sub>1n</sub>
+    a<sub>21</sub>    a<sub>22</sub>    a<sub>23</sub>      a<sub>2n</sub>
+b<sub>20</sub>    b<sub>21</sub>    b<sub>22</sub>    b<sub>23</sub>    b<sub>2n</sub>
+    a<sub>31</sub>    a<sub>32</sub>    a<sub>33</sub>      a<sub>3n</sub>
+b<sub>30</sub>    b<sub>31</sub>    b<sub>32</sub>    b<sub>33</sub>    b<sub>3n</sub>
+    a<sub>n1</sub>    a<sub>n2</sub>    a<sub>n3</sub>      a<sub>nn</sub>
+b<sub>n0</sub>    b<sub>n1</sub>    b<sub>n2</sub>    b<sub>n3</sub>    b<sub>nn</sub>
+</pre>
   <code>b<sub>ij</sub> = a<sub>11</sub> + ... + a<sub>1j</sub> + ... + a<sub>i1</sub> + ... + a<sub>ij</sub></code>
 
   <p>Пусть нам надо посчитать сумму элементов в прямоугольнике от a<sub>22</sub> до a<sub>33</sub>.</p>
@@ -265,18 +282,23 @@ int main() {
     }
   }
 
-  // создадим префикс-матрицу
+  // создадим префикс-матрицу сумм
   vector&lt;vector&lt;long long&gt; &gt; B(n + 1, vector&lt;long long&gt;(m + 1));
+
+  // сначала соберем префикс сумм по строкам
   for (int i = 1; i &lt;= n; i++) {
     for (int j = 1; j &lt;= m; j++) {
       B[i][j] = B[i][j - 1] + A[i][j];
     }
   }
+
+  // прибавим префикс сумм по столбцам
   for (int i = 1; i &lt;= n; i++) {
     for (int j = 1; j &lt;= m; j++) {
       B[i][j] += B[i-1][j];
     }
   }
+
   int q, xl, xr, yl, yr;
   long long result;
   cin >> q;

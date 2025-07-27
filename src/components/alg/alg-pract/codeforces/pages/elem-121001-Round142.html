@@ -35,6 +35,8 @@
   <h4>Выходные данные</h4>
   <p>В единственной строке выведите «YES» (без кавычек), если Кирито сможет пройти на следующий уровень, и «NO» (без кавычек), если не сможет.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 2 2
@@ -51,6 +53,48 @@
   <code>NO</code>
   <p>В первом примере сила Кирито изначально равна 2. Поскольку сила первого дракона меньше 2, то Кирито может с ним сразиться и победить его. После этого он получает бонус и его сила возрастает до 2 + 99 = 101. Теперь он может победить второго дракона и пройти на следующий уровень.</p>
   <p>Во втором примере сила Кирито слишком мала, чтобы он мог сразиться с единственным драконом и победить.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int s, n;
+  cin >> s >> n;
+  vector&lt;pair&lt;int, int&gt; &gt; X(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> X[i].first; // сила дракона
+    cin >> X[i].second; // бонус
+  }
+
+  // решение
+  string res = "YES";
+  sort(X.begin(), X.end());
+  for (int i = 0; i &lt; n; i++) {
+    if (s > X[i].first) {
+      s += X[i].second;
+    } else {
+      res = "NO";
+      break;
+    }
+  }
+
+  //вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -74,7 +118,8 @@
   <h4>Выходные данные</h4>
   <p>Выведите n строк: i-тая строка должна содержать «YES» (без кавычек), если число xi является Т-простым, и «NO» (без кавычек), если не является.</p>
 
-  <h4>Пример</h4>
+  <details>
+    <summary>Пример</summary>
 <pre>
 3
 4 5 6
@@ -84,7 +129,65 @@ YES
 NO
 NO
 </pre>
-  <p>В приведенном тесте даны три числа. Первое число 4 имеет ровно три делителя — 1, 2 и 4, поэтому ответ для этого числа — «YES». Второе число 5 имеет два делителя (1 и 5), а третье число 6 — четыре делителя (1, 2, 3, 6), поэтому ответ для них — «NO».</p>
+    <p>В приведенном тесте даны три числа. Первое число 4 имеет ровно три делителя — 1, 2 и 4, поэтому ответ для этого числа — «YES». Второе число 5 имеет два делителя (1 и 5), а третье число 6 — четыре делителя (1, 2, 3, 6), поэтому ответ для них — «NO».</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/230/problem/B" target="_blank">Задача 230B</a>
+      <br><a href="https://codeforces.com/contest/230" target="_blank">Codeforces Round 142 (Div. 2) 2012-10-01</a>
+    </div>
+
+    <p>Выпишем несколько примеров на маленьких числах, переберем их чтобы посмотреть как получаются T-простые числа.</p>
+    <p>Число имеет ровно три делителя только если это квадрат простого числа - 4, 9, 25 ... Поэтому если число является квадратом простого чилса, то выводим YES, иначе NO. Поскольку во входных данных числа до 10¹², то мы найдем все простые числа до 10⁶, возведем их в квадрат и будем хранить в сете. Потом будем проверять если число есть в сете то оно T-простое.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // T-простым числом будтет только квадрат простого числа
+  // соберем решето Эратосфена в векторе A
+  // соберем квадраты простых чисел в сете st
+  set&lt;long long&gt; st;
+  vector&lt;int&gt; A(1e6, 0);
+  for (long long i = 2; i &lt; A.size(); i++) {
+    if (A[i] == 0) {
+      st.insert(i * i);
+      for (int j = 2 * i; j &lt; A.size(); j += i) {
+        A[j] = 1;
+      }
+    }
+  }
+
+  // ввод данных
+  int n;
+  cin >> n;
+  long long tmp;
+
+  for (int i = 0; i &lt; n; i++) {
+    // следующее число
+    cin >> tmp;
+
+    // проверяем есть ли число в наборе T-простых чисел
+    if (st.find(tmp) != st.end()) {
+      //вывод результата
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -110,6 +213,8 @@ NO
   <h4>Выходные данные</h4>
   <p>Выведите единственное число: наименьшее количество ходов, за которое можно в каком-то из столбцов таблицы получить только единицы. Если этого сделать нельзя, выведите -1.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 3 6
@@ -128,6 +233,104 @@ NO
   <code>-1</code>
   <p>В первом примере один из способов достижения цели с наименьшим количеством шагов таков: циклически сдвинем вторую строку один раз вправо, а третью — два раза влево. Тогда предпоследний столбец таблицы будет содержать только единицы.</p>
   <p>Во втором примере строки нельзя сдвинуть так, чтобы образовался столбец, содержащий только единицы.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/230/problem/C" target="_blank">Задача 230C</a>
+      <br><a href="https://codeforces.com/contest/230" target="_blank">Codeforces Round 142 (Div. 2) 2012-10-01</a>
+    </div>
+
+  <h4>Пример 3</h4>
+  <pre>
+  1 1
+  0
+  </pre>
+    <code>-1</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+  int n, m;
+  cin >> n >> m;
+  vector&lt;string&gt; A(n);
+
+  // считываем массив
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long res = 1e18;
+
+  for (int i = 0; i &lt; n; i++) {
+    // счетчик единиц в строке
+    int cnt1 = 0;
+    for (int j = 0; j &lt; m; j++) {
+
+      // для каждой 1 в строке
+      if (A[i][j] == '1') {
+        cnt1++;
+        long long resi = 0;
+
+        // проходим по всем строкам
+        for (int k = 0; k &lt; n; k++) {
+          // счетчик нулей в строке
+          int cnt0 = 0;
+          int l = j, r = j;
+
+          // поиск ближайшей 1 в каждой строке
+          while (A[k][l] != '1' && A[k][r] != '1') {
+            // проверка что в строке все 0
+            cnt0++;
+            if (cnt0 == m / 2 + 1) {
+              cout &lt;&lt; -1;
+              return 0;
+            }
+
+            resi++;
+            if (l == 0) {
+              l = m - 1;
+            } else {
+              l--;
+            }
+            if (r == m - 1) {
+              r = 0;
+            } else {
+              r++;
+            }
+          }
+        }
+        res = min(res, resi);
+      }
+
+    }
+    if (cnt1 == 0) {
+      cout &lt;&lt; -1;
+      return 0;
+    }
+
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -155,6 +358,8 @@ NO
   <h4>Выходные данные</h4>
   <p>Выведите единственное число — наименьшее количество времени, которое понадобится Джеку, чтобы попасть с планеты 1 на планету n. Если Джек не сможет попасть на планету n ни за какое время, выведите число -1.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 4 6
@@ -182,6 +387,110 @@ NO
   <code>-1</code>
   <p>В первом примере у Джека три выбора, куда переместиться с планеты 1. Если он переместится сразу на планету 4, то потратит 8 секунд. Если он переместится на планету 3, то потратит 3 секунды, но, поскольку в моменты времени 3 и 4 на планету 3 прибывают другие путешественники, то он сможет отправиться на планету 4 только в момент времени 5, затратив в сумме 8 секунд. Если же Джек переместится на планету 2, а потом на планету 4, то потратит в сумме всего лишь 2 + 5 = 7 секунд.</p>
   <p>Во втором примере с планеты 1 на планету 3 нельзя попасть, перемещаясь через звездные врата.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;algorithm&gt;
+#include &lt;climits&gt;
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+#include &lt;utility&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+const int maxn = 100000, maxm = 100000;
+
+vector&lt;pair&lt;int, int&gt; &gt; edges[maxn];
+vector&lt;int&gt; times[maxn];
+
+int dist[maxn];
+
+struct compar
+{
+    bool operator ()(int v1, int v2) const
+    {
+        if (dist[v1] != dist[v2])
+        {
+            return dist[v1] &lt; dist[v2];
+        }
+        else
+        {
+            return v1 &lt; v2;
+        }
+    }
+};
+
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+    int n, m; cin >> n >> m;
+
+    for (int i = 0; i &lt; m; i++)
+    {
+        int a, b, c; cin >> a >> b >> c;
+        edges[a-1].push_back(make_pair(b-1, c));
+        edges[b-1].push_back(make_pair(a-1, c));
+    }
+    for (int i = 0; i &lt; n; i++)
+    {
+        int k; cin >> k;
+
+        times[i].resize(k);
+        for (int j = 0; j &lt; k; j++)
+        {
+            cin >> times[i][j];
+        }
+    }
+
+    fill_n(dist+1, n-1, INT_MAX);
+
+    set&lt;int, compar&gt; q;
+    for (int i = 0; i &lt; n; i++)
+    {
+        q.insert(i);
+    }
+
+    while (!q.empty())
+    {
+        int v = *q.begin(); q.erase(q.begin());
+        if (v == n-1 || dist[v] == INT_MAX)
+        {
+            break;
+        }
+
+        vector&lt;int&gt;::const_iterator ti(
+            lower_bound(times[v].begin(), times[v].end(), dist[v]));
+        while (ti != times[v].end() && dist[v] == *ti)
+        {
+            dist[v]++;
+            ++ti;
+        }
+
+        for (int i = 0; i &lt; (int)edges[v].size(); i++)
+        {
+            const pair&lt;int, int&gt;& p = edges[v][i];
+
+            set&lt;int, compar&gt;::iterator qi(q.find(p.first));
+            if (qi != q.end())
+            {
+                if (dist[v] + p.second &lt; dist[p.first])
+                {
+                    q.erase(qi);
+                    dist[p.first] = dist[v] + p.second;
+                    q.insert(p.first);
+                }
+            }
+        }
+    }
+
+    cout &lt;&lt; (dist[n-1] &lt; INT_MAX ? dist[n-1] : -1) &lt;&lt; '\n';
+}
+</pre>
+  </details>
 </article>
 
 
@@ -207,6 +516,8 @@ NO
 
   <p>Пожалуйста, не используйте спецификатор %lld для чтения или записи 64-битных чисел на С++. Рекомендуется использовать потоки cin, cout или спецификатор %I64d.</p>
 
+  <details>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 5 5
@@ -228,5 +539,51 @@ NO
   <code>4</code>
   <p>В первом примере в графе Алисы есть 2 треугольника: (1, 2, 3) и (2, 3, 4). В графе Боба всего 1 треугольник: (1, 4, 5). Поэтому в двух графах всего 3 треугольника.</p>
   <p>Во втором примере в графе Алисы всего 1 треугольник: (1, 2, 3). В графе Боба находится 3 треугольника: (1, 4, 5), (2, 4, 5) и (3, 4, 5). В данном случае ответ на задачу — 4.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число вершин
+  int m; // число ребер
+  cin >> n >> m;
+  vector&lt;int&gt; A(n);
+
+  // решение
+  for (int i = 0; i &lt; m; i++) {
+    int a, b;
+    cin >> a >> b;
+    A[--a]++;
+    A[--b]++;
+  }
+  long long result = 0;
+  for (int i = 0; i &lt; n; i++) {
+    result += (long long)A[i] * (n - 1 - A[i]);
+  }
+
+  // вывод результата
+  cout &lt;&lt; (long long)n * (n - 1) * (n - 2) / 6 - result / 2 &lt;&lt; '\n';
+
+}
+</pre>
+  </details>
 </article>
 

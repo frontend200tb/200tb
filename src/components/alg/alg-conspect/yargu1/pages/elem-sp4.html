@@ -84,15 +84,17 @@ vector&lt;int&gt; V3(n, 5);
     <li><strong>.end()</strong> возвращает итератор, указывающий за последним элементом вектора или конец вектора.</li>
     <li><strong>.rbegin()</strong> возвращает итератор, указывающий на последний элемент вектора.</li>
     <li><strong>.rend()</strong> возвращает итератор, указывающий перед первым элементом вектора.</li>
-    <li><strong>.size()</strong>		возвращает целое число размер вектора;</li>
-    <li><strong>.empty()</strong>	возвращает true если вектор пустой, либо false;</li>
-    <li><strong>.clear()</strong> 		удаляет все элементы вектора;</li>
-    <li><strong>.back()</strong> 		возвращает значение последнего элемента;</li>
-    <li><strong>.front()</strong> 		возвращает значение первого элемента.</li>
-    <li><strong>.push_back(arg)</strong>  добавляет в конец вектора новый элемент со значением arg;</li>
-    <li><strong>.pop_back()</strong> 	  удаляет последний элемент вектора;</li>
-    <li><strong>.insert(pos, arg)</strong>	  добавление элемента в vector в заданную позицию итератором;</li>
-    <li><strong>.erase(pos)</strong>	  удаление элемента по заданной позиции итератором.</li>
+    <li><strong>.size()</strong> возвращает целое число размер вектора;</li>
+    <li><strong>.empty()</strong> возвращает true если вектор пустой, либо false;</li>
+    <li><strong>.clear()</strong> удаляет все элементы вектора;</li>
+    <li><strong>.back()</strong> возвращает значение последнего элемента;</li>
+    <li><strong>.front()</strong> возвращает значение первого элемента.</li>
+    <li><strong>.push_back(arg)</strong> добавляет в конец вектора новый элемент со значением arg;</li>
+    <li><strong>.pop_back()</strong> удаляет последний элемент вектора;</li>
+    <li><strong>.push_front(arg)</strong> добавляет в начало вектора новый элемент со значением arg;</li>
+    <li><strong>.pop_front()</strong> удаляет первый элемент вектора;</li>
+    <li><strong>.insert(pos, arg)</strong> добавление элемента в vector в заданную позицию итератором;</li>
+    <li><strong>.erase(pos1, pos2)</strong> удаление элементов от позиции pos1 до pos2, заданных итератором.</li>
   </ol>
 
 <pre>
@@ -117,23 +119,28 @@ cout &lt;&lt; sum;
   <h3>cmath</h3>
 
   <ol>
-    <li><strong>abs(arg)</strong>	  возвращает число по абсолютной величине;</li>
-    <li><strong>sqrt(arg)</strong>	  возвращает корень от числа;</li>
-    <li><strong>pow(arg1, arg2)</strong>  возвращает число arg1 в степени arg2;</li>
-    <li><strong>exp(arg)</strong> 	  возвращает экспоненту в степени arg;</li>
-    <li><strong>log(arg)</strong>		возвращает натуральный логарифм от arg;</li>
-    <li><strong>log10(arg)</strong> 	возвращает логарифм по основанию 10 от arg;</li>
+    <li><strong>abs(arg)</strong> возвращает число по абсолютной величине;</li>
+    <li><strong>sqrt(arg)</strong> возвращает корень от числа;</li>
+    <li><strong>pow(arg1, arg2)</strong> возвращает число arg1 в степени arg2;</li>
+    <li><strong>exp(arg)</strong> возвращает экспоненту в степени arg;</li>
+    <li><strong>log(arg)</strong>	возвращает натуральный логарифм от arg;</li>
+    <li><strong>log10(arg)</strong> возвращает логарифм по основанию 10 от arg;</li>
     <li><strong>round(arg)</strong>	возвращает правильное математическое округление;</li>
-    <li><strong>ceil(arg)</strong> 	возвращает округление в большую сторону;</li>
+    <li><strong>ceil(arg)</strong> возвращает округление в большую сторону;</li>
     <li><strong>floor(arg)</strong>	возвращает округление в меньшую сторону.</li>
-    <li><strong>sin(arg)</strong>		возвращает синус от аргумента;	</li>
+    <li><strong>sin(arg)</strong>	возвращает синус от аргумента;	</li>
     <li><strong>cos(arg)</strong>	возвращает косинус от аргумента;</li>
-    <li><strong>tan(arg)</strong>		возвращает тангенс от аргумента.</li>
-    <li><strong>asin(arg)</strong>	возвращает арксинус от аргумента;</li>
-    <li><strong>acos(arg)</strong>	возвращает арккосинус от аргумента;</li>
-    <li><strong>atan(arg)</strong> 	возвращает арктангенс от аргумента.</li>
+    <li><strong>tan(arg)</strong>	возвращает тангенс от аргумента.</li>
+    <li><strong>asin(arg)</strong> возвращает арксинус от аргумента;</li>
+    <li><strong>acos(arg)</strong> возвращает арккосинус от аргумента;</li>
+    <li><strong>atan(arg)</strong> возвращает арктангенс от аргумента. Результат от (-pi / 2) до (pi / 2)</li>
+    <li><strong>atan2(arg)</strong> возвращает арктангенс от аргумента. Результат от -pi до pi</li>
   </ol>
   <p>Arg передается как радианы, не градус!</p>
+  <p>Переведем grad градусов в arg радиан</p>
+  <code>int arg = (grad / 180) * pi;</code>
+  <p>В библиотеке нет котангенса, но его можно выразить через тангенс</p>
+  <code>int cotan = 1 / tan(arg);</code>
 
 <pre>
 int a1 = abs(-100);      // 100
@@ -163,9 +170,9 @@ int a6 = floor(7.8);   // 7
     <li><strong>min(arg1, arg2)</strong> 	возвращает минимальный элемент из arg1 и arg2;</li>
     <li><strong>max(arg1, arg2)</strong>		возвращает максимальный элемент из arg1 и arg2;</li>
     <li><strong>swap(arg1, arg2)</strong>	меняет местами значения в переменных из arg1 и arg2;</li>
-    <li><strong>count(pos1, pos2, arg)</strong>	возвращает количество элементов в диапазоне равных значению arg.</li>
-    <li><strong>find(pos1, pos2, arg)</strong>	находит позицию первого вхождения элемента с заданным значением в диапазон. Если элемент не будет найден значение будет равно .end();</li>
     <li><strong>sort(po1, pos2)</strong> 	упорядочивает элементы в указанном диапазоне по не убыванию элементов или согласно критерию упорядочивания, заданному функцией.</li>
+    <li><strong>find(pos1, pos2, arg)</strong>	находит позицию первого вхождения элемента с заданным значением в диапазон. Если элемент не будет найден значение будет равно .end();</li>
+    <li><strong>count(pos1, pos2, arg)</strong>	возвращает количество элементов в диапазоне равных значению arg.</li>
   </ol>
 <pre>
 int n;
@@ -272,30 +279,35 @@ for (int i = 0; i &lt; n; i++) {
 using namespace std;
 
 int main() {
-  vector&lt;int&gt; A;
-  vector&lt;int&gt; B;
-  vector&lt;int&gt; C;
-  int tmp = 1;
-  while (tmp != 0) {
-    cin >> tmp;
-    if (tmp != 0) {
-      A.push_back(tmp);
-    }
+// ввод данных
+vector&lt;int&gt; A;
+int tmp = 1;
+while (tmp != 0) {
+  cin >> tmp;
+  if (tmp != 0) {
+    A.push_back(tmp);
   }
-  for (int i = 0; i &lt; A.size(); i++) {
-    if (A[i] % 2 == 0) {
-      B.push_back(A[i]);
-    } else {
-      C.push_back(A[i]);
-    }
+}
+
+// решение
+vector&lt;int&gt; B; // для четных чисел
+vector&lt;int&gt; C; // для нечетных чисел
+for (int i = 0; i &lt; A.size(); i++) {
+  if (A[i] % 2 == 0) {
+    B.push_back(A[i]);
+  } else {
+    C.push_back(A[i]);
   }
-  for (int i = 0; i &lt; B.size(); i++) {
-    cout &lt;&lt; B[i] &lt;&lt; " ";
-  }
-  cout &lt;&lt; '\n';
-  for (int i = C.size() - 1; i >= 0; i--) {
-    cout &lt;&lt; C[i] &lt;&lt; " ";
-  }
+}
+
+// вывод результата
+for (int i = 0; i &lt; B.size(); i++) {
+  cout &lt;&lt; B[i] &lt;&lt; " "; // четные числа
+}
+cout &lt;&lt; '\n';
+for (int i = C.size() - 1; i >= 0; i--) {
+  cout &lt;&lt; C[i] &lt;&lt; " "; // нечетные числа
+}
 }
 </pre>
   </details>
@@ -892,11 +904,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // входные данные
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);

@@ -542,6 +542,80 @@ UNION: 6
 A SUBTRACT B: 1
 1
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n; // кол-во в первом множестве
+  int m; // кол-во во втором множестве
+  cin >> n >> m;
+  set&lt;int> A;
+  set&lt;int> B;
+  int in;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    A.insert(in);
+  }
+  for (int i = 0; i &lt; m; i++) {
+    cin >> in;
+    B.insert(in);
+  }
+
+  // решение
+  set&lt;int> Inter; // пересечение
+  for (int p : A) {
+    if (B.find(p) != B.end()) {
+      Inter.insert(p);
+    }
+  }
+
+  set&lt;int> Un; // объединение
+  for (int p : A) {
+    Un.insert(p);
+  }
+  for (int p : B) {
+    Un.insert(p);
+  }
+
+  set&lt;int> Sub; // вычитание
+  for (int p : A) {
+    if (B.find(p) == B.end()) {
+      Sub.insert(p);
+    }
+  }
+
+  // вывод результата
+  // мощность пересечения
+  cout &lt;&lt; "INTERSECTION: " &lt;&lt; Inter.size() &lt;&lt; '\n';
+  for (int p : Inter) {
+    cout &lt;&lt; p &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+  // мощность объединения
+  cout &lt;&lt; "UNION: " &lt;&lt; Un.size() &lt;&lt; '\n';
+  for (int p : Un) {
+    cout &lt;&lt; p &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+  // мощность вычитания
+  cout &lt;&lt; "A SUBTRACT B: " &lt;&lt; Sub.size() &lt;&lt; '\n';
+  for (int p : Sub) {
+    cout &lt;&lt; p &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -804,6 +878,67 @@ b
       <br><a href="https://codeforces.com/contest/755" target="_blank">8VC Venture Cup 2017 - Elimination Round 2017-01-15</a>
     </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n; // число слов Польшара
+  int m; // число слов Врагошара
+  cin >> n >> m;
+  set&lt;string&gt; A; // слова Польшара
+  set&lt;string&gt; B; // слова Врагошара
+  string in;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    A.insert(in);
+  }
+  for (int i = 0; i &lt; m; i++) {
+    cin >> in;
+    B.insert(in);
+  }
+
+  // решение
+  string res = "YES";
+  set&lt;string&gt; aAndB; // общие слова
+  for (string p : A) {
+    if (B.find(p) != B.end()) {
+      aAndB.insert(p);
+    }
+  }
+
+  set&lt;string&gt; uniqA; // слова только Польшара
+  for (string p : A) {
+    if (B.find(p) == B.end()) {
+      uniqA.insert(p);
+    }
+  }
+
+  set&lt;string&gt; uniqB; // слова только Врагошара
+  for (string p : B) {
+    if (A.find(p) == A.end()) {
+      uniqB.insert(p);
+    }
+  }
+
+  if (aAndB.size() % 2 == 0 && uniqB.size() >= uniqA.size()) {
+    res = "NO";
+  }
+  if (aAndB.size() % 2 != 0 && uniqB.size() > uniqA.size()) {
+    res = "NO";
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
   </details>
 </article>
 
@@ -857,9 +992,59 @@ ABABB
       <a href="https://codeforces.com/contest/834/problem/B" target="_blank">Задача 834B</a>
       <br><a href="https://codeforces.com/contest/834" target="_blank">Codeforces Round 426 (Div. 2) 2017-07-30</a>
     </div>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;set&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // ввод данных
+  int n; // число гостей
+  int k; // число охранников
+  cin >> n >> k;
+
+  string A;
+  cin >> A;
+
+  // решение
+  string res = "NO";
+
+  // последний вошедший в i-ю дверь
+  map&lt;char, int&gt; Last;
+  for (int guest = 0; guest &lt; n; guest++) {
+    Last[A[guest]] = guest;
+  }
+
+  // открывается новая дверь - плюс охранник,
+  // закрывается дверь - минус охранник
+  int cnt = 0;
+  int door = 0;
+  set&lt;char&gt; Open;
+  for (int guest = 0; guest &lt; n; guest++) {
+    door = A[guest];
+    if (Open.find(door) == Open.end()) {
+      Open.insert(door);
+      cnt++;
+    }
+    if (cnt > k) {
+      res = "YES";
+    }
+    if (Last[door] == guest) {
+      cnt--;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
   </details>
-
 </article>
 
 
@@ -912,9 +1097,63 @@ ABABB
       <a href="https://codeforces.com/contest/522/problem/B" target="_blank">Задача 522B</a>
       <br><a href="https://codeforces.com/contest/522" target="_blank">VK Cup 2015 - Квалификация 1 2015-03-07</a>
     </div>
+    <p>Посчитаем общую ширину всех друзей и при нахождении ширины фото без i-го друга, будем вычитать ширину i-го друга. Найдем самого высокого друга и запомним его высоту и номер. Найдем вторую после максимальной высоту друга. Высота всех фотографий будет равна высоте самого высокого друга, кроме фотографии, где нет самого высокого друга, ее высота вторая после максимальной.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
 
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // ввод данных
+  int n; // число друзей
+  cin >> n;
+
+  vector&lt;pair&lt;int, int&gt; &gt; A(n + 1);
+  int w, h; // ширина и высота
+  pair&lt;int, int&gt; tmp;
+  long long wAll = 0;
+  int h1 = 1; // первая высота
+  int h2 = 2; // вторая высота
+  int i_h1 = 1; // друг с высотой h1
+
+  //
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> w >> h;
+    wAll += w;
+    if (h > h1) {
+      h2 = h1;
+      h1 = h;
+      i_h1 = i;
+    } else if (h == h1) {
+      h2 = h;
+    } else if (h > h2) {
+      h2 = h;
+    }
+    tmp = make_pair(w, h);
+    A[i] = tmp;
+  }
+
+  vector&lt;long long&gt; Res(n + 1);
+  // создаем результат
+  for (int i = 1; i &lt;= n; i++) {
+    if (i_h1 == i) {
+      Res[i] = (wAll - A[i].first) * h2;
+    } else {
+      Res[i] = (wAll - A[i].first) * h1;
+    }
+  }
+
+  // вывод результата
+  for (int i = 1; i &lt;= n; i++) {
+    cout &lt;&lt; Res[i] &lt;&lt; ' ';
+  }
+}
+</pre>
   </details>
-
 </article>
 
 
@@ -988,8 +1227,82 @@ ABABB
       <br><a href="https://codeforces.com/contest/1512" target="_blank">Codeforces Round 713 (Div. 3) 2021-04-10</a>
     </div>
 
-  </details>
+    <p>Сумма всех элементов B это удвоенная сумма всех элементов A + x. Тогда x = sumB - 2 * sumA. Соберем массив B в мультисет setB. Перебором найдем x и элемент равный sumA. Удалим их из мультисета и останутся только элементы массива A.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляций
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // размер массива A
+    cin >> n;
+
+    int nb = n + 2;
+    vector&lt;long long&gt; B(nb + 1);
+    for (int i = 1; i &lt;= nb; i++) {
+      cin >> B[i];
+    }
+
+    // решение
+    long long x = 0; // добавленное число
+    long long sumA = 0; // сумма массива A
+    long long sumB = 0; // сумма массива B
+
+    // соберем мультисет и
+    // найдем сумму массива B
+    multiset&lt;long long&gt; setB;
+    for (int i = 1; i &lt;= nb; i++) {
+      setB.insert(B[i]);
+      sumB += B[i];
+    }
+
+    // найдем x , если он существует
+    for (int i = 1; i &lt;= nb; i++) {
+      if ((sumB - B[i]) % 2 == 0) {
+        x = B[i];
+        setB.erase(setB.find(x)); // удалить из мультисета
+        if (setB.find((sumB - B[i]) / 2) != setB.end()) {
+          sumA = (sumB - x) / 2;
+          setB.erase(setB.find(sumA));
+          break; // нашли решение, можно выйти
+        } else {
+          setB.insert(x); // вернуть в мультисет
+        }
+      }
+    }
+
+    // вывод результата
+    if (x == 0 || sumA == 0) {
+      cout &lt;&lt; -1 &lt;&lt; '\n';
+    } else {
+      for (int a : setB) {
+        cout &lt;&lt; a &lt;&lt; ' ';
+      }
+      cout &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

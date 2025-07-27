@@ -8,22 +8,64 @@
 
 
 <article class="article">
-  <h1>Занятие 1. Вводное</h1>
-  <p>Конспект видео от 2024.09.14</p>
-  <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/549478" target="_blank">Codeforces Контест 549478</a></p>
+  <h3>Шаблоны для вставки в программу</h3>
+
+  <p>Подключаем все библиотеки</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+</pre>
+
+  <p>Подключаем пространство имен</p>
+  <code>using namespace std;</code>
+
+  <p>Ускорение ввода-вывода</p>
 <pre>
 // ускорение ввода-вывода
 ios_base::sync_with_stdio(false);
 cin.tie(nullptr);
 cout.tie(nullptr);
 </pre>
+
+  <p>В режиме DEBUG входные данные будут браться из файла input.txt, а результат будет выводиться в файл output.txt</p>
 <pre>
-// условная компиляций
+// условная компиляция
 #ifdef _DEBUG
   freopen("input.txt", "rt", stdin);
   freopen("output.txt", "wt", stdout);
 #endif
 </pre>
+
+  <p>Несколько наборов тестовых данных</p>
+<pre>
+// число тестов
+int t;
+cin >> t;
+
+while (t--) {
+
+}
+</pre>
+
+  <p>Ввод строки целиком, вместе с пробельными символами.</p>
+  <p>После чтения cin >> q; в буфере ввода остаётся символ перевода строки '\n'. Затем при первом вызове getline(cin, str); считывается этот оставшийся '\n' и строка str оказывается пустой. Нужно игнорировать оставшийся символ перевода строки.</p>
+<pre>
+int q;
+cin >> q;
+cin.ignore();
+string str;
+getline(cin, str);
+</pre>
+  <p>На Codeforces задачи в контестах нумеруются буквами от A до F. В задаче есть ограничение по времени и по памяти. Присутствует легенда.</p>
+</article>
+
+
+<article class="article">
+  <h1>Занятие 1. Вводное</h1>
+  <p>Конспект видео от 2024.09.14</p>
+  <p><a href="https://codeforces.com/group/1LSR3R5twn/contest/549478" target="_blank">Codeforces Контест 549478</a></p>
 </article>
 
 
@@ -133,7 +175,6 @@ cout.tie(nullptr);
   <code>8</code>
   <code>YES</code>
 
-  <p>На Codeforces задачи в контестах нумеруются буквами от A до F. В задаче есть ограничение по времени и по памяти. Присутствует легенда.</p>
 
   <details>
     <summary>Решение на C++</summary>

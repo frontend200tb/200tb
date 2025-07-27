@@ -45,6 +45,30 @@
   <div class="anchor" id="p1"></div>
   <h3>Основы C++ 2. vector, cmath</h3>
 
+  <p>Подключим библиотеку для вектора</p>
+  <code>#include &lt;vector&gt;</code>
+  <p>Вектор это динамический массив, длину которого можно изменять во время выполнения программы.</p>
+  <p>Создадим вектор целых чисел, изначально пустой</p>
+  <code>vector&lt;int&gt; A;</code>
+  <p>Создадим вектор целых чисел, содержащий n элементов, изначально равных нулю</p>
+  <code>vector&lt;int&gt; A(n);</code>
+  <p>Создадим вектор целых чисел, содержащий 10 элементов, изначально равных 5</p>
+  <code>vector&lt;int&gt; A(10, 5);</code>
+  <p>Создадим двумерный вектор целых чисел, изначально пустой</p>
+  <code>vector&lt;vector&lt;int&gt; &gt; A;</code>
+  <p>Создадим двумерный вектор целых чисел, содержащий n пустых векторов</p>
+  <code>vector&lt;vector&lt;int&gt; &gt; A(n);</code>
+  <p>Создадим двумерный вектор целых чисел, содержащий n векторов, по m элементов, изначально равных нулю</p>
+  <code>vector&lt;vector&lt;int&gt; &gt; A(n, vector&lt;int&gt; (m));</code>
+  <p>Создадим трехерный вектор целых чисел, содержащий n векторов, по m векторов</p>
+  <code>vector&lt;vector&lt;vector&lt;int&gt; &gt; &gt; A(n, vector&lt;vector&lt;int&gt; &gt; (m));</code>
+
+  <p>Подключим библиотеку для алгоритмов</p>
+  <code>#include &lt;algorithm&gt;</code>
+
+  <p>Подключим математическую библиотеку</p>
+  <code>#include &lt;cmath&gt; // или math.h</code>
+
 </article>
 
 
@@ -74,9 +98,8 @@
 using namespace std;
 
 int main() {
+  // ввод данных
   vector&lt;int&gt; A;
-  vector&lt;int&gt; B;
-  vector&lt;int&gt; C;
   int tmp = 1;
   while (tmp != 0) {
     cin >> tmp;
@@ -84,6 +107,10 @@ int main() {
       A.push_back(tmp);
     }
   }
+
+  // решение
+  vector&lt;int&gt; B; // для четных чисел
+  vector&lt;int&gt; C; // для нечетных чисел
   for (int i = 0; i &lt; A.size(); i++) {
     if (A[i] % 2 == 0) {
       B.push_back(A[i]);
@@ -91,12 +118,14 @@ int main() {
       C.push_back(A[i]);
     }
   }
+
+  // вывод результата
   for (int i = 0; i &lt; B.size(); i++) {
-    cout &lt;&lt; B[i] &lt;&lt; " ";
+    cout &lt;&lt; B[i] &lt;&lt; " "; // четные числа
   }
   cout &lt;&lt; '\n';
   for (int i = C.size() - 1; i >= 0; i--) {
-    cout &lt;&lt; C[i] &lt;&lt; " ";
+    cout &lt;&lt; C[i] &lt;&lt; " "; // нечетные числа
   }
 }
 </pre>
@@ -641,11 +670,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // входные данные
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -912,12 +942,15 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int n, d;
   cin >> n >> d;
   vector&lt;int&gt; A(n);
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
   }
+
+  // решение
   sort(A.begin(), A.end());
   int res = 0;
   for (int i = 0; i &lt; n; i++) {
@@ -927,6 +960,8 @@ int main() {
       }
     }
   }
+
+  // вывод результата
   cout &lt;&lt; n - res;
 }
 </pre>

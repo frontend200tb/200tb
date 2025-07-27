@@ -1046,8 +1046,8 @@ const dataBooksPaper = [
     pages: '1000',
     cover: 'твердая',
     image: '2020 Дейтел - Как программировать на C (7е).jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.07.23 ср',
   },
 
   {

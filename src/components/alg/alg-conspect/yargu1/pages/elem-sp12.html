@@ -103,6 +103,17 @@ for (int i = 0; i &lt; n; i++) {
 sort(A.begin(), A.end());
 </pre>
 
+  <h4>struct</h4>
+  <p><strong>struct</strong> создает структуру</p>
+<pre>
+struct point {
+  int x, y;
+};
+point p1;
+p1.x = 1;
+p1.y = 2;
+</pre>
+
   <h4>Stack</h4>
   <p><strong>Stack</strong> - структура данных, которая работает по принципу LIFO (last-in first-out или ”последний вошел — первым вышел”) — первым всегда извлекается последний добавленный элемент.</p>
 
@@ -133,7 +144,8 @@ sort(A.begin(), A.end());
   </ol>
 
   <h4>Deque</h4>
-  <p><strong>Deque</strong> представляет двухстороннюю очередь, ее еще называют двухглавой змеей.  Мы можем так же обращаться по элементам при помощи операторов []. На deque реализована такая структура данных как vector.</p>
+  <p><strong>Deque</strong> представляет двухстороннюю очередь, ее еще называют двухглавой змеей.  Мы можем так же обращаться по элементам при помощи операторов [].</p>
+  <p>На <strong>deque</strong> реализована такая структура данных как <strong>vector</strong>. vector это как deque с урезанным функционалом.</p>
   <p>Пример: котопес.</p>
 
   <ol>
@@ -1347,6 +1359,71 @@ int main() {
   <code>[[][[]]]</code>
   <code>8</code>
   <p>Левый рисунок соответствует конфигурации и расположению обезьян в первом примере, правый - во втором.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+  <h4>Пример 17</h4>
+  <code>[[[][]][]]</code>
+  <code>8</code>
+
+  <h4>Пример 18</h4>
+  <code>[[][[[[][]][]][]]]</code>
+  <code>32</code>
+
+  <h4>Пример 19</h4>
+  <code>[[[[][]][]][[][]]]</code>
+  <code>16</code>
+
+  <h4>Пример 20</h4>
+  <code>[[[[][]][]][]]</code>
+  <code>16</code>
+
+  <p>Найдем самую удаленную лиану, на ней будет сидеть 2 обезьяны, по одной на каждой подлиане. Для этого будем использовать счетчик level. Пробежим по строке, открывающая скобка level++, закрывающая скобка level--.</p>
+  <p>На каждом уровне выше число обезьян удваивается.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  string s;
+  cin >> s;
+
+  // решение
+
+  // найдем самую удаленную лиану,
+  // на ней будет сидеть две обезьяны
+  int level = 0; // текущий уровень
+  int max_l = 0; // максимальный уровень
+  for (char ch : s) {
+    if (ch == '[') {
+      level++;
+      max_l = max(max_l, level);
+    } else {
+      level--;
+    }
+  }
+
+  // на каждом уровне выше
+  // число обезьян удваивается
+  int res = pow(2, max_l);
+
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1410,6 +1487,11 @@ Y1
 <pre>
 Y5
 </pre>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Только зверем с минимальной длиной можно измерить всех остальных, если это возможно. Заведем queue для добавление и удаления из нее элементов, unordered_map для частотного массива и multiset для быстрого поиска минимума.</p>
+  </details>
 </article>
 
 
@@ -1821,10 +1903,11 @@ Q R
 <pre>
 3 2
 2 3 5
-14
+15
 moveLeft
 insertLeft 1
-moveLeftprint
+moveLeft
+print
 moveLeft
 moveRight
 print
@@ -1834,7 +1917,7 @@ moveRight
 moveRight
 print
 moveRight
-moveLEFT
+moveLeft
 print
 </pre>
 <pre>
@@ -1844,15 +1927,80 @@ print
 4
 </pre>
 
-<details>
-  <summary>Решение</summary>
+  <details>
+    <summary>Решение</summary>
 
-  <div>
-    <a href="https://codeforces.com/gym/100090/problem/J" target="_blank">Задача 100090J</a>
-    <br><a href="https://codeforces.com/gym/100090" target="_blank">2012, Отборочный контест СГАУ на четвертьфинал ACM ICPC 2012-10-06</a>
-  </div>
+    <div>
+      <a href="https://codeforces.com/gym/100090/problem/J" target="_blank">Задача 100090J</a>
+      <br><a href="https://codeforces.com/gym/100090" target="_blank">2012, Отборочный контест СГАУ на четвертьфинал ACM ICPC 2012-10-06</a>
+    </div>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;list&gt;
 
-</details>
+using namespace std;
 
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // размер массива A
+  int p; // начальная позиция робота
+  cin >> n >> p;
+
+  list&lt;int&gt; A; // двусвязный список
+  int in = 0;
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> in;
+    A.push_back(in); // добавим элемент в конец списка
+  }
+
+  // поставим указатель на позицию p в списке
+  auto posA = A.begin();
+  for (int i = 1; i &lt; p; i++) {
+    posA++;
+  }
+
+  int q; // число запросов
+  cin >> q;
+
+  while (q--) {
+    string cmd; // следующая команда
+    cin >> cmd;
+    if (cmd == "print") { // печать элемента
+      cout &lt;&lt; *posA &lt;&lt; '\n';
+    } else if (cmd == "moveLeft") { // шаг влево
+      if (posA != A.begin()) {
+        posA--;
+      }
+    } else if (cmd == "moveRight") { // шаг вправо
+      posA++;
+      if (posA == A.end()) {
+        posA--;
+      }
+    } else if (cmd == "insertLeft") { // вставка слева
+      int x;
+      cin >> x;
+      A.insert(posA, x);
+    } else if (cmd == "insertRight") { // вставка справа
+      int x;
+      cin >> x;
+      A.emplace(next(posA), x);
+    }
+  }
+
+}
+</pre>
+  </details>
 </article>
 
