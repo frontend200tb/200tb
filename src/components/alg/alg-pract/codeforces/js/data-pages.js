@@ -1,11 +1,22 @@
 // Создаем массив pages со страницами из aside меню
-import htmlZksh2010     from './../pages/elem-101024-zksh2010.html';
 import htmlRound1      from './../pages/elem-100219-Round1.html';
+import htmlSko12010    from './../pages/elem-101024-sko1-2010.html';
+import htmlSko22010    from './../pages/elem-000000-sko2-2010.html';
+import htmlSko32010    from './../pages/elem-000000-sko3-2010.html';
+import htmlSio22010    from './../pages/elem-000000-sio2-2010.html';
+import htmlSio32010    from './../pages/elem-000000-sio3-2010.html';
+import htmlKosSar2011  from './../pages/elem-000000-kosSaratov2011.html';
 import htmlRound3      from './../pages/elem-111202-Round3.html';
 import htmlRound142    from './../pages/elem-121001-Round142.html';
 import htmlRound186    from './../pages/elem-130530-Round186.html';
 import htmlRound223    from './../pages/elem-140112-Round223.html';
 import htmlRound295    from './../pages/elem-150302-Round295.html';
+import htmlRound375    from './../pages/elem-161003-Round375.html';
+import htmlTechno1z2016  from './../pages/elem-000000-Techno1z2016.html';
+import htmlTechno2z2016  from './../pages/elem-000000-Techno2z2016.html';
+import htmlTechno12016  from './../pages/elem-000000-Techno1-2016.html';
+import htmlTechno22016  from './../pages/elem-000000-Techno2-2016.html';
+import htmlTechno2017  from './../pages/elem-161015-Techno2017.html';
 import htmlTechno2019  from './../pages/elem-190923-Techno2019.html';
 import htmlRound640    from './../pages/elem-200509-Round640.html';
 import htmlRound770    from './../pages/elem-220206-Round770.html';
@@ -23,6 +34,13 @@ import htmlRound860    from './../pages/elem-230326-Round860.html';
 import htmlRound871    from './../pages/elem-230506-Round871.html';
 import htmlRound886    from './../pages/elem-230721-Round886.html';
 import htmlRound898    from './../pages/elem-230921-Round898.html';
+import htmlRound918    from './../pages/elem-231228-Round918.html';
+import htmlRound928    from './../pages/elem-240219-Round928.html';
+import htmlRound937    from './../pages/elem-240328-Round937.html';
+import htmlRound944    from './../pages/elem-240510-Round944.html';
+import htmlRound952    from './../pages/elem-240611-Round952.html';
+import htmlRound964    from './../pages/elem-240806-Round964.html';
+import htmlRound971    from './../pages/elem-240903-Round971.html';
 import htmlRound988    from './../pages/elem-241117-Round988.html';
 import htmlRound991    from './../pages/elem-241205-Round991.html';
 import htmlRound993    from './../pages/elem-241215-Round993.html';
@@ -42,13 +60,24 @@ import htmlRound1035   from './../pages/elem-250705-Round1035.html';
 import htmlRound1037   from './../pages/elem-250717-Round1037.html';
 
 export const pages = [
-  htmlZksh2010,
   htmlRound1,
+  htmlSko12010,
+  htmlSko22010,
+  htmlSko32010,
+  htmlSio22010,
+  htmlSio32010,
+  htmlKosSar2011,
   htmlRound3,
   htmlRound142,
   htmlRound186,
   htmlRound223,
   htmlRound295,
+  htmlRound375,
+  htmlTechno1z2016,
+  htmlTechno2z2016,
+  htmlTechno12016,
+  htmlTechno22016,
+  htmlTechno2017,
   htmlTechno2019,
   htmlRound640,
   htmlRound770,
@@ -66,6 +95,13 @@ export const pages = [
   htmlRound871,
   htmlRound886,
   htmlRound898,
+  htmlRound918,
+  htmlRound928,
+  htmlRound937,
+  htmlRound944,
+  htmlRound952,
+  htmlRound964,
+  htmlRound971,
   htmlRound988,
   htmlRound991,
   htmlRound993,

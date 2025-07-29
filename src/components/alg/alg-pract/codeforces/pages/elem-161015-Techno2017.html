@@ -1,0 +1,138 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/727" target="_blank">Технокубок 2017 - Отборочный Раунд 1 2016-10-15</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Превращение: из A в B</a>
+  <br><a href="#task2">Задача B. Сумма чека</a>
+  <br><a href="#task3">Задача C. Восстановление массива</a>
+  <br><a href="#task4">Задача D. Распределение футболок</a>
+  <br><a href="#task5">Задача E. Игры на диске</a>
+  <br><a href="#task6">Задача F. Задачи Поликарпа</a>
+</article>
+
+
+<!-- Задача A. Превращение: из A в B -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Превращение: из A в B</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int a; // число которое есть
+  int b; // число которое надо получить
+  cin >> a >> b;
+
+  // решение
+  stack&lt;int&gt; Res; // последовательность превращений
+
+  // пойдем в обратную сторону
+  // будем получать из числа b число a
+  Res.push(b);
+  int cnt = 1; // количество чисел в превращении
+
+  // пока можно уменьшать число b
+  while (b > a) {
+    if (b % 10 == 1) {
+      b /= 10;
+      Res.push(b);
+      cnt++;
+    } else if (b % 2 == 0) {
+      b /= 2;
+      Res.push(b);
+      cnt++;
+    } else {
+      // это невозможно
+      cout &lt;&lt; "NO";
+      return 0;
+    }
+  }
+
+  // вывод результата
+  if (b == a) {
+    cout &lt;&lt; "YES" &lt;&lt; '\n' &lt;&lt; cnt &lt;&lt; '\n';
+    while (!Res.empty()) {
+      cout &lt;&lt; Res.top() &lt;&lt; ' ';
+      Res.pop();
+    }
+  } else {
+    cout &lt;&lt; "NO";
+    return 0;
+  }
+
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Сумма чека -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Сумма чека</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+
+
+<!-- Задача C. Восстановление массива -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. Восстановление массива</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+
+
+<!-- Задача D. Распределение футболок -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. Распределение футболок</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+
+
+<!-- Задача E. Игры на диске -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. Игры на диске</h3>
+
+  <div><i>Ограничение по времени 4с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>
+
+
+<!-- Задача F. Задачи Поликарпа -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача F. Задачи Поликарпа</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+

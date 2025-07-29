@@ -88,9 +88,15 @@ int main () {
 </pre>
   </details>
 
-  <p>Чтобы скомпилировать программу, нужно запустить компилятор и передать ему в качестве аргумента название файла</p>
+  <p>Чтобы скомпилировать программу, нужно запустить компилятор и передать ему в качестве аргумента название файла. Наберем в терминале следующую команду</p>
 
   <code>gcc helloworld.c</code>
+
+  <p>После компиляции, если нет ошибок, компилятор создаст исполняемый файл a.exe, который можно запустить командой</p>
+  <code>./a</code>
+
+  <p>В терминале получится результат работы программы</p>
+  <code>Hello, world!</code>
 
   <h4>2.4 Добавление в проект заголовочного файла (50)</h4>
 
@@ -149,6 +155,311 @@ int sum(int x, int y) {
 #define EXIT_FAILURE 1
 </pre>
   <code>return EXIT_SUCCESS;</code>
+
+  <p>Программа вычисления суммы двух чисел.</p>
+
+  <details>
+    <summary>Программа 2 (62)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int x = 21;
+int y = 85;
+
+int sum(int, int);
+void print(int);
+
+int main() {
+  int z = sum(x, y);
+  print(z);
+
+  return EXIT_SUCCESS;
+}
+
+int sum(int x, int y) {
+  return x + y;
+}
+
+void print(int) {
+  printf("%d", x);
+}
+</pre>
+  </details>
+
+  <p>Вынесем объявления функций в отдельный заголовочный файл</p>
+
+  <details>
+    <summary>Программа 3 (63)</summary>
+    <p>Заголовочный файл 3sum.h</p>
+<pre>
+#ifndef SUM_H_
+#define SUM_H_
+
+int sum(int, int);
+void print(int);
+
+#endif
+</pre>
+
+  <p>Файл 3.c</p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "3sum.h"
+
+int x = 21;
+int y = 85;
+
+int main() {
+  int z = sum(x, y);
+  print(z);
+
+  return EXIT_SUCCESS;
+}
+
+int sum(int x, int y) {
+  return x + y;
+}
+
+void print(int x) {
+  printf("%d", x);
+}
+</pre>
+  </details>
+
+  <h4>Комментарии в программе (63)</h4>
+
+  <p>Компилятор полностью игнорирует комментарии. Комментарии синтаксически бывают однострочные и многострочные.</p>
+  <p>Чтобы закомментировать одну строку, нужно поставить курсор на эту строку и нажать Ctrl + /. Строка будет закомментирована однострочным комментарием. Чтобы закомментировать более одной строки, их нужно выделить и нажать Ctrl + /. Выделенные строки будут закомментированы однострочными комментариями.</p>
+  <p>Многострочные комментарии не могут быть вложенные. Однострочные комментарии могут быть вложены друг в друга и в многострочные комментарии.</p>
+
+  <h4>Вывод данных (65)</h4>
+
+  <p>Печать одного символа putchar()</p>
+  <code>putchar('w'); // w</code>
+  <code>putchar('119'); // w</code>
+
+  <p>Печать одной строки puts()</p>
+  <code>puts("string"); // string</code>
+
+  <p>Форматированная печать printf()</p>
+  <code>printf("string\n"); // string</code>
+  <code>printf("%d", 10); // 10</code>
+  <code>printf("%s %d", "number", 10); // number 10</code>
+
+  <p>Напишем индикатор выполнения процесса</p>
+
+  <details>
+    <summary>Программа 4 (70)</summary>
+    <p>Версия из книги</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+
+int main() {
+  printf("... 0%%");
+  for (int i = 5; i &lt; 101; i += 5) {
+    Sleep(1000);
+    printf("\r... %d%%", i);
+    fflush(stdout);
+  }
+  printf("\n");
+
+  return 0;
+}
+</pre>
+  <p>Моя версия</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+
+int main() {
+  for (int i = 5; i &lt; 100; i += 5) {
+    Sleep(200);
+    printf("\r.    %d%%", i);
+    Sleep(200);
+    printf("\r..   %d%%", i += 5);
+    Sleep(200);
+    printf("\r...  %d%%", i += 5);
+    Sleep(200);
+    printf("\r.... %d%%", i += 5);
+    fflush(stdout); // сброс буфера вывода
+  }
+
+  // держим консоль открытой
+  printf("\nPress any key for continue");
+  fflush(stdin); // сброс буфера ввода
+  getchar();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>2.9 Ввод данных (71)</h4>
+
+  <h4>2.9.1 Ввод одного символа (71)</h4>
+
+  <p>Для ввод одного символа предназначена функция getchar()</p>
+  <code>char ch = getchar();</code>
+
+  <p>Полученный символ будет в кодировке консоли. По умолчанию кодировка консоли <strong>windows-866</strong>. Чтобы принимать русские буквы в кодировке <strong>windows-1251</strong>, необходимо сменить кодировку.</p>
+
+  <details>
+    <summary>Программа 5 (72)</summary>
+    <p>Сохраним файл программы в кодировке <strong>Windows-1251</strong></p>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  puts("Введите символ");
+  char ch = getchar();
+  printf("%c", ch);
+
+  return 0;
+}
+</pre>
+
+    <p>Если русские буквы не выводятся, то сменим кодировку в консоли</p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  // смена кодировки консоли
+  system("chcp 1251");
+  setlocale(LC_ALL,"Russian_Russia.1251");
+
+  puts("Введите символ");
+  char ch = getchar();
+  printf("%c", ch);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>2.9.2 Функция scanf() (72)</h4>
+
+  <p>Для получения и автоматического преобразования данных в корректный тип предназначена функция scanf(). Введем число</p>
+  <code>int x;</code>
+  <code>scanf("%d", &x);</code>
+
+  <p>При вводе строки, функция scanf() не производит никакой проверки длины строки, что может привести к переполнению буфера. Обязательно используйте ширину при использовании спецификатора строки. Введем строку, не превышающую 255 символов</p>
+  <code>char str[256] = "";</code>
+  <code>scanf("%255s", str);</code>
+
+  <details>
+    <summary>Программа 6 (73)</summary>
+    <p>Сохраним файл программы в кодировке <strong>Windows-1251</strong></p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  // смена кодировки консоли
+  system("chcp 1251");
+  setlocale(LC_ALL,"Russian_Russia.1251");
+
+  puts("Введите строку (max 255 symbols)");
+  char str[256] = "";
+  scanf("%255s", str);
+  printf("%s", str);
+
+  // держим консоль открытой
+  printf("\nPress any key for continue");
+  fflush(stdin); // сброс буфера ввода
+  getchar();
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Суммирование двух введенных чисел. Функция scanf() возвращает количество успешных операций присваивания. Мы можем проверить, что если мы ожидаем число и присвоилось число, то это успешная операция присваивания.</p>
+  <details>
+    <summary>Программа 7 (73)</summary>
+    <p>Сохраним файл программы в кодировке <strong>Windows-1251</strong></p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;locale.h&gt;
+
+int main() {
+  // смена кодировки
+  system("chcp 1251");
+  setlocale(LC_ALL,"Russian_Russia.1251");
+
+  int x = 0, y = 0;
+
+  puts("Введите первое число");
+  if (scanf("%d", &x) != 1) {
+    puts("Вы ввели не число");
+    return 1;
+  }
+
+  puts("Введите второе число");
+  if (scanf("%d", &y) != 1) {
+    puts("Вы ввели не число");
+    return 1;
+  }
+
+  printf("Сумма равна %d", x + y);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>2.9.3 Ввод строки (77)</h4>
+
+  <p>Для ввода строки предназначена функция gets(), но применять ее в программе не следует, т.к. функция не производит никакой проверки длины строки, что может привести к переполнению буфера. Лучше получать строку посимвольно с помощью функции getchar() или воспользоваться функцией fgets(). Функция fgets() имеет прототип</p>
+  <code>char *fgets(char *buf, int maxCount, FILE *stream);</code>
+  <p>Функция fgets() принимает три параметра. Первый имя переменной куда запишет строку. Второй максимальная длина строки. Третий указатель на поток, откуда брать строку. Считывание происходит до первого символа перевода строки или конца файла или пока не будет прочитано maxCount-1 символов. Символ конца строки тоже запишется в буфер.</p>
+
+  <details>
+    <summary>Программа 8 (78)</summary>
+    <p>Сохраним файл программы в кодировке <strong>Windows-1251</strong></p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;locale.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  // смена кодировки консоли
+  system("chcp 1251");
+  setlocale(LC_ALL,"Russian_Russia.1251");
+
+  char buf[256] = "";
+  char *p = NULL;
+
+  puts("Введите строку (max 255 symbols)");
+  p = fgets(buf, 256, stdin);
+  if (p) {
+    // удаляем символ перевода строки
+    size_t len = strlen(buf);
+    if (len != 0 && buf[len - 1] == '\n') {
+      buf[len - 1] = '\0';
+    }
+    printf("%s", buf);
+  } else {
+    puts("Возникла ошибка");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
 </article>
 
 
