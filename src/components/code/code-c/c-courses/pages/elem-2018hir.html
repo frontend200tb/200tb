@@ -540,6 +540,24 @@ int main() {
 <article class="article">
   <div class="anchor" id="p16"></div>
   <h3>16 Индуктивные функции на Си поиск максимума</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int x;
+  scanf("%d", &x);
+  int m = x;
+
+  while (x != 0) {
+    m = x > m ? x : m;
+    scanf("%d", &x);
+  }
+
+  printf("max = %d\n", m);
+  return 0;
+}
+</pre>
 </article>
 
 

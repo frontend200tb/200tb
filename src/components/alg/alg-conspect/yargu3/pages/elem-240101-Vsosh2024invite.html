@@ -72,14 +72,16 @@ int main() {
   <br>Ограничение по памяти 256мб</i></div>
 
   <details>
-    <summary>Решение с TL</summary>
+    <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
 
 using namespace std;
 
+typedef unsigned long long ull;
+
 int main() {
-// условная компиляция
+  // условная компиляция
 #ifdef _DEBUG
   freopen("input.txt", "rt", stdin);
   freopen("output.txt", "wt", stdout);
@@ -92,19 +94,24 @@ int main() {
   cin >> a >> b >> n;
 
   // решение
-  long long res = 0; // число дней
-  for (long long day = 1; n > 0; day++) {
-    if (day == 1 || a == 1 || day % a == 1) {
-      n--;
-    }
-    n -= b;
-    if (n >= 0) {
-      res = day;
+  long long left = 0;
+  long long right = n / b;
+
+  while (right - left > 1) {
+    long long mid = left + (right - left) / 2;
+    long long atabl = (mid + a - 1) / a;
+    long long btabl = b * mid;
+    long long total = atabl + btabl;
+
+    if (total &lt;= n) {
+      left = mid;
+    } else {
+      right = mid;
     }
   }
 
   // вывод результата
-  cout &lt;&lt; res;
+  cout &lt;&lt; left;
 }
 </pre>
   </details>

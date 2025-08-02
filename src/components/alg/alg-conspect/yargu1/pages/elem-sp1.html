@@ -16,12 +16,15 @@
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
 #include &lt;cmath&gt;
+#include &lt;set&gt;
+#include &lt;map&gt;
+#include &lt;iomanip&gt;
 </pre>
 
   <p>Подключаем пространство имен</p>
   <code>using namespace std;</code>
 
-  <p>Ускорение ввода-вывода</p>
+  <p>Ускорение ввода-вывода. Отключаем синхронизацию с C-потоками и отвязываем cin/cout для ускорения работы.</p>
 <pre>
 // ускорение ввода-вывода
 ios_base::sync_with_stdio(false);
@@ -29,7 +32,7 @@ cin.tie(nullptr);
 cout.tie(nullptr);
 </pre>
 
-  <p>В режиме DEBUG входные данные будут браться из файла input.txt, а результат будет выводиться в файл output.txt</p>
+  <p>Отладочный режим: если определён макрос _DEBUG, перенаправляем ввод/вывод в файлы input.txt и output.txt.</p>
 <pre>
 // условная компиляция
 #ifdef _DEBUG

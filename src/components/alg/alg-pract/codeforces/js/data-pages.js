@@ -3,6 +3,7 @@ import htmlRound1      from './../pages/elem-100219-Round1.html';
 import htmlSko12010    from './../pages/elem-101024-sko1-2010.html';
 import htmlSko22010    from './../pages/elem-000000-sko2-2010.html';
 import htmlSko32010    from './../pages/elem-000000-sko3-2010.html';
+import htmlSio12010    from './../pages/elem-000000-sio1-2010.html';
 import htmlSio22010    from './../pages/elem-000000-sio2-2010.html';
 import htmlSio32010    from './../pages/elem-000000-sio3-2010.html';
 import htmlKosSar2011  from './../pages/elem-000000-kosSaratov2011.html';
@@ -18,6 +19,7 @@ import htmlTechno12016  from './../pages/elem-000000-Techno1-2016.html';
 import htmlTechno22016  from './../pages/elem-000000-Techno2-2016.html';
 import htmlTechno2017  from './../pages/elem-161015-Techno2017.html';
 import htmlTechno2019  from './../pages/elem-190923-Techno2019.html';
+import htmlRound622    from './../pages/elem-000000-Round622.html';
 import htmlRound640    from './../pages/elem-200509-Round640.html';
 import htmlRound770    from './../pages/elem-220206-Round770.html';
 import htmlRound784    from './../pages/elem-220417-Round784.html';
@@ -64,6 +66,7 @@ export const pages = [
   htmlSko12010,
   htmlSko22010,
   htmlSko32010,
+  htmlSio12010,
   htmlSio22010,
   htmlSio32010,
   htmlKosSar2011,
@@ -79,6 +82,7 @@ export const pages = [
   htmlTechno22016,
   htmlTechno2017,
   htmlTechno2019,
+  htmlRound622,
   htmlRound640,
   htmlRound770,
   htmlRound784,

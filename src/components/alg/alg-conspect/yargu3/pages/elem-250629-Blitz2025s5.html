@@ -38,6 +38,49 @@
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Заведем set строк - набор уникальных значений. Пробежим по строке. Каждые две соседние буквы будем соединять в строку и добавлять в set. Количество элементов в set и будет минимальным количеством мелодий.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина строки
+    string s; // строка
+    cin >> n >> s;
+
+    // решение
+    set&lt;string&gt; st;
+    string tmp;
+
+    for (int i = 0; i &lt; n - 1; i++) {
+      tmp = "";
+      tmp.push_back(s[i]);
+      tmp.push_back(s[i + 1]);
+      st.insert(tmp);
+    }
+
+    // вывод результата
+    cout &lt;&lt; st.size() &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -49,6 +92,51 @@
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Алиса в свой ход берет первую букву и меняет ее на букву 'a', если это уже буква 'a', то меняет ее на букву 'b'. Боб в свой ход берет следующую букву и меняет ее на букву 'z', если это уже буква 'z', то меняет ее на букву 'y'. И так далее пока есть буквы в строке.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    string s;
+    cin >> s;
+
+    // решение
+    string res = s;
+    for (int i = 0; i &lt; s.length(); i++) {
+
+      // ход Алисы
+      if (i % 2 == 0) {
+        res[i] = s[i] == 'a' ? 'b' : 'a';
+      }
+
+      // ход Боба
+      if (i % 2 == 1) {
+        res[i] = s[i] == 'z' ? 'y' : 'z';
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

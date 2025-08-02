@@ -188,6 +188,47 @@ int main() {
   <p>В первом примере существует невырожденный треугольник со сторонами длины 3, 5 и 3⊕5=6. Поэтому y=3 является допустимым ответом.</p>
   <p>Во втором примере 1 является единственным возможным кандидатом для y, но он не может образовать невырожденный треугольник. Поэтому ответ -1.</p>
   </details>
+
+  <details>
+    <summary>Решение с TL</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int x;
+    cin >> x;
+
+    // решение
+    // x, y, z - стороны невырожденного треугольника
+    int res = -1;
+    for (int y = x - 1; y > 0; y--) {
+      int z = x ^ y;
+      if (x + y > z && x + z > y && y + z > x) {
+        res = y;
+        break;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -250,6 +291,70 @@ fft
 algorithm
 w
 meetinthemiddle
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина строки
+    cin >> n;
+    string b;
+    cin >> b;
+
+    // решение
+
+    // оставляем уникальные буквы
+    // и сортируем их по алфавиту
+    set&lt;char&gt; st;
+    for (char ch : b) {
+      st.insert(ch);
+    }
+
+    // вспомогательная строка
+    vector&lt;char&gt; A;
+    for (char ch : st) {
+      A.push_back(ch);
+    }
+    int m = st.size();
+
+    // создаем словарь
+    // буква - индекс во вспомогательной строке
+    map&lt;char, int&gt; mp;
+    for (int i = 0; i &lt; m; i++) {
+      mp[A[i]] = i;
+    }
+
+    // восстанавливаем строку
+    string s = "";
+    for (char ch : b) {
+      s.push_back(A[m - mp[ch] - 1]);
+    }
+
+    // вывод результата
+    cout &lt;&lt; s &lt;&lt; '\n';
+  }
+}
 </pre>
   </details>
 </article>
