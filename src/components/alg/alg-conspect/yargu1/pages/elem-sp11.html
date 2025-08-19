@@ -1210,6 +1210,8 @@ int main() {
   int n;
   cin >> n;
 
+
+  // решение
   vector&lt;int&gt; A(n + 1);
   A[0] = 1;
   A[1] = 1;
@@ -1223,11 +1225,11 @@ int main() {
     }
   }
 
-  // решение
+  // собираем результат
   int res = 0;
   for (int i = 2; i &lt;= n; i++) {
     int count = 0;
-    for (int j = 2; j &lt; A.size(); j++) {
+    for (int j = 2; j &lt; i; j++) {
       if (A[j] == 0) {
         if (i % j == 0) {
           count++;

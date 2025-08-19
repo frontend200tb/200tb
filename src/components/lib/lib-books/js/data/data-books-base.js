@@ -1311,6 +1311,19 @@ const dataBooksBase = [
     dateLearned: '',
   },
 
+  {
+    id: 101,
+    year: 2025,
+    category: 'основы',
+    theme: 'Программирование',
+    title: 'Как делать хорошие игры. От идеи до запуска',
+    author: 'Прохоренко',
+    authorName: 'Петр',
+    pages: '240',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

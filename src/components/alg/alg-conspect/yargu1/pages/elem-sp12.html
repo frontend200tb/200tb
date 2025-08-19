@@ -2341,6 +2341,180 @@ Q R
       <br><a href="https://codeforces.com/gym/100488" target="_blank">2014, Отборочный контест СГАУ на четвертьфинал ACM ICPC 2014-09-21</a>
     </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;list&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число ячеек
+  int l; // левый указатель
+  int r; // правый указатель
+  cin >> n >> l >> r;
+
+  list&lt;char&gt; Li; // двусвязный список
+  char in;
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    Li.push_back(in);
+  }
+
+  int m; // число запросов
+  cin >> m;
+
+  // решение
+  stack&lt;char&gt; L_st;
+  stack&lt;char&gt; R_st;
+  char tmp;
+
+  // заполняем стек справа от правого указателя
+  for (int i = r + 1; i &lt;= n; i++) {
+    tmp = Li.back();
+    Li.pop_back();
+    R_st.push(tmp);
+  }
+
+  // заполняем стек слева от левого указателя
+  for (int i = 1; i &lt; l; i++) {
+    tmp = Li.front();
+    Li.pop_front();
+    L_st.push(tmp);
+  }
+
+  list&lt;char&gt; Res;
+  char q; // запрос
+  char X, Y; // указатель и направление
+  bool reversed = false;
+
+  while (m--) {
+    cin >> q;
+
+    // сдвинуть головку на один шаг
+    if (q == 'S') {
+      cin >> X >> Y;
+
+      // левую головку
+      if (X == 'L') {
+        if (!reversed) {
+
+          // влево
+          if (Y == 'L') {
+            tmp = L_st.top();
+            L_st.pop();
+            Li.push_front(tmp);
+          }
+
+          // вправо
+          if (Y == 'R') {
+            tmp = Li.front();
+            Li.pop_front();
+            L_st.push(tmp);
+          }
+
+        } else {
+
+          if (Y == 'L') {
+            tmp = L_st.top();
+            L_st.pop();
+            Li.push_back(tmp);
+          }
+
+          if (Y == 'R') {
+            tmp = Li.back();
+            Li.pop_back();
+            L_st.push(tmp);
+          }
+        }
+
+      }
+
+      // правую головку
+      if (X == 'R') {
+        if (!reversed) {
+
+          // влево
+          if (Y == 'L') {
+            tmp = Li.back();
+            Li.pop_back();
+            R_st.push(tmp);
+          }
+
+          // вправо
+          if (Y == 'R') {
+            tmp = R_st.top();
+            R_st.pop();
+            Li.push_back(tmp);
+          }
+
+        } else {
+
+          if (Y == 'L') {
+            tmp = Li.front();
+            Li.pop_front();
+            R_st.push(tmp);
+          }
+
+          if (Y == 'R') {
+            tmp = R_st.top();
+            R_st.pop();
+            Li.push_front(tmp);
+          }
+        }
+      }
+    }
+
+    // перевернуть ленту между головками
+    if (q == 'R') {
+      if (!reversed) {
+        reversed = true;
+      } else {
+        reversed = false;
+      }
+    }
+
+    // на какой символ указывает головка
+    if (q == 'Q') {
+      cin >> tmp;
+
+      if (tmp == 'L') {
+        if (!reversed) {
+          Res.push_back(Li.front());
+        } else {
+          Res.push_back(Li.back());
+        }
+      }
+
+      if (tmp == 'R') {
+        if (!reversed) {
+          Res.push_back(Li.back());
+        } else {
+          Res.push_back(Li.front());
+        }
+      }
+    }
+
+  }
+
+  // вывод результата
+  for (char ch : Res) {
+    cout &lt;&lt; ch;
+  }
+}
+</pre>
   </details>
 
 </article>

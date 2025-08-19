@@ -73,6 +73,15 @@
     <li>Как обходить объект ДП?</li>
     <li>Где хранится ответ на задачу?</li>
   </ol>
+
+  <p>Примеры ответов на 5 главных вопросов ДП для нахождения чисел Фибоначчи</p>
+  <ol>
+    <li>vector&lt;int&gt; A(n+1)</li>
+    <li>A[i] = A[i-1] + A[i-2]</li>
+    <li>A[1] = 1, A[2] = 1</li>
+    <li>for (int i = 3; i &lt= n; i++) {} (слева направо)</li>
+    <li>A[n] (ответ хранится в последней ячейке массива)</li>
+  </ol>
 </article>
 
 
@@ -99,7 +108,7 @@
       <p>Мы можем начинать наши расчеты со 2 элемента и до n. Потребуется цикл for(i=2,...,n).</p>
     </li>
     <li>Где хранится ответ на задачу?
-      <p>Ответ хранится в последней ячейкой DP[n].</p>
+      <p>Ответ хранится в последней ячейке DP[n].</p>
     </li>
   </ol>
 
@@ -111,9 +120,11 @@ cin >> n;
 vector&lt;int&gt; DP(n + 1);
 DP[0] = 1;
 DP[1] = 1;
+
 for (int i = 2; i &lt;= n; i++) {
   DP[i] = DP[i - 1] + DP[i - 2];
 }
+
 cout &lt;&lt; DP[n];
 </pre>
   </details>
@@ -145,9 +156,11 @@ vector&lt;int&gt; DP(n + 1);
 DP[0] = 1;
 DP[1] = 1;
 DP[2] = 2;
+
 for (int i = 3; i &lt;= n; i++) {
   DP[i] = DP[i - 1] + DP[i - 2] + DP[i - 3];
 }
+
 cout &lt;&lt; DP[n];
 </pre>
   </details>
@@ -171,6 +184,49 @@ cout &lt;&lt; DP[n];
   <p>Изменится правило подсчета для ячейки. Нужен будет цикл от 0 до k чтобы подсчитать все случаи.</p>
   <p>Изменится определение простейших случаев. Нам придется использовать цикл for чтобы описать все простейшие случаи от 0 до k.</p>
   <p>Изменится правило обхода объекта ДП. Начинать обход будем с позиции k.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+int n;
+cin >> n;
+vector&lt;int&gt; DP(n + 1);
+DP[0] = 1;
+
+for (int i = 1; i &lt;= n; i++) {
+  for (int j = 1; j &lt;= k; j++) {
+    if (i - j >= 1) {
+      DP[i] += DP[i - j];
+    }
+  }
+}
+
+cout &lt;&lt; DP[n];
+</pre>
+  </details>
+
+  <p>Чтобы не обходить k элементов внутренним циклом, заметим, что при сдвига окна из k элеметов на 1 вправо, в окно добавляется один элемент и из окна удаляется один элемент.</p>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+int n;
+cin >> n;
+vector&lt;int&gt; DP(n + 1);
+DP[0] = 1;
+long long sum = 0;
+
+for (int i = 2; i &lt;= n; i++) {
+  sum += A[i-1];
+  if (i - k - 1 >= 1) {
+    sum -= A[i - k - 1];
+  }
+  A[i] = sumж
+}
+
+cout &lt;&lt; DP[n];
+</pre>
+
 </article>
 
 
@@ -185,12 +241,12 @@ cout &lt;&lt; DP[n];
   <p>Последовательно ответим на 5 вопросов ДП:</p>
   <ol>
     <li>Что храним?
-      <p>Создадим матрицу DP, в котором в ячейке DP[i][j] будем хранить
+      <p>Создадим матрицу DP, в ячейке DP[i][j] будем хранить
 максимальное количество орехов, которое может собрать белка если остановится в ячейке [i][j].</p>
     </li>
     <li>Как считаем ячейку?
       <p>Белка может двигаться вправо и вниз, тогда в ячейку [i][j] можно попасть только слева и сверху исходя из этого придумаем правило.</p>
-      <code>DP[i][j] = max(DP[i - 1][j],DP[i][j - 1]) + A[i][j].</code>
+      <code>DP[i][j] = max(DP[i - 1][j], DP[i][j - 1]) + A[i][j].</code>
     </li>
     <li>Что является простейшим случаем? (база)
       <p>В нашем правиле для подсчета i элемента необходимо ссылаться на соседа сверху и соседа слева. Нам потребуется в качестве базы указать все элементы первой строки и первого столбца. Потому что для первой строки нет соседей сверху, а для первого столбца нет соседей слева.</p>
@@ -222,7 +278,7 @@ for (int i = 1; i &lt;= n; i++) {
 // перенос первой ячейки
 DP[1][1] = A[1][1];
 // заполнение первого столбца
-for (int i = 2; i&lt;= n; i++) {
+for (int i = 2; i &lt;= n; i++) {
   DP[i][1] = DP[i - 1][1] + A[i][1];
 }
 // заполнение первой строки
@@ -236,6 +292,8 @@ for (int i = 2; i &lt;= n; i++) {
     DP[i][j] = max(DP[i - 1][j], DP[i][j - 1]) + A[i][j];
   }
 }
+
+// вывод результата
 cout &lt;&lt; DP[n][m];
 </pre>
   </details>
@@ -277,17 +335,12 @@ cout &lt;&lt; DP[n][m];
     <p>Есть алгоритм НВП (наилучшая возрастающая подпоследовательность), но это отдельная тема, которую мы разберем потом.</p>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
 
 using namespace std;
 
 int main() {
-  // ускорение ввода-вывода
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-
   // ввод данных
   int n;
   cin >> n;
@@ -305,6 +358,7 @@ int main() {
       }
     }
   }
+
   int res = 0;
   for (int i = 0; i &lt; n; i++) {
     res = max(res, DP[i]);
@@ -337,7 +391,7 @@ int main() {
   <p>Выведите минимальную сумму, потратив которую можно попасть в правый нижний угол.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
 <pre>
 3 4
@@ -358,6 +412,65 @@ int main() {
 </pre>
     <code>11</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n, m; // размер таблицы
+  cin >> n >> m;
+  vector&lt;vector&lt;int&gt; &gt; A(n, vector&lt;int&gt; (m));
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      cin >> A[i][j];
+    }
+  }
+
+  // решение
+  // создадим матрицу для хранения минимальной
+  // стоимости прохода к каждой ячейки
+  vector&lt;vector&lt;int&gt; &gt; DP(n, vector&lt;int&gt; (m));
+
+  // базовый случай
+  // перенос первой ячейки
+  DP[0][0] = A[0][0];
+  // заполнение первого столбца
+  for (int i = 1; i &lt; n; i++) {
+    DP[i][0] = DP[i - 1][0] + A[i][0];
+  }
+  // заполнение первой строки
+  for (int j = 1; j &lt; m; j++) {
+    DP[0][j] = DP[0][j - 1] + A[0][j];
+  }
+
+  // обход объектов ДП
+  for (int i = 1; i &lt; n; i++) {
+    for (int j = 1; j &lt; m; j++) {
+      DP[i][j] = min(DP[i - 1][j], DP[i][j - 1]) + A[i][j];
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; DP[n - 1][m - 1];
+}
+</pre>
+  </details>
+
+  <h4>Дополнительно</h4>
+  <p>Чтобы восстановить путь, по которому мы собрали минимальную сумму, создадим еще одну матрицу C. Ячейка C[i][j] будет содержать либо 1, либо 2. Если мы пришли в ячейку C[i][j] слева, то запишем в нее 1, если сверху, то запишем в нее 2. Когда дойдем от ячейки [0][0] до [n],m], то можем потом собрать весь путь в обратном порядке.</p>
 </article>
 
 
@@ -378,7 +491,7 @@ int main() {
   <p>Выведите слово YES, если число N можно получить из числа 1, или NO – в противном случае.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
     <code>1</code>
     <code>YES</code>
@@ -528,6 +641,162 @@ int main() {
 </pre>
     <code>8</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 4. Сначала пешком, потом на автобусе</h4>
+<pre>
+6
+5 5 5 1 1 1
+2 2 2 4 4 4
+</pre>
+  <code>9</code>
+
+    <h4>Пример 5. Сначала на автобусе, потом пешком</h4>
+<pre>
+6
+3 2 2 4 4 4
+5 5 5 1 1 1
+</pre>
+  <code>10</code>
+
+    <h4>Пример 6. Сначала пешком, потом на автобусе, потом пешком</h4>
+<pre>
+6
+5 5 1 2 4 4
+2 2 5 5 2 2
+</pre>
+  <code>11</code>
+
+    <h4>Пример 7</h4>
+<pre>
+9
+5 5 1 1 5 1 1 5 5
+1 1 5 5 1 5 5 1 1
+</pre>
+  <code>13</code>
+
+  <h4>Пример 8</h4>
+<pre>
+55
+195 51 83 36 251 252 1 31 34 137 328 71 356 4 318 143 115 3 333 352 273 16 78 124 354 151 233 107 136 3 118 129 316 297 103 158 196 20 203 117 159 215 269 134 74 86 122 220 263 214 151 215 273 224 9
+163 194 210 235 8 245 125 332 240 212 184 182 164 130 220 127 7 34 22 196 209 31 96 289 189 330 57 355 347 55 336 303 55 360 221 351 65 265 360 108 179 226 95 111 214 120 52 78 301 164 141 173 328 290 123
+</pre>
+  <code>8758</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
+
+  // время на автобусе
+  vector&lt;int&gt; A(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  // время пешком
+  vector&lt;int&gt; B(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  // префиксная сумма на автобусе
+  vector&lt;int&gt; prefA(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefA[i] = prefA[i - 1] + A[i];
+  }
+
+  // суффиксная сумма на автобусе
+  vector&lt;int&gt; sufA(n + 2, 0);
+  for (int i = n; i > 0; i--) {
+    sufA[i] = sufA[i + 1] + A[i];
+  }
+
+  // префиксная сумма пешком
+  vector&lt;int&gt; prefB(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefB[i] = prefB[i - 1] + B[i];
+  }
+
+  // суффиксная сумма пешком
+  vector&lt;int&gt; sufB(n + 2, 0);
+  for (int i = n; i > 0; i--) {
+    sufB[i] = sufB[i + 1] + B[i];
+  }
+
+  // разница во времени
+  vector&lt;int&gt; Dif(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    Dif[i] = A[i] - B[i];
+  }
+  // префикс разницы
+  vector&lt;int&gt; prefD(n + 1, 0);
+  for (int i = 1; i &lt;= n; i++) {
+    prefD[i] = prefD[i - 1] + Dif[i];
+  }
+
+  // пусть ответ это минимальное из
+  // времени на автобусе или пешком
+  int res = min(prefA[n], prefB[n]);
+
+  // метод двух указателей
+  // левый указатель left
+  // правый указатель right
+  //       left      right
+  //   1    2    3    4    5    6
+  // .____.____.____.____.____.____.
+
+  // собираем вектор отрезков, на которых
+  // вермя на автобусе меньше чем пешком
+  vector&lt;pair&lt;int, int&gt; &gt; NegA;
+  pair&lt;int, int&gt; tmp;
+  for (int left = 1; left &lt;= n; left++) {
+    int right = left;
+    while (right &lt;= n && Dif[right] &lt; 0) {
+      right++;
+    }
+    if (right > left) {
+      tmp.first = left;
+      tmp.second = right - 1;
+      NegA.push_back(tmp);
+      left = right;
+    }
+  }
+
+  // собираем соседние выгодные отрезки вместе
+  // ищем максимальный выгодный отрезок
+  int cur, next;
+  for (int left = 0; left &lt; NegA.size(); left++) {
+    int right = left;
+    tmp.first = NegA[left].first;
+    tmp.second = NegA[right].second;
+    cur = prefB[tmp.first - 1] + (prefA[tmp.second] - prefA[tmp.first - 1]) + sufB[tmp.second + 1];
+    right++;
+
+    while (right &lt; NegA.size()) {
+      tmp.second = NegA[right].second;
+      next = prefB[tmp.first - 1] + (prefA[tmp.second] - prefA[tmp.first - 1]) + sufB[tmp.second + 1];
+      if (next &lt; cur) {
+        cur = next;
+      }
+      right++;
+    }
+
+    res = min(res, cur);
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -583,7 +852,6 @@ int main() {
     <p>Ответ на задачу будет храниться в DP[n].</p>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 #include &lt;vector&gt;
 
 using namespace std;
@@ -594,14 +862,20 @@ int main() {
   cin.tie(0);
 
   // ввод данных
-  int n, a, b, c;
+  int n;  // длина ленточки
+  int a, b, c; // длины кусочков
   cin >> n >> a >> b >> c;
 
   // решение
+  // создадим объект ДП
   vector&lt;int&gt; DP(10000);
+
+  // базовый случай
   DP[a] = 1;
   DP[b] = 1;
   DP[c] = 1;
+
+  // обход объекта ДП
   for (int i = 1; i &lt;= n; i++) {
     if (i - a > 0) {
       if (DP[i] &lt; DP[i - a] + 1 && DP[i - a] != 0) {
@@ -785,6 +1059,60 @@ int main() {
 3 1 1 0
 </pre>
     <code>3</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n, m; // размер поля
+  cin >> n >> m;
+  vector&lt;vector&lt;long long&gt; &gt; A(n + 1, vector&lt;long long&gt; (m + 1));
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= m; j++) {
+      cin >> A[i][j];
+    }
+  }
+
+  // решение
+  // создадим объект ДП для хранения
+  // количества вариантов пути
+  vector&lt;vector&lt;long long&gt; &gt; DP(n + 1, vector&lt;long long&gt; (m + 1));
+
+  // базовый случай
+  DP[1][1] = 1;
+
+  // обход объектов ДП
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= m; j++) {
+      if (A[i][j] != 0) {
+        if (j + A[i][j] &lt;= m) {
+          DP[i][j + A[i][j]] += DP[i][j];
+        }
+        if (i + A[i][j] &lt;= n) {
+          DP[i + A[i][j]][j] += DP[i][j];
+        }
+      }
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; DP[n][m];
+}
+</pre>
   </details>
 </article>
 

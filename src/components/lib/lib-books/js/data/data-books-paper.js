@@ -1031,8 +1031,8 @@ const dataBooksPaper = [
     pages: '480',
     cover: 'мягкая',
     image: '2020 Прохоренок - Язык С. Самое необходимое.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.08.15 пт',
   },
 
   {

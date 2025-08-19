@@ -8,11 +8,16 @@
   <p><a href="#lib">Стандартные библиотеки языка Си</a></p>
 
   <p>Доступные во всех стандартах</p>
+  <br><a href="#stdio">stdio.h</a>
+  <br><a href="#stdlib">stdlib.h</a>
   <br><a href="#assert">assert.h</a>
   <br><a href="#ctype">ctype.h</a>
+  <br><a href="#direct">direct.h</a>
   <br><a href="#errno">errno.h</a>
   <br><a href="#float">float.h</a>
   <br><a href="#getopt">getopt.h</a>
+  <br><a href="#io">io.h</a>
+  <br><a href="#iso646">iso646.h</a>
   <br><a href="#limits">limits.h</a>
   <br><a href="#locale">locale.h</a>
   <br><a href="#math">math.h</a>
@@ -22,13 +27,11 @@
   <br><a href="#signal">signal.h</a>
   <br><a href="#stdarg">stdarg.h</a>
   <br><a href="#stddef">stddef.h</a>
-  <br><a href="#stdio">stdio.h</a>
-  <br><a href="#stdlib">stdlib.h</a>
   <br><a href="#string">string.h</a>
   <br><a href="#time">time.h</a>
   <br><a href="#wchar">wchar.h</a>
   <br><a href="#wctype">wctype.h</a>
-  <br><a href="#iso646">iso646.h</a>
+  <br><a href="#windows">windows.h</a>
 
   <p>В стандарте C99 добавлены</p>
   <br><a href="#complex">complex.h</a>
@@ -44,6 +47,7 @@
   <br><a href="#stdnoreturn">stdnoreturn.h</a>
   <br><a href="#threads">threads.h</a>
   <br><a href="#uchar">uchar.h</a>
+  <br><a href="#unistd">unistd.h</a>
 </article>
 
 
@@ -62,178 +66,218 @@
   <div class="anchor" id="stdio"></div>
   <h2>stdio.h</h2>
 
-  <h3>Работа с файлами</h3>
   <p>Функции из билиотеки <strong>stdio.h</strong> составляют одну треть всей билиотеки языка Си. Они используются для передачи данных в программу и из нее.</p>
+
+  <h3>Работа с файлами</h3>
+
   <p>Поток - это источник данных, который завершается символом новой стори '\n'. Поток присваивается указателю типа FILE, в котором хранится вся информация, необходимая для управления потоком.</p>
 
-  <h4>Тип данных FILE</h4>
-  <p>Тип данных FILE нужен для обозначения потоков (файлов), обмен с которыми происходит с помощью функций потокового ввода-вывода.</p>
+  <ol>
+    <li>Тип данных <strong>FILE</strong> нужен для обозначения потоков (файлов), обмен с которыми происходит с помощью функций потокового ввода-вывода.
+<pre>
+struct _iobuf {
+  char *_ptr;
+  int _cnt;
+  char *_base;
+  int _flag;
+  int _file;
+  int _charbuf;
+  int _bufsiz;
+  char *_tmpfname;
+};
+typedef struct _iobuf FILE;
+</pre>
+    </li>
+  </ol>
 
-  <h4>Функция fopen()</h4>
-  <code>FILE fopen(const char *filename, const char mode)</code>
-  <p>Функция fopen() открывает файл в заданном режиме и возвращает указатель типа FILE если файл открылся, иначе значение NULL.</p>
+  <h4>Открытие и закрытие файла</h4>
+  <ol>
+    <li>Функция <strong>FILE *fopen(filename, mode)</strong> открывает файл с именем <strong>const char *filename</strong> в заданном режиме <strong>const char *mode</strong> и возвращает указатель на структуру типа <strong>FILE</strong> если файл открылся, иначе значение <strong>NULL</strong>. Режим открытия файла mode может принимать следующие значения
+    <ul>
+      <li>r только чтение</li>
+      <li>r+ чтение и запись</li>
+      <li>w только запись</li>
+      <li>w+ чтение и запись</li>
+      <li>a запись</li>
+      <li>a+ чтение и запись</li>
+    </ul>
+    <p>После режима используется модификатор</p>
+    <ul>
+      <li>b бинарный режим</li>
+      <li>t текстовый режим</li>
+    </ul>
+  </li>
+    <li>Функция <strong>FILE *_wfopen(filename, mode)</strong> открывает файл с именем <strong>const wchar_t *filename</strong> в заданном режиме <strong>const wchar_t *mode</strong> и возвращает указатель на структуру типа <strong>FILE</strong> если файл открылся, иначе значение <strong>NULL</strong>.</li>
+    <li>Функция <strong>errno_t fopen_s(file, filename, mode)</strong> открывает файл с именем <strong>const char *filename</strong> в заданном режиме <strong>const char *mode</strong> и записывает в указатель на структуру <strong>FILE **file</strong> если файл открылся, иначе значение <strong>NULL</strong>. Возвращает 0 при отсутствии ошибки, иначе код ошибки.</li>
+    <li>Функция <strong>errno_t _wfopen_s(file, filename, mode)</strong> открывает файл с именем <strong>const wchar_t *filename</strong> в заданном режиме <strong>const wchar_t *mode</strong> и записывает в указатель на структуру <strong>FILE **file</strong> если файл открылся, иначе значение <strong>NULL</strong>. Возвращает 0 при отсутствии ошибки, иначе код ошибки.</li>
+    <li>Функция <strong>FILE *_fsopen(filename, mode, flag)</strong> открывает файл в режиме совместного доступа с именем <strong>const char *filename</strong> в заданном режиме <strong>const char *mode</strong> и возвращает указатель на структуру типа <strong>FILE</strong> если файл открылся, иначе значение <strong>NULL</strong>. Параметр <strong>int flag</strong> может иметь одно из следующих значений
+      <ul>
+        <li>_SH_DENYRW запрещает доступ на чтение и запись</li>
+        <li>_SH_DENYWR запрещает доступ на запись</li>
+        <li>_SH_DENYRD запрещает доступ на чтение</li>
+        <li>_SH_DEBYNO разрешает доступ на чтение и запись</li>
+      </ul>
+    </li>
+    <li>Функция <strong>FILE *_wfsopen(filename, mode, flag)</strong> открывает файл в режиме совместного доступа с именем <strong>const wchar_t *filename</strong> в заданном режиме <strong>const wchar_t *mode</strong> и возвращает указатель на структуру типа <strong>FILE</strong> если файл открылся, иначе значение <strong>NULL</strong>.</li>
+    <li>Функция <strong>int fclose(stream)</strong> очищает все незаписанные данные из потока <strong>FILE *stream</strong> и закрывает поток. Если все хорошо возвращает значение NULL, иначе возвращает константу EOF.</li>
+    <li>Функция <strong>int _fcloseall()</strong> закрывает все открытые ранее файлы. Стандартные потоки stdin, stdout, stderr не закрывает.</li>
+  </ol>
 
-  <h4>Функция freopen()</h4>
-  <code>FILE freopen(const char *filename, const char mode, FILE *stream)</code>
-  <p>Функция freopen() открывает файл в заданном режиме, привязывает его к заданному потоку и возвращает поток если файл открылся, иначе значение NULL.</p>
+  <h4>Другие функции</h4>
 
-  <h4>Функция fflush()</h4>
-  <code>int fflush(FILE *stream)</code>
-  <p>Функция fflush() очищает выходной поток. Буферизованные данные, находящиеся в выходном потоке, немедленно записываются. Если все хорошо возвращает значение NULL, при ошибке записи возвращает константу EOF. Вызов fflush(NULL) очищает все выходные потоки.</p>
+  <ol>
+    <li>Функция <strong>int fflush(stream)</strong> очищает выходной поток <strong>FILE *stream</strong>. Буферизованные данные, находящиеся в выходном потоке, немедленно записываются. Если все хорошо возвращает значение NULL, при ошибке записи возвращает константу EOF. Вызов fflush(NULL) очищает все выходные потоки.</li>
+    <li>Функция <strong>int _flushall()</strong> сбрасывает данные сразу всех потоков ввода и вывода. Возвращает количество открытых потоков.</li>
+    <li>Функция <strong>int remove(filename)</strong> удаляет указанный файл <strong>const char *filename</strong>. Если все хорошо возвращает 0, иначе ненулевое значение.</li>
+    <li>Функция <strong>int rename(oldname, newname)</strong> изменяет имя указанного файла <strong>const char *oldname</strong> на новое имя <strong>const char *newname</strong>. Если все хорошо возвращает 0, иначе ненулевое значение.</li>
+    <li>Функция <strong>int setvbuff(stream, buffer, int mode, size)</strong> начинает буферизацию указанного потока <strong>FILE *stream</strong> в буфер <strong>char *buffer</strong> размером <strong>size_t size</strong>. Эта функция вызывается после того как поток был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Возвращает 0, если ошибка то ненулевое значение. Режим <strong>_IOFBF</strong> полная буферизация, <strong>_IOLBF</strong> буферизация строки, <strong>_IONBF</strong> отключает буферизацию</li>
+    <li>Функция <strong>void setbuf(stream, buffer)</strong> определяет, как будет буферизирован поток. Эта функция вызывается после того как поток <strong>FILE *stream</strong> был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Аргумент <strong>char *buffer</strong> указывает на массив, который будет использован в качестве буфера.</li>
+  </ol>
 
-  <h4>Функция fclose()</h4>
-  <code>int fclose(FILE *stream)</code>
-  <p>Функция fclose() очищает все незаписанные данные из потока и закрывает поток. Если все хорошо возвращает значение NULL, иначе возвращает константу EOF.</p>
+  <h4>Форматирование выходных данных</h4>
 
-  <h4>Функция remove()</h4>
-  <code>int remove(const char *filename)</code>
-  <p>Функция remove() удаляет указанный файл. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
+  <ol>
+    <li>Функция <strong>int printf(const char *format, ...)</strong> преобразует и записывает данные в поток stdout. Возвращает количество записанных символов, иначе отрицательное значение. Аналогично вызову fprintf(stdout, const char *format)</li>
+    <li>Функция <strong>int fprintf(FILE *stream, const char *format, ...)</strong> преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</li>
+    <li>Функция <strong>int fprintf_s(FILE *stream, const char *format, ...)</strong> преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</li>
+    <li>Функция <strong>int fwprintf(FILE *stream, const wchar_t *format, ...)</strong> преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</li>
+    <li>Функция <strong>int fwprintf_s(FILE *stream, const wchar_t *format, ...)</strong> преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</li>
+    <li>Функция <strong>int sprintf(char *s, const char *format)</strong> аналогична функции printf() за исключением того, что даные записываются в строку, которая завершается символом '\0'.</li>
+    <li>Функция <strong>int _sprintf_l(char *s, const char *format, locale)</strong> аналогична функции printf() за исключением того, что даные записываются в строку, которая завершается символом '\0'. Позволяет задать локаль.</li>
+    <li>Функция <strong>int vfprintf(FILE *stream, const char *format, va_list arg)</strong> аналогична функции vfprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</li>
+    <li>Функция <strong>int vprintf(const char *format, va_list arg)</strong> аналогична функции vprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</li>
+    <li>Функция <strong>int vsprintf(char *s, const char *format, va_list arg)</strong> аналогична функции sprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</li>
+  </ol>
 
-  <h4>Функция rename()</h4>
-  <code>int rename(const char *oldname, const char *newname)</code>
-  <p>Функция rename() изменяет имя указанного файла. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
+  <h4>Форматирование входных данных</h4>
 
-  <h4>Функция tmpfile()</h4>
-  <code>FILE *tmpfile(void)</code>
-  <p>Функция tmpfile() создает временный файл в режиме wb+, который будет удален по окончании работы программы. Если все хорошо возвращает поток, иначе значение NULL.</p>
+  <ol>
+    <li>Функция <strong>int scanf(const char *format, ...)</strong> считывает данные из потока stdin Аналогично вызову fscanf(stdin, const char *format)</li>
+    <li>Функция <strong>int fscanf(FILE *stream, const char *format, ...)</strong> считывает данные из указанного потока и присваивает преобразованные значения указанным аргументам. Возвращает количество преобразованных символов, иначе константу EOF если достигнут конец файла или произошла ошибка.</li>
+    <li>Функция <strong>int fwscanf(FILE *stream, const wchar_t *format, ...)</strong> считывает данные из указанного потока и присваивает преобразованные значения указанным аргументам. Возвращает количество преобразованных символов, иначе константу EOF если достигнут конец файла или произошла ошибка.</li>
+    <li>Функция <strong>int sscanf(char *s, const char *format) аналогична функции scanf() за исключением того, что даные считываются из указанной строки.</strong></li>
+    <li>Функция <strong>int _snscanf(char *s, size_t maxCount, const char *format)</strong> аналогична функции scanf() за исключением того, что даные считываются из указанной строки.</li>
+  </ol>
 
-  <h4>Функция tmpnam()</h4>
-  <code>FILE *tmpnam(char arr[L_tmpnam])</code>
-  <p>Функция tmpnam() хранит строку, располагающуюся в массиве из L_tmpnam символов. Возвращает указатель с уникальным именем на этот массив. Функция tmpnam() генерирует новое имя при каждом вызове.</p>
+  <h4>Чтение символов из файла</h4>
 
-  <h4>Функция setvbuff()</h4>
-  <code>int setvbuff(FILE *stream, char *buffer, int mode, size_t size)</code>
-  <p>Функция setvbuff() начинает буферизацию указанного потока в буфер buffer размером size. Эта функция вызывается после того как поток был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Возвращает 0, если ошибка то ненулевое значение. Режим <strong>_IOFBF</strong> полная буферизация, <strong>_IOLBF</strong> буферизация строки, <strong>_IONBF</strong> отключает буферизацию</p>
+  <ol>
+    <li>Функция <strong>int fgetc(file)</strong> считывает один символ из файла <strong>FILE *file</strong>. Возвращает код прочитанного символа. Если в файле нет больше сиволов или произошла ошибка, то возвращает константу EOF.</li>
+    <li>Функция <strong>int getc(file)</strong> считывает один символ из файла <strong>FILE *file</strong>. Возвращает код прочитанного символа. Если в файле нет больше сиволов или произошла ошибка, то возвращает константу EOF.</li>
+    <li>Функция <strong>int fgetwc(file)</strong> считывает один широкий символ из файла <strong>FILE *file</strong>. Возвращает код прочитанного символа. Если в файле нет больше сиволов или произошла ошибка, то возвращает константу EOF.</li>
+    <li>Функция <strong>int getwc(file)</strong> считывает один широкий символ из файла <strong>FILE *file</strong>. Возвращает код прочитанного символа. Если в файле нет больше сиволов или произошла ошибка, то возвращает константу EOF.</li>
+    <li>Функция <strong>int ungetc(int c, FILE *stream)</strong> помещает символ c обратно в поток, он будет считан при следующем обращении. Константу EOF вернуть в поток нельзя. Возвращает отправленный назад символ, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int getchar()</strong> аналогична функции getc(stdin).</li>
+  </ol>
 
-  <h4>Функция setbuf()</h4>
-  <code>void setbuf(FILE *stream, char *buffer)</code>
-  <p>Функция setbuf() определяет, как будет буферизирован поток. Эта функция вызывается после того как поток был открыт, но перед тем, как с ним будет выполнена хотябы одна операция. Аргумент buffer указывает на массив, который будет использован в качестве буфера.</p>
+  <h4>Запись символов в файл</h4>
 
-  <h3>Форматирование выходных данных</h3>
-  <h4>Функция fprintf()</h4>
-  <code>int fprintf(FILE *stream, const char *format, ...)</code>
-  <p>Функция fprintf() преобразует и записывает данные в указанный поток. Возвращает количество записанных символов, иначе отрицательное значение.</p>
+  <ol>
+    <li>Функция <strong>int fputc(ch, file)</strong> записывает символ <strong>int ch</strong>в указанный файл <strong>FILE *file</strong> и возвращает записанный символ, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int putc(ch, file)</strong> записывает символ <strong>int ch</strong>в указанный файл <strong>FILE *file</strong> и возвращает записанный символ, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int fputwc(ch, file)</strong> записывает широкий символ <strong>int ch</strong>в указанный файл <strong>FILE *file</strong> и возвращает записанный символ, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int putwc(ch, file)</strong> записывает широкий символ <strong>int ch</strong>в указанный файл <strong>FILE *file</strong> и возвращает записанный символ, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int putchar(int c)</strong> аналогична функции putc(c, stdout).</li>
+  </ol>
 
-  <h4>Функция printf()</h4>
-  <code>int printf(const char *format, ...)</code>
-  <p>Функция printf() преобразует и записывает данные в поток stdout. Возвращает количество записанных символов, иначе отрицательное значение. Аналогично вызову fprintf(stdout, const char *format)</p>
+  <h4>Чтение строки из файла</h4>
 
-  <h4>Функция srintf()</h4>
-  <code>int srintf(char *s, const char *format)</code>
-  <p>Функция srintf() аналогична функции printf() за исключением того, что даные записываются в строку, которая завершается символом '\0'.</p>
+  <ol>
+    <li>Функция <strong>char *fgets(str, n, file)</strong> считывает следующие символы из файла <strong>FILE *file</strong> в символьный массив <strong>char *str</strong>, затем добавляет символ '\0' в конец массива. Возвращает указатель на символьный массив str, иначе значение NULL если достигнут конец файла или произошла ошибка. Символы считываются до первого перевода строки, до конца файла или пока не будет считано n-1 символов</li>
+    <li>Функция <strong>wchar_t *fgetws(wchar_t *str, int n, FILE *file)</strong> считывает следующие символы из файла <strong>FILE *file</strong> в символьный массив <strong>wchar_t *str</strong>, затем добавляет символ '\0' в конец массива. Возвращает указатель на символьный массив str, иначе значение NULL если достигнут конец файла или произошла ошибка. Символы считываются до первого перевода строки, до конца файла или пока не будет считано n-1 символов</li>
+    <li>Функция <strong>int *gets(char *s)</strong> считывает введенную строку в массив, затем добавляет символ '\0' в конец массива. Возвращает указатель s, иначе значение NULL если достигнут конец файла или произошла ошибка.</li>
+  </ol>
 
-  <h4>Функция vfprintf()</h4>
-  <code>int vfprintf(FILE *stream, const char *format, va_list arg)</code>
-  <p>Функция vfprintf() аналогична функции vfprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+  <h4>Запись строки в файл</h4>
 
-  <h4>Функция vprintf()</h4>
-  <code>int vprintf(const char *format, va_list arg)</code>
-  <p>Функция vprintf() аналогична функции vprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+  <ol>
+    <li>Функция <strong>int fputs(str, file)</strong> записывает строку <strong>const char *str</strong> в файл <strong>FILE *file</strong> и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int puts(str)</strong> записывает строку <strong>const char *str</strong> и символ новой строки '\n' в поток stdout и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</li>
+    <li>Функция <strong>int fputws(str, file)</strong> записывает строку <strong>const wchar_t *str</strong> в файл <strong>FILE *file</strong> и возвращает неотрицательное значение, иначе константу WEOF если произошла ошибка.</li>
+    <li>Функция <strong>int putws(str)</strong> записывает строку <strong>const wchar_t *str</strong> и символ новой строки '\n' в поток stdout и возвращает неотрицательное значение, иначе константу WEOF если произошла ошибка.</li>
+  </ol>
 
-  <h4>Функция vsrintf()</h4>
-  <code>int vsrintf(char *s, const char *format, va_list arg)</code>
-  <p>Функция vsrintf() аналогична функции sprintf() за исключением того, что переменное число параметров заменяется аргументом va_list type.</p>
+  <h4>Запись двоичных данных</h4>
 
-  <h3>Форматирование входных данных</h3>
-  <h4>Функция fscanf()</h4>
-  <code>int fscanf(FILE *stream, const char *format, ...)</code>
-  <p>Функция fscanf() считывает данные из указанного потока и присваивает преобразованные значения указанным аргументам. Возвращает количество преобразованных символов, иначе константу EOF если достигнут конец файла или произошла ошибка.</p>
+  <ol>
+    <li>Функция <strong>size_t fwrite(obj, obj_size, nobj, file)</strong> записывает объекты <strong>const void *obj</strong> размером <strong>size_t obj_size</strong> в файл <strong>FILE *file</strong>. Количество записываемых объектов <strong>size_t nobj</strong>. Возвращает количество записанных объектов. Файл должен быть открыт в бинарном режиме.</li>
+  </ol>
 
-  <h4>Функция scanf()</h4>
-  <code>int scanf(const char *format, ...)</code>
-  <p>Функция scanf() считывает данные из потока stdin Аналогично вызову fscanf(stdin, const char *format)</p>
+  <h4>Чтение двоичных данных</h4>
 
-  <h4>Функция sscanf()</h4>
-  <code>int sscanf(char *s, const char *format)</code>
-  <p>Функция sscanf() аналогична функции printf() за исключением того, что даные считываются из указанной строки.</p>
+  <ol>
+    <li>Функция <strong>size_t fread(obj, obj_size, nobj, file)</strong> считывает из файла <strong>FILE *file</strong> в массив <strong>void *obj</strong> объекты разамером <strong>size_t obj_size</strong> в количестве <strong>size_t nobj</strong>.  Возвращает количество считанных объектов. Файл должен быть открыт в бинарном режиме.</li>
+  </ol>
 
-  <h3>Ввод и вывод символов</h3>
-  <h4>Функция fgetc()</h4>
-  <code>int fgetc(FILE *stream)</code>
-  <p>Функция fgetc() возвращает следующий символ указанного потока как переменную типа char, иначе константу EOF если достигнут конец файла или произошла ошибка.</p>
+  <h4>Позиционирование в файлах</h4>
 
-  <h4>Функция getc()</h4>
-  <code>int getc(FILE *stream)</code>
-  <p>Функция getc() аналогична функции fgetc().</p>
+  <ol>
+    <li>Функция <strong>int fgetpos(file, pos)</strong> записывает позицию курсора относительно начала файла <strong>FILE *file</strong> в переменную, заданную указателем <strong>fpos_t *pos</strong>. Возвращает 0, если ошибка то ненулевое значение</li>
+    <li>Функция <strong>long ftell(file)</strong> возвращает позицию курсора относительно начала файла <strong>FILE *file</strong>. При ошибке возвращает -1.</li>
+    <li>Функция <strong>void rewind(file)</strong> устанавливает курсор на начало файла <strong>FILE *file</strong>. Функция дополнительно сбрасывает флаг ошибки для потока и флаг конца файла.</li>
+    <li>Функция <strong>int fsetpos(file, pos)</strong> перемещает курсор относительно начала файла <strong>FILE *file</strong> в позицию, записанную функцией fgetpos() в указатель <strong>const fpos_t *pos</strong>. Возвращает 0, если ошибка то ненулевое значение</li>
+    <li>Функция <strong>int fseek(file, offset, int original)</strong> устанавливает курсор в позицию <strong>long offset</strong> со смещением относительно позиции <strong>int original</strong> для файла <strong>FILE *file</strong>. Если все хорошо возвращает 0, иначе ненулевое значение. Параметр original может принимать значения
+      <ul>
+        <li>SEEK_SET начало файла</li>
+        <li>SEEK_CUR текущая позиция</li>
+        <li>SEEK_END конец файла</li>
+      </ul>
+    </li>
+  </ol>
 
-  <h4>Функция getchar()</h4>
-  <code>int getchar(void)</code>
-  <p>Функция getchar() аналогична функции getc(stdin).</p>
+  <h4>Создание временных файлов</h4>
 
-  <h4>Функция ungetc()</h4>
-  <code>int ungetc(int c, FILE *stream)</code>
-  <p>Функция ungetc() помещает символ c обратно в поток, он будет считан при следующем обращении. Константу EOF вернуть в поток нельзя. Возвращает отправленный назад символ, иначе константу EOF если произошла ошибка.</p>
+  <ol>
+    <li>Функция <strong>FILE *tmpfile()</strong> создает временный файл в режиме wb+. Если файл создался, то возвращает указатель на него, если нет - то значение NULL. Файл автоматически удаляется после его закрытия или после окончания работы программы.</li>
+    <li>Функция <strong>errno_t tmpfile_s(file)</strong> создает временный файл <strong>FILE *file</strong> в режиме wb+. Если файл создался, то возвращает значение 0, если нет - код ошибки. Файл автоматически удаляется после его закрытия или после окончания работы программы.</li>
+    <li>Функция <strong>char *tmpnam(buf)</strong> генерирует уникальное название, которое записывается в массив <strong>char *buf</strong> и возвращает ссылку на этот массив. Функция tmpnam() генерирует новое имя при каждом вызове.</li>
+    <li>Функция <strong>wchar_t *_wtmpnam(buf)</strong> генерирует уникальное название, которое записывается в массив <strong>wchar_t *buf</strong> и возвращает ссылку на этот массив. Функция _wtmpnam() генерирует новое имя при каждом вызове.</li>
+    <li>Функция <strong>char *_tempnam(dirname, prefix)</strong> генерирует уникальное название. Параметр <strong>const char *dirname</strong> указывает путь к каталогу для временного файла, если переменная окружения TMP не определена. Параметр <strong>const char *prefix</strong> указывает префикс. Функции динамически выделяют под название необходимый объем памяти с помощью функции malloc(). Эту память необходимо потом освободить с помощью функции free()</li>
+    <li>Функция <strong>wchar_t *_wtempnam(dirname, prefix)</strong> генерирует уникальное название. Параметр <strong>const wchar_t *dirname</strong> указывает путь к каталогу для временного файла, если переменная окружения TMP не определена. Параметр <strong>const wchar_t *prefix</strong> указывает префикс. Функции динамически выделяют под название необходимый объем памяти с помощью функции malloc(). Эту память необходимо потом освободить с помощью функции free()</li>
+  </ol>
 
-  <h4>Функция fgets()</h4>
-  <code>int *fgets(char *s, int n, FILE *stream)</code>
-  <p>Функция fgets() считывает следующие n-1 симолов указанного потока, затем добавляет символ '\0' в конец массива. Возвращает указатель s, иначе значение NULL если достигнут конец файла или произошла ошибка.</p>
+  <h4>Перенаправление потока</h4>
 
-  <h4>Функция gets()</h4>
-  <code>int *gets(char *s)</code>
-  <p>Функция gets() считывает введенную строку в массив, затем добавляет символ '\0' в конец массива. Возвращает указатель s, иначе значение NULL если достигнут конец файла или произошла ошибка.</p>
+  <ol>
+    <li>Функция <strong>FILE *freopen(filename, mode, stream)</strong> открывает файл с именем <strong>const char *filename</strong> в заданном режиме <strong>const char mode</strong>, привязывает его к заданному потоку <strong>FILE *stream</strong> и возвращает поток если файл открылся, иначе значение NULL.</li>
+    <li>Функция <strong>FILE *_wfreopen(filename, mode, stream)</strong> открывает файл с именем <strong>const wchar_t *filename</strong> в заданном режиме <strong>const wchar_t mode</strong>, привязывает его к заданному потоку <strong>FILE *stream</strong> и возвращает поток если файл открылся, иначе значение NULL.</li>
+    <li>Функция <strong>errno_t freopen_s(file, filename, mode, stream)</strong> открывает файл с именем <strong>const char *filename</strong> в заданном режиме <strong>const char mode</strong>, привязывает его к заданному потоку <strong>FILE *stream</strong> и возвращает поток если файл открылся, иначе значение NULL.</li>
+    <li>Функция <strong>errno_t _wfreopen_s(file, filename, mode, stream)</strong> открывает файл с именем <strong>const wchar_t *filename</strong> в заданном режиме <strong>const wchar_t mode</strong>, привязывает его к заданному потоку <strong>FILE *stream</strong> и возвращает поток если файл открылся, иначе значение NULL.</li>
+  </ol>
 
-  <h4>Функция fputc()</h4>
-  <code>int fputc(int c, FILE *stream)</code>
-  <p>Функция fputc() записывает символ в указанный поток и возвращает записанный символ, иначе константу EOF если произошла ошибка.</p>
+  <h4>Работа с ошибками</h4>
 
-  <h4>Функция putc()</h4>
-  <code>int putc(int c, FILE *stream)</code>
-  <p>Функция putc() аналогична функции fputc().</p>
+  <ol>
+    <li>Функция <strong>void clearer(FILE *stream)</strong> очищает индикаторы конца файла и ошибок для заданного потока.</li>
+    <li>Функция <strong>int feof(FILE *stream)</strong> возвращает ненулевое значение, если для заданного потока был установлен индикатор конца файла.</li>
+    <li>Функция <strong>int ferror(FILE *stream)</strong> возвращает ненулевое значение, если для заданного потока был установлен индикатор ошибки.</li>
+    <li>Функция <strong>void perror(const char *s)</strong> выводит сообщение об ошибке, соответствующее целочисленному значению, содержащемуся в выражении <strong>errno</strong>.</li>
+  </ol>
 
-  <h4>Функция putchar()</h4>
-  <code>int putchar(int c)</code>
-  <p>Функция putchar() аналогична функции putc(c, stdout).</p>
+  <h4>Преобразование низкоуровневого потока в обычный</h4>
 
-  <h4>Функция fputs()</h4>
-  <code>int fputs(const char *s, FILE *stream)</code>
-  <p>Функция fputs() записывает строку в указанный поток и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</p>
+  <ol>
+    <li>Функция <strong>FILE *_fdopen(file, mode)</strong> преобразует низкоуровневый поток с дескриптором <strong>int file</strong> в обычный. Параметр <strong>const char *mode</strong> задает режим открытия файла. Функция возвращает указатель на открытый поток или NULL в случае ошибки.</li>
+    <li>Функция <strong>FILE *_wfdopen(file, mode)</strong> преобразует низкоуровневый поток с дескриптором <strong>int file</strong> в обычный. Параметр <strong>const wchar_t *mode</strong> задает режим открытия файла. Функция возвращает указатель на открытый поток или NULL в случае ошибки.</li>
+  </ol>
 
-  <h4>Функция puts()</h4>
-  <code>int puts(const char *s)</code>
-  <p>Функция puts() записывает строку и символ новой строки '\n' в поток stdout и возвращает неотрицательное значение, иначе константу EOF если произошла ошибка.</p>
+  <h4>Переименование, перемещение и удаление файла</h4>
 
-  <h3>Ввод и вывод данных напрямую из потоков</h3>
-  <h4>Функция fread()</h4>
-  <code>size_t fread(void *ptr, size_t size, size_t nobj, FILE *stream)</code>
-  <p>Функция fread() считывает данные из указанного потока в указанный массив ptr. Можно считать максимум nobj объектов размера size. Возвращает количество считанных объектов.</p>
+  <ol>
+    <li>Функция <strong>int rename(old, new)</strong> переименовывает файл или каталог со старым именем <strong>const char *old</strong> в новое имя <strong>const char *new</strong>. Перед именем файла можно указать путь. Если новый путь не совпадет со старым, то файл будет перемещен. Каталоги перемещать нельзя.</li>
+    <li>Функция <strong>int _wrename(old, new)</strong> переименовывает файл или каталог со старым именем <strong>const wchar_t *old</strong> в новое имя <strong>const wchar_t *new</strong>. Перед именем файла можно указать путь. Если новый путь не совпадет со старым, то файл будет перемещен. Каталоги перемещать нельзя.</li>
+    <li>Функция <strong>int remove(filename)</strong> удаляет файл <strong>const char *filename</strong></li>
+    <li>Функция <strong>int _wremove(filename)</strong> удаляет файл <strong>const wchar_t *filename</strong></li>
+    <li>Функция <strong>int _unlink(filename)</strong> удаляет файл <strong>const char *filename</strong></li>
+    <li>Функция <strong>int _wunlink(filename)</strong> удаляет файл <strong>const wchar_t *filename</strong></li>
+  </ol>
 
-  <h4>Функция fwrite()</h4>
-  <code>size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *stream)</code>
-  <p>Функция fwrite() записывает в указанный поток nobj объектов размера size из указателя ptr. Возвращает количество записанных объектов.</p>
+  <h4>Выполнение системных команд</h4>
 
-  <h3>Работа с ошибками</h3>
-  <h4>Функция clearer()</h4>
-  <code>void clearer(FILE *stream)</code>
-  <p>Функция clearer() очищает индикаторы конца файла и ошибок для заданного потока.</p>
-
-  <h4>Функция feof()</h4>
-  <code>int feof(FILE *stream)</code>
-  <p>Функция feof() возвращает ненулевое значение, если для заданного потока был установлен индикатор конца файла.</p>
-
-  <h4>Функция ferror()</h4>
-  <code>int ferror(FILE *stream)</code>
-  <p>Функция ferror() возвращает ненулевое значение, если для заданного потока был установлен индикатор ошибки.</p>
-
-  <h4>Функция perror()</h4>
-  <code>void perror(const char *s)</code>
-  <p>Функция perror() выводит сообщение об ошибке, соответствующее целочисленному значению, содержащемуся в выражении <strong>errno</strong>.</p>
-
-  <h3>Позиционирование в файлах</h3>
-  <h4>Функция fseek()</h4>
-  <code>int fseek(FILE *stream, long offset, int original)</code>
-  <p>Функция fseek() устанавливает позицию для заданного потока. Все последующие операции чтения и записи будут производиться в новой позиции. Новая позиция задается смещением offset от оригинальной origin позиции. original может принимать значение SEEK_SET начало файл, SEEK_CUR текущая позиция, SEEK_END конец файла. Если все хорошо возвращает 0, иначе ненулевое значение.</p>
-
-  <h4>Функция ftell()</h4>
-  <code>long ftell(FILE *stream)</code>
-  <p>Функция ftell() возвращает позицию в текущем файле указанного потока, иначе -1.</p>
-
-  <h4>Функция fgetpost()</h4>
-  <code>int fgetpost(FILE *stream, fpos_t *ptr)</code>
-  <p>Функция fgetpost() записывает текущую позицию файла указанного потока в заданный указатель ptr. Возвращает 0, если ошибка то ненулевое значение</p>
-
-  <h4>Функция fsetpost()</h4>
-  <code>int fsetpost(FILE *stream, const fpos_t *ptr)</code>
-  <p>Функция fsetpost() позиционирует файловый указатель в заданном потоке в позиции, записанной функцией fgetpos() в указатель ptr. Возвращает 0, если ошибка то ненулевое значение</p>
+  <ol>
+    <li>Функция <strong>FILE *_popen(command, mode)</strong> выполняет системную команду <strong>const char *command</strong> в режиме <strong>const char *mode</strong>. Функция возвращает указатель на структуру FILE или нулевой указатель в случае ошибки.</li>
+    <li>Функция <strong>FILE *_wpopen(command, mode)</strong> выполняет системную команду <strong>const wchar_t *command</strong> в режиме <strong>const wchar_t *mode</strong>. Функция возвращает указатель на структуру FILE или нулевой указатель в случае ошибки.</li>
+  </ol>
 </article>
 
 
@@ -244,53 +288,153 @@
 
   <p>Содержит функции для преобразования чисел, выделения памяти и т.д.</p>
 
-  <h4>Функция atof()</h4>
-  <code>double atof(const char *s)</code>
-  <p>Функция atof() преобразовывает строку s к типу double.</p>
+  <p>Строки можно преобразовывать в число. C-строки состоят из символов типа char. L-строки состоят из символов типа wchar_t. Отдельно есть функции для преобразования в число C-строк и L-строк.</p>
 
-  <h4>Функция atoi()</h4>
-  <code>int atoi(const char *s)</code>
-  <p>Функция atoi() преобразовывает строку s к типу int.</p>
+  <h4>Преобразование C-строки в целое число</h4>
 
-  <h4>Функция atol()</h4>
-  <code>long atol(const char *s)</code>
-  <p>Функция atol() преобразовывает строку s к типу long.</p>
+  <ol>
+    <li>Функция <strong>int atoi(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>int</strong>.</li>
+    <li>Функция <strong>int _atoi_l(str, locale)</strong> преобразовывает строку <strong>str</strong> к типу <strong>int</strong>, параметр <strong>locale</strong> задает локаль</li>
+    <li>Функция <strong>long atol(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>long</strong>.</li>
+    <li>Функция <strong>long _atol_l(str, locale)</strong> преобразовывает строку <strong>str</strong> к типу <strong>long</strong>, параметр <strong>locale</strong> задает локаль</li>
+    <li>Функция <strong>long long atoll(str)</strong>преобразовывает строку <strong>str</strong> к типу <strong>long long</strong>.</li>
+    <li>Функция <strong>__int64 _atoi64(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>__int64</strong>.</li>
+    <li>Функция <strong>long strtol(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned long strtoul(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа unsigned long с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>long long strtoll(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned long long strtoull(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>unsigned long long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>__int64 _strtoi64(s, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>__int64</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned __int64 _strtoui64(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>unsigned __int64</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>intmax_t strtoimax(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>intmax_t</strong> с основанием <strong>b</strong>.</li>
+    <li>Функция <strong>uintmax_t strtoumax(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>uintmax_t</strong> с основанием <strong>b</strong>.</li>
+  </ol>
 
-  <h4>Функция strtod()</h4>
-  <code>double strtod(const char *s, char **endp)</code>
-  <p>Функция strtod() преобразовывает начальный фрагмент строки s к переменной типа double, игнорируя пробелы в начале этой строки.</p>
+  <h4>Преобразование C-строки в вещественное число</h4>
 
-  <h4>Функция strtol()</h4>
-  <code>long strtol(const char *s, char **endp, int b)</code>
-  <p>Функция strtol() преобразовывает начальный фрагмент строки s к переменной типа long с основанием b, игнорируя пробелы в начале этой строки.</p>
+  <ol>
+    <li>Функция <strong>double atof(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>double</strong>.</li>
+    <li>Функция <strong>double _atof_l(str, locale)</strong> преобразовывает строку <strong>str</strong> к типу <strong>double</strong>, параметр <strong>locale</strong> задает локаль.</li>
+    <li>Функция <strong>float strtof(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>float</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>double strtod(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>double</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>double _strtod_l(str, endPtr, locale)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>double</strong>, игнорируя пробелы в начале этой строки, параметр <strong>locale</strong> задает локаль.</li>
+    <li>Функция <strong>long double strtold(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long double</strong>, игнорируя пробелы в начале этой строки.</li>
+  </ol>
 
-  <h4>Функция strtoul()</h4>
-  <code>unsigned long strtoul(const char *s, char **endp, int b)</code>
-  <p>Функция strtoul() преобразовывает начальный фрагмент строки s к переменной типа unsigned long с основанием b, игнорируя пробелы в начале этой строки.</p>
+  <h4>Преобразование L-строки в целое число</h4>
 
-  <h4>Функция rand()</h4>
-  <code>int rand(void)</code>
-  <p>Функция rand() возвращает псевдослучайное число.</p>
+  <ol>
+    <li>Функция <strong>int _wtoi(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>int</strong>.</li>
+    <li>Функция <strong>long _wtol(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>long</strong>.</li>
+    <li>Функция <strong>long long _wtoll(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>long long</strong>.</li>
+    <li>Функция <strong>__int64 _wtoi64(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>__int64</strong>.</li>
+    <li>Функция <strong>long wcstol(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned long wcstoul(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>unsigned long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>long long wcstoll(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned long long wcstoull(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>unsigned long long</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>__int64 _wcstoi64(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>__int64</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>unsigned __int64 _wcstoui64(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>unsigned __int64</strong> с основанием <strong>b</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>intmax_t wcsrtoimax(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>intmax_t</strong> с основанием <strong>b</strong>.</li>
+    <li>Функция <strong>uintmax_t wcstoumax(str, endPtr, b)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>uintmax_t</strong> с основанием <strong>b</strong>.</li>
+    <li>Функция <strong>float wcstof(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>float</strong>, игнорируя пробелы в начале этой строки.</li>
+  </ol>
 
-  <h4>Функция srand()</h4>
-  <code>void srand(unsugned int seed)</code>
-  <p>Функция srand() устанавливает зерно для функции rand(). Зерно по умолчанию равно 1.</p>
+  <h4>Преобразование L-строки в вещественное число</h4>
 
-  <h4>Функция calloc()</h4>
-  <code>void *calloc(size_t nobj, size_t size)</code>
-  <p>Функция calloc() выделяет память для nobj объектов размером size и заполняет эту память нулями. Возвращает указатель на новую память или NULL если выделить память не удалось</p>
+  <ol>
+    <li>Функция <strong>double _wtof(str)</strong> преобразовывает строку <strong>str</strong> к типу <strong>double</strong>.</li>
+    <li>Функция <strong>double wcstod(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>double</strong>, игнорируя пробелы в начале этой строки.</li>
+    <li>Функция <strong>long double wcstold(str, endPtr)</strong> преобразовывает начальный фрагмент строки <strong>str</strong> к переменной типа <strong>long double</strong>, игнорируя пробелы в начале этой строки.</li>
+  </ol>
 
-  <h4>Функция malloc()</h4>
-  <code>void *malloc(size_t size)</code>
-  <p>Функция malloc() выделяет память для объекта размером size не изменяя значений в ячейках этой памяти. Возвращает указатель на новую память или NULL если выделить память не удалось</p>
+  <h4>Преобразование числа в C-строку</h4>
 
-  <h4>Функция realloc()</h4>
-  <code>void *realloc(void *p, size_t size)</code>
-  <p>Функция realloc() увеличивает размер памяти созданной с помощью функций calloc() или malloc() на величину size. Возвращает указатель на новый фрагмент памяти или NULL если увеличить размер памяти не удалось</p>
+  <ol>
+    <li>Функция <strong>_itoa(x, s, b)</strong> преобразует число int x в строку s в системе счисления b.</li>
+    <li>Функция <strong>_itoa_s(x, d, s, b)</strong> преобразует число int x в строку s длины d в системе счисления b.</li>
+    <li>Функция <strong>_ltoa(x, s, b)</strong> преобразует число long x в строку s в системе счисления b.</li>
+    <li>Функция <strong>_ltoa_s(x, d, s, b)</strong> преобразует число long x в строку s длины d в системе счисления b.</li>
+    <li>Функция <strong>_ultoa(x, s, b)</strong> преобразует число unsigned long x в строку s в системе счисления b.</li>
+    <li>Функция <strong>_ultoa_s(x, d, s, b)</strong> преобразует число unsigned long x в строку s длины d в системе счисления b.</li>
+    <li>Функция <strong>_i64toa(x, s, b)</strong> преобразует число __int64 x в строку s в системе счисления b.</li>
+    <li>Функция <strong>_i64toa_s(x, d, s, b)</strong> преобразует число __int64 x в строку s длины d в системе счисления b.</li>
+    <li>Функция <strong>_ui64toa(x, s, b)</strong> преобразует число unsigned __int64 x в строку s в системе счисления b.</li>
+    <li>Функция <strong>_ui64toa_s(x, d, s, b)</strong> преобразует число unsigned __int64 x в строку s длины d в системе счисления b.</li>
+  </ol>
 
-  <h4>Функция free()</h4>
-  <code>void *free(void *p)</code>
-  <p>Функция free() освобождает и возвращает в операционную систему память, выделенную функциями calloc(), malloc(), realloc()</p>
+  <h4>Преобразование числа в L-строку</h4>
+
+  <ol>
+    <li>Функция <strong>wchar_t *_itow(n, str, b)</strong> преобразует число <strong>int n</strong> в строку <strong>wchar_t str</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>errno_t _itow_s(n, str, str_size, b)</strong> преобразует число <strong>int n</strong> в строку <strong>wchar_t str</strong> длины <strong>size_t str_size</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>wchar_t *_ltow(n, str, b)</strong> преобразует число <strong>long n</strong> в строку <strong>wchar_t str</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>errno_t _ltow_s(n, str, str_size, b)</strong> преобразует число <strong>long n</strong> в строку <strong>wchar_t str</strong> длины <strong>size_t str_size</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>wchar *_ultow(n, str, b)</strong> преобразует число <strong>unsigned long n</strong> в строку <strong>wchar_t str</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>errno_t _ultow_s(n, str, str_size, b)</strong> преобразует число <strong>unsigned long n</strong> в строку <strong>wchar_t str</strong> длины <strong>size_t str_size</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>whar_t _i64tow(n, str, b) </strong>преобразует число <strong>__int64 n</strong> в строку <strong>wchar_t str</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>errno_t _i64tow_s(n, str, str_size, b)</strong> преобразует число <strong>__int64 n</strong> в строку <strong>wchar_t str</strong> длины <strong>size_t str_size</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>whar_t _ui64tow(n, str, b)</strong> преобразует число <strong>unsigned __int64 n</strong> в строку <strong>wchar_t str</strong> в системе счисления <strong>int b</strong>.</li>
+    <li>Функция <strong>errno_t _ui64tow_s(n, str, str_size, b)</strong> преобразует число <strong>unsigned __int64 n</strong> в строку <strong>wchar_t str</strong> длины <strong>size_t str_size</strong> в системе счисления <strong>int b</strong>.</li>
+  </ol>
+
+  <h4>Генерация псевдослучайных чисел</h4>
+
+  <ol>
+    <li>Функция <strong>rand()</strong> возвращает псевдослучайное число от 0 до RAND_MAX = 0x7fff.</li>
+    <li>Функция <strong>srand()</strong> устанавливает зерно для функции rand(). Зерно по умолчанию равно 1.</li>
+  </ol>
+
+  <h4>Динамическое выделение памяти</h4>
+
+  <ol>
+    <li>Функция <strong>void *calloc(n, size)</strong> выделяет память для <strong>size_t n</strong> объектов размером <strong>size_t size </strong>каждый и заполняет эту память нулями. Возвращает указатель на новую память или NULL если выделить память не удалось</li>
+    <li>Функция <strong>void *malloc(size)</strong> выделяет память для объекта размером <strong>size_t size</strong> не изменяя значений в ячейках этой памяти. Возвращает указатель на новую память или NULL если выделить память не удалось</li>
+    <li>Функция <strong>void *realloc(p, size)</strong> увеличивает размер памяти. Функция принимает указатель <strong>void *p</strong> на память созданную с помощью функций calloc() или malloc(), увеличивает ее на величину <strong>size_t size</strong>. Возвращает указатель на новый фрагмент памяти или NULL если увеличить размер памяти не удалось</li>
+    <li>Функция <strong>void free(p)</strong> принимает указатель <strong>void *p</strong> на память, ранее выделенную функциями calloc(), malloc(), realloc() и освобождает ее.</li>
+  </ol>
+
+  <h4>Преобразование пути к файлу или каталогу</h4>
+
+  <ol>
+    <li>Функция <strong>char *_fullpath(fullpath, path, size)</strong> преобразует относительный путь в абсолютный, учитывая положение текущего рабочего каталога. В буфер <strong>char *fullpath</strong> будет записан абсолютный путь. Относительный путь задается параметром <strong>char *path</strong>. Параметром <strong>size_t size</strong> задается максимальный размер буфера.Максимальный размер буфера можно задать константой _MAX_PATH.</li>
+    <li>Функция <strong>wchar_t *_wfullpath(fullpath, path, size)</strong> преобразует относительный путь в абсолютный, учитывая положение текущего рабочего каталога. В буфер <strong>wchar_t *fullpath</strong> будет записан абсолютный путь. Относительный путь задается параметром <strong>wchar_t *path</strong>. Параметром <strong>size_t size</strong> задается максимальный размер буфера.Максимальный размер буфера можно задать константой _MAX_PATH.</li>
+    <li>Функция <strong>void _splitpath(fullpath, drive, dir, filename, ext)</strong> разбивает абсолютный путь <strong>const char *fullpath</strong> на составляющие: мся диска <strong>char *drive</strong>, путь <strong>char *dir</strong>, имя файла <strong>char *filename</strong> и расширение <strong>char *ext</strong></li>
+    <li>Функция <strong>void _wsplitpath(fullpath, drive, dir, filename, ext)</strong> разбивает абсолютный путь <strong>const wchar_t *fullpath</strong> на составляющие: мся диска <strong>wchar_t *drive</strong>, путь <strong>wchar_t *dir</strong>, имя файла <strong>wchar_t *filename</strong> и расширение <strong>wchar_t *ext</strong></li>
+    <li>Функция <strong>errno_t _splitpath_s(fullpath, drive, drive_size, dir, dir_size, filename, filename_size, ext, ext_size)</strong> разбивает абсолютный путь <strong>const char *fullpath</strong> на составляющие: мся диска <strong>char *drive</strong>, путь <strong>char *dir</strong>, имя файла <strong>char *filename</strong> и расширение <strong>char *ext</strong></li>
+    <li>Функция <strong>errno_t _wsplitpath_s(fullpath, drive, drive_size, dir, dir_size, filename, filename_size, ext, ext_size)</strong> разбивает абсолютный путь <strong>const wchar_t *fullpath</strong> на составляющие: мся диска <strong>wchar_t *drive</strong>, путь <strong>wchar_t *dir</strong>, имя файла <strong>wchar_t *filename</strong> и расширение <strong>wchar_t *ext</strong></li>
+    <li>Функция <strong>void _makepath(path, drive, dir, filename, ext)</strong> соединяет элементы пути в абсолютный путь</li>
+    <li>Функция <strong>void _wmakepath(path, drive, dir, filename, ext)</strong> соединяет элементы пути в абсолютный путь</li>
+    <li>Функция <strong>errno_t _makepath_s(path, path_size, drive, dir, filename, ext)</strong> соединяет элементы пути в абсолютный путь</li>
+    <li>Функция <strong>errno_t _wmakepath_s(path, path_size, drive, dir, filename, ext)</strong> соединяет элементы пути в абсолютный путь</li>
+  </ol>
+
+  <h4>Регистрация функции, выполняемой при завершении программы</h4>
+
+  <ol>
+    <li>Функция <strong>void atexit(voif (*func)(void))</strong> регистрирует функцию func, которая выполнится перед завершением программы. Возвращает 0, если функция рарегистрирована успешно, иначе ненулевое значение если произошла ошибка</li>
+    <li>Функция <strong>_onexit_t _onexit(_onexit_t func)</strong> регистрирует функцию func, которая выполнится перед завершением программы. Возвращает указатель на зарегистрированную функцию, если функция рарегистрирована успешно, иначе значение NULL если произошла ошибка</li>
+  </ol>
+
+  <h4>Выполнение системных команд</h4>
+
+  <ol>
+    <li>Функция <strong>int system(command)</strong> выполняет системную команду <strong>const char *command</strong></li>
+    <li>Функция <strong>int _wsystem(command)</strong> выполняет системную команду <strong>const wchar_t *command</strong></li>
+  </ol>
+
+  <h4>Получение и изменение значений системных переменных</h4>
+
+  <ol>
+    <li>Функция <strong>char *getenv(var)</strong> возвращает указатель на значение переменной <strong>const char *var</strong> или нулевой указатель в случае ошибки.</li>
+    <li>Функция <strong>wchar_t *_wgetenv(var)</strong> возвращает указатель на значение переменной <strong>const wchar_t *var</strong> или нулевой указатель в случае ошибки.</li>
+    <li>Функция <strong>errno_t getenv_s(buf_size, buf, var_size, var)</strong> возвращает указатель на значение переменной <strong>const char *var</strong> или нулевой указатель в случае ошибки.</li>
+    <li>Функция <strong>errno_t _wgetenv_s(buf_size, buf, var_size, var)</strong> возвращает указатель на значение переменной <strong>const char *var</strong> или нулевой указатель в случае ошибки.</li>
+    <li>Функция <strong>errno_t _dupenv_s(buf, buf_size, var)</strong> получает значение переменной <strong>const char *var</strong> и сохраняет его в динамической памяти</li>
+    <li>Функция <strong>errno_t _wdupenv_s(buf, buf_size, var)</strong> получает значение переменной <strong>const wchar_t *var</strong> и сохраняет его в динамической памяти</li>
+    <li>Функция <strong>int _putenv(env)</strong> добавляет (изменяет, удаляет) новую переменную <strong>const char *env</strong> в процесс</li>
+    <li>Функция <strong>int _wputenv(env)</strong> добавляет (изменяет, удаляет) новую переменную <strong>const wchar_t *env</strong> в процесс</li>
+    <li>Функция <strong>errno_t _putenv_s(env, val)</strong> добавляет (изменяет, удаляет) новую переменную <strong>const char *env</strong> со значением <strong>const char *val</strong>в процесс</li>
+    <li>Функция <strong>errno_t _wputenv_s(env, val)</strong> добавляет (изменяет, удаляет) новую переменную <strong>const wchar_t *env</strong> со значением <strong>const wchar_t *val</strong>в процесс</li>
+  </ol>
 
   <h4>Функция abort()</h4>
   <code>void abort(void)</code>
@@ -299,10 +443,6 @@
   <h4>Функция exit()</h4>
   <code>void exit(int status)</code>
   <p>Функция exit() завершает программу и возвращает в систему значение status. status может иметь значения EXIT_SUCCESS или EXIT_FAILURE</p>
-
-  <h4>Функция atexit()</h4>
-  <code>void atexit(voif (*fcn)(void))</code>
-  <p>Функция atexit() вызывает функцию fcn перед завершением программы. Возвращает 0, иначе ненулевое значение если произошла ошибка</p>
 
   <h4>Функция qsort()</h4>
   <code>void qsort(void *base, size_t n, size_t size, int (*cmp) (const void*, const void*))</code>
@@ -325,57 +465,155 @@
 
   <p>Содержит функции для работы с символами. Принимают символ, возвращают ненулевое значение (true) если символ соответствует условиям, иначе 0 (false). Две функции преобразуют символ к верхнеиу или нижнему регистру и возвращают его.</p>
 
-  <h4>Функция isalpha()</h4>
-  <code>int isalpha(c)</code>
-  <p>Функция isalpha() проверяет является ли символ буквой.</p>
+  <h4>Изменение регистра C-символа</h4>
+  <ol>
+    <li>Функция toupper(ch) возвращает код символа в верхнем регистре.</li>
+    <li>Функция _toupper_l(ch, locale) возвращает код символа в верхнем регистре.</li>
+    <li>Функция tolower(ch) возвращает код символа в нижнем.</li>
+    <li>Функция _tolower_l(ch, locale) возвращает код символа в нижнем.</li>
+  </ol>
 
-  <h4>Функция isalnum()</h4>
-  <code>int isalnum(c)</code>
-  <p>Функция isalnum() проверяет является ли символ буквой или цифрой.</p>
+  <h4>Проверка C-символа</h4>
+  <ol>
+    <li>Функция int isalpha(ch) проверяет является ли символ буквой.</li>
+    <li>Функция int _isalpha_l(ch, locale) проверяет является ли символ буквой.</li>
+    <li>Функция int isalnum(ch) проверяет является ли символ буквой или цифрой.</li>
+    <li>Функция int _isalnum_l(ch, locale) проверяет является ли символ буквой или цифрой.</li>
+    <li>Функция int isblank(ch) возвращает ненулевое значение, если символ является пробельным</li>
+    <li>Функция int isdigit(ch) проверяет является ли символ десятичной цифрой.</li>
+    <li>Функция int _isdigit_l(ch, locale) проверяет является ли символ десятичной цифрой.</li>
+    <li>Функция int isxdigit(ch) проверяет является ли символ шестнадцатеричной цифрой.</li>
+    <li>Функция int _isxdigit_l(ch, locale) проверяет является ли символ шестнадцатеричной цифрой.</li>
+    <li>Функция int iscntrl(ch) проверяет является ли символ управляющим.</li>
+    <li>Функция int _iscntrl_l(ch, locale) проверяет является ли символ управляющим.</li>
+    <li>Функция int isgraph(ch) проверяет является ли символ печатным (не включая пробел).</li>
+    <li>Функция int _isgraph_l(ch, locale) проверяет является ли символ печатным (не включая пробел).</li>
+    <li>Функция int isprint(ch) проверяет является ли символ печатным (включая пробел).</li>
+    <li>Функция int _isprint_l(ch, locale) проверяет является ли символ печатным (включая пробел).</li>
+    <li>Функция int ispunct(ch) проверяет является ли символ печатным (кроме пробела, букв и цифр).</li>
+    <li>Функция int _ispunct_l(ch, locale) проверяет является ли символ печатным (кроме пробела, букв и цифр).</li>
+    <li>Функция int isspace(ch) проверяет является ли символ пробельным (' ', '\n', 'r', '\t', '\v').</li>
+    <li>Функция int _isspace_l(ch, locale) проверяет является ли символ пробельным (' ', '\n', 'r', '\t', '\v').</li>
+    <li>Функция int isupper(ch) проверяет является ли символ буквой в верхнем регистре.</li>
+    <li>Функция int _isupper_l(ch, locale) проверяет является ли символ буквой в верхнем регистре.</li>
+    <li>Функция int islower(ch) проверяет является ли символ буквой в нижнем регистре.</li>
+    <li>Функция int _islower_l(ch, locale) проверяет является ли символ буквой в нижнем регистре.</li>
+  </ol>
+</article>
 
-  <h4>Функция iscntrl()</h4>
-  <code>int iscntrl(c)</code>
-  <p>Функция iscntrl() проверяет является ли символ управляющим.</p>
 
-  <h4>Функция isdigit()</h4>
-  <code>int isdigit(c)</code>
-  <p>Функция isdigit() проверяет является ли символ десятичной цифрой.</p>
+<!-- direct.h -->
+<article class="article">
+  <div class="anchor" id="direct"></div>
+  <h3>direct.h</h3>
 
-  <h4>Функция isgraph()</h4>
-  <code>int isgraph(c)</code>
-  <p>Функция isgraph() проверяет является ли символ печатным (не включая пробел).</p>
+  <p>Функции для работы с дисками и каталогами</p>
 
-  <h4>Функция islower()</h4>
-  <code>int islower(c)</code>
-  <p>Функция islower() проверяет является ли символ буквой в нижнем регистре.</p>
+  <h4>Функции для работы с дисками</h4>
 
-  <h4>Функция isprintf()</h4>
-  <code>int isprintf(c)</code>
-  <p>Функция isprintf() проверяет является ли символ печатным (включая пробел).</p>
+  <ol>
+    <li>Функция <strong>unsigned long _getdrives()</strong> возвращает информацию о доступных дисках</li>
+    <li>Функция <strong>int _getdrive()</strong> возвращает номер текущего диска</li>
+    <li>Функция <strong>int _chdrive(drive)</strong> делает указанный диск текущим</li>
+  </ol>
 
-  <h4>Функция ispunct()</h4>
-  <code>int ispunct(c)</code>
-  <p>Функция ispunct() проверяет является ли символ печатным (кроме пробела, букв и цифр).</p>
+  <h4>Функции для работы с каталогами</h4>
 
-  <h4>Функция isspace()</h4>
-  <code>int isspace(c)</code>
-  <p>Функция isspace() проверяет является ли символ пробельным (' ', '\n', 'r', '\t', '\v').</p>
+  <ol>
+    <li>Функция <strong>char *_getcwd(buf, buf_size)</strong> получает строковое представление текущего каталога</li>
+    <li>Функция <strong>wchar_t *_wgetcwd(buf, buf_size)</strong> получает строковое представление текущего каталога</li>
+    <li>Функция <strong>char *_getdcwd(drive, buf, buf_size)</strong> получает строковое представление текущего каталога</li>
+    <li>Функция <strong>wchar_t *_wgetdcwd(drive, buf, buf_size)</strong> получает строковое представление текущего каталога</li>
+    <li>Функция <strong>int _chdir(path)</strong> делает указанный каталог текущим</li>
+    <li>Функция <strong>int _wchdir(path)</strong> делает указанный каталог текущим</li>
+    <li>Функция <strong>int _mkdir(path)</strong> создает новый каталог</li>
+    <li>Функция <strong>int _wmkdir(path)</strong> создает новый каталог</li>
+    <li>Функция <strong>int _rmdir(path)</strong> удаляет каталог</li>
+    <li>Функция <strong>int _wrmdir(path)</strong> удаляет каталог</li>
+  </ol>
+</article>
 
-  <h4>Функция isupper()</h4>
-  <code>int isupper(c)</code>
-  <p>Функция isupper() проверяет является ли символ буквой в верхнем регистре.</p>
 
-  <h4>Функция isxdigit()</h4>
-  <code>int isxdigit(c)</code>
-  <p>Функция isxdigit() проверяет является ли символ шестнадцатеричной цифрой.</p>
+<!-- io.h -->
+<article class="article">
+  <div class="anchor" id="io"></div>
+  <h3>io.h</h3>
 
-  <h4>Функция tolower()</h4>
-  <code>int tolower(c)</code>
-  <p>Функция tolower() преобразует символ к нижнему регистру.</p>
+  <p>Функции для выполнения низкоуровневых операций ввода-вывода не поддерживают буферизацию и позволяют читать и писать только байты.</p>
 
-  <h4>Функция toupper()</h4>
-  <code>int toupper(c)</code>
-  <p>Функция toupper() преобразует символ к верхнему регистру.</p>
+  <h4>Открытие и закрытие файла</h4>
+
+  <ol>
+    <li>Функция <strong>int _open(file, mode[, pmode])</strong> открывает файл <strong>const char *file</strong> в режиме <strong>int mode</strong>. Дополнительно можно задать режим разрешений <strong>int pmode</strong>. Если файл открылся, то функция возвращает дескриптор файла, если нет - значение -1.</li>
+    <li>Функция <strong>int _wopen(file, mode[, pmode])</strong> открывает файл <strong>const wchar_t *file</strong> в режиме <strong>int mode</strong>. Дополнительно можно задать режим разрешений <strong>int pmode</strong>. Если файл открылся, то функция возвращает дескриптор файла, если нет - значение -1.</li>
+    <li>Функция <strong>int _sopen(file, mode, flag[, pmode])</strong> открывает файл <strong>const char *file</strong> в режиме <strong>int mode</strong>. Параметр <strong>int flag</strong> управляет совместным доступом к файлу. Дополнительно можно задать режим разрешений <strong>int pmode</strong>. Если файл открылся, то функция возвращает дескриптор файла, если нет - значение -1.</li>
+    <li>Функция <strong>int _wsopen(file, mode, flag[, pmode])</strong> открывает файл <strong>const wchar_t *file</strong> в режиме <strong>int mode</strong>. Параметр <strong>int flag</strong> управляет совместным доступом к файлу. Дополнительно можно задать режим разрешений <strong>int pmode</strong>. Если файл открылся, то функция возвращает дескриптор файла, если нет - значение -1.</li>
+    <li>Функция <strong>int _close(file)</strong> закрывает файл с дескриптором <strong>int file</strong> и возвращает значение 0. Если файл закрыть не удалось, возвращает значение -1.</li>
+  </ol>
+
+  <h4>Чтение из файла</h4>
+
+  <ol>
+    <li>Функция <strong>int _read(file, buf, n)</strong> читает байты из файла с дескриптором <strong>int file</strong> и записывает их в буфер <strong>void *buf</strong>. Максимальное число байтов задается третим параметром <strong>unsigned int n</strong>. Функция возвращает количество прочитанных байтов, значение 0 если достигнут конец файла или значение -1 в случае ошибки.</li>
+  </ol>
+
+  <h4>Запись в файл</h4>
+
+  <ol>
+    <li>Функция <strong>int _write(int file, buf, n)</strong> записывает байты из буфера <strong>void *buf</strong> в файл с дескриптором <strong>int file</strong>. Максимальное число байтов задается третим параметром <strong>unsigned int n</strong>. Функция возвращает количество прочитанных байтов или значение -1 в случае ошибки.</li>
+  </ol>
+
+  <h4>Другие функции</h4>
+
+  <ol>
+    <li>Функция <strong>int _commit(file)</strong> принудительно сбрасывает файл с дескриптором <strong>int file</strong> на диск. Функция возвращает значение 0, если операция выполнена успешно, или значение -1 в случае ошибки.</li>
+    <li>Функция <strong>int _eof(file)</strong> возвращает значение 1 если достигнут конец файла с дескриптором <strong>int file</strong>, и значение 0 если не достигнут конец файла.</li>
+  </ol>
+
+  <h4>Позиционирование в файле</h4>
+
+  <ol>
+    <li>Функция <strong>long _tell(int file)</strong> возвращает позицию курсора относительно начала файла с дескриптором <strong>int file</strong>. При ошибке возвращает значение -1.</li>
+    <li>Функция <strong>_int64 _telli64(int file)</strong> возвращает позицию курсора относительно начала файла с дескриптором <strong>int file</strong>. При ошибке возвращает значение -1.</li>
+    <li>Функция <strong>long _lseek(file, offset, origin)</strong> устанавливает курсор в позицию со смещением <strong>long offset</strong> относительно позиции <strong>int origin</strong>. Возвращает позицию курсора в байтах относительно начала файла с дескриптором <strong>int file</strong>.</li>
+    <li>Функция <strong>_int64 _lseeki64(file, offset, origin)</strong> устанавливает курсор в позицию со смещением <strong>long offset</strong> относительно позиции <strong>int origin</strong>. Возвращает позицию курсора в байтах относительно начала файла с дескриптором <strong>int file</strong>.</li>
+  </ol>
+
+  <h4>Создание копии потока</h4>
+
+  <ol>
+    <li>Функция <strong>int _dup(file)</strong> принимает дескриптор потока <strong>int file</strong>, создает копию потока и возвращает дескриптор нового потока.</li>
+  </ol>
+
+  <h4>Перенаправление потоков</h4>
+
+  <ol>
+    <li>Функция <strong>int _dup2(src, dst)</strong> связывает дескриптор потока <strong>int src</strong> с дескриптором потока <strong>int dst</strong></li>
+  </ol>
+
+  <h4>Проверка прав доступа к файлу и каталогу</h4>
+
+  <ol>
+    <li>Функция <strong>int _access(filename, mode)</strong> проверяет существует ли файл <strong>const char *filename</strong> с правами доступа <strong>int mode</strong></li>
+    <li>Функция <strong>int _waccess(filename, mode)</strong> проверяет существует ли файл <strong>const wchar_t *filename</strong> с правами доступа <strong>int mode</strong></li>
+    <li>Функция <strong>errno_t _access_s(filename, mode)</strong> проверяет существует ли файл <strong>const char *filename</strong> с правами доступа <strong>int mode</strong></li>
+    <li>Функция <strong>errno_t _waccess_s(filename, mode)</strong> проверяет существует ли файл <strong>const wchar_t *filename</strong> с правами доступа <strong>int mode</strong></li>
+  </ol>
+
+  <h4>Изменение прав доступа к файлу</h4>
+
+  <ol>
+    <li>Функция <strong>int _chmod(filename, mode)</strong></li>
+    <li>Функция <strong>int _wchmod(filename, mode)</strong></li>
+  </ol>
+
+  <h4>Перебор объектов, расположенных в каталоге</h4>
+
+  <ol>
+    <li>Функция <strong>intptr_t _findfirst(filename, finddata)</strong> возвращает дескриптор, по которому производится дальнейший поиск</li>
+    <li>Функция <strong>int _findnext(descr, finddata)</strong></li>
+    <li>Функция <strong>int _findclosw(descr)</strong></li>
+  </ol>
 </article>
 
 
@@ -384,83 +622,71 @@
   <div class="anchor" id="string"></div>
   <h3>string.h</h3>
 
-  <p>Содержит функции для работы со строками</p>
+  <h4>Основные функции для работы с C-строками</h4>
+  <ol>
+    <li>Функция char *strcat(s1, s2) добавляет строку s2 в строку s1, затем возвращает строку s1.</li>
+    <li>Функция char *strcat_s(s1, size_s1, s2) добавляет n символов строки s2 в строку s1, затем возвращает строку s1. Максимальное количество символов строки s1 равно size_s1.</li>
+    <li>Функция char *strncat(s1, size_s1, s2, n) добавляет первые n символов строки s2 в строку s1, затем возвращает строку s1.</li>
+    <li>Функция char *strncat_s(s1, s2, n) добавляет первые n символов строки s2 в строку s1, затем возвращает строку s1. Максимальное количество символов строки s1 равно size_s1.</li>
+    <li>Функция char *strcpy(s1, s2) копирует строку s2 в строку s1, затем возвращает строку s1.</li>
+    <li>Функция char *strcpy_s(s1, size_s1, s2) копирует строку s2 в строку s1, затем возвращает строку s1. Максимальное количество символов строки s1 равно size_s1.</li>
+    <li>Функция char *strncpy(s1, s2, n) копирует n символов строки s2 в строку s1, затем возвращает строку s1.</li>
+    <li>Функция char *strncpy_s(s1, size_s1, s2, n) копирует n символов строки s2 в строку s1, затем возвращает строку s1. Максимальное количество символов строки s1 равно size_s1.</li>
+    <li>Функция size_t strlen(s) возвращает длину строки s</li>
+    <li>Функция size_t strnlen(s, n) возвращает длину строки s или число n, смотря что меньше.</li>
+    <li>Функция char *_strdup(const char *str) создает копию строки в динамической памяти и возвращает указатель на нее. Память выделяется с помощью функции malloc(), после использования строки, ее надо освободить функцией free()
+      <code>char *p = _strdup(str);</code>
+      <code>free(p);</code>
+    </li>
+    <li>Функция char *strtok(s1, s2) разбивает строку s1 на фрагменты, используя раделители, содержащиеся в строке s2</li>
+    <li>Функция char *strtok_s(s1, s2, context) разбивает строку s1 на фрагменты, используя раделители, содержащиеся в строке s2. context это адрес указателя</li>
+    <li>Функция char *strerror(n) возвращает указатель на строку, связанную с кодом ошибки n</li>
+    <li>Функция void *memcpy(s1, s2, n) копирует n символов из строки s2 в строку s1, затем возвращает строку s1</li>
+    <li>Функция void *memmove(s1, s2, n) аналогична функции memcpy(), но также работает в случае, если объекты пересекаются</li>
+  </ol>
 
-  <h4>Функция strcpy()</h4>
-  <code>char *strcpy(s1, s2)</code>
-  <p>Функция strcpy() копирует строку s2 в строку s1, затем возвращает строку s1.</p>
+  <h4>Поиск и замена в C-строке</h4>
+  <ol>
+    <li>Функция char *strchr(s, c) возвращает индекс первого вхождения символа c в строку s, иначе значение NULL если символ не найден</li>
+    <li>Функция char *strrchr(s, c) возвращает индекс последнегоо вхождения символа c в строку s, иначе значение NULL если символ не найден</li>
+    <li>Функция void *memchr(s, c, n) возвращает указатель на первое включение символа c в строке s или значение NULL если символ не найден в первых n символах строки</li>
+    <li>Функция char *strpbrk(str, control) ищет в строке str первое вхождение одного из символов строки control. Возвращает указатель на первый найденный символ.</li>
+    <li>Функция size_t strspn(s1, s2) возвращает длину префикса строки s1, содержащего символы строки s2</li>
+    <li>Функция size_t strcspn(s1, s2) возвращает длину префикса строки s1, содержащего символы, отсутствующие в строке s2</li>
+    <li>Функция char *strstr(s1, s2) возвращает указатель на первое включение строки s2 в строке s1, или значение NULL если совпадения не найдено</li>
+    <li>Функция char *_strset(str, ch) заменяет все символы в строке str символом ch.</li>
+    <li>Функция char *_strset_s(str, size_str, ch) заменяет все символы в строке str символом ch. str имеет размер size_str</li>
+    <li>Функция char *_strnset(str, ch, n) заменяет первые n символов в строке str символом ch.</li>
+    <li>Функция char *_strnset_s(str, str_size, ch, n) заменяет первые n символов в строке str символом ch. str имеет размер str_size</li>
+    <li>Функция void *memset(str, ch, n) заполняет первые n символов строки str указанным символом ch</li>
+    <li>Функция char *_strrev(str) переворачивает строку str</li>
+    <li>Функция char *_strupr(str) заменяет все символы на заглавные</li>
+    <li>Функция char *_strupr_s(str, size_str) заменяет все символы на заглавные. Строка str имеет размер size_str</li>
+    <li>Функция char *_strlwr(str) заменяет все символы на маленькие</li>
+    <li>Функция char *_strlwr_s(str, size_str) заменяет все символы на маленькие. Строка str имеет размер size_str</li>
+  </ol>
 
-  <h4>Функция strncpy()</h4>
-  <code>char *strncpy(s1, s2, n)</code>
-  <p>Функция strncpy() копирует n символов строки s2 в строку s1, затем возвращает строку s1.</p>
-
-  <h4>Функция strcat()</h4>
-  <code>char *strcat(s1, s2)</code>
-  <p>Функция strcat() добавляет строку s2 в строку s1, затем возвращает строку s1.</p>
-
-  <h4>Функция strncat()</h4>
-  <code>char *strncat(s1, s2, n)</code>
-  <p>Функция strncat() добавляет n символов строки s2 в строку s1, затем возвращает строку s1.</p>
-
-  <h4>Функция strcmp()</h4>
-  <code>char *strcmp(s1, s2)</code>
-  <p>Функция strcmp() сравнивает строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</p>
-
-  <h4>Функция strncmp()</h4>
-  <code>char *strncmp(s1, s2, n)</code>
-  <p>Функция strncmp() сравнивает n символов строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</p>
-
-  <h4>Функция strchr()</h4>
-  <code>char *strchr(s, c)</code>
-  <p>Функция strchr() возвращает индекс первого вхождения символа c в строку s, иначе значение NULL если символ не найден</p>
-
-  <h4>Функция strrchr()</h4>
-  <code>char *strrchr(s, c)</code>
-  <p>Функция strrchr() возвращает индекс последнегоо вхождения символа c в строку s, иначе значение NULL если символ не найден</p>
-
-  <h4>Функция strspn()</h4>
-  <code>size_t strspn(s1, s2)</code>
-  <p>Функция strspn() возвращает длину префикса строки s1, содержащего символы строки s2</p>
-
-  <h4>Функция strcspn()</h4>
-  <code>size_t strcspn(s1, s2)</code>
-  <p>Функция strcspn() возвращает длину префикса строки s1, содержащего символы, отсутствующие в строке s2</p>
-
-  <h4>Функция strlen()</h4>
-  <code>size_t strlen(s)</code>
-  <p>Функция strlen() возвращает длину строки s</p>
-
-  <h4>Функция strstr()</h4>
-  <code>char *strstr(s1, s2)</code>
-  <p>Функция strstr() возвращает указатель на первое включение строки s2 в строке s1, или значение NULL если совпадения не найдено</p>
-
-  <h4>Функция strerror()</h4>
-  <code>char *strerror(n)</code>
-  <p>Функция strerror() возвращает указатель на строку, связанную с кодом ошибки n</p>
-
-  <h4>Функция strok()</h4>
-  <code>char *strok(s1, s2)</code>
-  <p>Функция strok() разбивает строку s1 на фрагменты, используя раделители, содержащиеся в строке s2</p>
-
-  <h4>Функция memcpy()</h4>
-  <code>void *memcpy(s1, s2, n)</code>
-  <p>Функция memcpy() копирует n символов из строки s2 в строку s1, затем возвращает строку s1</p>
-
-  <h4>Функция memmove()</h4>
-  <code>void *memmove(s1, s2, n)</code>
-  <p>Функция memmove() аналогична функции memcpy(), но также работает в случае, если объекты пересекаются</p>
-
-  <h4>Функция memcmp()</h4>
-  <code>int *memcmp(s1, s2, n)</code>
-  <p>Функция memcmp() сравнивает первые n символов строк s1 и s2, возвращают те же значения, что и функция strcmp()</p>
-
-  <h4>Функция memchr()</h4>
-  <code>void *memchr(s, c, n)</code>
-  <p>Функция memchr() возвращает указатель на первое включение символа c в строке s или значение NULL если символ не найден в первых n символах строки</p>
-
-  <h4>Функция memset()</h4>
-  <code>void *memset(s, c, n)</code>
-  <p>Функция memset() заполняет первые n символов строки s указанным символом c</p>
+  <h4>Сравнение C-строк</h4>
+  <ol>
+    <li>Функция char *strcmp(s1, s2) сравнивает строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</li>
+    <li>Функция char *strncmp(s1, s2, n) сравнивает n символов строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</li>
+    <li>Функция int strcoll(str1, str2) аналогично функции strcmp, но сравнение производится с учетом текущей локали</li>
+    <li>Функция int _strcoll_l(str1, str2, locale) аналогично функции strcmp, но сравнение производится с учетом текущей локали. Параметр locale задает локаль.</li>
+    <li>Функция int _strncoll(str1, str2, n) сравнивает первые n символов, но сравнение производится с учетом текущей локали</li>
+    <li>Функция int _strncoll_l(str1, str2, n, locale) сравнивает первые n символов, но сравнение производится с учетом текущей локали. Параметр locale задает локаль.</li>
+    <li>Функция size_t strxfrm(str1, str2, n) преобразует строку str2 и записывает n символов в строку str1</li>
+    <li>Функция size_t _strxfrm_l(str1, str2, n, locale) преобразует строку str2 и записывает n символов в строку str1</li>
+    <li>Функция int _stricmp(str1, str2) сравнивает строки без учета регистра</li>
+    <li>Функция int _stricmp_l(str1, str2, locale) сравнивает строки без учета регистра</li>
+    <li>Функция int _strnicmp(str1, str2, n) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int _strnicmp_l(str1, str2, n, locale) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int _stricoll(str1, str2) сравнивает строки без учета регистра</li>
+    <li>Функция int _stricoll_l(str1, str2, locale) сравнивает строки без учета регистра</li>
+    <li>Функция int _strnicoll(str1, str2, n) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int _strnicoll_l(str1, str2, n, locale) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int *memcmp(s1, s2, n) сравнивает первые n символов строк s1 и s2, возвращают те же значения, что и функция strcmp()</li>
+    <li>Функция int *_memcmp_l(s1, s2, n, locale) сравнивает первые n символов строк s1 и s2, возвращают те же значения, что и функция strcmp()</li>
+  </ol>
 </article>
 
 
@@ -469,11 +695,53 @@
   <div class="anchor" id="limits"></div>
   <h3>limits.h</h3>
 
-  <p>Содержит константные определения размеров типов данных языка Си. Для каждого типа данных есть свои константы минимального и максимального значения</p> <p>CHAR_MIN, CHAR_MAX</p>
-  <p>SHRT_MIN, SHRT_MAX</p>
-  <p>INT_MIN, INT_MAX</p>
-  <p>LONG_MIN, LONG_MAX</p>
-  <p>LLONG_MIN, LLONG_MAX</p>
+  <p>Содержит константные определения размеров типов данных языка Си. Для каждого типа данных есть свои константы минимального и максимального значения</p>
+  <ol>
+    <li>CHAR_MIN</li>
+    <li>CHAR_MAX</li>
+    <li>SHRT_MIN</li>
+    <li>SHRT_MAX</li>
+    <li>INT_MIN</li>
+    <li>INT_MAX</li>
+    <li>LONG_MIN</li>
+    <li>LONG_MAX</li>
+    <li>LLONG_MIN</li>
+    <li>LLONG_MAX</li>
+  </ol>
+</article>
+
+
+<!-- locale.h -->
+<article class="article">
+  <div class="anchor" id="locale"></div>
+  <h3>locale.h</h3>
+
+  <p>Содержит константы и функции для настройки локали.</p>
+  <p>Функция setlocale() меняет локаль и возвращает название локали</p>
+  <code>setlocale(category, locale);</code>
+  <p>Функция setlocale принимает два аргумента. Первый это категория, которую нужно настроить, она выбирается из шести констант:</p>
+  <ol>
+    <li>LC_ALL = 0 устанавливает локаль для всех категорий</li>
+    <li>LC_COLLATE = 1 для сравнение строк</li>
+    <li>LC_CTYPE = 2 для перевода символов в нижний или верхний регистр</li>
+    <li>LC_MONETARY = 3 для отображения денежных единиц</li>
+    <li>LC_NUMERIC = 4 для форматирования дробных чисел</li>
+    <li>LC_TIME = 5 для форматирования вывода даты и времени</li>
+  </ol>
+  <p>Второй аргумент это локаль. Если оставить пустую строку "", то будет использоваться локаль, настроенная в системе:</p>
+  <code>setlocale(LC_ALL, "");</code>
+  <p>Можно поставить русскую кодировку, которая задана в системе по умолчанию</p>
+  <code>setlocale(LC_ALL, "Russian_Russia");</code>
+  <p>Можно указать название кодировки после точки ".1251"</p>
+  <code>setlocale(LC_ALL, "Russian_Russia.1251");</code>
+  <p>Функция setlocale() возвращает указатель на строку с названием локали, или нулевой указатель в случае ошибки.</p>
+  <p>Таким образом, мы можем получить указатель на текущую локаль</p>
+  <code>char* pLocale = setlocale(LC_ALL, NULL);</code>
+
+  <p>Функция _wsetlocale() работает также как и setlocale(), но вторым параметром принимает L-строку и возвращает название локали в виде L-строки.</p>
+  <code>_wsetlocale(category, locale);</code>
+  <p>Получим значение локали в виде L-строки</p>
+  <code>wchar_t* pLocale = _wsetlocale(LC_ALL, L"Russian_Russia.1251");</code>
 </article>
 
 
@@ -482,95 +750,84 @@
   <div class="anchor" id="math"></div>
   <h3>math.h</h3>
 
-  <p>Содержит математические функции. Переменные x и y имеют тип double. Переменная n имеет тип int. Все функции возвращают значение типа double.</p>
+  <p>Содержит математические функции и константы. Переменные x и y имеют тип double. Переменная n имеет тип int. Все функции возвращают значение типа double.</p>
 
-  <h4>Функция sin(x)</h4>
-  <code>double sin(x)</code>
-  <p>Функция sin(x) возвращает синус переменной x.</p>
+  <h4>Математические константы</h4>
 
-  <h4>Функция asin(x)</h4>
-  <code>double asin(x)</code>
-  <p>Функция asin(x) возвращает арксинус переменной x.</p>
+  <ol>
+    <li>M_PI число pi = 3.141592</li>
+    <li>M_PI_2 значение pi / 2 = 1.570796</li>
+    <li>M_PI_4 значение pi / 4 = 0.785398</li>
+    <li>M_1_PI значение 1 / pi = 0.318309</li>
+    <li>M_2_PI значение 2 / pi = 0.636619</li>
+    <li>M_E значение e = 2.718281</li>
+    <li>M_LOG2E значение log2(e) = 1.442695</li>
+    <li>M_LOG10E значение log10(e) = 0.434294</li>
+    <li>M_LN2 значение ln(2) = 0.693147</li>
+    <li>M_LN10 значение ln(10) = 2.302585</li>
+    <li>M_2_SQRTPI значение 2 / sqrt(pi) = 1.128379</li>
+    <li>M_SQRT2 значение sqrt(2) = 1.414213</li>
+    <li>M_SQRT1_2 значение 1 / sqrt(2) = 0.707106</li>
+  </ol>
 
-  <h4>Функция sinh(x)</h4>
-  <code>double sinh(x)</code>
-  <p>Функция sinh(x) возвращает гиперболический синус переменной x.</p>
+  <h4>Основные функции</h4>
 
-  <h4>Функция cos(x)</h4>
-  <code>double cos(x)</code>
-  <p>Функция cos(x) возвращает косинус переменной x.</p>
+  <ol>
+    <li>Функция <strong>int abs(x)</strong> возвращает абсолютное значение переменной <strong>int x</strong></li>
+    <li>Функция <strong>intmax_t imaxabs(x)</strong> возвращает абсолютное значение переменной <strong>intmax_t x</strong></li>
+    <li>Функция fabs(x) возвращает модуль x.</li>
+    <li>Функция exp(x) возвращает значение e (основание натурального логарифма) в степени x.</li>
+    <li>Функция log(x) возвращает натуральный логарифма переменной x.</li>
+    <li>Функция log10(x) возвращает десятичный логарифма переменной x.</li>
+    <li>Функция pow(x, y) возвращает x в степени y.</li>
+    <li>Функция sqrt(x) возвращает квадратный корень из x.</li>
+    <li>Функция ldexp(x, n) возвращает x умноженное на 2 и возведенное в степень n.</li>
+    <li>Функция frexp(x, int* exp) разбивает x на две части - возвращает мантиссу (от 0.5 до 1) и сохраняет экспоненту в exp</li>
+    <li>Функция modf(x, double* ip) разбивает x на целую и дробную части - возвращает дробную часть и сохраняет целую в ip</li>
+    <li>Функция fmod(x, y) возвращает остаток от деления x на y.</li>
+    <li>Функция div(x, y) возвращает структуру из двух полей: quot (результат целочисленного деления x / y), rem (остаток от деления x % y).</li>
+    <li>Функция imaxdiv(x, y) возвращает структуру из двух полей: quot (результат целочисленного деления x / y), rem (остаток от деления x % y).</li>
+    <li>Функция __max(x, y) возвращает максимальное значение</li>
+    <li>Функция fmax(x, y) возвращает максимальное значение</li>
+    <li>Функция __min(x, y) возвращает минимальное значение</li>
+    <li>Функция fmin(x, y) возвращает минимальное значение</li>
+  </ol>
 
-  <h4>Функция acos(x)</h4>
-  <code>double acos(x)</code>
-  <p>Функция acos(x) возвращает арккосинус переменной x.</p>
+  <h4>Округление чисел</h4>
 
-  <h4>Функция cosh(x)</h4>
-  <code>double cosh(x)</code>
-  <p>Функция cosh(x) возвращает гиперболический косинус переменной x.</p>
+  <ol>
+    <li>Функция ceil(x) округляет к большему целому.</li>
+    <li>Функция floor(x) округляет к меньшему целому.</li>
+    <li>Функция round(x) округляет к ближайшему целому.</li>
+  </ol>
 
-  <h4>Функция tan(x)</h4>
-  <code>double tan(x)</code>
-  <p>Функция tan(x) возвращает тангенс переменной x.</p>
+  <h4>Тригонометрические функции</h4>
+  <ol>
+    <li>Функция sin(x) возвращает синус переменной x.</li>
+    <li>Функция asin(x) возвращает арксинус переменной x.</li>
+    <li>Функция sinh(x) возвращает гиперболический синус переменной x.</li>
+    <li>Функция cos(x) возвращает косинус переменной x.</li>
+    <li>Функция acos(x) возвращает арккосинус переменной x.</li>
+    <li>Функция cosh(x) возвращает гиперболический косинус переменной x.</li>
+    <li>Функция tan(x) возвращает тангенс переменной x.</li>
+    <li>Функция atan(x) возвращает арктангенс переменной x.</li>
+    <li>Функция atan2(y, x) возвращает угол (в радианах) между осью x и точкой y.</li>
+    <li>Функция tanh(x) возвращает гиперболический тангенс переменной x.</li>
+  </ol>
 
-  <h4>Функция atan(x)</h4>
-  <code>double atan(x)</code>
-  <p>Функция atan(x) возвращает арктангенс переменной x.</p>
+  <h4>Константы: Бесконечность и NAN</h4>
+  <ol>
+    <li>INFINITY</li>
+    <li>-INFINITY</li>
+    <li>NAN</li>
+  </ol>
 
-  <h4>Функция atan2(x)</h4>
-  <code>double atan2(x)</code>
-  <p>Функция atan2(y, x) возвращает угол (в радианах) между осью x и точкой y.</p>
-
-  <h4>Функция tanh(x)</h4>
-  <code>double tanh(x)</code>
-  <p>Функция tanh(x) возвращает гиперболический тангенс переменной x.</p>
-
-  <h4>Функция exp(x)</h4>
-  <code>double exp(x)</code>
-  <p>Функция exp(x) возвращает значение e (основание натурального логарифма) в степени x.</p>
-
-  <h4>Функция log(x)</h4>
-  <code>double log(x)</code>
-  <p>Функция log(x) возвращает натуральный логарифма переменной x.</p>
-
-  <h4>Функция log10(x)</h4>
-  <code>double log10(x)</code>
-  <p>Функция log10(x) возвращает десятичный логарифма переменной x.</p>
-
-  <h4>Функция pow(x, y)</h4>
-  <code>double pow(x, y)</code>
-  <p>Функция pow(x, y) возвращает x в степени y.</p>
-
-  <h4>Функция sqrt(x)</h4>
-  <code>double sqrt(x)</code>
-  <p>Функция sqrt(x) возвращает квадратный корень из x.</p>
-
-  <h4>Функция ceil(x)</h4>
-  <code>double ceil(x)</code>
-  <p>Функция ceil(x) округляет к большему целому.</p>
-
-  <h4>Функция floor(x)</h4>
-  <code>double floor(x)</code>
-  <p>Функция floor(x) округляет к меньшему целому.</p>
-
-  <h4>Функция fabs(x)</h4>
-  <code>double fabs(x)</code>
-  <p>Функция fabs(x) возвращает модуль x.</p>
-
-  <h4>Функция ldexp(x, n)</h4>
-  <code>double ldexp(x, n)</code>
-  <p>Функция ldexp(x, n) возвращает x умноженное на 2 и возведенное в степень n.</p>
-
-  <h4>Функция frexp(x, int* exp)</h4>
-  <code>double frexp(x, int* exp)</code>
-  <p>Функция frexp(x, int* exp) разбивает x на две части - возвращает мантиссу (от 0.5 до 1) и сохраняет экспоненту в exp</p>
-
-  <h4>Функция modf(x, double* ip)</h4>
-  <code>double modf(x, double* ip)</code>
-  <p>Функция modf(x, double* ip) разбивает x на целую и дробную части - возвращает дробную часть и сохраняет целую в ip</p>
-
-  <h4>Функция fmod(x, y)</h4>
-  <code>double fmod(x, y)</code>
-  <p>Функция fmod(x, y) возвращает остаток от деления x на y.</p>
+  <h4>Функции: Бесконечность и NAN</h4>
+  <ol>
+    <li>Функции _finite() и _finitef() возвращают 0, если значение равно INFINITY, -INFINITY или NAN, иначе возвращают ненулевое значение.</li>
+    <li>Функции isnan(), _isnan(), _isnanf() возвращают ненулевое значение, если значение равно NAN, иначе возвращают 0</li>
+    <li>Функция isinf() возвращает ненулевое число, если значение равно INFINITY или -INFINITY, иначе возвращает 0.</li>
+  </ol>
 </article>
 
 
@@ -652,5 +909,205 @@
   <h3>time.h</h3>
 
   <p>Содержит функции для работы с датой и временем</p>
+
+  <ol>
+    <li>Тип данных clock_t возвращается функцией clock(). Соответствует типу long</li>
+    <li>Тип данных time_t используется для представления времени в виде целочисленного значения. Для 32-разрядной системы соответствует long (__time32_t), для 64-разрядной системы соответствует long long (__time_64_t)</li>
+    <li>
+      Структура tm
+<pre>
+struct tm {
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+}
+</pre>
+    </li>
+  </ol>
+
+  <h4>Получение даты и времени</h4>
+
+  <ol>
+    <li>Функция <strong>time_t time(Time)</strong> возвращает число секунд, прошедшее с 1 января 1970г до текущего времени</li>
+    <li>Функция <strong>__time64_t _time64(Time)</strong> возвращает число секунд, прошедшее с 1 января 1970г до текущего времени</li>
+    <li>Функция <strong>struct tm *gmtime(Time)</strong> принимает количество секунд, прошедших с 1 января 1970г <strong>const time_t *Time</strong> и возвращает указатель на структуру tm с универсальным временем.</li>
+    <li>Функция <strong>struct tm *_gmtime64(Time)</strong> принимает количество секунд, прошедших с 1 января 1970г <strong>const time_t *Time</strong> и возвращает указатель на структуру tm с универсальным временем.</li>
+    <li>Функция <strong>errno_t gmtime_s(Tm, Time)</strong> принимает количество секунд, прошедших с 1 января 1970г <strong>const time_t *Time</strong> и возвращает указатель на структуру tm с универсальным временем.</li>
+    <li>Функция <strong>errno_t _gmtime64_s(Tm, Time)</strong> принимает количество секунд, прошедших с 1 января 1970г <strong>const time_t *Time</strong> и возвращает указатель на структуру tm с универсальным временем.</li>
+    <li>Функция <strong>struct tm *localtime(Time)</strong> возвращает указатель на структуру с локальным временем.</li>
+    <li>Функция <strong>struct tm *_localtime64(Time)</strong> возвращает указатель на структуру с локальным временем.</li>
+    <li>Функция <strong>errno_t localtime_s(Tm, Time)</strong> возвращает указатель на структуру с локальным временем.</li>
+    <li>Функция <strong>errno_t _localtime64(Tm, Time)</strong> возвращает указатель на структуру с локальным временем.</li>
+    <li>Функция <strong>time_t mktime(Tm)</strong> принимает указатель на структуру <strong>struct tm *Tm</strong> возвращает количество секунд, прошедших с начала эпохи.</li>
+    <li>Функция <strong>__time64_t _mktime64(Tm)</strong> принимает указатель на структуру <strong>struct tm *Tm</strong> возвращает количество секунд, прошедших с начала эпохи.</li>
+    <li>Функция <strong>double difftime(Time1, Time2)</strong> возвращает разность между двумя датами <strong>time_t Time1</strong> и <strong>time_t Time2</strong></li>
+    <li>Функция <strong>double _difftime64(Time1, Time2)</strong> возвращает разность между двумя датами <strong>__time64_t Time1</strong> и <strong>__time64_t Time2</strong></li>
+  </ol>
+
+  <h4>Форматирование даты и времени</h4>
+
+  <ol>
+    <li>Функция <strong>char *asctime(Tm)</strong> принимает указатель на структуру <strong>const struct tm *Tm</strong> и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>wchar_t *_wasctime(Tm)</strong> принимает указатель на структуру <strong>const struct tm *Tm</strong> и  возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>errno_t asctime_s(buf, buf_size, Tm)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, указатель на структуру <strong>const struct tm *Tm</strong> и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>errno_t _wasctime_s(buf, buf_size, Tm)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, указатель на структуру <strong>const struct tm *Tm</strong> и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>char *ctime(Time)</strong> принимает количество секунд <strong>const time_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата.</li>
+    <li>Функция <strong>char *_ctime64(Time)</strong> принимает количество секунд <strong>const __time64_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата.</li>
+    <li>Функция <strong>wchar_t *_wctime(Time)</strong> принимает количество секунд <strong>const time_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата.</li>
+    <li>Функция <strong>wchar_t *_wctime64(Time)</strong> принимает количество секунд <strong>const __time64_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата.</li>
+    <li>Функция <strong>errno_t *ctime_s(buf, buf_size, Time)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, количество секунд <strong>const time_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>errno_t *_ctime64_s(buf, buf_size, Time)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, количество секунд <strong>const __time64_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>errno_t *_wctime_s(buf, buf_size, Time)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, количество секунд <strong>const time_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>errno_t *_wctime64_s(buf, buf_size, Time)</strong> принимает указатель на строку <strong>char *buf</strong>, максимальный размер строки <strong>size_t buf_size</strong>, количество секунд <strong>const __time64_t *Time</strong>, прошедших с начала эпохи и возвращает указатель на строку специального формата</li>
+    <li>Функция <strong>size_t strftime(buf, buf_size, format, Tm)</strong> записывает строковое представление даты <strong>const struct tm *Tm</strong> в соответствии со строкой формата <strong>const char *format</strong> в строку <strong>char *buf</strong> максимального размера <strong>size_t buf_size</strong></li>
+    <li>Функция <strong>size_t wstrftime(buf, buf_size, format, Tm)</strong> записывает строковое представление даты <strong>const struct tm *Tm</strong> в соответствии со строкой формата <strong>const wchar_t *format</strong> в строку <strong>wchar_t *buf</strong> максимального размера <strong>size_t buf_size</strong></li>
+    <li></li>
+    <li></li>
+  </ol>
+</article>
+
+
+<!-- wchar.h -->
+<article class="article">
+  <div class="anchor" id="wchar"></div>
+  <h3>wchar.h</h3>
+
+  <p>Содержит функции для работы с широкими символами</p>
+
+  <h4>Изменение регистра символа</h4>
+
+  <ol>
+    <li>Функция towupper(ch) возвращает код символа в верхнем регистре</li>
+    <li>Функция towlower(ch) возвращает код символа в нижнем регистре</li>
+    <li>Функция _wcsupr(str) заменяет все буквы в строке на буквы в верхнем регистре</li>
+    <li>Функция _wcsupr_s(str, n) заменяет все буквы в строке на буквы в верхнем регистре. n - размер строки</li>
+    <li>Функция _wcslwr(str) заменяет все буквы в строке на буквы в нижнем регистре</li>
+    <li>Функция _wcslwr_s(str, n) заменяет все буквы в строке на буквы в нижнем регистре. n - размер строки</li>
+  </ol>
+
+  <h4>Проверка содержимого символа</h4>
+
+  <ol>
+    <li>Функция int iswalpha(ch) проверяет является ли символ буквой.</li>
+    <li>Функция int iswalnum(ch) проверяет является ли символ буквой или цифрой.</li>
+    <li>Функция int iswblank(ch) возвращает ненулевое значение, если символ является пробельным</li>
+    <li>Функция int iswdigit(ch) проверяет является ли символ десятичной цифрой.</li>
+    <li>Функция int iswxdigit(ch) проверяет является ли символ шестнадцатеричной цифрой.</li>
+    <li>Функция int iswcntrl(ch) проверяет является ли символ управляющим.</li>
+    <li>Функция int iswgraph(ch) проверяет является ли символ печатным (не включая пробел).</li>
+    <li>Функция int iswpunct(ch) проверяет является ли символ печатным (кроме пробела, букв и цифр).</li>
+    <li>Функция int iswprint(ch) проверяет является ли символ печатным (включая пробел).</li>
+    <li>Функция int iswspace(ch) проверяет является ли символ пробельным (' ', '\n', 'r', '\t', '\v').</li>
+    <li>Функция int iswlower(ch) проверяет является ли символ буквой в нижнем регистре.</li>
+    <li>Функция int iswupper(ch) проверяет является ли символ буквой в верхнем регистре.</li>
+  </ol>
+
+  <h4>Основные функции для работы с L-строками</h4>
+  <ol>
+    <li>Функция wchar_t *wcscat(dst, src) добавляет строку src в строку dst, затем возвращает строку dst.</li>
+    <li>Функция wchar_t *wcscat_s(dst, dst_size, src) добавляет n символов строки src в строку dst, затем возвращает строку dst. Максимальное количество символов строки dst равно dst_size.</li>
+    <li>Функция wchar_t *wcsncat(dst, dst_size, src, n) добавляет первые n символов строки src в строку dst, затем возвращает строку dst.</li>
+    <li>Функция wchar_t *wcsncat_s(dsr, src, n) добавляет первые n символов строки src в строку dst, затем возвращает строку dst. Максимальное количество символов строки dst равно dst_size.</li>
+    <li>Функция wchar_t *wcscpy(dst, src) копирует символы из строки src в строку dst, затем возвращает строку s1.</li>
+    <li>Функция wchar_t *wcscpy_s(dst, dst_size, src) копирует строку src в строку dst, затем возвращает строку dst. Максимальное количество символов строки dst равно dst_size.</li>
+    <li>Функция wchar_t *wcsncpy(dst, src, n) копирует n символов строки src в строку dst, затем возвращает строку dst.</li>
+    <li>Функция wchar_t *wcsncpy_s(dst, dst_size, src, n) копирует n символов строки src в строку dst, затем возвращает строку dst. Максимальное количество символов строки dst равно dst_size.</li>
+    <li>Функция size_t wcslen(str) возвращает количество символов в строке str без учета нулевого символа</li>
+    <li>Функция size_t wcsnlen(str, n) возвращает количество символов в строке str без учета нулевого символа или число n, смотря что меньше.</li>
+    <li>Функция wchar_t *_wcsdup(str) создает копию строки в динамической памяти и возвращает указатель на нее. Память выделяется с помощью функции malloc(), после использования строки, ее надо освободить функцией free()
+      <code>wchar_t *p = _wcsdup(str);</code>
+      <code>free(p);</code>
+    </li>
+    <li>Функция wchar_t *wcstok(str, del) разбивает строку str на фрагменты, используя раделители, содержащиеся в строке del</li>
+    <li>Функция char *wcstok_s(str, del, context) разбивает строку str на фрагменты, используя раделители, содержащиеся в строке del. context это адрес указателя</li>
+    <li>Функция wchar_t *wmemcpy(dst, src, n) копирует n символов из строки src в строку dst, затем возвращает строку dst</li>
+    <li>Функция wchar_t *wmemcpy_s(dst, dst_siae, src, n) копирует n символов из строки src в строку dst, затем возвращает строку dst. dst_size - количество символов в строке dst</li>
+    <li>Функция wchar_t *wmemmove(dst, src, n) аналогична функции memcpy(), но также работает в случае, если объекты пересекаются</li>
+    <li>Функция wchar_t *wmemmove_s(dst, dst_size, src, n) аналогична функции memcpy_s(), но также работает в случае, если объекты пересекаются</li>
+  </ol>
+
+
+  <h4>Поиск и замена в L-строке</h4>
+  <ol>
+    <li>Функция wchar_t *wcschr(str, ch) возвращает индекс первого вхождения символа ch в строку str, иначе значение NULL если символ не найден</li>
+    <li>Функция wchar_t *wcsrchr(str, ch) возвращает индекс последнегоо вхождения символа ch в строку str, иначе значение NULL если символ не найден</li>
+    <li>Функция wchar_t *wmemchr(str, ch, n) возвращает указатель на первое включение символа ch в строке str или значение NULL если символ не найден в первых n символах строки</li>
+    <li>Функция wchar_t *wcspbrk(str, control) ищет в строке str первое вхождение одного из символов строки control. Возвращает указатель на первый найденный символ.</li>
+    <li>Функция size_t wcscspn(str, control) возвращает длину префикса строки str, содержащего символы строки control</li>
+    <li>Функция size_t wcsspn(str, control) возвращает длину префикса строки str, содержащего символы, отсутствующие в строке control</li>
+    <li>Функция wchar_t *wcsstr(str, sub_str) возвращает указатель на первое включение строки sub_str в строке str, или значение NULL если совпадения не найдено</li>
+    <li>Функция wchar_t *_wcsset(str, ch) заменяет все символы в строке str символом ch.</li>
+    <li>Функция wchar_t *_wcsset_s(str, str_size, ch) заменяет все символы в строке str символом ch. str имеет размер str_size</li>
+    <li>Функция wchar_t *_wcsnset(str, ch, n) заменяет первые n символов в строке str символом ch.</li>
+    <li>Функция wchar_t *_wcsnset_s(str, str_size, ch, n) заменяет первые n символов в строке str символом ch. str имеет размер str_size</li>
+    <li>Функция wchar_t *wmemset(str, ch, n) заполняет первые n символов строки str указанным символом ch</li>
+    <li>Функция wchar_t *_wcsrev(str) переворачивает строку str</li>
+    <li>Функция wchar_t *_wcsupr(str) заменяет все символы на заглавные</li>
+    <li>Функция wchar_t *_wcsupr_s(str, str_size) заменяет все символы на заглавные. Строка str имеет размер str_size</li>
+    <li>Функция wchar_t *_wcslwr(str) заменяет все символы на маленькие</li>
+    <li>Функция wchar *_wcslwr_s(str, str_size) заменяет все символы на маленькие. Строка str имеет размер str_size</li>
+  </ol>
+
+  <h4>Сравнение L-строк</h4>
+  <ol>
+    <li>Функция int wcscmp(s1, s2) сравнивает строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</li>
+    <li>Функция int wcsncmp(s1, s2, n) сравнивает n символов строки s1 и s2. Возвращает 0 если s1 ==s2, -1 если s1 &lt; s2, +1 если s1 &gt; s2</li>
+    <li>Функция int wcscoll(str1, str2) аналогично функции strcmp, но сравнение производится с учетом текущей локали</li>
+    <li>Функция int _wcsncoll(str1, str2, n) сравнивает первые n символов, но сравнение производится с учетом текущей локали</li>
+    <li>Функция size_t wcsxfrm(str1, str2, n) преобразует строку str2 и записывает n символов в строку str1</li>
+    <li>Функция int _wcsicmp(str1, str2) сравнивает строки без учета регистра</li>
+    <li>Функция int _wcsnicmp(str1, str2, n) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int _wcsicoll(str1, str2) сравнивает строки без учета регистра</li>
+    <li>Функция int _wcsnicoll(str1, str2, n) сравнивает первые n символов без учета регистра</li>
+    <li>Функция int *wmemcmp(s1, s2, n) сравнивает первые n символов строк s1 и s2, возвращают те же значения, что и функция wcscmp()</li>
+  </ol>
+
+</article>
+
+
+<!-- unistd.h -->
+<article class="article">
+  <div class="anchor" id="unistd"></div>
+  <h3>unistd.h</h3>
+
+  <p>Структура <strong>timespec</strong></p>
+<pre>
+struct timespec {
+  time_t tv_sec;
+  long tv_nsec;
+}
+</pre>
+  <ol>
+    <li>Функция <strong>unsigned int sleep(s)</strong> прерывает выполнение программы на указанное количество секунд <strong>unsigned int s</strong></li>
+    <li>Функция <strong>int usleep(us)</strong> прерывает выполнение программы на указанное количество микросекунд <strong>useconds_t us</strong></li>
+    <li>Функция <strong>int nanosleep(request, remain)</strong> принимает адрес структуры со временем задержки <strong>const struct timespec *request</strong> и адрес структуры <strong>struct timespec *remain</strong>, в которую будет записан результат, прерывает выполнение программы на указанное количество секунд и наносекунд <strong>useconds_t us</strong></li>
+  </ol>
+</article>
+
+
+<!-- windows.h -->
+<article class="article">
+  <div class="anchor" id="windows"></div>
+  <h3>windows.h</h3>
+
+  <p>Функции WinAPI</p>
+
+  <h4>Создание потока</h4>
+
+  <ol>
+    <li>Функция <strong>HANDLE CreateThread(lpThreadAttributes...)</strong> создает поток управления</li>
+  </ol>
+
+  <h4>Завершение потока</h4>
+
+  <ol>
+    <li>Функция <strong>WINBOOL CloseHandle(hObject)</strong> создает поток управления</li>
+  </ol>
 </article>
 

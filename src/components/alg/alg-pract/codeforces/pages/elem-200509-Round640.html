@@ -659,7 +659,7 @@ int main() {
 using namespace std;
 
 int main() {
-// условная компиляция
+  // условная компиляция
 #ifdef _DEBUG
   freopen("input.txt", "rt", stdin);
   freopen("output.txt", "wt", stdout);
@@ -678,7 +678,6 @@ int main() {
 
     // решение
     string s;
-    int len = n0 + n1 + n2 + 1; // длина строки
 
     if (n0 > 0) {
       s += '0';
@@ -688,10 +687,14 @@ int main() {
     }
 
     if (n1 > 0 && s.size() == 0) {
-      s += '0';
+      if (n1 % 2 == 0) {
+        s += '1';
+      } else {
+        s += '0';
+      }
     }
     while (n1--) {
-      if (n1 % 2 == 0) {
+      if (s[s.size() - 1] == '0') {
         s += '1';
       } else {
         s += '0';
@@ -700,14 +703,25 @@ int main() {
 
     if (n2 > 0 && s.size() == 0) {
       s += '1';
+      s += '1';
+      n2--;
+    }
+    bool flag = false;
+    if (n2 > 0 && s[s.size() - 1] == '0') {
+      s[s.size() - 1] = '1';
+      n2--;
+      flag = true;
     }
     while (n2--) {
       s += '1';
     }
+    if (flag) {
+      s += '0';
+    }
 
 
     // вывод результата
-    cout &lt;&lt; s  &lt;&lt; '\n';
+    cout &lt;&lt; s &lt;&lt; '\n';
   }
 }
 </pre>

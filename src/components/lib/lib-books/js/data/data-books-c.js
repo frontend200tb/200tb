@@ -1030,8 +1030,8 @@ const dataBooksC = [
     author: 'Прохоренок',
     authorName: 'Николай',
     pages: '482',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2025.08.15 пт',
   },
 
   {
@@ -1153,6 +1153,19 @@ const dataBooksC = [
 
   {
     id: 89,
+    year: 2024,
+    category: 'code',
+    theme: 'c',
+    title: 'Программирование на С. Теория через практику',
+    author: 'Иванов',
+    authorName: 'В.Н.',
+    pages: '210',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 90,
     year: 2025,
     category: 'code',
     theme: 'c',

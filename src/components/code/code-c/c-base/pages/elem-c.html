@@ -30,7 +30,7 @@
   <p><a href="#types">Типы данных</a></p>
   <ol>
     <li><a href="#types1">Символьные типы char, wchar_t</a></li>
-    <li><a href="#types2">Целочисленные типы (integer types)</a></li>
+    <li><a href="#types2">Модификаторы типа int</a></li>
     <li><a href="#types3">Суффиксы целочисленных типов</a></li>
     <li><a href="#types4">Платформонезависимые типы данных</a></li>
     <li><a href="#types5">Вещественные типы данных float, double</a></li>
@@ -451,6 +451,15 @@
   <h3>Типы данных</h3>
 
   <p>Каждая переменная должна иметь свой тип данных. Тип данных определяет размер памяти, диапазон значений переменной, список операторов для работы с переменной.</p>
+  <p>Элементарные типы данных:</p>
+  <ol>
+    <li><strong>_Bool</strong> логический тип (стандарт C99)</li>
+    <li><strong>char</strong> код символа</li>
+    <li><strong>int</strong> целое число</li>
+    <li><strong>float</strong> вещественное число</li>
+    <li><strong>double</strong> вещественное число двойной точности</li>
+    <li><strong>void</strong> отсутствие типа</li>
+  </ol>
 </article>
 
 
@@ -469,67 +478,76 @@
 </article>
 
 
-<!-- Целочисленные типы (integer types) -->
+<!-- Модификаторы типа int -->
 <article class="article">
   <div class="anchor" id="types2"></div>
-  <h3>Целочисленные типы (integer types)</h3>
+  <h3>Модификаторы типа int</h3>
+
+  <p>Тип данных int может использоваться с модификаторами.</p>
 
   <p>Модификаторы знака: <strong>signed</strong>, <strong>unsigned</strong></p>
   <p>Модификаторы длины: <strong>short</strong>, <strong>long</strong></p>
   <p>Размеры стандартных типов данных char, short, int, long, long long четко не определены и могут быть разными на разных платформах (компьютерах, операционных системах и компиляторах для них).</p>
-  <ul>
+  <ol>
     <li>
       <h4>char (signed char)</h4>
-      <p>1 байт (8 бит):</p>
-      <code>от -2<sup>7</sup> до 2<sup>7</sup> - 1 (от -128 до 127)</code>
+      <p>1 байт (8 бит)</p>
+      <code>SCHAR_MIN = -2<sup>7</sup> (-128)</code>
+      <code>SCHAR_MAX = 2<sup>7</sup>-1 (127)</code>
+    </li>
+    <li>
+      <h4>short int(short, signed short, signed short int)</h4>
+      <p>Явно указывает что размер 2 байта (16 бит):</p>
+      <code>SHRT_MIN = -2<sup>15</sup> (-32768)</code>
+      <code>SHRT_MAX = 2<sup>15</sup>-1 (32767)</code>
     </li>
     <li>
       <h4>int (signed, signed int)</h4>
       <p>2 байта (16 бит) или 4 байта (32 бита) зависит от платформы</p>
     </li>
     <li>
-      <h4>short int(short, signed short, signed short int)</h4>
-      <p>Явно указывает что размер 2 байта (16 бит):</p>
-      <code>от -2<sup>15</sup> до 2<sup>15</sup> - 1 (от -32768 до 32767)</code>
-    </li>
-    <li>
       <h4>long int (long, signed long, signed long int)</h4>
       <p>Явно указывает что размер 4 байта (32 бита):</p>
-      <code>от -2<sup>31</sup> до 2<sup>31</sup> - 1 (от -2,147,483,648 до 2,147,483,647), или от -2*10<sup>9</sup> до 2*10<sup>9</sup></code>
+      <code>LONG_MIN = -2<sup>31</sup> (-2,147,483,648)</code>
+      <code>LONG_MAX = 2<sup>31</sup>-1 (2,147,483,647)</code>
+      <p>или от -2*10<sup>9</sup> до 2*10<sup>9</sup></p>
     </li>
     <li>
       <h4>long long (signed long long, long long int, signed long long int)</h4>
       <p>8 байт (64 бита):</p>
-      <code>от -2<sup>63</sup> до 2<sup>63</sup> - 1 (от -9,223,372,036,854,775,808 до 9,223,372,036,854,775,807), или от -9*10<sup>18</sup> до 9*10<sup>18</sup></code>
+      <code>LLONG_MIN = -2<sup>63</sup> (-9,223,372,036,854,775,808)</code>
+      <code>LLONG_MAX = 2<sup>63</sup>-1 (9,223,372,036,854,775,807)</code>
+      <p>или от -9*10<sup>18</sup> до 9*10<sup>18</sup></p>
     </li>
-  </ul>
+  </ol>
   <p>У каждого целочисленного типа со знаком, есть парный тип без знака unsigned</p>
-  <ul>
+  <ol>
     <li>
-      <h4>unsigned char </h4>
+      <h4>unsigned char</h4>
       <p>1 байт (8 бит)</p>
-      <code>от 0 до 255</code>
-    </li>
-    <li>
-      <h4>unsigned (unsigned int)</h4>
-      <p>2 байта (16 бит) или 4 байта (32 бита) зависит от платформы</p>
+      <code>от 0 до UCHAR_MAX 255</code>
     </li>
     <li>
       <h4>unsigned short (unsigned short int)</h4>
       <p>2 байта (16 бит)</p>
-      <code>от 0 до 65535</code>
+      <code>от 0 до USHRT_MAX = 65535</code>
+    </li>
+    <li>
+      <h4>unsigned (unsigned int)</h4>
+      <p>2 байта (16 бит) или 4 байта (32 бита) зависит от платформы</p>
+      <code>от 0 до UINT_MAX = 4294967295</code>
     </li>
     <li>
       <h4>unsigned long (unsigned long int)</h4>
       <p>4 байта (32 бита)</p>
-      <code>от 0 до 4,294,967,295</code>
+      <code>от 0 до ULONG_MAX = 4,294,967,295</code>
     </li>
     <li>
       <h4>unsigned long long (unsigned long long int)</h4>
       <p>8 байт (64 бита)</p>
-      <code>от 0 до 18,446,744,073,709,551,615</code>
+      <code>от 0 до ULLONG_MAX = 18,446,744,073,709,551,615</code>
     </li>
-  </ul>
+  </ol>
 </article>
 
 
@@ -542,19 +560,28 @@
   <ul>
     <li>
       <h4>u или U</h4>
-      <code>unsigned num = 200u; // unsigned short, unsigned, unsigned long, unsigned long long</code>
+      <p>unsigned short, unsigned, unsigned long, unsigned long long</p>
+      <code>unsigned num = 200u;</code>
+    </li>
+    <li>
+      <h4>l или L</h4>
+      <p>long, long long</p>
+      <code>long num = 200L;</code>
     </li>
     <li>
       <h4>ul или UL</h4>
-      <code>unsigned long num = 200ul; // unsigned long, unsigned long long</code>
-    </li>
-    <li>
-      <h4>ull или ULL</h4>
-      <code>unsigned long long num = 200ull; // unsigned long long</code>
+      <p>unsigned long, unsigned long long</p>
+      <code>unsigned long num = 200ul;</code>
     </li>
     <li>
       <h4>ll или LL</h4>
-      <code>long long num = 200LL; // long long</code>
+      <p>long long</p>
+      <code>long long num = 200LL;</code>
+    </li>
+    <li>
+      <h4>ull или ULL</h4>
+      <p>unsigned long long</p>
+      <code>unsigned long long num = 200ull;</code>
     </li>
   </ul>
   <p>Не для всех типов есть отдельные суффиксы. Для некоторых типов можно применять несколько суффиксов. Суффиксы u и ul можно применить для нескольких типов.</p>
@@ -568,7 +595,34 @@
 
   <p>Начиная с С99 определены типы данных, в которых можно указать размер для различных целей. Они считаются платформонезависимыми.</p>
   <ul>
-    <li>int32_t и uint32_t - размер ровно 32 бита (знаковый и беззнаковый).</li>
+    <li><strong>__int8</strong> имеет размер 8 бит.</li>
+    <li><strong>__int16</strong> имеет размер 16 бит.</li>
+    <li><strong>__int32</strong> имеет размер 32 бита.</li>
+    <li><strong>__int64</strong> имеет размер 64 бита.</li>
+    <li>
+      <strong>int8_t</strong> и <strong>uint8_t</strong> - размер ровно 8 бит (знаковый и беззнаковый).
+      <code>INT8_MIN = -2<sup>7</sup> (-128)</code>
+      <code>INT8_MAX = 2<sup>7</sup>-1 (127)</code>
+      <code>UINT8_MAX = 2<sup>8</sup>-1 (255)</code>
+    </li>
+    <li>
+      <strong>int16_t</strong> и <strong>uint16_t</strong> - размер ровно 16 бит (знаковый и беззнаковый).
+      <code>INT16_MIN = -2<sup>15</sup> (-32768)</code>
+      <code>INT16_MAX = 2<sup>15</sup>-1 (32767)</code>
+      <code>UINT16_MAX = 2<sup>16</sup>-1 (65535)</code>
+    </li>
+    <li>
+      <strong>int32_t</strong> и <strong>uint32_t</strong> - размер ровно 32 бита (знаковый и беззнаковый).
+      <code>INT32_MIN = -2<sup>31</sup> (-2,147,483,648)</code>
+      <code>INT32_MAX = 2<sup>31</sup>-1 (2,147,483,647)</code>
+      <code>UINT32_MAX = 2<sup>32</sup>-1 (4,294,967,295)</code>
+    </li>
+    <li>
+      <strong>int64_t</strong> и <strong>uint64_t</strong> - размер ровно 64 бита (знаковый и беззнаковый).
+      <code>INT64_MIN = -2<sup>63</sup> (-9,223,372,036,854,775,808)</code>
+      <code>INT64_MAX = 2<sup>63</sup>-1 (9,223,372,036,854,775,807)</code>
+      <code>UINT64_MAX = 2<sup>64</sup>-1 (18,446,744,073,709,551,615)</code>
+    </li>
     <li>int_least32_t и uint_least32_t- ближайший по длине, не менее 32 бит (может и больше).</li>
     <li>int_fast32_t и uint_fast32_t- самый быстрый длиной не менее 32, для этого типа данных самая быстрая работа на данной платформе и есть 32 бита (или больше). То есть если самые быстрые вычисления будут на 64 битах, то int_fast32_t будет иметь размер 64 бита.</li>
   </ul>
@@ -945,14 +999,14 @@
 
   <ol>
     <li>() вызов функции [] индекс массива -> указатель на структуру . член структуры</li>
-    <li>! не ~ битовое не + знак плюс - знак минус ++ инкремент -- декремент & адрес * указатель (имя типа) sizeof</li>
+    <li>! не ~ битовое не + знак плюс - знак минус ++ инкремент -- декремент & взятие адреса * разыменование (приведение типа) sizeof</li>
     <li>* / %</li>
     <li>+ сложение - вычитание</li>
     <li>&lt;&lt; &gt;&gt;</li>
     <li>&lt; &lt;= &gt;= &gt;</li>
     <li>== !=</li>
     <li>& битовое И</li>
-    <li>^ битовое исключающее И</li>
+    <li>^ битовое исключающее ИЛИ</li>
     <li>| битовое ИЛИ</li>
     <li>&&</li>
     <li>||</li>

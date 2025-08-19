@@ -50,7 +50,96 @@
 <!-- 1 Выбор редактора(IDE). Первая программа. Основные типы данных -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>1 Выбор редактора(IDE). Первая программа. Основные типы данных</h3>
+  <h3>1 Выбор редактора (IDE). Первая программа. Основные типы данных</h3>
+
+  <p>Чтобы научиться программировать, нужно программировать. Просто просматривать лекции большого толку не дает. Нужно самому еще искать, читать, учиить. Программирование это обычная инженерная специальность, которая требует дополнительных знаний.</p>
+  <p>В качестве IDE будем использовать QT. Он кроссплатформенный и бесплатный. Устанавливаем программу только на английском языке.</p>
+
+  <h4>Создадим новый проект в редакторе QT Creator</h4>
+
+  <ol>
+    <li>
+      <p>Выбираем пункт меню</p>
+      <code>File - New File or Project (Ctrl+N)</code>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>New File or Project</strong> выберем</p>
+      <code>Choose a template - Projects - Other Project - Subdirs Project</code>
+      <p>Нажимаем кнопку <strong>Choose</strong>.</p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Subdirs Project</strong> на вкладке <strong>Location</strong> нужно прописать <strong>Name</strong> (название проекта) и выбрать путь к нему <strong>Create in</strong>.</p>
+      <p>Во всех названиях и путях должны быть только английские буквы без пробелов. Расположение проекта лучше выбрать на отдельном диске в отдельной папке и как можно короче, например D:\code</p>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Subdirs Project</strong> на вкладке <strong>Kits</strong> поставим галочку на пункте</p>
+      <code>Desktop QT 5.4.2 MinGW 32bit2</code>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Subdirs Project</strong> на вкладке <strong>Summary</strong> нажимаем кнопку <strong>Finish & Add Subproject</strong></p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>New Subproject</strong> на вкладке <strong>Choose a template</strong> выберем</p>
+      <code>Non-QT Project - Plain C Application</code>
+      <p>Нажимаем кнопку <strong>Choose</strong>.</p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Plain C Application</strong> на вкладке <strong>Location</strong> нужно прописать <strong>Name</strong> (название проекта) и выбрать путь к нему <strong>Create in</strong>.</p>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Plain C Application</strong> на вкладке <strong>Build System</strong> выбираем <strong>qmake</strong></p>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Plain C Application</strong> на вкладке <strong>Kits</strong> поставим галочку на пункте</p>
+      <code>Desktop QT 5.4.2 MinGW 32bit2</code>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Plain C Application</strong> на вкладке <strong>Summary</strong> нажимаем кнопку <strong>Finish</strong></p>
+    </li>
+    <li>
+      <p>Откроется окно <strong>main.c - QT Creator</strong></p>
+    </li>
+    <li>
+      <p>В менеджере файлов, который должен быть слева от основного окна, создадим новый файл с заметками, в котором запишем что нам нужно изучить, прочитать. Для этого нажмем правой кнопкой мыши на папку <strong>Source</strong>, выберем <strong>Add new</strong></p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>New File</strong> выберем</p>
+      <code>General - Empty File</code>
+      <p>Нажимаем кнопку <strong>Choose</strong></p>
+    </li>
+    <li>
+      <p>В открывшемся окне <strong>Empty File</strong> на вкладке <strong>Location</strong> пропишем имя файла "notes.txt" в поле <strong>Name</strong> и путь к файлу в поле <strong>Path</strong></p>
+      <p>Нажимаем кнопку <strong>Next</strong></p>
+    </li>
+    <li>
+      <p>В том же окне <strong>Empty File</strong> на вкладке <strong>Summary</strong> нажимаем кнопку <strong>Finish</strong></p>
+    </li>
+  </ol>
+
+  <p>Файл main.c содержит простую программу.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+  printf("Hello World!\n");
+  return 0;
+}
+</pre>
+  <p>Программа на языке программирования Си содержит инструкции понятные человеку. Далее компилятор переводит эти инструкции в машинный код, понятный компьютеру. Компилятор собирает все файлы с кодом в один исполняемый файл, который будет запускаться на той же платформе.</p>
+  <p>Чтобы запустить программу, нужно слева внизу нажать кнопку Run</p>
+
+  <h4>Замена табуляции на пробелы в редакторе QT</h4>
+
+  <p>Выбираем пункт меню</p>
+  <code>Tools - Options - C++ - Edit - Tab policy - Spaces Only</code>
+
+  <p>Изменим число пробелов</p>
+  <code>Indent size - 2</code>
 </article>
 
 

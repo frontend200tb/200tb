@@ -1524,6 +1524,19 @@ const dataBooksNets = [
     dateLearned: '',
   },
 
+  {
+    id: 119,
+    year: 2025,
+    category: 'основы',
+    theme: 'Компьютерные сети',
+    title: 'Сетевое программирование',
+    author: 'Нечипорук',
+    authorName: 'Артем',
+    pages: '1059',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

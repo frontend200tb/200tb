@@ -2,4 +2,5 @@
 export const asideThemes = [
   'metanit<br>Руководство по C++',
   'yandex<br>Основы C++',
+  'codelessons<br>Уроки программирования',
 ];

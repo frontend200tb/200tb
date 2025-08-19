@@ -135,6 +135,71 @@
 </pre>
     <code>100</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число отрезков
+  int k; // число одинаковых отрезков
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  long long max_l = A[0];
+
+  // находим самый длинный отрезок
+  for (int i = 1; i &lt; n; i++) {
+    if (A[i] > max_l) {
+      max_l = A[i];
+    }
+  }
+
+  int left = 0;
+  int right = max_l + 1;
+  int mid;
+
+  // бинарный поиск по ответу
+  while (right - left > 1) {
+    mid = left + (right - left) / 2;
+    int total = 0;
+
+    for (int i = 0; i &lt; n && total &lt; k; i++) {
+      total += A[i] / mid;
+    }
+
+    if (total >= k) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; left;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -164,6 +229,48 @@
     <h4>Пример 2</h4>
     <code>1 1 1</code>
     <code>1</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  long long w; // ширина диплома
+  long long h; // высота диплома
+  long long n; // число дипломов
+  cin >> w >> h >> n;
+
+  // решение
+  long long left = 0;
+  long long right = max(w, h) * n;
+  long long mid;
+
+  // бинарный поиск по ответу
+  while (right - left > 1) {
+    mid = left + (right - left) / 2;
+
+    // проверим сколько дипломов помещается
+    // в квадрат со стороной mid
+    long long cols = mid / w;
+    long long rows = mid / h;
+    long long m = cols * rows; // число поместившихся дипломов
+    if (m >= n) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; right;
+}
+</pre>
   </details>
 </article>
 
@@ -203,16 +310,60 @@
     <p>Во втором примере при v = 54 Вася печатает код следующими порциями: 54, 6. В сумме 54 + 6 = 60, что даже больше, чем n = 59.</p>
   </details>
 
-<details>
-  <summary>Решение</summary>
+  <details>
+    <summary>Решение</summary>
 
-  <div>
-    <a href="https://codeforces.com/contest/165/problem/B" target="_blank">Задача 165B</a>
-    <br><a href="https://codeforces.com/contest/165" target="_blank">Codeforces Round 112 (Div. 2) 2012-03-16</a>
-  </div>
+    <div>
+      <a href="https://codeforces.com/contest/165/problem/B" target="_blank">Задача 165B</a>
+      <br><a href="https://codeforces.com/contest/165" target="_blank">Codeforces Round 112 (Div. 2) 2012-03-16</a>
+    </div>
 
-</details>
+<pre>
+#include &lt;iostream&gt;
 
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число строк
+  int k; // коэффициент
+  cin >> n >> k;
+
+  // решение
+  long long left = 1;
+  long long right = n;
+  long long mid;
+
+  // бинарный поиск по ответу
+  while (right - left > 1) {
+    mid = left + (right - left) / 2;
+    int s = 0;
+    int tmp = mid;
+
+    // число написанных строк кода
+    while (tmp) {
+      s += tmp;
+      tmp /= k;
+    }
+
+    if (s >= n) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; right;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -236,6 +387,65 @@
     <summary>Пример</summary>
     <code>2</code>
     <code>10</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+// Функция для подсчёта количества нулей в конце N!
+int countTrailingZeros(long long N) {
+  int count = 0;
+  for (long long divisor = 5; divisor &lt;= N; divisor *= 5) {
+    count += N / divisor;
+  }
+  return count;
+}
+
+// Функция для нахождения минимального N,
+// такого что N! имеет Q нулей в конце
+long long findMinN(int Q) {
+  if (Q == 0) {
+    return 1;
+  }
+
+  long long low = 0;
+  long long high = 5LL * 1e8; // Достаточно большое число
+  long long answer = -1;
+
+  while (low &lt;= high) {
+    long long mid = (low + high) / 2;
+    int zeros = countTrailingZeros(mid);
+
+    if (zeros == Q) {
+      answer = mid;
+      high = mid - 1; // Ищем минимальное N
+    } else if (zeros &lt; Q) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+
+  return answer;
+}
+
+int main() {
+  int Q;
+  cin >> Q;
+
+  long long res = findMinN(Q);
+
+  if (res == -1) {
+    cout &lt;&lt; "No solution";
+  } else {
+    cout &lt;&lt; res;
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -271,6 +481,73 @@
 1 2 4 8 16 32 1000000000
 </pre>
     <code>7</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+freopen("input.txt", "rt", stdin);
+freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число стойл
+  int k; // число коров
+  cin >> n >> k;
+
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+
+  int left = 0;
+  int right = A[n - 1] - A[0] + 1;
+
+  // бинарный поиск по ответу
+  while ( right - left > 1) {
+    int mid = left + (right - left) / 2;
+    // mid - расстояние между занятыми стойлами
+    int cnt = 1; // число занятых стойл
+    int stoilo = A[0]; // последнее занятое стойло
+
+    for (int i = 1; i &lt; n; i++) {
+      if (A[i] - stoilo >= mid) {
+        cnt++;
+        stoilo = A[i];
+        if (cnt == k) {
+          break;
+        }
+      }
+    }
+
+    if (cnt >= k) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; left;
+}
+</pre>
   </details>
 </article>
 
@@ -314,6 +591,80 @@
 </pre>
     <code>2</code>
     <p>Во втором примере достичь x = 2 можно, например, так. Сначала третий друг красит доски с 4 по 6 (3 неокрашенных доски). Затем четвертый друг красит доски с 1 по 5 (3 неокрашенных доски). Затем второй друг красит доски с 1 по 8 (2 неокрашенных доски). Наконец, первый друг красит доски с 6 по 10 и с 1 по 2 (2 неокрашенных доски, заметим, что забор идет по циклу и эти доски образуют последовательный отрезок).</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Отсортируем друзей по числу покрашенных досок. Чтобы каждый мог покрасить хотя бы x незакрашенных досок, то x должен быть не больше min(ai). Каждый следующий друг красит сначала уже закрашенные доски, потом x незакрашенных.</p>
+    <p>Чтобы не выйти за границы типа данных, возьмем тип long long</p>
+
+    <h4>Пример 2</h4>
+<pre>
+4 10
+8 8 8 8
+</pre>
+    <code>0</code>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число друзей
+  int k; // число досок
+  cin >> n >> k;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i]; // сколько досок красит один друг
+  }
+
+  // решение
+  sort(A.begin(), A.end());
+  // чтобы каждый друг покрасил x неокрашенных досок,
+  // x не может превышать min(ai)
+  long long left = 0;
+  long long right = A[0] + 1;
+
+  // бинарный поиск по ответу
+  while (right - left > 1) {
+    long long mid = left + (right - left) / 2;
+    long long sum = A[0]; // сумма покрашенных досок
+
+    // добавляем к покрашенным доскам mid непокрашенных
+    for (int i = 1; i &lt; n; i++) {
+      // сумма не может быть меньше
+      // уже покрашенных досок плюс новых mid непокрашенных
+      if (sum + mid > A[i]) {
+        sum = sum + mid;
+      } else {
+        sum = A[i];
+      }
+    }
+
+    if (sum &lt;= k) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; left;
+}
+</pre>
   </details>
 </article>
 
@@ -610,6 +961,67 @@ int main() {
       <br><a href="https://codeforces.com/contest/371" target="_blank">Codeforces Round 108 (Div. 2) 2012-02-20</a>
     </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  long long n, m; // размеры двора
+  cin >> n >> m;
+  long long x, y; // координаты начала
+  cin >> x >> y;
+  int k; // число векторов
+  cin >> k;
+  vector&lt;pair&lt;long long, long long&gt; &gt; A(k);
+  long long dx, dy;
+  for (int i = 0; i &lt; k; i++) {
+    cin >> dx;
+    cin >> dy;
+    A[i] = pair(dx, dy);
+  }
+
+  // решение
+  long long steps = 0;
+  long long nm = max(n, m);
+  for (int i = 0; i &lt; k; i++) {
+    dx = A[i].first;
+    dy = A[i].second;
+
+    long long left = 0;
+    long long right = nm;
+
+    // бинарный поиск по ответу
+    // проверим что мы можем передвинуться на mid шагов
+    while (right - left > 1) {
+      long long mid = left + (right - left) / 2;
+      if ((x + mid * dx &lt;= n) && (y + mid * dy &lt;= m) &&
+        (x + mid * dx > 0) && (y + mid * dy > 0)) {
+        left = mid;
+      } else {
+        right = mid;
+      }
+    }
+
+    // сделаем left шагов из вектора A[i]
+    x += left * dx;
+    y += left * dy;
+    steps += left;;
+  }
+
+  // вывод результата
+  cout &lt;&lt; steps;
+}
+</pre>
   </details>
 </article>
 
