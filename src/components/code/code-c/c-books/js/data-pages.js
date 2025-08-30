@@ -1,18 +1,18 @@
 // Создаем массив pages со страницами из aside меню
-import htmlBook1      from './../pages/elem-book1.html';
-import htmlBook2      from './../pages/elem-book2.html';
-import htmlBook3      from './../pages/elem-book3.html';
-import htmlBook4      from './../pages/elem-book4.html';
-import htmlBook5      from './../pages/elem-book5.html';
-import htmlBook6      from './../pages/elem-book6.html';
-import htmlBook7      from './../pages/elem-book7.html';
-import htmlBook8      from './../pages/elem-book8.html';
-import htmlBook9      from './../pages/elem-book9.html';
-import htmlBook10     from './../pages/elem-book10.html';
-import htmlBook11     from './../pages/elem-book11.html';
-import htmlBook12     from './../pages/elem-book12.html';
-import htmlBook13     from './../pages/elem-book13.html';
-import htmlBook14     from './../pages/elem-book14.html';
+import htmlBook1      from './../pages/elem-book-c-1.html';
+import htmlBook2      from './../pages/elem-book-c-2.html';
+import htmlBook3      from './../pages/elem-book-c-3.html';
+import htmlBook4      from './../pages/elem-book-c-4.html';
+import htmlBook5      from './../pages/elem-book-c-5.html';
+import htmlBook6      from './../pages/elem-book-c-6.html';
+import htmlBook7      from './../pages/elem-book-c-7.html';
+import htmlBook8      from './../pages/elem-book-c-8.html';
+import htmlBook9      from './../pages/elem-book-c-9.html';
+import htmlBook10     from './../pages/elem-book-c-10.html';
+import htmlBook11     from './../pages/elem-book-c-11.html';
+import htmlBook12     from './../pages/elem-book-c-12.html';
+import htmlBook13     from './../pages/elem-book-c-13.html';
+import htmlBook14     from './../pages/elem-book-c-14.html';
 
 export const pages = [
   htmlBook1,

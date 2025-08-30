@@ -33,6 +33,57 @@
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число блоков
+    cin >> n;
+
+    // решение
+    int h1, h2, h3;
+
+    if (n % 3 == 0) {
+      h2 = n / 3;
+      h1 = n / 3 + 1;
+      h3 = n / 3 - 1;
+    }
+
+    if (n % 3 == 1) {
+      h2 = n / 3;
+      h1 = n / 3 + 2;
+      h3 = n / 3 - 1;
+    }
+
+    if (n % 3 == 2) {
+      h2 = n / 3 + 1;
+      h1 = n / 3 + 2;
+      h3 = n / 3 - 1;
+    }
+
+    // вывод результата
+    cout &lt;&lt; h2 &lt;&lt; ' ' &lt;&lt; h1 &lt;&lt; ' ' &lt;&lt; h3 &lt;&lt; '\n';
+  }
+
+}
+</pre>
+  </details>
 </article>
 
 
@@ -44,6 +95,74 @@
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+    vector&lt;int&gt; B(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> B[i];
+    }
+
+    // решение
+
+    // найдем максимальное число операций
+    int step = 0;
+    int max_step = step;
+    for (int i = 0; i &lt; n; i++) {
+      step = A[i] - B[i];
+      max_step = max(max_step, step);
+    }
+
+    bool res = true;
+
+    // число операций должно быть максимальное если B[i] не равно 0
+    for (int i = 0; res && i &lt; n; i++) {
+      step = A[i] - B[i];
+      if (B[i] == 0) {
+        continue;
+      }
+      if (step &lt; 0 || step &lt; max_step) {
+        res = false;
+      }
+    }
+
+    // вывод результата
+    if (res) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+
+  }
+
+}
+</pre>
+  </details>
 </article>
 
 

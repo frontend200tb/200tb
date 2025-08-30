@@ -1,0 +1,360 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/2136" target="_blank">Codeforces Round 1046 (Div. 2) 2025-08-28</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Во сне</a>
+  <br><a href="#task2">Задача B. Как битсет</a>
+  <br><a href="#task3">Задача C. Вопреки различиям</a>
+  <br><a href="#task4">Задача D. Для чемпиона</a>
+  <br><a href="#task5">Задача E. По заданию</a>
+  <br><a href="#task6">Задача F1. Из неизвестного (простая версия)</a>
+  <br><a href="#task7">Задача F2. Из неизвестного (сложная версия)</a>
+</article>
+
+
+<!-- Задача A. Во сне -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Во сне</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int a, b; // счет в первом тайме
+    int c, d; // счет во втором тайме
+    cin >> a >> b >> c >> d;
+
+    // решение
+    bool flag = true;
+
+    if (a > 2 * b + 2) {
+      flag = false;
+    }
+
+    if (b > 2* a + 2) {
+      flag = false;
+    }
+
+    if (c - a > 2 * (d - b) + 2) {
+      flag = false;
+    }
+
+    if (d - b > 2 * (c - a) + 2) {
+      flag = false;
+    }
+
+    // вывод результата
+    if (flag) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Как битсет -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Как битсет</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина бинарной строки
+    int k; // целое число
+    cin >> n >> k;
+    string s; // бинарная строка
+    cin >> s;
+
+    // решение
+    bool flag = true;
+
+    // посчитаем сколько в строке единиц
+    int cnt1 = 0; // число единиц в строке
+    for (int i = 0; i &lt; n; i++) {
+      if (s[i] == '1') {
+        cnt1++;
+      }
+    }
+
+    // для всех чисел от 1 до n соберем перестановку
+    // такую что наименьшие числа от 1 до cnt1 будут в s[i] = '1'
+    int p1 = 1; // первое число которое пойдет в s[i] = '1'
+    int p0 = cnt1 + 1; // первое число которое пойдет в s[i] = '0'
+
+    // соберем оптимальную перестановку
+    vector&lt;int&gt; P(n);
+    for (int i = 0; i &lt; n; i++) {
+      if (s[i] == '1') {
+        P[i] = p1;
+        p1++;
+      } else {
+        P[i] = p0;
+        p0++;
+      }
+    }
+
+    // проверим перестановку на максимум в s[i] = '1'
+    // используем метод скользящего окна
+    // число подряд идущих единиц должно быть меньше k
+    int cnt1k = 0;
+    for (int i = 0; i &lt; k; i++) {
+      if (s[i] == '1') {
+        cnt1k++;
+      }
+    }
+    if (cnt1k == k) {
+      flag = false;
+    }
+
+    for (int i = k; flag && i &lt; n; i++) {
+      if (s[i - k] == '1') {
+        cnt1k--;
+      }
+      if (s[i] == '1') {
+        cnt1k++;
+      }
+      if (cnt1k == k) {
+        flag = false;
+      }
+    }
+
+    // вывод результата
+    if (flag) {
+      cout &lt;&lt; "YES\n";
+      for (int i = 0; i &lt; n; i++) {
+        cout &lt;&lt; P[i] &lt;&lt; ' ';
+      }
+      cout &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Вопреки различиям -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. Вопреки различиям</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    vector&lt;int&gt; a(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> a[i];
+    }
+
+    // решение
+    vector&lt;vector&lt;int&gt; &gt; pos(n + 1);
+    vector&lt;int&gt; dp(n + 2, 0);
+    vector&lt;int&gt; s(n + 1);
+
+    for (int i = 0; i &lt; n; i++) {
+      s[i] = pos[a[i]].size();
+      pos[a[i]].push_back(i);
+    }
+
+    for (int i = n - 1; i >= 0; i--) {
+      if (s[i] + a[i] - 1 &lt; pos[a[i]].size()) {
+        dp[i] = max(dp[pos[a[i]][s[i] + a[i] - 1] + 1] + a[i], dp[i + 1]);
+      } else {
+        dp[i] = dp[i + 1];
+      }
+    }
+
+    int res = dp[0];
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Для чемпиона -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. Для чемпиона</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream>
+#include &lt;vector>
+#include &lt;algorithm>
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число опорных точек
+    cin >> n;
+    vector&lt;pair&lt;ll, ll> > a(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> a[i].first >> a[i].second;
+    }
+
+    // решение
+    ll res;
+    ll m = 1e9;
+    cout &lt;&lt; "? D " &lt;&lt; m &lt;&lt; endl;
+    cin >> res;
+    cout &lt;&lt; "? D " &lt;&lt; m &lt;&lt; endl;
+    cin >> res;
+    cout &lt;&lt; "? L " &lt;&lt; m &lt;&lt; endl;
+    cin >> res;
+    cout &lt;&lt; "? L " &lt;&lt; m &lt;&lt; endl;
+    cin >> res;
+    ll nres;
+    cout &lt;&lt; "? R " &lt;&lt; m &lt;&lt; endl;
+    cin >> nres;
+    cout &lt;&lt; "? R " &lt;&lt; m &lt;&lt; endl;
+    cin >> nres;
+    cout &lt;&lt; "? R " &lt;&lt; m &lt;&lt; endl;
+    cin >> nres;
+    cout &lt;&lt; "? R " &lt;&lt; m &lt;&lt; endl;
+    cin >> nres;
+    ll mn = 3e9;
+    ll x1, y1;
+    for (int i = 0;i &lt; n;i++) {
+      if (a[i].first + a[i].second &lt; mn) {
+        mn = min(mn, a[i].first + a[i].second);
+        x1 = a[i].first;
+        y1 = a[i].second;
+      }
+    }
+    ll h1 = x1 + y1 - res;
+    ll nmn = 3e9;
+    ll x2, y2;
+    for (int i = 0;i &lt; n;i++) {
+      if (a[i].second - a[i].first &lt; nmn) {
+        nmn = min(nmn, a[i].second - a[i].first);
+        x2 = a[i].first;
+        y2 = a[i].second;
+      }
+    }
+    ll h2 = nres + x2 - y2 - 4 * m;
+    ll ansx = (h1 + h2) / 2;
+    ll ansy = (h1 - h2) / 2;
+    ansx += 2 * m;
+    ansy += 2 * m;
+    cout &lt;&lt; "! " &lt;&lt; ansx &lt;&lt; " " &lt;&lt; ansy &lt;&lt; endl;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. По заданию -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. По заданию</h3>
+
+  <div><i>Ограничение по времени 4с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>
+
+
+<!-- Задача F1. Из неизвестного (простая версия) -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача F1. Из неизвестного (простая версия)</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>
+
+
+<!-- Задача F2. Из неизвестного (сложная версия) -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача F2. Из неизвестного (сложная версия)</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>

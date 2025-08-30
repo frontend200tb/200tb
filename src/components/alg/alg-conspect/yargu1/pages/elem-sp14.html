@@ -1414,8 +1414,92 @@ int main() {
       <br><a href="https://codeforces.com/contest/195" target="_blank">Codeforces Round 123 (Div. 2) 2012-06-10</a>
     </div>
 
-  </details>
+    <h4>Тест 5</h4>
+    <code>2 6</code>
+<pre>
+3
+4
+</pre>
 
+    <h4>Тест 9</h4>
+    <code>5 6</code>
+<pre>
+3
+4
+2
+5
+1
+</pre>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+    // ввод данных
+    int n; // число мячей
+    int m; // число корзин
+    cin >> n >> m;
+
+    // решение
+    int l = (m + 1) / 2;
+    int r = l + 1;
+
+    // индекс - номер мяча, значение - номер корзины
+    vector&lt;int&gt; Res(n + 2, 0);
+
+    // найдем корзину для первых m мячей
+    int begin = 1;
+    int end = min(n, m);
+
+    // если m нечетно, то сначала положим мяч в среднюю корзину
+    if (m % 2 == 1) {
+      Res[1] = l;
+      l--;
+      begin++;
+      end++;
+    }
+
+    for (int i = begin; i &lt; end; i += 2) {
+      Res[i] = l;
+      Res[i + 1] = r;
+      l--;
+      r++;
+    }
+
+    // если мячей нечетно, а корзин четно
+    // и мячей меньше корзин
+    // то остается последний мяч
+    if (Res[end] == 0) {
+      Res[end] = l;
+    }
+
+    // найдем корзину остальным мячам
+    for (int i = m + 1; i &lt;= n; i++) {
+      Res[i] = Res[i - m];
+    }
+
+    // вывод результата
+    for (int i = 1; i &lt;= n; i++) {
+      cout &lt;&lt; Res[i] &lt;&lt; '\n';
+    }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1843,9 +1927,93 @@ bac roc lly iol iat
       <a href="https://codeforces.com/contest/1722/problem/C" target="_blank">Задача 1722C</a>
       <br><a href="https://codeforces.com/contest/1722" target="_blank">Codeforces Round 817 (Div. 4) 2022-08-30</a>
     </div>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;set&gt;
 
+using namespace std;
+
+int main() {
+  // условная компиляция
+  #ifdef _DEBUG
+    freopen("input.txt", "rt", stdin);
+    freopen("output.txt", "wt", stdout);
+  #endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число слов
+    cin >> n;
+    set&lt;string&gt; s1; // слова первого игрока
+    for (int i = 0; i &lt; n; i++) {
+      string x;
+      cin >> x;
+      s1.insert(x);
+    }
+    set&lt;string&gt; s2; // слова второго игрока
+    for (int i = 0; i &lt; n; i++) {
+      string x;
+      cin >> x;
+      s2.insert(x);
+    }
+    set&lt;string&gt; s3; // слова третьего игрока
+    for (int i = 0; i &lt; n; i++) {
+      string x;
+      cin >> x;
+      s3.insert(x);
+    }
+
+    // решение
+    int score1 = 0;
+    int score2 = 0;
+    int score3 = 0;
+
+    // пройдем по словам первого игрока
+    for (string s : s1) {
+      if (s2.find(s) == s2.end() && s3.find(s) == s3.end()) {
+        score1 += 3;
+      } else if (s2.find(s) != s2.end() && s3.find(s) != s3.end()) {
+        // никто не получает очки
+      } else {
+        score1++;
+      }
+    }
+
+    // пройдем по словам второго игрока
+    for (string s : s2) {
+      if (s1.find(s) == s1.end() && s3.find(s) == s3.end()) {
+        score2 += 3;
+      } else if (s1.find(s) != s1.end() && s3.find(s) != s3.end()) {
+        // никто не получает очки
+      } else {
+        score2++;
+      }
+    }
+
+    // пройдем по словам третьего игрока
+    for (string s : s3) {
+      if (s1.find(s) == s1.end() && s2.find(s) == s2.end()) {
+        score3 += 3;
+      } else if (s1.find(s) != s1.end() && s2.find(s) != s2.end()) {
+        // никто не получает очки
+      } else {
+        score3++;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; score1 &lt;&lt; ' '
+    &lt;&lt; score2 &lt;&lt; ' '
+    &lt;&lt; score3 &lt;&lt; '\n';
+  }
+}
+</pre>
   </details>
-
 </article>
 
 
@@ -1897,6 +2065,12 @@ bac roc lly iol iat
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/gym/104454/problem/K" target="_blank">Задача K</a>
+      <br><a href="https://codeforces.com/gym/104454" target="_blank">ICPC Central Russia Regional Contest, 2021</a>
+    </div>
+
     <p>В нулевой день все задания выполнены. Дела которые выполняются через 0 дней нужно делать каждый день. Дела которые выполняются через 1 день, нужно делать с пропуском в 1 день и т.д. Давайти объединять в группы все дела, которые делаются через одинаковое число дней. Для этого возьмем структуру данных map&lt;int, int&gt;, где map.first это период задачи, а map.second это количество таких задач.</p>
 <pre>
 #include &lt;iostream&gt;

@@ -1,0 +1,1316 @@
+<article class="article">
+  <h1>2009 Костюкова, Калинина - Язык Си и особенности работы с ним. 207c</h1>
+  <p>Конспект книги</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p>
+        <a href="#p1">Лекция 1. Общее знакомство (11)</a>
+    <br><a href="#p2">Лекция 2. Данные, символьные строки, директива #define (21)</a>
+    <br><a href="#p3">Лекция 3. Операции (32)</a>
+    <br><a href="#p4">Лекция 4. Операторы (56)</a>
+    <br><a href="#p5">Лекция 5. Преобразование типов (68)</a>
+    <br><a href="#p6">Лекция 6. Функции и переключение ввода-вывода (74)</a>
+    <br><a href="#p7">Лекция 7. Выбор вариантов (83)</a>
+    <br><a href="#p8">Лекция 8. Циклы и другие управляющие средства (95)</a>
+    <br><a href="#p9">Лекция 9. Функции (107)</a>
+    <br><a href="#p10">Лекция 10. Классы памяти и разработка программ (119)</a>
+    <br><a href="#p11">Лекция 11. Препроцессор языка Си (126)</a>
+    <br><a href="#p12">Лекция 12. Массивы и указатели (140)</a>
+    <br><a href="#p13">Лекция 13. Символьные строки и функции над ними (151)</a>
+    <br><a href="#p14">Лекция 14. Структуры (164)</a>
+    <br><a href="#p15">Лекция 15. Библиотека языка Си и файлы ввода-вывода (175)</a>
+    <br><a href="#p16">Лекция 16. Функции в примерах (189)</a>
+    <br><a href="#p17">Литература (205)</a>
+  </p>
+</article>
+
+
+<!-- Лекция 1. Общее знакомство -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Лекция 1. Общее знакомство (11)</h3>
+
+</article>
+
+
+<!-- Лекция 2. Данные, символьные строки, директива #define -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Лекция 2. Данные, символьные строки, директива #define (21)</h3>
+
+</article>
+
+
+<!-- Лекция 3. Операции -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Лекция 3. Операции (32)</h3>
+
+  <p>Определить площадь боковой поверхности конуса радиуса r и имеющего длину образующей 1</p>
+
+  <details>
+    <summary>Программа 1 (54)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+const float pi = 3.14159;
+float r = 10, l = 50, s;
+
+int main() {
+  s = pi * r * l;
+  printf("s = %f", s);
+}
+</pre>
+  </details>
+
+  <p>Тело движется прямолинейно с ускорением. Даны a м/с² ускорение, v м/с начальная скорость. Требуется определить, какой путь пройдет тело за t секунд.</p>
+
+  <details>
+    <summary>Программа 2 (55)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float a, v, t, s;
+
+int main() {
+  a = 20.2;
+  v = 50.3;
+  t = 65;
+  s = (v * t) + (a * t * t / 2);
+  printf("s = %.2f meters", s);
+}
+</pre>
+  </details>
+
+  <p>Вычислите среднее арифметическое и среднее геометрическое трех чисел a, b, c.</p>
+
+  <details>
+    <summary>Программа 3 (55)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+float a = 2005.1;
+float b = 2005.1;
+float c = 2005.1;
+float x, y;
+
+int main() {
+  x = (a + b + c) / 3;
+  y = pow((a * b * c), (1 / 3));
+  printf("arifm x = %.2f\n", x);
+  printf("geom y = %.2f", y);
+}
+</pre>
+  </details>
+
+  <p>Даны катеты прямоугольного треугольника. Найти его гипотенузу и площадь.</p>
+
+  <details>
+    <summary>Программа 4 (55)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+float x = 50.7;
+float y = 50.7;
+float z, s;
+
+int main() {
+  z = hypot(x, y);
+  s = x * y / 2;
+  printf("hypot z = %.2f\n", z);
+  printf("square s = %.2f", s);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 4. Операторы -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Лекция 4. Операторы (56)</h3>
+
+  <p>От города A до города B расстояние равно 20км. Велосипедист выехал из A и в первый день проехал 10км. В последующие дни он проезжал со скоростью, на 0,5 раз большей, чем в предыдущий день. За сколько дней велосимедист доберется до города B?</p>
+
+  <details>
+    <summary>Программа 5 (59)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float km = 10;
+int d;
+
+int main() {
+  d = 1;
+  while (km &lt; 20) {
+    km += (km * 0.5);
+    d++;
+  }
+  printf("days = %d", d);
+}
+</pre>
+  </details>
+
+  <p>Применение функции printf()</p>
+
+  <details>
+    <summary>Программа 6 (60)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define PI 3.14159
+
+int main() {
+  int number = 2003;
+  printf("in year %d\n", number);
+  printf("pi = %f", PI);
+}
+</pre>
+  </details>
+
+  <p>Применение функции scanf()</p>
+
+  <details>
+    <summary>Программа 7 (63)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int age;
+  float assets;
+  char family[50];
+  printf("Enter age, assets, family");
+  scanf("%d %f", &age, &assets);
+  scanf("%s", family);
+  printf("%d $%.0f %s", age, assets, family);
+}
+</pre>
+  </details>
+
+  <p>Вычислить величину дохода по вкладу. Процентная ставка годовых, время хранения дней и сумма задаются во время работы программы.</p>
+
+  <details>
+    <summary>Программа 8 (66)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float p, t, s, d;
+
+int main() {
+  puts("Enter sum s");
+  scanf("%f", &s);
+  puts("Enter percents p");
+  scanf("%f", &p);
+  puts("Enter time in days t");
+  scanf("%f", &t);
+
+  d = p * s * t / 36500;
+
+  printf("Dohod d = %.2f", d);
+}
+</pre>
+  </details>
+
+  <p>По заданной стороне куба A определить его объем, площадь грани и площадь поверхности.</p>
+
+  <details>
+    <summary>Программа 9 (67)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float a, v, s, si;
+
+int main() {
+  puts("Enter side a");
+  scanf("%f", &a);
+
+  v = a * a * a;
+  s = a * a;
+  si = s * 6;
+
+  printf("Volume cube v = %.2f\n", v);
+  printf("Square side s = %.2f\n", s);
+  printf("Square cube si = %.2f", si);
+}
+</pre>
+  </details>
+
+  <p>Определить реальное расстояние между населенными пунктами. Указан масштаб карты и расстояние между двумя точками, изображающими населенные пункты.</p>
+
+  <details>
+    <summary>Программа 10 (67)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+float m, s, si;
+
+int main() {
+  puts("Enter mashtab m");
+  scanf("%f", &m);
+  puts("Enter distance in map s");
+  scanf("%f", &s);
+
+  si = s * m;
+
+  printf("Real distance si = %.2f\n", si);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 5. Преобразование типов -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>Лекция 5. Преобразование типов (68)</h3>
+
+</article>
+
+
+<!-- Лекция 6. Функции и переключение ввода-вывода -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Лекция 6. Функции и переключение ввода-вывода (74)</h3>
+
+  <p>Напишем программу, которая принимает один символ и выводит его на экран.</p>
+
+  <details>
+    <summary>Программа 11 (74)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char ch;
+  printf("Enter char ");
+  ch = getchar();
+  putchar(ch);
+}
+</pre>
+  </details>
+
+  <p>Изменим нашу программу</p>
+
+  <details>
+    <summary>Программа 12 (75)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Enter char ");
+  putchar(getchar());
+}
+</pre>
+  </details>
+
+  <p>Ввод и вывод нескольких символов</p>
+
+  <details>
+    <summary>Программа 13 (76)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '!'
+
+int main() {
+  char ch;
+  ch = getchar();
+  while (ch != STOP) {
+    putchar(ch);
+    ch = getchar();
+  }
+}
+</pre>
+  </details>
+
+  <p>Изменим программу</p>
+
+  <details>
+    <summary>Программа 14 (77)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '!'
+
+int main() {
+  char ch;
+  while ((ch = getchar()) != STOP) {
+    putchar(ch);
+  }
+}
+</pre>
+  </details>
+
+  <p>Усложним пример ввода-вывода. Будем подсчитывать символы.</p>
+
+  <details>
+    <summary>Программа 15 (77)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define STOP '\n'
+
+int main() {
+  char ch;
+  int count = 0;
+  while ((ch = getchar()) != STOP) {
+    putchar(ch);
+    count++;
+  }
+  printf("\n%d symbols", count);
+}
+</pre>
+  </details>
+
+  <p>Считывать символы пока не достигнем конца файла</p>
+
+  <details>
+    <summary>Программа 16 (78)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char ch;
+  while ((ch = getchar()) != EOF) {
+    putchar(ch);
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 7. Выбор вариантов -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>Лекция 7. Выбор вариантов (83)</h3>
+
+  <p>Подсчитаем число строк в файле</p>
+
+  <details>
+    <summary>Программа 17 (83)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int ch;
+  int line_count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch == '\n') {
+      line_count++;
+    }
+  }
+  printf("%d lines", line_count);
+}
+</pre>
+  </details>
+
+  <p>Подсчитаем число символов и строк в файле</p>
+
+  <details>
+    <summary>Программа 18 (84)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int ch;
+  int char_count = 0;
+  int line_count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    char_count++;
+    if (ch == '\n') {
+      line_count++;
+    }
+  }
+  printf("%d chars\n", char_count);
+  printf("%d lines", line_count);
+}
+</pre>
+  </details>
+
+  <p>Проверим входной символ больше 5 или нет</p>
+
+  <details>
+    <summary>Программа 19 (85)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int ch;
+  printf("Enter char ");
+  ch = getchar();
+  if (ch > 5) {
+    printf("%d > 5", ch);
+  }
+  if (ch &lt; 5) {
+    printf("%d &lt; 5", ch);
+  }
+}
+</pre>
+  </details>
+
+  <p>Заменим каждый символ из таблицы ASCII на следующий символ, кроме символа "новая строка"</p>
+
+  <details>
+    <summary>Программа 20 (85)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char ch;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch == '\n') {
+      putchar(ch);
+    } else {
+      putchar(ch+1);
+    }
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 21 (88)</summary>
+  <p>Проверим оценку</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int mark;
+  mark = getchar();
+
+  if (mark == '4') {
+    printf("mark = 4");
+  } else if (mark > '4') {
+    printf("mark > 4");
+  } else {
+    mark++;
+    printf("mark now higher by 1");
+  }
+}
+</pre>
+  </details>
+
+  <p>В языке Си все ненулевые значения являются истинными и только 0 является ложью.</p>
+
+  <p>Проверим оценку</p>
+
+  <details>
+    <summary>Программа 22 (89)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int true, false;
+
+  true = (12 > 2);
+  false = (12 == 2);
+  printf("true = %d\nfalse = %d", true, false);
+}
+</pre>
+  </details>
+
+  <p>Посчитаем сколько символов не являются пробелами, табуляцией и символом новой строки.</p>
+
+  <details>
+    <summary>Программа 23 (91)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int ch;
+  int count = 0;
+
+  while ((ch = getchar()) != EOF) {
+    if (ch != ' ' && ch != '\t' && ch != '\n') {
+      count++;
+    }
+  }
+  printf("chars = %d", count);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 8. Циклы и другие управляющие средства -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>Лекция 8. Циклы и другие управляющие средства (95)</h3>
+
+</article>
+
+
+<!-- Лекция 9. Функции -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>Лекция 9. Функции (107)</h3>
+
+  <p>Напишем функцию abs возвращающую абсолютную часть числа.</p>
+  <details>
+    <summary>Программа 24 (111)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int abs(int x) {
+  int y;
+  y = (x &lt; 0) ? -x : x;
+  return y;
+}
+
+int main() {
+  int a = 100, b = 0, c = -122;
+  int d, e, f;
+  d = abs(a);
+  e = abs(b);
+  f = abs(c);
+  printf("%d %d %d", d, e, f);
+}
+</pre>
+  </details>
+  <p>Напишем функцию abs возвращающую абсолютную часть числа. Второй вариант</p>
+
+  <details>
+    <summary>Программа 25 (112)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int abs(int x) {
+  if (x &lt; 0) {
+    return -x;
+  } else {
+    return x;
+  }
+}
+
+int main() {
+  int a = 100, b = 0, c = -122;
+  int d, e, f;
+  d = abs(a);
+  e = abs(b);
+  f = abs(c);
+  printf("%d %d %d", d, e, f);
+}
+</pre>
+  </details>
+  <p>Напишем функцию abs возвращающую абсолютную часть числа. Третий вариант</p>
+
+  <details>
+    <summary>Программа 26 (113)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int abs(int x) {
+  if (x &lt; 0) {
+    return -x;
+  }
+  return x;
+}
+
+int main() {
+  int a = 100, b = 0, c = -122;
+  int d, e, f;
+  d = abs(a);
+  e = abs(b);
+  f = abs(c);
+  printf("%d %d %d", d, e, f);
+}
+</pre>
+  </details>
+  <p>Напишем функцию summa суммирующую значения своих параметров</p>
+
+  <details>
+    <summary>Программа 27 (118)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int summa(int m, ...) {
+  int *p = &m;
+  int t = 0;
+  for (; m; m--) {
+    t += *(++p);
+  }
+  return t;
+}
+
+int main() {
+  printf("summa (2,4,6) = %d\n", summa(2,4,6));
+  printf("summa (1,2,3,4,5,6,7,8,9) = %d", summa(1,2,3,4,5,6,7,8,9));
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 10. Классы памяти и разработка программ -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>Лекция 10. Классы памяти и разработка программ (119)</h3>
+
+</article>
+
+
+<!-- Лекция 11. Препроцессор языка Си -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h3>Лекция 11. Препроцессор языка Си (126)</h3>
+
+  <p>Пустая директива не вызывает никаких действий</p>
+  <code>#</code>
+
+  <p>Прагма определяет действия, зависящие от реализации компилятора. Если препроцессор не знает конкретную прагму, то он ее игнорирует.</p>
+  <code>#pragma</code>
+</article>
+
+
+<!-- Лекция 12. Массивы и указатели -->
+<article class="article">
+  <div class="anchor" id="p12"></div>
+  <h3>Лекция 12. Массивы и указатели (140)</h3>
+
+</article>
+
+
+<!-- Лекция 13. Символьные строки и функции над ними -->
+<article class="article">
+  <div class="anchor" id="p13"></div>
+  <h3>Лекция 13. Символьные строки и функции над ними (151)</h3>
+
+  <h4>strcat, strncat, strcmp, strncmp, strcpy, strncpy, strlen, strchr, strrchr, strpbrk, strspn, strcspn, strtok</h4>
+
+  <p>Строковая константа это последовательность символов, заключенная в двойные кавычки "". В конце каждой строки компилятор ставит символ '\0'. Каждая строковая константа сохраняется в отдельном месте памяти.</p>
+  <p>Строковая константа размещается в статической памяти. Вся фраза заключенная в кавычки является указателем на место в памяти и аналогична имени массива, которое является указателем на расположение массива в памяти.</p>
+
+  <p>Посмотрим как работает строка в качестве указателя</p>
+
+  <details>
+    <summary>Программа 28 (151)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  printf("%s, %u, %c", "we", "love", *"pascal");
+}
+</pre>
+  </details>
+
+  <p>Формат %s выводит строку "we". Формат %u выводит целое без знака. Строка "love" является указателем, поэтому выдается его значение, являющееся адресом первого символа строки. Формат %c выведет первый символ строки "pascal". *"pascal" это значение, на которое ссылается адрес, т.е. первый символ строки "pascal".</p>
+
+  <p>При объявлении строки, необходимо сообщить компилятору требуемый размер памяти. Самый простой способ это инициализировать строку при объявлении. Компилятор подсчитывает символы и получается размер памяти.</p>
+
+  <p>Массив символов</p>
+  <code>char s1[] = {'a', 'b', 'c'};</code>
+
+  <p>Строка</p>
+  <code>char s2[] = {'a', 'b', 'c', '\0'};</code>
+
+  <p>Строка</p>
+  <code>char s3[] = "abc";</code>
+
+  <p>Имя массива является указателем на первый элемент массива. Имя строки является указателем на первый символ строки.</p>
+
+  <p>Указатель на строку</p>
+  <code>char *ps = "abc";</code>
+
+  <p>Можно создать строку без имени, используя указатель на строку. В этом случае также подсчитается размер памяти. Но указатель на строку это не то же самое что имя массива. Имя является константой. Указатель является переменной. Имя будет всегда ссылаться на эту строку. Указатель можно изменить, присвоив ему новое значение. Переменными являются элементы массива, но не имя.</p>
+
+  <h4>Указатели и строки</h4>
+
+  <p>Покажем как работают указатели и строки.</p>
+
+  <details>
+    <summary>Программа 29 (154)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+#define PX(X) printf("X = %s; value = %u; address = %u\n", X, X, &X)
+
+int main() {
+  static char *mesg = "message";
+  static char *copy;
+  copy = mesg;
+  printf("%s\n", copy);
+  PX(mesg);
+  PX(copy);
+}
+</pre>
+<pre>
+message
+X = message; value = 241676330; address = 241672208
+X = message; value = 241676330; address = 241688640
+</pre>
+  </details>
+
+  <h4>Ввод-вывод строк</h4>
+
+  <p>Функция fgets читает строку из входного потока stream</p>
+  <code>char *fgets(char *s, int n, FILE *stream)</code>
+
+  <p>Функция gets читает строку из стандартного входа stdin</p>
+  <code>char *gets(char *s)</code>
+
+  <p>Функция fputs записывает строку в выходного поток stream</p>
+  <code>int *fputs(char *s, FILE *stream)</code>
+
+  <p>Функция puts записывает строку в стандартный выход stdout</p>
+  <code>int *puts(char *s)</code>
+
+  <h4>Обработка строк</h4>
+
+  <p>Функция strcat соединяет две строки</p>
+  <code>char *strcat(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 30 (156)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char dest[25];
+  char *blank = " ", *c = "C++", *turbo = "Turbo";
+
+  strcpy(dest, turbo);
+  strcat(dest, blank);
+  strcat(dest, c);
+
+  printf("%s\n", dest);
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strncat соединяет две строки, из второй строки копировать не более n символов</p>
+  <code>char *strncat(char *s1, char *s2, int n)</code>
+
+  <details>
+    <summary>Программа 31 (157)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char dest[25];
+  char *src = "programming ";
+
+  strcpy(dest, "structured ");
+  strncat(dest, src, 11);
+
+  printf("%s", dest);
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strcmp сравнивает две строки, в лексикографическом порядке.</p>
+  <code>int strcmp(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 32 (157)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *buf1 = "aaa", *buf2 = "bbb", *buf3 = "ccc";
+  int ptr;
+
+  ptr = strcmp(buf2, buf1);
+  if (ptr > 0) {
+    printf("buf2 > buf1\n");
+  } else {
+    printf("buf 2 is less than buf1\n");
+  }
+
+  ptr = strcmp(buf2, buf3);
+  if (ptr > 0) {
+    printf("buf2 > buf3");
+  } else {
+    printf("buf 2 is less than buf3");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strncmp сравнивает первые n символов двух строк.</p>
+  <code>int strncmp(char *s1, char *s2, int n)</code>
+
+  <details>
+    <summary>Программа 33 (158)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *buf1 = "aaabbb", *buf2 = "bbbccc", *buf3 = "ccc";
+  int ptr;
+
+  ptr = strncmp(buf2, buf1, 3);
+  if (ptr > 0) {
+    printf("buf2 > buf1\n");
+  } else {
+    printf("buf 2 is less than buf1\n");
+  }
+
+  ptr = strncmp(buf2, buf3, 3);
+  if (ptr > 0) {
+    printf("buf2 > buf3");
+  } else {
+    printf("buf 2 is less than buf3");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strcpy копирует строку s2 в строку s1.</p>
+  <code>char* strcpy(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 34 (158)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char str[10];
+  char *str1 = "abcdefgh";
+
+  strcpy(str, str1);
+  printf("%s", str);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strncpy копирует не более n символов строки s2 в строку s1.</p>
+  <code>char* strncpy(char *s1, char *s2, int n)</code>
+
+  <details>
+    <summary>Программа 35 (159)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char str[10];
+  char *str1 = "abcdefgh";
+
+  strncpy(str, str1, 3);
+  str[3] = '\0';
+  printf("%s", str);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strlen возвращает длину строки без завершающего символа '\0'.</p>
+  <code>int strlen(char *s)</code>
+
+  <details>
+    <summary>Программа 36 (159)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *str = "C Programming Language";
+
+  printf("%d", strlen(str));
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strchr находит первое вхождение символа в строке.</p>
+  <code>char *strchr(char *s, int c)</code>
+
+  <details>
+    <summary>Программа 37 (160)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char str[25];
+  char *ptr, c = 'r';
+  strcpy(str, "C Programming Language");
+  ptr = strchr(str, c);
+  if (ptr) {
+    printf("char %c at position %d", c, ptr);
+  } else {
+    printf("char %c not found", c);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strrchr находит последнее вхождение символа в строке.</p>
+  <code>char *strrchr(char *s, int c)</code>
+
+  <details>
+    <summary>Программа 38 (161)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char str[25];
+  char *ptr, c = 'r';
+  strcpy(str, "C Programming Language");
+  ptr = strrchr(str, c);
+  if (ptr) {
+    printf("char %c at position %d", c, ptr);
+  } else {
+    printf("char %c not found", c);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strpbrk находит в строке s1 любой из символов строки s2.</p>
+  <code>char *strpbrk(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 39 (161)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *s1 = "C Programming Language";
+  char *s2 = "ing";
+  char *ptr;
+  ptr = strpbrk(s1, s2);
+  if (ptr) {
+    printf("found char %c", ptr);
+  } else {
+    printf("char not found");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strspn находит длину отрезка в строке s1, содержащего символы из множества, входящих в s2.</p>
+  <code>int strspn(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 40 (162)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *s1 = "C Programming Language";
+  char *s2 = "ing";
+  int len;
+  len = strspn(s1, s2);
+  printf("len = %d", len);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strcspn находит длину отрезка в строке s1, содержащего символы строки s2.</p>
+  <code>int strcspn(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 41 (162)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *s1 = "C Programming Language";
+  char *s2 = "ing";
+  int len;
+  len = strcspn(s1, s2);
+  printf("len = %d", len);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Функция strtok выделяет из строки s1 лексемы, разделенные любым символом входящим в s2.</p>
+  <code>int strtok(char *s1, char *s2)</code>
+
+  <details>
+    <summary>Программа 41 (162)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char *s1 = "ab,ac,ad";
+  char *s2 = ",";
+  char *p;
+  p = strtok(s1, s2);
+  if (p) {
+    printf("%s\n", p);
+  }
+  p = strtok(NULL, s2);
+  if (p) {
+    printf("%s\n", p);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 14. Структуры -->
+<article class="article">
+  <div class="anchor" id="p14"></div>
+  <h3>Лекция 14. Структуры (164)</h3>
+
+  <p>Определение структуры</p>
+<pre>
+struct dinner {
+  char *place;
+  float cost;
+  struct dinner *next;
+};
+</pre>
+  <p>Структурная переменная</p>
+  <code>struct dinner today;</code>
+  <p>Массив структур</p>
+  <code>struct dinner days[7];</code>
+  <p>Указатель на структурную переменную</p>
+  <code>struct dinner *p;</code>
+
+  <p>Вместе со структурой можно сразу объявить переменные этой структуры</p>
+<pre>
+struct {
+  int year;
+  int month;
+  int day;
+} date1, date2;
+</pre>
+
+  <p>Имя структуры может быть переопределено оператором typedef</p>
+<pre>
+typedef struct {
+  int year;
+  int month;
+  int day;
+} date;
+
+date date1, date2;
+</pre>
+
+  <p>Имя структуры часто используется как указатель на нее саму</p>
+<pre>
+struct node {
+  int value;
+  struct node *next;
+};
+</pre>
+  <p>Структура node не может содержать структуру node, но может содержать указатель на структуру node</p>
+
+  <h4>Поля битов в структурах</h4>
+  <p><strong>Поле битов</strong> это элемент структуры, определенный как число бит, обычно меньше чем в целом числе. Поля битов предназначены для экономного размещения в памяти данных небольшого диапазона</p>
+<pre>
+struct bfeg {
+  unsigned int bf_flg1 : 10;
+  unsigned int bf_flg2 : 6;
+};
+</pre>
+  <p>Структура bfeg описывает 10-битовое и 6-битовое поля, которые при вычислениях преобразуются в unsigned int.</p>
+
+  <h4>Объединения</h4>
+  <p><strong>Объединение</strong> описывает переменную, которая может иметь любой тип из перечисленных.</p>
+<pre>
+union bigword {
+  long bg_long;
+  char *bg_char[4];
+};
+</pre>
+  <p>Размер переменной типа union равен размеру наибольшему из перечисленных типов.</p>
+  <code>union bigword x;</code>
+  <code>union bigword *p;</code>
+  <code>union bigword a[100];</code>
+
+  <h4>Перечисления</h4>
+  <p>Каждое значение типа перечисление задается идентификатором</p>
+<pre>
+enum color { red, green, blue };
+enum color pen;
+pen = red;
+enum color pens[50];
+</pre>
+
+  <h4>Переименование типов</h4>
+  <p>Реализуем алгоритм, который позволяет определить строки матриц, состоящие из одинаковых целых, расположенных в различных столбцах. Используются двумерные массивы и структуры. Сначала выполняется сортировка строк по возрастанию. Отсортированные строки сравниваются и выводятся на экран номера одинаковых строк.</p>
+
+  <details>
+    <summary>Программа 42 (173)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#define n 4
+#define m 4
+
+int m1[n][m];
+typedef struct {int i, i1;} mas;
+mas a[n*2];
+
+int main() {
+  int i, j;
+  rand();
+
+  // заполним массив случайными числами
+  for (i = 0; i &lt; n; i++) {
+    for (j = 0; j &lt; m; j++) {
+      m1[i][j] = rand(2);
+    }
+  }
+
+  // напечатаем массив
+  for (i = 0; i &lt; n; i++) {
+    printf("\n %d", i);
+    for (j = 0; j &lt; m; j++) {
+      printf(" %d", m1[i][j]);
+    }
+  }
+
+  int min, p;
+
+  // сортировка строк по возрастанию
+  for (i = 0; i &lt; n; i++) {
+    for (int s = 0; s &lt; m-1; s++) {
+      min = m1[i][s+1];
+      for (j = s; j &lt; m; j++) {
+        // запоминаем минимальный элемент
+        if (m1[i][j] &lt;= min) {
+          min = m1[i][j];
+          p = j;
+        }
+        if (m1[i][s] >= min) {
+          m1[i][p] = m1[i][s];
+          m1[i][s] = min;        }
+      }
+    }
+  }
+
+  // выводим отсортированный массив
+  printf("\n");
+  for (i = 0; i &lt; n; i++) {
+    printf("\n %d", i);
+    for (j = 0; j &lt; m; j++) {
+      printf(" %d", m1[i][j]);
+    }
+  }
+
+  int s, k = 0, i1;
+  for (i = 0; i &lt; n-1; i++) {
+    for (i1 = i+1; i1 &lt; n; i1++) {
+      s = 0;
+      for (j = 0; j &lt; m; j++) {
+        if (m1[i][j] == m1[i1][j]) {
+          s++;
+        }
+      }
+      if (s == m) {
+        a[k].i = i;
+        a[k].i1 = i1; k++;
+      }
+    }
+  }
+
+  printf("\n equal strings ");
+  for (i = 0; i &lt; k; i++) {
+    printf("\n %d and %d", a[i].i, a[i],i1 );
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Лекция 15. Библиотека языка Си и файлы ввода-вывода -->
+<article class="article">
+  <div class="anchor" id="p15"></div>
+  <h3>Лекция 15. Библиотека языка Си и файлы ввода-вывода (175)</h3>
+
+  <p>Прочитаем содержимое файла 43abc.txt</p>
+  <details>
+    <summary>Файл 43abc.txt</summary>
+<pre>
+Lection 15. Language C Library and files input-output
+Read the file 43abc.txt
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 43 (180)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  FILE *in;
+  int ch;
+  if ((in = fopen("abc.txt", "r")) != NULL) {
+    while ((ch = getc(in)) != EOF) {
+      putc(ch, stdout);
+    }
+    fclose(in);
+  } else {
+    printf("File %s not found", "abc.txt");
+  }
+}
+</pre>
+  </details>
+
+  <p>Функции fopen() и fclose() работают с текстовыми файлами с буферизацией. Вводимые и выводимые данные запоминаются во временной области памяти, в буфере. Если буфер заполнился, содержимое его передается в блок и буферизация начинается снова. Функция fclose() освобождает буферы.</p>
+  <p>Текстовый файл состоит из символв кода ASCII. Двоичный файл содержит обычно символы машинного языка.</p>
+</article>
+
+
+<!-- Лекция 16. Функции в примерах -->
+<article class="article">
+  <div class="anchor" id="p16"></div>
+  <h3>Лекция 16. Функции в примерах (189)</h3>
+
+  <p>Программы нужно проектировать, а не создавать их методом проб и ошибок. Нужно внимательно подумать о форме и о содержании ввода и вывода для программы. Необходимо разделить программу на модули и раздельно их запрограммировать. Если необходимо, разбивайте модули на еще более мелкие модули.</p>
+</article>
+
+
+<!-- Литература -->
+<article class="article">
+  <div class="anchor" id="p17"></div>
+  <h3>Литература (205)</h3>
+
+  <ol>
+    <li>1992 Керниган, Ритчи - Язык программирования Си. 352с</li>
+    <li>1988 Болски - Язык программирования Си. Справочник. 96с</li>
+    <li>1988 Джехани - Программирование на языке Си. 272с</li>
+    <li>1997 Тондо, Гемпел - Язык Си. 157с</li>
+    <li>1988 Уэит, Прата, Матрин - Язык Си. 267с</li>
+  </ol>
+</article>
+

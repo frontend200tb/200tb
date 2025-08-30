@@ -1092,16 +1092,109 @@ int main() {
 </pre>
   </details>
 
-<details>
-  <summary>Решение</summary>
+  <details>
+    <summary>Решение</summary>
 
-  <div>
-    <a href="https://codeforces.com/contest/975/problem/C" target="_blank">Задача 975C</a>
-    <br><a href="https://codeforces.com/contest/975" target="_blank">Codeforces Round 478 (Div. 2) 2018-05-01</a>
-  </div>
+    <div>
+      <a href="https://codeforces.com/contest/975/problem/C" target="_blank">Задача 975C</a>
+      <br><a href="https://codeforces.com/contest/975" target="_blank">Codeforces Round 478 (Div. 2) 2018-05-01</a>
+    </div>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
 
-</details>
+using namespace std;
 
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число воинов
+  int q; // число минут
+  cin >> n >> q;
+  vector&lt;long long&gt; A(n+1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i]; // сила i-го воина
+  }
+  vector&lt;long long&gt; K(q+1);
+  for (int i = 1; i &lt;= q; i++) {
+    cin >> K[i]; // число стрел в i-ю минуту
+  }
+
+  // решение
+  int cur_voin = 1; // текущий воин
+  long long cur_sila = A[cur_voin]; // сила текущего воина
+
+  // соберем префикс-сумму сил воинов
+  vector&lt;long long&gt; Pref(n + 1);
+  Pref[0] = 0;
+  for (int i = 1; i &lt;= n; i++) {
+    Pref[i] = Pref[i - 1] + A[i];
+  }
+
+  // для каждой минуты
+  for (int i = 1; i &lt;= q; i++) {
+    long long k = K[i]; // число стрел
+
+    // пока есть стрелы
+    while (k > 0) {
+
+      if (cur_sila > k) {
+        // если сила воина больше числа стрел
+        // то воин выживает и его сила уменьшается
+        cur_sila -= k;
+        k = 0;
+      } else if (k > Pref[n] - Pref[cur_voin] + cur_sila) {
+        // если число стрел больше силы воина и всех следующих воинов
+        // то все они погибают и встанут опять
+        k = 0;
+        cur_voin = 1;
+        cur_sila = A[cur_voin];
+      } else {
+        // если стрелы убьют не всех воинов
+        // то найдем до какого воина убьют воинов
+        int left = cur_voin;
+        int right = n + 1;
+
+        // бинарный поиск по префикс-сумме
+        while (right - left > 1) {
+          int mid = left + (right - left) / 2;
+          if (k > Pref[mid] - Pref[cur_voin] + cur_sila) {
+            left = mid;
+          } else {
+            right = mid;
+          }
+        }
+
+        k -= Pref[left] - Pref[cur_voin] + cur_sila;
+        cur_voin = left;
+        cur_sila = A[cur_voin];
+        if (cur_voin &lt; n) {
+          cur_voin++;
+          cur_sila = A[cur_voin];
+        } else {
+          k = 0;
+          cur_voin = 1;
+          cur_sila = A[cur_voin];
+        }
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; n + 1 - cur_voin &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1175,9 +1268,75 @@ int main() {
       <a href="https://codeforces.com/contest/1623/problem/C" target="_blank">Задача 1623C</a>
       <br><a href="https://codeforces.com/contest/1623" target="_blank">Codeforces Round 763 (Div. 2) 2021-12-28</a>
     </div>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число кучек
+    cin >> n;
+    vector&lt;int&gt; A(n+1);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i]; // число камней в кучке i
+    }
+
+    // решение
+    int left = 1;
+    int right = 1e9;
+
+    // бинарный поиск по ответу
+    while (right - left > 1) {
+      int mid = left + (right - left) / 2;
+      bool flag = true;
+      vector&lt;int&gt; B(n+1);
+      for (int i = 1; i &lt;= n; i++) {
+        B[i] = A[i];
+      }
+      for (int i = n; i >= 3; i--) {
+        if (B[i] >= mid) {
+          B[i - 1] += min(A[i], B[i] - mid) / 3;
+          B[i - 2] += min(A[i], B[i] - mid) / 3 * 2;
+        } else {
+          flag = false;
+        }
+      }
+      if (B[1] &lt; mid || B[2] &lt; mid) {
+        flag = false;
+      }
+      if (flag) {
+        left = mid;
+      } else {
+        right = mid;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; left &lt;&lt; '\n';
+  }
+
+}
+</pre>
   </details>
-
 </article>
 
 
@@ -1211,6 +1370,111 @@ int main() {
     <code>400 300 200 1000 120 100</code>
     <code>-1</code>
     <p>Раппорт на обоях (шаг рисунка) — это расстояние между повторяющимися элементами рисунка.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <h4>Тест 3</h4>
+    <code>12 84 25 43 8 10</code>
+    <code>18</code>
+
+    <h4>Тест 4</h4>
+    <code>63 32 55 35 2 25</code>
+    <code>190</code>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int a; // ширина комнаты
+  int b; // длина комнаты
+  int c; // высота комнаты
+  int h; // длина рулона
+  int w; // ширина рулона
+  int r; // раппорт рулона
+  cin >> a >> b >> c >> h >> w >> r;
+
+  // решение
+
+  // периметр комнаты
+  ll p = 2 * (a + b);
+
+  // если нужно резать рулон по ширине то ответ -1
+  if (p % w != 0) {
+    cout &lt;&lt; -1;
+    return 0;
+  }
+
+  // необходимое число полос на комнату
+  ll strips = p / w;
+
+  // режем полоску на повторяющиеся кусочки
+  ll pieces_in_strip = c / r; // число повторяющихся кусочков в полоске
+  ll rest_strip = c - pieces_in_strip * r; // размер остатка в полоске
+
+  ll rest_in_strip = 0; // число остатков
+  if (rest_strip > 0) {
+    rest_in_strip = strips;
+  }
+
+  // необходимое число кусочков на комнату
+  ll needed_pieces = pieces_in_strip * strips + rest_in_strip;
+
+  // режем рулон на повторяющиеся кусочки
+  ll pieces_in_roll = h / r; // число повторяющихся кусочков в рулоне
+  ll rest_roll = h - pieces_in_roll * r; // размер остатка в рулоне
+
+  // если размер остатка в рулоне больше или равен
+  // размеру остатка в полоске то его тоже можно считать
+  bool can_count_rest = false;
+  if (rest_strip > 0 && rest_roll >= rest_strip) {
+    can_count_rest = true;
+  }
+
+  ll left = 0;
+  ll right = 1e15;
+
+  // бинарный поиск по ответу
+  while (right - left > 1) {
+    ll mid = left + (right - left) / 2;
+
+    // число повторяющихся кусочков из mid рулонов
+    ll pieces_in_mid = mid * pieces_in_roll;
+
+    // если полоски содержат остатки, не равные раппорту
+    // и если остатки в рулоне больше остатков в полосках
+    // тогда добавим число остатков в рулоне, которые закроют остатки полосок
+    if (can_count_rest) {
+      if (mid &lt;= strips) {
+        pieces_in_mid += mid;
+      } else {
+        pieces_in_mid += strips;
+      }
+    }
+
+    if (pieces_in_mid >= needed_pieces) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; right;
+}
+</pre>
   </details>
 </article>
 
@@ -1277,12 +1541,13 @@ int main() {
   }
 
   // решение
-  // бинарный поиск
   long long left = max1;
   long long right = 3 * max1;
   long long mid = 0;
+
+  // бинарный поиск по ответу
   while (right - left > 1) {
-    mid = (left + right) / 2;
+    mid = left + (right - left) / 2;
     long long count = mid;
 
     for (int i = 0; i &lt; n; i++) {
@@ -1404,7 +1669,46 @@ NO
       <a href="https://codeforces.com/contest/1463/problem/A" target="_blank">Задача 1463A</a>
       <br><a href="https://codeforces.com/contest/1463" target="_blank">Educational Codeforces Round 100 (рейтинговый для Див. 2) 2020-12-17</a>
     </div>
+    <p>Заметим, что за каждые 7 выстрелов мы наносим суммарно 9 единиц урона. Так как мы хотим убить всех монстров выстрелом кратным 7, то количество сделанных выстрелов равно 7k. При этом суммарно должно быть нанесено a+b+c единиц урона, отсюда k=a+b+c9 (если результат деления не целое число, то ответа не существует). Так как каждый монстр получит хотя бы k единиц урона (с усиленных выстрелов), то здоровье каждого монстра должно быть не меньше k. Если два вышеописанных условия выполняются, то оставшиеся выстрелы всегда можно распределить нужным образом.</p>
+<pre>
+#include &lt;iostream&gt;
 
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int a, b, c; // здоровье монстров
+    cin >> a >> b >> c;
+
+    // решение
+    bool maybe = true;
+
+    // 7 выстрелов наносят 9 уронов здоровью
+    // последний выстрел должен быть обязательно кратен 7
+    if ((a + b + c) % 9 != 0) {
+      maybe = false;
+    }
+    int k = (a + b + c) / 9;
+
+    // каждый монстр должен вынести хотябы k выстрелов
+    if (k > a || k > b || k > c) {
+      maybe = false;
+    }
+
+    // вывод результата
+    if (maybe) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -1609,7 +1913,133 @@ int main() {
       <a href="https://codeforces.com/contest/1843/problem/E" target="_blank">Задача 1843E</a>
       <br><a href="https://codeforces.com/contest/1843" target="_blank">Codeforces Round 881 (Div. 3) 2023-06-20</a>
     </div>
+    <p>Давайте воспользуемся бинарным поиском по ответу. Он будет работать, так как, если какой-то отрезок был хорошим, то после еще одного изменения он не перестанет быть хорошим, а если все отрезки были плохими, то, если убрать последнее изменение, они останутся плохими.</p>
 
+    <p>Для проверки наличия хорошего отрезка для префикса изменений можно построить массив, полученный после этих изменений, а затем посчитать префиксные суммы за O(n). После этого, можно перебрать все отрезки и проверить за O(1) на отрезок, является ли он хорошим.</p>
+
+    <p>Итоговая сложность: O((n+m)⋅log(q)).</p>
+
+    <details>
+      <summary>Тест 2</summary>
+<pre>
+1
+5 5
+1 5
+2 4
+1 5
+1 5
+1 4
+5
+3
+2
+5
+1
+4
+</pre>
+      <code>2</code>
+    </details>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int m; // число отрезков
+    cin >> n >> m;
+
+    int li;
+    int ri;
+    vector&lt;pair&lt;int, int&gt; &gt; B(m + 1); // массив отрезков
+    B[0] = make_pair(0, 0);
+    for (int i = 1; i &lt;= m; i++) {
+      cin >> li;
+      cin >> ri;
+      B[i] = make_pair(li, ri);
+    }
+
+    int q; // число изменений
+    cin >> q;
+    vector&lt;int> X(q + 1); // массив изменений
+    for (int i = 1; i &lt;= q; i++) {
+      cin >> X[i];
+    }
+
+    // решение
+    int res = -1;
+
+    int left = 0;
+    int right = q + 1;
+
+    // бинарный поиск по ответу
+    while (right - left > 1) {
+      int mid = left + (right - left) / 2;
+
+      // применим mid изменений
+      vector&lt;int&gt; A(n + 1, 0); // массив нулей
+      for (int i = 1; i &lt;= mid; i++) {
+        A[X[i]] = 1;
+      }
+
+      // создадим массив префикс-сумм
+      vector&lt;int&gt; Pref(n + 1);
+      Pref[0] = 0;
+      for (int i = 1; i &lt;= n; i++) {
+        Pref[i] = Pref[i - 1] + A[i];
+      }
+      bool flag = false;
+
+      // проверим каждый отрезок
+      // является ли он хороший
+      for (int i = 1; i &lt;= m; i++) {
+        li = B[i].first;
+        ri = B[i].second;
+        int cnt_el = ri - li + 1; // число элементов в отрезке
+        int cnt1 = Pref[ri] - Pref[li - 1]; // число единиц в отрезке
+        int cnt0 = cnt_el - cnt1; // число нулей в отрезке
+
+        // если найден красивый отрезок
+        // поднимаем флаг
+        if (cnt1 > cnt0) {
+          flag = true;
+        }
+      }
+
+      // если найден красивый отрезок
+      // уменьшаем правую границу
+      if (flag) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+
+    }
+
+    // если правая граница не вышла из диапазона
+    // то ответ найден и он в правой границе
+    if (right &lt; q + 1) {
+      res = right;
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -1667,6 +2097,50 @@ int main() {
       <br><a href="https://codeforces.com/contest/480" target="_blank">Codeforces Round 274 (Div. 1) 2014-10-19</a>
     </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+    // ввод данных
+    int n; // число экзаменов
+    cin >> n;
+    vector&lt;pair&lt;int, int&gt; &gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      // дата сдачи по расписанию и досрочная сдача
+      cin >> A[i].first >> A[i].second;
+    }
+
+    // решение
+    sort(A.begin(), A.end());
+    int day = 0;
+
+    for (int i = 0; i &lt; n; i++) {
+      if (day &lt;= A[i].second) {
+        day = A[i].second;
+      } else {
+        day = A[i].first;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; day;
+}
+</pre>
   </details>
 </article>
 

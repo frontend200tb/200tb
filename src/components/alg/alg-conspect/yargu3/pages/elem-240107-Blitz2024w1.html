@@ -845,6 +845,56 @@ int main() {
 </pre>
   <p>Первый пример показан в условии. Так как слон находится на пересечении ряда 4 и столбца 3, правильным ответом является 4 3.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    vector&lt;vector&lt;char&gt; &gt; A(9, vector&lt;char&gt;(9));
+    for (int i = 1; i &lt;= 8; i++) {
+      for (int j = 1; j &lt;= 8; j++) {
+        cin >> A[i][j];
+      }
+    }
+
+    // решение
+    int x = 0;
+    int y = 0;
+    for (int i = 2; i &lt; 8; i++) {
+      for (int j = 2; j &lt; 8; j++) {
+        if (A[i][j] == '#' && A[i - 1][j - 1] == '#' && A[i - 1][j + 1] == '#') {
+          x = i;
+          y = j;
+        }
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; x &lt;&lt; ' ' &lt;&lt; y &lt;&lt; '\n';
+  }
+
+}
+</pre>
+  </details>
 </article>
 
 
@@ -892,6 +942,88 @@ int main() {
 1
 </pre>
   <p>Первый пример объяснён в условии.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+// добавляем время
+pair&lt;int, int&gt; addTime(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
+  int min = a.second + b.second;
+  a.second = min % 60;
+  a.first = (a.first + b.first + min / 60) % 24;
+
+  return a;
+}
+
+// проверяем на палиндром
+bool isPalindrome(pair&lt;int, int&gt; t) {
+  int t1 = t.first / 10;
+  int t2 = t.first % 10;
+  int t3 = t.second / 10;
+  int t4 = t.second % 10;
+  if (t1 != t4 || t2 != t3) {
+    return false;
+  }
+  return true;
+}
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    string s; // начальное время
+    cin >> s;
+    int x; // число минут
+    cin >> x;
+
+    // решение
+    int res = 0;
+
+    int h_start = stoi(s.substr(0, 2));
+    int m_start = stoi(s.substr(3, 2));
+    pair&lt;int, int&gt; time_start = make_pair(h_start, m_start);
+
+    int h_step = x / 60;
+    int m_step = x % 60;
+    pair&lt;int, int&gt; time_step = make_pair(h_step, m_step);
+
+    // проверяем на палиндром начальное время
+    pair&lt;int, int&gt; time = time_start;
+      if (isPalindrome(time)) {
+        res++;
+      }
+      time = addTime(time, time_step);
+
+    // пока время не начнет повторяться
+    while (time.first != time_start.first || time.second != time_start.second) {
+      if (isPalindrome(time)) {
+        res++;
+      }
+      time = addTime(time, time_step);
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+
+}
+</pre>
   </details>
 </article>
 
@@ -953,6 +1085,89 @@ int main() {
   <p>Во втором наборе сумма элементов равна 2, а нам нужна сумма 1, поэтому мы можем удалить из массива первый элемент, после чего массив превратится в [1,0], сумма элементов которого будет равна 1.</p>
 
   <p>В третьем наборе сумма элементов массива изначально равна 5, а нам нужна сумма 3. Мы можем получить такую сумму удалив первые 2 элемента, после чего удалив последний элемент, сделав всего 3 операции. Массив станет [0,1,1,1,0,0], сумма элементов которого будет 3.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int s; // необходимая сумма элементов
+    cin >> n >> s;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int sum = 0;
+
+    // посчитаем сумму
+    for (int i = 0; i &lt; n; i++) {
+      sum += A[i];
+    }
+
+    int res = n;
+
+    if (s > sum) {
+      res = -1;
+    } else if (s == sum) {
+      res = 0;
+    } else {
+      // значит сумма массива больше чем необходимая сумма
+      // соберем второй массив в котором будут номера элементов с единицей
+      vector&lt;int&gt; B;
+      for (int i = 0; i &lt; n; i++) {
+        if (A[i] == 1) {
+          B.push_back(i);
+        }
+      }
+
+      // пройдем скользящим окном размером s по второму массиву
+      // когда окно начинается с левой единицы
+      // считаем сколько элементов нужно убрать справа
+      int cur_sum = n - B[s];
+      res = min(res, cur_sum);
+
+      // считаем сколько элементов нужно убрать слева и справа
+      int end = sum - s;
+      for (int i = 1; i &lt; end; i++) {
+        cur_sum = B[i - 1] + 1 + n - B[i + s];
+        res = min(res, cur_sum);
+      }
+
+      // когда окно заканчивается правой единицей
+      // считаем сколько элементов нужно убрать слева
+      cur_sum = B[end - 1] + 1;
+      res = min(res, cur_sum);
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
   </details>
 </article>
 

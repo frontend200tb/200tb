@@ -321,16 +321,11 @@ int main() {
     <summary>Решение. Первый способ</summary>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 #include &lt;vector&gt;
 
 using namespace std;
 
 int main() {
-  // ускорение ввода-вывода
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-
   // ввод данных
   long long A, i;
   cin >> A >> i;
@@ -352,15 +347,10 @@ int main() {
     <summary>Решение. Второй способ</summary>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
-#include &lt;vector&gt;
 
 using namespace std;
 
 int main() {
-  // ускорение ввода-вывода
-  ios::sync_with_stdio(0);
-  cin.tie(0);
 
   // ввод данных
   long long A, i;
@@ -607,6 +597,17 @@ int main() {
 
     <p>Последовательность из второго примера имеет три подотрезка: [1000], [7] и [1000,7]. Значения &-сумм этих подотрезков равны 1000, 7 и 0, соответственно.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/gym/103720/problem/E" target="_blank">Задача E</a>
+      <br><a href="https://codeforces.com/gym/103720/" target="_blank">VII Липецкая командная олимпиада школьников по программированию. Финал. 3-7 классы</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -803,6 +804,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/677/problem/C" target="_blank">Задача 677C</a>
+      <br><a href="https://codeforces.com/contest/677" target="_blank">Codeforces Round 355 (Div. 2)</a>
+    </div>
+
     <p>Буква z в этой кодировке равна 61. Представим ее в виде степеней двойки</p>
     <code>61₁₀ = 32 + 16 + 8 + 4 + 1 = 111101₂</code>
     <p>Нужно собрать битовую маску. Там где 1 должна быть тоже 1, там где 0 может быть любой символ.</p>
@@ -916,6 +923,16 @@ TAK
 
     <p>Во втором примере выбранные числа 7 (первое число в первой строке) и 10 (третье число во второй строке), 7 XOR 10 = 13, 13 больше чем 0, поэтому ответ найден.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1151/problem/B" target="_blank">Задача 1151B</a>
+      <br><a href="https://codeforces.com/contest/1151" target="_blank">Codeforces Round 553 (Div. 2)</a>
+    </div>
+
+  </details>
 </article>
 
 
@@ -956,6 +973,17 @@ TAK
     <code>8</code>
     <p>Побитовое «И» — это бинарная операция, действие которой эквивалентно применению логического «И» к каждой паре битов, которые стоят на одинаковых позициях в двоичных представлениях операндов. Другими словами, если оба соответствующих бита операндов равны 1, результирующий двоичный разряд равен 1; если же хотя бы один бит из пары равен 0, результирующий двоичный разряд равен 0.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/gym/101641/problem/D" target="_blank">Задача D</a>
+      <br><a href="https://codeforces.com/gym/101641" target="_blank">Личный чемпионат Самарского университета среди новичков 2017</a>
+    </div>
+
+  </details>
+
 </article>
 
 
@@ -1011,6 +1039,12 @@ TAK
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1017/problem/B" target="_blank">Задача B</a>
+      <br><a href="https://codeforces.com/contest/1017" target="_blank">Codeforces Round 502 (в память о Leopoldo Taravilse, Div. 1 + Div. 2)</a>
+    </div>
+
     <p>Требуется поменять местами два бита в первом числе. Если в первом числе менять местами биты, в которых 1, то побитовое ИЛИ a | b не изменится. Если в первом числе менять местами биты, значения которых равно 1 во втором числе, также не изменит результат. Остается только два варианта. Первый: меняем местами биты с 0 и 1 в первом числе, те же биты во втором числе так же равны 0 и 1. Второй: меняем местами биты с 0 и 1 в первом числе, те же биты во втором числе равны 1 и 0.</p>
 <pre>
 #include &lt;iostream&gt;
@@ -1116,6 +1150,17 @@ int main() {
     <p>В первом наборе входных данных в качестве подпоследовательности мы можем выбрать оба элемента массива, так как 1 XOR 1 &lt; 2 XOR 0.</p>
     <p>Во втором наборе входных данных мы можем взять элементы с индексами 1, 2 и 4 (в 0-нумерации). Для них выполняется: 2 XOR 2 &lt; 4 XOR 1 и 4 XOR 4 &lt; 1 XOR 2.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1720/problem/D1" target="_blank">Задача 1720D1</a>
+      <br><a href="https://codeforces.com/contest/1720" target="_blank">Codeforces Round 815 (Div. 2)</a>
+    </div>
+
+  </details>
+
 </article>
 
 

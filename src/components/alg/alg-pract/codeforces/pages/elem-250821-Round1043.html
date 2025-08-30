@@ -1,0 +1,436 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/2132" target="_blank">Codeforces Round 1043 (Div. 3) 2025-08-21</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Домашнее задание</a>
+  <br><a href="#task2">Задача B. Загаданное число</a>
+  <br><a href="#task3">Задача C1. Хитрый продавец (простая версия)</a>
+  <br><a href="#task4">Задача C2. Хитрый продавец (сложная версия)</a>
+  <br><a href="#task5">Задача D. От 1 до бесконечности</a>
+  <br><a href="#task6">Задача E. Соревнование по арифметике</a>
+  <br><a href="#task7">Задача F. Рада и Ромашковая долина</a>
+  <br><a href="#task8">Задача G. Известный балетмейстер</a>
+</article>
+
+
+<!-- Задача A. Домашнее задание -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Домашнее задание</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина строки a
+    cin >> n;
+    string a; // строка a
+    cin >> a;
+    int m; // длина строки b и c
+    cin >> m;
+    string b, c;
+    cin >> b >> c;
+
+    // решение
+    vector&lt;char&gt; Res(n + m);
+    int j = 0;
+
+    // символы которые добавляются в начало
+    for (int i = m - 1; i >= 0; i--) {
+      if (c[i] == 'V') {
+        Res[j++] = b[i];
+      }
+    }
+
+    // символы которые добавляются в середину
+    for (int i = 0; i &lt; n; i++) {
+      Res[j++] = a[i];
+    }
+
+    // символы которые добавляются в конец
+    for (int i = 0; i &lt; m; i++) {
+      if (c[i] == 'D') {
+        Res[j++] = b[i];
+      }
+    }
+
+   // вывод результата
+    for (int i = 0; i &lt; n + m; i++) {
+      cout &lt;&lt; Res[i];
+    }
+    cout &lt;&lt; '\n';
+  }
+
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Загаданное число -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Загаданное число</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  vector&lt;long long&gt; Pref(20);
+  Pref[0] = 1;
+  for (int i = 1; i &lt;= 19; i++) {
+    Pref[i] = Pref[i - 1] * 10;
+  }
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    long long n; // распространенное число
+    cin >> n;
+
+    // решение
+    set&lt;long long&gt; X;
+    for (int i = 1; i &lt;= 19; i++) {
+      long long d = 1 + Pref[i];
+      if (n &lt; d) {
+        break;
+      }
+      if (n % d == 0) {
+        X.insert(n / d);
+      }
+    }
+
+    // вывод результата
+    if (X.empty()) {
+      cout &lt;&lt; X.size() &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; X.size() &lt;&lt; '\n';
+      for (long long x : X) {
+        cout &lt;&lt; x &lt;&lt; ' ';
+      }
+      cout &lt;&lt; '\n';
+    }
+  }
+
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C1. Хитрый продавец (простая версия) -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C1. Хитрый продавец (простая версия)</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// цена сделки для 3^x арбузов
+long long cena(int x) {
+  if (x == 0) {
+    return 3;
+  }
+  long long pow1 = 1;
+  for (int i = 0; i &lt; x + 1; i++) {
+    pow1 *= 3;
+  }
+  long long pow2 = 1;
+  for (int i = 0; i &lt; x - 1; i++) {
+    pow2 *= 3;
+  }
+  return pow1 + x * pow2;
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    long long n; // число арбузов
+    cin >> n;
+
+    // решение
+    vector&lt;int&gt; X;
+    long long n1 = n;
+
+    // число n преобразуем в массив цифр троичной системы
+    while (n1) {
+      X.push_back(n1 % 3);
+      n1 /= 3;
+    }
+
+    int len = X.size();
+
+    // динамические программирование
+    // для каждого разряда и возможного переноса рассматриваются
+    // варианты использования от 0 до 3 сделок текущего разряда
+    vector&lt;vector&lt;long long&gt; &gt; DP(len + 2, vector&lt;long long&gt;(2, 1e18));
+    DP[0][0] = 0;
+    for (int i = 0; i &lt; len + 1; i++) {
+      int d = (i &lt; X.size()) ? X[i] : 0;
+      for (int c = 0; c &lt; 2; c++) {
+        if (DP[i][c] == 1e18) {
+          continue;
+        }
+        int total = d + c;
+        for (int k = 0; k &lt;= 3; k++) {
+          if (k > total) {
+            continue;
+          }
+          int new_c = (total - k) / 3;
+          if ((total - k) % 3 != 0) {
+            continue;
+          }
+          if (new_c > 1) {
+            continue;
+          }
+          long long add = k * cena(i);
+          if (DP[i + 1][new_c] > DP[i][c] + add) {
+            DP[i + 1][new_c] = DP[i][c] + add;
+          }
+        }
+      }
+    }
+
+    // вывод результата
+    // ответ находится в состоянии без переноса
+    cout &lt;&lt; DP[len + 1][0] &lt;&lt; '\n';
+  }
+
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C2. Хитрый продавец (сложная версия) -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача C2. Хитрый продавец (сложная версия)</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+using ll = long long;
+
+ll bin_pow(ll a, ll n) {
+  if (n &lt; 0) {
+    return 0;
+  }
+  ll res = 1;
+  while (n) {
+    if (n & 1) {
+      res *= a;
+    }
+    n /= 2;
+    a *= a;
+  }
+  return res;
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+// условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    ll n, k;
+    cin >> n >> k;
+
+    // решение
+    bool flag = true;
+    ll ans = 0;
+    vector&lt;ll&gt; cnt(31);
+    ll nn = n;
+    /*
+     давайте сначала постараемся заключить минимальное количество сделок,
+     мы умеем это делать с помощью простой версии задачи за O(logn)
+     */
+    for (int i = 30; i >= 0; i--) {
+      ll tot = bin_pow(3, i);
+      ll cn = 0;
+      while (n - tot >= 0 && k) {
+        cn++;
+        n -= tot;
+        k--;
+      }
+      cnt[i] = cn;
+    }
+    // если не получилось сделать это за минимальное количество операций,
+    // то говорим что невозможно сделать за не более чем k сделок
+    if (n != 0) {
+      flag = false;
+    }
+    // теперь попробуем уменьшить стоимость, сохранив при этом колиечтво операций,
+    // заметим что если мы заменяем одну операцию 3^x на три операции 3^(x-1)
+    // то наше количество арбузов останется таким же, а стоимость уменшьиться
+    // на 3^(x-1) именно поэтому чтобы уменьшить как можно больше,
+    // мы будем стараться сначала избавляться от операций, который имеют старший x,
+    // потому что мы уменьшаем сразу на 3^(x-1)
+    // вектор cnt[i] будет говорить сколько операций мы совершили если x = i
+    for (int i = 30; i >= 0; i--) {
+      if (i && cnt[i]) {
+        // если можем убрать все операции - делаем это
+        if (cnt[i] * 2 &lt;= k) {
+          k = k - cnt[i] * 2;
+          cnt[i - 1] = cnt[i - 1] + 3 * cnt[i];
+          cnt[i] = 0;
+        }
+        // иначе убираем максимально возможное количество операций
+        else {
+          ll dd = k / 2;
+          cnt[i - 1] = cnt[i - 1] + 3 * (k / 2);
+          cnt[i] = cnt[i] - k / 2;
+          k = 0;
+        }
+      }
+    }
+    // считаем ответ
+    for (int i = 0; i &lt; 30; i++) {
+      ans = ans + (bin_pow(3, i + 1) + i * bin_pow(3, i - 1)) * cnt[i];
+    }
+    if (flag) {
+      cout &lt;&lt; ans &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; -1 &lt;&lt; '\n';
+    }
+  }
+
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. От 1 до бесконечности -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача D. От 1 до бесконечности</h3>
+
+  <div><i>Ограничение по времени 1.5с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+
+
+<!-- Задача E. Соревнование по арифметике -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача E. Соревнование по арифметике</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 256мб</i></div>
+</article>
+
+
+<!-- Задача F. Рада и Ромашковая долина -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача F. Рада и Ромашковая долина</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>
+
+
+<!-- Задача G. Известный балетмейстер -->
+<article class="article">
+  <div class="anchor" id="task8"></div>
+  <h3>Задача G. Известный балетмейстер</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 512мб</i></div>
+</article>

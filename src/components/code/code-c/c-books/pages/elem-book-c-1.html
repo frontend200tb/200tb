@@ -1,0 +1,3000 @@
+<article class="article">
+  <h1>2016 Майк МакГрат - Программирование на Си для начинающих. 192c</h1>
+  <p>Конспект книги</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p>
+          <a href="#p1">1 Приступаем к работе (9)</a>
+    <br><a href="#p1.1">1.1 Введение в язык Си (10)</a>
+    <br><a href="#p1.2">1.2 Установка компилятора языка Си (12)</a>
+    <br><a href="#p1.3">1.3 Написание программы на языке Си (14)</a>
+    <br><a href="#p1.4">1.4 Компилирование программы на языке Си (16)</a>
+    <br><a href="#p1.5">1.5 Понимание процесса компилирования (18)</a>
+  </p>
+
+  <p>
+          <a href="#p2">2 Сохранение значений переменных (21)</a>
+    <br><a href="#p2.1">2.1 Создание переменных в программе (22)</a>
+    <br><a href="#p2.2">2.2 Отображение значений переменных (24)</a>
+    <br><a href="#p2.3">2.3 Ввод значений переменных (26)</a>
+    <br><a href="#p2.4">2.4 Спецификаторы типов данных (28)</a>
+    <br><a href="#p2.5">2.5 Использование глобальных переменных (30)</a>
+    <br><a href="#p2.6">2.6 Размещение переменных в регистрах (32)</a>
+    <br><a href="#p2.7">2.7 Преобразование типов данных (34)</a>
+    <br><a href="#p2.8">2.8 Создание массивов переменных (36)</a>
+    <br><a href="#p2.9">2.9 Описание нескольких измерений (38)</a>
+  </p>
+
+  <p>
+          <a href="#p3">3 Установка значений переменных (41)</a>
+    <br><a href="#p3.1">3.1 Объявление констант в программе (42)</a>
+    <br><a href="#p3.2">3.2 Перечисление значений констант (44)</a>
+    <br><a href="#p3.3">3.3 Создание константного типа (46)</a>
+    <br><a href="#p3.4">3.4 Определение констант (48)</a>
+    <br><a href="#p3.5">3.5 Отладка с помощью определений (50)</a>
+  </p>
+
+  <p>
+          <a href="#p4">4 Выполнение операций (53)</a>
+    <br><a href="#p4.1">4.1 Выполнение арифметических операций (54)</a>
+    <br><a href="#p4.2">4.2 Присваивание значений (56)</a>
+    <br><a href="#p4.3">4.3 Сравнение значений (58)</a>
+    <br><a href="#p4.4">4.4 Логические значения (60)</a>
+    <br><a href="#p4.5">4.5 Проверка условий (62)</a>
+    <br><a href="#p4.6">4.6 Измерение размера (64)</a>
+    <br><a href="#p4.7">4.7 Сравнение битовых значений (66)</a>
+    <br><a href="#p4.8">4.8 Флаги (68)</a>
+    <br><a href="#p4.9">4.9 Знакомство с приоритетами (70)</a>
+  </p>
+
+  <p>
+          <a href="#p5">5 Создание утверждений (73)</a>
+    <br><a href="#p5.1">5.1 Проверка значений выражений (74)</a>
+    <br><a href="#p5.2">5.2 Ветвление с помощью операции switch (76)</a>
+    <br><a href="#p5.3">5.3 Зацикливание с помощью счетчика (78)</a>
+    <br><a href="#p5.4">5.4 Зацикливание с помощью условия (80)</a>
+    <br><a href="#p5.5">5.5 Досрочный выход из циклов (82)</a>
+    <br><a href="#p5.6">5.6 Переход к меткам (84)</a>
+  </p>
+
+  <p>
+          <a href="#p6">6 Использование функций (87)</a>
+    <br><a href="#p6.1">6.1 Объявление функций (88)</a>
+    <br><a href="#p6.2">6.2 Передача аргументов (90)</a>
+    <br><a href="#p6.3">6.3 Рекурсивные вызовы (92)</a>
+    <br><a href="#p6.4">6.4 Размещение функций в заголовках (94)</a>
+    <br><a href="#p6.5">6.5 Ограничение доступности (96)</a>
+  </p>
+
+  <p>
+          <a href="#p7">7 Указатели (99)</a>
+    <br><a href="#p7.1">7.1 Получение доступа к данным с помощью указателей (100)</a>
+    <br><a href="#p7.2">7.2 Арифметика указателей (102)</a>
+    <br><a href="#p7.3">7.3 Передача указателей в функции (104)</a>
+    <br><a href="#p7.4">7.4 Создание массивов указателей (106)</a>
+    <br><a href="#p7.5">7.5 Указатели на функции (108)</a>
+  </p>
+
+  <p>
+          <a href="#p8">8 Работа со строками (111)</a>
+    <br><a href="#p8.1">8.1 Чтение строк (112)</a>
+    <br><a href="#p8.2">8.2 Копирование строк (114)</a>
+    <br><a href="#p8.3">8.3 Объединение строк (116)</a>
+    <br><a href="#p8.4">8.4 Поиск подстрок (118)</a>
+    <br><a href="#p8.5">8.5 Валидация строк (120)</a>
+    <br><a href="#p8.6">8.6 Преобразование строк (122)</a>
+  </p>
+
+  <p>
+          <a href="#p9">9 Создание структур (125)</a>
+    <br><a href="#p9.1">9.1 Группирование данных в структуру (126)</a>
+    <br><a href="#p9.2">9.2 Определение типа данных с помощью структуры (128)</a>
+    <br><a href="#p9.3">9.3 Использование указателей в структурах (130)</a>
+    <br><a href="#p9.4">9.4 Указатели на структуры (132)</a>
+    <br><a href="#p9.5">9.5 Передача структур в функции (134)</a>
+    <br><a href="#p9.6">9.6 Группирование данных в объединение (136)</a>
+    <br><a href="#p9.7">9.7 Выделение памяти (138)</a>
+  </p>
+
+  <p>
+          <a href="#p10">10 Получение результата (141)</a>
+    <br><a href="#p10.1">10.1 Создание файла (142)</a>
+    <br><a href="#p10.2">10.2 Чтение и запись символов (144)</a>
+    <br><a href="#p10.3">10.3 Чтение и запись строк (146)</a>
+    <br><a href="#p10.4">10.4 Считывание и запись файлов целиком (148)</a>
+    <br><a href="#p10.5">10.5 Сканирование файловых потоков (150)</a>
+    <br><a href="#p10.6">10.6 Сообщение об ошибках (152)</a>
+    <br><a href="#p10.7">10.7 Получение даты и времени (154)</a>
+    <br><a href="#p10.8">10.8 Запуск таймера (156)</a>
+    <br><a href="#p10.9">10.9 Генерация случайных чисел (158)</a>
+    <br><a href="#p10.10">10.10 Отображение диалогового окна (160)</a>
+  </p>
+
+</article>
+
+
+<!-- 1. Приступаем к работе -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h2>1. Приступаем к работе (9)</h2>
+</article>
+
+
+<!-- 1.1 Введение в язык Си -->
+<article class="article">
+  <div class="anchor" id="p1.1"></div>
+  <h3>1.1 Введение в язык Си (10)</h3>
+
+  <p>Си - компьютерный язык программирования, созданный Деннисом Ритчи для операционной системы Unix на компьютере PDP-11 в 1972 году. Его предшественником был язык B созданный в 1970 году.</p>
+  <p>Операционная система Unix и фактически все ее приложения написаны на языке Си. Однако программы на языке Си можно создавать и на Windows.</p>
+  <p>На основе Си созданы более громоздкие языки Java, C++, C#. Язык Си лучше подходит для начинающих, поскольку он более компактный и легкий.</p>
+  <p>Программисты со всего мира используют язык Си, поскольку он позволяет получить максимальный контроль над выполнением программ и повышает их эффективность.</p>
+  <p>В стандарте языка Си определены несколько библиотек, которые могут быть использованы в ваших собственных программах.</p>
+</article>
+
+
+<!-- 1.2 Установка компилятора языка Си -->
+<article class="article">
+  <div class="anchor" id="p1.2"></div>
+  <h3>1.2 Установка компилятора языка Си (12)</h3>
+
+  <p>Программы на языке Си изначально создаются как простыые текстовые файлы, сохраняемые с расширением .c. Они могут быть написаны в любом текстовом редакторе. Для того чтобы выполнить программу, написанную на языке Си, необходимо ее скомпилировать в байт-код, который компьютер сможет понять.</p>
+  <p>Компилятор GNU C Cjmpiler (GCC) включен во все дистрибутивы Linux.</p>
+  <p>Для Windows нужно установить пакет Minimalist GNU for Windows (MinGW), который содержит компилятор GCC</p>
+</article>
+
+
+<!-- 1.3 Написание программы на языке Си -->
+<article class="article">
+  <div class="anchor" id="p1.3"></div>
+  <h3>1.3 Написание программы на языке Си (14)</h3>
+
+  <p>Функция main() - стартовая точка всех программ на языке Си. Компилятор не будет компилировать код, если не найдет внутри программы функцию main()</p>
+  <p>При изучении языка программирования в первую очередь пишут программу, выводящую на экран сообщение Hello World!</p>
+
+  <details>
+    <summary>Программа 1 (15)</summary>
+    <p>Выведем на экран сообщение Hello World!</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  printf("Hello World!\n");
+
+  return 0;
+}
+</pre>
+  <code>Hello World!</code>
+  </details>
+</article>
+
+
+<!-- 1.4 Компилирование программы на языке Си -->
+<article class="article">
+  <div class="anchor" id="p1.4"></div>
+  <h3>1.4 Компилирование программы на языке Си (16)</h3>
+
+  <p>В командной строке перейдите в директорию с файлом программы и выполните команду для компилирования файла с именем hello.c</p>
+  <code>gcc hello.c</code>
+  <p>После компиляции, в этом же каталоге создастся исполняемый файл</p>
+  <code>a.exe</code>
+  <p>Следующая компиляция любого файла в этом каталоге перезапишет файл a.exe. Если нужно сохранить исполняемый файл для каждой программы отдельно, то нужно при компиляции дать ему другое имя. Например, скомпилируем файл hello.c в исполняемый с именем hello.exe</p>
+  <code>gcc hello.c -o hello.exe</code>
+</article>
+
+
+<!-- 1.5 Понимание процесса компилирования -->
+<article class="article">
+  <div class="anchor" id="p1.5"></div>
+  <h3>1.5 Понимание процесса компилирования (18)</h3>
+
+  <p>При создании исполняемого файла из исходного файла с текстом программы, компилятор проходит  через четыре этапа и на каждом этапе создает новый файл</p>
+  <ol>
+    <li>Исходный код (.c)</li>
+    <li>Подстановки (.i)</li>
+    <li>Код ассемблера (.s)</li>
+    <li>Объектный код (.o)</li>
+    <li>Исполняемый файл (.exe)</li>
+  </ol>
+
+  <ol>
+    <li>Предварительная обработка - препроцессор заменяет все директивы препроцессора на нужный код. Получается текстовый файл программы на языке Си с выполненными подстановоками с расширением .i</li>
+    <li>Трансляция (преобразование) - компилятор транслирует исходный код в инструкции на языке ассемблера. Получается текстовый файл программы на языке Ассемблера с расширением .s</li>
+    <li>Сборка - сборщик переводит инструкции с языка ассемблера в машинный код. Получается двоичный объектный файл с расширение .o</li>
+    <li>Компоновка (линковка, связывание) - компоновщик (линкер) связывает полученные двоичные объектные файлы в один исполняемый файл. Полученный файл имеет расширение .exe</li>
+  </ol>
+
+  <p>После компиляции все временные файлы удаляются. Чтобы они не удалялись, надо в команду для компилятора добавить опции -save-temps</p>
+  <code>gcc hello.c -save-temps</code>
+
+  <p>Программы, написанные на языке ассемблера, могут работать быстрее и занимать меньше места, чем написанные на языке Си. Но их гораздо сложнее писать и поддерживать.</p>
+</article>
+
+
+<!-- 2. Сохранение значений переменных -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h2>2. Сохранение значений переменных (21)</h2>
+</article>
+
+
+<!-- 2.1 Создание переменных в программе -->
+<article class="article">
+  <div class="anchor" id="p2.1"></div>
+  <h3>2.1 Создание переменных в программе (22)</h3>
+
+  <p>Объявление переменной</p>
+  <code>тип_данных имя_переменной;</code>
+  <code>int num;</code>
+
+  <p>Можно объявить несколько переменных с одним типом данных</p>
+  <code>int num, sum, age;</code>
+
+  <p>Инициализация переменной</p>
+  <code>num = 10;</code>
+
+  <p>Объявление с инициализацией</p>
+  <code>int num = 10;</code>
+  <p>Слева от знака равно стоят L-значения, справа R-значения</p>
+</article>
+
+
+<!-- 2.2 Отображение значений переменных -->
+<article class="article">
+  <div class="anchor" id="p2.2"></div>
+  <h3>2.2 Отображение значений переменных (24)</h3>
+
+  <p>Значение переменной можно вывести с помощью функции printf(). Для этого нужно указать спецификатор формата</p>
+  <p>Буква в спецификаторе формата определяет тип данных</p>
+  <p><strong>%d</strong> целое число от -32768 до +32767</p>
+  <p><strong>%ld</strong> длинное целое число от -2<sup>31</sup> до +2<sup>31</sup></p>
+  <p><strong>%f</strong> число с плавающей точкой</p>
+  <p><strong>%c</strong> один символ</p>
+  <p><strong>%s</strong> строка символов</p>
+  <p><strong>%p</strong> адрес в памяти</p>
+
+  <p>Цифра в спецификаторе формата определяет число символов, которое будет занимать число</p>
+  <p><strong>%7d</strong> добавит пробелы перед числом, чтобы число заняло 7 символов</p>
+  <p><strong>%07d</strong> добавит нули перед числом, чтобы число заняло 7 символов</p>
+  <p><strong>%.10f</strong> выведет 10 цифр после точки, дополнив недостающие нулями в конце</p>
+  <p><strong>%7.3f</strong> выведет 3 цифры после точки, добавит пробелы перед числом, чтобы число заняло 7 символов (включая символ точки)</p>
+  <p><strong>%07.3f</strong> выведет 3 цифры после точки, добавит нули перед числом, чтобы число заняло 7 символов (включая символ точки)</p>
+  <p><strong>%-10.3f</strong> добавит пробелы после числа, чтобы число заняло 10 символов (включая символ точки)</p>
+
+  <details>
+    <summary>Программа 2 (25)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num = 100;
+  double pi = 3.1415926536;
+
+  printf("%%d %d\n", num);
+  printf("%%f %f\n", pi);
+  printf("%%7d %7d\n", num);
+  printf("%%07d %07d\n", num);
+  printf("%%.10f %.10f\n", pi);
+  printf("%%7.3f %7.3f\n", pi);
+  printf("%%07.3f %07.3f\n", pi);
+  printf("%-10.3f %d\n", pi, 0);
+
+  return 0;
+}
+</pre>
+<pre>
+%d 100
+%f 3.141593
+%7d     100
+%07d 0000100
+%.10f 3.1415926536
+%7.3f   3.142
+%07.3f 003.142
+3.142      0
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.3 Ввод значений переменных -->
+<article class="article">
+  <div class="anchor" id="p2.3"></div>
+  <h3>2.3 Ввод значений переменных (26)</h3>
+
+  <p>Для получения данных от пользователя используют функцию scanf(). Она принимает два аргумента - тип данных и место в памяти где они должны быть сохранены. Первый аргумент - тип данных определяется спецификатором формата. Второй аргумент - переменная, перед которой ставят &, чтобы получить адрес переменной.</p>
+
+  <details>
+    <summary>Программа 3 (27)</summary>
+    <p>Программа принимает символ и два числа. Выводит на экран символ, его адрес в памяти, два числа и их адрес в памяти</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char letter;
+  int num1, num2;
+
+  printf("Enter symbol ");
+  scanf("%c", &letter);
+  printf("Enter integer a b ");
+  scanf("%d %d", &num1, &num2);
+  printf("Symbol %c\n", letter);
+  printf("Address symbol %p\n", &letter);
+  printf("Integer %d %d\n", num1, num2);
+  printf("Address integer %p %p\n", &num1, &num2);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.4 Спецификаторы типов данных -->
+<article class="article">
+  <div class="anchor" id="p2.4"></div>
+  <h3>2.4 Спецификаторы типов данных (28)</h3>
+
+  <p>Тип данных int по умолчани может быть short или long. Ее размер можно указать явно</p>
+  <code>short num1;</code>
+  <code>long num2;</code>
+
+  <p>Заголовочный файл limits.h содержит размеры каждого типа данных, например INT_MIN, INT_MAX, SHRT_MIN, SHRT_MAX, LONG_MIN, LONG_MAX</p>
+  <p>Перед беззнаковым типом ставят слово unsigned</p>
+  <p>Оператор sizeof возвращает размер типа данных.</p>
+
+  <details>
+    <summary>Программа 4 (29)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main() {
+  printf("char size %d byte\n", sizeof(char));
+  printf("from %d to %d\n", CHAR_MIN, CHAR_MAX);
+
+  printf("short int size %d bytes\n", sizeof(short int));
+  printf("from %d to %d\n", SHRT_MIN, SHRT_MAX);
+
+  printf("int size %d bytes\n", sizeof(int));
+  printf("from %d to %d\n", INT_MIN, INT_MAX);
+
+  printf("long int size %d bytes\n", sizeof(long int));
+  printf("from %ld to %ld\n", LONG_MIN, LONG_MAX);
+
+  printf("long long int size %d bytes\n", sizeof(long long int));
+  printf("from %lld to %lld\n", LLONG_MIN, LLONG_MAX);
+
+  printf("float size %d bytes\n", sizeof(float));
+  printf("double size %d bytes\n", sizeof(double));
+  printf("long double size %d bytes\n", sizeof(long double));
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.5 Использование глобальных переменных -->
+<article class="article">
+  <div class="anchor" id="p2.5"></div>
+  <h3>2.5 Использование глобальных переменных (30)</h3>
+
+  <p>Локальные переменные - это переменные объявленные внутри функции. Их область видимости это функция в которой они объявлены, они видны только в ней</p>
+  <p>Глобальные переменные - это переменные объявленные вне функций.У них глобальная область видимости, они видны внутри любой функции</p>
+  <p>Внешние глобальные переменные должны быть объявлены всего один раз в начале программы. Они также должны быть объявлены внутри каждой функции, которая их будет использовать, с ключевым словом extern.</p>
+  <p>Если программа стостоит из нескольких файлов и в этих файлах есть глобальные переменные и функции, то они доступны в любом месте программы. Если мы хотим чтобы глобальные переменные и функции были доступны только внутри тех файлов где были объявлены, то нужно объявлять их с ключевым словом static.</p>
+  <p>Если объявить переменную внутри функции с ключевым словом static, то она будет доступна только внутри этой функции, но не пропадет по завершении работы функции и будет существовать до конца работы программы.</p>
+
+  <details>
+    <summary>Программа 5 (31)</summary>
+    <p>Код в файле 05a.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+static int sum = 100;
+extern int num;
+
+int main()
+{
+  extern int sum;
+  printf("sum is %d\n", sum);
+
+  extern int num;
+  printf("num is %d\n", num);
+
+  return 0;
+}
+</pre>
+
+  <p>Код в файле 05b.c</p>
+<pre>
+int num = 200;
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.6 Размещение переменных в регистрах -->
+<article class="article">
+  <div class="anchor" id="p2.6"></div>
+  <h3>2.6 Размещение переменных в регистрах (32)</h3>
+
+  <p>Ключевое слово registr при объявлении переменной указывает компилятору, что эта переменная будет часто использоваться. Компилятор может разместить такие переменные в регистре, чтобы ускорить доступ к ним.</p>
+  <p>С ключевым словом registr можно объявить только локальные переменные определенных типов. Часто компилятор игнорирует это слово.</p>
+  <p>Ключевое слово volatile при объявлении переменной указывает компилятору не помещать ее в регистры, потому что она может измениться в любой момент.</p>
+
+  <details>
+    <summary>Программа 6 (33)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  register int i = 0;
+  while (i &lt; 5)
+  {
+    i++;
+    printf("i is %d\n", i);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.7 Преобразование типов данных -->
+<article class="article">
+  <div class="anchor" id="p2.7"></div>
+  <h3>2.7 Преобразование типов данных (34)</h3>
+
+  <p>Компилятор сам преобразует типы данных к одному типу когда происходят операции над данными разных типов</p>
+  <p>Программисто может дать указание компилятору преобразовать один тип данных к другому. Это называется приведением типов</p>
+
+  <details>
+    <summary>Программа 7 (35)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int a = (int)5.75;
+  char b = (char)257;
+  float c = (float)0.1234567;
+
+  printf("%d\n", a);
+  printf("%d\n", b);
+  printf("%f\n", c);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.8 Создание массивов переменных -->
+<article class="article">
+  <div class="anchor" id="p2.8"></div>
+  <h3>2.8 Создание массивов переменных (36)</h3>
+
+  <p>Массив может хранить несколько элементов. Элементы хранятся последовательно в ячейках массива, которые нумеруются начиная с нуля.</p>
+  <p>Объявление массива</p>
+  <code>тип_данных имя_массива [размер_массива]</code>
+  <code>int nums[3]</code>
+  <p>Можно не указывать размер если происходит объявление и инициализация</p>
+  <code>char s = {'c', 'a', 't', '\0'}</code>
+
+  <details>
+    <summary>Пример 8 (37)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int nums[3];
+  int nums1[3], nums2[6], nums3[9];
+
+  printf("%d\n", nums[0]);
+  printf("%d\n", nums1[0]);
+  printf("%d\n", nums2[0]);
+  printf("%d\n", nums3[0]);
+
+  nums[0] = 10;
+  int a[3] = {20, 30, 40};
+
+  printf("%d\n", nums[0]);
+  printf("%d\n", a[0]);
+
+  int b[] = {1, 2, 3, 4};
+  char str[5] = {'b', 'o', 'o', 'k', '\0'};
+  printf("%s\n", str);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 2.9 Описание нескольких измерений -->
+<article class="article">
+  <div class="anchor" id="p2.9"></div>
+  <h3>2.9 Описание нескольких измерений (38)</h3>
+
+  <p>Массив с одним индексом является одномерным</p>
+  <p>Если у массива несколько индексов - то он многомерный</p>
+  <p>Массив с двумя индексами двумерный</p>
+
+  <details>
+    <summary>Программа 9 (39)</summary>
+    <p>Вывести элементы двумерного массива</p>
+<pre>
+'A' 'B' 'C'
+ 1   2   3
+</pre>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int matrix[2][3] = {{'A', 'B', 'C'}, {1, 2, 3}};
+
+  printf("%c\n", matrix[0][0]);
+  printf("%c\n", matrix[0][1]);
+  printf("%c\n", matrix[0][2]);
+  printf("%d\n", matrix[1][0]);
+  printf("%d\n", matrix[1][1]);
+  printf("%d\n", matrix[1][2]);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3 Установка значений переменных -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h2>3 Установка значений переменных (41)</h2>
+</article>
+
+
+<!-- 3.1 Объявление констант в программе -->
+<article class="article">
+  <div class="anchor" id="p3.1"></div>
+  <h3>3.1 Объявление констант в программе (42)</h3>
+
+  <p>Если переменная не должна изменяться, то ее надо объявлять как константу. Константа должна инициализироваться при объявлении. Программа не может изменять значение константы.</p>
+  <code>const int MIL = 1000000;</code>
+  <p>Если имена констант писать большими буквами, то их легко отличить от переменных.</p>
+
+  <details>
+    <summary>Программа 10 (42)</summary>
+    <p>Выведем на экран три константы - целое число, дробное число и массив</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  const int MILLION = 1000000;
+  const int FIVE[] = {1, 2, 3, 4, 5};
+  const float PI = 3.141593;
+
+  printf("%d\n", MILLION);
+  printf("%d\n", FIVE[1]);
+  printf("%f\n", PI);
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Программа 11 (43)</summary>
+    <p>Введем диаметр круга и используя константу пи посчитаем его радиус, окружность и площадь</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  const float PI = 3.141593;
+  float diameter, radius, circ, area;
+
+  printf("Enter the diameter of a circle in millimeters: ");
+  scanf("%f", &diameter);
+  circ = PI * diameter;
+  radius = diameter / 2;
+  area = PI * (radius * radius);
+
+  printf("circ %.2f\n", circ);
+  printf("radius %.2f\n", radius);
+  printf("area %.2f\n", area);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3.2 Перечисление значений констант -->
+<article class="article">
+  <div class="anchor" id="p3.2"></div>
+  <h3>3.2 Перечисление значений констант (44)</h3>
+
+  <p><strong>Перечисление enum</strong> объявляет последовательность числовых констант имеющих свои имена. Если значение первой константы не определено, то она равна 0, следующая 1 и т.д.</p>
+  <code>enum {MON, TUE, WED, THU, FRI}</code>
+  <code>WED = 2</code>
+  <p>Перечисление может иметь имя</p>
+  <code>enum WEEK {MON, TUE, WED, THU, FRI}</code>
+  <p>При объявлении каждой константе можно присвоить любое числовое значение, но если константа неопределена, то она будет иметь значение на 1 больше предыдущей</p>
+  <code>enum {MON = 1, TUE, WED, THU, FRI}</code>
+  <code>WED = 3</code>
+  <p>Константы в перечислении могут иметь одинаковые значения</p>
+  <code>enum {NIL = 0, NONE = 0}</code>
+
+  <details>
+    <summary>Программа 12 (45)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  enum SNOOKER{RED = 1, YELLOW, GREEN, BROWN, BLUE, PINK, BLACK};
+  int total;
+  printf("I potted a red worth %d\n", RED);
+  printf("Then a black worth %d\n", BLACK);
+  printf("Followed by another red worth %d\n", RED);
+  printf("And finaly a blue worth %d\n", BLUE);
+
+  total = RED + BLACK + RED + BLUE;
+  printf("All together I scored %d\n", total);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3.3 Создание константного типа -->
+<article class="article">
+  <div class="anchor" id="p3.3"></div>
+  <h3>3.3 Создание константного типа (46)</h3>
+
+  <p>После того, как перечисление было создано, оно может быть рассмотрено как новый тип данных, его свойства - имена констант и их значения.</p>
+  <p>Создадим новый тип данных</p>
+  <code>enum BOOLEAN {FALSE, TRUE}</code>
+  <p>Объявить переменную данного типа данных можно двумя способами. Первый написать ее имя после закрывающей скобки при объявлении нового типа данных</p>
+  <code>enum BOOLEAN {FALSE, TRUE} flag</code>
+  <p>Второй способ</p>
+  <code>enum BOOLEAN flag = 1</code>
+  <p>С помощью typedef можно определить пользовательские типы данных</p>
+  <code>typedef unsigned short int USINT</code>
+  <p>Теперь вместо длинного названия типа unsigned short int можно использовать короткое название USINT</p>
+
+  <details>
+    <summary>Программа 13 (47)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  enum SNOOKER {RED = 1, YELLOW, GREEN, BROWN, BLUE, PINK, BLACK};
+  enum SNOOKER pair = RED + BLACK;
+  printf("Pair value: %d\n", pair);
+
+  typedef unsigned short int USINT;
+  USINT num = 16;
+  printf("Unsigned short int value: %d\n", num);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3.4 Определение констант -->
+<article class="article">
+  <div class="anchor" id="p3.4"></div>
+  <h3>3.4 Определение констант (48)</h3>
+
+  <p>Директива препроцессора #define может быть использована для указатия значений констант. Эта директива должна размещаться в начале файла перед кодом программы. Все константы из этой директивы будут перед компиляцией заменены своим значением.</p>
+  <p>Директива препроцессора #ifdef называется макросом и проверяет определена ли указанная константа. Каждый макрос должен заканчиваться директиваой #endif</p>
+
+  <details>
+    <summary>Программа 14 (49)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define LINE "_________________"
+#define TITLE "C programming in easy steps"
+#define AUTHOR "Ivan Kashirin"
+#ifdef _WIN32
+#define SYSTEM "Windows"
+#endif
+#ifdef linux
+#define SYSTEM "Linux"
+#endif
+
+int main()
+{
+  printf("%s\n%s\n", LINE, TITLE);
+  printf("%s\n%s\n", AUTHOR, LINE);
+  printf("%s\n", SYSTEM);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 3.5 Отладка с помощью определений -->
+<article class="article">
+  <div class="anchor" id="p3.5"></div>
+  <h3>3.5 Отладка с помощью определений (50)</h3>
+
+  <p>Директивы определяющие константу</p>
+  <p>#define определяет константу</p>
+  <p>#undef разопределяет константу</p>
+
+  <p>Директивы позволяющие условное ветвление</p>
+  <p>#if</p>
+  <p>#else</p>
+  <p>#elif (else if)</p>
+  <p>#ifdef проверяет что константа уже определена</p>
+  <p>#ifndef проверяет что константа еще не определена</p>
+  <p>#endif заканчивает блок ветвления</p>
+
+  <details>
+    <summary>Программа 15 (50)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#define DEBUG 1
+
+int main() {
+  #if DEBUG == 1
+    printf("Debug status is 1\n");
+  #elif DEBUG == 2
+    printf("Debug status is 2\n");
+  #else
+    #ifdef DEBUG
+      printf("Debug is defined\n");
+    #endif
+    #ifndef DEBUG
+      printf("Debug is not defined\n");
+    #endif
+  #endif
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4 Выполнение операций -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Выполнение операций (53)</h3>
+</article>
+
+
+<!-- 4.1 Выполнение арифметических операций -->
+<article class="article">
+  <div class="anchor" id="p4.1"></div>
+  <h3>4.1 Выполнение арифметических операций (54)</h3>
+
+  <p>Сложение +, вычитание -, умножение *, деление нацело /, остаток от деления %, инкремент ++, декремент --</p>
+
+  <details>
+    <summary>Программа 16 (55)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int a = 4, b = 8, c = 1, d = 1;
+  printf("%d\n", a + b);
+  printf("%d\n", a - b);
+  printf("%d\n", a * b);
+  printf("%d\n", a / b);
+
+  printf("%d\n", a++);
+  printf("%d\n", ++b);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.2 Присваивание значений -->
+<article class="article">
+  <div class="anchor" id="p4.2"></div>
+  <h3>4.2 Присваивание значений (56)</h3>
+
+  <code>a = b, a += b, a -= b, a *= b, a /= b, a %= b</code>
+
+  <details>
+    <summary>Программа 17 (57)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int a, b;
+  printf("a = %d\n", a = 8);
+  printf("b = %d\n", b = 4);
+  printf("a += b, a = %d\n", a += b);
+  printf("a -= b, a = %d\n", a -= b);
+  printf("a *= b, a = %d\n", a *= b);
+  printf("a /= b, a = %d\n", a /= b);
+  printf("a %%= b, a = %d\n", a %= b);
+
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.3 Сравнение значений -->
+<article class="article">
+  <div class="anchor" id="p4.3"></div>
+  <h3>4.3 Сравнение значений (58)</h3>
+
+  <p>==, !=, >, &lt;, >=, &lt;=</p>
+
+  <details>
+    <summary>Программа 18 (59)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int zero = 0, nil = 0, one = 1;
+  char upr = 'A', lwr = 'a';
+
+  printf("0 == 0 : %d\n", zero == nil);
+  printf("0 == 1 : %d\n", zero == one);
+  printf("A == a : %d\n", upr == lwr);
+  printf("A != a : %d\n", upr != lwr);
+  printf("1 > 0 : %d\n", one > nil);
+  printf("1 &lt; 0 : %d\n", one &lt; nil);
+  printf("0 >= 0 : %d\n", zero >= nil);
+  printf("1 &lt;= 0 : %d\n", one &lt;= nil);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.4 Логические значения -->
+<article class="article">
+  <div class="anchor" id="p4.4"></div>
+  <h3>4.4 Логические значения (60)</h3>
+
+  <p>И &&, ИЛИ ||, НЕ !</p>
+
+  <details>
+    <summary>Программа 19 (61)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int yes = 1, no = 0;
+
+  printf("no && no : %d\n", no && no);
+  printf("yes && no : %d\n", yes && no);
+  printf("yes && yes : %d\n", yes && yes);
+  printf("no || no : %d\n", no || no);
+  printf("yes || no : %d\n", yes || no);
+  printf("yes || yes : %d\n", yes || yes);
+  printf("!yes : %d\n", !yes);
+  printf("!no : %d\n", !no);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.5 Проверка условий -->
+<article class="article">
+  <div class="anchor" id="p4.5"></div>
+  <h3>4.5 Проверка условий (62)</h3>
+
+  <p>Тернарный оператор &:</p>
+  <code>num = (a > b) ? a: b;</code>
+
+  <details>
+    <summary>Программа 20 (63)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num = 6;
+
+  (num % 2 != 0) ?
+  printf("%d is odd\n", num) : printf("%d is even\n", num);
+  printf("There %s ", (num == 1) ? "is" : "are");
+  printf("%d %s\n", num, (num == 1) ? "apple" : "apples");
+
+  num = 1;
+
+  (num % 2 != 0) ?
+  printf("%d is odd\n", num) : printf("%d is even\n", num);
+  printf("There %s ", (num == 1) ? "is" : "are");
+  printf("%d %s\n", num, (num == 1) ? "apple" : "apples");
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.6 Измерение размера -->
+<article class="article">
+  <div class="anchor" id="p4.6"></div>
+  <h3>4.6 Измерение размера (64)</h3>
+
+  <p>sizeof возвращает целое число - количество байт памяти выделенной под измеряемый объект. Измерить можно переменную, тип данных, массив</p>
+  <code>sizeof(char); // 1</code>
+  <p>sizeof массива складывается из размера типа данных умноженного на число элементов в массиве.</p>
+  <code>sizeof(int[3]); // 12</code>
+
+  <details>
+    <summary>Программа 21 (65)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num = 1234567890;
+
+  printf("Size of int %d bytes\n", sizeof(int));
+  printf("Size of num %d bytes\n", sizeof(num));
+  printf("Size of num %d bytes\n", sizeof num);
+  printf("Size of array %d bytes\n", sizeof(int[3]));
+
+  struct {int score; char grade;} result;
+  printf("Size of struct %d bytes\n", sizeof result);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.7 Сравнение битовых значений -->
+<article class="article">
+  <div class="anchor" id="p4.7"></div>
+  <h3>4.7 Сравнение битовых значений (66)</h3>
+
+  <p>Хотя тип данных char занимает 1 байт, можно совершать операции с каждый его битом отдельно с помощью битовых операций.</p>
+  <p>| ИЛИ, & И, ~ НЕ, ^ исключающее ИЛИ, &lt;&lt; битовый сдвиг влево, &gt;&gt; битовый сдвиг вправо</p>
+  <p>Битовые операции часто используются при программировании устройств с ограниченными ресурсами</p>
+
+  <details>
+    <summary>Программа 22 (67)</summary>
+    <p>Поменяем значения двух переменных не используя третью переменную</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int x = 10, y = 5;
+  printf("x = %d y = %d\n", x, y);
+
+  x = x ^ y;
+  y = x ^ y;
+  x = x ^ y;
+  printf("x = %d y = %d\n", x, y);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.8 Флаги -->
+<article class="article">
+  <div class="anchor" id="p4.8"></div>
+  <h3>4.8 Флаги (68)</h3>
+
+  <p>Переменная типа char занимает 1 байт и может содержать 8 флагов. Чтобы включить четвертый флаг, нужно записать в нее десятичное число 8 (1000<sub>2</sub>)</p>
+  <p>Значения битовых флагов можно изменять с помощью битовой операции ~ НЕ, однако следует использовать маску для нулей идущих перед битовыми флагами. Чтобы изменить четыре первых флага числа, надо использовать битовую маску 15 (00001111<sub>2</sub>) с помощью битового оператора & И.</p>
+  <p>Переменная типа int занимает 4 байта и может содержать 32 флага.</p>
+
+  <details>
+    <summary>Программа 23 (69)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  char flags = 8; // 1000
+  flags = flags | 2; // 1010
+  printf("flag 1 %s\n", (flags & 1) > 0 ? "ON" : "OFF");
+  printf("flag 2 %s\n", (flags & 2) > 0 ? "ON" : "OFF");
+  printf("flag 3 %s\n", (flags & 4) > 0 ? "ON" : "OFF");
+  printf("flag 4 %s\n", (flags & 8) > 0 ? "ON" : "OFF");
+
+  char mask = 15; // 1111
+  flags = ~flags & mask;
+  printf("flag 1 %s\n", (flags & 1) > 0 ? "ON" : "OFF");
+  printf("flag 2 %s\n", (flags & 2) > 0 ? "ON" : "OFF");
+  printf("flag 3 %s\n", (flags & 4) > 0 ? "ON" : "OFF");
+  printf("flag 4 %s\n", (flags & 8) > 0 ? "ON" : "OFF");
+  printf("flags %d\n", flags);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 4.9 Знакомство с приоритетами -->
+<article class="article">
+  <div class="anchor" id="p4.9"></div>
+  <h3>4.9 Знакомство с приоритетами (70)</h3>
+
+  <p>Приоритет операций определяет порядок в котором выполняются операции в выражении.</p>
+
+  <details>
+    <summary>Программа 24 (71)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  printf("((2*3)+4)-5 %d\n", 2*3+4-5);
+  printf("2*((3+4)-5) %d\n", 2*((3+4)-5));
+  printf("(7*3) %% 2 %d\n", 7*3%2);
+  printf("7*(3 %% 2) %d\n", 7*(3%2));
+
+  int num = 9;
+  printf("(8/2)*4 %d\n", --num/2*sizeof(int));
+  num = 9;
+  printf("8/(2*4) %d\n", --num/(2*sizeof(int)));
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5 Создание утверждений -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5 Создание утверждений (73)</h3>
+</article>
+
+
+<!-- 5.1 Проверка значений выражений -->
+<article class="article">
+  <div class="anchor" id="p5.1"></div>
+  <h3>5.1 Проверка значений выражений (74)</h3>
+
+  <p>Условное ветвление if</p>
+  <code>if () {}</code>
+  <code>if () {} else {}</code>
+  <code>if () {} else if () {} else {}</code>
+
+  <details>
+    <summary>Программа 25 (75)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  if (5 > 1) {
+    printf("5 > 1\n");
+  }
+  if (5 > 1) {
+    if (7 > 2) {
+      printf("5 > 1 and 7 > 2\n");
+    }
+  }
+  if (1 > 2) {
+    printf("true\n");
+  } else if (1 > 3) {
+    printf("true\n");
+  } else {
+    printf("false\n");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5.2 Ветвление с помощью операции switch -->
+<article class="article">
+  <div class="anchor" id="p5.2"></div>
+  <h3>5.2 Ветвление с помощью операции switch (76)</h3>
+
+  <p>Условное ветвление switch</p>
+  <code>switch () {case 1: {} break; case2: {} break;}</code>
+  <code>switch () {case 1: {} break; default: {} break;}</code>
+  <p>Всего может быть до 257 утверждений case, но никакие case не должны иметь одинаковые значения.</p>
+  <p>Выражение "case значение:" рассматривается как уникальная метка внутри блока switch</p>
+
+  <details>
+    <summary>Программа 26 (77)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num = 2;
+  char letter = 'b';
+
+  switch (num)
+  {
+    case 1: printf("Number is one\n"); break;
+    case 2: printf("Number is two\n"); break;
+    case 3: printf("Number is three\n"); break;
+    default: printf("unknown\n");
+  }
+
+  switch (letter)
+  {
+    case 'a':
+    case 'b':
+    case 'c': printf("Letter is %c\n", letter); break;
+    default: printf("unknown\n");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5.3 Зацикливание с помощью счетчика -->
+<article class="article">
+  <div class="anchor" id="p5.3"></div>
+  <h3>5.3 Зацикливание с помощью счетчика (78)</h3>
+
+  <p>Три вида цикла: for, while, do while</p>
+  <code>for (let i = 0; i &lt; 5; i++) {}</code>
+
+  <details>
+    <summary>Программа 27 (79)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  for (int i = 1; i &lt; 4; i++)
+  {
+    printf("Outer iteration %d\n", i);
+    for (int j = 1; j &lt; 4; j++)
+    {
+      printf("\tInner iteration %d\n", j);
+    }
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5.4 Зацикливание с помощью условия -->
+<article class="article">
+  <div class="anchor" id="p5.4"></div>
+  <h3>5.4 Зацикливание с помощью условия (80)</h3>
+
+  <p>В цикле while инициализация переменной должна быть до цикла, условие в круглых скобках, а изменение переменной внутри тела цикла в фигурных скобках В цикле do while то же самое, только после условия в блоке while ставится точка с запятой</p>
+
+  <details>
+    <summary>Программа 28 (81)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int i = 0;
+  int arr[3] = {10, 20, 30};
+
+  while (i &lt; 3)
+  {
+    printf("arr[%d] = %d\n", i, arr[i]);
+    i++;
+  }
+
+  i = 0;
+  do
+  {
+    printf("arr[%d] = %d\n", i, arr[i]);
+    i++;
+  } while (i &lt; 3);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5.5 Досрочный выход из циклов -->
+<article class="article">
+  <div class="anchor" id="p5.5"></div>
+  <h3>5.5 Досрочный выход из циклов (82)</h3>
+
+  <p>Ключевое слово break прерывает работу цикла и выходит из него</p>
+  <p>Ключевое слово continue прерывает текущую итерацию цикла и переходит к следующей</p>
+
+  <details>
+    <summary>Программа 29 (83)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  for(int i = 1; i &lt; 4; i++)
+  {
+    for(int j = 1; j &lt; 4; j++)
+    {
+      if (i == 1 && j == 1)
+      {
+        printf("Continue inner loop when i=%d j=%d\n", i, j);
+        continue;
+      }
+      if(i == 2 && j == 1)
+      {
+        printf("Breaks inner loop when i=%d j=%d\n", i, j);
+        break;
+      }
+      printf("i=%d j=%d\n", i, j);
+    }
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 5.6 Переход к меткам -->
+<article class="article">
+  <div class="anchor" id="p5.6"></div>
+  <h3>5.6 Переход к меткам (84)</h3>
+
+  <p>Ключевое слово goto позволяет переходит к метке. Сейчас уже это нигде не используют. Можно использовать goto во вложенном цикле, чтобы сразу выйти и из вложенного и из внешнего.</p>
+
+  <details>
+    <summary>Программа 30 (85)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  for(int i = 1; i &lt; 4; i++)
+  {
+    for(int j = 1; j &lt; 4; j++)
+    {
+      if (i == 2 && j == 1)
+      {
+        goto end;
+      }
+      printf("i=%d j=%d\n", i, j);
+    }
+  }
+
+  end:
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 6 Использование функций -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Использование функций (87)</h3>
+</article>
+
+
+<!-- 6.1 Объявление функций -->
+<article class="article">
+  <div class="anchor" id="p6.1"></div>
+  <h3>6.1 Объявление функций (88)</h3>
+
+  <p>Перед тем как использовать функцию, ее нужно объявить, чтобы компилятор знал что такая функция существует. Перед использованием функции можно написать ее прототип (заголовок), а саму функцию определить в другом месте.</p>
+  <p>Обычно прототипы пользовательских функций выносят в отдельный заголовочный файл, а сами функции в отдельный файл с кодом. Если весь код написан в одном файле, то прототипы функций пишут до функции main, а сами функции - после</p>
+
+  <details>
+    <summary>Программа 31 (89)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void first();
+int square5();
+int cube5();
+
+int main()
+{
+  int num;
+  first();
+  num = square5();
+  printf("5x5= %d\n", num);
+  printf("5x5x5= %d\n", cube5());
+
+
+  return 0;
+}
+
+void first()
+{
+  printf("Hello from the first function\n");
+}
+
+int square5()
+{
+  int square = 5 * 5;
+  return square;
+}
+
+int cube5()
+{
+  int cube = 5 * 5 * 5;
+  return cube;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 6.2 Передача аргументов -->
+<article class="article">
+  <div class="anchor" id="p6.2"></div>
+  <h3>6.2 Передача аргументов (90)</h3>
+
+  <p>Данные в аргументах функции передаются по значению. Внутри функции мы работаем с их копией, не затрагивая оригинальные значения. В отличие от языка Паскаль, где все данные передаются в функции по ссылки и внутри функции мы работает с оригинальным значением, а не с копией.</p>
+
+  <details>
+    <summary>Программа 32 (91)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void display(char[]);
+int square(int);
+int cube(int);
+
+int main()
+{
+  int num;
+  char msg[50] = "String for function";
+  display(msg);
+  num = square(4);
+  printf("4x4= %d\n", num);
+  printf("4x4x4= %d\n", cube(4));
+
+
+  return 0;
+}
+
+void display(char str[])
+{
+  printf("%s\n", str);
+}
+
+int square(int x)
+{
+  return x * x;
+}
+
+int cube(int y)
+{
+  return y * y * y;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 6.3 Рекурсивные вызовы -->
+<article class="article">
+  <div class="anchor" id="p6.3"></div>
+  <h3>6.3 Рекурсивные вызовы (92)</h3>
+
+  <p>Любую функцию могут вызывать другие функции. Если функция вызывает саму себя это называется рекурсией. Рекурсия должна иметь условие для выхода и на каждом вызове проверочное выражение в условии должно изменяться, чтобы не получилась бесконечная функция.</p>
+
+  <details>
+    <summary>Программа 33 (93)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void count_down_from (int num);
+
+int main() {
+  int start;
+  printf("Enter a positive integer to count down from: ");
+  scanf("%d", &start);
+  count_down_from(start);
+  printf("Lift Off!\n");
+
+  return 0;
+}
+
+void count_down_from (int num) {
+  printf("%d\n", num);
+  --num;
+  if (num &lt; 0) {
+    return;
+  } else {
+    count_down_from(num);
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 6.4 Размещение функций в заголовках -->
+<article class="article">
+  <div class="anchor" id="p6.4"></div>
+  <h3>6.4 Размещение функций в заголовках (94)</h3>
+
+  <p>Заголовок функции следует выносить в отдельный заголовочный файл, а не писать в одном файле вместе с функцией main. В этом случае, в основном файле, содержащем функцию main, надо подключить заголовочный файл с помощью директивы #include</p>
+  <p>Угловые скобки &lt; и &gt; используются только для стандартных заголовочных файлов</p>
+  <code>#include &lt;stdio.h&gt;</code>
+  <p>Двойные кавычки "" используются для пользовательских заголовочных файлов</p>
+  <code>#include "utils.h"</code>
+
+  <details>
+    <summary>Программа 34 (95)</summary>
+    <p>Файл 34utils.h</p>
+<pre>
+int square (int num) {
+  return (num * num);
+}
+</pre>
+    <p>Файл 34.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include "34utils.h"
+
+void getnum();
+
+int main() {
+  getnum();
+
+  return 0;
+}
+
+void getnum() {
+  int num;
+  char again;
+  printf("Enter an integer to be squared: ");
+  scanf("%d", &num);
+  printf("%d squared is %d\n", num, square(num));
+  printf("Square another number? Y or N: ");
+  scanf("%ls", &again);
+  if ((again == 'Y') || (again == 'y')) {
+    getnum();
+  } else {
+    return;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 6.5 Ограничение доступности -->
+<article class="article">
+  <div class="anchor" id="p6.5"></div>
+  <h3>6.5 Ограничение доступности (96)</h3>
+
+  <p>Ключевое слово static ограничивает доступность функций и переменных только тем файлом, в котором они объявлены</p>
+
+  <details>
+    <summary>Программа 35 (97)</summary>
+    <p>Файл 35.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void action(int option);
+void menu();
+
+int main() {
+  menu();
+
+  return 0;
+}
+
+void menu() {
+  int option;
+  printf("\n\tWhat would you like to do?");
+  printf("\n\t1. Square a number");
+  printf("\n\t2. Multiply two numbers");
+  printf("\n\t3. Exit\n");
+  scanf("%d", &option);
+  action(option);
+}
+</pre>
+
+    <p>Файл 35action.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void menu();
+
+static int square(int a) {
+  return a * a;
+}
+
+static int multiply(int a, int b) {
+  return a * b;
+}
+
+void action(int option) {
+  int n1, n2;
+  if (option == 1) {
+    printf("Enter an integer to be squared: ");
+    scanf("%d", &n1);
+    printf("%d * %d = %d \n", n1, n1, square(n1));
+    menu();
+  } else if (option == 2) {
+    printf("Enter two integers to multiply ");
+    printf("separed by a space: ");
+    scanf("%d", &n1);
+    scanf("%d", &n2);
+    printf("%d * %d = %d \n", n1, n2, multiply(n1, n2));
+    menu();
+  } else {
+    return;
+  }
+}
+</pre>
+  <p>Чтобы скомпилировать программу из двух файлов запустим команду</p>
+  <code>gcc 35.c 35action.c</code>
+  </details>
+</article>
+
+
+<!-- 7 Указатели -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Указатели (99)</h3>
+</article>
+
+
+<!-- 7.1 Получение доступа к данным с помощью указателей -->
+<article class="article">
+  <div class="anchor" id="p7.1"></div>
+  <h3>7.1 Получение доступа к данным с помощью указателей (100)</h3>
+
+  <p>Указатели это переменные, хранящие адрес других переменных. Разименование указателя это получение значения другой переменной, которая содержится по адресу в указателе.</p>
+  <p>С помощью имени указателя можно получить адрес переменной, который был присвоен указателю. С помощью разименования указателя можно получить значение переменной, которая содержится по адресу в указателе</p>
+
+  <details>
+    <summary>Программа 36 (101)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int num = 8;
+  int *ptr = &num;
+
+  printf("Regular variable contains: %d\n", num);
+  printf("Pointer variable contains: 0x%p\n", ptr);
+  printf("Pointer points to value: %d\n", *ptr);
+
+  *ptr = 12;
+
+  printf("Regular variable contains: %d\n", num);
+  printf("Pointer variable contains: 0x%p\n", ptr);
+  printf("Pointer points to value: %d\n", *ptr);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.2 Арифметика указателей -->
+<article class="article">
+  <div class="anchor" id="p7.2"></div>
+  <h3>7.2 Арифметика указателей (102)</h3>
+
+  <p>Адрес в памяти указателя можно изменить.</p>
+  <p>Для указателя можно использовать операции инкремента ++ и декремента --. Они сместят указатель вперед или назад к другому адресу заданного типа в указателе. Чем больше тип данных, тем больше прыжок</p>
+  <p>Для указателя можно использовать операции += и -=</p>
+  <p>Для указателя нельзя использовать операции *= и /=</p>
+  <p>Если в указатель записать массив, то он будет указывать на первый элемент массива. Увеличение указателя на 1 переместит его к следующему элементу.</p>
+
+  <details>
+    <summary>Программа 37 (103)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int i;
+  int nums[10] = {1,2,3,4,5,6,7,8,9,10};
+  int *ptr = nums;
+  printf("At Address: %p is Value: %d\n", ptr, *ptr);
+
+  ptr++;
+  printf("At Address: %p is Value: %d\n", ptr, *ptr);
+
+  ptr++;
+  printf("At Address: %p is Value: %d\n", ptr, *ptr);
+
+  ptr -= 2;
+  printf("At Address: %p is Value: %d\n", ptr, *ptr);
+
+  for (int i = 0; i &lt; 10; i++) {
+    printf("Element %d contains Value: %d\n", i, *ptr);
+    ptr++;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.3 Передача указателей в функции -->
+<article class="article">
+  <div class="anchor" id="p7.3"></div>
+  <h3>7.3 Передача указателей в функции (104)</h3>
+
+  <p>Переменные в функцию передаются по значению. Функция работает с копией переменных не изменяя сами переменные.</p>
+  <p>Передача указателя в функцию позволяет функции работать с оригинальным значением переменной изменяя саму переменную. Для этого указатель нужно разименовать операцией *.</p>
+
+  <details>
+    <summary>Программа 38 (105)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+void twice(int *ptr);
+void thrice(int *ptr);
+
+int main() {
+  int num = 5;
+  int *ptr = &num;
+  printf("ptr stores address: %p\n", ptr);
+  printf("ptr dereferences value: %d\n", *ptr);
+  printf("num value: %d\n", num);
+
+  twice(ptr);
+  printf("num value after twice: %d\n", num);
+
+  thrice(ptr);
+  printf("num value after thrice: %d\n", num);
+
+  return 0;
+}
+
+void twice(int *number) {
+  *number = (*number * 2);
+}
+
+void thrice(int *number) {
+  *number = (*number * 3);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.4 Создание массивов указателей -->
+<article class="article">
+  <div class="anchor" id="p7.4"></div>
+  <h3>7.4 Создание массивов указателей (106)</h3>
+
+  <p>Можно создать массив указателей, в каждом элементе которого хранятся адреса других переменных.</p>
+  <p>Это полезно для работы с символьными строками. Массив символов, который заканчивается символом '\0' носит статус строки, поэтому его можно присвоить переменной-указателю. Имя символьного массива служит как указатель на его первый элемент, поэтому не требуется операция адресации & для того, чтобы присвоить строку переменной-указателю.</p>
+
+  <details>
+    <summary>Программа 39 (107)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  int i;
+  int nums[5] = {1,2,3,4,5};
+  int *ptr0 = &nums[0];
+  int *ptr1 = &nums[1];
+  int *ptr2 = &nums[2];
+  int *ptr3 = &nums[3];
+  int *ptr4 = &nums[4];
+  int*ptrs[5] = {ptr0,ptr1,ptr2,ptr3,ptr4};
+  char str[9] = {'C', ' ', 'i', 's', ' ', 'f', 'u', 'n', '\0'};
+  char *string = str;
+  char *strings[3] = {"Alpha", "Bravo", "Charlie"};
+  for (int i = 0; i &lt; 5; i++) {
+    printf("Address %p has value %d\n", ptrs[i], *ptrs[i]);
+  }
+  printf("String is %s\n", string);
+  for (int i = 0; i &lt; 3; i++) {
+    printf("String %d is %s\n", i, strings[i]);
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 7.5 Указатели на функции -->
+<article class="article">
+  <div class="anchor" id="p7.5"></div>
+  <h3>7.5 Указатели на функции (108)</h3>
+
+  <p>Указатель на функцию содержит адрес в памяти, по которому лежит начало функции. Когда указатель на функцию разымновывается, вызывается функция и в нее передаются аргументы.</p>
+  <p>Указатель на функцию должен всегда помещаться в скобки при использовании операции разыменования * чтобы избежать ошибок компилятора. За скобками должны идти скобки с аргументами, которые передаются в функцию.</p>
+
+  <details>
+    <summary>Программа 40 (109)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int bounce(int a);
+int caller(int(*function) (int), int b);
+
+int main() {
+  int num;
+  int (*fptr)(int) = bounce;
+  num = (*fptr)(10);
+  printf("Returned value %d\n", num);
+
+  return 0;
+}
+
+int bounce(int a) {
+  printf("Received value %d\n", a);
+  return (3 * a) + 3;
+}
+
+int caller(int(*function) (int), int b) {
+  (*function)(b);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8 Работа со строками -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Работа со строками (111)</h3>
+</article>
+
+
+<!-- 8.1 Чтение строк -->
+<article class="article">
+  <div class="anchor" id="p8.1"></div>
+  <h3>8.1 Чтение строк (112)</h3>
+
+  <p>В языке Си нет типа данных string. В языке Си строка является массивом символов, который заканчивается на символ-терминатор '\0'. Строка может быть присвоена любому массиву типа char или указателю на тип char</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char arr[6] = {'A','l','p','h','a','\0'};
+  char *ptr = "Beta";
+  printf("%s\n", arr);
+  printf("%s\n", ptr);
+
+  return 0;
+}
+</pre>
+<pre>
+Alpha
+Beta
+</pre>
+
+  <p>Каждый символ имеет уникальное числовое значение кода ASCII. Это значит, что к символам применимы арифметические операции. Код каждого символа нижнего регистра на 32 больше кода этого же символа верхнего регистра.</p>
+  <p>Оператор sizeof вернет длину строки если передать ему имя строки.</p>
+
+  <p>Есть три функции из стандартной библиотеки stdio.h, позволяющие ввести строку в программу.</p>
+  <ol>
+    <li>
+      <h4>scanf()</h4>
+      <p>Считывает символы по одному до пробельного символа ' ','\t','\n' и записывает их в одну переменную. Удобно считывать отдельное слово</p>
+    </li>
+    <li>
+      <h4>gets()</h4>
+      <p>Считывает символы по одному до символа 'n' и записывает их в массив символов. Автоматически добавляет символ-терминатор '\0' последним элементом массива, чтобы массив имел статус строки.</p>
+    </li>
+    <li>
+      <h4>puts()</h4>
+      <p>Принимает строку в качестве аргумента, выводит ее на экран и автоматически добавляет в конце символ перевода каретки.</p>
+    </li>
+  </ol>
+
+  <details>
+    <summary>Программа 41 (113)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  char str[51];
+  printf("Enter 50 characters with spaces \n");
+  gets(str);
+  printf("gets() read ");
+  puts(str);
+
+  printf("Enter 50 characters with spaces \n");
+  scanf("%s", str);
+  printf("scanf() read %s\n", str);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8.2 Копирование строк -->
+<article class="article">
+  <div class="anchor" id="p8.2"></div>
+  <h3>8.2 Копирование строк (114)</h3>
+
+  <p>Заголовочный файл sting.h содержит функции для работы со строками</p>
+  <p>Функция strlen() возвращает число равное длине строки, не включая символ-терминатор '\0'</p>
+  <p>Функция strcpy(dist, src) принимает два аргумента. Первый это имя массива куда надо скопировать строку. Второй это имя массива из которого надо скопировать строку</p>
+  <p>Функция strncpy(dist, src, q) принимает три аргумента. Третий это целое число символов второй строки, которые нужно скопировать. Это позволяет копировать не всю строку а только ее часть определенной длины. Когда все символы будут записаны, в конце автоматически допишется символ-терминатор '\0' чтобы массив принял статус строки. Поэтому нужно самому следить чтобы массив был на один символ больше, чем число копируемых символов, чтобы разместить в конце символ-терминатор '\0'.</p>
+  <p>Размер массива можно не указывать если он при объявлении сразу инициализируется.</p>
+
+  <details>
+    <summary>Программа 42 (115)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s1[] = "Larger text string";
+  char s2[] = "Smaller string";
+
+  printf("%s has %d elements\n", s1, sizeof(s1));
+  printf("%s has %d characters\n", s1, strlen(s1));
+  printf("%s has %d elements\n", s2, sizeof(s2));
+  printf("%s has %d characters\n\n", s2, strlen(s2));
+
+  strcpy(s1,s2);
+
+  printf("%s has %d elements\n", s1, sizeof(s1));
+  printf("%s has %d characters\n\n", s1, strlen(s1));
+
+  strncpy(s1,s2,5);
+  s1[5] = '\0';
+
+  printf("%s has %d elements\n", s1, sizeof(s1));
+  printf("%s has %d characters\n\n", s1, strlen(s1));
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8.3 Объединение строк -->
+<article class="article">
+  <div class="anchor" id="p8.3"></div>
+  <h3>8.3 Объединение строк (116)</h3>
+
+  <p>Конкатенация - объединение двух строк в одну.</p>
+  <p>Заголовочный файл sting.h содержит две функции для конкатенации строк</p>
+  <p>Функция strcat(str, str2) принимает два аргумента. Функция прибавляет вторую строку в конец первой и возвращает полученную строку. Массив, хранящий первую строку должен быть достаточно большим, чтобы поместились все символы объединенной строки</p>
+  <p>Функция strncat(str,str2,q) принимает три аргумента. Третий аргумент это целое число символов второй строки, которые нужно добавить к первой. По умолчанию копироваться будет начиная с первого символа. Имя строки это указатель на ее первый символ. Если к имени второй строки прибавить смещение, то можно начать копировать с любого символа второй строки.</p>
+
+  <details>
+    <summary>Программа 43 (117)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char s1[100] = "A place for everything ";
+  char s2[] = "and everything in its place";
+  char s3[100] = "The truth is rarely pure ";
+  char s4[] = "and never simple";
+
+  strcat(s1, s2);
+  printf("%s\n", s1);
+
+  strncat(s3, s4, 10);
+  printf("%s\n", s3);
+
+  strncat(s3, (s4 + 10), 6);
+  printf("%s\n", s3);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8.4 Поиск подстрок -->
+<article class="article">
+  <div class="anchor" id="p8.4"></div>
+  <h3>8.4 Поиск подстрок (118)</h3>
+
+  <p>Заголовочный файл sting.h содержит функцию для поиска подстроки в строке</p>
+  <p>Функция strstr(str, substr) принимает два аргумента. Первый это строка в которой производится поиск. Второй это подстрока которую надо найти. Если подстрока найдена, то функция вернет указатель на первый символ подстроки. Если подстрока не найдена то функция вернет значение NULL</p>
+  <p>Индекс первого символа подстроки в строке равен разнице указателей на первый символ подстроки и указателя на первый символ строки (имя строки это и есть указатель на первый символ строки).</p>
+  <p>Заголовочный файл sting.h содержит функцию для сравнения строк. Две строки нельзя сравнить с помощью операторов == или !=.</p>
+  <p>Функция strcmp(str1,str2) принимает два аргумента это строки которые сравниваются между собой. Сравниваются коды каждого символа. Если строки одинаковые, то вернется значение 0. Иначе вернется положительное или отрицательное значение в зависимости от строк.</p>
+  <p>Заголовочный файл sting.h содержит две функции для поиска символов в строке.</p>
+  <p>Функция strchr(str, chr) принимает два аргумента. Первый это строка в которой производится поиск. Второй это символ который надо найти. Ищет первое вхождение символа. Если символ найдет возвращает его индекс, иначе - NULL</p>
+  <p>Функция strrchr(str, chr) принимает два аргумента. Первый это строка в которой производится поиск. Второй это символ который надо найти. Ищет последнее вхождение символа. Если символ найдет возвращает его индекс, иначе - NULL</p>
+
+  <details>
+    <summary>Программа 44 (119)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  char str[] = "No Time Like Present";
+  char sub[] = "Time";
+  if (strstr(str, sub) == NULL) {
+    printf("substring \"Time\" not found");
+  } else {
+    printf("substring \"Time\" found at %p\n", strstr(str,sub));
+    printf("element index number %d\n\n", strstr(str,sub) - str);
+  }
+
+  printf("%s versus \"Time\" %d\n", sub, strcmp(sub, "Time"));
+  printf("%s versus \"time\" %d\n", sub, strcmp(sub, "time"));
+  printf("%s versus \"TIME\" %d\n", sub, strcmp(sub, "TIME"));
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8.5 Валидация строк -->
+<article class="article">
+  <div class="anchor" id="p8.5"></div>
+  <h3>8.5 Валидация строк (120)</h3>
+
+  <p>Заголовочный файл ctype.h содержит функции для проверки символов.</p>
+  <p>Функция isalpha(chr) принимает символ и возвращает 1 если это символ буквы алфавита, иначе 0.</p>
+  <p>Функция isdigit(chr) принимает символ и возвращает 1 если это символ цифры, иначе 0.</p>
+  <p>Функция ispunct(chr) принимает символ и возвращает 1 если это знак пунктуации, иначе 0.</p>
+  <p>Функция isspace(chr) принимает символ и возвращает 1 если это символ пробела, иначе 0.</p>
+  <p>Функция isupper(chr) принимает символ и возвращает 1 если это символ в верхнем регистре, иначе 0.</p>
+  <p>Функция islower(chr) принимает символ и возвращает 1 если это символ в нижнем регистре, иначе 0.</p>
+  <p>Функция toupper(chr) принимает символ и возвращает символ в верхнем регистре.</p>
+  <p>Функция tolower(chr) принимает символ и возвращает символ в нижнем регистре.</p>
+
+  <details>
+    <summary>Программа 45 (121)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+  char str[7];
+  int i;
+  int flag= 1;
+  puts("Enter six digits without any spaces ");
+  gets(str);
+
+  for (int i = 0; i &lt; 6; i++) {
+    if(!isdigit(str[i])) {
+      flag = 0;
+      if (isalpha(str[i])) {
+        printf("Letter %c Fount\n", toupper(str[i]));
+      } else if (ispunct(str[i])) {
+        printf("Punctuation Found\n");
+      } else if (isspace(str[i])) {
+        printf("Space Found\n");
+      }
+    }
+  }
+
+  (flag) ? puts("Entry valid") : puts("Entry invalid");
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 8.6 Преобразование строк -->
+<article class="article">
+  <div class="anchor" id="p8.6"></div>
+  <h3>8.6 Преобразование строк (122)</h3>
+
+  <p>Заголовочный файл stdlib.h содержит функции для преобразования строк.</p>
+  <p>Функция atoi(str) принимает строку, которую нужно преобразовать. Возвращает 0 если строка путсая или ее первый символ не число и не знак минус. Иначе цифры, которые стоят вначале строки (с учетом знака минус если он есть) будут преобразованы в целое число.</p>
+  <p>Функция itoa(dig,str,base) принимает три аргумента. Первый это целое число, которое нужно преобразовать. Второй это строка которой будет присвоен результат. Третий это система счисления в которую будет преобразован результат.</p>
+  <p>Функция sprintf(str,spc,dig) принимает три аргумента. Первый это строка, которой будет присвоено число. Второй это спецификатор формата. Третий это число, которое нужно преобразовать. Возвращает целое число - количество символов в преобразованной строке.</p>
+  <p>Функция sprintf() может преобразовать десятичное число в восьмеричное с помощью спецификатора формата %o, и в шестнадцатеричное с помощью %x. Не может преобразовывать числа в двоичную систему, поскольку нет спецификатора формата двоичных чисел.</p>
+
+  <details>
+    <summary>Программа 46 (123)</summary>
+<pre>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int n1, n2, n3;
+  char s1[10] = "12eight";
+  char s2[10] = "-65.8";
+  char s3[10] = "x13";
+
+  n1 = atoi(s1);
+  printf("String %s converts to Integer %d\n", s1, n1);
+  n2 = atoi(s2);
+  printf("String %s converts to Integer %d\n", s2, n2);
+  n3 = atoi(s3);
+  printf("String %s converts to Integer %d\n", s3, n3);
+
+  itoa(n1, s1, 2); // в двоичную систему
+  printf("Decimal %d is Binary %s\n", n1, s1);
+  n2 = sprintf(s3, "%o", n1); // в 8-ричную систему
+  printf("Decimal %d is Octal %s chars %d\n", n1, s3, n2);
+  n3 = sprintf(s3, "%x", n1); // в 16-ричную систему
+  printf("Decimal %d is Hexadecimal %s chars %d\n", n1, s3, n3);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9 Создание структур -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Создание структур (125)</h3>
+</article>
+
+
+<!-- 9.1 Группирование данных в структуру -->
+<article class="article">
+  <div class="anchor" id="p9.1"></div>
+  <h3>9.1 Группирование данных в структуру (126)</h3>
+
+  <p><strong>Структура</strong> может содержать одну или несколько переменных одного или разного типа. Переменные группируют в структуру чтобы организовать сложные данные.</p>
+  <p>Объявление структуры определяет новый тип данных</p>
+<pre>
+struct coords {
+  int x;
+  int y;
+};
+</pre>
+  <p>Вместе с объявлением структуры можно объявить переменные этого нового типа данных</p>
+<pre>
+struct coords {
+  int x;
+  int y;
+} point1, point2;
+</pre>
+  <p>К каждой переменной структуры можно обратиться через точку</p>
+  <code>point1.x, point1.y, point2.x, point2.y</code>
+  <p>Второй способ объявить переменную  для структуры</p>
+  <code>struct coords point3;</code>
+
+  <details>
+    <summary>Программа 47 (127)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+struct coords {
+  int x;
+  int y;
+} point;
+
+struct coords top;
+
+int main() {
+  point.x = 5;
+  point.y = 8;
+  top.x = 15;
+  top.y = 24;
+
+  printf("point x %d, point y %d\n", point.x, point.y);
+  printf("top x %d, top y %d\n", top.x, top.y);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.2 Определение типа данных с помощью структуры -->
+<article class="article">
+  <div class="anchor" id="p9.2"></div>
+  <h3>9.2 Определение типа данных с помощью структуры (128)</h3>
+
+  <p>Ключевое слово <strong>typedef</strong> позволяет определить новый тип данных и присвоить ему тип данных структуры</p>
+  <code>typedef struct {int x; int y;} Point;</code>
+  <p>Теперь можно использовать новый тип данных Point без указания слова struct. Объявим и проинициализируем значениями новую переменную. Члены структуры можно инициализировать через запятую только при объявлении. После  этого присваивать значения можно только индивидуально.</p>
+  <code>Point top = {15, 20};</code>
+
+  <details>
+    <summary>Программа 48 (129)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  int x;
+  int y;
+} Point;
+
+Point top = {15,20};
+Point btm;
+
+typedef struct {
+  Point a;
+  Point b;
+} Box;
+
+Box rect = {6, 12, 30, 20};
+
+int main() {
+  btm.x = 5;
+  btm.y = 8;
+  printf("Top x %d, y %d\n", top.x, top.y);
+  printf("Bottom x %d, y %d\n", btm.x, btm.y);
+
+  printf("Point a x %d, y %d\n", rect.a.x, rect.a.y);
+  printf("Point b x %d, y %d\n", rect.b.x, rect.b.y);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.3 Использование указателей в структурах -->
+<article class="article">
+  <div class="anchor" id="p9.3"></div>
+  <h3>9.3 Использование указателей в структурах (130)</h3>
+
+  <p>Слева от знака = находится L-значение, а справа R-значение.</p>
+  <code>L-value = R-value</code>
+  <p>L-значение представляет фрагмент памяти.</p>
+  <p>R-значение представляет данные, которые следует поместить в этот фрагмент.</p>
+  <p>R-value не может находиться слева от знака равенства.</p>
+  <p>L-value может быть как слева так и справа от знака равенства.</p>
+
+  <details>
+    <summary>Программа 49 (131)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  char str[5];
+} ArrType;
+
+typedef struct {
+  char *str;
+} PtrType;
+
+ArrType arr = {'B','a','d',' ','\0'};
+PtrType ptr = {"Good"};
+
+int main() {
+  printf("Array string is %s\n", arr.str);
+
+  arr.str[0] = 'I';
+  arr.str[1] = 'd';
+  arr.str[2] = 'e';
+  arr.str[3] = 'a';
+  arr.str[4] = '\0';
+  printf("Array string is %s\n", arr.str);
+
+  printf("Pointer string is %s\n", ptr.str);
+
+  ptr.str = "Idea";
+  printf("Pointer string is %s\n", ptr.str);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.4 Указатели на структуры -->
+<article class="article">
+  <div class="anchor" id="p9.4"></div>
+  <h3>9.4 Указатели на структуры (132)</h3>
+
+  <p>Указатель на тип данных, объявленный с помощью структуры, хранит адрес начала фрагмента памяти, используемого для хранения данных структуры</p>
+  <p>При работе с указателями на структуру, операция точка (.)заменяется операцией стрелка (->)</p>
+  <code>ptr->member это тоже самое, что (*ptr).member</code>
+
+  <details>
+    <summary>Программа 50 (133)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  char *name;
+  char *popn;
+} City;
+
+int main() {
+  City ny, la, ch, *ptr;
+  ny.name = "New York";
+  ny.popn = "8,274,527";
+  printf("City %s has Population %s\n", ny.name, ny.popn);
+
+  ptr = &la;
+  ptr->name = "Los Angeles";
+  ptr->popn = "3,384,340";
+  printf("City %s has Population %s\n", la.name, la.popn);
+
+  ptr = &ch;
+  ptr->name = "Chicago";
+  ptr->popn = "2,836,658";
+  printf("City %s has Population %s\n", ptr->name, ptr->popn);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.5 Передача структур в функции -->
+<article class="article">
+  <div class="anchor" id="p9.5"></div>
+  <h3>9.5 Передача структур в функции (134)</h3>
+
+  <p>Чтобы сохранить в массиве члены структур, их сначала нужно поместить в фигурные скобки {}.</p>
+  <p>Если структура передается в функцию по значению с помощью обычной переменной, то функция работает с ее копией, а оригинальные значения структуры останутся не изменными.</p>
+  <p>Если структура передается в функцию  по ссылке с помощью указателя, то функция работает с оригинальными значениями и может изменять их по завершении ее работы.</p>
+  <p>Передача крупных структур по значению неэффективна, поскольку в памяти создается копия целой структуры, а при копировании по ссылке требуется выделить объем памяти, равный размеру одного указателя.</p>
+
+  <details>
+    <summary>Программа 51 (135)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  char *name;
+  int quantity;
+} Item;
+
+Item fruits[3] = {{"Apple", 10}, {"Orange", 20}, {"Pear", 30}};
+
+void display(Item val, Item *ref);
+
+int main() {
+  display(fruits[0], &fruits[0]);
+
+  return 0;
+}
+
+void display(Item val, Item *ref) {
+  printf("%s %d\n", val.name, val.quantity);
+  val.name = "Banana";
+  val.quantity = 40;
+  printf("%s %d\n", val.name, val.quantity);
+  printf("%s %d\n", fruits[0].name, fruits[0].quantity);
+  ref->name = "Peach";
+  ref->quantity = 50;
+  printf("%s %d\n", fruits[0].name, fruits[0].quantity);
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.6 Группирование данных в объединение -->
+<article class="article">
+  <div class="anchor" id="p9.6"></div>
+  <h3>9.6 Группирование данных в объединение (136)</h3>
+
+  <p><strong>Объединение</strong> может хранить различные фрагменты любого типа данных в одном участке памяти. Это позволяет использовать память более эффективно</p>
+  <p>Каждый член <strong>структуры</strong> имеет свой адрес в памяти. Адрес <strong>структуры</strong> в памяти совпадает с адресом ее первого члена</p>
+  <p>Объединение и каждый член <strong>объединения</strong> имеют один адрес в памяти. Адрес <strong>объединения</strong> в памяти совпадает с адресом каждого его члена</p>
+  <p><strong>Объединение</strong> объявляют ключевым словом <strong>union</strong>. Члены объединения могут получить значения только индивидуально.</p>
+  <p>Массив <strong>объединений</strong> создается так же как и массив <strong>структур</strong>, но члены объединений могут быть инициализированы только при объявлении, если все они имеют одинаковывй тип данных.</p>
+  <p>Указатель на объединение создается так же, как и указатель на структуру.</p>
+  <p>Объединение можно передать в функцию как и любую другую переменную</p>
+
+  <details>
+    <summary>Программа 52 (137)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  int num;
+  char ltr, *str;
+} Distinct;
+
+typedef union {
+  int num;
+  char ltr, *str;
+} Unified;
+
+int main() {
+  Distinct sdata = {10, 'C', "Program"};
+  printf("Structure Number %d, Address %p\n", sdata.num, &sdata.num);
+  printf("Structure Letter %c, Address %p\n", sdata.ltr, &sdata.ltr);
+  printf("Structure String %s, Address %p\n", sdata.str, &sdata.str);
+  printf("Structure Address %p\n", &sdata);
+
+  Unified udata;
+  udata.num = 16;
+  printf("Union Number %d, Addres %p\n", udata.num, &udata.num);
+  udata.ltr = 'A';
+  printf("Union Letter %c, Addres %p\n", udata.ltr, &udata.ltr);
+  udata.str = "Union";
+  printf("Union String %s, Addres %p\n", udata.str, &udata.str);
+  printf("Union Addres %p\n", &udata);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 9.7 Выделение памяти -->
+<article class="article">
+  <div class="anchor" id="p9.7"></div>
+  <h3>9.7 Выделение памяти (138)</h3>
+
+  <p>Заголовочный файл stdlib.h содержит функции для управления памятью, с помощью которых программа может явно запросить память во время выполнения.</p>
+  <p>Функция malloc(byte) принимает один аргумент определяющих сколько байт памяти нужно выделить. Не изменяет данные, которые лежали в памяти.</p>
+  <p>Функция calloc(byte, count) принимает два аргумента, которые перемножаются между собой чтобы определить сколько байт памяти нужно выделить. Заполняет все выделенное пространство нулями.</p>
+  <p>Функции malloc() и calloc() возвращают указатель на начало блока памяти (если операционная система передала под управление программы запрашиваемый размер памяти). В случае неудачи они возвращают значение NULL</p>
+  <p>Объем памяти, выделенный с помощью функций malloc() и calloc(), может быть увеличен с помощью функции realloc().</p>
+  <p>Функция realloc(ptr, byte) принимает два аргумента. Первый это указатель на выделенный блок памяти. Второй это целое число равное размеру нового блока</p>
+  <p>Функция realloc() возвращают указатель на начало увеличенного блока памяти. В случае неудачи возвращает значение NULL</p>
+  <p>Функция _msize(mem) принимает указатель на выделенную память и возвращает размер выделенной памяти</p>
+  <p>Функция free(mem) принимает указатель на выделенную память и освобождает ее (возвращает освобожденные адреся под управление операционной системы)</p>
+
+  <details>
+    <summary>Программа 53 (139)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void info(int, int*);
+
+int main() {
+  int size, *mem;
+  mem = malloc(100 * sizeof(int));
+  size = _msize(mem);
+  printf("malloc 100 ints\n");
+  info(size, mem);
+
+  mem = realloc(mem, size + 100 * sizeof(int));
+  size = _msize(mem);
+  printf("realloc 100 ints + 100 ints\n");
+  info(size, mem);
+
+  free(mem);
+
+  return 0;
+}
+
+void info(int size, int* ptr) {
+  if (ptr != NULL) {
+    printf("Size of block %d bytes\n", size);
+    printf("Beginning at address %p\n\n", ptr);
+  } else {
+    printf("Insufficient memory\n");
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10 Получение результата -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Получение результата (141)</h3>
+</article>
+
+
+<!-- 10.1 Создание файла -->
+<article class="article">
+  <div class="anchor" id="p10.1"></div>
+  <h3>10.1 Создание файла (142)</h3>
+
+  <p>В заголовочном файле <strong>stdio.h</strong> определен специальный тип данных для работы с файлами. Он называется <strong>указатель на файл</strong></p>
+  <code>FILE *file_ptr;</code>
+  <p>Указатель на файл используется для открытия, чтения, записи и закрытия файла. Объявленная переменная file_ptr это указательна файл. Эта переменная указывает на структуру, которая содержит информацию о файле: данные о текущем символе и о состоянии файла (выполняется ли его чтение или запись в данный момент)</p>
+  <p>Для работы с файлом сначала его нужно открыть.</p>
+  <p>Функция fopen("name", "mode") принимает два аргумента типа данных string, заключенные в двойных кавычках. Первый это имя файла. Второй это режим в котором надо открыть файл. Возвращает указатель на файл. В случае неудачи возвращает значение NULL</p>
+  <p>Открытый файл всегда должен быть закрыт путем вызова функции fclose(ptr), которая принимает указатель на файл.</p>
+
+  <h4>Режимы открытия файла</h4>
+  <ol>
+    <li>r Открытие текстового файла для чтения</li>
+    <li>w Открытие текстового файла для записи. Если файла с таким именем нет, то он создается. Если файл с таким именем есть, то он перезаписывается (теряет все предыдущие данные)</li>
+    <li>a Открытие текстового файла для добавления. Если файла с таким именем нет, то он создается. Если файл с таким именем есть, то текст будет добавляться в его конец (сохраняет все предыдущие данне)</li>
+    <li>r+ Открывает текстовый файл для чтения или записи</li>
+    <li>w+ Открывает текстовый файл для записи или чтения</li>
+    <li>a+ Открывает текстовый файл для чтения или добавления</li>
+    <li>(rb, wb, ab, r+b, w+b, a+b) Если к режиму добавить букву b, то вместо текстового файла должен использоваться бинарный файл</li>
+  </ol>
+
+  <details>
+    <summary>Программа 54 (143)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  FILE *file_ptr;
+  file_ptr = fopen("54data.txt", "w");
+  if (file_ptr != NULL) {
+    printf("File created\n");
+    fclose(file_ptr);
+  } else {
+    printf("File not created\n");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.2 Чтение и запись символов -->
+<article class="article">
+  <div class="anchor" id="p10.2"></div>
+  <h3>10.2 Чтение и запись символов (144)</h3>
+
+  <h4>Стандартный ввод stdin</h4>
+  <p>Функция <strong>scanf()</strong> является упрощенной версией функции <strong>fscanf()</strong>, которая первым аргументом принимает входной файловый поток (источник из которого данные попадают в программу).</p>
+  <p>Входной файловый поток <strong>stdin</strong> представляет собой клавиатуру и является источником по умолчанию для функции scanf(). Это то же самое что вызвать fscanf(stdin, ...)</p>
+
+  <h4>Стандартный вывод stdout</h4>
+  <p>Функция <strong>printf()</strong> является упрощенной версией функции <strong>fprintf()</strong>, которая первым аргументом принимает выходной файловый поток (место куда данные выводятся из программы).</p>
+  <p>Выходной файловый поток <strong>stdout</strong> представляет собой монитор и является источником по умолчанию для функции printf(). Это то же самое что вызвать fprintf(stdout, ...)</p>
+
+  <p>Функция fputc() выводит в файловый поток один символ. Обычно проходят циклом по массиву символов. Возвращает код символа или константу EOF если достигнут конец файла.</p>
+  <p>Функция fgetc() читает из файлового потока один символ.</p>
+
+  <p>Функция fputs() выводит в файловый поток одну строку.</p>
+  <p>Функция fgets() читает из файлового потока одну строку.</p>
+
+  <p>Функция fread() читает из файловыго потока полностью.</p>
+  <p>Функция fwrite() записывает в файловый поток полностью.</p>
+
+  <p>Функция fscanf() читает из фалового потока строки и числа</p>
+  <p>Функция fprintf() выводит в файловый поток строки и числа</p>
+
+  <h4>Фаловый поток stderr</h4>
+  <p>Фаловый поток stderr используется для вывода сообщений об ошибках</p>
+
+  <details>
+    <summary>Программа 55 (145)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  FILE *file_ptr;
+  int i;
+  char text[50] = { "Text, one character at a time." };
+  file_ptr = fopen("55char.txt", "w");
+  if (file_ptr != NULL) {
+    printf("File char.txt created\n");
+    for (int i = 0; text[i]; i++) {
+      fputc(text[i], file_ptr);
+    }
+    fclose(file_ptr);
+  } else {
+    printf("Unable to create file\n");
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.3 Чтение и запись строк -->
+<article class="article">
+  <div class="anchor" id="p10.3"></div>
+  <h3>10.3 Чтение и запись строк (146)</h3>
+
+  <p>Функция <strong>fgets()</strong> принимает три аргумента. Первый это массив символов, куда будет записана строка. Второй это целове число, которое определяет максимальное количество символов в строке. Третий это файловый указатель из которого читать строку. Функция fgets() считывает из файла по одной строке за раз.</p>
+  <p>Функция <strong>fputs()</strong> принимает два аргумента. Первый это строка. Второй это файловый указатель куда записывать строку. Функция fputs() записывает в файл по одной строке за раз. Возваращает 0 в случае успеха, иначе возвращает константу <strong>EOF</strong> если происходит ошибка или достигается конец файла.</p>
+
+  <details>
+    <summary>Программа 56 (147)</summary>
+    <p>Файл 56string.txt</p>
+    <code>A thouthand suns will stream of thee</code>
+    <p>Файл 56.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  FILE *file_ptr;
+  char text[50];
+  file_ptr = fopen("56string.txt", "r+a");
+
+  if (file_ptr != NULL) {
+    printf("File 56string.txt opened\n");
+    while (fgets(text, 50, file_ptr)) {
+      printf("%s", text);
+    }
+    strcpy(text, "\nA thousand moons will quiver");
+    fputs(text, file_ptr);
+  } else {
+    printf("Unable to open file\n");
+  }
+
+  fclose(file_ptr);
+
+  return 0;
+}
+</pre>
+
+  <p>Запустить программу и проверить файл 56string.txt</p>
+<pre>
+A thouthand suns will stream of thee
+A thousand moons will quiver
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.4 Считывание и запись файлов целиком -->
+<article class="article">
+  <div class="anchor" id="p10.4"></div>
+  <h3>10.4 Считывание и запись файлов целиком (148)</h3>
+
+  <p>Функции <strong>fread()</strong>  принимает четыре аргумента. Первый это символьная переменная куда записывать текст. Второй это размер считываемых за раз фрагментов текста. Третий это общее количество символов для чтения. Четвертый это файловый указатель откуда читать текст. Возвращает количество считанных символов.</p>
+  <p>Функции <strong>fwrite()</strong> принимает четыре аргумента. Первый это символьная переменная с текстом. Второй это размер записываемых за раз фрагментов текста. Третий это общее количество символов для записи. Четвертый это файловый указатель. Возвращает количество записанных символов</p>
+
+  <details>
+    <summary>Программа 57 (149)</summary>
+    <p>Файл 57orig.txt</p>
+    <code>A thouthand suns will stream of thee</code>
+    <p>Файл 57.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  FILE *orig_ptr;
+  FILE *copy_ptr;
+  char buffer[1000];
+  int num;
+  orig_ptr = fopen("57orig.txt", "r");
+  copy_ptr = fopen("57copy.txt", "w");
+
+  if ((orig_ptr != NULL) && (copy_ptr != NULL)) {
+    num = fread(buffer, 1, 1000, orig_ptr);
+    fwrite(buffer, 1, num, copy_ptr);
+    printf("orig.txt copied to copy.txt\n");
+    printf("%d objects copied\n", num);
+  } else {
+    if (orig_ptr == NULL) {
+      printf("Unable to open orig.txt\n");
+    }
+    if (copy_ptr == NULL) {
+      printf("Unable to open copy.txt\n");
+    }
+  }
+
+  fclose(orig_ptr);
+  fclose(copy_ptr);
+
+  return 0;
+}
+</pre>
+
+  <p>Запустить программу и проверить файл 57copy.txt</p>
+<pre>
+A thouthand suns will stream of thee
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.5 Сканирование файловых потоков -->
+<article class="article">
+  <div class="anchor" id="p10.5"></div>
+  <h3>10.5 Сканирование файловых потоков (150)</h3>
+
+  <p>Функции <strong>fscanf()</strong> и <strong>fprintf()</strong> позволяют выбрать поток, с которым будет производиться чтение или запись</p>
+  <p>Функция <strong>feof()</strong> принимает указатель на файл и проверяет что достигнут конец файла.</p>
+
+  <details>
+    <summary>Программа 58 (151)</summary>
+    <p>Файл 58nums.txt</p>
+    <code>1 2 3 4 5 6 7 8 9 10</code>
+    <p>Файл 58.c</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+  FILE *nums_ptr, *hint_ptr;
+  int nums[20], i, j;
+  nums_ptr = fopen("58nums.txt", "r");
+  hint_ptr = fopen("58hint.txt", "w");
+
+  if((nums_ptr != NULL) && (hint_ptr != NULL)) {
+    for (i = 0; !feof(nums_ptr); i++) {
+      fscanf(nums_ptr, "%d", &nums[i]);
+    }
+
+    fprintf(stdout, "Total numbers found %d\n", i);
+    for (j = 0; j &lt; i; j++) {
+      fprintf(stdout, "%d ", nums[j]);
+    }
+    fprintf(hint_ptr, "fscanf and fprintf are flexible\n", i);
+    for (j = 0; j &lt; i; j++) {
+      fprintf(hint_ptr, "%d ", nums[j]);
+    }
+  } else {
+    fprintf(stdout, "Unable to open a file\n");
+  }
+
+  fclose(nums_ptr);
+  fclose(hint_ptr);
+
+  return 0;
+}
+</pre>
+
+  <p>Запустить программу и проверить файл 58hint.txt</p>
+  <code>1 2 3 4 5 6 7 8 9 10 </code>
+</article>
+
+
+<!-- 10.6 Сообщение об ошибках -->
+<article class="article">
+  <div class="anchor" id="p10.6"></div>
+  <h3>10.6 Сообщение об ошибках (152)</h3>
+
+  <p>Заголовочный файл <strong>stdio.h</strong> содержит функцию <strong>perror()</strong> для вывода на экран сообщений об ошибках</p>
+  <p>Функция <strong>perror(str)</strong> принимает строку, добавляет к ней двоеточие, а за ним - описание текущей ошибки.</p>
+  <p>Заголовочный файл <strong>errno.h</strong> определяет целочисленное выражение <strong>errno</strong>, которому присваивается числовой код ошибки, когда случается ошибка</p>
+  <p>Заголовочный файл <strong>string.h</strong> содержит функцию <strong>strerror()</strong>.</p>
+  <p>Функция <strong>strerror()</strong> принимает код ошибки, например выражение <strong>errno</strong> и выводит связанное с этим кодом сообщение об ошибке</p>
+
+  <details>
+    <summary>Программа 59 (153)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  FILE *f_ptr;
+  int i;
+
+  // несуществующий текстовый файл
+  f_ptr = fopen("nofile.txt", "r");
+  if (f_ptr != NULL) {
+    printf("File nofile.txt opened\n");
+  } else {
+    perror("Error");
+  }
+
+  // сообщения об ошибках 0 - 43
+  for (int i = 0; i &lt; 44; i++) {
+    printf("Error id %d : %s\n", i, strerror(i));
+  }
+
+  return 0;
+}
+</pre>
+  <p>В результате получим</p>
+<pre>
+Error: No such file or directory
+Error id 0 : No error
+Error id 1 : Operation not permitted
+Error id 2 : No such file or directory
+Error id 3 : No such process
+Error id 4 : Interrupted function call
+Error id 5 : Input/output error
+Error id 6 : No such device or address
+Error id 7 : Arg list too long
+Error id 8 : Exec format error
+Error id 9 : Bad file descriptor
+Error id 10 : No child processes
+Error id 11 : Resource temporarily unavailable
+Error id 12 : Not enough space
+Error id 13 : Permission denied
+Error id 14 : Bad address
+Error id 15 : Unknown error
+Error id 16 : Resource device
+Error id 17 : File exists
+Error id 18 : Improper link
+Error id 19 : No such device
+Error id 20 : Not a directory
+Error id 21 : Is a directory
+Error id 22 : Invalid argument
+Error id 23 : Too many open files in system
+Error id 24 : Too many open files
+Error id 25 : Inappropriate I/O control operation
+Error id 26 : Unknown error
+Error id 27 : File too large
+Error id 28 : No space left on device
+Error id 29 : Invalid seek
+Error id 30 : Read-only file system
+Error id 31 : Too many links
+Error id 32 : Broken pipe
+Error id 33 : Domain error
+Error id 34 : Result too large
+Error id 35 : Unknown error
+Error id 36 : Resource deadlock avoided
+Error id 37 : Unknown error
+Error id 38 : Filename too long
+Error id 39 : No locks available
+Error id 40 : Function not implemented
+Error id 41 : Directory not empty
+Error id 42 : Illegal byte sequence
+Error id 43 : Unknown error
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.7 Получение даты и времени -->
+<article class="article">
+  <div class="anchor" id="p10.7"></div>
+  <h3>10.7 Получение даты и времени (154)</h3>
+
+  <p>Заголовочный файл <strong>time.h</strong> содержит функции для работы с датой и времени, структуру данных <strong>struct tm</strong> и тип данных <strong>time_t</strong>.</p>
+  <p>Системное время определяется как количество секунд, прошедшее с момента наступления эпохи UNIX (полночь 1 января 1970 года)</p>
+  <ul>
+    <li><strong>int tm_sec</strong> секунды (0-59)</li>
+    <li><strong>int tm_min</strong> минуты (0-59)</li>
+    <li><strong>int tm_hour</strong> часы (0-23)</li>
+    <li><strong>int tm_mday</strong> день месяца (1-31)</li>
+    <li><strong>int tm_mon</strong> месяц (0-11)</li>
+    <li><strong>int tm_year</strong> год</li>
+    <li><strong>int tm_wday</strong> день недели (0-6)</li>
+    <li><strong>int tm_yday</strong> день года (0-365)</li>
+    <li><strong>int tm_isdst</strong> признак летнего времени</li>
+  </ul>
+
+  <p>Функция <strong>time(NULL)</strong> возвращает количество прошедших секунд как тип данных <strong>time_t</strong></p>
+  <p>Функция <strong>localtime()</strong> принимает переменную формата <strong>time_t</strong> преобразовывает ее к формату компонентов структуры <strong>tm</strong> и возвращает компонент структуры <strong>tm</strong></p>
+  <p>Функция <strong>asctime()</strong> принимает компонент структуры <strong>tm</strong> и позволяет вывести его в стандартном формате даты и времени.</p>
+  <p>Функция <strong>strftime()</strong> принимает четыре аргумента для извлечения нужных компонентов для структуры <strong>tm</strong>. Ее используют как альтернативу функции <strong>asctime()</strong></p>
+
+  <details>
+    <summary>Программа 60 (155)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main() {
+  char buffer[100];
+  time_t elapsed;
+  struct tm *now;
+  elapsed = time(NULL);
+  now = localtime(&elapsed);
+  printf("%s\n", asctime(now));
+
+  strftime(buffer, 100, "Today is %A, %B %d\n", now);
+  printf("%s", buffer);
+  strftime(buffer, 100, "Time is %I : %M %p\n", now);
+  printf("%s", buffer);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.8 Запуск таймера -->
+<article class="article">
+  <div class="anchor" id="p10.8"></div>
+  <h3>10.8 Запуск таймера (156)</h3>
+
+  <p>Заголовочный файл <strong>time.h</strong> содержит функции <strong>difftime()</strong> и <strong>clock()</strong> для работы со временем</p>
+  <p>Функция <strong>difftime()</strong> принимает два аргумента типа данных <strong>time_t</strong> и возвращает разницу между ними в целом количестве секунд формата данных <strong>double</strong>. Так можно определять продолжительность события, введя время его начала и конеца</p>
+  <p>Функция <strong>clock()</strong> возвращает время процессора с момента начала программы, выраженное в <strong>тиках</strong>. Так с помощью цикла можно приостановить выполнение программы до определенного момента в будущем</p>
+
+  <details>
+    <summary>Программа 61 (157)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+void wait(int seconds);
+
+int main() {
+  time_t go, stop;
+  int i;
+  go = time(NULL);
+  printf("Starting countdown \n");
+  for (i = 10; i > -1; i--) {
+    printf(" - %d", i);
+    wait(1);
+  }
+  stop = time(NULL);
+  printf("\nRuntime %.0f seconds\n", difftime(stop, go));
+
+  return 0;
+}
+
+void wait(int seconds) {
+  clock_t end_wait = (clock() + (seconds*CLOCKS_PER_SEC));
+  while(clock() &lt; end_wait) {}
+  return;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.9 Генерация случайных чисел -->
+<article class="article">
+  <div class="anchor" id="p10.9"></div>
+  <h3>10.9 Генерация случайных чисел (158)</h3>
+
+  <p>Заголовочный файл <strong>stdlib.h</strong> содержит функции <strong>rand()</strong> и <strong>srand()</strong> для генерации случайных чисел</p>
+  <p>Функция <strong>rand()</strong> возвращает псевдослучайное число от 0 до 32767.</p>
+  <p>Можно изменить верхнюю границу с помощью операции <strong>% остаток от деления</strong>. Например (rand() % 9) вернет числа от 0 до 9. Чтобы изменить нижнюю границу нужно добавить число к результату. Например (rand() % 9) + 1 вернет число от 1 до 10.</p>
+  <p>Функция <strong>rand()</strong> при каждом ее запуске генерирует одну и ту же последовательность. Чтобы изменить последовательность, нужно изменить <strong>зерно</strong>. По умолчанию зерно равно 1. Чтобы его изменить нужно в функцию srand() передать другое целое число. Чтобы генерировать случайную последовательность, нужно передавать случайное зерно.</p>
+  <p><strong>srand(time(NULL))</strong> задает зерно с помощью времени в миллисекундах, что гарантирует что каждый раз запуская программу, зерно будет разное.</p>
+
+  <details>
+    <summary>Программа 62 (159)</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  int i, r, temp, nums[50];
+  char buf[4], str[50] = {"Your Six Lucky Numbers Are: "};
+  srand(time(NULL));
+
+  for (i = 1; i &lt; 50; i++) {
+    nums[i] = i;
+  }
+
+  for (i = 1; i &lt; 50; i++) {
+    r = (rand() % 49) + 1;
+    temp = nums[i];
+    nums[i] = nums[r];
+    nums[r] = temp;
+  }
+
+  for (i = 1; i &lt; 7; i++) {
+    sprintf(buf, "%d", nums[i]);
+    strcat(buf, " ");
+    strcat(str, buf);
+  }
+
+  printf("%s\n", str);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- 10.10 Отображение диалогового окна -->
+<article class="article">
+  <div class="anchor" id="p10.10"></div>
+  <h3>10.10 Отображение диалогового окна (160)</h3>
+
+  <p>Заголовочный файл <strong>windows.h</strong> содержит функции позволяющие создавать графические компоненты, предоставляемые интерфейсом WIN API.</p>
+  <p>В программе точка входа - функция <strong>main()</strong> заменяется на функцию <strong>WinMain()</strong>. Функция <strong>WinMain()</strong> должна вернуть целое число по завершении, как и функция <strong>main()</strong>.</p>
+  <code>int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)</code>
+  <p>Эти аргументы всегда необходимы, чтобы программа осуществляла коммуникацию с операционной системой.</p>
+  <ol>
+    <li><strong>hInstance</strong> это дескриптор, ссылка на программу</li>
+    <li><strong>hPrevInstance</strong> использовался ранее в программировании для Windows, может быть проигнорирован</li>
+    <li><strong>lpCmdLine</strong> это строка, в которой все элементы, используемые в командной строке для компилирования приложения</li>
+    <li><strong>nCmdShow</strong> управляет способом отображения окна</li>
+  </ol>
+
+  <p>Функция <strong>MessageBox()</strong> создает простое диалоговое окно с одной кнопкой "OK"</p>
+  <code>int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType);</code>
+  <ol>
+    <li><strong>hWnd</strong> это дескриптор, ссылка на родительское окно, если такое существует - если его нет, этот аргумент будет иметь значение NULL</li>
+    <li><strong>lpText</strong> это строка, которая будет в диалоговом окне</li>
+    <li><strong>lpCaption</strong> это строка, которая будет в заголовке диалогового окна</li>
+    <li><strong>uType</strong> принимает список константных значений, разделенных вертикальной чертой. Константа <strong>MB_OK</strong> добавляет кнопку OK. Константа <strong>MB_ICONEXCLAMATION</strong> добавляет иконку с восклицательным знаком.</li>
+  </ol>
+  <p>Скомпилируем программу</p>
+  <code>gcc 63.c -mwindows</code>
+  <p>Опция <strong>-mwindows</strong> нужна для того, чтобы не открывалась командная строка при запуске.</p>
+
+  <details>
+    <summary>Программа 63 (161)</summary>
+<pre>
+#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+int WINAPI WinMain(
+  HINSTANCE hInstance,
+  HINSTANCE hPrevInstance,
+  LPSTR lpCmdLine,
+  int nCmdShow) {
+  int i, r, temp, nums[50];
+  char buf[4], str[50] = {"Your Six Lucky Numbers Are: "};
+  srand(time(NULL));
+
+  for (i = 1; i &lt; 50; i++) {
+    nums[i] = i;
+  }
+
+  for (i = 1; i &lt; 50; i++) {
+    r = (rand() % 49) + 1;
+    temp = nums[i];
+    nums[i] = nums[r];
+    nums[r] = temp;
+  }
+
+  for (i = 1; i &lt; 7; i++) {
+    sprintf(buf, "%d", nums[i]);
+    strcat(buf, " ");
+    strcat(str, buf);
+  }
+
+  MessageBox(
+    NULL,
+    str,
+    "Lotto Number Picker",
+    MB_OK | MB_ICONEXCLAMATION);
+
+  return 0;
+}
+</pre>
+  </details>
+</article>
+

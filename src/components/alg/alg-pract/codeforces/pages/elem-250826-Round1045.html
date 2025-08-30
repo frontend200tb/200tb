@@ -1,0 +1,568 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/2134" target="_blank">Codeforces Round 1045 (Div. 2) 2025-08-26</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Раскраска двумя цветами</a>
+  <br><a href="#task2">Задача B. Добавить 0 или K</a>
+  <br><a href="#task3">Задача C. Еще больше</a>
+  <br><a href="#task4">Задача D. Скользящее дерево</a>
+  <br><a href="#task5">Задача E. Энергетические коробки</a>
+  <br><a href="#task6">Задача F. Нечётность перестановки</a>
+</article>
+
+
+<!-- Задача A. Раскраска двумя цветами -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Раскраска двумя цветами</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--)	{
+    // ввод данных
+    int n; // число ячеек
+    int a, b; // число ячеек, которые нужно раскрасить
+    cin >> n >> a >> b;
+
+    // решение
+    bool res = true;
+
+    // при четном числе ячеек
+    if (n % 2 == 0) {
+      if (b >= a) {
+        if (b % 2 == 1) {
+          res = false;
+        }
+      }
+      if (a > b) {
+        if (a % 2 == 1 || b % 2 == 1) {
+          res = false;
+        }
+      }
+    }
+
+    // при нечетном числе ячеек
+    if (n % 2 == 1) {
+      if (b >= a) {
+        if (b % 2 == 0) {
+          res = false;
+        }
+      }
+      if (a > b) {
+        if (a % 2 == 0 || b % 2 == 0) {
+          res = false;
+        }
+      }
+    }
+
+    // вывод результата
+    if (res) {
+      cout &lt;&lt; "YES\n";
+    } else {
+      cout &lt;&lt; "NO\n";
+    }
+
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Добавить 0 или K -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Добавить 0 или K</h3>
+
+  <div><i>Ограничение по времени 1.5с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int k; // константа
+    cin >> n >> k;
+    vector&lt;ll&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    vector&lt;ll&gt; B(n);
+    for (int i = 0; i &lt; n; i++) {
+      B[i] = A[i] + 1ll * (A[i] % (k + 1)) * k;
+    }
+
+    // вывод результата
+    for (int i = 0; i &lt; n; i++) {
+      cout &lt;&lt; B[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Еще больше -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. Еще больше</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    vector&lt;int&gt; A(n + 2);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    ll cnt = 0;
+    int tmp = 0;
+
+    // если 2 элемента в массиве
+    if (A[1] > A[2]) {
+      tmp = A[1] - A[2];
+      A[1] -= tmp;
+      cnt += tmp;
+    }
+
+    for (int i = 2; i &lt; n; i += 2) {
+
+      // уменьшаем нечетный в подмассивах нечетный-четный
+      if (A[i - 1] > A[i]) {
+        tmp = A[i - 1] - A[i];
+        A[i-1] -= tmp;
+        cnt += tmp;
+      }
+
+      // уменьшаем нечетный в подмассивах четный-нечетный
+      if (A[i + 1] > A[i]) {
+        tmp = A[i + 1] - A[i];
+        A[i+1] -= tmp;
+        cnt += tmp;
+      }
+
+      // уменьшаем нечетный в подмассивах нечетный-четный-нечетный
+      if (A[i - 1] + A[i + 1] > A[i]) {
+        int sum = A[i - 1] + A[i + 1];
+        if (sum - A[i] > A[i + 1]) {
+          tmp = sum - A[i] - A[i + 1];
+          A[i - 1] -= tmp;
+          cnt += A[i + 1] + tmp;
+        } else {
+          tmp = sum - A[i];
+          A[i + 1] -= tmp;
+          cnt += tmp;
+        }
+      }
+
+      // если заканчивается на четный элемент
+      if (n % 2 == 0 && A[n-1] > A[n]) {
+        tmp = A[n-1] - A[n];
+        A[n-1] -= tmp;
+        cnt += tmp;
+      }
+
+    }
+
+    // вывод результата
+    cout &lt;&lt; cnt &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Скользящее дерево -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. Скользящее дерево</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long ll;
+#define SZ(x) int(x.size())
+
+const int MXN = 2e5 + 5;
+
+int n, h[MXN];
+vector&lt;int&gt; g[MXN];
+
+void dfs(int v, int p = 0) {
+  for (int u : g[v])
+    if (u != p)
+      h[u] = h[v] + 1,
+      dfs(u, v);
+}
+
+int a, b, c;
+bool dp[MXN];
+
+void DFS(int v, int p = 0) {
+  vector&lt;int&gt; ch;
+  for (int u : g[v])
+    if (u != p) {
+      DFS(u, v);
+      dp[v] |= dp[u];
+      ch.push_back(u);
+    }
+  if (p && dp[v] && SZ(ch) >= 2) {
+    if (dp[ch[0]]) {
+      a = p;
+      b = v;
+      c = ch[1];
+    } else {
+      for (int i = 1; i &lt; SZ(ch); i++)
+        if (dp[ch[i]]) {
+          a = p;
+          b = v;
+          c = ch[0];
+        }
+    }
+  }
+}
+
+void solve() {
+  cin >> n;
+  for (int i = 1; i &lt;= n; i++) {
+    g[i].clear();
+    dp[i] = 0;
+  }
+  for (int i = 0, u, v; i &lt; n - 1; i++) {
+    cin >> u >> v;
+    g[u].push_back(v);
+    g[v].push_back(u);
+  }
+  h[1] = 0;
+  dfs(1);
+  int U = max_element(h + 1, h + n + 1) - h;
+  h[U] = 0;
+  dfs(U);
+  int d = *max_element(h + 1, h + n + 1);
+  if (d == n - 1) {
+    cout &lt;&lt; "-1\n";
+    return;
+  }
+  for (int i = 1; i &lt;= n; i++)
+    if (h[i] == d)
+      dp[i] = 1;
+  DFS(U);
+  cout &lt;&lt; a &lt;&lt; ' ' &lt;&lt; b &lt;&lt; ' ' &lt;&lt; c &lt;&lt; '\n';
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    solve();
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Энергетические коробки -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. Энергетические коробки</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int MXN = 1005;
+
+int n, dp[MXN], ans[MXN];
+
+void sw(int x) {
+  cout &lt;&lt; "swap " &lt;&lt; x &lt;&lt; endl;
+}
+
+int th(int x) {
+  cout &lt;&lt; "throw " &lt;&lt; x &lt;&lt; endl;
+  int r;
+  cin >> r;
+  return r;
+}
+
+void ret() {
+  cout &lt;&lt; "! ";
+  for (int i = 1; i &lt;= n; i++) cout &lt;&lt; ans[i] &lt;&lt; ' ';
+  cout &lt;&lt; endl;
+}
+
+void solve() {
+  cin >> n;
+  dp[n + 1] = dp[n + 2] = 0;
+  for (int i = n; i >= 1; i--) {
+    if (dp[i + 1] == dp[i + 2]) {
+      if (i == 1) {
+        sw(1);
+        if (th(2) == dp[3] + 1) ans[1] = 1;
+        else ans[1] = 2;
+      } else {
+        if (th(i - 1) == dp[i + 1] + 1) ans[i - 1] = 2;
+        else ans[i - 1] = 1;
+        sw(i - 1);
+        if (th(i - 1) == dp[i + 1] + 1) ans[i] = 2;
+        else ans[i] = 1;
+        dp[i] = dp[i + ans[i - 1]] + 1;
+        dp[i - 1] = dp[i - 1 + ans[i]] + 1;
+        i--;
+      }
+    } else {
+      if (th(i) == dp[i + 1] + 1) ans[i] = 1;
+      else ans[i] = 2;
+      dp[i] = dp[i + ans[i]] + 1;
+    }
+  }
+  ret();
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    solve();
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача F. Нечётность перестановки -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача F. Нечётность перестановки</h3>
+
+  <div><i>Ограничение по времени 5с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const ll  INF = 1e9 + 23;
+const ll  MOD = 1e9 + 7;
+const int MXN = 805, MXC = 2e5 + 5;
+const int LOG = 23;
+
+ll F[MXC], I[MXC], T[MXC];
+void init_C() {
+  F[0] = 1;
+  for (int i = 1; i &lt; MXC; i++) F[i] = F[i - 1] * i % MOD;
+  I[0] = I[1] = 1;
+  for (int i = 2; i &lt; MXC; i++) I[i] = (MOD - MOD / i) * I[MOD % i] % MOD;
+  for (int i = 2; i &lt; MXC; i++) (I[i] *= I[i - 1]) %= MOD;
+  T[0] = 1;
+  for (int i = 1; i &lt; MXC; i++) T[i] = T[i - 1] * 2 % MOD;
+}
+ll C(int n, int r) {
+  return n &lt; 0 || r &lt; 0 || r > n ? 0 : F[n] * I[r] % MOD * I[n - r] % MOD;
+}
+
+int c[4], n;
+ll ans[MXC], cnt[2][MXN][MXN], dp[2][MXN][MXN];
+
+// tahesh hamaro 0 kon !!
+void solve() {
+  n = 0;
+  for (int i = 0; i &lt; 4; i++) {
+    cin >> c[i];
+    n += c[i];
+  }
+  for (int t = 0; t &lt; 2; t++)
+    for (int i = 0; i &lt;= min(c[t], c[t ^ 2]); i++)
+      for (int j = 0; 2 * i + j &lt;= c[t] + c[t ^ 2]; j++) {
+        for (int k = 0; k &lt;= j; k++)
+          (cnt[t][i][j] += C(j, k) * C(c[t] - 1, i + k - 1) % MOD * C(c[t ^ 2] - 1, i + j - k - 1)) %= MOD;
+      }
+  for (int t = 0; t &lt; 2; t++)
+    for (int i = 1; i &lt;= c[t] + c[t ^ 2]; i++)
+      for (int j = i; j &lt;= c[t] + c[t ^ 2]; j++) {
+        for (int k = j & 1; k &lt;= i; k += 2)
+          (dp[t][i][j] += C(i, k) * C((j + k) / 2 - 1, i - 1) % MOD * T[i - k] % MOD * cnt[t][(j - k) / 2][k]) %= MOD;
+      }
+  for (int A = 2; A &lt;= n; A++)
+    for (int B0 = (A + 1) / 2; B0 &lt;= n; B0++)
+      for (int B1 = A / 2; B0 + B1 &lt;= n; B1++) {
+        (ans[2 * (B0 + B1) - A - 1] += dp[0][(A + 1) / 2][B0] * dp[1][A / 2][B1]) %= MOD;
+        (ans[2 * (B0 + B1) - A - 1] += dp[1][(A + 1) / 2][B0] * dp[0][A / 2][B1]) %= MOD;
+      }
+  for (int i = 0; i &lt;= 2 * (n - 1); i++) cout &lt;&lt; ans[i] &lt;&lt; ' ';
+  cout &lt;&lt; '\n';
+  for (int t = 0; t &lt; 2; t++)
+    for (int i = 0; i &lt;= min(c[t], c[t ^ 2]); i++)
+      for (int j = 0; 2 * i + j &lt;= c[t] + c[t ^ 2]; j++)
+        cnt[t][i][j] = 0;
+  for (int t = 0; t &lt; 2; t++)
+    for (int i = 1; i &lt;= c[t] + c[t ^ 2]; i++)
+      for (int j = i; j &lt;= c[t] + c[t ^ 2]; j++)
+        dp[t][i][j] = 0;
+  for (int i = 0; i &lt;= 2 * (n - 1); i++) ans[i] = 0;
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+  init_C();
+
+  while (t--) {
+    solve();
+  }
+}
+</pre>
+  </details>
+</article>
+
