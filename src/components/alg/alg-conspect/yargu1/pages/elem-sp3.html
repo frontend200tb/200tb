@@ -260,27 +260,28 @@ STAIR
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
-  int a, b, c;
-  cin >> a >> b >> c;
+  while (t--) {
+    // ввод данных
+    int a, b, c;
+    cin >> a >> b >> c;
 
-  // решение
-  string result = "NONE";
-  if (c > b && b > a) {
-    result = "STAIR";
-  }
-  if (b > a && b > c) {
-    result = "PEAK";
+    // решение
+    string result = "NONE";
+    if (c > b && b > a) {
+      result = "STAIR";
+    }
+    if (b > a && b > c) {
+      result = "PEAK";
+    }
+
+    // вывод результата
+    cout &lt;&lt; result &lt;&lt; '\n';
   }
 
-  // вывод результата
-  cout &lt;&lt; result &lt;&lt; "\n";
-
-  }
 }
 </pre>
   </details>
@@ -340,18 +341,21 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int n;
+  int n; // число оставшихся клавиатур
   cin >> n;
 
+  // инициализируем минимальный и максимальный
+  // номер клавиатуры номером первой клавиатуры
   int min;
   cin >> min;
   int max = min;
 
+  // найдем минимальный и максимальный номер клавиатуры
   for (int i = 1; i &lt; n; i++) {
     int temp;
     cin >> temp;
 
-  // решение
+    // решение
     if (min > temp) {
       min = temp;
     }
@@ -359,10 +363,14 @@ int main() {
       max = temp;
     }
   }
-  int result = max - min + 1 - n;
+
+  // число украденных клавиатур
+  // это число возможных клавиатур
+  // минус число оставшихся клавиатур
+  int res = max - min + 1 - n;
 
   // вывод результата
-  cout &lt;&lt; result;
+  cout &lt;&lt; res;
 }
 </pre>
   </details>
@@ -439,7 +447,7 @@ int main() {
 
   // вывод результата
   for (int i = 1; i &lt;= n; i++) {
-    cout &lt;&lt; B[i] &lt;&lt; " ";
+    cout &lt;&lt; B[i] &lt;&lt; ' ';
   }
 }
 </pre>
@@ -516,10 +524,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
     int n;
     cin >> n;
     int len = n + 1;
@@ -542,6 +551,7 @@ int main() {
 
     cout &lt;&lt; res &lt;&lt; '\n';
   }
+
 }
 </pre>
   </details>
@@ -629,11 +639,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -641,7 +652,8 @@ int main() {
       cin >> A[i];
     }
 
-    // Проверка на дубликаты
+    // решение
+    // проверка на дубликаты
     vector&lt;int&gt; B(1001, 0);
     bool has_duplicate = false;
     for (int i = 0; i &lt; n; i++) {
@@ -655,22 +667,21 @@ int main() {
 
     if (has_duplicate) {
       cout &lt;&lt; 0 &lt;&lt; '\n';
-      continue;  // Переходим к следующему тестовому случаю
+      continue;  // переходим к следующему тестовому случаю
     }
 
-    // Поиск минимальной разницы
-    // Сортируем массив для поиска минимальной разницы
+    // поиск минимальной разницы
+    // сортируем массив для поиска минимальной разницы
     sort(A.begin(), A.end());
     int min_dif = INT_MAX;
     for (int i = 1; i &lt; n; i++) {
       min_dif = min(min_dif, A[i] - A[i - 1]);
     }
 
-    // Вывод результата
+    // вывод результата
     cout &lt;&lt; min_dif &lt;&lt; '\n';
   }
 
-  return 0;
 }
 </pre>
   </details>
@@ -738,9 +749,12 @@ NO
 using namespace std;
 
 int main() {
+  // число тестов
   int t;
   cin >> t;
-  for (int test = 0; test &lt; t; test++) {
+
+  while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     int count = 0;
@@ -751,12 +765,15 @@ int main() {
         count++;
       }
     }
+
+    // решение и вывод результата
     if ((count > 0 && count &lt; n) || (count == n && n % 2 == 1)) {
       cout &lt;&lt; "YES\n";
     } else {
       cout &lt;&lt; "NO\n";
     }
   }
+
 }
 </pre>
   </details>
@@ -918,7 +935,7 @@ int main() {
   // ввод данных
   int n;
   cin >> n;
-    vector&lt;int&gt; A(n+1, 0);
+  vector&lt;int&gt; A(n+1, 0);
   for (int i = 1; i &lt;= n; i++) {
     cin >> A[i];
   }
@@ -947,7 +964,7 @@ int main() {
   }
   dist = min(dist_right, dist_left);
 
-  // Вывод результата
+  // вывод результата
   cout &lt;&lt; dist;
 }
 </pre>

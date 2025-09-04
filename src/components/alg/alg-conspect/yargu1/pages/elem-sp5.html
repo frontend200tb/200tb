@@ -272,7 +272,7 @@ string res = to_string(num);
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   string s;
   cin >> s;
 
@@ -309,8 +309,7 @@ int main() {
   <p>Выведите реверс строки S</p>
 
   <details>
-    <summary></summary>
-    <h4>Пример</h4>
+    <summary>Пример</summary>
     <code>hello</code>
     <code>olleh</code>
   </details>
@@ -323,7 +322,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   string s;
   cin >> s;
 
@@ -380,7 +379,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   string s;
   cin >> s;
 
@@ -461,7 +460,7 @@ p43s
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
 
@@ -532,7 +531,7 @@ keke
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   string s, t;
   cin >> s >> t;
 
@@ -601,8 +600,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   string s;
   cin >> s;
+
+  // решение
   vector&lt;int&gt; A(500);
   for (int i = 0; i &lt; s.size(); i++) {
     int tmp = s[i];
@@ -612,6 +614,8 @@ int main() {
   for (int i = 0; i &lt; 500; i++) {
     res += A[i];
   }
+
+  // вывод результата
   if (res % 2 == 0) {
     cout &lt;&lt; "CHAT WITH HER!";
   }
@@ -679,7 +683,7 @@ TheQuickBrownFoxJumpsOverTheLazyDog
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
   string s;
@@ -785,10 +789,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
+
   while (t--) {
+    // ввод данных
     int n, k;
     cin >> n >> k;
     vector&lt;int&gt; A(n);
@@ -799,6 +805,7 @@ int main() {
     for (int i = 0; i &lt; n; i++) {
       cin >> B[i];
     }
+
     // решение
     sort(A.begin(), A.end());
     sort(B.begin(), B.end());
@@ -897,8 +904,11 @@ t                          g
 using namespace std;
 
 int main() {
+  // ввод данных
   string s;
   cin >> s;
+
+  // решение
   int sum = 0;
   int pos = 0;
   for (int i = 0; i &lt; s.size(); i++) {
@@ -909,6 +919,8 @@ int main() {
     }
     pos = s[i] - 'a';
   }
+
+  // вывод результата
   cout &lt;&lt; sum;
 }
 </pre>
@@ -987,10 +999,12 @@ nutforajarofatuna
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
+
   while (t--) {
+    // ввод данных
     string s;
     cin >> s;
 
@@ -1071,7 +1085,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   string s;
   cin >> s;
 
@@ -1191,7 +1205,7 @@ bool compare(const string& s1, const string& s2) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int n, k;
   cin >> n >> k;
   vector&lt;string&gt; S;
@@ -1319,6 +1333,7 @@ xxx
 using namespace std;
 
 int main() {
+  // ввод данных
   int n, m;
   cin >> n >> m;
   vector&lt;string&gt; A(n), CopyA(n);
@@ -1329,6 +1344,8 @@ int main() {
       CopyA[i][j] = '.';
     }
   }
+
+  // решение
   for (int i = 0; i &lt; n - 2; i++) {
     for (int j = 0; j &lt; m - 2; j++) {
       if (A[i][j] == '#' && A[i][j+1] == '#' &&
@@ -1354,6 +1371,8 @@ int main() {
       }
     }
   }
+
+  // вывод результата
   if (flag) {
     cout &lt;&lt; "NO";
   } else {
@@ -1436,11 +1455,12 @@ xxxxxx
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     string s;
     cin >> s;
 
@@ -1684,12 +1704,12 @@ bool compareE(string&, string&);
 int count_word(vector&lt;string&gt;, char);
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
-    int n; // число слов
+    // ввод данных
     cin >> n;
     vector&lt;string&gt; S(0);
     string temp;
@@ -1711,8 +1731,9 @@ int main() {
     int resE = count_word(S, 'e');
 
     int res = max(max(max(resA, resB), max(resC, resD)), resE);
+
     // вывод результата
-  cout &lt;&lt; res &lt;&lt; '\n';
+    cout &lt;&lt; res &lt;&lt; '\n';
   }
 }
 
@@ -1949,11 +1970,12 @@ y
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n, m;
     cin >> n; // число слов
     cin >> m; // число букв
@@ -2065,13 +2087,18 @@ ababa
 using namespace std;
 
 int main() {
+  // число тестов
   int t;
   cin >> t;
-  for (int test = 0; test &lt; t; test++) {
+
+  while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     string s;
     cin >> s;
+
+    // решение
     int res = 0;
     for (int i = 0; i &lt; s.size(); i++) {
       if (i + 2 &lt; s.size()) {
@@ -2080,6 +2107,8 @@ int main() {
         }
       }
     }
+
+    // вывод результата
     cout &lt;&lt; s.size() - res - 1 &lt;&lt; '\n';
   }
 }

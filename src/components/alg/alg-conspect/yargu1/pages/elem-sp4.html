@@ -297,35 +297,35 @@ for (int i = 0; i &lt; n; i++) {
 using namespace std;
 
 int main() {
-// ввод данных
-vector&lt;int&gt; A;
-int tmp = 1;
-while (tmp != 0) {
-  cin >> tmp;
-  if (tmp != 0) {
-    A.push_back(tmp);
+  // ввод данных
+  vector&lt;int&gt; A;
+  int tmp = 1;
+  while (tmp != 0) {
+    cin >> tmp;
+    if (tmp != 0) {
+      A.push_back(tmp);
+    }
   }
-}
 
-// решение
-vector&lt;int&gt; B; // для четных чисел
-vector&lt;int&gt; C; // для нечетных чисел
-for (int i = 0; i &lt; A.size(); i++) {
-  if (A[i] % 2 == 0) {
-    B.push_back(A[i]);
-  } else {
-    C.push_back(A[i]);
+  // решение
+  vector&lt;int&gt; B; // для четных чисел
+  vector&lt;int&gt; C; // для нечетных чисел
+  for (int i = 0; i &lt; A.size(); i++) {
+    if (A[i] % 2 == 0) {
+      B.push_back(A[i]);
+    } else {
+      C.push_back(A[i]);
+    }
   }
-}
 
-// вывод результата
-for (int i = 0; i &lt; B.size(); i++) {
-  cout &lt;&lt; B[i] &lt;&lt; " "; // четные числа
-}
-cout &lt;&lt; '\n';
-for (int i = C.size() - 1; i >= 0; i--) {
-  cout &lt;&lt; C[i] &lt;&lt; " "; // нечетные числа
-}
+  // вывод результата
+  for (int i = 0; i &lt; B.size(); i++) {
+    cout &lt;&lt; B[i] &lt;&lt; " "; // четные числа
+  }
+  cout &lt;&lt; '\n';
+  for (int i = C.size() - 1; i >= 0; i--) {
+    cout &lt;&lt; C[i] &lt;&lt; " "; // нечетные числа
+  }
 }
 </pre>
   </details>
@@ -381,7 +381,7 @@ for (int i = C.size() - 1; i >= 0; i--) {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n, k, l, c, d, p, nl, np;
   cin >> n >> k >> l >> c >> d >> p >> nl >> np;
 
@@ -401,6 +401,7 @@ int main() {
   int min1 = min(cnt_l, cnt_d);
   int min2 = min(min1, cnt_p);
 
+  // вывод результата
   cout &lt;&lt; min2;
 }
 </pre>
@@ -480,13 +481,15 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
-    int n;
+    // ввод данных
+    int n; // число конфет
     cin >> n;
+
     // решение
     if (n &lt; 3) {
       cout &lt;&lt; "0\n";
@@ -496,6 +499,7 @@ int main() {
       cout &lt;&lt; n / 2 &lt;&lt; "\n";
     }
   }
+
 }
 </pre>
   </details>
@@ -581,11 +585,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -619,6 +624,7 @@ int main() {
       continue; // к следующему тестовому случаю
     }
 
+    // вывод результата
     cout &lt;&lt; cnt &lt;&lt; '\n';
   }
 }
@@ -698,7 +704,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
   vector&lt;int&gt; A(n);
@@ -782,17 +788,22 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int n;
   cin >> n;
   vector&lt;int&gt; A(n);
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
   }
+
+  // решение
   sort(A.begin(), A.end());
   int res = 0;
   for (int i = 0; i &lt; n; i += 2) {
     res += A[i + 1] - A[i];
   }
+
+  // вывод результата
   cout &lt;&lt; res;
 }
 </pre>
@@ -853,11 +864,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int a, b;
     cin >> a >> b;
 
@@ -944,7 +956,7 @@ int main() {
   cin >> t;
 
   while (t--) {
-    // входные данные
+    // ввод данных
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -1042,11 +1054,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n;
     cin >> n;
 
@@ -1140,10 +1153,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
+
   while (t--) {
+    // ввод данных
     int n;
     cin >> n;
 
@@ -1236,12 +1251,15 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int n, d;
   cin >> n >> d;
   vector&lt;int&gt; A(n);
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
   }
+
+  // решение
   sort(A.begin(), A.end());
   int res = 0;
   for (int i = 0; i &lt; n; i++) {
@@ -1251,6 +1269,8 @@ int main() {
       }
     }
   }
+
+  // вывод результата
   cout &lt;&lt; n - res;
 }
 </pre>
@@ -1319,10 +1339,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
+
   while (t--) {
+    // ввод данных
     int n, m;
     cin >> n >> m;
 
@@ -1408,7 +1430,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n, m;
   cin >> n >> m;
   int w = n * m; // количесвто квартир в доме
@@ -1492,7 +1514,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
   int a[100];
@@ -1509,6 +1531,7 @@ int main() {
     }
   }
 
+  // решение
   int mind; // от минимума до края
   int maxd; // от максимума от края
   mind = min(mini - 1, n - mini);
@@ -1516,6 +1539,7 @@ int main() {
 
   int res = 0;
   res = n - min(mind, maxd) - 1;
+
   // вывод результата
   cout &lt;&lt; res;
 }
@@ -1590,11 +1614,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n, m;
     cin >> n >> m;
 
@@ -1720,7 +1745,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
   vector&lt;int&gt; A(n);

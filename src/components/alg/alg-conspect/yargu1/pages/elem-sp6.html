@@ -275,7 +275,7 @@ int nod(int a, int b) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int a, b;
   cin >> a >> b;
 
@@ -334,7 +334,7 @@ void sequence(int i) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
 
@@ -384,7 +384,7 @@ long long power(long long a, long long b) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   long long n, k, p;
   cin >> n >> k >> p;
 
@@ -436,7 +436,7 @@ long long fakt(long long a) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   long long n;
   cin >> n;
 
@@ -496,7 +496,7 @@ int kvadr(int a, int b) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int a, b;
   cin >> a >> b;
 
@@ -595,13 +595,18 @@ void sort_tanos(vector&lt;int&gt;& A, int l, int r) {
 }
 
 int main() {
+  // ввод данных
   int n;
   cin >> n;
   vector&lt;int&gt; A(n);
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
   }
+
+  // решение
   sort_tanos(A, 0, n - 1);
+
+  // вывод результата
   cout &lt;&lt; max_size;
 }
 </pre>
@@ -742,7 +747,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // входные данные
+  // ввод данных
   int n, x;
   cin >> n >> x;
 
@@ -806,7 +811,6 @@ int main() {
   // вывод результата
   cout &lt;&lt; count;
 }
-
 </pre>
   </details>
 </article>
@@ -878,8 +882,11 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
+  // ввод данных
   long long a, b, n, cnt = 0;
   cin >> a >> b >> n;
+
+  // решение
   while (n != 0) {
     if (cnt == 0) {
       n -= gcd(a, n);
@@ -889,6 +896,8 @@ int main() {
       cnt = 0;
     }
   }
+
+  // вывод результата
   cout &lt;&lt; (cnt + 1) % 2;
 }
 </pre>
@@ -980,6 +989,7 @@ int main() {
     ost -= take;
   }
 
+  // вывод результата
   cout &lt;&lt; res;
 }
 </pre>
@@ -1402,54 +1412,56 @@ int main() {
 using namespace std;
 
 void solve() {
-    int n;
-    cin >> n;
-    vector&lt;int&gt; a(n);
-    for (int i = 0; i &lt; n; ++i) {
-        cin >> a[i];
+  // ввод данных
+  int n;
+  cin >> n;
+  vector&lt;int&gt; a(n);
+  for (int i = 0; i &lt; n; ++i) {
+      cin >> a[i];
+  }
+
+  vector&lt;tuple&lt;int, int, int&gt; &gt; operations;
+
+  for (int i = 0; i &lt; n; ++i) {
+    // Находим позицию минимального элемента в оставшейся части
+    int min_pos = i;
+    for (int j = i + 1; j &lt; n; ++j) {
+      if (a[j] &lt; a[min_pos]) {
+        min_pos = j;
+      }
     }
 
-    vector&lt;tuple&lt;int, int, int&gt; &gt; operations;
+    if (min_pos == i) continue; // Уже на месте
 
-    for (int i = 0; i &lt; n; ++i) {
-        // Находим позицию минимального элемента в оставшейся части
-        int min_pos = i;
-        for (int j = i + 1; j &lt; n; ++j) {
-            if (a[j] &lt; a[min_pos]) {
-                min_pos = j;
-            }
-        }
+    // Выполняем циклический сдвиг подмассива a[i..min_pos] на d = min_pos - i
+    int d = min_pos - i;
+    vector&lt;int&gt; temp(a.begin() + i, a.begin() + min_pos + 1);
+    rotate(temp.begin(), temp.begin() + d, temp.end());
+    copy(temp.begin(), temp.end(), a.begin() + i);
 
-        if (min_pos == i) continue; // Уже на месте
+    operations.emplace_back(i + 1, min_pos + 1, d);
+  }
 
-        // Выполняем циклический сдвиг подмассива a[i..min_pos] на d = min_pos - i
-        int d = min_pos - i;
-        vector&lt;int&gt; temp(a.begin() + i, a.begin() + min_pos + 1);
-        rotate(temp.begin(), temp.begin() + d, temp.end());
-        copy(temp.begin(), temp.end(), a.begin() + i);
-
-        operations.emplace_back(i + 1, min_pos + 1, d);
-    }
-
-    cout &lt;&lt; operations.size() &lt;&lt; endl;
-    for (auto& op : operations) {
-        cout &lt;&lt; get&lt;0&gt;(op) &lt;&lt; " "
-             &lt;&lt; get&lt;1&gt;(op) &lt;&lt; " "
-             &lt;&lt; get&lt;2&gt;(op) &lt;&lt; endl;
-    }
+  cout &lt;&lt; operations.size() &lt;&lt; endl;
+  for (auto& op : operations) {
+    cout &lt;&lt; get&lt;0&gt;(op) &lt;&lt; " "
+         &lt;&lt; get&lt;1&gt;(op) &lt;&lt; " "
+         &lt;&lt; get&lt;2&gt;(op) &lt;&lt; endl;
+  }
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while (t--) {
-        solve();
-    }
+  // число тестов
+  int t;
+  cin >> t;
 
-    return 0;
+  while (t--) {
+    solve();
+  }
+
 }
 </pre>
   </details>
@@ -1542,7 +1554,7 @@ bool compare(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int n, d, a, b;
   cin >> n >> d >> a >> b;
   vector&lt;pair&lt;int, int&gt; &gt; A(n);
@@ -1757,10 +1769,11 @@ bool compare(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b) {
 }
 
 int main() {
-  // входные данные
+  // ввод данных
   int n;
   cin >> n;
 
+  // решение
   // создадим координаты по четвертям
   // 1 четверть x>=0, y>=0
   vector&lt;pair&lt;int, int&gt; &gt; A1;
@@ -1808,7 +1821,6 @@ int main() {
     }
   }
 
-  // решение
   sort(A1.begin(), A1.end(), compare);
   sort(A2.begin(), A2.end(), compare);
   sort(A3.begin(), A3.end(), compare);
@@ -1966,74 +1978,73 @@ int main() {
 using namespace std;
 
 struct Bomb {
-    int x, y;
-    int index;
+  int x, y;
+  int index;
 };
 
 bool compareBombs(const Bomb &a, const Bomb &b) {
-    // Сортируем по расстоянию от начала координат (манхэттенское расстояние)
-    return (abs(a.x) + abs(a.y)) &lt; (abs(b.x) + abs(b.y));
+  // Сортируем по расстоянию от начала координат (манхэттенское расстояние)
+  return (abs(a.x) + abs(a.y)) &lt; (abs(b.x) + abs(b.y));
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector&lt;Bomb&gt; bombs(n);
-    for (int i = 0; i &lt; n; ++i) {
-        cin >> bombs[i].x >> bombs[i].y;
-        bombs[i].index = i;
+  int n;
+  cin >> n;
+  vector&lt;Bomb&gt; bombs(n);
+  for (int i = 0; i &lt; n; ++i) {
+    cin >> bombs[i].x >> bombs[i].y;
+    bombs[i].index = i;
+  }
+
+  // Сортируем бомбы по удаленности от (0, 0)
+  sort(bombs.begin(), bombs.end(), compareBombs);
+
+  vector&lt;string&gt; operations;
+
+  for (const Bomb &bomb : bombs) {
+    int x = bomb.x;
+    int y = bomb.y;
+
+    // Движение по X
+    if (x > 0) {
+      operations.push_back("1 " + to_string(x) + " R");
+    } else if (x &lt; 0) {
+      operations.push_back("1 " + to_string(-x) + " L");
     }
 
-    // Сортируем бомбы по удаленности от (0, 0)
-    sort(bombs.begin(), bombs.end(), compareBombs);
-
-    vector&lt;string&gt; operations;
-
-    for (const Bomb &bomb : bombs) {
-        int x = bomb.x;
-        int y = bomb.y;
-
-        // Движение по X
-        if (x > 0) {
-            operations.push_back("1 " + to_string(x) + " R");
-        } else if (x &lt; 0) {
-            operations.push_back("1 " + to_string(-x) + " L");
-        }
-
-        // Движение по Y
-        if (y > 0) {
-            operations.push_back("1 " + to_string(y) + " U");
-        } else if (y &lt; 0) {
-            operations.push_back("1 " + to_string(-y) + " D");
-        }
-
-        // Подобрать бомбу
-        operations.push_back("2");
-
-        // Вернуться по Y
-        if (y > 0) {
-            operations.push_back("1 " + to_string(y) + " D");
-        } else if (y &lt; 0) {
-            operations.push_back("1 " + to_string(-y) + " U");
-        }
-
-        // Вернуться по X
-        if (x > 0) {
-            operations.push_back("1 " + to_string(x) + " L");
-        } else if (x &lt; 0) {
-            operations.push_back("1 " + to_string(-x) + " R");
-        }
-
-        // Уничтожить бомбу
-        operations.push_back("3");
+    // Движение по Y
+    if (y > 0) {
+      operations.push_back("1 " + to_string(y) + " U");
+    } else if (y &lt; 0) {
+      operations.push_back("1 " + to_string(-y) + " D");
     }
 
-    cout &lt;&lt; operations.size() &lt;&lt; endl;
-    for (const string &op : operations) {
-        cout &lt;&lt; op &lt;&lt; endl;
+    // Подобрать бомбу
+    operations.push_back("2");
+
+    // Вернуться по Y
+    if (y > 0) {
+      operations.push_back("1 " + to_string(y) + " D");
+    } else if (y &lt; 0) {
+      operations.push_back("1 " + to_string(-y) + " U");
     }
 
-    return 0;
+    // Вернуться по X
+    if (x > 0) {
+      operations.push_back("1 " + to_string(x) + " L");
+    } else if (x &lt; 0) {
+        operations.push_back("1 " + to_string(-x) + " R");
+    }
+
+    // Уничтожить бомбу
+    operations.push_back("3");
+  }
+
+  cout &lt;&lt; operations.size() &lt;&lt; endl;
+  for (const string &op : operations) {
+    cout &lt;&lt; op &lt;&lt; endl;
+  }
+
 }
 </pre>
   </details>
@@ -2103,8 +2114,11 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
+  // ввод данных
   long long n;
   cin >> n;
+
+  // решение
   long long min_count = 10'000'000;
   for (long long i = 1; i &lt; n; i++) {
     cnt = 0;
@@ -2116,6 +2130,7 @@ int main() {
     return 0;
   }
 
+  // вывод результата
   cout &lt;&lt; min_count - 1;
 }
 </pre>
@@ -2199,11 +2214,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -2303,13 +2319,16 @@ int main() {
 using namespace std;
 
 int main() {
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int n;
     cin >> n;
 
+    // решение
     if (n == 2) {
       cout &lt;&lt; -1 &lt;&lt; '\n';
 
@@ -2334,6 +2353,8 @@ int main() {
       int tmp = res[0][0];
       res[0][0] = res[n - 1][n - 2];
       res[n - 1][n - 2] = tmp;
+
+      // вывод результата
       for (int i = 0; i &lt; n; i++) {
         for (int j = 0; j &lt; n; j++) {
           cout &lt;&lt; res[i][j] &lt;&lt; " ";
@@ -2356,13 +2377,16 @@ int main() {
 using namespace std;
 
 int main() {
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int n;
     cin >> n;
 
+    // решение
     if (n == 2) {
       cout &lt;&lt; -1 &lt;&lt; '\n';
 
@@ -2390,6 +2414,7 @@ int main() {
         }
       }
 
+      // вывод результата
       for (int i = 0; i &lt; n; i++) {
         for (int j = 0; j &lt; n; j++) {
            cout &lt;&lt; res[i][j] &lt;&lt; " ";
@@ -2494,11 +2519,12 @@ bool three(int n, int m) {
 }
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n, m;
     cin >> n >> m;
 
@@ -2589,11 +2615,12 @@ int main() {
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
   while (t--) {
+    // ввод данных
     int n;
     cin >> n;
     vector&lt;int&gt; A(n);
@@ -2675,50 +2702,53 @@ int main() {
 using namespace std;
 
 int computeMex(const vector&lt;int&gt;& v) {
-    int mex = 0;
-    for (int num : v) {
-        if (num == mex) mex++;
-    }
-    return mex;
+  int mex = 0;
+  for (int num : v) {
+    if (num == mex) mex++;
+  }
+  return mex;
 }
 
 int main() {
-    int t;
-    cin >> t;
+  // число тестов
+  int t;
+  cin >> t;
 
-    while (t--) {
-        int n;
-        cin >> n;
-        vector&lt;int&gt; A(n);
-        for (int i = 0; i &lt; n; i++) {
-            cin >> A[i];
-        }
-
-        sort(A.begin(), A.end());
-
-        // Самый простой способ максимизировать mex(A) + mex(B) -
-        // это взять все элементы в одном множестве (mex будет максимальным),
-        // а второе множество оставить пустым (mex = 0)
-        int mex_all = computeMex(A);
-        int max_mex_sum = mex_all + 0;
-
-        // Также можно попробовать разделить элементы так,
-        // чтобы оба mex были как можно больше
-        // Например, разделить элементы на те, что меньше некоторого x и остальные
-        for (int x = 0; x &lt;= mex_all; x++) {
-            vector&lt;int&gt; part1, part2;
-            for (int num : A) {
-                if (num &lt; x) part1.push_back(num);
-                else part2.push_back(num);
-            }
-            int mex1 = computeMex(part1);
-            int mex2 = computeMex(part2);
-            max_mex_sum = max(max_mex_sum, mex1 + mex2);
-        }
-
-        cout &lt;&lt; max_mex_sum &lt;&lt; '\n';
+  while (t--) {
+    // ввод данных
+    int n;
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
     }
-    return 0;
+
+    // решение
+    sort(A.begin(), A.end());
+
+    // Самый простой способ максимизировать mex(A) + mex(B) -
+    // это взять все элементы в одном множестве (mex будет максимальным),
+    // а второе множество оставить пустым (mex = 0)
+    int mex_all = computeMex(A);
+    int max_mex_sum = mex_all + 0;
+
+    // Также можно попробовать разделить элементы так,
+    // чтобы оба mex были как можно больше
+    // Например, разделить элементы на те, что меньше некоторого x и остальные
+    for (int x = 0; x &lt;= mex_all; x++) {
+      vector&lt;int&gt; part1, part2;
+      for (int num : A) {
+        if (num &lt; x) part1.push_back(num);
+        else part2.push_back(num);
+      }
+      int mex1 = computeMex(part1);
+      int mex2 = computeMex(part2);
+      max_mex_sum = max(max_mex_sum, mex1 + mex2);
+    }
+
+    // вывод результата
+    cout &lt;&lt; max_mex_sum &lt;&lt; '\n';
+  }
 }
 </pre>
   </details>

@@ -538,6 +538,7 @@ int main() {
 using namespace std;
 
 int main() {
+  // ввод данных
   int n;
   cin >> n;
 
@@ -546,6 +547,7 @@ int main() {
     cin >> A[i];
   }
 
+  // решение
   int maxA = A[0];
   int i_maxA = 0;
   int sum = 0;
@@ -1107,7 +1109,7 @@ int main() {
     PrefR[i] = day;
   }
 
-  //вывод результата
+  // вывод результата
   for (int i = 1; i &lt;= n; i++) {
     if (min(PrefL[i], PrefR[i]) &lt;= k) {
       cout &lt;&lt; '*';
@@ -1429,9 +1431,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ускорение ввода и вывода
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
+  // ввод данных
   int n, m, k;
   cin >> n >> m >> k;
 
@@ -1481,7 +1485,7 @@ int main() {
     a[i] += current_delta;
   }
 
-  // Выводим результат
+  // вывод результата
   for (int i = 0; i &lt; n; ++i) {
     cout &lt;&lt; a[i] &lt;&lt; " ";
   }
@@ -1544,9 +1548,11 @@ int main() {
 using namespace std;
 
 int main() {
+  // ускорение ввода и вывода
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
+  // ввод данных
   int n;
   cin >> n;
 
@@ -1573,6 +1579,8 @@ int main() {
   while (n--) {
     int li, ri;
     cin >> li >> ri;
+
+    // вывод результата
     cout &lt;&lt; prefB[ri] - prefB[li - 1] &lt;&lt; '\n';
   }
 }
@@ -1656,6 +1664,7 @@ int main() {
 using namespace std;
 
 int main() {
+  // ускорение ввода и вывода
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
@@ -1717,6 +1726,7 @@ int main() {
 using namespace std;
 
 int main() {
+  // ускорение ввода и вывода
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
@@ -1896,7 +1906,7 @@ int main() {
   <p>Пожалуйста, не используйте спецификатор %lld для чтения или записи 64-х битовых чисел на С++. Рекомендуется использовать потоки cin, cout или спецификатор %I64d.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
   <h4>Пример 1</h4>
 <pre>
 3 3
@@ -1934,6 +1944,7 @@ int main() {
 using namespace std;
 
 int main() {
+  // ускорение ввода и вывода
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
@@ -2034,6 +2045,7 @@ using namespace std;
 int main() {
   // ускорение ввода
   ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
 
   // работа с файлами
   ifstream fin("input.txt");
@@ -2084,6 +2096,7 @@ using namespace std;
 int main() {
   // ускорение ввода
   ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
 
   // работа с файлами
   ifstream fin("input.txt");

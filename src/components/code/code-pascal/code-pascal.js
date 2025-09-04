@@ -2,7 +2,7 @@
 Скрипт из файла code-pascal.js
 Функция showCodePascal показывает страницу code-pascal
 Навигация по теме Pascal
-Основы ITFF
+Основы ITFF Конспекты книг
 ******************** */
 // импорт scss
 import './_pascal.scss';

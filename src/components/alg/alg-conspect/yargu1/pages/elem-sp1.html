@@ -292,7 +292,7 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int w;
+  int w; // вес арбуза
   cin >> w;
 
   // решение и вывод результата
@@ -529,17 +529,22 @@ int main() {
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int a, b;
     cin >> a >> b;
 
+    // решение
+    int res = a + b;
+
     // вывод результата
-    cout &lt;&lt; a + b &lt;&lt; '\n';
+    cout &lt;&lt; res &lt;&lt; '\n';
   }
+
 }
 </pre>
   </details>
@@ -601,11 +606,12 @@ YES
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int a, b, c;
     cin >> a >> b >> c;
 
@@ -616,6 +622,7 @@ int main() {
       cout &lt;&lt; "NO" &lt;&lt; '\n';
     }
   }
+
 }
 </pre>
   </details>

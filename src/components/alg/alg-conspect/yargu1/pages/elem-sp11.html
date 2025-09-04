@@ -381,17 +381,17 @@ for (long long i = 2; i &lt;= n; i++) {
 using namespace std;
 
 int main() {
-  // количество тестов
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
     // ввод данных
     int x;
     cin >> x;
 
     // решение и вывод результата
-    cout &lt;&lt; 1 &lt;&lt; " " &lt;&lt; x - 1 &lt;&lt; '\n';
+    cout &lt;&lt; 1 &lt;&lt; ' ' &lt;&lt; x - 1 &lt;&lt; '\n';
   }
 }
 </pre>
@@ -451,7 +451,7 @@ int main() {
 using namespace std;
 
 int main() {
-  // количество тестов
+  // число тестов
   int t;
   cin >> t;
 
@@ -530,15 +530,16 @@ int main() {
 using namespace std;
 
 int main() {
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
 
-  for (int test = 0; test &lt; t; test++) {
+  while (t--) {
+    // ввод данных
     int l, r;
     cin >> l >> r;
 
-    // решение
+    // решение и вывод результата
     if (2 * l &lt;= r) {
       cout &lt;&lt; l &lt;&lt; " " &lt;&lt; 2 * l &lt;&lt; '\n';
     } else {
@@ -759,8 +760,6 @@ int main() {
   for (int i = 0; i &lt; S.size(); i++) {
     cout &lt;&lt; S[i] &lt;&lt; ' ';
   }
-
-  return 0;
 }
 </pre>
   </details>
@@ -784,7 +783,7 @@ int main() {
   <p>Выведите все простые числа от M до N в порядке возрастания, по одному в строке. Если таковых чисел нет, то следует вывести -1</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
     <code>2 5</code>
 <pre>
@@ -837,10 +836,7 @@ int main() {
     for (int i = 0; i &lt; S.size(); i++) {
       cout &lt;&lt; S[i] &lt;&lt; '\n';
     }
-
   }
-
-  return 0;
 }
 </pre>
   </details>
@@ -917,10 +913,7 @@ int main() {
     for (int i = 0; i &lt; S.size(); i++) {
       cout &lt;&lt; S[i] &lt;&lt; '\n';
     }
-
   }
-
-  return 0;
 }
 </pre>
   </details>
@@ -1210,7 +1203,6 @@ int main() {
   int n;
   cin >> n;
 
-
   // решение
   vector&lt;int&gt; A(n + 1);
   A[0] = 1;
@@ -1268,7 +1260,7 @@ int main() {
   <p>Выведите единственное число k.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
     <code>5</code>
     <code>3</code>
@@ -1309,8 +1301,11 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
+  // ввод данных
   long long n;
   cin >> n;
+
+  // решение и вывод результата
   long long min_count = 10'000'000;
   for (long long i = 1; i &lt; n; i++) {
     cnt = 0;
@@ -1352,7 +1347,7 @@ int main() {
   <p>Выведите "Yes" (без кавычек), если игроки смогут сделать все ставки равными, или "No" в противном случае.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
 <pre>
 4
@@ -1379,10 +1374,10 @@ int main() {
     </div>
 
     <h4>Пример 3</h4>
-    <pre>
-    4
-    7 14 21 28
-    </pre>
+<pre>
+4
+7 14 21 28
+</pre>
       <code>Yes</code>
 
     <p>Основная теорема арифметики: Любое целое положительное число, большее 1, можно единственным образом представить в виде произведения простых чисел, взятых в определенных степенях. Это означает, что для любого числа n>1 существует единственное представление вида</p>
@@ -1487,6 +1482,7 @@ int main() {
     <p>Посчитаем два результата и выберем из них больший. res1 для досок покрашенных в красный цвет и res2 - в синий, среди тех что могут быть покрашени и в красный и в синий.</p>
 <pre>
 #include &lt;iostream&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
@@ -1646,32 +1642,32 @@ int main() {
     </div>
 
 <pre>
-  #include &lt;iostream&gt;
+#include &lt;iostream&gt;
 
-    using namespace std;
+using namespace std;
 
-    int main() {
-      // ввод данных
-      int n;
-      cin >> n;
+int main() {
+  // ввод данных
+  int n;
+  cin >> n;
 
-      // решение
-      int res = n;
+  // решение
+  int res = n;
 
-      for (int i = 2; i * i &lt;= n; i++) {
-        while (n % i == 0) {
-          n /= i;
-          res += n;
-        }
-      }
-
-      if (n > 1) {
-        res++;
-      }
-
-      // вывод результата
-      cout &lt;&lt; res;
+  for (int i = 2; i * i &lt;= n; i++) {
+    while (n % i == 0) {
+      n /= i;
+      res += n;
     }
+  }
+
+  if (n > 1) {
+    res++;
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
 </pre>
   </details>
 </article>

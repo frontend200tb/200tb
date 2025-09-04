@@ -543,7 +543,7 @@ int main() {
   <p>Вывести ответ на задачу.</p>
 
   <details>
-    <summary></summary>
+    <summary>Примеры</summary>
     <h4>Пример 1</h4>
     <code>1 2 3</code>
     <code>5</code>
@@ -616,7 +616,7 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int year;
+  int year; // год
   cin >> year;
 
   // решение и вывод результата
@@ -628,8 +628,6 @@ int main() {
   } else {
     cout &lt;&lt; "No";
   }
-
-  return 0;
 }
 </pre>
   </details>
@@ -688,11 +686,11 @@ int main() {
 
   // решение
   // Вычисляем количество плит по длине и ширине с округлением вверх
-  long long tilesN = (n + a - 1) / a;
-  long long tilesM = (m + a - 1) / a;
+  long long cntN = (n + a - 1) / a;
+  long long cntM = (m + a - 1) / a;
 
   // вывод результата
-  cout &lt;&lt; tilesN + tilesM;
+  cout &lt;&lt; cntN + cntM;
 }
 </pre>
   </details>
@@ -760,8 +758,6 @@ int main() {
 
   // вывод результата
   cout &lt;&lt; maxAge &lt;&lt; " " &lt;&lt; minAge;
-
-  return 0;
 }
 </pre>
   </details>
@@ -1055,22 +1051,26 @@ using namespace std;
 
 int main() {
   // ввод данных
-  int n;
+  int n; // число событий
   cin >> n;
 
   // решение
-  int cnt_police = 0;
-  int cnt_crime = 0;
-  int res = 0;
+  int cnt_police = 0; // число полицейских
+  int cnt_crime = 0; // число преступлений
+  int res = 0; // число нераскрытых преступлений
   for (int i = 0; i &lt; n; i++) {
     int tmp;
     cin >> tmp;
     if (tmp > 0) {
+      // если пришел новый полицейский
       cnt_police += tmp;
     } else if (tmp == -1) {
+      // если произошло преступление
       if (cnt_police > 0) {
+        // полицейский раскрывает преступление
         cnt_police--;
       } else {
+        // преступление не раскрыто
         res++;
       }
     }
@@ -1179,7 +1179,6 @@ int main() {
       cout &lt;&lt; "Division 4\n";
     }
   }
-
 }
 </pre>
   </details>
@@ -1424,11 +1423,14 @@ int main() {
 <pre>
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
+
 using namespace std;
 
 int main() {
-    long long b, d, s;
-    cin >> b >> d >> s; // Считываем количество завтраков, обедов и ужинов
+    long long b; // число завтраков
+    long long d; // число обедов
+    long long s; // число ужинов
+    cin >> b >> d >> s;
 
     // Определяем количество дней
     long long days = max({b, d, s});
@@ -1536,36 +1538,40 @@ int main() {
     </ol>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;algorithm&gt;
 #include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
 int main() {
   // ввод данных
-  int n, k;
+  int n; // число дней
+  int k; // число прогулок
   cin >> n >> k;
+
   // Исходное расписание прогулок
   vector&lt;int&gt; A(n);
 
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
+    // A[i] это число прогулок в i-ый день
   }
 
   // решение
   int day = 0;   // доп прогулка за день
   int extra = 0; // доп прогулки за n дней
+
   // Новое расписание прогулок
   vector&lt;int&gt; B(n);
   B[0] = A[0];
   for (int i = 1; i &lt; n; i++) {
     if (A[i] + B[i - 1] &lt; k) {
-      // если нужна прогулка в i день
+      // если нужна прогулка в i-ый день
       day = k - A[i] - B[i - 1];
       B[i] = A[i] + day;
       extra += day;
     } else {
-      // если не нужна прогулка в i день
+      // если не нужна прогулка в i-ый день
       B[i] = A[i];
     }
   }
@@ -1650,19 +1656,20 @@ int main() {
 
 <pre>
 #include &lt;iostream&gt;
-#include &lt;algorithm&gt;
 #include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
 int main() {
   // ввод данных
-  int n;
+  int n; // число кусков пиццы
   cin >> n;
   vector&lt;int&gt; A(n);
 
   for (int i = 0; i &lt; n; i++) {
     cin >> A[i];
+    // i-ый кусок имеет угол A[i]
   }
 
   // решение
@@ -1785,8 +1792,8 @@ int main() {
     </ol>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;algorithm&gt;
 #include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
@@ -1807,8 +1814,8 @@ int main() {
   int R = 0;
   int maxL = 0;
   int maxR = 0;
-  int left = 0;    // кол-во с левой ноги
-  int right = 0;   // кол-во с правой ноги
+  int left = 0;     // кол-во с левой ноги
+  int right = 0;    // кол-во с правой ноги
   int difL = 0;     // разница левых
   int difR = 0;     // разница правых
   int max_difL = 0; // макс разница левых
@@ -1864,37 +1871,37 @@ int main() {
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n; // Считываем количество колонн
+  int n;
+  cin >> n; // Считываем количество колонн
 
-    vector&lt;pair&lt;int, int&gt;&gt; columns(n); // Пары (l_i, r_i) для каждой колонны
-    int L = 0, R = 0; // Исходные значения L и R
+  vector&lt;pair&lt;int, int&gt;&gt; columns(n); // Пары (l_i, r_i) для каждой колонны
+  int L = 0, R = 0; // Исходные значения L и R
 
-    // Считываем данные и вычисляем L и R
-    for (int i = 0; i &lt; n; i++) {
-        cin >> columns[i].first >> columns[i].second;
-        L += columns[i].first;
-        R += columns[i].second;
-    }
+  // Считываем данные и вычисляем L и R
+  for (int i = 0; i &lt; n; i++) {
+      cin >> columns[i].first >> columns[i].second;
+      L += columns[i].first;
+      R += columns[i].second;
+  }
 
-    int maxBeauty = abs(L - R); // Исходная красота парада
-    int bestColumn = 0; // Номер колонны для изменения (0, если не нужно менять)
+  int maxBeauty = abs(L - R); // Исходная красота парада
+  int bestColumn = 0; // Номер колонны для изменения (0, если не нужно менять)
 
-    // Перебираем все колонны и находим лучшую для изменения
-    for (int i = 0; i &lt; n; i++) {
-        int newL = L - columns[i].first + columns[i].second; // Новое L после изменения
-        int newR = R - columns[i].second + columns[i].first; // Новое R после изменения
-        int newBeauty = abs(newL - newR); // Новая красота парада
+  // Перебираем все колонны и находим лучшую для изменения
+  for (int i = 0; i &lt; n; i++) {
+      int newL = L - columns[i].first + columns[i].second; // Новое L после изменения
+      int newR = R - columns[i].second + columns[i].first; // Новое R после изменения
+      int newBeauty = abs(newL - newR); // Новая красота парада
 
-        if (newBeauty > maxBeauty) {
-            maxBeauty = newBeauty;
-            bestColumn = i + 1; // Нумерация колонн с 1
-        }
-    }
+      if (newBeauty > maxBeauty) {
+          maxBeauty = newBeauty;
+          bestColumn = i + 1; // Нумерация колонн с 1
+      }
+  }
 
-    // Выводим результат
-    cout &lt;&lt; bestColumn;
-    return 0;
+  // Выводим результат
+  cout &lt;&lt; bestColumn;
+  return 0;
 }
 </pre>
   </details>

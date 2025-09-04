@@ -500,6 +500,36 @@ int main() {
     <code>5</code>
     <code>NO</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  bool flag = true;
+
+  switch (n) {
+    case 2:
+    case 3:
+    case 5:
+    case 8:
+      flag = false;
+  }
+
+  if (flag) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
 </article>
 
 

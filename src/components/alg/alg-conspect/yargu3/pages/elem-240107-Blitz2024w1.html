@@ -188,6 +188,12 @@ YES
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1352/problem/B" target="_blank">Задача 1352B</a>
+      <br><a href="https://codeforces.com/contest/1352" target="_blank">Codeforces Round 640 (Div. 4) 2020-05-09</a>
+    </div>
+
     <p>Для любого числа нужно попробовать два варианта.</p>
     <p>Первый вариант - разложить число x на k - 1 единичек и в конце прибавить остаток, равный x - (n -1). Если остаток нечетный, то это и будет ответ, потому что единички тоже нечетные. Если остаток четный, то нас это не устраивает и нужно пробовать второй вариант.</p>
     <p>Второй вариант - разложить число x на k - 1 двоечек и в конце прибавить остаток, равный x - 2 * (n - 1). Если остаток четный, то это и будет ответ, потому что двоечки тоже четные. Если остаток будет нечетный, то ответа не существует.</p>
@@ -291,6 +297,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1352/problem/C" target="_blank">Задача 1352C</a>
+      <br><a href="https://codeforces.com/contest/1352" target="_blank">Codeforces Round 640 (Div. 4) 2020-05-09</a>
+    </div>
+
     <p>Неоптимальное решение это перебирать все числа, начиная с 1. Если число не делится на n, то увеличивать счетчик. Когда счетчик будет равен k, то вывести число в ответ. Сложность O(n).</p>
     <p>Оптимальное решение основано на формуле, которая считается за O(1). k-ое положительное число равно k. k-ое положительное число не делящееся на n это число сдвинутое вправо от k на (k - 1) / (n - 1).</p>
 <pre>
@@ -402,6 +414,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1352/problem/D" target="_blank">Задача 1352D</a>
+      <br><a href="https://codeforces.com/contest/1352" target="_blank">Codeforces Round 640 (Div. 4) 2020-05-09</a>
+    </div>
+
     <p>Паттерн два указателя - левый pl и правый pr. Алиса и Боб по очереди делают ходы, пока правый pr >= pl. Подсчитываем число ходов, размер съеденных конфет.</p>
 <pre>
 #include &lt;iostream&gt;
@@ -541,6 +559,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1352/problem/E" target="_blank">Задача 1352E</a>
+      <br><a href="https://codeforces.com/contest/1352" target="_blank">Codeforces Round 640 (Div. 4) 2020-05-09</a>
+    </div>
+
     <p>Заведем set сумм. В него будем записывать суммы соседних элементов от 1 до n. Перебираем все возможные суммы всех возможных длин и смотрим какие суммы мы можем получить. Начинаем с первого элемента входного массива, в сумме участвует два и более элементов. Поскольку элементы в массиве имеют значение от 1 до n, то сумму больше n можно уже не учитывать.</p>
 <pre>
 #include &lt;iostream&gt;
@@ -653,6 +677,42 @@ int main() {
 
   <p>В третьем наборе только один человек пробежал больше Тимура — тот, кто пробежал расстояние 600, так как Тимур пробежал 500.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1692/problem/A" target="_blank">Задача 1692A</a>
+      <br><a href="https://codeforces.com/contest/1692" target="_blank">Codeforces Round 799 (Div. 4) 2022-06-14</a>
+    </div>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+
+    // решение
+    int res = 0;
+    if (b > a) res++;
+    if (c > a) res++;
+    if (d > a) res++;
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -724,6 +784,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1692/problem/B" target="_blank">Задача 1692B</a>
+      <br><a href="https://codeforces.com/contest/1692" target="_blank">Codeforces Round 799 (Div. 4) 2022-06-14</a>
+    </div>
+
 <pre>
 #include &lt;iostream&gt;
 #include &lt;set&gt;
@@ -848,6 +914,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1692/problem/C" target="_blank">Задача 1692C</a>
+      <br><a href="https://codeforces.com/contest/1692" target="_blank">Codeforces Round 799 (Div. 4) 2022-06-14</a>
+    </div>
+
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -946,6 +1018,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1692/problem/D" target="_blank">Задача 1692D</a>
+      <br><a href="https://codeforces.com/contest/1692" target="_blank">Codeforces Round 799 (Div. 4) 2022-06-14</a>
+    </div>
+
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -1089,6 +1167,12 @@ int main() {
 
   <details>
     <summary>Решение</summary>
+
+    <div>
+      <a href="https://codeforces.com/contest/1692/problem/E" target="_blank">Задача 1692E</a>
+      <br><a href="https://codeforces.com/contest/1692" target="_blank">Codeforces Round 799 (Div. 4) 2022-06-14</a>
+    </div>
+
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;

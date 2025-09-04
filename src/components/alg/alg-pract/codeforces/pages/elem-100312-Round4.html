@@ -1,5 +1,5 @@
 <article class="article">
-  <a href="https://codeforces.com/contest/4" target="_blank">Codeforces Beta Round 4 2010-03-12</a>
+  <a href="https://codeforces.com/contest/4" target="_blank">Codeforces 4 Round 4 Beta 2010-03-12</a>
 </article>
 
 
@@ -108,6 +108,63 @@ rl.on('line', (input) => {
   <div><i>Ограничение по времени 0.5с
   <br>Ограничение по памяти 64мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int d; // число дней
+  int sumTime; // число часов
+  cin >> d >> sumTime;
+
+  vector&lt;int&gt; Dmin(d);
+  vector&lt;int&gt; Dmax(d);
+  for (int i = 0; i &lt; d; i++) {
+    cin >> Dmin[i];
+    cin >> Dmax[i];
+  }
+
+  // решение
+  int tmin = 0;
+  int tmax = 0;
+
+  // найдем минимальное и максимальное возможное время
+  for (int i = 0; i &lt; d; i++) {
+    tmin += Dmin[i];
+    tmax += Dmax[i];
+  }
+
+  if (tmin > sumTime || sumTime > tmax) {
+    cout &lt;&lt; "NO";
+  } else {
+    cout &lt;&lt; "YES" &lt;&lt; '\n';
+    vector&lt;int> Res(d);
+    int extra = sumTime - tmin;
+    for (int i = 0; i &lt; d; i++) {
+      if (extra >= Dmax[i] - Dmin[i]) {
+        Res[i] = Dmax[i];
+        extra -= Dmax[i] - Dmin[i];
+      } else {
+        Res[i] = Dmin[i] + extra;
+        extra = 0;
+      }
+      cout &lt;&lt; Res[i] &lt;&lt; ' ';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 

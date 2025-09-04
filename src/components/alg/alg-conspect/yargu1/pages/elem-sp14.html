@@ -1601,16 +1601,20 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  // ввод данных
+  // число тестов
   int t;
   cin >> t;
+
   while (t--) {
+    // ввод данных
     int n, q;
     cin >> n >> q;
     vector&lt;long long&gt; A(n);
     for (int i = 0; i &lt; n; i++) {
       cin >> A[i];
     }
+
+    // решение
     sort(A.begin(), A.end());
     pair&lt;long long, int&gt; tmp;
     map&lt;long long, int&gt; mp;
@@ -1705,8 +1709,75 @@ int main() {
       <br><a href="https://codeforces.com/contest/1676" target="_blank">Codeforces Round 790 (Div. 4) 2022-05-10</a>
     </div>
 
-  </details>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n, k;
+    cin >> n >> k;
+    vector&lt;int&gt; A(n); // входной массив
+    map&lt;int, int&gt; Freq; // частотный словарь
+    // соберем входной массив и частотный словарь
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+      Freq[A[i]]++;
+    }
+
+    // соберем массив с числами которых >= k
+    vector&lt;int&gt; B;
+    for (auto p : Freq) {
+      if (p.second >= k) {
+        B.push_back(p.first);
+      }
+    }
+
+    if (B.size() == 0) {
+      // если чисел которых >= k нет
+      cout &lt;&lt; -1 &lt;&lt; '\n';
+    } else {
+      int l = B[0];
+      int r = B[0];
+      int tmp = B[0];
+      int maxlr = 0; // максимальное расстояние между l и r
+
+      // найдем l и r
+      for (int i = 1; i &lt; B.size(); i++) {
+
+        // проверим что числа идут подряд
+        if (B[i] - B[i - 1] == 1) {
+
+          // если да, то двигаем правую границу
+          if (B[i] - tmp > maxlr) {
+            l = tmp;
+            r = B[i];
+            maxlr = B[i] - tmp;
+          }
+        } else {
+          // если нет, то двигаем левую границу
+          tmp = B[i];
+        }
+      }
+      // вывод результата
+      cout &lt;&lt; l &lt;&lt; ' ' &lt;&lt; r &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1771,8 +1842,79 @@ int main() {
       <br><a href="https://codeforces.com/contest/1648" target="_blank">Codeforces Round 775 (Div. 1, по задачам Открытой олимпиады школьников по программированию) 2022-03-06</a>
     </div>
 
-  </details>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число строк
+  int m; // число столбцов
+  cin >> n >> m;
+  map&lt;int, vector&lt;int&gt; &gt; FreqX, FreqY;
+  int in; // цвет клетки
+
+  // соберем отдельно частотный словарь
+  // для X и Y координаты
+  // ключ это цвет клетки
+  // значение это координата клетки
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      cin >> in;
+      FreqX[in].push_back(i);
+      FreqY[in].push_back(j);
+    }
+  }
+
+  // решение
+  long long resX = 0;
+
+  // переберем координаты X
+  for (auto [color, cell] : FreqX) {
+    sort(cell.begin(), cell.end());
+    long long s = 0;
+    long long c = 0;
+    for (auto i : cell) {
+      resX += i * c - s;
+      s += i;
+      c++;
+    }
+  }
+
+  long long resY = 0;
+
+  // переберем координаты Y
+  for (auto [color, cell] : FreqY) {
+    sort(cell.begin(), cell.end());
+    long long s = 0;
+    long long c = 0;
+    for (auto i : cell) {
+      resY += i * c - s;
+      s += i;
+      c++;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; resX + resY;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1857,8 +1999,77 @@ int main() {
       <br><a href="https://codeforces.com/contest/1721" target="_blank">Educational Codeforces Round 134 (Rated for Div. 2) 2022-08-27</a>
     </div>
 
-  </details>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+    vector&lt;int&gt; B(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> B[i];
+    }
+
+    // решение
+    // соберем минимально возможные значения
+    vector&lt;int&gt; Dmin;
+    for (int i = 0, j = 0; i &lt; n; i++) {
+      // значения меньше чем само число нам не подходят
+      while (B[j] &lt; A[i]) {
+        j++;
+      }
+      Dmin.push_back(B[j] - A[i]);
+    }
+
+    // соберем максимально возможные значения
+    vector&lt;int&gt; Dmax;
+    for (int i = 0, j = 0; i &lt; n; i++) {
+      // значения меньше чем само число нам не подходят
+      j = max(j, i);
+      while (j + 1 &lt; n && A[j + 1] &lt;= B[j]) {
+        j++;
+      }
+      Dmax.push_back(B[j] - A[i]);
+    }
+
+    // вывод результата
+    for (int i = 0; i &lt; n; i++) {
+      cout &lt;&lt; Dmin[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+    for (int i = 0; i &lt; n; i++) {
+      cout &lt;&lt; Dmax[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 
