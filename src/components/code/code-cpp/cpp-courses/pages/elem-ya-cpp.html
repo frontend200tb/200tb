@@ -10645,28 +10645,1886 @@ private:
   bool CheckDiagonal1(size_t i, size_t j) const;
 
   bool CheckDiagonal2(size_t i, size_t j) const;
-71};
-72
-73    std::ostream& operator &lt;&lt; (std::ostream& out, TicTacToe& field) {
-74    for (size_t i = 0; i != field.N; ++i) {
-75        for (size_t j = 0; j != field.N; ++j) {
-76            switch (field(i, j)) {
-77                case 0:
-78                    std::cout &lt;&lt; '.';
-79                    break;
-80                case 1:
-81                    std::cout &lt;&lt; 'X';
-82                    break;
-83                case 2:
-84                    std::cout &lt;&lt; 'O';
-85            }
-86        }
-87        std::cout &lt;&lt; "\n";
-88    }
-89    return out;
-90}
+};
+
+std::ostream& operator &lt;&lt; (std::ostream& out, TicTacToe& field) {
+  for (size_t i = 0; i != field.N; ++i) {
+    for (size_t j = 0; j != field.N; ++j) {
+      switch (field(i, j)) {
+        case 0:
+          std::cout &lt;&lt; '.';
+          break;
+        case 1:
+          std::cout &lt;&lt; 'X';
+          break;
+        case 2:
+          std::cout &lt;&lt; 'O';
+      }
+    }
+    std::cout &lt;&lt; "\n";
+  }
+  return out;
+}
+</pre>
+
+  <p>Примечания</p>
+  <p>Вам требуется сдать только исправленный (и дополненный для проверки выигрыша по диагоналям) код класса TicTacToe и оператора &lt;&lt;. Функции main в Вашем коде быть не должно. Ваша программа будет автоматически собрана с нашей функцией main примерно такого содержания:</p>
+<pre>
+#include &lt;iostream&gt;
+
+#include "tic_tac_toe.correct.h"  // это ваше решение
+
+int main() {
+  size_t n, m;
+  std::cin >> n >> m;
+  TicTacToe game(n, m);
+  size_t x, y;
+  while (std::cin >> x >> y) {
+    int curPlayer = game.GetCurrentPlayer();
+    if (game.Set(x, y)) {
+      std::cout &lt;&lt; "Player #" &lt;&lt; curPlayer &lt;&lt; " wins!\n";
+    }
+  }
+  std::cout &lt;&lt; game;
+}
 </pre>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Прежде всего заметим, что неверно написан конструктор. В нём лишь резервируется память для вектора, но не меняется его размер. Перепишем его так:</p>
+<pre>
+TicTacToe(size_t n, size_t k): N(n), K(k), currentPlayer(1) {
+  Table.resize(N);
+  for (size_t i = 0; i != N; ++i) {
+    Table[i].resize(N);
+  }
+}
+</pre>
+  <p>Во-вторых, в операторе &lt;&lt; есть две ошибки: ответ печатается в std::cout вместо out, и второй аргумент принимается по обычной, а не по константной ссылке.</p>
+  <p>Наконец, нам нужно реализовать функции CheckDiagonal1 и CheckDiagonal2. Вопреки заблуждению некоторых студентов, видимо, много решавших задачи про матрицы, диагональ тут (как в самых обычных крестиках-ноликах) может быть любая, а не только главная или побочная. Рассмотрим, как сделана, например, аналогичная функция CheckRow, проверяющая, образуется ли K подряд идущих фишек по горизонтали после хода в указанную позицию:</p>
+<pre>
+bool CheckRow(size_t i, size_t j) const {
+  size_t d1 = 0;
+  // считаем, сколько слева от нас таких же фишек
+  while (d1 &lt;= j && Table[i][j - d1] == Table[i][j]) {
+    ++d1;
+  }
+
+  size_t d2 = 0;
+  // считаем, сколько справа от нас таких же фишек
+  while (j + d2 &lt; N && Table[i][j + d2] == Table[i][j]) {
+    ++d2;
+  }
+
+  // всего мы насчитали d1 + 1 + d2 фишек вместе с
+  // текущей, это число должно быть не меньше K
+  return d1 + d2 > K;
+}
+</pre>
+
+  <p>Тут важно проверять корректности индексов: они должны быть неотрицательны и меньше N. Напишем по аналогии проверку наличия диагональных выигрышных позиций:</p>
+<pre>
+bool CheckDiagonal1(size_t i, size_t j) const {
+  size_t d1 = 0;
+  while (d1 &lt;= i && d1 &lt;= j && Table[i - d1][j - d1] == Table[i][j]) {
+    ++d1;
+  }
+
+  size_t d2 = 0;
+  while (i + d2 &lt; N && j + d2 &lt; N && Table[i + d2][j + d2] == Table[i][j]) {
+    ++d2;
+  }
+
+  return d1 + d2 > K;
+}
+
+bool CheckDiagonal2(size_t i, size_t j) const {
+  size_t d1 = 0;
+  while (d1 &lt;= i && j + d1 &lt; N && Table[i - d1][j + d1] == Table[i][j]) {
+    ++d1;
+  }
+
+  size_t d2 = 0;
+  while (i + d2 &lt; N && d2 &lt;= j && Table[i + d2][j - d2] == Table[i][j]) {
+    ++d2;
+  }
+
+  return d1 + d2 > K;
+}
+</pre>
+  </details>
+
+  <h4>Задача «Работа склада»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вы работаете оператором на складе. Время от времени вам привозят новые коробки. Каждая коробка имеет свою грузоподъемность wi и объем vi. Получая новую коробку, вы ставите на ней серийный номер, используя все целые неотрицательные числа последовательно, начиная с нуля.</p>
+    <p>Иногда вас просят выдать коробку минимальной грузоподъемности, чтобы она выдержала предмет весом w, или же коробку минимальной вместимости, в которую можно насыпать песок объемом v. Вам нужно быстро определять серийный номер коробки, которая будет выдана. Коробки обратно на склад не возвращаются. Если подходящих коробок несколько, нужно выбрать ту, которая пролежала на складе меньше.</p>
+    <p>Нужно реализовать класс Stock, у которого, среди прочих, будет три функции:</p>
+    <ol>
+      <li>void Add(int w, int v); — добавить коробку на склад;</li>
+      <li>int GetByW(int min_w); — вернуть номер коробки грузоподъемности хотя бы minw;</li>
+      <li>int GetByV(int min_v); — вернуть номер коробки объема хотя бы minv.</li>
+    </ol>
+    <p>Если подходящей коробки нет, соответствующая функция должна вернуть -1.</p>
+    <p>Примечания</p>
+    <p>Обратите внимание, что вам нужно отправить только ваш класс Stock, без функции main. Не забудьте, что необходимые функции-члены должны быть доступны вне класса.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Реализуем три дополнительные структуры:</p>
+    <ol>
+      <li>WeightNumber — структура для хранения вместимостей коробок;</li>
+      <li>VolumeNumber — структура для хранения объёмов коробок;</li>
+      <li>Iterators — структура для хранения итераторов на коробки. Сами коробки мы будем хранить в двух std::set, итераторы на эти множества мы и будем хранить в Iterators.</li>
+    </ol>
+    <p>Так как мы планируем хранить данные о коробках в двух разных std::set, то для них нужно реализовать компараторы. Идея простая — сначала сортируем по вместимости / объёму, потом по индексу (порядковому номеру).</p>
+    <p>Все Iterators будем хранить в std::vector, так мы просто поддержим требуемые от нас «серийные номера» (индексы).</p>
+    <p>Теперь разберём функции-члены:</p>
+    <ol>
+      <li>Add — нам нужно добавить коробку в оба множества и полученные итераторы записать в конец вектора.</li>
+      <li>GetByW — вызовем lower_bound от множества грузоподъёмностей. Если результатом стал end(), то коробок, способных поднять такой вес нет. Иначе — мы получим итератор на нужную нам коробку. Удалим её из обоих множеств и вернём искомый индекс.</li>
+      <li>GetByV — полный аналог GetByW, лишь lower_bound вызываем от множества объёмов.</li>
+    </ol>
+<pre>
+#include &lt;set&gt;
+#include &lt;vector&gt;
+#include &lt;cstdint&gt;
+
+class Stock {
+private:
+  struct WeightNumber {
+    int w;
+    size_t i;
+
+    bool operator &lt; (const WeightNumber& other) const {
+      if (w == other.w) {
+        return i > other.i;
+      }
+      return w &lt; other.w;
+    }
+  };
+
+  struct VolumeNumber {
+    int v;
+    size_t i;
+
+    bool operator &lt; (const VolumeNumber& other) const {
+      if (v == other.v) {
+        return i > other.i;
+      }
+      return v &lt; other.v;
+    }
+  };
+
+  struct Iterators {
+    std::set&lt;WeightNumber>::iterator byW;
+    std::set&lt;VolumeNumber>::iterator byV;
+  };
+
+  std::vector&lt;Iterators> boxes;
+  std::set&lt;WeightNumber> sortedByW;
+  std::set&lt;VolumeNumber> sortedByV;
+
+public:
+  void Add(int w, int v) {
+    size_t num = boxes.size();
+    boxes.push_back({sortedByW.insert({w, num}).first, sortedByV.insert({v, num}).first});
+  }
+
+  int GetByW(int min_w) {
+    const auto it = sortedByW.lower_bound({min_w, boxes.size()});
+    if (it == sortedByW.end()) {
+      return -1;
+    }
+
+    size_t res = it->i;
+    sortedByW.erase(it);
+    sortedByV.erase(boxes[res].byV);
+    return res;
+  }
+
+  int GetByV(int min_v) {
+    const auto it = sortedByV.lower_bound({min_v, boxes.size()});
+    if (it == sortedByV.end()) {
+      return -1;
+    }
+
+    size_t res = it->i;
+    sortedByV.erase(it);
+    sortedByW.erase(boxes[res].byW);
+    return res;
+  }
+};
+</pre>
+
+  <p>Явным минус такой реализации — из boxes не удаляются коробки. Рано или поздно, если бы это был реальный продукт, у вас случится переполнение. Но это решение всё равно проходит тесты, мы не требовали от вас лучшей реализации.</p>
+  <p>Но в большой продуктовой задаче очень важно чистить за собой ненужные данные. Проблему накопления мусора в этой задаче можно решить через std::list, в нём удобное удаление из центра, но нет индексирования.</p>
+  <p>Чтобы решить проблему с индексированием воспользуемся дополнительным std::unordered_map. Да, если коробки сначала только накапливаются, а потом разбираются, то эффективней будет первое решение, но если коробки можно накапливать постепенно, то сильно лучше второе решение.</p>
+  <p>Для демонстрации мы специально сделали тест, который последовательно вызывает Add, а за ним один из GetBy*. В первой реализации итоговый boxes будет размером с количество вызовов Add, во второй же он всегда будет размером 0 или 1.</p>
+  <p>Это никак не сказывается на времени работы (так как удаление из sortedBy* происходит и там, и там), но сказывается на используемой памяти. Для двух миллионов коробок разница занимаемой памяти составляет 60 раз!</p>
+<pre>
+#include &lt;list&gt;
+#include &lt;set&gt;
+#include &lt;cstdint&gt;
+#include &lt;unordered_map&gt;
+
+class Stock {
+private:
+  struct WeightNumber {
+    int w;
+    size_t i;
+
+    bool operator &lt; (const WeightNumber& other) const {
+      if (w == other.w) {
+        return i > other.i;
+      }
+      return w &lt; other.w;
+    }
+  };
+
+  struct VolumeNumber {
+    int v;
+    size_t i;
+
+    bool operator &lt; (const VolumeNumber& other) const {
+      if (v == other.v) {
+        return i > other.i;
+      }
+      return v &lt; other.v;
+    }
+  };
+
+  struct Iterators {
+    std::set&lt;WeightNumber&gt;::iterator byW;
+    std::set&lt;VolumeNumber&gt;::iterator byV;
+  };
+
+  std::list&lt;Iterators&gt; boxes;
+  std::set&lt;WeightNumber&gt; sortedByW;
+  std::set&lt;VolumeNumber&gt; sortedByV;
+  std::unordered_map&lt;size_t, std::list&lt;Iterators&gt;::iterator&gt; indexes;
+  size_t current_index{0};
+
+public:
+  void Add(int w, int v) {
+    boxes.push_front({sortedByW.insert({w, current_index}).first,
+      sortedByV.insert({v, current_index}).first});
+    indexes.insert({current_index, boxes.begin()});
+    ++current_index;
+  }
+
+  int GetByW(int min_w) {
+    const auto it = sortedByW.lower_bound({min_w, current_index});
+    if (it == sortedByW.end()) {
+      return -1;
+    }
+
+    size_t res = it->i;
+    sortedByW.erase(it);
+    sortedByV.erase(indexes[res]->byV);
+    boxes.erase(indexes[res]);
+    indexes.erase(res);
+    return res;
+  }
+
+  int GetByV(int min_v) {
+    const auto it = sortedByV.lower_bound({min_v, current_index});
+    if (it == sortedByV.end()) {
+      return -1;
+    }
+
+    size_t res = it->i;
+    sortedByV.erase(it);
+    sortedByW.erase(indexes[res]->byW);
+    boxes.erase(indexes[res]);
+    indexes.erase(res);
+    return res;
+  }
+};
+</pre>
+  </details>
+
+  <h3>Параграф «Шаблоны классов»</h3>
+
+  <h4>Задача «Table»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вам надо написать шаблонный класс Table для электронной таблицы. Для простоты будем считать, что все ячейки таблицы имеют один и тот же тип данных T. Таблица должна уметь менять свой размер по требованию пользователя. Вновь созданные ячейки должны заполняться значениями по умолчанию типа T.</p>
+    <p>Требования к классу такие:</p>
+    <ol>
+      <li>Класс должен называться Table.</li>
+      <li>У класса должен быть шаблонный параметр T — тип элемента в ячейке.</li>
+      <li>У класса должен быть конструктор, получающий на входе два числа типа size_t, — начальные размеры таблицы.</li>
+      <li>У класса должны быть константная и неконстантная версии оператора [], возвращающего нечто такое, к чему снова можно было бы применить оператор []. То есть, должны работать конструкции вида std::cout &lt;&lt; table[i][j]; и table[i][j] = value;. Проверять корректность индексов при этом не нужно.</li>
+      <li>У класса должна быть функция resize, получающая на вход два параметра типа size_t и меняющая размер таблицы. Старые данные, умещающиеся в новый размер, должны при этом сохраниться.</li>
+      <li>У класса должна быть функция size, возвращающая std::pair&lt;size_t, size_t&gt; — размер таблицы (в том же порядке, в котором эти аргументы передавались в конструктор).</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;vector&gt;
+#include &lt;utility&gt;
+
+template &lt;typename T&gt;
+class Table {
+private:
+  std::vector&lt;std::vector&lt;T&gt; &gt; data;
+
+public:
+  Table(size_t m, size_t n) {
+    resize(m, n);
+  }
+
+  // версия для неконстантных таблиц
+  std::vector&lt;T&gt;& operator [] (size_t i) {
+    return data[i];
+  }
+
+  // версия для константных таблиц
+  const std::vector&lt;T&gt;& operator [] (size_t i) const {
+    return data[i];
+  }
+
+  void resize(size_t m, size_t n) {
+    data.resize(m);
+    for (size_t i = 0; i &lt; m; ++i) {
+      data[i].resize(n);
+    }
+  }
+
+  std::pair&lt;size_t, size_t&gt; size() const {
+    if (data.empty()) {
+      return {0, 0};
+    } else {
+      return {data.size(), data[0].size()};
+    }
+  }
+};
+</pre>
+
+    <p>Часто задаваемый вопрос — какой индекс в таблице отвечает за строки, а какой — за столбцы. На самом деле это совершенно не важно. Главное, чтобы пара индексов i и j, по которым будут обращаться в таблицу, была бы согласованной с размерами: i должен быть меньше m, а j меньше n.</p>
+    <p>Другая типичная ошибка — возврат {data.size(), data[0].size()} в функции size() без проверки пустоты вектора. На пустом data тут будет некорректное обращение к памяти в data[0].</p>
+  </details>
+
+  <h4>Задача «Queue»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вам требуется реализовать класс Queue, аналогичный адаптеру std::queue. Он является обёрткой над некоторым стандартным контейнером и реализует интерфейс очереди. Класс должен быть шаблонным. Первый шаблонный параметр T — тип хранимых элементов. Второй шаблонный параметр — контейнер, используемый для хранения элементов (по умолчанию — std::deque&lt;T&gt;):</p>
+<pre>
+template &lt;typename T, typename Container = std::deque&lt;T&lt; &lt;
+class Queue;
+</pre>
+
+  <p>Предусмотрите в классе следующее:</p>
+  <ol>
+    <li>Конструктор по умолчанию, создающий пустую очередь.</li>
+    <li>Константную функцию front, которая возвращает элемент, стоящий в начале очереди.</li>
+    <li>Неконстантную функцию front, которая возвращает по ссылке элемент, стоящий в начале очереди — тем самым давая возможность его изменить.</li>
+    <li>Функцию pop, которая убирает элемент из начала очереди (и ничего не возвращает)</li>
+    <li>Функцию push, которая кладёт переданный элемент в конец очереди.</li>
+    <li>Функцию size, которая возвращает количество элементов.</li>
+    <li>Функцию empty, которая возвращает true тогда и только тогда, когда очередь пуста</li>
+    <li>Операторы == и != для сравнения двух очередей.</li>
+  </ol>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Наш класс будет просто обёрткой над контейнером. Все функции нашего класса будут сводиться к вызову соответствующих функций контейнера. Смысл нашего класса в том, что мы ограничиваем публичный интерфейс, оставляя только функции, специфичные для очереди. Например, у нас не будет оператора [] или функций begin и end, так как для очереди они не нужны. Кроме того, некоторые функции у очереди будут называться иначе (push и pop вместо push_back и pop_front), так как для очереди бессмысленно указывать, с какой стороны в неё поступают элементы, и с какой извлекаются.</p>
+    <p>Конструктор класса Queue можно не писать, так как компилятор предоставит автоматически конструктор по умолчанию.</p>
+<pre>
+#include &lt;deque&gt;
+
+template &lt;typename T, typename Container = std::deque&lt;T&lt; &lt;
+class Queue {
+private:
+  Container data;
+
+public:
+  const T& front() const {
+    return data.front();
+  }
+
+  T& front() {
+    return data.front();
+  }
+
+  void push(const T& elem) {
+    data.push_back(elem);
+  }
+
+  void pop() {
+    data.pop_front();
+  }
+
+  size_t size() const {
+    return data.size();
+  }
+
+  bool empty() const {
+    return data.empty();
+  }
+
+  bool operator == (const Queue& other) const {
+    return data == other.data;
+  }
+
+  bool operator != (const Queue& other) const {
+    return !operator==(other);
+  }
+};
+</pre>
+
+  <p>Обратите внимание, что операторы == и !=, а также функции size и empty объявлены константными, так как они не меняют очередь. Это позволяет применять их к константным очередям. Также функция front перегружена по константности: для константных очередей элемент возвращается для чтения, а для неконстантных — для записи.</p>
+  </details>
+
+  <h4>Задача «Key-Value storage»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вася разрабатывает свою структуру — базу данных «ключ-значение». Эта структура данных должна хранить значение, ассоциированное с ключом, и она будет делать это суперэффективно. Пока для простоты Вася выбрал за основу std::unordered_map, но потом он это переделает.</p>
+    <p>Какие операции должно поддерживать такое хранилище? Правильно: вставка элемента, удаление элемента и поиск элемента. Вася написал прототипы функций Insert, Remove и Find, но функция Find почему-то не работает. Помогите Васе её исправить. Вот код Васи:</p>
+<pre>
+#include &lt;unordered_map>
+
+template &lt;typename Key, typename Value>
+class KeyValueStorage {
+private:
+  std::unordered_map&lt;Key, Value> data;
+
+public:
+  void Insert(const Key& key, const Value& value) {
+    data[key] = value;
+  }
+
+  void Remove(const Key& key) {
+    data.erase(key);
+  }
+
+  bool Find(const Key& key, Value* const value = nullptr) const;
+};
+
+
+// Почему-то не работает...
+//
+// template &lt;typename Key, typename Value>
+// bool KeyValueStorage&lt;Key, Value>::Find(const Key& key, Value* const value) const {
+//   auto it = std::find(data.begin(), data.end(), key);
+//   auto val = *it;
+//   if (value != nullptr)
+//     value = &amp;val;
+//   return it != data.end();
+// }
+31
+32// Ваша реализация функции KeyValueStorage::find будет вставлена сюда:
+33#include "your_version_of_find.h"
+</pre>
+
+  <p>Ваша версия функции Find будет вставлена в конце этого кода. Её заголовок должен быть таким же, как в закомментированной части.</p>
+  <p>Функция Find по задумке должна возвращать true, если ключ был найден, и false в противном случае. Если второй аргумент функции Find отличен от nullptr и ключ найден, то функция должна записать найденное значение в тот объект, на который ссылается этот аргумент (предполагается, что новая структура данных сможет быстро определять наличие ключа, но само значение будет извлекаться дорого, и делать это нужно лишь при необходимости). Использовать эту функцию предполагается примерно так:</p>
+<pre>
+#include "key_value_storage.h"
+
+#include &lt;string&gt;
+
+int main() {
+  KeyValueStorage&lt;std::string, int&gt; kv;
+  kv.Insert("hello", 42);
+  kv.Insert("bye", -13);
+  int value = 123;
+
+  // должно вернуться false, а value не должен меняться
+  auto res = kv.Find("wrong", &value);
+
+  // должно вернуться true, в value должно быть -13
+  res = kv.Find("bye", &value);
+
+  // должно вернуться true
+  res = kv.Find("hello", nullptr);
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Наш код будет вставлен после класса. Поэтому для описания тела функции нам потребуется написать шапку template <typename Key, typename Value>, а имя функции предварить префиксом с именем класса - как в закомментированном примере.</p>
+<pre>
+template &lt;typename Key, typename Value&gt;
+bool KeyValueStorage&lt;Key, Value&gt;::Find(const Key& key, Value* const value) const {
+  auto it = data.find(key);
+  if (it != data.end() && value != nullptr) {
+    *value = it->second;
+  }
+  return it != data.end();
+}
+</pre>
+
+    <p>Примечания</p>
+    <p>Разберём типичные ошибки:</p>
+    <ol>
+      <li>Не надо пытаться использовать общий алгоритм std::find или std::find_if. Нужно использовать встроенную функцию find контейнера unordered_map. Во-первых, встроенный find будет работать быстрее (а std::find будет выполнять линейный поиск). Во-вторых, std::find не предназначен для поиска по ключу. Он ищет в контейнере готовый образец, а значит, ему придётся передать пару из ключа и значения (которого мы не знаем).</li>
+      <li>Если значение не найдено, не надо ничего делать с value. Это можно понять по примеру использования. В этом случае надо просто вернуть false.</li>
+      <li>Неправильно писать value = &it->second. Сам указатель value мы поменять не сможем; мы лишь записываем найденное значение в ту ячейку памяти, на которую он указывает (если он не nullptr). По условию мы предполагаем, что он в таком случае указывает на корректный существующий объект.</li>
+    </ol>
+  </details>
+
+  <h4>Задача «Deque»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В этой задаче вам надо будет написать свой дек. Писать его по-честному долго и сложно, поэтому мы пошли вам навстречу: вам нужно написать упрощенную версию дека без итераторов, и умеющую только добавлять элементы в начало и конец. Поддерживать удаление элементов из дека не требуется.</p>
+    <p>В отличие от стандартного дека возьмите за основу два вектора, растущих каждый в свою сторону. Предлагаем такой прототип — а вам нужно реализовать указанные функции:</p>
+<pre>
+#include &lt;cstddef&gt;
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class Deque {
+private:
+  std::vector&lt;T&gt; head, tail;
+
+public:
+  bool Empty() const;
+
+  size_t Size() const;
+
+  void Clear();
+
+  const T& operator [] (size_t i) const;
+
+  T& operator [] (size_t i);
+
+  const T& At(size_t i) const;  // throws std::out_of_range on incorrect index
+
+  T& At(size_t i);  // throws std::out_of_range on incorrect index
+
+  const T& Front() const;
+
+  T& Front();
+
+  const T& Back() const;
+
+  T& Back();
+
+  void PushFront(const T& elem);
+
+  void PushBack(const T& elem);
+};
+</pre>
+
+  <p>Примечания</p>
+  <p>Сдайте в систему класс Deque с написанными функциями.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Дек должен уметь эффективно расти в обе стороны. А вектор умеет эффективно расти только в одну сторону. Поэтому предлагается реализовать решение с помощью двух векторов, смотрящих в разные стороны. По условию удаляться из дека ничего не будет, поэтому в эти векторы будут только добавляться новые элементы в конец. Однако важно помнить, что один из этих векторов может оставаться пустым, если с соответствующей стороны вставок еще не было. Поэтому, например, при вызовe Front мы должны сначала посмотреть на первый вектор, а если он пуст — то на второй.</p>
+    <p>Часто задаваемые вопросы</p>
+    <p>Q. Какой из векторов (head или tail) соотвествует началу, а какой — концу дека?</p>
+    <p>A. На самом деле это детали нашей реализации, никак не связанные с объявленным публичным интерфейсом, который требуется реализовать. Можно выбрать любое соответствие и придерживаться его.</p>
+    <p>Q. Какой должен быть конструктор дека? Нужен ли конструктор от двух векторов?</p>
+    <p>A. Заметим, что в представленном публичном интерфейсе конструктора нет. Значит, компилятор предоставит по умолчанию конструктор без аргументов, инициализирующий поля head и tail их дефолтными конструкторами. Конечно, такой конструктор создаёт пустой дек. Другие конструкторы не требуются. Итак, конструктор можно вообще не писать — нам достаточно дефолтного.</p>
+    <p>Q. Что должны делать функции Front и Back на пустом деке?</p>
+    <p>A. Как и в std::deque, они не должны делать никаких проверок. То, что эти функции не вызываются на пустом деке, лежит на совести программиста.</p>
+    <p>Q. Что должна делать функция At?</p>
+    <p>A. Как и в контейнерах стандартной библиотеки, она аналогична оператору [], но проверяет корректность индекса. В случае некорректного индекса она должна генерировать исключение.</p>
+    <p>Q. Не получается сгенерировать исключение.</p>
+    <p>A. Во-первых, надо подключить &lt;stdexcept&gt; — этот заголовочный файл указан в документации std::out_of_range. В конструктор std::out_of_range надо передать текстовую строку с описанием ошибки. Строка может быть любой, мы её не проверяем.</p>
+    <p>Итоговый класс:</p>
+<pre>
+#include &lt;cstddef&gt;
+#include &lt;stdexcept&gt;
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class Deque {
+private:
+  std::vector&lt;T&gt; head, tail;
+
+  void CheckIndex(size_t i) const {
+    if (i >= Size()) {
+      throw std::out_of_range("Index is out of range");
+    }
+  }
+
+public:
+  bool Empty() const {
+    return head.empty() && tail.empty();
+  }
+
+  size_t Size() const {
+    return head.size() + tail.size();
+  }
+
+  void Clear() {
+    head.clear();
+    tail.clear();
+  }
+
+  const T& operator [] (size_t i) const {
+    if (i &lt; head.size()) {
+      return head[head.size() - i - 1];
+    }
+    return tail[i - head.size()];
+  }
+
+  T& operator [] (size_t i) {
+    if (i &lt; head.size()) {
+      return head[head.size() - i - 1];
+    }
+    return tail[i - head.size()];
+  }
+
+  const T& At(size_t i) const {
+    CheckIndex(i);
+    return (*this)[i];
+  }
+
+  T& At(size_t i) {
+    CheckIndex(i);
+    return (*this)[i];
+  }
+
+  const T& Front() const {
+    if (head.empty()) {
+      return tail.front();
+    }
+    return head.back();
+  }
+
+  T& Front() {
+    if (head.empty()) {
+      return tail.front();
+    }
+    return head.back();
+  }
+
+  const T& Back() const {
+    if (tail.empty()) {
+      return head.front();
+    }
+    return tail.back();
+  }
+
+  T& Back() {
+    if (tail.empty()) {
+      return head.front();
+    }
+    return tail.back();
+  }
+
+  void PushFront(const T& elem) {
+    head.push_back(elem);
+  }
+
+  void PushBack(const T& elem) {
+    tail.push_back(elem);
+  }
+};
+</pre>
+  </details>
+
+  <h4>Задача «MathVector»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Математический вектор (не путать с std::vector!) – структура линейной алгебры, определяющаяся набором упорядоченных чисел (координат). Обозначается как (x1, x2, ...,xn). Число n в таком случае называется размерностью вектора.</p>
+    <p>В качестве примера можно рассмотреть вектора размерности два с координатами в вещественных числах. В таком случае вектор (1,2) будет задавать знакомый нам со школы геометрический вектор с началом в координате (0,0) и концом в (1,2).</p>
+    <p>Также заметим, что координаты вектора необязательно вещественные числа. Это могут быть рациональные, комплексные или любые другие математические объекты, обладающие набором базовых операций сложения и умножения (например математические матрицы).</p>
+    <p>Над математическим вектором можно проводить две операции:</p>
+
+    <ol>
+      <li>Сложение двух векторов одинаковой размерности: пусть a = (x1, x2, ..., xn), b = (y1, y2, ...,yn), тогда a + b = (x1 + y1, x2 + y2, ..., xn + yn);</li>
+      <li>Умножение вектора на число (тип числа должен быть одинаковым с типом чисел координат у вектора): пусть c = (x1, x2, ..., xn), α - какое-то число, тогда α⋅c = (αx1, αx2, ..., αxn).</li>
+    </ol>
+    <p>Вам дан шаблонный класс MathVector<T>, представляющий собой математический вектор с координатами типа T:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class MathVector {
+private:
+  std::vector&lt;T&gt; data;
+
+public:
+  // Храним в `data` нулевой вектор длины `n`
+  MathVector(size_t n) {
+    data.resize(n);
+  }
+
+  template &lt;typename Iter&gt;
+  MathVector(Iter first, Iter last) {
+    while (first != last) {
+      data.push_back(*first);
+    }
+  }
+
+  size_t Dimension() const {
+    return data.size();
+  }
+
+  T& operator [] (size_t i) {
+    return data[i];
+  }
+
+  const T& operator [] (size_t i) const {
+    return data[i];
+  }
+};
+
+// Output format: (1, 2, 3, 4, 5)
+template &lt;typename T&gt;
+std::ostream& operator &lt;&lt; (std::ostream& out, const MathVector&lt;T&gt;& v) {
+  out &lt;&lt; '(';
+  for (size_t i = 0; i != v.Dimension(); ++i) {
+    if (i > 0) {
+      out &lt;&lt; ", ";
+    }
+    out &lt;&lt; v[i];
+  }
+  out &lt;&lt; ')';
+  return out;
+}
+
+template &lt;typename T&gt;
+MathVector&lt;T&gt;& operator *= (MathVector&lt;T&gt;& v, const T& scalar) {
+  for (size_t i = 0; i != v.Dimension(); ++i) {
+    v[i] *= scalar;
+  }
+  return v;
+}
+
+template &lt;typename T&gt;
+MathVector&lt;T&gt; operator * (const MathVector&lt;T&gt;& v, const T& scalar) {
+  auto tmp(v);
+  tmp *= scalar;
+  return tmp;
+}
+
+template &lt;typename T&gt;
+MathVector&lt;T&gt; operator * (const T& scalar, const MathVector&lt;T&gt;& v) {
+  return v * scalar;
+}
+</pre>
+
+  <p>Вам требуется исправить ошибки в коде этого класса и дописать операторы += и + для сложения векторов. Считайте, что складываться друг с другом всегда будут только векторы одинаковой размерности.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для начала исправим существующие в коде ошибки:</p>
+    <p>Первая ошибка находится в конструкторе вектора по двум итераторам. В цикле while нет инкремента для итератора, из-за чего получается бесконечный цикл. Правильнее всего переписать цикл на for.</p>
+    <p>Вторая ошибка в константном операторе operator []. Чтобы явно обозначить константное получение элемента из std::vector, необходимо использовать функцию .at.</p>
+    <p>Когда все ошибки исправлены – остаётся только дописать недостающие функции по аналогии с уже существующими.</p>
+    <p>Итоговый файл:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+template&lt;typename T&gt;
+class MathVector {
+private:
+  std::vector&lt;T&gt; data;
+
+public:
+  // Храним в `data` нулевой вектор длины `n`
+  MathVector(size_t n) {
+    data.resize(n);
+  }
+
+  template&lt;typename Iter&gt;
+  MathVector(Iter first, Iter last) {
+    for (; first != last; ++first) {
+      data.push_back(*first);
+    }
+  }
+
+  size_t Dimension() const {
+    return data.size();
+  }
+
+  T& operator [] (size_t i) {
+    return data[i];
+  }
+
+  const T& operator [] (size_t i) const {
+    return data.at(i);
+  }
+};
+
+// Output format: (1, 2, 3, 4, 5)
+template&lt;typename T&gt;
+std::ostream& operator &lt;&lt; (std::ostream& out, const MathVector&lt;T&gt;& v) {
+  out &lt;&lt; '(';
+  for (size_t i = 0; i != v.Dimension(); ++i) {
+    if (i > 0) {
+      out &lt;&lt; ", ";
+    }
+    out &lt;&lt; v[i];
+  }
+  out &lt;&lt; ')';
+  return out;
+}
+
+template&lt;typename T&gt;
+MathVector&lt;T&gt;& operator *= (MathVector&lt;T&gt;& v, const T& scalar) {
+  for (size_t i = 0; i != v.Dimension(); ++i) {
+    v[i] *= scalar;
+  }
+  return v;
+}
+
+template&lt;typename T&gt;
+MathVector&lt;T&gt; operator * (const MathVector&lt;T&gt;& v, const T& scalar) {
+  auto tmp(v);
+  tmp *= scalar;
+  return tmp;
+}
+
+template&lt;typename T>
+MathVector&lt;T> operator * (const T& scalar, const MathVector&lt;T&gt;& v) {
+  return v * scalar;
+}
+
+
+template&lt;typename T&gt;
+MathVector&lt;T&gt;& operator += (MathVector&lt;T&gt;& v1, const MathVector&lt;T&gt;& v2) {
+  for (size_t i = 0; i != v1.Dimension(); ++i) {
+    v1[i] += v2[i];
+  }
+  return v1;
+}
+
+
+template&lt;typename T&gt;
+MathVector&lt;T&gt; operator + (const MathVector&lt;T&gt;& v1, const MathVector&lt;T&gt;& v2) {
+  MathVector&lt;T&gt; tmp = v1;
+  tmp += v2;
+  return tmp;
+}
+</pre>
+  </details>
+
+  <h4>Задача «Многочлены»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Многочлен от одной переменной – алгебраическое выражение, состоящие из суммы нескольких произведений числовых коэффициентов на переменную в натуральной степени. Пример: x²+2x+1. Слагаемыми в многочлене называют одночленами.</p>
+    <p>Так же как и в задаче о математическом векторе, числами здесь могут являться любые объекты со стандартным набором базовых математических операций (сложение, вычитание, умножение, деление), например дробные, вещественные или комплексные числа, а так же математические матрицы и другие алгебраические объекты.</p>
+    <p>Реализуйте шаблонный класс Polynomial (многочлен от одной переменной) на основе контейнера std::vector. Тип коэффициентов многочлена передавайте в качестве параметра шаблона. Хранение коэффициентов должно быть плотным (то есть должны храниться все коэффициенты, в том числе и промежуточные нулевые).</p>
+    <p>Сделайте следующее:</p>
+    <ol>
+      <li>Напишите конструкторы, которые
+        <ul>
+          <li>создают многочлен по заданному вектору коэффициентов (коэффициенты задаются по возрастанию степени).</li>
+          <li>создают многочлен по заданному коэффициенту (многочлен нулевой степени), который равен значению по умолчанию параметра шаблона.</li>
+          <li>создают многочлен по заданным итераторам на начало и следующий за концом последовательности коэффициентов (аналогично, по возрастанию степени).</li>
+        </ul>
+      </li>
+      <li>Перегрузите операторы == и !=. Ваш код должен быть очень простым. Операторы должны работать и в том случае, когда один из аргументов является скалярной величиной.</li>
+      <li>Перегрузите операторы +, - и *, а также соответствующие операторы +=, -= и *=. Учтите, что должны быть определены и такие арифметические операции, в которых один из аргументов является скалярной величиной.</li>
+      <li>Перегрузите оператор [] для получения коэффициента многочлена перед заданной степенью переменной. Достаточно константной версии этого оператора. Оператор должен работать для любых степеней (в том числе больше текущей максимальной). Напишите также метод Degree для вычисления степени многочлена (считайте, что у нулевого многочлена степень равна -1).</li>
+      <li>Перегрузите оператор () для вычисления значения многочлена в точке. В качестве аргумента этот оператор принимает значение того типа, от которого создан многочлен. Постарайтесь написать эффективный код.</li>
+      <li>Перегрузите оператор &lt;&lt; для печати многочлена в поток вывода. Для простоты будем выводить коэффициенты через пробел от старшей степени к младшей.</li>
+      <li>Предусмотрите методы begin() и end() для доступа к константным итераторам, позволяющим перебрать коэффициенты многочлена (это могут быть просто итераторы вектора). При этом ведущие нули коэффициентами не считаются. Итерация должна происходить по возрастанию степени.</li>
+    </ol>
+
+    <p>Примечание</p>
+    <p>В вашем решении должен быть только код класса и не должно быть функции main. При проверке наша программа будет использовать ваш класс Polynomial. Она сама прочитает из входного потока коэффициенты многочленов и выведет их сумму, разность, произведение и т. д.</p>
+    <p>Обратите внимание, что если какой-то из операторов реализован в вашем решении, но при этом его вызов не компилируется (т. е. реализован неправильно), то вы будете получать не ошибку компиляции, а неправильный ответ, так как тестирующая программа доопределяет те операторы, вызов которых не компилируется.</p>
+    <p>Вы можете считать, что шаблонный параметр — это числовой тип, для которого реализованы все арифметические операции, операции сравнения и вывод в поток. Также переменную этого типа можно сконструировать от int. Обратите внимание, что наличие неявного конструктора и оператора приведения типа не гарантируется: необходимо вызывать конструктор явно.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Для начала реализуем конструкторы класса:</p>
+<pre>
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class Polynomial {
+public:
+  using Container = typename std::vector&lt;T&gt;;
+  using ConstIterator = typename Container::const_iterator;
+
+private:
+  Container coefficients;
+  inline static const T valueTypeZero{0};
+
+  void Normalize() {
+    while (!coefficients.empty() && coefficients.back() == valueTypeZero) {
+      coefficients.pop_back();
+    }
+  }
+
+  Container& GetCoefficients() {
+    return coefficients;
+  }
+
+public:
+  Polynomial(const Container& coeffs)
+    : coefficients{coeffs} {
+    Normalize();
+  }
+
+  Polynomial(const T& value = {}) {
+    if (value != valueTypeZero) {
+      coefficients.push_back(value);
+    }
+  }
+
+  template&lt;typename ForwardIt&gt;
+  Polynomial(ForwardIt first, ForwardIt last)
+    : coefficients{first, last} {
+    Normalize();
+  }
+
+  const Container& GetCoefficients() const {
+    return coefficients;
+  }
+</pre>
+
+    <p>Для удобства будем удалять все нулевые коэффициенты с конца вектора. Для этого используем функцию Normalize (см. выше). Чтобы проверять, является ли элемент нулевым, создадим в классе приватное константное поле valueTypeZero типа T равное нулю. Ключевое слово static указывает, что новое поле относится к самому классу, а не к его объектам. Ключевое слово inline позволяет проинициализировать static-поле в момент определения (напоминаем, оно инициализируется нулём).</p>
+    <p>Хранить же наши коэффициенты будем в векторе, где coefficients[i] будет значить, что мы смотрим на коэффициент перед xi. У вектора есть конструктор копирования, чем мы воспользуемся при реализации конструктора, который принимает вектор. Аналогично поступим с конструктором, который принимает два итератора. Конструктор, создающий многочлен по заданному коэффициенту будет добавлять в наш вектор этот самый коэффициент, только если он не ноль. Это позволяет лишний раз не вызывать Normalize().</p>
+    <p>Также реализуем вспомогательные методы, которые будем использовать в дальнейшем: GetCoefficients() и GetCoefficients() const. Будем использовать эти методы для явного обращения к коэффициентам.</p>
+    <p>Далее реализуем операторы == и !=:</p>
+<pre>
+friend bool operator == (const Polynomial&lt;T&gt;& lhs, const Polynomial&lt;T&gt;& rhs) {
+  return lhs.GetCoefficients() == rhs.GetCoefficients();
+}
+
+friend bool operator != (const Polynomial&lt;T&gt;& lhs, const Polynomial&lt;T&gt;& rhs) {
+  return !(lhs == rhs);
+}
+</pre>
+
+  <p>У std::vector переопределён operator ==, чем мы и воспользуемся.</p>
+  <p>Так как при декларации конструктора класса не используется ключевое слово explicit, операторы будут работать и в том случае, когда один из аргументов является скалярной величиной.</p>
+  <p>Далее реализуем арифметические операции:</p>
+<pre>
+Polynomial&lt;T&gt;& operator += (const Polynomial&lt;T&gt;& other) {
+  if (other.Degree() > Degree()) {
+    GetCoefficients().resize(other.Degree() + 1);
+  }
+
+  for (int i = 0; i &lt;= Degree() && i &lt;= other.Degree(); ++i) {
+    GetCoefficients()[i] += other.GetCoefficients()[i];
+  }
+  Normalize();
+  return *this;
+}
+
+Polynomial&lt;T&gt;& operator -= (const Polynomial&lt;T&gt;& other) {
+  if (other.Degree() > Degree()) {
+    GetCoefficients().resize(other.Degree() + 1);
+  }
+
+  for (int i = 0; i &lt;= Degree() && i &lt;= other.Degree(); ++i) {
+    GetCoefficients()[i] -= other.GetCoefficients()[i];
+  }
+  Normalize();
+  return *this;
+}
+
+Polynomial&lt;T&gt;& operator *= (const Polynomial&lt;T&gt;& other) {
+  if (Degree() == -1 || other.Degree() == -1) {
+    GetCoefficients().resize(0);
+    return *this;
+  }
+
+  std::vector&lt;T&gt; tmp(Degree() + other.Degree() + 1);
+  for (int i = 0; i &lt;= Degree(); ++i) {
+    for (int j = 0; j &lt;= other.Degree(); ++j) {
+      tmp[i + j] += GetCoefficients()[i] * other.GetCoefficients()[j];
+    }
+  }
+  GetCoefficients() = std::move(tmp);
+  Normalize();
+  return *this;
+}
+</pre>
+
+    <p>Заметьте, что в реализации этих методов используется ещё нереализованный метод Degree(). Этот метод будет объявлен чуть позже (когда до него дойдёт очередь). Всё что нам надо знать сейчас – он возвращает степень полинома, а если полином равен нулю, то -1.</p>
+    <p>Все три оператора изначально делают resize(), чтобы избежать неопределённое поведение, и согласно правилам математики складывают, вычитают или умножают два многочлена. При этом в умножении рассматривается отдельно краевой случай, когда один из полиномов равен нулю. После каждой операции вызываем функцию Normalize().</p>
+<pre>
+friend Polynomial&lt;T&gt; operator + (Polynomial&lt;T&gt; lhs, const Polynomial&lt;T&gt;& rhs) {
+  return lhs += rhs;
+}
+
+friend Polynomial&lt;T&gt; operator - (Polynomial&lt;T&gt; lhs, const Polynomial&lt;T&gt;& rhs) {
+  return lhs -= rhs;
+}
+
+friend Polynomial&lt;T&gt; operator * (Polynomial&lt;T&gt; lhs, const Polynomial&lt;T&gt;& rhs) {
+  return lhs *= rhs;
+}
+</pre>
+
+    <p>lhs будем принимать не по ссылке, а создавать копию на лету. Это позволит нам изменить и сразу же вернуть её, применив соответствующий оператор.</p>
+    <p>Далее реализуем оператор [] и функцию Degree:</p>
+<pre>
+int Degree() const {
+  return static_cast&lt;int&gt;(GetCoefficients().size()) - 1;
+}
+
+const T& operator [] (size_t power) const {
+  if (static_cast&lt;int&gt;(power) > Degree()) {
+    return valueTypeZero;
+  }
+  return GetCoefficients()[power];
+}
+</pre>
+
+    <p>Обратите внимание, из-за того что мы в самом начале договорились не хранить незначащие нули в конце вектора, код функции Degree помещается в одну строчку. Действительно, в таком случае степенью многочлена будет являться длина вектора коэффициентов минус один.</p>
+    <p>Далее реализуем оператор (). Воспользуемся для этого алгоритмом Горнера:</p>
+<pre>
+T operator () (const T& given_value) const {
+  T result = valueTypeZero;
+
+  for (auto i = Degree(); i >= 0; --i) {
+    result *= given_value;
+    result += GetCoefficients()[i];
+  }
+
+  return result;
+}
+</pre>
+
+    <p>Проще говоря, для многочлена a1 + a2x + a3x² +...+ anxⁿ мы вынесем за скобки x везде, где это возможно. Получится следующее выражение a1 + x(a2 + x(a3 +...+ x(an-1anx)...)). Таким образом нужно просто реализовать цикл с умножением на заданную переменную и сложением со следующим коэффициентом.</p>
+    <p>Реализация методов .begin и .end является тривиальной, поскольку мы можем вернуть итераторы самого вектора коэффициентов:</p>
+<pre>
+ConstIterator begin() const {
+  return GetCoefficients().cbegin();
+}
+
+ConstIterator end() const {
+  return GetCoefficients().cend();
+}
+};
+</pre>
+
+    <p>Оператор &lt;&lt; принято реализовывать вне класса. Тут всё просто, пробежим по всем степеням от последней к первой.</p>
+<pre>
+template&lt;typename T&gt;
+std::ostream& operator&lt;&lt;(std::ostream& out, const Polynomial&lt;T&gt;& polynomial) {
+  for (auto i = polynomial.Degree(); i >= 0; --i) {
+    out &lt;&lt; polynomial[i];
+    if (i != 0) {
+      out &lt;&lt; ' ';
+    }
+  }
+  return out;
+}
+</pre>
+  </details>
+
+  <h3>Параграф «Жизненный цикл объекта»</h3>
+
+  <h4>Задача «Жизнь объекта - 0»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вам дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения:</p>
+<pre>
+#include &lt;iostream&gt;
+
+class Logger {
+private:
+  static int counter;
+  const int id;
+
+public:
+  Logger(): id(++counter) {
+    std::cout &lt;&lt; "Logger(): " &lt;&lt; id &lt;&lt; "\n";
+  }
+
+  Logger(const Logger& other): id(++counter) {
+    std::cout &lt;&lt; "Logger(const Logger&): " &lt;&lt; id &lt;&lt; " " &lt;&lt; other.id &lt;&lt; "\n";
+  }
+
+  Logger(Logger&& other): id(++counter) {
+    std::cout &lt;&lt; "Logger(Logger&&): " &lt;&lt; id &lt;&lt; " " &lt;&lt; other.id &lt;&lt; "\n";
+  }
+
+  Logger& operator = (const Logger& other) {
+    std::cout &lt;&lt; "Logger& operator = (const Logger&): " &lt;&lt; id &lt;&lt; " " &lt;&lt; other.id &lt;&lt; "\n";
+    return *this;
+  }
+
+  Logger& operator = (Logger&& other) {
+    std::cout &lt;&lt; "Logger& operator = (Logger&&): " &lt;&lt; id &lt;&lt; " " &lt;&lt; other.id &lt;&lt; "\n";
+    return *this;
+  }
+
+  ~Logger() {
+    std::cout &lt;&lt; "~Logger(): " &lt;&lt; id &lt;&lt; "\n";
+  }
+};
+
+int Logger::counter = 0;
+</pre>
+
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит следующий текст:</p>
+<pre>
+Logger(): 1
+~Logger(): 1
+Logger(): 2
+~Logger(): 2
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Тут нужно создать два объекта и как-то искусственно ограничить жизнь второго. Это можно сделать несколькими способами:</p>
+    <p>Например, использовать блоки:</p>
+<pre>
+#include "logger.h"
+
+int main() {
+  { Logger logger; }
+  { Logger logger; }
+}
+</pre>
+
+    <p>Также можно реализовать дополнительную функцию и вызвать её два раза:</p>
+<pre>
+#include "logger.h"
+
+void CreateLogger() {
+  Logger logger;
+}
+
+int main() {
+  CreateLogger();
+  CreateLogger();
+}
+</pre>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 1»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит следующий текст:</p>
+<pre>
+Logger(): 1
+Logger(const Logger&): 2 1
+~Logger(): 2
+~Logger(): 1
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В этой задаче так же создаётся два объекта, но в этот раз вызывается конструктор копирования второго объекта от первого.</p>
+<pre>
+#include "logger.h"
+
+int main() {
+  Logger logger1;
+  Logger logger2(logger1);  //  Можно записать иначе: Logger logger2 = logger1;
+}
+</pre>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 2»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит следующий текст:</p>
+<pre>
+Logger(): 1
+Logger(Logger&&): 2 1
+~Logger(): 2
+~Logger(): 1
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Полный аналог предыдущей задачи за исключением того, что вызывается не конструктор копирования, а move-конструктор:</p>
+<pre>
+#include &lt;utility&gt;
+
+#include "logger.h"
+
+int main() {
+  Logger logger1;
+  Logger logger2(std::move(logger1));  // Можно записать иначе: Logger logger2 = std::move(logger1);
+}
+</pre>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 3»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит следующий текст:</p>
+<pre>
+1Logger(): 1
+2Logger(): 2
+3Logger& operator = (const Logger&): 1 2
+4Logger& operator = (Logger&&): 1 2
+5~Logger(): 2
+6~Logger(): 1
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Давайте прочитаем требуемый вывод: создаётся два объекта, в первый копируется второй, в первый «перемещается» второй, вызываются деструкторы.</p>
+    <p>Теперь давайте тоже самое запишем кодом, буквально слово в слово:</p>
+<pre>
+#include &lt;utility&gt;
+
+#include "logger.h"
+
+int main() {
+  Logger logger1, logger2;
+  logger1 = logger2;
+  logger1 = std::move(logger2);
+}
+</pre>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 4»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит следующий текст:</p>
+<pre>
+Logger(): 1
+Logger(): 2
+Logger(): 3
+~Logger(): 2
+~Logger(): 3
+~Logger(): 1
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В этой задаче важно было заметить, что второй и третий созданные объекты удаляются в противоположном порядке. Есть много способов получить такой порядок, самый простой, пожалуй, через указатели:</p>
+<pre>
+#include "logger.h"
+
+int main() {
+  Logger logger1;
+  Logger* logger2 = new Logger;
+  Logger* logger3 = new Logger;
+  delete logger2;
+  delete logger3;
+}
+</pre>
+
+    <p>Так же можно было использовать какой-нибудь контейнер, например, std::list:</p>
+<pre>
+#include &lt;list&gt;
+
+#include "logger.h"
+
+int main() {
+  Logger logger1;  // создаём первый объект
+  std::list&lt;Logger&gt; loggers(2);  // создаём 2 и 3 объекты
+  loggers.pop_front();  // уничтожаем второй объект
+}
+</pre>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 5»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит по заданному n следующий текст:</p>
+<pre>
+Logger(): 1
+Logger(): 2
+...
+Logger(): n
+~Logger(): n
+...
+~Logger(): 2
+~Logger(): 1
+</pre>
+
+  <p>Примечания</p>
+  <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Тут так же было можно пойти несколькими путями, наилучший, на наш взгляд, был через вектор:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+#include "logger.h"
+
+int main() {
+  size_t n = 0;
+  std::cin >> n;
+
+  std::vector&lt;Logger&gt; loggers(n);
+  for (size_t i = 0; i != n; ++i) {
+    loggers.pop_back();
+  }
+}
+</pre>
+
+    <p>Некоторые, эксперементируя локально, могли получать искомый ответ при примерно такой версии кода:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+#include "logger.h"
+
+int main() {
+  size_t n = 0;
+  std::cin >> n;
+  std::vector&lt;Logger&gt; loggers(n);
+}
+</pre>
+
+    <p>Но в тесты этот код не проходит. Дело в том, что порядок удаления элементов в векторе в деструкторе не детерминирован и может разниться от реализации к реализации. В контесте это прямой порядок, где-то он может быть обратным (и, вообще говоря, любым).</p>
+  </details>
+
+  <h4>Задача «Жизнь объекта - 6»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В предыдущей задаче вам был дан готовый класс Logger, который в своих конструкторах, операторах присваивания и деструкторе печатает соответствующие сообщения.</p>
+    <p>Вам требуется написать программу, которая работает с этим классом и выводит по заданному n следующий текст:</p>
+<pre>
+Logger(): 1
+Logger(): 2
+...
+Logger(): n
+~Logger(): 1
+~Logger(): 2
+...
+~Logger(): n
+</pre>
+
+    <p>Примечания</p>
+    <p>Не вставляйте код класса в решение. Используйте вместо этого директиву #include "logger.h" в начале программы. Не пытайтесь вывести нужный текст с помощью непосредственной печати: мы при проверке всё равно заменяем отладочные сообщения в классе на свои.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Задачу можно было решать через любой известный контейнер двумя способами: через указатели:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+#include "logger.h"
+
+int main() {
+  size_t n = 0;
+  std::cin >> n;
+
+  std::vector&lt;Logger*&gt; pointers(n);
+  for (size_t i = 0; i != n; ++i) {
+    pointers[i] = new Logger;
+  }
+
+  for (size_t i = 0; i != n; ++i) {
+    delete pointers[i];
+  }
+}
+</pre>
+
+    <p>Но в указателях особо не было смысла, так как у нас есть контейнеры, которые поддерживают удаление из начала, например, std::list:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;list&gt;
+
+#include "logger.h"
+
+int main() {
+  size_t n = 0;
+  std::cin >> n;
+
+  std::list&lt;Logger&gt; loggers(n);
+  for (size_t i = 0; i != n; ++i) {
+    loggers.pop_front();
+  }
+}
+</pre>
+  </details>
+
+  <h4>Задача «TimerGuard»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вася хочет замерять время работы разных частей своей программы. Сейчас он делает это средствами стандартной библиотеки так:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+
+#include "some_long_stuff.h"
+
+void SomeFunc() {
+  auto start1 = std::chrono::high_resolution_clock::now();
+  FirstLongFunction();
+  std::chrono::duration&lt;double&gt; diff1 = std::chrono::high_resolution_clock::now() - start1;
+  std::cout &lt;&lt; "FirstLongFunction elapsed: " &lt;&lt; diff1.count() &lt;&lt; "\n";
+
+  auto start2 = std::chrono::high_resolution_clock::now();
+  SecondLongFunction();
+  std::chrono::duration&lt;double&gt; diff2 = std::chrono::high_resolution_clock::now() - start2;
+  std::cout &lt;&lt; "SecondLongFunction elapsed: " &lt;&lt; diff2.count() &lt;&lt; "\n";
+
+  auto start3 = std::chrono::high_resolution_clock::now();
+  ThirdLongFunction();
+  std::chrono::duration&lt;double&gt; diff3 = std::chrono::high_resolution_clock::now() - start3;
+  std::cout &lt;&lt; "ThirdLongFunction elapsed: " &lt;&lt; diff3.count() &lt;&lt; "\n";
+}
+
+int main() {
+  SomeFunc();
+  return 0;
+}
+</pre>
+
+    <p>Но ему очень не удобно каждый раз прописывать начало замера и конец. Помогите ему сделать это удобнее.</p>
+    <p>Напишите обёртку TimerGuard. Это класс, который создается перед началом вычислений и при выходе из своего scope пишет в поток время работы, которое он существовал. С его помощью Вася сможет писать так:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+
+#include "some_long_stuff.h"
+
+void SomeFunc() {
+  {
+    TimerGuard timer("FirstLongFunction elapsed: ", std::cout);
+    FirstLongFunction();
+  }
+  {
+    TimerGuard timer("SecondLongFunction elapsed: ", std::cout);
+    SecondLongFunction();
+  }
+  {
+    TimerGuard timer("ThirdLongFunction elapsed: ", std::cout);
+    ThirdLongFunction();
+  }
+}
+
+int main() {
+  SomeFunc();
+  return 0;
+}
+</pre>
+
+    <p>Класс TimerGuard должен содержать следующий конструктор:</p>
+    <code>TimerGuard(std::string message = "", std::ostream& out = std::cout);</code>
+    <p>message — сообщение, печатаемое перед перед временем. out — поток, в который нужно печатать сообщение.</p>
+    <p>Деструктор класса должен печатать сообщение в формате "{message} {time}" (обратите внимание на пробел).</p>
+
+    <p>Примечания</p>
+    <p>Сдайте в систему только код конструкции TimerGuard без функции main. Подключите необходимые библиотеки.</p>
+    <p>Обратите внимание, что данный guard очень полезен даже вне этой задачи. Его можно использовать при отладке медленных участков вашей программы!</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>В блоках Васи TimerGuard дёргается два раза — при создании (конструктор) и при выходе из блока (деструктор). Так что давайте напишем класс, который при создании будет запоминать все необходимые переменные в поля класса, а в деструкторе выводить их:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+#include &lt;string&gt;
+
+class TimerGuard {
+  std::chrono::time_point&lt;std::chrono::high_resolution_clock&gt; start;
+  std::string outMessage;
+  std::ostream& outStream;
+public:
+
+  TimerGuard(std::string message = "", std::ostream& out = std::cout):
+    start(std::chrono::high_resolution_clock::now()),  // start - вызов конструктора
+    outMessage(message),
+    outStream(out)
+  {
+  }
+
+  ~TimerGuard() {
+    auto end = std::chrono::high_resolution_clock::now();  // конец - вызов деструктора
+    std::chrono::duration&lt;double&gt; diff = end - start;
+    outStream &lt;&lt; outMessage &lt;&lt; " " &lt;&lt; diff.count() &lt;&lt; "\n";
+  }
+};
+</pre>
+  </details>
+
+  <h3>Параграф «Наследование и полиморфизм»</h3>
+
+  <h4>Задача «Периметр фигуры»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вам надо написать базовый класс Figure (геометрическая фигура) и унаследованные от него классы Triangle (треугольник) и Rectangle (прямоугольник).</p>
+    <p>Класс Triangle должен иметь конструктор, принимающий на вход три числа типа int — стороны треугольника. Считайте, что треугольник с такими сторонами всегда существует.</p>
+    <p>Класс Rectangle должен иметь конструктор, принимающий на вход два числа типа int — стороны прямоугольника.</p>
+    <p>Класс Figure должен объвлять виртуальную функцию int Perimeter() const, возвращающую периметр фигуры.</p>
+    <p>Классы-наследники должны переопределить эту функцию правильным образом.</p>
+    <p>Функцию main писать в вашем коде не надо: она будет в нашей проверяющей программе. Наша программа выглядит так:</p>
+<pre>
+#include "figures.h"
+
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main() {
+  std::vector&lt;Figure*&gt; figures;
+
+  std::string type;
+
+  while (std::cin >> type) {
+    if (type == "Triangle") {
+      int a, b, c;
+      std::cin >> a >> b >> c;
+      figures.push_back(new Triangle(a, b, c));
+    } else if (type == "Rectangle") {
+      int a, b;
+      std::cin >> a >> b;
+      figures.push_back(new Rectangle(a, b));
+    }
+  }
+
+  for (Figure* f : figures) {
+    std::cout &lt;&lt; f->Perimeter() &lt;&lt; "\n";
+  }
+
+  for (Figure* f : figures) {
+    delete f;
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Видно, что работа с объектами будет производиться полиморфно, через указатель на базовый класс Figure. В частности, фигуры будут удаляться через вызов delete f, где f имеет тип Figure*. Чтобы это корректно работало, в базовом классе нужно предусмотреть виртуальный деструктор.</p>
+<pre>
+class Figure {
+public:
+  virtual int Perimeter() const = 0;
+
+  virtual ~Figure() {
+  }
+};
+
+
+class Triangle: public Figure {
+  int A, B, C;
+
+public:
+  Triangle(int x, int y, int z): A(x), B(y), C(z) {
+  }
+
+  int Perimeter() const override {
+    return A + B + C;
+  }
+};
+
+
+class Rectangle: public Figure {
+  int A, B;
+
+public:
+  Rectangle(int a, int b): A(a), B(b) {
+  }
+
+  int Perimeter() const override {
+    return 2 * (A + B);
+  }
+};
+</pre>
+  </details>
+
+  <h4>Задача «Notifications»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вам даны функции SendSms и SendEmail, которые «умеют» отправлять сообщения:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+void SendSms(const std::string& number, const std::string& message) {
+  std::cout &lt;&lt; "Send '" &lt;&lt; message &lt;&lt; "' to number " &lt;&lt; number &lt;&lt; std::endl;
+}
+
+void SendEmail(const std::string& email, const std::string& message) {
+  std::cout &lt;&lt; "Send '" &lt;&lt; message &lt;&lt; "' to e-mail "  &lt;&lt; email &lt;&lt; std::endl;
+}
+
+// Ваш код будет вставлен здесь:
+#include "your_solution.h"
+
+// Реализуйте в вашем решении классы NotifierBase, SmsNotifier и EmailNotifier,
+// чтобы следующий код заработал как ожидается:
+
+void Notify(const NotifierBase& notifier, const std::string& message) {
+  notifier.Notify(message);
+}
+
+int main() {
+  SmsNotifier sms("+7-495-777-77-77");
+  EmailNotifier email("na-derevnyu@dedushke.ru");
+
+  Notify(sms, "Hello! How are you?");
+  Notify(email, "Let's learn C++!");
+  return 0;
+}
+</pre>
+
+    <p>Вам нужно написать классы SmsNotifier и EmailNotifier, унаследованные от базового класса NotifierBase и переопределяющие функцию Notify, чтобы приведённый код заработал. Функция Notify в этих классах должна вызывать данные вам функции SendSms или SendEmail.</p>
+    <p>Примечания</p>
+    <p>Сдайте в систему только код классов без функции main и без уже написанных функций. Подключите все необходимые для вашей реализации библиотеки.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>NotifierBase — родительский абстрактный класс, который не должен содержать функционала, у него должны быть виртуальные метод Notify и деструктор.</p>
+    <p>SmsNotifier и EmailNotifier наследуются от него и в переопределениях Notify вызывают соответствующие функции:</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class NotifierBase {
+public:
+  virtual void Notify(const std::string& message) const = 0;
+  virtual ~NotifierBase() {}
+};
+
+class SmsNotifier : public NotifierBase {
+public:
+  SmsNotifier(const std::string& number)
+    : Number(number) {}
+
+  virtual void Notify(const std::string& message) const override {
+    SendSms(Number, message);
+  }
+
+private:
+  const std::string Number;
+};
+
+class EmailNotifier : public NotifierBase {
+public:
+  EmailNotifier(const std::string& email)
+    : Email(email) {}
+
+  virtual void Notify(const std::string& message) const override {
+    SendEmail(Email, message);
+  }
+
+private:
+  const std::string Email;
+};
+</pre>
+  </details>
+
+  <h4>Задача «JSON»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Данные часто нужно сериализовывать, то есть превращать в строку. Это нужно для сохранения на диске, для отправки по сети, для передачи другому процессу. Часто для этого используются несколько общепринятых форматов данных, таких как JSON, YAML, XML. Поскольку на этапе компиляции не всегда известно, в каком именно формате надо сериализовывать данные, часто приходится прибегать к наследованию. Вам необходимо реализовать класс Serializer с чисто виртуальными методами:</p>
+<pre>
+void BeginArray()
+void AddArrayItem(const std::string &)
+void EndArray()
+</pre>
+
+    <p>После этого унаследуйте от него класс JsonSerializer, определив все эти методы.</p>
+    <p>JsonSerializer должен печатать упрощенную версию JSON (https://ru.wikipedia.org/wiki/JSON), состояющую только из массивов и строк. Массив начинается с квадратной скобки. После каждого элемента, кроме последнего, должна стоять запятая. Заканчивается массив квадратной скобкой. Все строки должны быть взяты в двойные кавычки. Гарантируется, что все строки состоят только из латинских символов и пробелов, поэтому экранировать их не надо.</p>
+    <p>Сдайте в систему только код классов, без функции main. Для полной ясности формата вывода посмотрите на примеры из условия.</p>
+
+    <h4>Пример 1</h4>
+<pre>
+BeginArray
+EndArray
+</pre>
+    <code>[]</code>
+
+    <h4>Пример 2</h4>
+<pre>
+BeginArray
+AddArrayItem second
+EndArray
+</pre>
+    <code>["second"]</code>
+
+    <h4>Пример 3</h4>
+<pre>
+BeginArray
+AddArrayItem first
+AddArrayItem second
+EndArray
+</pre>
+    <code>["first","second"]</code>
+
+    <p>Примечания</p>
+    <p>Не надо определять для вашего класса operator &lt;&lt;. Печать должна происходить в функциях, указанных в условии. Мы будем работать с экземпляром вашего класса JsonSerializer полиморфно, через указатель на базовый класс Serializer. Поэтому не забудьте про виртуальный деструктор.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Из примеров понятна проблема — она кроется в запятой, которую непонятно когда ставить. Определим приватное поле isFirst. Оно будет указывать, первый ли элемент мы добавляем, и не важно, что тут назвать элементом — Array или Item. Если мы завершаем Array, то isFirst устанавливаем на false, потому что следующий элемент уже не будет первым. Аналогично с AddArrayItem. И лишь в случае BeginArray мы не должны рисовать никаких запятых. Дефолтно поле выставляем на true, так как первый Array действительно будет первым:</p>
+<pre>
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+class Serializer {
+public:
+  virtual void BeginArray() = 0;
+  virtual void AddArrayItem(const std::string &s) = 0;
+  virtual void EndArray() = 0;
+  virtual ~Serializer() {}
+};
+
+class JsonSerializer : public Serializer {
+public:
+  void BeginArray() override {
+    if (!isFirst) {
+      std::cout &lt;&lt; ",[";
+    } else {
+      std::cout &lt;&lt; "[";
+    }
+
+    isFirst = true;
+  }
+
+  void AddArrayItem(const std::string& str) override {
+    if (!isFirst) {
+      std::cout &lt;&lt; ",";
+    }
+    std::cout &lt;&lt; "\"" &lt;&lt; str &lt;&lt; "\"";
+    isFirst = false;
+  }
+
+  void EndArray() override {
+    std::cout &lt;&lt; "]";
+    isFirst = false;
+  }
+
+private:
+  bool isFirst = true;
+};
+</pre>
+  </details>
+
+  <h4>Задача «AdvancedVector»</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Реализуйте класс AdvancedVector. Продвинутый вектор отличается от обычного тем, что позволяет обращаться по отрицательным индексам к элементам вектора в обратном порядке ( прямо как в Python). Например, vec[-1] возвращает последний элемент, vec[-2] возвращает предпоследний и так далее.</p>
+    <p>Класс AdvancedVector должен хранить элементы шаблонного типа T. Требуемый функционал не сильно отличается от стандартного std::vector:</p>
+    <ol>
+      <li>Класс должен называться AdvancedVector.</li>
+      <li>У класса должен быть шаблонный параметр T — тип элементов.</li>
+      <li>У класса должен быть конструктор по умолчанию.</li>
+      <li>У класса должен быть конструктор копирования (возможно, предоставленный компилятором).</li>
+      <li>У класса должен быть шаблонный конструктор, принимающий два итератора и заполняющий вектор из данного диапазона.</li>
+      <li>У класса должен быть оператор присваивания (возможно, предоставленный компилятором).</li>
+      <li>У класса должны быть операторы сравнения == и !=.</li>
+      <li>У класса должны быть константные функции empty() и size().</li>
+      <li>У класса должны быть функции pop_back() и push_back(const T&).</li>
+      <li>У класса должны быть константная и неконстантная версии оператора [].</li>
+    </ol>
+
+    <p>В случае положительного индекса нужно вернуть элемент с соответствующим индексом, если он меньше размера вектора. Иначе нужно бросить исключение std::out_of_range. В случае отрицательного индекса нужно вернуть элемент с соответствующим индексом, предполагая, что последний элемент имеет номер -1, предпоследний -2 и так далее. Но только пока модуль индекса не превосходит size(). Если же std::abs(index) > size, то нужно бросить исключение std::out_of_range.</p>
+
+    <h4>Формат ввода</h4>
+    <p>Гарантируется, что передаваемый в operator [] индекс лежит в отрезке [-10⁹; 10⁹].</p>
+
+    <p>Примечания</p>
+    <p>Сдайте в систему только код класса AdvancedVector без функции main. Подключите все необходимые для вашей реализации библиотеки.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Можно было бы написать класс, в котором будет использоваться композиция со стандартным вектором:</p>
+<pre>
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class AdvancedVector {
+private:
+  std::vector&lt;T&gt; data;
+
+public:
+  // ...
+};
+</pre>
+
+    <p>Однако в таком классе пришлось бы заново определять все публичные операторы и функции, такие как size, empty, push_back и т. д. Попробуем поступить иначе: воспользуемся наследованием от std::vector&lt;T&gt;. В таком случае будет достаточно переопределить лишь оператор [], а также шаблонный конструктор и конструктор по умолчанию. Все остальные операторы и функции будут автоматически унаследованы от вектора.</p>
+<pre>
+#include &lt;cstdint&gt;
+#include &lt;vector&gt;
+
+template &lt;typename T&gt;
+class AdvancedVector: public std::vector&lt;T&gt; {
+public:
+  AdvancedVector() = default;
+
+  template &lt;typename Iter&gt;
+  AdvancedVector(Iter first, Iter last): std::vector&lt;T&gt;(first, last) {
+  }
+
+  const T& operator [](std::int64_t i) const {
+    if (i &lt; 0) {
+      i += this->size();
+    }
+    return this->at(i);
+  }
+
+  T& operator [](std::int64_t i) {
+    if (i &lt; 0) {
+      i += this->size();
+    }
+      return this->at(i);
+    }
+};
+</pre>
+
+    <p>В этом решении есть одна особенность. Базовый класс зависит от неизвестного заренее шаблонного параметра. Поэтому вызов функций базового класса требуется явно предварять либо префиксом с именем базового класса std::vector&lt;T&gt;::, либо конструкцией this->. Это позволит компилятору отложить поиск этого имени до момента инстранцирования шаблона с конкретным типом T.</p>
+    <p>Обратите внимание на реализацию оператора []. Идея в том, чтобы получить настоящий индекс элемента, а затем вызвать унаследованную от вектора функцию at. Эта функция делает проверку корректности аргумента: он должен быть меньше размера контейнера. В случае некорректного значения она сама сгенерирует требуемое исключение std::out_of_range.</p>
+    <p>Функция at принимает беззнаковый аргумент типа size_t. Если в неё передать знаковый тип, то произойдёт неявное преобразование. Например, если size_t занимает 8 байт (64 бита), то отрицательный аргумент i будет преобразован в 2⁶⁴-i. Покажите самостоятельно, что если после прибавления size() индекс i остался отрицательным, то аргумент функции at всё равно будет некорректным.</p>
+    <p>В решении реализованы две версии оператора [] — константная и неконстантная. Они отличаются лишь версиями функции at, которая в векторе тоже перегружена по константности.</p>
+  </details>
+
+  <h4>Задача «Жизнь объекта с наследованием»</h4>
 </article>
 
 

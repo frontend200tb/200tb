@@ -32,6 +32,76 @@
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // длина массива
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  vector&lt;int&gt; Neg; // числа с отрицательным произведением
+  vector&lt;int&gt; Pos; // числа с положительным произведением
+  vector&lt;int&gt; Zer; // числа с нулевым произведением
+
+  // возьмем одно отрицательное число для массива Neg
+  // возьмем одно положительное или
+  // два отрицательных числа для массива Pos
+  // среди остальных чисел должен быть 0, поэтому
+  // все остальные числа возьмем в массив Zer
+
+  for (int i = 0; i &lt; n; i++) {
+
+    if (Neg.size() == 0 && A[i] &lt; 0) {
+      Neg.push_back(A[i]);
+      continue;
+    }
+
+    if (Pos.size() == 0 && A[i] != 0) {
+      Pos.push_back(A[i]);
+      continue;
+    }
+
+    if (Pos.size() == 1 && Pos[0] &lt; 0 && A[i] > 0) {
+      Zer.push_back(Pos[0]);
+      Pos.pop_back();
+      Pos.push_back(A[i]);
+      continue;
+    }
+
+    if (Pos.size() == 1 && Pos[0] &lt; 0 && A[i] &lt; 0) {
+      Pos.push_back(A[i]);
+      continue;
+    }
+
+    Zer.push_back(A[i]);
+  }
+
+  // вывод результата
+  cout &lt;&lt; Neg.size() &lt;&lt; ' ' &lt;&lt; Neg[0] &lt;&lt; '\n';
+  cout &lt;&lt; Pos.size() &lt;&lt; ' ';
+  for (int i = 0; i &lt; Pos.size(); i++) {
+    cout &lt;&lt; Pos[i] &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+  cout &lt;&lt; Zer.size() &lt;&lt; ' ';
+  for (int i = 0; i &lt; Zer.size(); i++) {
+    cout &lt;&lt; Zer[i] &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+}
+</pre>
+  </details>
 </article>
 
 

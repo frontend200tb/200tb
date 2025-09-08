@@ -1,8 +1,8 @@
-import showFatin       from './fatin/fatin';
-import showGustokashin from './gustokashin/gustokashin';
 import showYargu1      from './yargu1/yargu1';
 import showYargu2      from './yargu2/yargu2';
 import showYargu3      from './yargu3/yargu3';
+import showGustokashin from './gustokashin/gustokashin';
+import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
 import show1580        from './1580/1580';
 import showStepik      from './stepik/stepik';
@@ -11,22 +11,6 @@ import showKurs1       from './kurs1/kurs1';
 import showKurs2       from './kurs2/kurs2';
 
 export const dataConspectNav = [
-  {
-    url: 'fatin.html',
-    text: 'МФ',
-    content: '<alg-fatin></alg-fatin>',
-    act() {
-      showFatin();
-    },
-  },
-  {
-    url: 'gustokashin.html',
-    text: 'МГ',
-    content: '<alg-gustokashin></alg-gustokashin>',
-    act() {
-      showGustokashin();
-    },
-  },
   {
     url: 'yargu1.html',
     text: 'ЯрГУ1',
@@ -49,6 +33,22 @@ export const dataConspectNav = [
     content: '<alg-yargu3></alg-yargu3>',
     act() {
       showYargu3();
+    },
+  },
+  {
+    url: 'gustokashin.html',
+    text: 'МГ',
+    content: '<alg-gustokashin></alg-gustokashin>',
+    act() {
+      showGustokashin();
+    },
+  },
+  {
+    url: 'fatin.html',
+    text: 'МФ',
+    content: '<alg-fatin></alg-fatin>',
+    act() {
+      showFatin();
     },
   },
   {

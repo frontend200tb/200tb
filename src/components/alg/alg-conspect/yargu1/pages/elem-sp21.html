@@ -72,6 +72,26 @@
     <li>tmp — вершина, которую мы рассматриваем сейчас. Трудоемкость алгоритма O(m), где m — количество ребер. Рекурсивная реализация алгоритма dfs считается классическим вариантом.</li>
   </ul>
 <pre>
+int n; // число вершин
+int m; // число ребер
+cin >> n >> m;
+vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+vector&lt;int&gt; Mark(n + 1);
+// Mark[i] = 0 если не посещали вершину
+// Mark[i] = 1 если уже посетили вершину
+int a, b;
+int res = 0; // число компонент связности
+
+// считываем все ребра и построим список смежности
+for (int i = 0; i &lt; m; i++) {
+  cin >> a >> b;
+  G[a].push_back(b);
+  G[b].push_back(a);
+}
+</pre>
+
+  <p>Реализация DFS в виде функции:</p>
+<pre>
 void dfs_number_comp(
     vector&lt;vector&lt;int&gt; &gt;& G,
     vector&lt;int&gt;& Mark,

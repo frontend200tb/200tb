@@ -17,7 +17,12 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="#p1">Базовые алгоритмы #5. Вещественный бинарный поиск</a>
+        <a href="#p1">Базовые алгоритмы #5. Вещественный бинарный поиск</a>
+    <br><a href="#p2">Вещественный бинарный поиск</a>
+    <br><a href="#p3">Задача 1. Нахождение корня у функции f(x) = 0</a>
+    <br><a href="#p4">Тернарный поиск</a>
+    <br><a href="#p5">Задача 2. Нахождение минимума функции на отрезке</a>
+    <br><a href="#p6">Вещественный бинарный поиск по ответу</a>
   </p>
   <p>
         <a href="#task1">Задача A. Кубический корень</a>
@@ -50,14 +55,30 @@
   <p>где eps это точность ответа. Например 0.0001.</p>
   <p>Новая библиотека:</p>
   <code>#include &lt;iomanip&gt;</code>
+
+  <p>Без библиотеки <strong>iomanip</strong>, cout пытается вывести вещественное число в сокращенном виде. Библиотека <strong>iomanip</strong> позволяет <strong>зафиксировать точность</strong> вывода и <strong>указать количество знаков после запятой</strong> для вывода функцией cout.</p>
   <p>Пример:</p>
   <code>double a = 0.765765765765765;</code>
-  <code>cout &lt;&lt; a &lt;&lt; "\n"; // 0.765766</code>
-  <code>cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; a &lt;&lt; "\n"; // 0.76576577</code>
-  <p>Если в задаче требуют вывести n знака после запятой, всегда выводите больше знаков, чтобы улучшить ответ.</p>
+  <code>cout &lt;&lt; a &lt;&lt; '\n'; // 0.765766</code>
+  <code>cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; a &lt;&lt; '\n'; // 0.76576577</code>
 
+  <p>Кроме того, без библиотеки <strong>iomanip</strong> cout может вывести вещественное число в <strong>экспоненциальной форме</strong>, если она будет короче <strong>десятичной формы</strong>, но тестирующая система воспринимает эту форму не как <strong>число</strong>, а как <strong>строку</strong>. Библиотека <strong>iomanip</strong> позволяет задать только <strong>десятичную форму</strong> для вывода.</p>
+  <code>double b = 0.00005;</code>
+  <code>cout &lt;&lt; b &lt;&lt; '\n'; // 5e-05</code>
+  <code>cout &lt;&lt; fixed &lt;&lt; setprecision(6) &lt;&lt; b &lt;&lt; '\n'; // 0.000050</code>
+
+  <p>Если в задаче требуют вывести n знака после запятой, всегда выводите больше знаков, чтобы улучшить ответ.</p>
+  <p>В олимпиадном программировании вещественные числа это всегда плохо. Появляется погрешность в вещественной части, от которой не возможно избавиться. И погрешность после каждого вычисления будет только накапливаться. Если есть возможность решайте все в целых числах.</p>
+
+  <div class="anchor" id="p2"></div>
   <h4>Вещественный бинарный поиск</h4>
-  <p>Рассмотрим задачу, нахождения корня у функции f(x) = 0. Пусть известно, что функция непрерывна, но искать ответ по-честному тяжело. Пусть известно, что при значении left и right функция f(x) принимает разные знаки. Тогда мы можем прибегнуть к вещественному бинарному поиску.</p>
+
+  <p>Рассмотрим задачу, нахождения корня у функции f(x) = 0. Например, это многочлен. В большинстве задач по спортивному программированию функции непрерывны. То есть у них нет точек разрыва или области неопределенности. Конечно, у таких функций можно попытаться найти честное математическое решение, но это сложно и долго, поэтому стараются находить приблизительный ответ с заданной точностью.</p>
+
+  <div class="anchor" id="p3"></div>
+  <h4>Задача 1. Нахождение корня у функции f(x) = 0</h4>
+
+  <p>Пусть известно, что функция непрерывна, но искать ответ по-честному тяжело. Пусть известно, что при значении left и right функция f(x) принимает разные знаки. Тогда мы можем прибегнуть к вещественному бинарному поиску.</p>
 <pre>
 double left = 0; // левая граница
 double right = 1e6; // правая граница
@@ -70,23 +91,31 @@ while (right - left > eps) {
   if (f(mid)) {
     left = mid;
   } else {
-    rightn = mid;
+    right = mid;
   }
 }
 
 cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; left;
 </pre>
-  <p>В качестве ответа можно вывести любое число в диапазоне от left до right. Поскольку ответ проверяется с некоторой точностью, мы можем добиться того, чтобы весь диапазон был близок к результату членов жюри. Если от вас требуют точность ответа 4 знака после запятой, переменную eps можно сделать с запасом меньше 10⁻⁶.</p>
+  <p>В <strong>бинарном поиске</strong> ответ лежит либо в левой границе left, либо в правой границе right. Где left и right показывают на два разных элемента в массиве и нужно определить в каком из них лежит ответ. В <strong>вещественном бинарном поиске</strong> ответом является любое число в диапазоне от left до right. Поскольку ответ проверяется с некоторой точностью, мы можем добиться того, чтобы весь диапазон был близок к результату членов жюри. Если от вас требуют точность ответа 4 знака после запятой, переменную eps можно сделать с запасом меньше 10⁻⁶.</p>
   <p>Варианты ответов:</p>
   <code>left</code>
   <code>right</code>
   <code>(left+right)/2</code>
 
+
+  <div class="anchor" id="p4"></div>
   <h4>Тернарный поиск</h4>
-  <p>Рассмотрим задачу нахождения минимума у функции на отрезке от left до right. В качестве примера возьмем функцию f1(x) = x² - 5x. Определить сразу при каком значении x будет минимальное значение трудно. Бывает, что функция имеет очень сложный вид.</p>
-  <p>Для решения задачи прибегнем к алгоритму тернарный поиск. Алгоритм схож с бинарным поиском, однако вместо нахождения середины отрезка и отсечения половины, мы будем искать трети отрезка и отсечения одного из трех подотрезков.</p>
+
+  <p>Тернарный поиск применяется когда нужно найти локальный минимум или локальный максимум функции. Алгоритм схож с бинарным поиском, однако вместо нахождения середины отрезка и отсечения половины, мы будем искать трети отрезка и отсечения одного из трех подотрезков. Отрезок, в котором точно находится ответ делят на три части двумя точками разбиения mid_left и mid_right. Рассмотрим задачу нахождения минимума у функции на отрезке от left до right.</p>
+
+  <div class="anchor" id="p5"></div>
+  <h4>Задача 2. Нахождение минимума у функции на отрезке от left до right</h4>
+
+  <p>В качестве примера возьмем функцию f1(x) = x² - 5x. Определить сразу при каком значении x будет минимальное значение трудно. Бывает, что функция имеет очень сложный вид.</p>
+  <p>Для решения задачи прибегнем к алгоритму тернарный поиск.</p>
   <code>mid_left = left + (right - left)/3,</code>
-  <code>mid_right = left + (right - left)/3 ∗ 2.</code>
+  <code>mid_right = left + (right - left)/3 * 2.</code>
   <p>На каждой итерации мы будем удалять треть отрезка, где ответа нет.</p>
 <pre>
 double left = 0;
@@ -104,6 +133,10 @@ while (right - left > eps) {
 cout &lt;&lt; fixed &lt;&lt; setprecission(8) &lt;&lt; left;
 </pre>
   <p>Так же справедливо, что любое число в диапазоне от left до right является ответом на задачу.</p>
+
+  <div class="anchor" id="p6"></div>
+  <h4>Вещественный бинарный поиск по ответу</h4>
+
   <p>Вещественный бинарный поиск по ответу применяется, если:</p>
   <ol>
     <li>Ответ на задачу можно найти математически, но формулу необходимо долго и трудно выводить.</li>
@@ -157,6 +190,47 @@ cout &lt;&lt; fixed &lt;&lt; setprecission(8) &lt;&lt; left;
     <code>27</code>
     <code>3</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+// возведение в 3 степень
+double formula(double y) {
+  return y * y * y;
+}
+
+int main() {
+  // ввод данных
+  int x; // число
+  cin >> x;
+  double eps = 1e-8;
+
+  // решение
+  // в задаче надо найти кубический корень числа x
+  double left = 0;
+  double right = 1e6;
+  double mid;
+
+  // вещественный бинарный поиск
+  while (right - left > eps) {
+    mid = left + (right - left) / 2;
+    if (formula(mid) &lt; x) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; left;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -180,6 +254,70 @@ cout &lt;&lt; fixed &lt;&lt; setprecission(8) &lt;&lt; left;
     <summary>Пример</summary>
     <code>2 2</code>
     <code>1.414214</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 2</h4>
+    <code>3 8</code>
+    <code>2</code>
+
+    <h4>Пример 3</h4>
+    <code>3 -27</code>
+    <code>3</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+// возведение в степень n
+long double formula(int n, long double mid) {
+  long double res = 1;
+  while (n--) {
+    res *= mid;
+  }
+  return res;
+}
+
+int main() {
+  // ввод данных
+  int n; // степень корня
+  int c; // число
+  cin >> n >> c;
+  long double eps = 1e-8;
+
+  // решение
+  bool flag = false;
+  if (c &lt; 0) {
+    flag = true;
+    c = -c;
+  }
+
+  // в задаче надо найти корень степени n числа c
+  long double left = 0;
+  long double right = c;
+  long double mid;
+
+  // вещественный бинарный поиск
+  while (right - left > eps) {
+    mid = left + (right - left) / 2;
+    if (formula(n, mid) &lt; c) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  if (flag && n % 2 == 1) {
+    right = -right;
+  }
+
+  // вывод результата
+  cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; right;
+}
+</pre>
   </details>
 </article>
 
@@ -209,6 +347,74 @@ cout &lt;&lt; fixed &lt;&lt; setprecission(8) &lt;&lt; left;
     <h4>Пример 2</h4>
     <code>18.0000000000</code>
     <code>4.000000000000000</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+
+ld eps = 1e-8;
+
+ld formula(ld);
+ld sqrt2(ld);
+
+int main() {
+  // ввод данных
+  ld c; // число
+  cin >> c;
+
+  // решение
+  // в задаче надо найти такой x, что x * x + sqrt(x) = c
+  ld left = 0;
+  ld right = 1e6;
+  ld mid;
+
+  // вещественный бинарный поиск
+  while (right - left > eps) {
+    mid = left + (right - left) / 2;
+    if (formula(mid) &lt; c) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; fixed &lt;&lt; setprecision(8) &lt;&lt; right;
+}
+
+// вычисление формулы
+ld formula(ld x) {
+  ld res = x * x + sqrt2(x);
+  return res;
+}
+
+// вычисление квадратного корня
+ld sqrt2(ld y) {
+  ld left = 0;
+  ld right = 1e6;
+  ld mid;
+
+  // вещественный бинарный поиск
+  while (right - left > eps) {
+    mid = left + (right - left) / 2;
+    if (mid * mid &lt; y) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+
+  return right;
+}
+</pre>
   </details>
 </article>
 
@@ -250,31 +456,37 @@ cout &lt;&lt; fixed &lt;&lt; setprecission(8) &lt;&lt; left;
 
 using namespace std;
 
-int main() {
-  // ускорение ввода-вывода
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+double formula(int b, int c, int d, double m) {
+  return m * m * m + b * m * m + c * m + d;
+}
 
+int main() {
   // ввод данных
   double a, b, c, d;
   cin >> a >> b >> c >> d;
 
   // решение
+  // в задаче надо вычислить корень уравнения
+  // a * x * x * x + b * x * x + c * x + d = 0
+
   // a ≠ 0. Упростим уравнение
   b = b / a;
   c = c / a;
   d = d / a;
   a = 1;
+
   double left = -10000;
   double right = 10000;
+  double mid;
   double eps = 1e-8;
-  double m; // медиана
+
+  // вещественный бинарный поиск
   while (right - left > eps) {
-    m = (left + right) / 2;
-    if (m * m * m + b * m * m + c * m + d &lt; 0) {
-      left = m;
+    mid = (left + right) / 2;
+    if (formula(b, c, d, mid) &lt; 0) {
+      left = mid;
     } else {
-      right = m;
+      right = mid;
     }
   }
 

@@ -1,5 +1,5 @@
 <article class="article">
-  <a href="https://codeforces.com/contest/2126" target="_blank">Codeforces Round 1037 (Div.3) 2025-07-17</a>
+  <a href="https://codeforces.com/contest/2126" target="_blank">Codeforces 2126 Round 1037 (Div.3) 2025-07-17</a>
 </article>
 
 
@@ -301,22 +301,21 @@ NO
   </details>
 
   <details>
-    <summary>Решение с TL</summary>
+    <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
-#include &lt;set&gt;
-#include &lt;iterator&gt; // for prev
+#include &lt;algorithm&gt;
 
 using namespace std;
 
 int main() {
   // ускорение ввода-вывода
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
 
-// условная компиляция
+  // условная компиляция
 #ifdef _DEBUG
   freopen("input.txt", "rt", stdin);
   freopen("output.txt", "wt", stdout);
@@ -329,54 +328,36 @@ int main() {
   while (t--) {
     // ввод данных
     int n; // число башен
-    int k; // номер башни где нахожусь в момент 0
+    int k; // номер башни
     cin >> n >> k;
-    vector&lt;int&gt; A(n + 1);
-    for (int i = 1; i &lt;= n; i++) {
-      cin >> A[i]; // высота башни
+
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+      // A[i] - высота башни i
     }
 
     // решение
-    string res = "YES";
-    int h = A[k] + 1; // наша начальная высота
-    int voda_h = 1; // начальная высота воды
+    int h = A[k - 1]; // начальная высота
+    sort(A.begin(), A.end());
 
-    // соберем set
-    set&lt;int&gt; H;
-    for (int i = 1; i &lt;= n; i++) {
-      H.insert(A[i]);
-    }
-
-    // разыменовываем итератор на последний элемент сета
-    int max_h = *prev(H.end()); // максимальная высота башни
-    int dif_h = h - voda_h; // высота от меня до воды
-
-    // пока мы выше воды и есть башня выше нас
-    // пытаемся добраться до любой башни
-    while (h > voda_h && max_h > h) {
-      bool hod = false;
-      for (int i = dif_h; i > 0; i--) {
-        if (H.find(h - 1 + i) != H.end()) {
-          h = h + i;
-          voda_h = voda_h + i;
-          hod = true;
+    bool flag = false;
+    for (int i = 0; i &lt; n; i++) {
+      if (A[i] > h) {
+        int tm = A[i] - h;
+        if (tm > A[i - 1]) {
+          flag = true;
         }
       }
-
-      // если нельзя добраться до любой башни
-      if (!hod) {
-        h = voda_h;
-      }
-    }
-
-    if (voda_h >= h) {
-      res = "NO";
     }
 
     // вывод результата
-    cout &lt;&lt; res &lt;&lt; '\n';
+    if (flag) {
+      cout &lt;&lt; "NO\n";
+    } else {
+      cout &lt;&lt; "YES\n";
+    }
   }
-
 }
 </pre>
   </details>

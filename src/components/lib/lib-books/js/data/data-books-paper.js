@@ -1280,6 +1280,21 @@ const dataBooksPaper = [
     year: 2023,
     category: 'paper',
     theme: 'Бумажные книги',
+    title: 'Новые возможности JavaScript',
+    author: 'Краудер',
+    authorName: 'Ти Джей',
+    pages: '640',
+    cover: 'твердая',
+    image: '2023 Краудер - Новые возможности JavaScript.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 87,
+    year: 2023,
+    category: 'paper',
+    theme: 'Бумажные книги',
     title: 'Анализ алгоритмов. Активный обучающий подход (3е)',
     author: 'Макконнелл',
     authorName: 'Андрей',
@@ -1291,7 +1306,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 87,
+    id: 88,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1305,7 +1320,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 88,
+    id: 89,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1320,7 +1335,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 89,
+    id: 90,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',

@@ -51,6 +51,7 @@ import htmlERound135     from './../pages/elem-220908-EdRound135.html';
 import htmlRound820      from './../pages/elem-220912-Round820.html';
 import htmlRound821      from './../pages/elem-220919-Round821.html';
 import htmlRound822      from './../pages/elem-220923-Round822.html';
+import htmlRound823      from './../pages/elem-220925-Round823.html';
 import htmlRound826      from './../pages/elem-221011-Round826.html';
 import htmlRound827      from './../pages/elem-221013-Round827.html';
 import htmlRound831      from './../pages/elem-221029-Round831.html';
@@ -92,6 +93,7 @@ import htmlRound1043     from './../pages/elem-250821-Round1043.html';
 import htmlRound1044     from './../pages/elem-250824-Round1044.html';
 import htmlRound1045     from './../pages/elem-250826-Round1045.html';
 import htmlRound1046     from './../pages/elem-250828-Round1046.html';
+import htmlRound1047     from './../pages/elem-250907-Round1047.html';
 
 export const pages = [
   htmlRound1,
@@ -146,6 +148,7 @@ export const pages = [
   htmlRound820,
   htmlRound821,
   htmlRound822,
+  htmlRound823,
   htmlRound826,
   htmlRound827,
   htmlRound831,
@@ -187,4 +190,5 @@ export const pages = [
   htmlRound1044,
   htmlRound1045,
   htmlRound1046,
+  htmlRound1047,
 ];

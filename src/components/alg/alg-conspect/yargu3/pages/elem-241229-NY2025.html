@@ -420,6 +420,59 @@ int main() {
 </pre>
   <code>entrance exams</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число мест
+  int k; // число баллов
+  int m; // число абитуриентов
+  cin >> n >> k >> m;
+  vector&lt;int&gt; A(m);
+  for (int i = 0; i &lt; m; i++) {
+    cin >> A[i];
+    // i-ый абитуриент набрал A[i] баллов
+  }
+
+  // решение
+  sort(A.rbegin(), A.rend());
+  // число мест равно n, поэтому пройдет ровно n абитуриентов
+  int proh = A[n - 1]; // проходной балл
+  string res;
+  if (k > proh) {
+    res = "enter";
+  }
+  if (k == proh) {
+    res = "entrance exams";
+  }
+  if (k &lt; proh) {
+    res = "no chance";
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 
@@ -459,6 +512,91 @@ int main() {
 4 80 80 100 60
 </pre>
   <code>2 3 </code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число дверей
+  cin >> n;
+  vector&lt;int&gt; A(n+1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+    // i-ая дверь имеет ширину A[i]
+  }
+  int m; // число цветов
+  cin >> m;
+  vector&lt;vector&lt;int&gt; &gt; B(m + 1);
+  for (int color = 1; color &lt;= m; color++) {
+    int len;
+    cin >> len;
+    for (int i = 0; i &lt; len; i++) {
+      int w;
+      cin >> w;
+      B[color].push_back(w);
+      // B[color] массив ширины дверей цветом color
+    }
+  }
+
+  // решение
+  // соберем частотный словарь ширины дверей которые нужны
+  map&lt;int, int&gt; Freq;
+  for (int i = 1; i &lt;= n; i++) {
+    Freq[A[i]]++;
+    // A[i] - ширина двери, Freq[A[i]] - их количество
+  }
+  vector&lt;int&gt; Res;
+  for (int color = 1; color &lt;= m; color++) {
+
+    // для каждого цвета двери соберем частостный словарь ширины дверей
+    map&lt;int, int&gt; FreqColor;
+    for (int i = 0; i &lt; B[color].size(); i++) {
+      FreqColor[B[color][i]]++;
+    // B[i] - ширина двери, FreqColor[B[i]] - их количество
+    }
+
+    // если есть все двери этого цвета, то цвет добавляем в результат
+    bool flag = true;
+    for (pair&lt;int, int&gt; wid: Freq) {
+      if (wid.second > FreqColor[wid.first]) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      Res.push_back(color);
+    }
+  }
+
+  // вывод результата
+  if (Res.size() == 0) {
+    cout &lt;&lt; -1;
+  } else {
+    for (int i = 0; i &lt; Res.size(); i++) {
+      cout &lt;&lt; Res[i] &lt;&lt; ' ';
+    }
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -510,6 +648,88 @@ natasha
 ruslan
 sonya
 veronika
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n1; // число имен которые нравятся Игорю
+  int n2; // число имен которые нравятся Ире
+  int m1; // число имен которые не нравятся Игорю
+  int m2; // число имен которые не нравятся Ире
+  cin >> n1 >> n2 >> m1 >> m2;
+
+  // все имена которые нравятся добавим в сет
+  set&lt;string&gt; Name;
+  string tmp;
+
+  set&lt;string&gt; A;
+  for (int i = 0; i &lt; n1; i++) {
+    cin >> tmp;
+    A.insert(tmp);
+    Name.insert(tmp);
+  }
+
+  set&lt;string&gt; B;
+  for (int i = 0; i &lt; n2; i++) {
+    cin >> tmp;
+    B.insert(tmp);
+    Name.insert(tmp);
+  }
+
+  set&lt;string&gt; C;
+  for (int i = 0; i &lt; m1; i++) {
+    cin >> tmp;
+    C.insert(tmp);
+  }
+
+  set&lt;string&gt; D;
+  for (int i = 0; i &lt; m2; i++) {
+    cin >> tmp;
+    D.insert(tmp);
+  }
+
+  // решение
+  // выберем все имена которые есть в обоих списках A и B
+  // и которых нет ни в одном списке C или D
+  set&lt;string&gt; Res;
+  for (auto name : Name) {
+    if (A.find(name) != A.end() &&
+      B.find(name) != B.end() &&
+      C.find(name) == C.end() &&
+      D.find(name) == D.end()) {
+      Res.insert(name);
+    }
+  }
+
+  // вывод результата
+  if (Res.size() == 0) {
+    cout &lt;&lt; 0;
+  } else {
+    for (auto name: Res) {
+      cout &lt;&lt; name &lt;&lt; '\n';
+    }
+  }
+}
 </pre>
   </details>
 </article>

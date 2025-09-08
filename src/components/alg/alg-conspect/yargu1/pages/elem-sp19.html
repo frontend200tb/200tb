@@ -17,7 +17,8 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="#p1">Графы #1. Базовые понятия теории графов</a>
+        <a href="#p1">Графы #1. Базовые понятия теории графов</a>
+    <br><a href="#p2">Способы хранения графов</a>
   </p>
   <p>
         <a href="#task1">Задача A. Светофорчики</a>
@@ -127,8 +128,13 @@
     <li>(n - 1)-регулярные графы — полные графы.</li>
   </ul>
   <p><strong>Определение 30.</strong> Граф называется <strong>двудольным</strong>, если все его вершины можно разместить в двух не пересекающихся множествах, так что любое ребро графа будет соединять вершины из двух разных множеств.</p>
+</article>
 
-  <h4>Способы хранения графов</h4>
+
+<!-- Способы хранения графов -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Способы хранения графов</h3>
 
   <p>Существуют три классических способа задания графа:</p>
   <ol>
@@ -349,7 +355,6 @@ int main() {
   for (int i = 1; i &lt;= n; i++) {
     cout &lt;&lt; Res[i] &lt;&lt; ' ';
   }
-
 }
 </pre>
   </details>
@@ -489,7 +494,6 @@ int main() {
   for (int i = 1; i &lt;= n; i++) {
     cin >> Color[i];
   }
-
 
   // решение
   int res = 0;
@@ -863,15 +867,10 @@ int main() {
   int m; // число ребер
   cin >> n >> m;
 
-  // список ребер
-  //vector&lt;pair&lt;int, int&gt; &gt; G(m);
-  //for (int i = 0; i &lt; m; i++) {
-  //  cin >> G[i].first >> G[i].second;
-  //}
-
   int x, y; // вершины ребра
   // список смежности
-  vector&lt;vector&lt;int&gt; &gt; G(m + 1);
+  // число элементов равно числу вершин
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1);
   for (int i = 0; i &lt; m; i++) {
     cin >> x >> y;
     G[x].push_back(y);
@@ -962,6 +961,73 @@ int main() {
 
     <p>В третьем примере Боб не может сесть на поезд, следующий в сторону дома Алисы.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число станций метро
+  int s; // станция Алисы
+  cin >> n >> s;
+  vector&lt;int&gt; A(n+1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+  vector&lt;int&gt; B(n+1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  bool flag = false;
+
+  // Боб может ехать если его станция
+  // (первая) открыта в прямом направлении
+  if (A[1] == 1) {
+
+    // если станция Алисы открыта в прямом направлении
+    if (A[s] == 1) {
+      flag = true;
+    }
+
+    // если станция Алисы открыта в обратном направлении
+    // и можно сделать пересадку после станции Алисы
+    if (B[s] == 1) {
+      for (int i = s + 1; i &lt;= n; i++) {
+        if (A[i] == 1 && B[i] == 1) {
+          flag = true;
+        }
+      }
+    }
+
+  }
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -1028,7 +1094,6 @@ int main() {
     <p>Сложность O(n³). При n = 100 это приемлемо.</p>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 #include &lt;vector&gt;
 
 using namespace std;
@@ -1155,6 +1220,131 @@ int main() {
 1 4
 </pre>
     <code>unknown topology</code>
+  </details>
+
+  <details>
+    <summary>Решение не готово</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число вершин
+  int m; // число ребер
+  cin >> n >> m;
+
+  vector&lt;set&lt;int&gt; &gt; G(n+1);
+  int x, y; // две вершины одного ребра
+
+  // из списка ребер соберем список смежности
+  for (int i = 0; i &lt; m; i++) {
+    cin >> x >> y;
+    G[x].insert(y);
+    G[y].insert(x);
+  }
+
+  // решение
+  string res;
+  bool good = true; // топология известна
+  int mode = 0;  // топология не задана
+  int node = 0;
+  // mode = 1;  // топология шина
+  // mode = 2;  // топология кольцо
+  // mode = 3;  // топология звезда
+
+  // если одна вершина соединяется с тремя и более
+  // вершинами то проверим топологию на звезду
+  // если больше одной вершины соединяется с тремя и более
+  // вершинами то топология неизвестна
+  for (int i = 1; good && i &lt;= n; i++) {
+    if (G[i].size() > 2) {
+      if (mode == 0) {
+        mode = 3; // надо проверить топологию на звезду
+        node = i; // вершина звезды
+      } else {
+        mode = 0;
+        good = false; // топология неизвестна
+      }
+    }
+  }
+
+  // проверим топологию на звезду
+  if (mode == 3) {
+    for (int i = 1; good && i &lt;= n; i++) {
+      if (G[i].size() == n - 1) {
+        int sum1 = 0;
+        for (int g : G[i]) {
+          sum1 += g;
+        }
+        int sum2 = n * (n + 1) / 2;
+        if (sum1 != sum2 - node) {
+          mode = 0;
+          good = false;
+        }
+      } else if (G[i].size() == 1) {
+        if (G[i].find(node) == G[i].end()) {
+          mode = 0;
+          good = false;
+        }
+      } else {
+        mode = 0;
+        good = false;
+      }
+    }
+  }
+
+  // если каждая вершина соединяется с двумя вершинами
+  // то проверим топологию на кольцо
+  if (mode == 0) {
+    mode = 2;
+    for (int i = 1; good && i &lt;= n; i++) {
+      if (G[i].size() != 2) {
+        mode = 0;
+        good = false;
+    }
+  }
+
+  // проверим топологию на кольцо
+  if (mode == 2) {
+    set&lt;int&gt; N;
+    for (int i = 1; i &lt;= n; i++) {
+      N.insert(i);
+    }
+    for (int i = 1; i &lt;= n; i++) {
+      for (int g: G[i])
+      if (N.find(g) != N.end()) {
+      //
+      }
+  }
+
+  // если две вершины соединяются только с одной вершиной
+  // а остальные с двумя то проверим топологию на шину
+
+  // вывод результата
+  if (good) {
+    if (mode == 3) {
+      cout &lt;&lt; "star topology";
+    }
+  } else {
+    cout &lt;&lt; "unknown topology";
+  }
+}
+</pre>
   </details>
 </article>
 
