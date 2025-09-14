@@ -22,6 +22,97 @@
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 64мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string s; // начальная клетка
+  string t; // конечная клетка
+  cin >> s >> t;
+
+  // решение
+  // достанем из строки координаты клетки
+  char let = s[0];
+  char dig = s[1];
+  char let2 = t[0];
+  char dig2 = t[1];
+
+
+  // в задаче надо найти минимальное число ходов
+  // короля из начальной в конечную клетку
+  int step = 0;
+  vector&lt;string&gt; Steps;
+
+  while (let != let2 || dig != dig2) {
+
+    if (let == let2 && dig2 > dig) {
+      dig++;
+      step++;
+      Steps.push_back("U");
+    }
+
+    if (let2 > let && dig2 > dig) {
+      let++;
+      dig++;
+      step++;
+      Steps.push_back("RU");
+    }
+
+    if (let2 > let && dig2 == dig) {
+      let++;
+      step++;
+      Steps.push_back("R");
+    }
+
+    if (let2 > let && dig > dig2) {
+      let++;
+      dig--;
+      step++;
+      Steps.push_back("RD");
+    }
+
+    if (let == let2 && dig > dig2) {
+      dig--;
+      step++;
+      Steps.push_back("D");
+    }
+
+    if (let > let2 && dig > dig2) {
+      let--;
+      dig--;
+      step++;
+      Steps.push_back("LD");
+    }
+
+    if (let > let2 && dig == dig2) {
+      let--;
+      step++;
+      Steps.push_back("L");
+    }
+
+    if (let > let2 && dig2 > dig) {
+      let--;
+      dig++;
+      step++;
+      Steps.push_back("LU");
+    }
+
+  }
+
+  // вывод результата
+  cout &lt;&lt; step &lt;&lt; '\n';
+  for (int i = 0; i &lt; Steps.size(); i++) {
+    cout &lt;&lt; Steps[i] &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
 </article>
 
 

@@ -305,5 +305,58 @@ int main() {
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 64мб</i></div>
 
+  <details>
+    <summary>Решение неправильный ответ на тесте 16</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool cmp(const pair&lt;pair&lt;int, int&gt;, int&gt; a, const pair&lt;pair&lt;int, int&gt;, int&gt; b)
+{
+  if (a.first.first == b.first.first) return a.first.second &lt; b.first.second;
+  return a.first.first &lt; b.first.first;
+}
+
+int main() {
+  // ввод данных
+  int n; // число конвертов
+  int w; // ширина открытки
+  int h; // высота открытки
+  cin >> n >> w >> h;
+  int a, b;
+
+  // ширина, высота, номер конверта
+  vector&lt;pair&lt;pair&lt;int, int&gt;, int &gt; &gt; Konv(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> a >> b;
+    Konv[i] = make_pair(make_pair(a, b), i + 1);
+  }
+
+  // решение
+  int cnt = 0;
+  sort(Konv.begin(), Konv.end(), cmp);
+  vector&lt;int&gt; Nabor;
+  pair&lt;int, int&gt; prev = make_pair(w, h);
+
+  // соберем цепь конвертов
+  for (int i = 0; i &lt; n; i++) {
+    if (Konv[i].first.first > prev.first && Konv[i].first.second > prev.second) {
+      cnt++;
+      Nabor.push_back(Konv[i].second);
+      prev = Konv[i].first;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; cnt &lt;&lt; '\n';
+  for (int i = 0; i &lt; Nabor.size(); i++) {
+    cout &lt;&lt; Nabor[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
 

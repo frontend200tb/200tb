@@ -1,0 +1,334 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/2148" target="_blank">Codeforces 2148 Round 1050 (Div. 4) 2025-09-13</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Возвышенная последовательность</a>
+  <br><a href="#task2">Задача B. Лазеры</a>
+  <br><a href="#task3">Задача C. Тест на выносливость</a>
+  <br><a href="#task4">Задача D. Уничтожение полей одуванчиков</a>
+  <br><a href="#task5">Задача E. Разделение</a>
+  <br><a href="#task6">Задача F. Гравити Фолз</a>
+  <br><a href="#task7">Задача G. Последнее желание фермера Джона</a>
+</article>
+
+
+<!-- Задача A. Возвышенная последовательность -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Возвышенная последовательность</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int x; // целое число
+    int n; // длина последовательности
+    cin >> x >> n;
+
+    // решение и вывод результата
+    if (n % 2 == 0) {
+      cout &lt;&lt; 0 &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; x &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Лазеры -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Лазеры</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число горизонтальных лазеров
+    int m; // число вертикальных лазеров
+    int x, y; // координаты конечной точки
+    cin >> n >> m >> x >> y;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+    vector&lt;int&gt; B(m);
+    for (int i = 0; i &lt; m; i++) {
+      cin >> B[i];
+    }
+
+    // решение и вывод результата
+    cout &lt;&lt; n + m &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Тест на выносливость -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. Тест на выносливость</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число требований
+    int m; // число минут
+    cin >> n >> m;
+
+    vector&lt;int&gt; A(n+1);
+    // A[i] - минута команды i
+    vector&lt;int&gt; B(n+1);
+    // B[i] - на какой стороне надо находиться в минуту A[i]
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i] >> B[i];
+    }
+
+    // решение
+    bool side = 0; // на какоей стороне зала Фермер Джон
+    int cnt = 0; // число баллов
+    int minute = 0; // текущая минута
+
+    // переберем все команды
+    for (int i = 1; i &lt;= n; i++) {
+      if ( (A[i] - minute) % 2 == 0) {
+        if (side == B[i]) {
+          cnt += A[i] - minute;
+        } else {
+          cnt += A[i] - minute - 1;
+          side = !side;
+        }
+      } else {
+        if (side == B[i]) {
+          cnt += A[i] - minute - 1;
+        } else {
+          cnt += A[i] - minute;
+          side = !side;
+        }
+      }
+      minute = A[i];
+    }
+
+    // если еще остались минуты
+    cnt += m - A[n];
+
+    // вывод результата
+    cout &lt;&lt; cnt &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Уничтожение полей одуванчиков -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. Уничтожение полей одуванчиков</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 2</h4>
+<pre>
+1
+8
+1 3 5 7 9 11 13 15
+</pre>
+    <code>48</code>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // число полей
+    cin >> n;
+
+    vector&lt;long long&gt; A; // поля с четным числом одуванчиков
+    // A[i] - число одуванчиков на i-м поле
+    vector&lt;long long&gt; B; // поля с нечетным числом одуванчиков
+    // B[i] - число одуванчиков на i-м поле
+    long long in; // число одуванчиков на следующем поле
+    for (int i = 0; i &lt; n; i++) {
+      cin >> in;
+      if (in % 2 == 0) {
+        A.push_back(in);
+      } else {
+        B.push_back(in);
+      }
+    }
+
+    // решение
+    bool mode = 0;
+    // состояние газонокосилки
+    // 0 - выключенная
+    // 1 - включенная
+    long long cnt = 0; // число срезанных одуванчиков
+
+    // отсортируем поля B, потому что газонокосилка
+    // на одном поле будет включаться, на другом выключаться
+    // пусть выключалается на полях с минимальным числом одуванчиков
+    sort(B.begin(), B.end());
+
+    // сначала нужно включить газонокасилку
+    // для этого надо посетить поле B с макс числом одуванчиков
+    if (B.size() > 0) {
+      cnt += B[B.size() - 1];
+      mode = !mode;
+    }
+
+    // пока газонокосилка включена срежем все одуванчики на полях A
+    for (int i = 0; mode && i &lt; A.size(); i++) {
+      cnt += A[i];
+    }
+
+    // метод двух указателей
+    int p1 = 0;
+    int p2 = B.size() - 2;
+    while (p2 >= p1) {
+      if (mode) {
+        p1++;
+      } else {
+        cnt += B[p2--];
+      }
+      mode = !mode;
+    }
+
+    // вывод результата
+    cout &lt;&lt; cnt &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Разделение -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. Разделение</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+
+
+<!-- Задача F. Гравити Фолз -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача F. Гравити Фолз</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+
+
+<!-- Задача G. Последнее желание фермера Джона -->
+<article class="article">
+  <div class="anchor" id="task7"></div>
+  <h3>Задача G. Последнее желание фермера Джона</h3>
+
+  <div><i>Ограничение по времени 3с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+

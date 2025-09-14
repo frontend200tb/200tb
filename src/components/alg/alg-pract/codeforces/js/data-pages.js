@@ -94,6 +94,7 @@ import htmlRound1044     from './../pages/elem-250824-Round1044.html';
 import htmlRound1045     from './../pages/elem-250826-Round1045.html';
 import htmlRound1046     from './../pages/elem-250828-Round1046.html';
 import htmlRound1047     from './../pages/elem-250907-Round1047.html';
+import htmlRound1050     from './../pages/elem-250913-Round1050.html';
 
 export const pages = [
   htmlRound1,
@@ -191,4 +192,5 @@ export const pages = [
   htmlRound1045,
   htmlRound1046,
   htmlRound1047,
+  htmlRound1050,
 ];

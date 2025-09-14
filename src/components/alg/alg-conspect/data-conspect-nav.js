@@ -6,9 +6,8 @@ import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
 import show1580        from './1580/1580';
 import showStepik      from './stepik/stepik';
-import showDp          from './dp/dp';
-import showKurs1       from './kurs1/kurs1';
-import showKurs2       from './kurs2/kurs2';
+import showAlgBooks    from './alg-books/alg-books';
+import showAlgCourses  from './alg-courses/alg-courses';
 
 export const dataConspectNav = [
   {
@@ -76,27 +75,19 @@ export const dataConspectNav = [
     },
   },
   {
-    url: 'dp.html',
-    text: 'ДП',
-    content: '<alg-dp></alg-dp>',
+    url: 'alg-books.html',
+    text: 'Книги',
+    content: '<alg-books></alg-books>',
     act() {
-      showDp();
+      showAlgBooks();
     },
   },
   {
-    url: 'kurs1.html',
-    text: 'Курс 1',
-    content: '<alg-kurs1></alg-kurs1>',
+    url: 'alg-courses.html',
+    text: 'Курсы',
+    content: '<alg-courses></alg-courses>',
     act() {
-      showKurs1();
-    },
-  },
-  {
-    url: 'kurs2.html',
-    text: 'Курс 2',
-    content: '<alg-kurs2></alg-kurs2>',
-    act() {
-      showKurs2();
+      showAlgCourses();
     },
   },
 ];

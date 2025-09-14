@@ -17,7 +17,13 @@
   <h2>Содержание</h2>
 
   <p>
-    <a href="#p1">Графы #3. DFS. Поиск в глубину</a>
+        <a href="#p1">Графы #3. DFS. Поиск в глубину</a>
+    <br><a href="#p2">1 Поиск количества компонент связности</a>
+    <br><a href="#p3">2 Проверка существования пути от вершины a к вершине b</a>
+    <br><a href="#p4">3 Проверка графа на двудольность</a>
+    <br><a href="#p5">4 Поиск циклов</a>
+    <br><a href="#p6">5 Восстановление цикла</a>
+    <br><a href="#p7">6 Проверка на предка</a>
   </p>
   <p>
         <a href="#task1">Задача A. Дерево</a>
@@ -44,58 +50,90 @@
   <div class="anchor" id="p1"></div>
   <h3>Графы #3. DFS. Поиск в глубину</h3>
 
-  <p>Алгоритм «поиск в глубину», его обыденное название dfs (depth-first search), основан на трех принципах, а именно:</p>
+  <p>Алгоритм «поиск в глубину», его обыденное название DFS (depth-first search).</p>
+  <p>Алгоритм DFS основан на трех принципах:</p>
   <ol>
     <li>обходим граф, посещая каждую вершину только один раз;</li>
-    <li>используем структуру данных stack<int> или рекурсивную функцию;</li>
-    <li>обходим граф по соседям, если видим не помеченную смежную вершину, то переходим в смежную вершину.</li>
+    <li>используем структуру данных stack или рекурсивную функцию;</li>
+    <li>обходим граф по соседям, если видим не помеченную смежную вершину, то переходим в смежную вершину. Используем дополнительный vector&lt;int&gt; Mark, в котором отмечаем посещенные вершины</li>
   </ol>
-  <p>Рассмотрим способы применения алгоритма dfs, приведем идеи решений и их реализации:</p>
-  <ul>
+
+  <p>Алгоритм DFS применяется в задачах:</p>
+  <ol>
     <li>поиск количества компонент связности;</li>
-    <li>проверка существования пути от вершины a к вершине b;</li>
+    <li>проверка существования пути от вершины a к вершине b (проверка, что вершины a и b из одной компоненты связности);</li>
     <li>поиск пути от вершины start до вершины finish;</li>
-    <li>поиск кратчайшего пути в графе (плохо);</li>
     <li>проверка графа на двудольность;</li>
     <li>поиск циклов;</li>
     <li>восстановление цикла;</li>
-    <li>проверка на предка (упрощенная задача LCA).</li>
-  </ul>
+    <li>проверка на предка (упрощенная задача LCA);</li>
+    <li>поиск кратчайшего пути в графе (плохо).</li>
+  </ol>
+</article>
 
-  <h4>Поиск количества компонент связности</h4>
-  <p>Одной из самых простых задач является поиск количества компонент связности. Для ее решения воспользуемся алгоритмом dfs. Приведем реализацию решения задачи двумя разными способами: dfs через рекурсиюи dfs через структуру данных stack.</p>
-  <p>Реализация алгоритма в виде рекурсивной функции dfs_number_comp. Для решения задачи в main программы создадим переменную cnt, которая будет хранить ответ на задачу. Обойдем все вершины в графе. Если вершина x не была помечена, то запустим алгоритм dfs из вершины x.</p>
+
+<!-- 1 Поиск количества компонент связности -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>1 Поиск количества компонент связности</h3>
+
+  <p>Одной из самых простых задач является поиск количества компонент связности. Для ее решения воспользуемся алгоритмом dfs. Приведем реализацию решения задачи двумя разными способами: dfs через рекурсию и dfs через stack.</p>
+  <p>При обходе DFS мы можем помечать вершины, в которых уже были. Для этого заведем дополнительный vector&lt;int&gt; Mark(n), где для каждой вершины от 1 до n будет хранится 0, если вершина еще не была посещена, или 1 если вершина уже посещена. Обойдем все вершины в графе. Если вершина x не была помечена, то запустим алгоритм dfs из вершины x.</p>
+  <p>Создадим переменную cnt_k для подсчета количества компонент связности.</p>
   <p>В аргументах функции dfs_number_comp передаем:</p>
   <ul>
-    <li>vector &lt;vector&lt;int&gt; &gt; G — граф, представленный в виде списка смежности, где в каждой i строке каждая ячейка — это номер вершины, с которой смежная вершина с номером i;</li>
-    <li>vector &lt;int&gt; Mark — вектор посещаемости. Mark[i] равняется 1, если до вершины с номером i построен путь, иначе равняется 0. Изначально каждая вершина считается не посещенной;</li>
-    <li>tmp — вершина, которую мы рассматриваем сейчас. Трудоемкость алгоритма O(m), где m — количество ребер. Рекурсивная реализация алгоритма dfs считается классическим вариантом.</li>
+    <li>vector&lt;vector&lt;int&gt; &gt; G — граф, представленный в виде списка смежности, где в каждой i строке каждая ячейка — это номер вершины, с которой смежная вершина с номером i;</li>
+    <li>vector&lt;int&gt; Mark — вектор посещаемости. Mark[i] равняется 1, если до вершины с номером i построен путь, иначе равняется 0. Изначально каждая вершина считается не посещенной;</li>
+    <li>tmp — вершина, которую мы рассматриваем сейчас.</li>
   </ul>
+
+  <p>Трудоемкость алгоритма O(m), где m — количество ребер. Рекурсивная реализация алгоритма dfs считается классическим вариантом.</p>
+
+  <p><strong>Задача.</strong> На вход подается неориентированный граф из n вершин и m ребер, заданный списком ребер. Найти количество компонент связности.</p>
 <pre>
 int n; // число вершин
 int m; // число ребер
 cin >> n >> m;
-vector&lt;vector&lt;int&gt; &gt; G(n + 1);
-vector&lt;int&gt; Mark(n + 1);
-// Mark[i] = 0 если не посещали вершину
-// Mark[i] = 1 если уже посетили вершину
-int a, b;
-int res = 0; // число компонент связности
+int a, b; // две вершины одного ребра
 
-// считываем все ребра и построим список смежности
+// список смежности
+vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+
+// ссписок ребер сохраним в список смежности
 for (int i = 0; i &lt; m; i++) {
   cin >> a >> b;
   G[a].push_back(b);
   G[b].push_back(a);
 }
+
+vector&lt;int&gt; Mark(n + 1);
+// Mark[i] = 0 если не посещали вершину
+// Mark[i] = 1 если уже посетили вершину
+
+int cnt_k = 0; // число компонент связности
+
+// пройдем по всем вершинам
+for (int i = 1; i &lt;= n; i++) {
+  if (Mark[i] == 0) {
+
+    // если вершина не была посещена
+    // то мы нашли новую компоненту связности
+    cnt_k++;
+
+    // запускаем dfs чтобы пометить все вершины
+    // в этой компоненте связности
+    dfs(G, Mark, i);
+  }
+}
+
+cout &lt;&lt; cnt_k; // выводим результат
 </pre>
 
-  <p>Реализация DFS в виде функции:</p>
+  <p>Реализация DFS через рекурсию для подсчета компонент связности.</p>
 <pre>
-void dfs_number_comp(
-    vector&lt;vector&lt;int&gt; &gt;& G,
-    vector&lt;int&gt;& Mark,
-    int tmp;) {
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+         vector&lt;int&gt;& Mark, int tmp;) {
+
   // помечаем вершину как пройденную
   Mark[tmp] = 1;
 
@@ -105,31 +143,20 @@ void dfs_number_comp(
     // если в вершине еще не были,
     // то запускаем для нее dfs
     if(Mark[G[tmp][i]] == 0) {
-      dfs_number_comp(G, Mark, G[tmp][i]);
+      dfs(G, Mark, G[tmp][i]);
     }
   }
 }
-
-...
-int cnt = 0;
-for (int i = 1; i &lt;= n; i++) {
-  if (Mark[i] == 0) {
-    cnt++;
-    dfs_number_comp(G, Mark, i);
-  }
-}
-
-cout &lt;&lt; cnt;
 </pre>
 
+  <p>Реализация DFS через stack для подсчета компонент связности.</p>
 <pre>
-void dfs_number_comp_no_recursion(
-    vector&lt;vector&lt;int&gt; &gt;& G,
-    vector&lt;int&gt;& Mark,
-    int tmp) {
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+         vector&lt;int&gt;& Mark, int tmp) {
+
   stack&lt;int&gt; st;
   st.push(tmp);
-  Mark[tmp] = 1;
+  Mark[tmp] = 1;  // помечаем вершину
   int cur;
   bool flag = true;
 
@@ -158,33 +185,102 @@ void dfs_number_comp_no_recursion(
   }
 }
 </pre>
+</article>
 
-  <h4>Проверка существования пути от вершины a к вершине b</h4>
+
+<!-- 2 Проверка существования пути от вершины a к вершине b -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>2 Проверка существования пути от вершины a к вершине b</h3>
 
   <p>Для поверки на запрос, лежат ли вершины a и b в одной компоненте связности, можно воспользоваться функцией dfs_number_comp. Это    неплохое решение задачи, однако, если запросов на проверку много, программа будет работать слишком долго. Для решения задачи воспользуемся вспомогательной памятью для запоминания, в какой компоненте связности располагается каждая вершина графа.</p>
   <p>Создадим дополнительный vector&lt;int&gt; Color, где для каждой i вершины будем хранить номер компоненты связности, в которой располагается вершина i.  Color[a] == Color[b] означает, что вершины лежат в одной компоненте связности.</p>
-  <p>Улучшим реализацию функции dfs_number_comp. Добавим в аргументы функции:</p>
+  <p>Улучшим реализацию функции dfs. Добавим в аргументы функции:</p>
   <ol>
-    <li>vector &lt;int&gt; Color — вектор покраски компонент связности. Color[i] равняется номеру цвета компоненты связности, в которой располагается вершина i;</li>
+    <li>vector&lt;int&gt; Color — вектор покраски компонент связности. Color[i] равняется номеру цвета компоненты связности, в которой располагается вершина i;</li>
     <li>number_color — номер цвета компоненты связности.</li>
   </ol>
+
+  <p><strong>Задача.</strong> На вход подается неориентированный граф из n вершин и m ребер, заданный списком ребер. Подается q запросов, в каждом запросе проверить существование пути от вершины a к вершине b.</p>
 <pre>
-void dfs_color(vector&lt;vector&lt;int&gt; &gt;& G,
+int n; // число вершин
+int m; // число ребер
+cin >> n >> m;
+int q; // число запросов
+int a, b; // две вершины одного ребра
+
+// список смежности
+vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+
+// ссписок ребер сохраним в список смежности
+for (int i = 0; i &lt; m; i++) {
+  cin >> a >> b;
+  G[a].push_back(b);
+  G[b].push_back(a);
+}
+
+vector&lt;int&gt; Mark(n + 1);
+// Mark[i] = 0 если не посещали вершину
+// Mark[i] = 1 если уже посетили вершину
+
+int cnt_k = 0; // номер компоненты связности
+
+vector&lt;int&gt; Color(n + 1);
+
+// пройдем по всем вершинам
+for (int i = 1; i &lt;= n; i++) {
+  if (Mark[i] == 0) {
+
+    // если вершина не была посещена
+    // то мы нашли новую компоненту связности
+    cnt_k++;
+
+    // запускаем bfs на этой вершине
+    // чтобы раскрасить все соседние вершины
+    dfs(G, Mark, Color, cnt_k, i);
+  }
+}
+
+cin >> q;
+
+while (q--) {
+  int a, b;
+  cin >> a >> b;
+  if (Color[a] == Color[b]) {
+    cout &lt;&lt; "Yes\n";
+  } else {
+    cout &lt;&lt; "No\n";
+  }
+}
+</pre>
+
+<p>Реализация DFS через рекурсию для проверки существования пути из вершины a в вершину b.</p>
+<pre>
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
   vector&lt;int&gt;& Mark,
   vector&lt;nt&gt;& Color,
   int number_color,
   int tmp) {
-    Mark[tmp] = 1;
+
+    Mark[tmp] = 1; // пометим вершину
+
+    // номер компоненты связности для вершины tmp
     Color[tmp] = number_color;
+
     for (int i = ; i &lt; G[tmp].size(); i++) {
       if (Mark[G[tmp][i]] == 0) {
-        dfs_color(G, Mark, Color, number_color, G[tmp][i]);
+        dfs(G, Mark, Color, number_color, G[tmp][i]);
       }
     }
   }
 </pre>
+</article>
 
-  <h4>Проверка графа на двудольность</h4>
+
+<!-- 3 Проверка графа на двудольность -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>3 Проверка графа на двудольность</h3>
 
   <p>Для проверки графа на двудольность мы должны покрасить его вершины в два цвета таким образом, чтобы любые две смежные вершины были покрашены в два разных цвета. Воспользуемся вспомогательным vector&lt;int&gt; Color, где в Color[i] будем запоминать, в какой цвет красили i вершину. Для проверки графа на двудольность потребуется проверить каждую компоненту связности, что она является двудольной, то есть в каждой компоненте связности потребуется запустить алгоритм dfs.</p>
   <p>Изменим реализацию функции dfs_color. Поменяем в ней способ использования vector&lt;int&gt; Color, добавим переменную flag для проверки на двудольность:</p>
@@ -195,25 +291,35 @@ void dfs_color(vector&lt;vector&lt;int&gt; &gt;& G,
     <li>y — вершина, в которую мы переходим по ребру (x, y).</li>
   </ol>
 <pre>
-void dfs_bipartite(vector&lt;vector&lt;int&gt; &gt;& G,
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
   vector&lt;int&gt;& Mark,
   vector&lt;int&gt;& Color,
   bool& flag,
   int y,
   int x) {
+
   Color[y] = (Color[x] + 1) % 2;
   Mark[y] = 1;
+
   for (int i = 0; i &lt; G[y].size(); i++) {
     if (Mark[G[y][i]] == 0) {
-      dfs_bipartite(G, Mark, Color, flag, G[y][i], y);
+      dfs(G, Mark, Color, flag, G[y][i], y);
     } else if (Color[y] == Color[G[y][i]]) {
       flag = false;
     }
   }
 }
 </pre>
+</article>
 
-  <h4>Поиск циклов</h4>
+
+<!-- 4 Поиск циклов -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>4 Поиск циклов</h3>
+
+  <p>Заведем переменную флаг, равную false, пока цикл не найден, присвоим ей true, когда найдем цикл.</p>
+  <code>bool flag = false;</code>
 
   <p>Основная задача, для чего используют поиск в глубину при решении задач, — это задача на поиск циклов. В самой простой формулировке задача описывается так: дан неориентированный граф, необходимо определить, есть ли в нем цикл.</p>
   <p>В графе может быть огромное количество циклов, поэтому чаще всего требуется определить, существует ли цикл в графе. При самой реализации функции нужно помнить, что проход по ребру (x, y), (y, x) чаще всего не является циклом в задачах.</p>
@@ -225,43 +331,100 @@ void dfs_bipartite(vector&lt;vector&lt;int&gt; &gt;& G,
     <li>x — вершина, из которой мы переходим по ребру (x, y);</li>
     <li>y — вершина, в которую мы переходим по ребру (x, y).</li>
   </ol>
+
+  <p><strong>Задача.</strong> На вход подается неориентированный граф из n вершин и m ребер, заданный списком ребер. Есть ли в графе цикл?</p>
+<pre>
+int n; // число вершин
+int m; // число ребер
+cin >> n >> m;
+int a, b; // две вершины одного ребра
+
+// список смежности
+vector&lt;vector&lt;int&gt; &gt; G(n + 1);
+
+// список ребер сохраним в список смежности
+for (int i = 0; i &lt; m; i++) {
+  cin >> a >> b;
+  G[a].push_back(b);
+  G[b].push_back(a);
+}
+
+vector&lt;int&gt; Mark(n + 1);
+// Mark[i] = 0 если не посещали вершину
+// Mark[i] = 1 если уже посетили вершину
+
+bool flag = false; // цикл не найден
+
+for (int i = 1; i &lt;= n && flag == false; i++) {
+  if (Mark[i] == 0) {
+    dfs(G, Mark, flag, i, -1);
+  }
+}
+
+if (flag) {
+  cout &lt;&lt; "YES\n";
+} else {
+  cout &lt;&lt; "NO\n";
+}
+</pre>
+
+  <p>Реализация рекурсивного DFS для поиска цикла.</p>
 <pre>
 void dfs_find_cycle(vector&lt;vector&lt;int&gt; &gt;& G,
-  vector&lt;int&gt;& Mark,
-  bool& flag,
-  int y,
-  int x) {
-  Mark[y] = 1;
+  vector&lt;int&gt;& Mark, bool& flag, int y, int x) {
+
+  Mark[y] = 1; // помечаем вершину в которую пришли
+
   for (int i = 0; i &lt; G[y].size() && flag == false; i++) {
+
     if (Mark[G[y][i]] == 0) {
+      // если еще не были в соседней вершине,
+      // то выполняем dfs на соседней вершине
       dfs_find_cycle(G, Mark, flag, G[y][i], y);
+
     } else if (G[y][i] != x) {
-      flag = false;
+      // если в соседней вершине уже были,
+      // но это не та вершина из которой только что пришли
+      flag = true; // значит мы нашли цикл
     }
   }
 }
 </pre>
+</article>
 
-  <h4>Восстановление цикла</h4>
+
+<!-- 5 Восстановление цикла -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>5 Восстановление цикла</h3>
+
+  <p>Будем в стеке хранить часть до цикла и сам цикл.</p>
+  <code>stack&lt;int&gt; st;</code>
+  <p>Пока не найден цикл, при посещении вершины будем добавлять ее в стек. При выходе из вершины будем удалять ее из стека. Как только найдем цикл, стек замораживается.</p>
 
   <p>Рассмотрим задачу поиска и хранении цикла в неориентированном графе.</p>
 <pre>
 void dfs_find_cycle_save(vector&lt;vector&lt;int&gt; &gt;& G,
-  vector&lt;int&gt;& Mark,
-  stack&lt;int&gt;& st,
-  bool& flag,
-  int y,
-  int x) {
-  st.push(y);
-  Mark[y] = 1;
+  vector&lt;int&gt;& Mark, stack&lt;int&gt;& st,
+  bool& flag, int y, int x) {
+
+  st.push(y); // вершину, в которую пришли, добавляем в стек
+  Mark[y] = 1; // вершину, в которую пришли, помечаем как посещенную
+
+  // проходим по всем смежным вершинам, пока не найден цикл
   for (int i = 0; i &lt; G[y].size() && flag == false; i++) {
     if (Mark[G[y][i]] == 0) {
+      // если еще не были в вершине
       dfs_find_cycle_save(G, Mark, st, flag, G[y][i], y);
     } else if (G[y][i] != x) {
-      flag = false;
-      st.push(G[y][i]);
+      // если уже были в вершине
+      // и пришли не из нее
+      flag = true; // найден цикл
+      st.push(G[y][i]); // добавим ее повторно в стек
     }
   }
+
+  // если цикла не было
   if (flag == false) {
     st.pop();
   }
@@ -272,16 +435,73 @@ void dfs_find_cycle_save(vector&lt;vector&lt;int&gt; &gt;& G,
 <pre>
 void cycle_output(vector&lt;int&gt;& Res,
   stack&lt;int&gt;& st) {
-  int x = st.top();
-  st.pop();
-  Res.push_back(x);
 
+  // вершина в которой закончился цикл
+  int x = st.top(); // запомним ее
+  st.pop(); // удалим ее из стека
+  Res.push_back(x); // добавим ее в результат
+
+  // достаем вершины из стека пока не найдем начало цикла
   while (x != st.top()) {
-    Res.push_back(st.top());
-    st.pop();
+    Res.push_back(st.top()); // добавляем вершину в результат
+    st.pop(); // удаляем вершину из стека
   }
-  Res.push_back(x);
+
+  Res.push_back(x); // добавляем начало цикла в результат
   reverse(Res.begin(), Res.end());
+}
+</pre>
+</article>
+
+
+<!-- 6 Проверка на предка -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>6 Проверка на предка</h3>
+
+  <p>При обходе DFS мы можем не только помечать вершины, в которых уже были, но и делать дополнительные действия. Заведем один счетчик time для всего графа, который будет считать время захода в вершину и время выхода из нее.</p>
+  <p>Чтобы отмечат время, заведем vector&lt;int&gt; Time-in(n) для времени входа в каждую вершину и vector&lt;int&gt; Time_out(n) для времени выхода из каждой вершины.</p>
+  <p>Пример обхода DFS слева направо. Слева от вершины - время входа, справа - время выхода.</p>
+<pre>
+                     (1) 1 (20)
+                 /               \
+                /                 \
+      (2) 2 (11)                   (12) 7 (19)
+       /    \                     /     |    \
+      /      \                   /      |     \
+(3) 3 (4) (5) 4 (10)   (13) 8 (14) (15) 9 (16) (17) 10 (18)
+            /   \
+           /     \
+    (6) 5 (7)   (8) 6 (9)
+</pre>
+
+  <p>Вершина a является предком вершины b если время захода в вершину a меньше времени захода в вершину b, а время выхода из вершины a больше времени выхода из вершины b.</p>
+  <code>Time_in[a] &lt; Time_in[b] && Time_out[a] > Time_out[b]</code>
+
+  <p>Этот способ работает если в графе нет цикла, например, на дереве.</p>
+  <p><strong>Задача.</strong> Является ли вершина a предком вершины b.</p>
+<pre>
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+  vector&lt;int&gt;& Mark,
+  vector&lt;int&gt;& Time_in, vector&lt;int&gt;& Time_out,
+  int &time, int y, int x) {
+
+  // при входе в вершину
+  time++;
+  Time_in[y] = time;
+  Mark[y] = 1; // помечаем вершину в которую пришли
+
+  for (int i = 0; i &lt; G[y].size(); i++) {
+    if (Mark[G[y][i]] == 0) {
+      // если еще не были в соседней вершине,
+      // то выполняем dfs на соседней вершине
+      dfs(G, Mark, Time_in, Time_out, time, G[y][i], y);
+    }
+  }
+
+  // при выходе из вершины
+  time++;
+  Time_out[y] = time
 }
 </pre>
 </article>
@@ -304,7 +524,8 @@ void cycle_output(vector&lt;int&gt;& Res,
   <p>Выведите сообщение YES, если граф является деревом, и NO в противном случае.</p>
 
   <details>
-    <summary>Пример</summary>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
 <pre>
 3
 0 1 0
@@ -312,6 +533,174 @@ void cycle_output(vector&lt;int&gt;& Res,
 0 1 0
 </pre>
     <code>YES</code>
+
+    <h4>Пример 2</h4>
+<pre>
+4
+0 1 1 1
+1 0 0 0
+1 0 0 1
+1 0 1 0
+</pre>
+    <code>NO</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Граф является деревом тогда и только тогда, когда:</p>
+    <ol>
+      <li>Граф связный.</li>
+      <li>Граф содержит n вершин и n – 1 ребро.</li>
+      <li>Граф не содержит циклов.</li>
+    </ol>
+    <p>Достаточно проверить что выполняется 2 требования из 3, поскольку третье всегда вытекает из двух других.</p>
+
+    <h4>Первый вариант решения</h4>
+
+    <p>Проверим что граф имеет ровно 1 компоненту связности и число вершин на 1 больше чем число ребер (n = m + 1)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+         vector&lt;int&gt;& Mark, int x) {
+
+  Mark[x] = 1; // помечаем вершину в которую пришли
+
+  for (int i = 0; i &lt; G[x].size(); i++) {
+    if (Mark[G[x][i]] == 0) {
+      dfs(G, Mark, G[x][i]);
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число вершин
+  cin >> n;
+  int in;
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1); // список смежности
+  int cnt1 = 0; // число единиц в матрице смежности
+
+  // переведем матрицу смежности в список смежности
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= n; j++) {
+      cin >> in;
+      if (in == 1) {
+        cnt1++;
+        G[i].push_back(j);
+      }
+    }
+  }
+
+  // решение
+  int m = cnt1 / 2; // число ребер
+  int cnt_k = 0; // число компонент связности
+  vector&lt;int&gt; Mark(n + 1); // посещенные вершины
+
+  // пройдем по всем вершинам
+  for (int i = 1; i &lt;= n; i++) {
+    if (Mark[i] == 0) {
+      cnt_k++;
+      dfs(G, Mark, i);
+    }
+  }
+
+  // вывод результата
+  if (cnt_k == 1 && n == m + 1) {
+    cout &lt;&lt; "YES\n";
+  } else {
+    cout &lt;&lt; "NO\n";
+  }
+}
+</pre>
+
+    <h4>Второй вариант решения</h4>
+
+    <p>Проверим что граф имеет ровно 1 компоненту связности и не имеет циклов</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+         vector&lt;int&gt;& Mark,
+         bool& flag, int y, int x) {
+
+  Mark[y] = 1; // помечаем вершину в которую пришли
+
+  for (int i = 0; i &lt; G[y].size() && flag == false; i++) {
+    if (Mark[G[y][i]] == 0) {
+      dfs(G, Mark, flag, G[y][i], y);
+    } else if (G[y][i] != x) {
+      flag = true;
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число вершин
+  cin >> n;
+  int in;
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1); // список смежности
+
+  // переведем матрицу смежности в список смежности
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= n; j++) {
+      cin >> in;
+      if (in == 1) {
+        G[i].push_back(j);
+      }
+    }
+  }
+
+  // решение
+  bool flag = false; // циклов не было
+  int cnt_k = 0; // число компонент связности
+  vector&lt;int&gt; Mark(n + 1); // посещенные вершины
+
+  // пройдем по всем вершинам
+  for (int i = 1; i &lt;= n; i++) {
+    if (Mark[i] == 0) {
+      cnt_k++;
+      dfs(G, Mark, flag, i, -1);
+    }
+  }
+
+  // вывод результата
+  if (cnt_k == 1 && flag == false) {
+    cout &lt;&lt; "YES\n";
+  } else {
+    cout &lt;&lt; "NO\n";
+  }
+}
+</pre>
   </details>
 </article>
 
@@ -360,9 +749,7 @@ void cycle_output(vector&lt;int&gt;& Res,
     <summary>Решение</summary>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 #include &lt;vector&gt;
-#include &lt;algorithm&gt;
 
 using namespace std;
 
@@ -384,10 +771,18 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
   // ввод данных
-  int n;
+  int n; // число вершин
   cin >> n;
-  vector&lt;vector&lt;int&gt; &gt; G(n);
+  vector&lt;vector&lt;int&gt; &gt; G(n); // список смежности
+
+  // переведем матрицу смежности в список смежности
   for (int i = 0; i &lt; n; i++) {
     string s;
     cin >> s;
@@ -478,6 +873,77 @@ int main() {
 </pre>
     <code>No</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Нужно собрать <strong>ориентированный</strong> граф, где вершины это лошади, ребро соединяет двух лошадей, направление ребра это направление от быстрой к медленной лошади.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+  vector&lt;int&gt;& Mark, int x) {
+
+  Mark[x] = 1;
+
+  for (int i = 0; i &lt; G[x].size(); i++) {
+    if (Mark[G[x][i]] == 0) {
+      dfs(G, Mark, G[x][i]);
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число лошадей
+  int k; // номер выбранной лошади
+  cin >> n >> k;
+  int a, b; // две вершины одного ребра
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1); // список смежности
+
+  // переведем список ребер в список смежности
+  cin >> a;
+  while (a != 0) {
+    cin >> b;
+    G[a].push_back(b);
+    cin >> a;
+  }
+
+  // решение
+  vector&lt;int&gt; Mark(n + 1);
+  bool flag = true; // выбранная лошадь победит
+
+  dfs(G, Mark, k);
+
+  // проверяем остались ли непосещенные лошади
+  // которые могут обогнать нашу лошадь
+  for (int i = 1; i &lt;= n; i++) {
+    if (Mark[i] == 0) {
+      flag = false;
+    }
+  }
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; "Yes\n";
+  } else {
+    cout &lt;&lt; "No\n";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
@@ -519,6 +985,75 @@ int main() {
 2 4
 </pre>
     <code>YES</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void dfs(vector&lt;vector&lt;int&gt; &gt;& G,
+  vector&lt;int&gt;& Mark, bool& flag, int y, int x) {
+
+  Mark[y] = 1;
+
+  for (int i = 0; i &lt; G[y].size() && flag == false; i++) {
+    if (Mark[G[y][i]] == 0) {
+      dfs(G, Mark, flag, G[y][i], y);
+    } else if (G[y][i] != x) {
+      flag = true;
+    }
+  }
+}
+
+int main() {
+  // ускорение ввода-вывода
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число вершин
+  int m; // число ребер
+  cin >> n >> m;
+  int a, b; // две вершины одного ребра
+  vector&lt;vector&lt;int&gt; &gt; G(n + 1); // список смежности
+
+  // переведем список ребер в список смежности
+  for (int i = 0; i &lt; m; i++) {
+    cin >> a >> b;
+    G[a].push_back(b);
+    G[b].push_back(a);
+  }
+
+  // решение
+  vector&lt;int&gt; Mark(n + 1);
+  bool flag = false; // флаг, циклов нет
+
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 0; j &lt; G[i].size(); j++) {
+      if (Mark[i] == 0) {
+        dfs(G, Mark, flag, G[i][j], i);
+      }
+    }
+  }
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; "YES\n";
+  } else {
+    cout &lt;&lt; "NO\n";
+  }
+}
+</pre>
   </details>
 </article>
 

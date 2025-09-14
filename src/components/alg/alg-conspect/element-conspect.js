@@ -6,7 +6,7 @@ class AlgConspect extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="alg-conspect" id="alg-conspect">
-      <h1>Алгоритмы</h1>
+      <h1>Конспекты</h1>
       <nav class="nav" id="main-nav"></nav>
       <div id="conspect"></div>
     </div>

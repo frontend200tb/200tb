@@ -390,6 +390,48 @@ int main() {
     <code>5 2</code>
     <code>1</code>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int a; // число
+  int b; // номер бита
+  cin >> a >> b;
+
+  // решение
+  int res = 0;
+  int tmp = a;
+  int i = 0;
+  vector&lt;int&gt; A(32);
+
+  // собираем двоичное число
+  while (tmp > 0) {
+    A[i] = tmp % 2;
+    tmp /= 2;
+    i++;
+  }
+
+  // инвертируем бит b
+  A[b] = !A[b];
+
+  // собираем двоичное число
+  for (int i = 0; i &lt; A.size(); i++) {
+    res += A[i] * pow(2, i);
+  }
+
+  // вывод результата
+  cout &lt;&lt; res &lt;&lt; '\n';
+}
+</pre>
+  </details>
 </article>
 
 

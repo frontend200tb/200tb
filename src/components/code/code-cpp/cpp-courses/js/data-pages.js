@@ -1,10 +1,10 @@
 // Создаем массив pages со страницами из aside меню
-import htmlMeta       from './../pages/elem-meta-cpp.html';
-import htmlYa         from './../pages/elem-ya-cpp.html';
-import htmlCodeles    from './../pages/elem-codeles-cpp.html';
+import htmlCourse1    from './../pages/elem-course-cpp-1.html';
+import htmlCourse2    from './../pages/elem-course-cpp-2.html';
+import htmlCourse3    from './../pages/elem-course-cpp-3.html';
 
 export const pages = [
-  htmlMeta,
-  htmlYa,
-  htmlCodeles,
+  htmlCourse1,
+  htmlCourse2,
+  htmlCourse3,
 ];
