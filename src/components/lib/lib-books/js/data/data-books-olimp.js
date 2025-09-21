@@ -92,6 +92,19 @@ const dataBooksOlimp = [
   },
 
   {
+    id: 7,
+    year: 2001,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Математический кружок 7 класс',
+    author: 'Спивак',
+    authorName: 'Александр',
+    pages: '72',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 8,
     year: 2001,
     category: 'основы',
@@ -139,6 +152,19 @@ const dataBooksOlimp = [
     author: 'Ускова',
     authorName: 'О.Ф.',
     pages: '76',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 12,
+    year: 2003,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Математический кружок 6-7 классы',
+    author: 'Спивак',
+    authorName: 'Александр',
+    pages: '128',
     isLearned: false,
     dateLearned: '',
   },
@@ -230,6 +256,19 @@ const dataBooksOlimp = [
     author: 'Абрамян',
     authorName: 'М.Э.',
     pages: '43',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 16,
+    year: 2004,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Задачи для детей от 5 до 15 лет',
+    author: 'Арнольд',
+    authorName: 'Владимир',
+    pages: '16',
     isLearned: false,
     dateLearned: '',
   },
@@ -870,6 +909,19 @@ const dataBooksOlimp = [
   },
 
   {
+    id: 57,
+    year: 2021,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Программирование. Теоремы и задачии (7е)',
+    author: 'Шень',
+    authorName: 'Александр',
+    pages: '320',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 68,
     year: 2022,
     category: 'основы',
@@ -884,6 +936,19 @@ const dataBooksOlimp = [
 
   {
     id: 69,
+    year: 2023,
+    category: 'основы',
+    theme: 'Олимпиадные задачи',
+    title: 'Спортивное программирование. Алгоритмы и структуры данных',
+    author: '',
+    authorName: '',
+    pages: '195',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 70,
     year: 2024,
     category: 'основы',
     theme: 'Олимпиадные задачи',
@@ -896,7 +961,7 @@ const dataBooksOlimp = [
   },
 
   {
-    id: 70,
+    id: 71,
     year: 2025,
     category: 'основы',
     theme: 'Олимпиадные задачи',

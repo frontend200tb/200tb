@@ -1118,6 +1118,19 @@ const dataBooksAsm = [
 
   {
     id: 86,
+    year: 2023,
+    category: 'code',
+    theme: 'assembler',
+    title: 'Архитектура ЭВМ и язык ассемблера. Часть 1',
+    author: 'Кузьменкова',
+    authorName: 'Е.А.',
+    pages: '80',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 87,
     year: 2024,
     category: 'code',
     theme: 'assembler',
@@ -1130,7 +1143,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 87,
+    id: 88,
     year: 2024,
     category: 'code',
     theme: 'assembler',
@@ -1143,7 +1156,7 @@ const dataBooksAsm = [
   },
 
   {
-    id: 88,
+    id: 89,
     year: 2024,
     category: 'code',
     theme: 'assembler',

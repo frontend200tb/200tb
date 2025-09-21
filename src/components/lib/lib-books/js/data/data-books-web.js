@@ -5,7 +5,7 @@ const dataBooksWeb = [
     year: 2000,
     category: 'theme',
     theme: 'web',
-    title: '2000  - Веб сайт своими руками',
+    title: 'Веб сайт своими руками',
     author: 'Шапошников',
     authorName: 'И.В.',
     pages: '224',

@@ -1,6 +1,3 @@
-import showYargu1      from './yargu1/yargu1';
-import showYargu2      from './yargu2/yargu2';
-import showYargu3      from './yargu3/yargu3';
 import showGustokashin from './gustokashin/gustokashin';
 import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
@@ -10,30 +7,6 @@ import showAlgBooks    from './alg-books/alg-books';
 import showAlgCourses  from './alg-courses/alg-courses';
 
 export const dataConspectNav = [
-  {
-    url: 'yargu1.html',
-    text: 'ЯрГУ1',
-    content: '<alg-yargu1></alg-yargu1>',
-    act() {
-      showYargu1();
-    },
-  },
-  {
-    url: 'yargu2.html',
-    text: 'ЯрГУ2',
-    content: '<alg-yargu2></alg-yargu2>',
-    act() {
-      showYargu2();
-    },
-  },
-  {
-    url: 'yargu3.html',
-    text: 'ЯрГУ3',
-    content: '<alg-yargu3></alg-yargu3>',
-    act() {
-      showYargu3();
-    },
-  },
   {
     url: 'gustokashin.html',
     text: 'МГ',

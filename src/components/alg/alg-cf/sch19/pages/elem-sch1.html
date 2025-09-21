@@ -1,0 +1,121 @@
+<article class="article">
+  <strong>SCH19_1</strong>
+  <p><a href="https://codeforces.com/group/U69t0Qb9kU/contests" target="_blank">Codeforces SCH19_1</a></p>
+</article>
+
+
+<article class="article">
+  <h1>1 Training_s</h1>
+  <p><a href="https://codeforces.com/group/U69t0Qb9kU/contest/322127" target="_blank">Codeforces Контест 322127</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p>
+        <a href="#task1">Задача A. Трамвай</a>
+    <br><a href="#task2">Задача B. Арбуз</a>
+    <br><a href="#task3">Задача C. Суперагент</a>
+    <br><a href="#task4">Задача D. Правильное решение?</a>
+    <br><a href="#task5">Задача E. 123-последовательность</a>
+  </p>
+</article>
+
+
+<!-- Задача A. Трамвай -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Трамвай</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода-вывода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+
+  // ввод данных
+  int n; // число остановок
+  cin >> n;
+  vector&lt;int&gt; A(n + 1);
+  vector&lt;int&gt; B(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i] >> B[i];
+  }
+
+  // решение
+  int cap = 0;
+  int capm = 0;
+
+  for (int i = 1; i &lt;= n; i++) {
+    cap -= A[i];
+    cap += B[i];
+    if (cap > capm) {
+      capm = cap;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; capm;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Арбуз -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Арбуз</h3>
+
+  <div><i>Ограничение по времени 1с
+  <br>Ограничение по памяти 64мб</i></div>
+
+</article>
+
+
+<!-- Задача C. Суперагент -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. Суперагент</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+
+
+<!-- Задача D. Правильное решение? -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. Правильное решение?</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+
+
+<!-- Задача E. 123-последовательность -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. 123-последовательность</h3>
+
+  <div><i>Ограничение по времени 2с
+  <br>Ограничение по памяти 256мб</i></div>
+
+</article>
+
+

@@ -1,12 +1,11 @@
-import showSilver from './silver/silver';
+import showSilver      from './silver/silver';
 import showInformatics from './informatics/informatics';
-import showAcmp from './acmp/acmp';
-import showTimus from './timus/timus';
-import showCodeforces from './codeforces/codeforces';
-import showCoderun from './coderun/coderun';
-import showCodewars from './codewars/codewars';
-import showLeetcode from './leetcode/leetcode';
-import showAllcups from './allcups/allcups';
+import showAcmp        from './acmp/acmp';
+import showTimus       from './timus/timus';
+import showCoderun     from './coderun/coderun';
+import showCodewars    from './codewars/codewars';
+import showLeetcode    from './leetcode/leetcode';
+import showAllcups     from './allcups/allcups';
 
 export const dataPractNav = [
   {
@@ -39,14 +38,6 @@ export const dataPractNav = [
     content: '<alg-timus></alg-timus>',
     act() {
       showTimus();
-    },
-  },
-  {
-    url: 'codeforces.html',
-    text: 'Codeforces',
-    content: '<alg-codeforces></alg-codeforces>',
-    act() {
-      showCodeforces();
     },
   },
   {

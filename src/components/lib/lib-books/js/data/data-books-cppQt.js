@@ -151,7 +151,7 @@ const dataBooksCppQt = [
     title: 'Программирование на языке C++ в среде QT Creator',
     author: 'Алексеев',
     authorName: 'Евгений',
-    pages: '912',
+    pages: '449',
     isLearned: false,
     dateLearned: '',
   },

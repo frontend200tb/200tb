@@ -838,6 +838,19 @@ const dataBooksHtmlcss = [
     year: 2020,
     category: 'code',
     theme: 'html css',
+    title: 'HTML и CSS. 25 уроков для начинающих',
+    author: 'Дронов',
+    authorName: 'Владимир',
+    pages: '381',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 65,
+    year: 2020,
+    category: 'code',
+    theme: 'html css',
     title: 'Я верстальщик. Веб-верстальщик',
     author: 'Матыцин',
     authorName: 'Арсений',
@@ -847,7 +860,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 65,
+    id: 66,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -860,7 +873,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 66,
+    id: 67,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -873,7 +886,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 67,
+    id: 68,
     year: 2021,
     category: 'code',
     theme: 'html css',
@@ -886,7 +899,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 68,
+    id: 69,
     year: 2022,
     category: 'code',
     theme: 'html css',
@@ -899,7 +912,7 @@ const dataBooksHtmlcss = [
   },
 
   {
-    id: 69,
+    id: 70,
     year: 2022,
     category: 'code',
     theme: 'html css',

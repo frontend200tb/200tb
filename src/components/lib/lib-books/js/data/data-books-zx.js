@@ -92,6 +92,19 @@ const dataBooksZx = [
   },
 
   {
+    id: 7,
+    year: 1993,
+    category: 'основы',
+    theme: 'ZX Spectrum',
+    title: 'Справочник по системным программам',
+    author: '',
+    authorName: '',
+    pages: '128',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 8,
     year: 1994,
     category: 'основы',

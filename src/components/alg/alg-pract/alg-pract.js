@@ -1,7 +1,7 @@
 /** **************
 Скрипт из файла alg-pract.js
 Навигация по теме Практика
-silvertests informatics acmp timus Codeforces Codewars Coderun Leetcode allcups
+silvertests informatics acmp timus Codewars Coderun Leetcode allcups
 ****************** */
 import './element-pract';
 import {dataPractNav} from './data-pract-nav';
