@@ -4,6 +4,7 @@ import showYargu2      from './yargu2/yargu2';
 import showYargu3      from './yargu3/yargu3';
 import showMirea       from './mirea/mirea';
 import showSch19       from './sch19/sch19';
+import showAll         from './all/all';
 
 export const dataCfNav = [
   {
@@ -52,6 +53,14 @@ export const dataCfNav = [
     content: '<alg-sch19></alg-sch19>',
     act() {
       showSch19();
+    },
+  },
+  {
+    url: 'all.html',
+    text: 'Все',
+    content: '<alg-all></alg-all>',
+    act() {
+      showAll();
     },
   },
 ];

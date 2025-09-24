@@ -32,6 +32,31 @@
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int s1, s2, s3, s4; // цвета подков
+  cin >> s1 >> s2 >> s3 >> s4;
+
+  // решение
+  set&lt;int&gt; F;
+  F.insert(s1);
+  F.insert(s2);
+  F.insert(s3);
+  F.insert(s4);
+
+  // вывод результата
+  cout &lt;&lt; 4- F.size();
+}
+</pre>
+  </details>
 </article>
 
 

@@ -15,18 +15,18 @@
   <h2>Содержание</h2>
 
   <p>
-        <a href="#task1">Задача A. Трамвай</a>
-    <br><a href="#task2">Задача B. Арбуз</a>
-    <br><a href="#task3">Задача C. Суперагент</a>
-    <br><a href="#task4">Задача D. Правильное решение?</a>
-    <br><a href="#task5">Задача E. 123-последовательность</a>
+        <a href="#t1">Задача A. Трамвай</a>
+    <br><a href="#t2">Задача B. Арбуз</a>
+    <br><a href="#t3">Задача C. Суперагент</a>
+    <br><a href="#t4">Задача D. Правильное решение?</a>
+    <br><a href="#t5">Задача E. 123-последовательность</a>
   </p>
 </article>
 
 
 <!-- Задача A. Трамвай -->
 <article class="article">
-  <div class="anchor" id="task1"></div>
+  <div class="anchor" id="t1"></div>
   <h3>Задача A. Трамвай</h3>
 
   <div><i>Ограничение по времени 2с
@@ -77,40 +77,139 @@ int main() {
 
 <!-- Задача B. Арбуз -->
 <article class="article">
-  <div class="anchor" id="task2"></div>
+  <div class="anchor" id="t2"></div>
   <h3>Задача B. Арбуз</h3>
 
-  <div><i>Ограничение по времени 1с
-  <br>Ограничение по памяти 64мб</i></div>
+  <div class="t2"></div>
 
 </article>
 
 
 <!-- Задача C. Суперагент -->
 <article class="article">
-  <div class="anchor" id="task3"></div>
+  <div class="anchor" id="t3"></div>
   <h3>Задача C. Суперагент</h3>
 
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Создаем массив символов на 10 элементов, нулевой элемент инициализируем чем угодно. Введем 9 символов в элементы массива с 1 до 9. Для симметрии 5 элемент может быть любым. Проверим что равны элементы массива A[1] = A[9], A[2] = A[8], A[3] = A[7], A[4] = A[6].</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  char A[10];
+  A[0] = '0';
+  for (int i = 1; i &lt; 10; i++) {
+    cin >> A[i];
+  }
+
+  // решение
+  bool flag = true;
+  for (int i = 1; i &lt; 5; i++) {
+    if (A[i] != A[10 - i]) {
+      flag = false;
+    }
+  }
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
 <!-- Задача D. Правильное решение? -->
 <article class="article">
-  <div class="anchor" id="task4"></div>
+  <div class="anchor" id="t4"></div>
   <h3>Задача D. Правильное решение?</h3>
 
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+    <p>Поскольку ответ Валеры может содержать лидирующие нули, то примем два числа как строки. Сразу проверим, если у Валеры больше одного символа и первый символ 0, то это неправильный ответ. Соберем частотный массив для цифр от 0 до 9. Соберем свой правильный ответ. Первую цифру поставим наименьшую, но не 0. Следующие цифры должны идти от 0 до 9, чтобы получилось наименьшее число.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  string sn; // целое число
+  string sm; // мин число
+  cin >> sn >> sm;
+
+  // решение
+  bool flag = true;
+
+  if (sm.size() > 1 && sm[0] == '0') {
+    flag = false;
+  }
+  long long n = stoll(sn);
+  long long m = stoll(sm);
+  // соберем частотный массив цифр числа
+  int F[10]{ 0 };
+  long long tmp = n;
+  while (tmp) {
+    int dig = tmp % 10;
+    F[dig]++;
+    tmp /= 10;
+  }
+
+  // соберем свое мин число k
+  // оно может и не влезть в int
+  // первая цифра мин, но не 0
+  long long k = 0;
+  int next = 1;
+  while (k == 0 && next &lt; 10) {
+    if (F[next] > 0) {
+      k = next;
+      F[next]--;
+    }
+    next++;
+  }
+
+  // остальные цифры мин начиная с нуля
+  for (int i = 0; i &lt; 10; i++) {
+    while (F[i]) {
+      k = k * 10 + i;
+      F[i]--;
+    }
+  }
+
+  // сравним результаты
+  if (k != m) {
+    flag = false;
+  }
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; "OK";
+  } else {
+    cout &lt;&lt; "WRONG_ANSWER";
+  }
+}
+</pre>
+  </details>
 </article>
 
 
 <!-- Задача E. 123-последовательность -->
 <article class="article">
-  <div class="anchor" id="task5"></div>
+  <div class="anchor" id="t5"></div>
   <h3>Задача E. 123-последовательность</h3>
 
   <div><i>Ограничение по времени 2с
