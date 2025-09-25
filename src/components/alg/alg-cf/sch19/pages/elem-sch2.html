@@ -79,6 +79,39 @@ int main() {
   <div><i>Ограничение по времени 1с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    int in;
+
+    // соберем набор неповторяющихся элементов
+    set&lt;int&gt; st;
+    for (int i = 0; i &lt; n; i++) {
+      cin >> in;
+      st.insert(in);
+    }
+
+    // вывод результата
+    cout &lt;&lt; st.size() &lt;&lt; '\n';
+  }
+
+}
+</pre>
+  </details>
 </article>
 
 

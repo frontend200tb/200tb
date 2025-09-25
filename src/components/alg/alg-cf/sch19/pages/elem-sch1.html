@@ -215,6 +215,42 @@ int main() {
   <div><i>Ограничение по времени 2с
   <br>Ограничение по памяти 256мб</i></div>
 
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // длина массива
+  cin >> n;
+  int in;
+
+  // соберем частотный массив
+  int F[4] = { 0,0,0,0 };
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    F[in]++;
+  }
+
+  // решение
+  int res = 0;
+  // находим наибольшее из трех чисел
+  if (F[1] >= F[2] && F[1] >= F[3]) {
+    res = F[2] + F[3];
+  } else if (F[2] >= F[1] && F[2] >= F[3]) {
+    res = F[1] + F[3];
+  } else {
+    res = F[1] + F[2];
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

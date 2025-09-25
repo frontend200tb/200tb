@@ -1206,8 +1206,65 @@ Both
       <br><a href="https://codeforces.com/contest/702" target="_blank">Educational Codeforces Round 15 2016-07-29</a>
     </div>
 
-  </details>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
 
+using namespace std;
+
+vector&lt;int&gt; A;
+vector&lt;int&gt; B;
+
+bool isConnect(int k) {
+  bool flag = true;
+  for (int i = 1; flag && i &lt; A.size(); i++) {
+    flag = false;
+    for (int j = 1; !flag && j &lt; B.size(); j++) {
+      if (k >= abs(A[i] - B[j])) {
+        flag = true;
+      }
+    }
+  }
+  return flag;
+}
+
+int main() {
+  // ввод данных
+  int n; // число городов
+  int m; // число вышек
+  cin >> n >> m;
+
+  A.resize(n + 1);
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> A[i];
+  }
+
+  B.resize(m + 1);
+  for (int i = 1; i &lt;= m; i++) {
+    cin >> B[i];
+  }
+
+  // решение
+  int left = 0;
+  int right = 2e9;
+  int mid;
+
+  // бинарный поиск
+  while (right - left > 1) {
+    mid = left + (right - left) / 2;
+    if (isConnect(mid)) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; right;
+}
+</pre>
+  </details>
 </article>
 
 
