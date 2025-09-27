@@ -1206,6 +1206,14 @@ Both
       <br><a href="https://codeforces.com/contest/702" target="_blank">Educational Codeforces Round 15 2016-07-29</a>
     </div>
 
+    <h4>Пример 3</h4>
+<pre>
+1 1
+10
+10
+</pre>
+    <code>0</code>
+
 <pre>
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -1218,11 +1226,16 @@ vector&lt;int&gt; B;
 
 bool isConnect(int k) {
   bool flag = true;
+  int near = 1; // номер ближайшей вышки
+  // для каждого города
   for (int i = 1; flag && i &lt; A.size(); i++) {
     flag = false;
-    for (int j = 1; !flag && j &lt; B.size(); j++) {
+
+    //ищем вышку не далее чем на расстоянии k
+    for (int j = near; !flag && j &lt; B.size(); j++) {
       if (k >= abs(A[i] - B[j])) {
         flag = true;
+        near = j;
       }
     }
   }
@@ -1230,6 +1243,10 @@ bool isConnect(int k) {
 }
 
 int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
   // ввод данных
   int n; // число городов
   int m; // число вышек
@@ -1246,7 +1263,7 @@ int main() {
   }
 
   // решение
-  int left = 0;
+  int left = -1;
   int right = 2e9;
   int mid;
 

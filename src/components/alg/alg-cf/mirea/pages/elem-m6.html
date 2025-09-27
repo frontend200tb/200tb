@@ -194,6 +194,29 @@ int main() {
     <code>1</code>
     <p>Убедитесь, что Вы всегда выводите неотрицательное число.</p>
   </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  long long a, b; // два числа
+  cin >> a >> b;
+
+  // решение
+  long long mod = 1e9 + 7;
+  // необходимо вывести произведение по модулю mod
+  long long res = (a * b) % mod;
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
 </article>
 
 

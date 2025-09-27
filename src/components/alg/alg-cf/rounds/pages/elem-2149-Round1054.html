@@ -1,0 +1,661 @@
+<article class="article">
+  <a href="https://codeforces.com/contest/2149" target="_blank">Codeforces 2149 Round 1054 (Div. 3) 2025-09-25</a>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#task1">Задача A. Будь позитивным</a>
+  <br><a href="#task2">Задача B. Неклассические пары</a>
+  <br><a href="#task3">Задача C. MEX rose</a>
+  <br><a href="#task4">Задача D. А и В</a>
+  <br><a href="#task5">Задача E. Скрытые знания древних</a>
+  <br><a href="#task6">Задача F. Незуко на поляне</a>
+  <br><a href="#task7">Задача G. Buratsuta 3</a>
+</article>
+
+
+<!-- Задача A. Будь позитивным -->
+<article class="article">
+  <div class="anchor" id="task1"></div>
+  <h3>Задача A. Будь позитивным</h3>
+
+  <details>
+    <summary>Решение</summary>
+    <p>К нам может придти только одно из трех чисел. Если 1, то ничего делать не нужно, потому что при умножении на 1 произведение не меняется. Если 0, то нужна одна операция чтобы к нему прибавить 1, чотбы произведение не стало равно 0. Если -1 пришла первый раз, то за две операции надо ее изменить на 1, если пришла второй раз, то нужно отменить две операции над первой единицей.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+
+    // решение
+    int cnt = 0;
+    int tmp;
+    bool prev_neg = false;
+
+    while (n--) {
+      cin >> tmp;
+      switch (tmp) {
+      case 0: cnt++; break;
+      case -1: if (prev_neg) {
+          cnt -= 2;
+        } else {
+          cnt += 2;
+        }
+        prev_neg = !prev_neg;
+        break;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; cnt &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Неклассические пары -->
+<article class="article">
+  <div class="anchor" id="task2"></div>
+  <h3>Задача B. Неклассические пары</h3>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Минимальная разница среди пар получится если массив отсортировать и взять соседние пары.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int res = 0;
+    int dif = 0;
+    sort(A.begin(), A.end());
+
+    for (int i = 0; i &lt; n / 2; i += 2) {
+      dif = A[i + 1] - A[i];
+      res = max(res, dif);
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. MEX rose -->
+<article class="article">
+  <div class="anchor" id="task3"></div>
+  <h3>Задача C. MEX rose</h3>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Посчитаем, сколько различных чисел меньше MEX, которых нет в массиве. Посчитаем сколько чисел равно MEX. Большее из этих чисел будет ответом.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ускорение ввода
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int k; // MEX минимальное исключенное
+    cin >> n >> k;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    // для подсчета чисел меньше MEX
+    vector&lt;int&gt; F(k, 0);
+    int lt_mex_cnt = 0;
+
+    // для подсчета чисел равных MEX
+    int mex_cnt = 0;
+
+    for (int i = 0; i &lt; n; i++) {
+      if (A[i] &lt; k && F[A[i]] == 0) {
+        lt_mex_cnt++;
+        F[A[i]] = 1;
+      }
+      if (A[i] == k) {
+        mex_cnt++;
+      }
+    }
+
+    // сколько нужно еще чисел меньше MEX
+    int d = k - lt_mex_cnt;
+
+    int res = 0;
+    if (mex_cnt > d) {
+      res = mex_cnt;
+    } else {
+      res = d;
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. А и В -->
+<article class="article">
+  <div class="anchor" id="task4"></div>
+  <h3>Задача D. А и В</h3>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Посчитаем префиксные суммы спара и слева.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина строки
+    cin >> n;
+    vector&lt;char&gt; A(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    vector&lt;long long&gt; A_count_left(n + 2);
+    vector&lt;long long&gt; A_count_right(n + 2);
+    vector&lt;long long&gt; A_sum_left(n + 2);
+    vector&lt;long long&gt; A_sum_right(n + 2);
+    vector&lt;long long&gt; B_count_left(n + 2);
+    vector&lt;long long&gt; B_count_right(n + 2);
+    vector&lt;long long&gt; B_sum_left(n + 2);
+    vector&lt;long long&gt; B_sum_right(n + 2);
+
+    for (int i = 1; i &lt;= n; i++) {
+      A_sum_left[i] = A_sum_left[i - 1] + A_count_left[i - 1];
+      A_count_left[i] = A_count_left[i - 1];
+      if (A[i] == 'a') {
+        A_count_left[i]++;
+      }
+    }
+
+    for (int i = 1; i &lt;= n; i++) {
+      B_sum_left[i] = B_sum_left[i - 1] + B_count_left[i - 1];
+      B_count_left[i] = B_count_left[i - 1];
+      if (A[i] == 'b') {
+        B_count_left[i]++;
+      }
+    }
+
+    for (int i = n; i >= 1; i--) {
+      A_sum_right[i] = A_sum_right[i + 1] + A_count_right[i + 1];
+      A_count_right[i] = A_count_right[i + 1];
+      if (A[i] == 'a') {
+        A_count_right[i]++;
+      }
+    }
+
+    for (int i = n; i >= 1; i--) {
+      B_sum_right[i] = B_sum_right[i + 1] + B_count_right[i + 1];
+      B_count_right[i] = B_count_right[i + 1];
+      if (A[i] == 'b') {
+        B_count_right[i]++;
+      }
+    }
+
+    long long res = 1e12;
+    long long buf = 0;
+
+    for (int i = 1; i &lt;= n; i++) {
+      if (A[i] == 'a') {
+        buf = A_sum_left[i] + A_sum_right[i];
+        buf = buf - (A_count_left[i - 1] * (A_count_left[i - 1] + 1) / 2) -
+          (A_count_right[i + 1] * (A_count_right[i + 1] + 1) / 2);
+      } else {
+        buf = B_sum_left[i] + B_sum_right[i];
+        buf = buf - (B_count_left[i - 1] * (B_count_left[i - 1] + 1) / 2) -
+          (B_count_right[i + 1] * (B_count_right[i + 1] + 1) / 2);
+      }
+      res = min(buf, res);
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Скрытые знания древних -->
+<article class="article">
+  <div class="anchor" id="task5"></div>
+  <h3>Задача E. Скрытые знания древних</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int k; // число различных чисел
+    int l; // мин длина таблички
+    int r; // макс длина таблички
+    cin >> n >> k >> l >> r;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    vector&lt;int&gt; Mark(n);
+    map&lt;int, int&gt; mp;
+    int uk = 0;
+
+    while (uk != n && mp.size() != k) {
+      mp[A[uk]]++;
+      uk++;
+    }
+
+    vector&lt;int&gt; Pos_left(n);
+    for (int id = 0; id &lt; n; id++) {
+
+      if (mp.size() == k) {
+        Pos_left[id] = uk;
+      } else {
+        Mark[id] = -1;
+      }
+
+      mp[A[id]]--;
+
+      if (mp[A[id]] == 0) {
+        mp.erase(A[id]);
+      }
+
+      while (uk != n && mp.size() != k) {
+        mp[A[uk]]++;
+        uk++;
+      }
+    }
+
+    uk = 0;
+    bool flag = true;
+    map&lt;int, int&gt; mp2;
+    while (flag) {
+      if (uk != n && mp2.size() &lt; k) {
+        mp2[A[uk]]++;
+        uk++;
+      } else {
+        if (uk != n && mp2.size() == k) {
+          if (mp2.find(A[uk]) != mp2.end()) {
+            mp2[A[uk]]++;
+            uk++;
+          } else {
+            flag = false;
+          }
+        } else {
+          flag = false;
+        }
+      }
+    }
+
+    vector&lt;int&gt; Pos_right(n);
+    for (int id = 0; id &lt; n; id++) {
+      if (mp2.size() == k) {
+        Pos_right[id] = uk;
+      } else {
+        Mark[id] = -1;
+      }
+      mp2[A[id]]--;
+      if (mp2[A[id]] == 0) {
+        mp2.erase(A[id]);
+      }
+      bool flag = true;
+      while (flag) {
+        if (uk != n && mp2.size() &lt; k) {
+          mp2[A[uk]]++;
+          uk++;
+        } else {
+          if (uk != n && mp2.size() == k) {
+            if (mp2.find(A[uk]) != mp2.end()) {
+              mp2[A[uk]]++;
+              uk++;
+            } else {
+              flag = false;
+            }
+          } else {
+            flag = false;
+          }
+        }
+      }
+    }
+
+    long long res = 0;
+    long long abs_l, abs_r;
+
+    for (int i = 0; i &lt; n; i++) {
+      abs_l = max(l + i, Pos_left[i]);
+      abs_r = min(r + i, Pos_right[i]);
+
+      if (abs_r >= abs_l) {
+        res += abs_r - abs_l + 1;
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Мое решение</summary>
+    <p>Метод двух указателей. Ставим левый и правый указатели на нулевой элемент. Правым проходим l элементов и заносим элементы в map.</p>
+    <p>Метод скользящего окна. Если в map попало больше k уникальных элементов, то двигаем окно из l элементов вправо.</p>
+    <p>Метод меняющегося окна. Если в map попало меньше k уникальных элементов, то двигаем правый указатель.</p>
+    <p>Если в map ровно k уникальных элементов, прибавляе 1 к результату и двигаем правый указатель вправо пока в окне не станет r элементов.</p>
+    <p>Двигаем левый указатель вправо на 1, правый указатель влево на позицию pl + l. Повторяем все сначала пока левый указатель не станет на l элементов левее конца массива.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    int k; // число различных чисел
+    int l; // мин длина таблички
+    int r; // макс длина таблички
+    cin >> n >> k >> l >> r;
+    vector&lt;int&gt; A(n);
+    for (int i = 0; i &lt; n; i++) {
+      cin >> A[i];
+    }
+
+    // решение
+    int res = 0;
+    map&lt;int, int&gt; mp;
+
+    // метод двух указателей
+    int pl = 0;
+    int pr = pl;
+
+    // набираем l элементов
+    while (pl + l > pr && pr &lt; n) {
+
+      // добавляем элемент в map
+      if (mp.find(A[pr]) == mp.end()) {
+        mp[A[pr]] = 1;
+      } else {
+        mp[A[pr]]++;
+      }
+
+      pr++;
+    }
+
+    // пока pl не дошел до n-l элемента
+    while (n >= pl + l) {
+
+      // пока в map больше k уникальных элементов
+      // двигаем окно из l элементов вправо
+      while (mp.size() > k && pr &lt; n) {
+
+        // удаляем элемент с начала
+        mp[A[pl]]--;
+        if (mp[A[pl]] == 0) {
+          mp.erase(A[pl]);
+        }
+        pl++;
+
+        // добавляем элемент в map
+        if (mp.find(A[pr]) == mp.end()) {
+          mp[A[pr]] = 1;
+        } else {
+          mp[A[pr]]++;
+        }
+        pr++;
+
+      }
+
+      // пока в map меньше k уникальных элементов
+      // набираем элементы от l до r
+      while (mp.size() &lt; k && pr - pl &lt; r && pr &lt; n) {
+
+        // добавляем элементв map
+        if (mp.find(A[pr]) == mp.end()) {
+          mp[A[pr]] = 1;
+        } else {
+          mp[A[pr]]++;
+        }
+        pr++;
+      }
+
+      // если набралось ровно k уникальных элементов
+      if (mp.size() == k) {
+        res++;
+      }
+
+      // пока в map ровно k уникальных элементов
+      // набираем до r элементов
+      while (mp.size() == k && pr - pl &lt; r && pr &lt; n) {
+
+        // добавляем элемент в map
+        if (mp.find(A[pr]) == mp.end()) {
+          mp[A[pr]] = 1;
+        } else {
+          mp[A[pr]]++;
+        }
+
+        // если все еще ровно k уникальных элементов
+        if (mp.size() == k) {
+          res++;
+        }
+
+        pr++;
+      }
+
+      // двигаем pl на 1 вправо
+      mp[A[pl]]--;
+      if (mp[A[pl]] == 0) {
+        mp.erase(A[pl]);
+      }
+      pl++;
+
+      // двигаем pr на r - l влево
+      while (pr > pl + l) {
+        pr--;
+        // удаляем элемент с конца
+        mp[A[pr]]--;
+        if (mp[A[pr]] == 0) {
+          mp.erase(A[pr]);
+        }
+
+      }
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+
+<!-- Задача F. Незуко на поляне -->
+<article class="article">
+  <div class="anchor" id="task6"></div>
+  <h3>Задача F. Незуко на поляне</h3>
+
+  <p>Примечание от меня: нельзя закончить со здоровьем 0 или меньше.</p>
+  <details>
+    <summary>Решение</summary>
+    <h4>Пример 2</h4>
+<pre>
+1
+100 5
+</pre>
+    <code>5</code>
+    <p>Бинарный поиск по ответу.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    long long h; // число здоровья
+    long long d; // конечная точка
+    cin >> h >> d;
+
+    // решение
+    long long l = 0;
+    long long r = 1e9;
+    long long mid;
+
+    // бинарный поиск по ответу
+    while (r - l > 1) {
+      mid = l + (r - l) / 2;
+      long long HP = h + mid;
+      long long damage;
+      long long count_pusk = mid + 1;
+      if (d % count_pusk == 0) {
+        long long step = d / count_pusk;
+        damage = (step * (step + 1) / 2) * count_pusk;
+      } else {
+        long long step = d / count_pusk;
+        damage = (step * (step + 1) / 2) * count_pusk;
+        long long f = d - step * count_pusk;
+        damage += f * (step + 1);
+      }
+      if (damage >= HP) {
+        l = mid;
+      } else {
+        r = mid;
+      }
+    }
+
+
+    // вывод результата
+    cout &lt;&lt; r + d &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+</article>

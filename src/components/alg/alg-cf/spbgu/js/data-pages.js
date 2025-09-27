@@ -8,6 +8,9 @@ import htmlSpbgu6         from './../pages/elem-spbgu6.html';
 import htmlSpbgu7         from './../pages/elem-spbgu7.html';
 import htmlSpbgu8         from './../pages/elem-spbgu8.html';
 import htmlSpbgu9         from './../pages/elem-spbgu9.html';
+import htmlSpbgu10        from './../pages/elem-spbgu10.html';
+import htmlSpbgu11        from './../pages/elem-spbgu11.html';
+import htmlSpbgu12        from './../pages/elem-spbgu12.html';
 
 export const pages = [
   htmlSpbgu1,
@@ -19,4 +22,7 @@ export const pages = [
   htmlSpbgu7,
   htmlSpbgu8,
   htmlSpbgu9,
+  htmlSpbgu10,
+  htmlSpbgu11,
+  htmlSpbgu12,
 ];
