@@ -1,0 +1,111 @@
+<article class="article">
+  <strong>SCH19_1</strong>
+  <p><a href="https://codeforces.com/group/U69t0Qb9kU/contests" target="_blank">Codeforces SCH19_1</a></p>
+</article>
+
+
+<article class="article">
+  <h1>3 Задачи</h1>
+  <p><a href="https://codeforces.com/group/U69t0Qb9kU/contest/322123" target="_blank">Codeforces Контест 322123</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+      <a href="#t1">Задача A. Укладка доминошками</a>
+  <br><a href="#t2">Задача B. Арбуз</a>
+  <br><a href="#t3">Задача C. Юра и заселение</a>
+  <br><a href="#t4">Задача D. Халк</a>
+</article>
+
+
+<!-- Задача A. Укладка доминошками -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>Задача A. Укладка доминошками</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/50/problem/A" target="_blank">Задача 50A</a>
+    <br><a href="https://codeforces.com/contest/50" target="_blank">Codeforces 50 Round 47 Beta 2010.12.20</a>
+  </div>
+
+  </details>
+</article>
+
+
+<!-- Задача B. Арбуз -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задача B. Арбуз</h3>
+
+  <div class="t2"></div>
+
+</article>
+
+
+<!-- Задача C. Юра и заселение -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>Задача C. Юра и заселение</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/467/problem/A" target="_blank">Задача 467A</a>
+    <br><a href="https://codeforces.com/contest/467" target="_blank">Codeforces 467 Round 267 2014.09.18</a>
+  </div>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // число комнат
+  cin >> n;
+  vector&lt;int&gt; A(n);
+  vector&lt;int&gt; B(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i]; // число студентов в комнате
+    cin >> B[i]; // число мест в комнате
+  }
+
+  // решение
+  int res = 0; // число комнат с 2 свободными местами
+  for (int i = 0; i &lt; n; i++) {
+    if (B[i] - A[i] > 1) {
+      res++;
+    }
+  }
+
+  // вывод результата
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Халк -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>Задача D. Халк</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/705/problem/A" target="_blank">Задача 705A</a>
+    <br><a href="https://codeforces.com/contest/705" target="_blank">Codeforces 705 Round 366 (Div. 2) 2010.12.20</a>
+  </div>
+
+  </details>
+</article>

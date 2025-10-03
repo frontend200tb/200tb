@@ -7,6 +7,9 @@ import htmlMirea5         from './../pages/elem-m5.html';
 import htmlMirea6         from './../pages/elem-m6.html';
 import htmlMirea7         from './../pages/elem-m7.html';
 import htmlMirea8         from './../pages/elem-m8.html';
+import htmlMirea9         from './../pages/elem-m9.html';
+import htmlMirea10         from './../pages/elem-m10.html';
+import htmlMirea11         from './../pages/elem-m11.html';
 
 export const pages = [
   htmlMirea1,
@@ -17,4 +20,7 @@ export const pages = [
   htmlMirea6,
   htmlMirea7,
   htmlMirea8,
+  htmlMirea9,
+  htmlMirea10,
+  htmlMirea11,
 ];

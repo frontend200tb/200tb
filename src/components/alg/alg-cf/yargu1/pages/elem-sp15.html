@@ -1144,13 +1144,250 @@ Both
   </details>
 
   <details>
-    <summary>Решение</summary>
+    <summary>Мое решение на C++</summary>
 
     <div>
       <a href="https://codeforces.com/contest/492/problem/D" target="_blank">Задача 492D</a>
       <br><a href="https://codeforces.com/contest/492" target="_blank">Codeforces Round 280 (Div. 2) 2014-12-01</a>
     </div>
 
+    <h4>Тест 3</h4>
+<pre>
+7 5 20
+26
+27
+28
+29
+30
+31
+32
+</pre>
+<pre>
+Vova
+Vova
+Vova
+Both
+Both
+Vova
+Vova
+</pre>
+
+<h4>Тест 19</h4>
+<pre>
+5 999998 1000000
+999997
+999998
+999999
+1000000
+1000001
+</pre>
+<pre>
+Vova
+Both
+Both
+Vova
+Vanya
+</pre>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+int main() {
+  // условная компиляция
+#ifdef _DEBUG
+  freopen("input.txt", "rt", stdin);
+  freopen("output.txt", "wt", stdout);
+#endif
+
+  // ввод данных
+  int n; // число монстров
+  int x; // число ударов в секунду Вани
+  int y; // число ударов в секунду Вовы
+  cin >> n >> x >> y;
+  vector&lt;int&gt; A(n);
+  for (int i = 0; i &lt; n; i++) {
+    cin >> A[i]; // число ударов чтобы убить i-го монстра
+  }
+
+  // решение
+  double eps = 1e-12;
+  string res;
+  int hs = x + y; // всего ударов за 1 секунду
+
+  // поскольку у Вани и Вовы целое число ударов в секунду
+  // и время на замах обратно числу ударов, то можно
+  // рассматривать только последнюю секунду, в которую умрет монстр
+
+  // пусть Ваня всегда бьет быстрее
+  bool reversed = false;
+  if (x &lt; y) {
+    int tmp = x;
+    x = y;
+    y = tmp;
+    reversed = true;
+  }
+
+  double tx = 1.0 / x; // время на замах Вани
+  double ty = 1.0 / y; // время на замах Вовы
+
+  // для каждого монстра найдем кто нанесет последний удар
+  for (int i = 0; i &lt; n; i++) {
+
+    // число ударов чтобы убить монстра
+    int hits_to_die = A[i] % hs;
+
+    // подсчитаем сколько ударов нанесет Ваня и сколько Вова
+    int cnt_x; // число ударов Вани
+    double time_x; // время cnt_x удара Вани
+    int cnt_x1; // следующий удар, которого Ваня уже не сделает
+    double time_x1; // время cnt_x1 удара Вани
+
+    int cnt_y; // число ударов Вовы за время time_x
+    double time_y; // время cnt_y удара Вовы
+
+    // находим момент времени, когда будет нанесено hits_to_die ударов
+    int left = 0; // ни один удар не нанесен
+    int right = hs + 1; // все удары нанесены
+    int mid;
+
+    // вещественный бинарный поиск
+    while (right - left > 1) {
+      mid = left + (right - left) / 2;
+      // Ваня нанесет mid ударов со скоростью 1/x
+      cnt_x = mid; // число ударов Вани
+      time_x = cnt_x * tx; // врема последнего удара Вани
+      cnt_y = time_x * y; // число ударов Вовы за время time_x
+      time_y = cnt_y * ty;
+
+      if (fabs(time_x - time_y) &lt; eps) {
+        cnt_y = cnt_y - 1;
+      }
+
+      if (cnt_x + cnt_y &lt;= hits_to_die) {
+        left = mid;
+      } else {
+        right = mid;
+      }
+    }
+
+    // числа ударов должно хватить, чтобы убить монстра
+    cnt_x = left;
+    time_x = cnt_x * tx;
+    cnt_y = time_x * y;
+    time_y = cnt_y * ty;
+
+    if (fabs(time_x - time_y) &lt; eps){
+      res = "Both";
+    } else if (cnt_y == hits_to_die - cnt_x) {
+      if (time_x > time_y) {
+        if (!reversed) {
+          res = "Vanya";
+        } else {
+          res = "Vova";
+        }
+      } else if (time_y > time_x) {
+        if (!reversed) {
+          res = "Vova";
+        } else {
+          res = "Vanya";
+        }
+      }
+    }
+
+    // поскольку Вова бьет медленнее, он может нанести еще один
+    // удар до следующего удара Вани
+    int cnt_y1; // следующий удар, который Вова возможно сделает
+    double time_y1; // время cnt_y1 удара Вовы
+
+    cnt_x1 = cnt_x + 1;
+    time_x1 = cnt_x1 * tx;
+    cnt_y1 = cnt_y + 1;
+    time_y1 = cnt_y1 * ty;
+
+    if (fabs(time_x - time_y1) &lt; eps) {
+      res = "Both";
+    } else if (cnt_y1 == hits_to_die - cnt_x) {
+      if (time_x > time_y1) {
+        if (!reversed) {
+          res = "Vanya";
+        } else {
+          res = "Vova";
+        }
+      } else if (time_y1 > time_x) {
+        if (!reversed) {
+          res = "Vova";
+        } else {
+          res = "Vanya";
+        }
+      }
+    }
+
+    // гарантированно они одновременно убьют монстра если
+    if (x == y || hits_to_die == 0 || hits_to_die == hs-1) {
+      res = "Both";
+    }
+
+    // вывод результата
+    cout &lt;&lt; res &lt;&lt; '\n';
+  }
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Решение с codeforces</summary>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int n,x,y,i,t,cntx,cnty;
+vector &lt;int&gt; rez;
+
+int main() {
+    scanf("%d%d%d",&n,&x,&y);
+    cntx = cnty = 0;
+    while (cntx &lt; x||cnty &lt; y)
+    {
+        if ((long long)(cntx+1)*y > (long long)(cnty+1)*x)
+        {
+            cnty++;
+            rez.push_back(2);
+        }
+        else
+        if ((long long)(cntx+1)*y &lt; (long long)(cnty+1)*x)
+        {
+            cntx++;
+            rez.push_back(1);
+        } else
+        {
+            cntx++;
+            cnty++;
+            rez.push_back(3);
+            rez.push_back(3);
+        }
+    }
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d",&t);
+        t--;
+        int tmp = rez[t%(x+y)];
+        if (tmp == 1)
+            printf("Vanya\n");
+        else if (tmp == 2)
+            printf("Vova\n");
+        else
+            printf("Both\n");
+    }
+    return 0;
+}
+</pre>
   </details>
 </article>
 

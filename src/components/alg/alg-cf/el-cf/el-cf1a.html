@@ -40,41 +40,45 @@
 using namespace std;
 
 int main() {
-// ввод данных
-long long n, m, a;
-cin >> n >> m >> a;
+  // ввод данных
+  long long n, m, a;
+  cin >> n >> m >> a;
 
-// решение
-// Вычисляем количество плит по длине и ширине с округлением вверх
-long long tilesN = (n + a - 1) / a;
-long long tilesM = (m + a - 1) / a;
+  // решение
+  // вычисляем количество плит
+  // по длине и ширине с округлением вверх
+  long long tilesN = (n + a - 1) / a;
+  long long tilesM = (m + a - 1) / a;
 
-// вывод результата
-cout &lt;&lt; tilesN * tilesM;
+  // вывод результата
+  cout &lt;&lt; tilesN * tilesM;
 }
 </pre>
+
+  <p>2й вариант решения, если мы не знаем формулу округления вверх. Будем проверять делится ли нацелое число плит длина и ширина.</p>
+
 <pre>
 #include &lt;iostream&gt;
 
 using namespace std;
 
 int main() {
-// ввод данных
-long long n, m, a;
-cin >> n >> m >> a;
+  // ввод данных
+  long long n, m, a;
+  cin >> n >> m >> a;
 
-// решение
-long long h1 = n / a;
-long long h2 = m / a;
-if (n % a != 0) {
-  h1++;
-}
-if (m % a != 0) {
-  h2++;
-}
+  // решение
+  long long h1 = n / a;
+  long long h2 = m / a;
+  if (n % a != 0) {
+    h1++;
+  }
+  if (m % a != 0) {
+    h2++;
+  }
 
-// вывод результата
-cout &lt;&lt; h1 * h2;
+  // вывод результата
+  cout &lt;&lt; h1 * h2;
 }
 </pre>
 </details>

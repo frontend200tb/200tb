@@ -4,6 +4,14 @@ import html2        from './../pages/elem-2-Round2.html';
 import html3        from './../pages/elem-3-Round3.html';
 import html4        from './../pages/elem-4-Round4.html';
 import html5        from './../pages/elem-5-Round5.html';
+import html6        from './../pages/elem-6-Round6.html';
+import html7        from './../pages/elem-7-Round7.html';
+import html8        from './../pages/elem-8-Round8.html';
+import html9        from './../pages/elem-9-Round9.html';
+import html10       from './../pages/elem-10-Round10.html';
+import html11       from './../pages/elem-11-Round11.html';
+import html12       from './../pages/elem-12-Round12.html';
+import html34       from './../pages/elem-34-Round34.html';
 import html38       from './../pages/elem-38-sio1.html';
 import html39       from './../pages/elem-39-sko1.html';
 import html44       from './../pages/elem-44-sko2.html';
@@ -11,32 +19,40 @@ import html45       from './../pages/elem-45-sko3.html';
 import html46       from './../pages/elem-46-sio2.html';
 import html48       from './../pages/elem-48-sio3.html';
 import html50       from './../pages/elem-50-Round47.html';
+import html52       from './../pages/elem-52-TRound1.html';
 import html70       from './../pages/elem-70-Round64.html';
+import html71       from './../pages/elem-71-Round65.html';
 import html76       from './../pages/elem-76-vuos.html';
 import html81       from './../pages/elem-81-yandex-q1.html';
 import html82       from './../pages/elem-82-yandex-q2.html';
 import html85       from './../pages/elem-85-yandex-r1.html';
 import html86       from './../pages/elem-86-yandex-r2.html';
 import html97       from './../pages/elem-97-yandex-f.html';
+import html116      from './../pages/elem-116-Round87.html';
 import html120      from './../pages/elem-120-kosSaratov.html';
 import html134      from './../pages/elem-134-TRound3.html';
 import html158      from './../pages/elem-158-vk-q1.html';
 import html159      from './../pages/elem-159-vk-q2.html';
 import html163      from './../pages/elem-163-vk-r2.html';
+import html228      from './../pages/elem-228-Round141.html';
 import html230      from './../pages/elem-230-Round142.html';
 import html313      from './../pages/elem-313-Round186.html';
+import html318      from './../pages/elem-318-Round188.html';
 import html381      from './../pages/elem-381-Round223.html';
+import html492      from './../pages/elem-492-Round280.html';
 import html520      from './../pages/elem-520-Round295.html';
 import html580      from './../pages/elem-580-Round321.html';
 import html646      from './../pages/elem-646-Techno1z.html';
 import html647      from './../pages/elem-647-Techno2z.html';
 import html648      from './../pages/elem-648-Techno1o.html';
 import html649      from './../pages/elem-649-Techno2o.html';
+import html705      from './../pages/elem-705-Round366.html';
 import html723      from './../pages/elem-723-Round375.html';
 import html727      from './../pages/elem-727-Techno2017o1.html';
 import html743      from './../pages/elem-743-Round384.html';
 import html1030     from './../pages/elem-1030-Techno2019o1.html';
 import html1313     from './../pages/elem-1313-Round622.html';
+import html1325     from './../pages/elem-1325-Round628.html';
 import html1352     from './../pages/elem-1352-Round640.html';
 import html1490     from './../pages/elem-1490-Round702.html';
 import html1520     from './../pages/elem-1520-Round719.html';
@@ -106,6 +122,14 @@ export const pages = [
   html3,
   html4,
   html5,
+  html6,
+  html7,
+  html8,
+  html9,
+  html10,
+  html11,
+  html12,
+  html34,
   html38,
   html39,
   html44,
@@ -113,32 +137,40 @@ export const pages = [
   html46,
   html48,
   html50,
+  html52,
   html70,
+  html71,
   html76,
   html81,
   html82,
   html85,
   html86,
   html97,
+  html116,
   html120,
   html134,
   html158,
   html159,
   html163,
+  html228,
   html230,
   html313,
+  html318,
   html381,
+  html492,
   html520,
   html580,
   html646,
   html647,
   html648,
   html649,
+  html705,
   html723,
   html727,
   html743,
   html1030,
   html1313,
+  html1325,
   html1352,
   html1490,
   html1520,

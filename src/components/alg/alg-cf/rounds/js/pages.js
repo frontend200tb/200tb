@@ -7,6 +7,10 @@ import in2       from '../pages/elem-2-Round2';
 import in3       from '../pages/elem-3-Round3';
 import in4       from '../pages/elem-4-Round4';
 import in5       from '../pages/elem-5-Round5';
+import in6       from '../pages/elem-6-Round6';
+import in7       from '../pages/elem-7-Round7';
+import in8       from '../pages/elem-8-Round8';
+import in38      from '../pages/elem-38-sio1';
 import in134     from '../pages/elem-134-TRound3';
 import in230     from '../pages/elem-230-Round142';
 import in313     from '../pages/elem-313-Round186';
@@ -26,9 +30,13 @@ export default function pageLink(asideItems, currentContent) {
           case 2: in3(); break;
           case 3: in4(); break;
           case 4: in5(); break;
-          case 20: in134(); break;
-          case 24: in230(); break;
-          case 25: in313(); break;
+          case 5: in6(); break;
+          case 6: in7(); break;
+          case 7: in8(); break;
+          case 13: in38(); break;
+          case 31: in134(); break;
+          case 36: in230(); break;
+          case 37: in313(); break;
         }
       }
     });
