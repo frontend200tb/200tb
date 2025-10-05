@@ -1,6 +1,6 @@
-import showAlgTheory from './alg-theory/alg-theory';
-import showAlgTasks from './alg-tasks/alg-tasks';
-import showAlgYandex from './alg-yandex/alg-yandex';
+import showAlgTheory  from './alg-theory/alg-theory';
+import showAlgTasks   from './alg-tasks/alg-tasks';
+import showAlgYandex  from './alg-yandex/alg-yandex';
 
 export const dataAlgNav = [
   {

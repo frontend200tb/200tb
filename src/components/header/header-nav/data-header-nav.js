@@ -1,7 +1,7 @@
-import showAlg from '../../alg/alg-base/alg-base';
-import showCode from '../../code/code-html/code-html';
+import showAlg   from '../../alg/alg-base/alg-base';
+import showCode  from '../../code/code-html/code-html';
 import showFront from '../../front/front-edu/front-edu';
-import showLib from '../../lib/lib-books/lib-books';
+import showLib   from '../../lib/lib-books/lib-books';
 
 const dataHeaderNav = [
   {

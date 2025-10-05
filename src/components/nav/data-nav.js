@@ -2,7 +2,6 @@
 import showAlgBase     from '../alg/alg-base/alg-base';
 import showAlgConspect from '../alg/alg-conspect/alg-conspect';
 import showAlgPract    from '../alg/alg-pract/alg-pract';
-import showAlgCf       from '../alg/alg-cf/alg-cf';
 
 // code
 import showCodeHtml   from '../code/code-html/code-html';
@@ -55,14 +54,6 @@ export const dataNavAlg = [
     content: '<alg-pract></alg-pract>',
     act() {
       showAlgPract();
-    },
-  },
-  {
-    url: 'alg-cf.html',
-    text: 'Codeforces',
-    content: '<alg-cf></alg-cf>',
-    act() {
-      showAlgCf();
     },
   },
 ]

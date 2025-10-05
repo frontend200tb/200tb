@@ -6,3 +6,6 @@
 
 # Игнорируем директорию в любой директории проекта
 node_modules/
+
+dist/index.js.map
+dist/style.css.map
