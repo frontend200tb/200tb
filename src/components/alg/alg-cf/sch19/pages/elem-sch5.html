@@ -32,4 +32,177 @@
   <div class="anchor" id="t1"></div>
   <h3>Задача A. В поисках простой задачи</h3>
 
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/1030/problem/A" target="_blank">Задача 1030A</a>
+    <br><a href="https://codeforces.com/contest/1030" target="_blank">Codeforces 1030 Технокубок 2019 - Отборочный Раунд 1 2019.09.23</a>
+  </div>
+
+  </details>
+</article>
+
+
+<!-- Задача B. I Wanna Be the Guy -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>Задача B. I Wanna Be the Guy</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/469/problem/A" target="_blank">Задача 469A</a>
+    <br><a href="https://codeforces.com/contest/469" target="_blank">Codeforces 469 Round 268 (Div. 2) 2014.09.20</a>
+  </div>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // число уровней
+  int p; // уровни LittleX
+  int q; // уровни LittleY
+  cin >> n;
+
+  // создадим частотный массив
+  int F[101] = { 0 };
+  int in;
+
+  cin >> p;
+  for (int i = 0; i &lt; p; i++) {
+    cin >> in;
+    F[in]++;
+  }
+
+  cin >> q;
+  for (int i = 0; i &lt; q; i++) {
+    cin >> in;
+    F[in]++;
+  }
+
+  // решение
+  bool flag = true; // они смогут пройти
+
+  for (int i = 1; i &lt;= n; i++) {
+    if (F[i] == 0) {
+      // если они не пройдут хотябы один уровень
+      flag = false; // они не смогут пройти
+    }
+  }
+
+  string yes = "I become the guy.";
+  string no = "Oh, my keyboard!";
+
+  // вывод результата
+  if (flag) {
+    cout &lt;&lt; yes;
+  } else {
+    cout &lt;&lt; no;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Праздник равенства -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>Задача C. Праздник равенства</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/758/problem/A" target="_blank">Задача 758A</a>
+    <br><a href="https://codeforces.com/contest/758" target="_blank">Codeforces 758 Round 392 (Div. 2) 2017.01.19</a>
+  </div>
+
+  </details>
+</article>
+
+
+<!-- Задача D. Шпион обнаружен! -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>Задача D. Шпион обнаружен!</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/1512/problem/A" target="_blank">Задача 1512A</a>
+    <br><a href="https://codeforces.com/contest/1512" target="_blank">Codeforces 1512 Round 713 (Div. 2) 2021.04.10</a>
+  </div>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  // число тестов
+  int t;
+  cin >> t;
+
+  while (t--) {
+    // ввод данных
+    int n; // длина массива
+    cin >> n;
+
+    // всего встречается два числа
+    int A[2] = { 0 }; // храним сами числа
+    int B[2] = { 0 }; // сколько раз они встретились
+    int C[2] = { 0 }; // позиция числа
+    int in;
+
+    for (int i = 1; i &lt;= n; i++) {
+      cin >> in;
+      if (A[0] == 0) {
+        A[0] = in;
+        B[0] = 1;
+        C[0] = i;
+      } else if (A[0] == in) {
+        B[0]++;
+      } else if (A[1] == 0) {
+        A[1] = in;
+        B[1] = 1;
+        C[1] = i;
+      } else if (A[1] == in) {
+        B[1]++;
+      }
+    }
+
+    // вывод результата
+    if (B[0] == 1) {
+      cout &lt;&lt; C[0] &lt;&lt; '\n';
+    } else {
+      cout &lt;&lt; C[1] &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Командная олимпиада -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>Задача E. Командная олимпиада</h3>
+
+  <details>
+    <summary>Решение</summary>
+
+  <div>
+    <a href="https://codeforces.com/contest/490/problem/A" target="_blank">Задача 490A</a>
+    <br><a href="https://codeforces.com/contest/490" target="_blank">Codeforces 490 Round 279 (Div. 2) 2014.11.23</a>
+  </div>
+
+  </details>
 </article>

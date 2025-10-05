@@ -1,0 +1,95 @@
+<h1>Eslint</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#install">install</a></p>
+    <p><a href="#eslintrc">.eslintrc.js</a></p>
+  </div>
+
+</div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>About</h2>
+  <p>Линтер — это статический анализатор для языка программирования. Он сообщает о потенциально опасных выражениях в коде, которые могут привести к аварийному завершению программы. Также линтер может сообщить об устаревших участках кода, синтаксических ошибках и неиспользованных переменных. Всего существует около 300 правил, которые можно включить/выключить по желанию.</p>
+  <p>Find and fix problems in your JavaScript code. ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.</p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>Links</h2>
+
+  <p><a href="https://eslint.org/">https://eslint.org/</a></p>
+  <p><a href="https://www.npmjs.com/package/eslint">https://www.npmjs.com/package/eslint</a></p>
+  <p><a href="https://github.com/eslint/eslint">https://github.com/eslint/eslint</a></p>
+
+  <h3>Статьи на habr</h3>
+  <p><a href="https://habr.com/ru/companies/domclick/articles/743384/">ESLint. Анатомия правил линтинга: разбираем структуру, создаём собственное правило для React-приложения (Anastasia Puchnina 2023-06-23)</a></p>
+  <p><a href="https://habr.com/ru/articles/758954/">Повышаем продуктивность разработки: магия общей ESLint конфигурации (Dmitrii Pashkevich 2023-09-05)</a></p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>install</h2>
+
+  <p>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb</p>
+  <code>npm i -D eslint eslint-config-airbnb</code>
+
+  <p>В файл package.json добавятся зависимости для разработки. Вручную добавим скрипт для запуска проверки</p>
+<pre>"scripts": {
+  "lint": "eslint ./src",
+},
+"devDependencies": {
+  "eslint": "^8.49.0",
+  "eslint-config-airbnb": "^19.0.4",
+}</pre>
+</article>
+
+
+<!-- eslintrc -->
+<article class="article">
+  <div class="anchor" id="eslintrc"></div>
+  <h2>.eslintrc.js</h2>
+
+  <p>Создадим файл .eslintrc.js в котором будут настройки для eslint</p>
+  <code>touch .eslintrc.js</code>
+
+  <p>Из файла .eslintrc.js будем экспортировать объект</p>
+<pre>module.exports = {
+  env: {
+    commonjs: true,
+    es6: true,
+    browser: true,
+    node: true,
+  },
+  extends: [
+    'airbnb-base',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+  },
+  rules: {
+    'no-console': 0,
+  },
+}</pre>
+</article>

@@ -53,48 +53,66 @@
 </article>
 
 
-<!-- install -->
+<!-- Установка Angular -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>install</h2>
+  <h3>Установка Angular</h3>
 
-  <h3>Установка</h3>
   <p>Для установки Angular требуется установленные node.js и npm. Проверим версии установленных node.js и npm</p>
-  <code>
-    node -v
-    <br>v16.13.1
-    <br>npm -v
-    <br>8.1.2
-  </code>
+<pre>
+node -v
+v16.13.1
+npm -v
+8.1.2
+</pre>
   <p>(сокращенно от node --version и npm --version)<br>если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
-  <p>Установим angular cli глобально во всей системе. Эта же команда обновит уже установленную
-      версию.<code>npm i -g @angular/cli</code>(сокращенно от npm install --global @angular/cli)<br>Поскольку Angular
-      CLI устанавливается глобально, то устанавливать его отдельно для каждого проекта не нужно. Все команды Angular
-      CLI начинаются со слова ng. Проверим установленную версию Angular CLI<code>ng -v</code>(сокращенно от ng
-      version)</p>
-  <p>Есть два способа установки Angular. Первый это ручная сборка (создать файл package.json с нужными
-      зависимостями и запустить npm init), мы ей пользоваться не будем. Будем использовать только второй способ это
-      через специальное консольное приложение Angular CLI.</p>
-  <p>Создадим новый проект на Angular в папке app (если ее нет то она
-      создастся)<code>ng new app --style=scss --skip-tests --skip-install --routing</code>app имя нового
-      проекта<br>--style=scss добавит в проект scss вместо обычного css<br>--skip-tests не создавать
-      тесты<br>--skip-install не устанавливать npm модули<br>--routing добавить код для маршрутизации<br>--prefix
-      смена префикса по умолчанию для селекторов<br>--skip-git не добавлять проект в репозиторий<br>--dry-run не
-      создавать файлы<br>Все опции, которые мы прописали при создании проекта попадут в файл настроек
-      .angular-cli.json который можно редактировать.</p>
-  <p>Если npm модули не устанавливались, то их можно установить в любой момент командой<code>npm install</code>
-  </p>
-  <p>Установим в проект ESLint <code>ng add @angular-eslint/schematics</code>Подробнее можно посмотреть на сайте <a
-        href="https://habr.com/ru/post/501830/">Переносим Angular проект на ESLint, с Prettier, Husky и
-        lint-staged</a></p>
-  <p>Добавим в наш конфиг ESLint правила стайл гайда
-      AirBnB<code>npm install eslint-plugin-import eslint-config-airbnb-typescript --save-dev</code></p>
-  <p>Добавим в наш проект Prettier
-      <code>npm i prettier eslint-config-prettier eslint-plugin-prettier --save-dev</code>
-  </p>
-  <p>Добавим в наш проект Angular Materuai UI <code>ng add @angular/material</code></p>
-  <p>Добавим в наш проект Bootstrap<code>ng add @ng-bootstrap/ng-bootstrap</code></p>
-  </ol>
+  <p>Установим angular cli глобально во всей системе. Эта же команда обновит уже установленную  версию</p>
+  <code>npm i -g @angular/cli</code>
+  <p>(сокращенно от npm install --global @angular/cli)</p>
+
+  <p>В результате в системной папке</p>
+  <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\</code>
+  <p>Появится новая папка</p>
+  <code>@angular</code>
+
+  <p>Поскольку Angular CLI устанавливается глобально, то устанавливать его отдельно для каждого проекта не нужно. Все команды Angular CLI начинаются со слова ng. Проверим установленную версию Angular CLI</p>
+  <code>ng -v</code>
+  <p>(сокращенно от ng version)</p>
+  <p>Есть два способа установки Angular. Первый это ручная сборка (создать файл package.json с нужными зависимостями и запустить npm init), мы ей пользоваться не будем. Будем использовать только второй способ это через специальное консольное приложение Angular CLI.</p>
+  <p>Создадим новый проект на Angular в папке app (если ее нет то она создастся)
+  <code>ng new app --style=scss --skip-tests --skip-install --routing</code>
+  <p>app имя нового проекта</p>
+  <br>--style=scss добавит в проект scss вместо обычного css
+  <br>--skip-tests не создавать тесты
+  <br>--skip-install не устанавливать npm модули
+  <br>--routing добавить код для маршрутизации
+  <br>--prefix смена префикса по умолчанию для селекторов
+  <br>--skip-git не добавлять проект в репозиторий
+  <br>--dry-run не создавать файлы
+  <br>Все опции, которые мы прописали при создании проекта попадут в файл настроек .angular-cli.json который можно редактировать.
+  <p>Если npm модули не устанавливались, то их можно установить в любой момент командой</p>
+  <code>npm install</code>
+  <p>Установим в проект ESLint</p>
+  <code>ng add @angular-eslint/schematics</code>
+  <p>Подробнее можно посмотреть на сайте <a href="https://habr.com/ru/post/501830/">Переносим Angular проект на ESLint, с Prettier, Husky и lint-staged</a></p>
+  <p>Добавим в наш конфиг ESLint правила стайл гайда AirBnB</p>
+  <code>npm install eslint-plugin-import eslint-config-airbnb-typescript --save-dev</code>
+  <p>Добавим в наш проект Prettier</p>
+  <code>npm i prettier eslint-config-prettier eslint-plugin-prettier --save-dev</code>
+  <p>Добавим в наш проект Angular Materuai UI</p>
+  <code>ng add @angular/material</code>
+  <p>Добавим в наш проект Bootstrap</p>
+  <code>ng add @ng-bootstrap/ng-bootstrap</code>
+
+  <h3>Удаление Angular</h3>
+
+  <p>Для удаление глобально установленного Angular введем команду</p>
+  <code>npm uninstall -g @angular/cli@16.2.11</code>
+  <p>В результате в системной папке</p>
+  <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\</code>
+  <p>Удалится папка</p>
+  <code>@angular</code>
+
 </article>
 
 

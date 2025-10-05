@@ -1,0 +1,190 @@
+<h1>Webpack</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#about">about</a></p>
+  <p><a href="#links">links</a></p>
+  <p><a href="#install">install</a></p>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Webpack — это статический сборщик модулей JavaScript в единый JS-файл (инструмент, позволяющий скомпилировать несколько модулей в один файл), содержащий все необходимое для запуска приложения.</p>
+  <p>Webpack применяют как при frontend, так и в backend разработке на Node.js. Он анализирует модули приложения, создает на основе операторов import и/или require() граф зависимостей модулей и собирает модули в правильном порядке в один или более бандл (bundle, узел), на который может ссылаться файл index.html.</p>
+  <p>У самого WebPack есть несколько основных терминов:</p>
+  <p>Конфигурационный файл (Configuration)</p>
+  <p>Входная точка (Entry)</p>
+  <p>Точка выхода (Output)</p>
+  <p>Загрузчики (Loaders)</p>
+  <p>Плагины (Plugins)</p>
+  <p>Режимы (Modes)</p>
+
+  <h3>Конфигурационный файл (Configuration)</h3>
+  <p>Сам конфигурационный файл всегда один — webpack.config.js. В нем мы указываем экспортируемый объект, которй и является конфигурацией для Webpack:</p>
+  <code>module.exports = {};</code>
+  <p>Основные свойства объекта module.exports это entry, output, module, plugins, mode, cache, watch, watchOptions</p>
+  <p>Webpack это упаковщик модулей (отдельных частей программы) в единую систему. Изначально применялся для сборки JS, но в настоящее время применяется для сборки любых ресурсов HTML, CSS, шрифтов, изображений. Loader(обработчик) - преобразовывает определенный тип файла в JS модуль. Loader это js function которая принимает исходный код и возвращает обработанный код. Plugins (плагины) позволяют делать все то, что не позволяют делать loaders. Compiler сборщик. Compilartion объект сборки.</p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://webpack.js.org/">https://webpack.js.org/</a></p>
+
+  <h3>Статьи на habr</h3>
+  <p><a href="https://habr.com/ru/post/514838/">Webpack: руководство для начинающих (2020-08-12)</a></p>
+  <p><a href="https://habr.com/ru/post/519064/">Основы настройки Webpack (2020-09-15)</a></p>
+  <p><a href="https://habr.com/ru/post/524260/">Настройка Webpack 5 с нуля (2020-10-20)</a></p>
+  <p><a href="https://habr.com/ru/post/701724/">Настройка Webpack 5 (2022-11-25)</a></p>
+  <p><a href="https://habr.com/ru/company/piter/blog/710844/">Полный обзор webpack (2023-01-16)</a></p>
+
+  <h3>Статьи</h3>
+  <p><a href="https://www.internet-technologies.ru/articles/rukovodstvo-po-webpack-dlya-novichkov.html">Webpack - что это? Руководство по для новичков (2019-08-19)</a></p>
+  <p><a href="https://www.cat-in-web.ru/webpack-from-zero/">Webpack с нуля: это совсем не страшно (2019-12-30)</a></p>
+  <p><a href="https://daruse.ru/webpack-5-sozdanie-bazovoj-konfiguraczii">Webpack 5: создание базовой конфигурации
+          (2021-04-21)</a></p>
+  <p><a href="https://vc.ru/dev/418917-krupnyy-gayd-po-webpack">Крупный гайд по Webpack (2022-05-10)</a></p>
+</article>
+
+
+<!-- Установка Webpack -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>Установка Webpack</h3>
+
+  <ol>
+
+    <li>
+      <p>Проверим версии установленных node.js и npm</p>
+<pre>
+node -v
+v22.20.0
+npm -v
+10.9.3
+</pre>
+      <p>(сокращенно от node --version и npm --version)</p>
+      <p>Если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a></p>
+    </li>
+
+    <li>
+      <p>Установим webpack, webpack-cli и webpack-dev-server глобально</p>
+      <code>npm i -g webpack webpack-cli webpack-dev-server</code>
+      <p>в папке</p>
+      <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\</code>
+      <p>появятся три папки</p>
+      <code>webpack, webpack-cli и webpack-dev-server</code>
+    </li>
+
+    <li>
+      <p>Создадим папку с названием проекта, например 200cf</p>
+      <code>mkdir 200cf</code>
+      <p>Перейдем в папку с названием 200cf</p>
+<pre>
+cd 200cf
+d://200cf/
+</pre>
+    </li>
+
+    <li>
+      <p>Инициализируем проект</p>
+      <code>npm init -y</code>
+      <p>(сокращенно от npm init --yes, то же что и npm init, не отвечая на вопросы)</p>
+    </li>
+
+    <li>
+      <p>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут являться зависимостями для нашего приложения.</p>
+      <code>d://200cf/package.json</code>
+    </li>
+
+    <li>
+      <p>Установим webpack, webpack-cli и webpack-dev-server в качестве зависимостей для разработки (dev dependencies).</p>
+      <p>webpack - сборщик модулей и ресурсов</p>
+      <p>webpack-cli - интерфейс командной строки для вебпака</p>
+      <p>webpack-dev-server - сервер для разработки</p>
+      <code>npm i -D webpack webpack-cli webpack-dev-server</code>
+      <p>(сокращенно от npm install --save-dev webpack webpack-cli webpack-dev-server)</p>
+    </li>
+
+    <li>
+      <p>В итоге в папке с проектом появится папка node_modules и файл package-lock.json. В node_modules установлены webpack, webpack-cli, webpack-dev-server и все необходимые зависимости для того чтобы они работали. Эту папку трогать не нужно</p>
+      <code>d://200cf/node_modules</code>
+      <code>d://200cf/package-lock.json</code>
+    </li>
+
+    <li>В файле package.json появятся записи:
+<pre>
+"devDependencies": {
+  "webpack": "^5.102.0",
+  "webpack-cli": "^6.0.1",
+  "webpack-dec-server":"^5.2.2"
+}</pre>
+    </li>
+
+    <li>
+      <p>Чтобы понять что они установились, проверим версии пакетов</p>
+<pre>
+npm run webpack -v
+10.9.3
+npm run webpack-cli -v
+10.9.3
+npm run webpack-dev-server -v
+10.9.3
+</pre>
+    </li>
+
+    <li>
+      <p>Для проверки работы webpack создадим файлы</p>
+      <code>src/index.js</code>
+      <code>dist/index.html</code>
+      <p>Внутри файла index.html подключим скрипт</p>
+      <code>&lt;script src="main.js"&gt;&lt;/script&gt;</code>
+
+      <p>В файл package.json напишем</p>
+<pre>
+"scripts": {
+  "build": "webpack"
+}
+</pre>
+    </li>
+
+    <li>
+      <p>Теперь можно запустить webpack в режиме разработки командной</p>
+      <code>npm run build</code>
+      <p>В папку dist (если ее не было то она создастся) запишется файл main.js в который соберется весь javascript из файла src/index.js со всеми импортами которые включены в него из других файлов js. По умолчанию этот файл минифицируется и такая сборка готова в продакшн</p>
+    </li>
+
+    <li>
+      <p>В файле package.json пропишем три команды</p>
+<pre>
+"scripts": {
+  "serve": "webpack server --mode development --open",
+  "build": "webpack --mode production",
+  "dev": "webpack --mode development"
+}
+</pre>
+      <p>Для запуска сервера для разработки нужно выполнить команду</p>
+      <code>npm run serve</code>
+       <p>Для запуска сборки в режиме разработки нужно выполнить команду</p>
+      <code>npm run dev</code>
+      <p>Для запуска сборки в режиме продакшн нужно выполнить команду</p>
+      <code>npm run build</code>
+   </li>
+
+    <li>Webpack установлен с настройками по умолчанию</li>
+
+    <li>
+      <p>Для того чтобы настроить webpack под задачи проекта нужно создать и настроить конфигурационный файл </p>
+      <code>webpack.config.js</code>
+    </li>
+  </ol>
+</article>

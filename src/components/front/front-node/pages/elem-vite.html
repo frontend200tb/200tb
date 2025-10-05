@@ -1,0 +1,64 @@
+<h1>Vite</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="content"></div>
+  <h2>Содержание</h2>
+</div>
+
+<!-- Содержание -->
+<div class="article article__content">
+
+  <div>
+    <p><a href="#about">about</a></p>
+    <p><a href="#links">links</a></p>
+    <p><a href="#install">install</a></p>
+  </div>
+
+</div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h2>about</h2>
+
+  <p>Vite позволяет вам создавать приложения на Vue с однофайловыми компонентами без шага сборки бандлов. Импорты запрашиваются браузером как нативные модули ES. Dev-сервер перехватывает запросы к файлам .vue и компилирует их на лету. И это происходит мгновенно.</p> 
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h2>links</h2>
+
+  <p><a href="https://vitejs.dev/">vitejs.dev</a></p>
+  <p><a href="https://github.com/vitejs/vite">github.com/vitejs/vite</a></p>
+  
+  <h3>Статьи на habr</h3>
+  <p><a href="https://habr.com/ru/company/otus/blog/505362/">Vite – ведение разработки без бандлов на Vue Все, что нужно знать (2020-06-04)</a></p>
+  <p><a href="https://habr.com/ru/company/otus/blog/572622/">Переход с Vue-CLI и Webpack на Vitejs (2021-08-12)</a></p></li>
+  <p><a href="https://habr.com/ru/post/580064/">Vite.js и Vue.js (2021-09-27)</a></p>
+
+  <h3>Статьи</h3>
+  <p><a href="https://liquidhub.ru/blogs/blog/vite-js">Vite.js: что это и зачем нужно веб-разработчику</a></p>
+</article>
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h2>install</h2>
+
+  <p>Создадим новое vite приложение с помощью npm команды</p>
+  <code>npm create vite@latest</code>
+  <p>После ввода этой команды запуститься генератор нового приложения которое будет в себе использовать Vite, и впервую очередь что у нас он спросит - это то как мы хотим назвать наш проект</p>
+  <p>По умолчанию будет предложено имя vite-project, и после этого нам нужно будет выбрать какой фреймворк мы хотим использовать - и здесь я выберу Vue</p>
+  <p>Окей, после выбора что мы хотим использовать Vue - нас спрашивает хотим ли мы использовать TypeScript вместе с Vue</p>
+  <p>Я выбираю обычный vue - и как раз уже после этого vite создаст папку с именем нашего проекта, в которой находится наш проект</p>
+  <p>Перейдем в папку проекта</p>
+  <code>cd vite-project</code>
+  <p>Запустим npm install</p>
+  <code>npm install</code>
+  <p>Запустим локальный сервер и посмотрим как выглядит страница по-умолчанию созданная в новом Vue приложении с Vite</p>
+  <code>npm run dev</code>
+</article>

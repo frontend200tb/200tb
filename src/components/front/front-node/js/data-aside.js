@@ -7,6 +7,7 @@ export const asideThemes = [
   'Gulp',
   'Vite',
   'Webpack',
+  'webpack.config.js',
   'webpack-dev-server',
   'Tailwind',
   'Nodejs',

@@ -1,0 +1,930 @@
+<h1>Файл webpack.config.js</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#config">webpack.config.js</a></p>
+  <ol>
+    <li><a href="#watch">Watch</a></li>
+    <li><a href="#entry">Entry</a></li>
+    <li><a href="#output">Output</a></li>
+    <li><a href="#clean">Clean</a></li>
+    <li><a href="#loaders">Loaders</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#plugins">Plugins</a></li>
+    <li><a href="#devserver">Настройка webpack-dev-server</a></li>
+    <li><a href="#devtool">Devtool</a></li>
+  </ol>
+  <p><a href="#uconfig">Настроим свой webpack.config.js</a></p>
+</article>
+
+
+<!-- webpack.config.js -->
+<article class="article">
+  <div class="anchor" id="config"></div>
+  <h3>webpack.config.js</h3>
+
+  <p>Webpack по умолчанию:</p>
+  <ol>
+    <li>собирает js файлы в один файл</li>
+    <li>не требует конфигурационного файла</li>
+    <li>исходным файлом (entry) является src/index.js</li>
+    <li>выходным файлом (output) является dist/main.js</li>
+    <li>собирается в режиме (mode) production mode</li>
+  </ol>
+
+  <p>Для того чтобы настроить webpack под задачи проекта создадим конфигурационный файл webpack.config.js</p>
+<pre>
+touch webpack.config.js
+d://200cf/webpack.config.js
+</pre>
+  <p>Внутри этого файла экспортируем объект с настройками в виде commonJS модуля</p>
+  <code>module.exports = {}</code>
+
+  <p>Простая конфигурация собирает js файлы в один файл и можно задать имя входному и выходному файлам. Запишем в файл webpack.config.js</p>
+<pre>
+module.exports = {
+  entry: './src/index.js',
+  output: './dist/index.js'
+}
+</pre>
+</article>
+
+
+<!-- watch -->
+<article class="article">
+  <div class="anchor" id="watch"></div>
+  <h3>1. Watch</h3>
+
+  <p>watch — заставляет webpack отслеживать изменения в файлах и заново выполнять сборку</p>
+<pre>
+module.exports = {
+  watch: true,
+};
+</pre>
+  <p>Мы не будем использовать эту настройку.</p>
+</article>
+
+
+<!-- entry -->
+<article class="article">
+  <div class="anchor" id="entry"></div>
+  <h3>2. Entry point (входная точка)</h3>
+
+  <p>Входная точка это файл, который нужно включить первым и от которого будут идти все импорты. По умолчанию это файл src/index.js. Есть несколько способов определить входную точку.</p>
+  <p>Запишем в файл конфигурации webpack.config.js экспортируемый объект, содержащий</p>
+  <ol>
+    <li>Один файл в формате String
+<pre>
+module.exports = {
+  entry: './src/index.js',
+};
+</pre>
+    </li>
+    <li>Один файл в формате Array
+<pre>
+module.exports = {
+  entry: ['./src/index.js'],
+};
+</pre>
+    </li>
+    <li>Несколько файлов в формате Array
+<pre>
+module.exports = {
+  entry: ['./src/index.js', './src/app.js'],
+};
+</pre>
+    </li>
+    <li>Один файл в формате Object
+<pre>
+module.exports = {
+  entry: {app: './src/index.js',},
+};
+</pre>
+    </li>
+    <li>Несколько файлов в формате Object
+<pre>
+module.exports = {
+  entry: {
+    index: './src/index.js',
+    app: './src/app.js',
+  },
+};
+</pre>
+    </li>
+  </ol>
+
+  <p>У нас будет один файл, поэтому будем использовать первый способ.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+module.exports = {
+  entry: './src/index.js',
+};
+</pre>
+</article>
+
+
+<!-- output -->
+<article class="article">
+  <div class="anchor" id="output"></div>
+  <h3>3. Output (Точка выхода)</h3>
+
+  <p>Свойство output говорит куда выкладывать собранные файлы и как их называть. По умолчанию Webpack собирает весь javascript в один файл ./dist/main.js и остальные файлы в папку ./dist.</p>
+  <p>Чтобы указать другое имя нужно использовать свойство filename</p>
+<pre>
+module.exports = {
+  output: {
+    filename: 'bundle.js',
+  },
+};
+</pre>
+  <p>Используем модуль path чтобы в различных операционных системах был правильный путь к выходному файлу</p>
+<pre>
+const path = require('path');
+
+module.exports = {
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+};
+</pre>
+  <p>Можно очистить папку dist перед сборкой</p>
+<pre>
+module.exports = {
+  output: {
+    clean: true,
+  },
+};
+</pre>
+  <p>Webpack работает не только с javascript который собирается в одном файле, но и с html, css, картинками для которых и указывается выходная директория, чтобы правильно перенести их</p>
+<pre>
+module.exports = {
+  output: {
+    assetModuleFilename: '[name][ext]',
+  },
+};
+</pre>
+
+  <p>Будем использовать очистку папки dist перед сборкой, имя выходного файла index.js, установим правильный путь в различных операционных системах и установим выходную директорию для html, css и картинок.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+};
+</pre>
+</article>
+
+
+<!-- clean -->
+<article class="article">
+  <div class="anchor" id="clean"></div>
+  <h3>4. Clean (Очистка выходной папки)</h3>
+
+  <p>Очистка выходной папки. Я знаю три способа. Будем пользоваться первым</p>
+
+  <ol>
+    <li>
+      <P>Первый способ. Очистка выходной папки средствами webpack</P>
+<pre>module.exports = {
+  output: {
+    clean: true,
+  },
+};</pre>
+    </li>
+    <li>
+      <p>Второй способ. Установим clean-webpack-plugin, очищающий директорию «dist» при каждой сборке проекта</p>
+      <code>npm i -D clean-webpack-plugin</code>
+      <p>Запишем в файл webpack.config.js</p>
+<pre>const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+module.exports = {
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
+}</pre>
+    </li>
+    <li>
+      <p>Третий способ. Каталог dist не очищается, а удаляется. Установим filemanager-webpack-plugin</p>
+      <code>npm i -D filemanager-webpack-plugin</code>
+      <p>Запишем в файл webpack.config.js</p>
+<pre>const { FileManagerPlugin } = require('filemanager-webpack-plugin')
+module.exports = {
+  plugins: [
+    new FileManagerPlugin(
+      events: {
+        onStart: {
+          delete: ['dist'],
+        },
+      },
+    ),
+  ],
+}</pre>
+    </li>
+  </ol>
+
+  <p>Используем первый способ.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+};
+</pre>
+</article>
+
+
+<!-- loaders -->
+<article class="article">
+  <div class="anchor" id="loaders"></div>
+  <h3>5. Loaders (загрузчики)</h3>
+
+  <p>По умолчанию webpack понимает только файлы JavaScript и JSON. Загрузчики (loaders) позволяют webpack обрабатывать другие типы файлов и преобразовывать их. Чтобы webpack понимал файлы других типов, которые мы импортируем в файл index.js, то нужны загрузчики. Например, для css файлов - css-loader, для pug файлов - pug-loader, для typescript файлов - ts-loader. Лоадеры – это скрипты, которые принимают на вход содержимое файла, обрабатывают его и возвращают красивый и удобный результат.</p>
+  <p>Для лоадеров придумали правила (rules). Правила (rules) это объекты в конфигурации, которые указывают на файлы, которые нужно обработать и указывают лоадер. Перед тем как использовать лоадеры их надо скачать с помощью npm</p>
+
+  <ol>
+    <li>
+      <h4>html-loader</h4>
+
+      <p>Установим html-loader</p>
+      <code>npm i -D html-loader</code>
+
+      <p>Напишем правило чтобы собирать html файлы через js</p>
+<pre>
+module: {
+  rules:[
+    {
+      test: /\.html$/,
+      loader: "html-loader",
+    }
+  ]
+}
+</pre>
+    </li>
+
+    <li>
+      <h4>babel-loader</h4>
+      Чтобы писать код на современном языке, а выкладывать код на ES5, который понятен всем браузерам, надо использовать babel. Установим необходимые пакеты
+      <code>npm i -D @babel/core @babel/preset-env babel-loader</code>
+      <p>babel core — содержит всю логику транспиляции;</p>
+      <p>babel preset env — основной набор плагинов с реализацией возможностей javascript, учитывающих поддержку нужных браузеров;</p>
+      <p>babel loader — собственно лоадер, обеспечивающий взаимодействие с webpack.</p>
+<pre>module: {
+  rules:[
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {loader: 'babel-loader'}
+    }
+  ]
+}</pre>
+    <p>Создадим файл настроек .babelrc и запишем в него объект с настройками для babel. presets - правила преобразования. browserslist - список браузеров в которых будет работать преобразованный код</p>
+<pre>
+{
+  "presets": ["@babel/preset-env"]
+}
+</pre>
+    </li>
+
+    <li>
+      <h4>css-loader mini-css-extract-plugin</h4>
+      <p>Вариант 1 сборки стилей. Мы будем использовать его. В сборке стили будут вынесены в отдельный файл style.css, который будет подключен в теге link файла index.html.</p>
+
+      <p>Установим необходимые пакеты</p>
+      <code>npm i -D css-loader mini-css-extract-plugin</code>
+
+      <p>Подключим необходимый файл и напишем rules (правила)</p>
+<pre>
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  module: {
+    rules:[
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      }
+    ]
+  }
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
+}
+</pre>
+    </li>
+
+    <li>
+      <h4>css-loader style-loader</h4>
+      <p>Вариант 2 сборки стилей. В сборке стили будут встроены в файл index.js. При загрузке в браузере стили будут встраиваться в тег style файла index.html</p>
+
+      <p>Установим необходимые пакеты</p>
+      <code>npm i -D css-loader style-loader</code>
+
+      <p>css-loader позволяет импортировать css файл в js</p>
+      <p>style-loader внедряет CSS в DOM. Он разместит результат в index.js, который при запуске подключит стили через тег style в файле index.html</p>
+      <p>Напишем rules (правила) для css</p>
+<pre>
+module: {
+  rules:[
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    }
+  ]
+}
+</pre>
+      <p>Теперь внутри js файла мы можем делать импорт стилей</p>
+      <code>import './style.scss';</code>
+    </li>
+
+    <li>
+      <h4>sass-loader</h4>
+      <p>sass-loader загружает файлы SCSS и передает компилятору sass</p>
+      <p>sass компилирует код в CSS.</p>
+      <code>npm i -D sass-loader sass</code>
+      <p>Напишем rules (правила) для scss</p>
+<pre>
+module: {
+  rules:[
+    {
+      test: /\.(scss|sass|css)$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+    }
+  ]
+}
+</pre>
+    </li>
+
+    <li>
+      <h4>postcss-loader</h4>
+      Плагин postcss-loader добавит autoprefix для создания кроссбраузерного css
+      <code>npm i -D postcss-loader postcss postcss-preset-env</code>
+      <p>postcss-loader - загрузчик CSS файлов для пост-обработки. Должен работать с каким нибудь плагином.</p>
+      <p>postcss-preset-env это плагин для PostCSS, который конвертирует современный CSS в код, понятный большинству браузеров, включением необходимых полифилов.</p>
+<pre>
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  module: {
+    rules:[
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+      }
+    ]
+  }
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
+}
+</pre>
+      <p>Создадим файл настроек postcss.config.js и запишем в него</p>
+<pre>
+module.exports = {
+  plugins: {
+    'postcss-preset-env': {
+      browsers: 'last 2 versions',
+    },
+  },
+}
+</pre>
+    </li>
+    <li>
+      <h4>ts-loader</h4>
+      <p>ts-loader позволяет работать с typescript</p>
+      <code>npm i -D ts-loader typescript</code>
+<pre>
+module: {
+  rules:[
+    {
+      test: /\.ts$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'ts-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
+      },
+    },
+  ]
+}
+</pre>
+    </li>
+    <li>
+      <h4>pug-loader</h4>
+      <p>pug-loader позволяет добавить html препроцессор pug в проект</p>
+      <code>npm i -D pug-loader pug</code>
+<pre>
+module: {
+  rules:[
+    {
+      test: /\.pug$/,
+      loader: 'pug-loader',
+    }
+  ]
+}
+</pre>
+    </li>
+
+  </ol>
+
+  <p>Мы будем использовать html-loader, babel-loader, css-loader, mini-css-extract-plugin, sass-loader, postcss-loader.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+};
+
+module.exports = {
+  module: {
+    rules:[
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ]
+  },
+  plugins: [
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, './src/index.html'),
+    filename: 'index.html',
+    favicon: './src/favicon.ico',
+  }),
+  new MiniCssExtractPlugin({
+    filename: 'style.css',
+  }),
+  ],
+}
+</pre>
+</article>
+
+
+<!-- rules -->
+<article class="article">
+  <div class="anchor" id="rules"></div>
+  <h3>6. Rules (правила)</h3>
+
+  <ol>
+    <li>
+      <h4>Шрифты</h4>
+      <p>Напишем rules (правила) для шрифтов</p>
+<pre>
+module: {
+  rules: [
+    {
+      test: /\.(otf|ttf|eot|woff|woff2)$/,
+      type: 'asset/resource',
+    },
+  ]
+}
+</pre>
+    </li>
+
+    <li>
+      <h4>Картинки</h4>
+      <p>Напишем rules (правила) для картинок. Название выходного файла будет соответствовать исходному</p>
+<pre>
+output: {
+  assetModuleFilename: '[name][ext]'
+},
+module: {
+  rules: [
+    {
+      test: /\.(png|jpg|jpeg|gif)$/i,
+      type: 'asset/resource'
+    }
+  ]
+}
+</pre>
+
+      <p>Дальше</p>
+<pre>{
+  test: /\.(png|jpg|jpeg|gif)$/i,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[name]-[hash].[ext]',
+        outputPath: 'img',
+      },
+    },
+  ],
+},</pre>
+    </li>
+  </ol>
+
+  <p>Подключим правила для шрифтов и картинок.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+};
+
+module.exports = {
+  module: {
+    rules:[
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.(otf|ttf|eot|woff|woff2)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ],
+}
+</pre>
+</article>
+
+
+<!-- plugins -->
+<article class="article">
+  <div class="anchor" id="plugins"></div>
+  <h3>7. Plugins (Плагины)</h3>
+
+  <p>Плагины — внешние модули для Webpack, которые позволяют управлять и обрабатывать файлы, которые не импортируются в JavaScript.</p>
+
+  <ol>
+    <li>
+      <h4>html-webpack-plugin</h4>
+      <p>Плагин HTMLWebpackPlugin автоматически создает HTML-файл с уже подключенным скриптом. Установим html-webpack-plugin</p>
+      <code>npm i -D html-webpack-plugin</code>
+
+      <p>Добавим в webpack.config.js</p>
+<pre>
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin()
+  ],
+};
+</pre>
+      <p>Научим HTMLWebpackPlugin создавать файл на основе шаблона, задавать имя выходного файла, копировать файл favicon.svg в выходную директорию и автоматически подключать его в index.html</p>
+<pre>
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
+      favicon: "./src/favicon.svg",
+    })
+  ],
+};
+</pre>
+    </li>
+    <li>
+      <h4>filemanager-webpack-plugin</h4>
+      Используем filemanager-webpack-plugin для копирования файлов из папки src/assets в папку dist. Установим filemanager-webpack-plugin
+      <pre>npm i -D filemanager-webpack-plugin</pre>
+      <p>Чтобы скопировать файл src/favicon.svg в ./dist и файлы из src/assets в ./dist/assets запишем в webpack.config.js</p>
+<pre>
+const path = require('path');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new FileManagerPlugin({
+      events: {
+        onEnd: {
+          copy: [
+            {
+              source: path.resolve(__dirname, './src/favicon.svg'),
+              destination: path.resolve(__dirname, './dist/favicon.svg'),
+            },
+            {
+              source: path.resolve(__dirname, './src/assets'),
+              destination: path.resolve(__dirname, './dist/assets'),
+            },
+          ],
+        },
+      },
+    }),
+  ],
+};
+</pre>
+      <p>Свойство onEnd указывает что копирование будет после сборки</p>
+      <p>Свойство onStart указывает что копирование будет перед сборкой, но тогда если во время сборки делать очистку папки dist командой clean: true то скопированные файлы удалятся</p>
+    </li>
+  </ol>
+
+  <p>Подключим только HTMLWebpackPlugin.</p>
+  <p><strong>На этом этапе</strong> наш webpack.config.js выглядит так:</p>
+<pre>
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+};
+
+module.exports = {
+  module: {
+    rules:[
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.(otf|ttf|eot|woff|woff2)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
+      favicon: "./src/favicon.svg",
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ],
+}
+</pre>
+</article>
+
+
+<!-- webpack-dev-server -->
+<article class="article">
+  <div class="anchor" id="devserver"></div>
+  <h3>8. Настройка webpack-dev-server</h3>
+
+  <p>Сервер. Есть несколько способов, которые позволяют при сохранении кода автоматически его собирать и обновлять в браузере. Рассмотрим вариант webpack-dev-server.</p>
+  <p>Установим webpack-dev-server</p>
+  <code>npm i -D webpack-dev-server</code>
+
+  <p>Пропишем в файле webpack.config.js</p>
+<pre>
+const path = require('path');
+
+module.exports = {
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'src'),
+    },
+    watchFiles: path.join(__dirname, 'src'),
+    port: 9000,
+    overlay: true,
+  }
+}
+</pre>
+
+  <p>Пропишем в package.json</p>
+<pre>
+"scripts": {
+  "serve": "webpack serve --mode development --open",
+}
+</pre>
+
+  <p>serve означает запустить веб сервер.</p>
+  <p>--mode development включает режим разработки.</p>
+  <p>--open автоматически запускает браузер, который в системе установлен по умолчанию.</p>
+  <p>Теперь сервер можно запустить командной</p>
+  <code>npm run serve</code>
+  <p>Для остановки сервера надо нажать</p>
+  <code>CTRL + c</code>
+</article>
+
+
+<!-- devtool -->
+<article class="article">
+  <div class="anchor" id="devtool"></div>
+  <h3>9. Devtool</h3>
+
+  <p>Для того чтобы создать source map нужно указать свойство devtool</p>
+<pre>
+module.exports = {
+  devtool: 'source-map',
+};
+</pre>
+
+</article>
+
+
+<!-- Настроим свою конфигурацию webpack.config.js -->
+<article class="article">
+  <div class="anchor" id="uconfig"></div>
+  <h2>Настроим свою конфигурацию webpack.config.js</h2>
+
+  <p>Настроим свою конфигурацию. Сначала установим необходимые пакеты</p>
+<pre>
+npm i -D html-loader
+npm i -D css-loader mini-css-extract-plugin
+npm i -D sass-loader sass
+npm i -D postcss-loader postcss postcss-preset-env
+npm i -D html-webpack-plugin
+npm i -D babel-loader @babel/core @babel/preset-env
+</pre>
+
+  <p>В файле package.json должны появиться зависимости для разработки</p>
+<pre>
+"devDependencies": {
+  "@babel/core": "^7.20.5",
+  "@babel/plugin-proposal-class-properties": "^7.18.6",
+  "@babel/preset-env": "^7.20.2",
+  "babel-loader": "^9.1.0",
+  "css-loader": "^6.7.2",
+  "file-loader": "^6.2.0",
+  "html-loader": "^4.2.0",
+  "html-webpack-plugin": "^5.5.0",
+  "http-server": "^14.1.1",
+  "mini-css-extract-plugin": "^2.7.1",
+  "postcss": "^8.4.19",
+  "postcss-loader": "^7.0.2",
+  "postcss-preset-env": "^7.8.3",
+  "sass": "^1.56.1",
+  "sass-loader": "^13.2.0",
+  "style-loader": "^3.3.1",
+  "webpack": "^5.87.0",
+  "webpack-cli": "^5.1.4",
+  "webpack-dev-server": "^4.11.1"
+},
+</pre>
+
+  <p>Запишем в package.json</p>
+<pre>
+"scripts": {
+  "serve": "webpack serve --mode development --open",
+  "dev": "webpack --mode development",
+  "build": "webpack --mode production",
+},
+</pre>
+
+  <p>Запишем в webpack.config.js </p>
+<pre>
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index.js',
+    assetModuleFilename: 'assets/[name][ext]',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader' ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        }
+      },
+      {
+        test: /\.(otf|ttf|eot|woff|woff2)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
+      }
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index.pug'),
+      filename: 'index.html',
+      favicon: "./src/favicon.svg",
+    })
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ],
+  devServer: {
+    client: {
+      overlay: true,
+    },
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    watchFiles: path.join(__dirname, 'src'),
+    port: 9000,
+    hot: true,
+  },
+  devtool: 'source-map',
+};
+</pre>
+
+  <p>Запишем в файл .babelrc</p>
+<pre>{
+  "presets": ["@babel/preset-env"]
+}</pre>
+
+  <h4>Разница между path.join и path.resolve</h4>
+  <p>path.join соединяет в одну строку переданные ей аргументы используя специфичный для операционной системы разделитель (/ или \) и нормализирует ее.</p>
+  <code>path.join('path', 'to', 'another', '..', 'another', 'file')</code>
+  <p>Вернет для Linux </p>
+  <code>'path/to/another/file'</code>
+  <p>Вернет для Windows </p>
+  <code>'path\to\another\file'</code>
+  <p>Нормализация заключается в том что не возвращается</p>
+  <code>'path/to/another/../another/file'</code>
+  <p>path.resolve возвращает абсолютный путь по тем сегментам которые переданны в аргументы</p>
+  <code>path.resolve('/how', 'to', 'code')</code>
+  <p>Вернет</p>
+  <code>'/how/to/code'</code>
+</article>

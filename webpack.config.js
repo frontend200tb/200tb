@@ -28,14 +28,8 @@ module.exports = {
         },
       },
       {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
+        test: /\.(otf|ttf|eot|woff|woff2)$/,
+        type: 'asset/resource',
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,

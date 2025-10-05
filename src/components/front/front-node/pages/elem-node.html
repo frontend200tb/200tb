@@ -1,0 +1,179 @@
+<h1>Node</h1>
+
+<!-- Заголовок -->
+<div class="article">
+  <div class="anchor" id="contents"></div>
+  <h2>Содержание</h2>
+
+
+  <!-- Содержание -->
+  <div class="article__contents">
+    <a href="#about" class="contents__link">about</a>
+    <a href="#links" class="contents__link">links</a>
+    <a href="#install" class="contents__link">install</a>
+    <a href="#project" class="contents__link">Создание нового проекта</a>
+    <a href="#npm" class="contents__link">npm</a>
+  </div>
+</div>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h3>About</h3>
+  <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h3>Ссылки</h3>
+  <p><a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>Установка node.js</h3>
+
+  <p>Установим последнюю версию node.js с официального сайта</p>
+  <code><a href="https://nodejs.org/en/">https://nodejs.org/en</a></code>
+  <p>Нажимаем кнопку</p>
+  <code>Get Node.js</code>
+  <p>Скачается файл</p>
+  <code>node-v22.20.0-x64.msi</code>
+  <p>Запустим его. Вместе с node.js поставится и npm</p>
+  <p>Проверим версии установленных node.js и npm</p>
+<pre>
+node -v
+v22.20.0
+npm -v
+10.9.3
+</pre>
+  <p>(сокращенно от node --version и npm --version)</p>
+</article>
+
+
+<!-- Создание нового проекта -->
+<article class="article">
+  <div class="anchor" id="project"></div>
+  <h3>Создание нового проекта</h3>
+
+  <ol>
+
+    <li>
+      <p>Создадим папку с названием проекта, например 200cf</p>
+      <code>mkdir 200cf</code>
+      <p>Чтобы удалить пустую папку с названием 200cf наберите</p>
+      <code>rmdir 200cf</code>
+      <p>Перейдем в папку с названием 200cf</p>
+<pre>
+cd 200cf
+d://200cf/
+</pre>
+      <p>Чтобы выйти из папки наберите</p>
+<pre>
+cd ..
+d://
+</pre>
+    </li>
+
+    <li>Откроем VSCode</li>
+
+    <li>
+      <p>В VSCode откроем папку 200cf, в которой будет новый проект</p>
+      <code>File - Open Folder</code>
+    </li>
+
+    <li>
+      <p>Инициализируем проект</p>
+      <code>npm init -y</code>
+      <p>(сокращенно от npm init --yes, то же что и npm init, не отвечая
+    на вопросы)</p>
+    </li>
+
+    <li>
+      <p>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут являться зависимостями для нашего приложения.</p>
+      <code>d://200cf/package.json</code>
+    </li>
+
+    <li>
+      <p>Для примера, установим webpack, webpack-cli и webpack-dev-server</p>
+      <code>npm i -D webpack webpack-cli webpack-dev-server</code>
+      <p>(сокращенно от npm install --save-dev webpack webpack-cli webpack-dev-server)</p>
+    </li>
+
+    <li>
+      <p>В итоге в папке с проектом появится папка node_modules и файл package-lock.json. В node_modules установлены webpack, webpack-cli, webpack-dev-server и все необходимые зависимости для того чтобы они работали. Эту папку трогать не нужно</p>
+      <code>d://200cf/node_modules</code>
+      <code>d://200cf/package-lock.json</code>
+    </li>
+
+    <li>В файле package.json появятся записи:
+<pre>
+"devDependencies": {
+  "webpack": "^5.102.0",
+  "webpack-cli": "^6.0.1",
+  "webpack-dec-server":"^5.2.2"
+}</pre>
+    </li>
+
+    <li>
+      <p>Чтобы удалить пакеты и удалить зависимости из файла package.json</p>
+      <code>npm uninstall -D webpack webpack-cli webpack-dev-server</code>
+      <p>(Флаг -D удаляет devDependencies, флаг -S удаляет Dependencies)</p>
+    </li>
+  </ol>
+</article>
+
+
+<!-- npm -->
+<article class="article">
+  <div class="anchor" id="npm"></div>
+  <h3>Глобальная и локальная установка npm пакетов</h3>
+
+  <p>При установке пакетов через npm есть два варианта: глобальная и локальная установка.</p>
+
+  <p>При <strong>глобальной установке</strong> пакеты устанавливаются в определенное место в системе, общее для всех проектов. Это удобно, когда пакет является утилитой командной строки, которую необходимо использовать в разных проектах.</p>
+
+  <p>При <strong>локальной установки</strong> пакеты устанавливаются в каталог node_modules внутри проекта. Это подходит для пакетов, которые необходимы только для конкретного проекта.</p>
+
+  <p>При локальной установке пакеты располагаются в каталоге <strong>node_modules</strong>, который находится в корневом каталоге проекта.</p>
+
+  <h3>Проверка расположения пакетов</h3>
+
+  <p>Можно посмотреть в какую папку глобально устанавливается каталог node_modules с пакетами</p>
+  <code>npm prefix -g</code>
+  <code>c:\Users\11001000\AppData\Roaming\npm</code>
+
+  <p>Также чтобы получить путь для установки глобальных пакетов, можно выполнить команду</p>
+  <code>npm config get prefix</code>
+  <code>c:\Users\11001000\AppData\Roaming\npm</code>
+
+  <p>Чтобы изменить этот папку на '.node_modules_global', нужно выполнить команду</p>
+  <code>npm config set prefix=$HOME/.node_modules_global</code>
+
+  <p>Можно посмотреть все установленные глобально пакеты и путь к ним</p>
+  <code>npm list -g</code>
+
+  <p>Для проверки расположения установленных локально пакетов можно воспользоваться командой</p>
+  <code>npm list</code>
+
+  <p>Таким образом, установленные через npm пакеты будут находиться либо в каталоге проекта (при локальной установке), либо в определенной директории системы (при глобальной установке).</p>
+
+  <p>Для примера, установим глобально webpack, webpack-cli и webpack-dev-server</p>
+  <code>npm i -g webpack webpack-cli webpack-dev-server</code>
+  <p>(сокращенно от npm install --global webpack webpack-cli webpack-dev-server)</p>
+
+  <p>В итоге в папке</p>
+  <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\</code>
+  <p>Появятся три папки</p>
+  <code>webpack</code>
+  <code>webpack-cli</code>
+  <code>webpack-dev-server</code>
+
+  <p>Для удаления глобально установленных webpack, webpack-cli и webpack-dev-server</p>
+  <code>npm uninstall -g webpack webpack-cli webpack-dev-server</code>
+</article>

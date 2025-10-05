@@ -107,5 +107,40 @@ int main() {
     <br><a href="https://codeforces.com/contest/705" target="_blank">Codeforces 705 Round 366 (Div. 2) 2010.12.20</a>
   </div>
 
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+  // ввод данных
+  int n; // число уровней
+  cin >> n;
+
+  // решение
+  string res = "";
+  string start = "I hate ";
+  string hate = "that I hate ";
+  string love = "that I love ";
+  string end = "it";
+
+  // собираем строку
+  res.append(start);
+
+  for (int i = 1; i &lt; n; i++) {
+    if (i % 2 == 0) {
+      res.append(hate);
+    } else {
+      res.append(love);
+    }
+  }
+
+  res.append(end);
+
+  // вывод результата
+  cout &lt;&lt; res &lt;&lt; '\n';
+}
+</pre>
   </details>
 </article>

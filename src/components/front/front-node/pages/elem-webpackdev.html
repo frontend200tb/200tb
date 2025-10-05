@@ -1,0 +1,271 @@
+<h1>webpack-dev-server</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#config">Простая конфигурация</a></p>
+  <p><a href="#props">Свойства объекта devServer</a></p>
+  <p><a href="#events">Свойства объекта devServer</a></p>
+</article>
+
+
+<!-- webpack-dev-server -->
+<article class="article">
+  <div class="anchor" id="config"></div>
+  <h2>Простая конфигурация</h2>
+
+  <p>Сервер. Есть несколько способов, которые позволяют при сохранении кода автоматически его собирать и обновлять в браузере. Рассмотрим вариант webpack-dev-server. Установим webpack-dev-server</p>
+    <pre>npm i -D webpack-dev-server</pre>
+    <p>Пропишем в файле webpack.config.js</p>
+    <pre>const path = require('path');
+module.exports = {
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'src'),
+    },              
+    watchFiles: path.join(__dirname, 'src'),
+    port: 9000,
+    overlay: true,
+  }
+}</pre>
+    <p>Пропишем в package.json</p>
+<pre>"scripts": {
+  "serve": "webpack serve --mode development --open",
+}</pre>
+    <p>serve означает запустить веб сервер.</p>
+    <p>--mode development включает режим разработки.</p>
+    <p>--open автоматически запускает браузер, который в системе установлен по умолчанию.</p>
+    <p>Теперь сервер можно запустить командной</p>
+    <pre>npm run serve </pre>
+    <p>Для остановки сервера надо нажать</p>
+    <pre>CTRL + c</pre>
+
+
+<!-- Свойства объекта devServer -->
+<article class="article">
+  <div class="anchor" id="props"></div>
+  <h3>Свойства объекта devServer</h3>  
+  <ol>
+    <li><a href="#allowedHosts">allowedHosts</a></li>
+    <li><a href="#bonjour">bonjour</a></li>
+    <li><a href="#client">client</a></li>
+    <li><a href="#compress">compress</a></li>
+    <li><a href="#devMiddleware">devMiddleware</a></li>
+    <li><a href="#headers">headers</a></li>
+    <li><a href="#historyApiFallback">historyApiFallback</a></li>
+    <li><a href="#http2">http2</a></li>
+    <li><a href="#host">host</a></li>
+    <li><a href="#hot">hot</a></li>
+    <li><a href="#https">https</a></li>
+    <li><a href="#ipc">ipc</a></li>
+    <li><a href="#liveReload">liveReload</a></li>
+    <li><a href="#magicHtml">magicHtml</a></li>
+    <li><a href="#open">open</a></li>
+    <li><a href="#port">port</a></li>
+    <li><a href="#proxy">proxy</a></li>
+    <li><a href="#server">server</a></li>
+    <li><a href="#setupExitSignals">setupExitSignals</a></li>
+    <li><a href="#setupMiddlewares">setupMiddlewares</a></li>
+    <li><a href="#static">static</a></li>
+    <li><a href="#watchFiles">watchFiles</a></li>
+    <li><a href="#webSocketServer">webSocketServer</a></li>
+  </ol>
+
+
+<!-- События объекта devServer -->
+<article class="article">
+  <div class="anchor" id="events"></div>
+  <h3>События объекта devServer</h3>  
+  <ol>
+    <li><a href="#onAfterSetupMiddleware">onAfterSetupMiddleware</a></li>
+    <li><a href="#onBeforeSetupMiddleware">onBeforeSetupMiddleware</a></li>
+    <li><a href="#onListening">onListening</a></li>
+  </ol>
+
+<!-- allowedHosts -->
+  <div class="anchor" id="allowedHosts"></div>
+  <h4>allowedHosts</h4>
+  <code>'auto' | 'all' [string]</code>
+  <p>Эта опция позволяет вам внести в белый список службы, которым разрешен доступ к серверу разработки.</p>
+<pre>module.exports = {
+  devServer: {
+    allowedHosts: [
+      'host.com',
+      subdomain.host.com,
+    ],
+  },
+};</pre>
+
+
+<!-- bonjour -->
+  <div class="anchor" id="bonjour"></div>
+<h4>bonjour</h4>
+<code>boolean | object</code>
+<p>Эта опция транслирует сервер через сеть ZeroConf при запуске</p>
+<pre>module.exports = {
+  devServer: {
+    bonjour: true,
+  },
+};</pre>
+<pre>module.exports = {
+  devServer: {
+    bonjour: {
+      type: 'http',
+      protocol: 'udp',
+    },
+  },
+};</pre>
+
+
+<!-- client -->
+  <div class="anchor" id="client"></div>
+<h4>client</h4>
+<ol>
+  <li>
+    <h4>logging</h4>
+    <code>'log' | 'info' | 'warn' | 'error' | 'none' | 'verbose'</code>
+    <p>Позволяет установить уровень журнала в браузере, например, перед перезагрузкой, перед ошибкой или при включении Hot Module Replacement</p>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      logging: 'info',
+    },
+  },
+};</pre>
+  </li>
+  <li>
+    <h4>overlay</h4>
+    <code>boolean | object</code>
+    <p>Показывает полноэкранное наложение в браузере при наличии ошибок или предупреждений компилятора</p>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      overlay: true,
+    },
+  },
+};</pre>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      ovrelay: {
+        errors: 'true',
+        warnings: false,
+        runtimmeErrors: true,
+      },
+    },
+  },
+};</pre>
+    </li>
+    <li><h4>progress</h4>
+<code>boolean</code>
+<p>Печатает ход компиляции в браузере в процентах</p>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      progress: true,
+    },
+  },
+};</pre>
+    </li>
+    <li>
+      <h4>reconnect</h4>
+      <code>boolean | number</code>
+      <p>Сообщает dev серверу, сколько раз ему следует попытаться переподключить клиент. Когда true будет пытаться переподключиться неограниченное количество раз.</p>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      reconnect: true,
+    },
+  },
+};</pre>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      reconnect: 5,
+    },
+  },
+};</pre>
+    </li>
+    <li>
+      <h4>webSocketTransport</h4>
+      <code>'ws' | 'sockjs' string</code>
+    </li>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      webSocketTransport: 'ws',
+    },
+    webSocketServer: 'ws',
+  },
+};</pre>
+    <li>
+      <h4>webSocketURL</h4>
+      <code>string object</code>
+<pre>module.exports = {
+  devServer: {
+    client: {
+      webSocketURL: 'ws:0.0.0.0:8080/ws',
+    },
+  },
+};</pre>
+    </li>
+  </ol>
+
+
+<!-- client -->
+<div class="anchor" id="client"></div>
+  <h4>compress</h4>
+  <code>boolean</code>
+<pre>module.exports = {
+  devServer: {
+    compress: true,
+  },
+};</pre>
+
+
+<!-- devMiddleware -->
+<div class="anchor" id="devMiddleware"></div>
+  <h4>devMiddleware</h4>
+  <code>object</code>
+
+
+<!-- http2 -->
+<div class="anchor" id="http2"></div>
+  <h4>http2</h4>
+  <code>boolean</code>
+<pre>module.exports = {
+  devServer: {
+    http2: true,
+  },
+};</pre>
+
+
+<!-- https -->
+<div class="anchor" id="https"></div>
+  <h4>https</h4>
+  <code>boolean object</code>
+<pre>module.exports = {
+  devServer: {
+    https: true,
+  },
+};</pre>
+
+
+<!-- static -->
+<div class="anchor" id="static"></div>
+  <h4>static</h4>
+  <code>boolean string object [string, object]</code>
+  <p>Этот параметр позволяет настроить параметры обслуживания файлов static из каталога. Чтобы отключить, установите false</p>
+  <h4>directory</h4>
+  <p>Сообщите серверу, откуда обслуживать контент.</p>
+<pre>module.exports = {
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+  },
+};</pre>
+</article>
+
