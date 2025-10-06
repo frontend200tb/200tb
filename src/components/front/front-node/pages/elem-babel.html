@@ -1,27 +1,20 @@
 <h1>Babel</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h3>Содержание</h3>
 
-  <div>
-    <p><a href="#about">about</a></p>
-    <p><a href="#links">links</a></p>
-    <p><a href="#install">install</a></p>
-  </div>
-
-</div>
+      <a href="#about">about</a>
+  <br><a href="#links">links</a>
+  <br><a href="#install">install</a>
+</article>
 
 
 <!-- about -->
 <article class="article">
   <div class="anchor" id="about"></div>
-  <h2>about</h2>
+  <h3>about</h3>
 
   <p>Babel is a JavaScript compiler.</p>
   <p>Use next generation JavaScript, today.</p>
@@ -31,7 +24,7 @@
 <!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
-  <h2>links</h2>
+  <h3>links</h3>
 
   <p><a href="https://babeljs.io/">https://babeljs.io/</a></p>
   <p><a href="https://github.com/babel/babel">https://github.com/babel/babel</a></p>
@@ -45,68 +38,98 @@
 <!-- install -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>install</h2>
+  <h3>Установка Babel</h3>
 
   <ol>
-    <li>Проверим версии установленных node.js и npm
-      <code>
-        node -v
-        <br>v16.17.0
-        <br>npm -v
-        <br>8.15.0
-      </code>
-      если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a>
+    <li>
+      <p>Проверим версии установленных node.js и npm</p>
+<pre>
+node -v
+v16.17.0
+npm -v
+8.15.0
+</pre>
+      <p>если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a></p>
     </li>
-    <li>Создадим папку для нашего проекта и перейдем в нее
-      <code>mkdir project1
-        <br>cd project1
-        <br>d://project1/
-      </code>
+    <li>
+      <p>Создадим папку для нашего проекта и перейдем в нее</p>
+<pre>
+mkdir project1
+cd project1
+d://project1/
+</pre>
     </li>
-    <li>Инициализируем проект<code>npm init -y</code>(сокращенно от npm init --yes, то же что и npm init, не отвечая
-      на вопросы)</li>
-    <li>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут
-      являться зависимостями для нашего приложения.<code>d://project1/package.json</code></li>
-    <li>Установим @babel/cli, @babel/core,
-      @babel/preset-env<code>npm i -D @babel/cli @babel/core @babel/preset-env</code>(сокращенно от npm install
-      --save-dev @babel/cli @babel/core @babel/preset-env)</li>
-    <li>Появится папка node_modules, файл package-lock.json, а в файл package.json добавятся зависимости
-      <code>
-        "devDependencies": {
-        <br>&nbsp;&nbsp;"@babel/cli": "^7.18.10",
-        <br>&nbsp;&nbsp;"@babel/core": "^7.18.13",
-        <br>&nbsp;&nbsp;"@babel/preset-env": "^7.18.10"
-        <br>}
-      </code>
+    <li>
+      <p>Инициализируем проект</p>
+      <code>npm init -y</code>
+      <p>(сокращенно от npm init --yes, то же что и npm init, не отвечая на вопросы)</p>
     </li>
-    <li>Создадим файл .babelrc в котором будут настройки для babel <code>touch .babelrc </code></li>
-    <li>Запишем в него свойство presets
-      <code>
-        {
-        <br>&nbsp;&nbsp;"presets": ["@babel/preset-env"]
-        <br>}
-      </code>
+    <li>
+      <p>В итоге в папке с проектом появится файл package.json.</p>
+      <code>d://project1/package.json</code>
+      <p>После этого можно устанавливать пакеты, которые будут
+      являться зависимостями для нашего приложения.</p>
     </li>
-    <li>Теперь создадим папку src и в ней файл main.js. Это точка входа для babel </li>
-    <li>В файле package.json запишем
-      <code>
-        "scripts": {
-        <br>&nbsp;&nbsp;"build": "babel src -d dist"
-        <br>},
-      </code>
+    <li>
+      <p>Установим @babel/cli, @babel/core, @babel/preset-env</p>
+      <code>npm i -D @babel/cli @babel/core @babel/preset-env</code>
+      <p>(сокращенно от npm install --save-dev @babel/cli @babel/core @babel/preset-env)</p>
     </li>
-    <li>Теперь можно в исходном файле src/main.js писать код на современном js и транспилировать его в код es2015 в
-      выходной файл dist/main.js командой<code>npm run build</code></li>
-    <li>В файле package.json запишем
-      <pre>
-        "scripts": {
-        <br>&nbsp;&nbsp;"build": "babel src -d dist",
-        <br>&nbsp;&nbsp;"watch": "babel src -d dist -w"
-        <br>},
-      </pre>
+    <li>
+      <p>Появится папка node_modules, файл package-lock.json, а в файл package.json добавятся зависимости</p>
+<pre>
+"devDependencies": {
+  "@babel/cli": "^7.18.10",
+  "@babel/core": "^7.18.13",
+  "@babel/preset-env": "^7.18.10"
+}
+</pre>
     </li>
-    <li>Теперь babel сам будет смотреть за исходным файлом и при его сохранении транспилировать его в конечный
-      файл<code>npm run watch</code></li>
-    <li>Чтобы выйти из режима watch нажмите ctrl + C</li>
+    <li>
+      <p>Создадим файл .babelrc в котором будут настройки для babel</p>
+      <code>touch .babelrc </code>
+    </li>
+    <li>
+      <p>Запишем в него свойство presets</p>
+<code>
+{
+  "presets": ["@babel/preset-env"]
+}
+</code>
+    </li>
+    <li>
+      <p>Теперь создадим папку src и в ней файл main.js. Это точка входа для babel</p>
+    </li>
+    <li>
+      <p>В файле package.json запишем</p>
+<pre>
+"scripts": {
+  "build": "babel src -d dist"
+},
+</pre>
+    </li>
+    <li>
+      <p>Теперь можно в исходном файле src/main.js писать код на современном js и транспилировать его в код es2015 в
+      выходной файл dist/main.js командой</p>
+      <code>npm run build</code>
+    </li>
+    <li>
+      <p>В файле package.json запишем</p>
+<pre>
+"scripts": {
+  "build": "babel src -d dist",
+  "watch": "babel src -d dist -w"
+},
+</pre>
+    </li>
+    <li>
+      <p>Теперь babel сам будет смотреть за исходным файлом и при его сохранении транспилировать его в конечный
+      файл</p>
+      <code>npm run watch</code>
+    </li>
+    <li>
+      <p>Чтобы выйти из режима watch нажмите</p>
+      <code>ctrl + C</code>
+    </li>
   </ol>
 </article>

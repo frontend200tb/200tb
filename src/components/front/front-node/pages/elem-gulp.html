@@ -1,30 +1,34 @@
 <h1>Gulp</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h3>Содержание</h3>
 
-  <div>
-    <p><a href="#about">about</a></p>
-    <p><a href="#links">links</a></p>
-    <p><a href="#install">install</a></p>
-    <p><a href="#setup">Настройка gulp для pug, scss, js</a></p>
-    <p><a href="#gulpfile">gulpfile.js</a></p>
-    <p><a href="#plugins">plugins</a></p>
-  </div>
-
-</div>
+      <a href="#about">about</a>
+  <br><a href="#links">links</a>
+  <br><a href="#install">install</a>
+  <br><a href="#gulpfile">gulpfile.js</a>
+  <br><a href="#plugins">plugins</a>
+  <ol>
+    <li><a href="#plugins-1">gulp-pug</a></li>
+    <li><a href="#plugins-2">gulp-sass</a></li>
+    <li><a href="#plugins-3">gulp-concat</a></li>
+    <li><a href="#plugins-4">gulp-autoprefixer</a></li>
+    <li><a href="#plugins-5">gulp-clean-css</a></li>
+    <li><a href="#plugins-6">gulp-plumber</a></li>
+    <li><a href="#plugins-7">gulp-sourcemaps</a></li>
+    <li><a href="#plugins-8">browser-sync</a></li>
+    <li><a href="#plugins-9">babel</a></li>
+  </ol>
+  <br><a href="#setup">Настройка gulp для pug, scss, js</a>
+</article>
 
 
 <!-- about -->
 <article class="article">
   <div class="anchor" id="about"></div>
-  <h2>about</h2>
+  <h3>about</h3>
 
   <p>Gulp.js это потоковый сборщик проектов на JS. Он использует Stream и действительно является очень быстрым.</p>
 </article>
@@ -33,7 +37,7 @@
 <!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
-  <h2>links</h2>
+  <h3>links</h3>
 
   <p><a href="https://gulpjs.com/">https://gulpjs.com/</a></p>
   <p><a href="https://github.com/gulpjs/gulp">https://github.com/gulpjs/gulp</a></p>
@@ -49,82 +53,484 @@
 <!-- install -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>install</h2>
+  <h3>Установка Gulp</h3>
 
   <p><a href="https://vk.com/@daniilshilo_developer-nastraivaem-gulp-tak-chtoby-drugoi-razrabotchik-vas-ne-izbil">Настраиваем Gulp так, чтобы другой разработчик вас не избил</a></p>
   <p>Gulp это менеджер задач (task runner). Появился как замена устаревшему grunt.js более сложного в настройке. Раньше была одна версия gulp которую нужно было устанавливать глобально и локально. Локальная версия используется в gulpfile.js глобальная для запуска в консоле. Но начиная с 4 версии gulp нужно устанавливать gulp-cli глобально, а gulp - локально. Разделение произошло из-за проблем совместимости глобальной и локальной версии. gulp-cli (gulp command line interface) - это всего лишь способ запустить gulp-task из консоли.</p>
   <ol>
-    <li>Проверим версии установленных node.js и npm
-      <code>
-        node -v
-        <br>v16.13.1
-        <br>npm -v
-        <br>8.1.2
-      </code>
-      если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a>
+    <li>
+      <p>Проверим версии установленных node.js и npm</p>
+<pre>
+node -v
+v16.13.1
+npm -v
+8.1.2
+</pre>
+      <p>если их нет, то поставить с оффициального сайта <a href="https://nodejs.org/en/">nodejs</a></p>
     </li>
     <li>Создадим папку для нашего проекта и перейдем в нее
-      <code>
-        mkdir project1
-        <br>cd project1
-        <br>d://project1/
-      </code>
+<pre>
+mkdir project1
+cd project1
+d://project1/
+</pre>
     </li>
-    <li>Инициализируем проект<code>npm init -y</code>(сокращенно от npm init --yes, то же что и npm init, не отвечая
-      на вопросы)</li>
-    <li>В итоге в папке с проектом появится файл package.json. После этого можно устанавливать пакеты, которые будут
-      являться зависимостями для нашего приложения.<code>d://project1/package.json</code></li>
-    <li>Установим gulp-cli глобально во всей системе<code>npm i -g gulp-cli</code>(сокращенно от npm install --global
-      gulp-cli)</li>
-    <li>Установим gulp в наш проект и занесем плагин gulp в раздел devDependencies (который нужен только для
-      разработки) файла package.json<code>npm i -D gulp</code>(сокращенно от npm install --save-dev gulp)
-      Проверим установленную версию gulp
-      <code>
-        gulp -v
-        <br>CLI version: 2.3.0
-        <br>Local version: 4.0.2
-      </code>
+    <li>
+      <p>Инициализируем проект</p>
+      <code>npm init -y</code>
+      <p(сокращенно от npm init --yes, то же что и npm init, не отвечая на вопросы)></p>
     </li>
-    <li>В итоге в папке с проектом появится папка node_modules и файл package-lock.json. В node_modules установлен
-      gulp и все необходимые зависимости для того чтобы работал только gulp. Эту папку трогать не нужно
-      <code>
-        d://project1/node_modules
-        <br>d://project1/package-lock.json
-      </code>
+    <li>
+      <p>В итоге в папке с проектом появится файл package.json.</p>
+      <code>d://project1/package.json</code>
+      <p>После этого можно устанавливать пакеты, которые будут являться зависимостями для нашего приложения.</p>
     </li>
-    <li>Создадим файл gulpfile.js в который будем прописывать задачи для gulp
-      <code>
-        touch gulpfile.js
-        <br>d://project1/gulpfile.js
-      </code>
+    <li>
+      <p>Установим gulp-cli глобально во всей системе</p>
+      <code>npm i -g gulp-cli</code>
+      <p>(сокращенно от npm install --global gulp-cli)</p>
+    </li>
+    <li>
+      <p>Установим gulp в наш проект и занесем плагин gulp в раздел devDependencies (который нужен только для
+      разработки) файла package.json</p>
+      <code>npm i -D gulp gulp-cli</code>
+      <p>(сокращенно от npm install --save-dev gulp)</p>
+
+    </li>
+    <li>
+      <p>В итоге в папке с проектом появится папка node_modules и файл package-lock.json. В node_modules установлен
+      gulp и все необходимые зависимости для того чтобы работал только gulp. Эту папку трогать не нужно</p>
+<pre>
+d://project1/node_modules
+d://project1/package-lock.json
+</pre>
+    </li>
+    <li>
+      <p>Проверим установленную версию gulp</p>
+<pre>
+gulp -v
+CLI version: 2.3.0
+Local version: 4.0.2
+</pre>
+    </li>
+    <li>
+      <p>Создадим файл gulpfile.js в который будем прописывать задачи для gulp</p>
+<pre>
+touch gulpfile.js
+d://project1/gulpfile.js
+</pre>
     </li>
   </ol>
+</article>
+
+
+<!-- gulpfile -->
+<article class="article">
+  <div class="anchor" id="gulpfile"></div>
+  <h3>gulpfile.js</h3>
+
+  <p>Поскольку gulp работает на node.js, то в файле gulpfile.js доступны такие команды языка javascript как require, exports и другие.</p>
+
+  <ol>
+    <li>
+      <p>В файле gulpfile.js создадим переменную в которую поместим плагин gulp</p>
+      <code>const gulp = require('gulp');</code>
+      <p>или создадим только те переменные, какие мы будем использовать</p>
+      <code>const {src, dest, watch, series, parallel} = require('gulp');</code>
+    </li>
+    <li>
+      <p>Каждая задача пишется в отдельную функцию. Создадим функцию вывода текста в консоль и назовем ее hello. Сделаем export этой функции для выполнения ее из командной строки</p>
+<pre>
+function hello () {
+  console.log('Привет, я выполнился');
+}
+exports.hello = hello;
+</pre>
+    </li>
+    <li>
+      <p>Чтобы запустить эту задачу выполним команду в командной строке в папке проекта</p>
+      <code>gulp hello</code>
+    </li>
+  </ol>
+
+  <h4>Задача копирования файлов</h4>
+  <ol>
+    <li>
+      <p>Чтобы скопировать файл напишем функцию copy(), в ней запишем задачу gulp.src (возьми файл), pipe (перейди в
+      следующую задачу), gulp.dist (сохрани файл) и экспортируем эту функцию в node.js</p>
+<pre>
+function copy() {
+  return gulp.src('src/css/main.css')
+    .pipe(gulp.dest('dist/css/main.css'));
+};
+exports.copy = copy;
+</pre>
+    </li>
+    <li>
+      <p>Запустим таск copy</p>
+      <code>gulp copy</code>
+    </li>
+    <li>
+      <p>В итоге появится новый файл</p>
+      <code>d://project1/dist/css/main.css</code>
+    </li>
+  </ol>
+
+  <h4>Задача удаления файлов</h4>
+  <ol>
+    <li>
+      <p>Первым делом надо очищать папку dist от файлов с предыдущей сборки. Установим плагин gulp-rm набрав в командной строке</p>
+      <code>npm i -D gulp-rm</code>
+    </li>
+    <li>
+      <p>В gulpfile создадим переменную</p>
+      <code>const rm = require('gulp-rm')</code>
+    </li>
+    <li>
+      <p>Чтобы очитить папку напишем функцию clean(), в ней запишем задачу gulp.src (возьми все файлы) с параметром read: false (не читай эти файлы), pipe (перейди в следующую задачу), gulp.rm (удали эти файлы) и экспортируем эту функцию в node.js</p>
+<pre>
+function clean() {
+  return gulp.src('dist/**/*', {read: false})
+    .pipe(rm());
+};
+exports.clean = clean
+</pre>
+    </li>
+  </ol>
+
+  <h4>Задачи по умолчанию</h4>
+  <ol>
+    <li>
+      <p>В файле gulpfile.js напишем экспорт задачи по
+      умолчанию</p>
+      <code>exports.default = gulp.series('clean', 'copy');</code>
+    </li>
+    <li>
+      <p>Эта задача будет выполняться при запуске gulp в папке проекта</p>
+      <code>gulp</code>
+    </li>
+  </ol>
+
+  <h4>gulp watch</h4>
+  <ol>
+    <li>
+      <p>Напишем функцию слежения, которая при изменении файлов запускает другую функцию</p>
+<pre>
+function watch () {
+  gulp.watch('src/sass/main.sass', style);
+}
+exports.watch = watch;
+</pre>
+    </li>
+    <li>
+      <p>В терминале запускаем задачу watch</p>
+      <code>gulp watch</code>
+    </li>
+  </ol>
+</article>
+
+
+<!-- plugins -->
+<article class="article">
+  <div class="anchor" id="plugins"></div>
+  <h3>Плагины</h3>
+
+
+  <div class="anchor" id="plugins-1"></div>
+  <h3>Плагин gulp-pug</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-pug для преобразования файлов pug в html и занесем его в раздел  зависимости файла package.json</p>
+      <code>npm i -D gulp-pug</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную pug</p>
+      <code>const pug = require('gulp-pug');</code>
+    </li>
+    <li>
+      <p>В переменную pugTask запишем стрелочную функцию, которая будет брать pug файлы из исходной папки, передавать их плагину gulp-pug, полученный html код делать красивым, записывать его в конечную папку и перезапускать браузер чтобы увидеть примененные изменения</p>
+<pre>
+const pugTask = () => {
+return gulp.src(config.src.html)
+          .pipe(pug())
+          .pipe(pug({
+              pretty: true
+          }))
+          .pipe(gulp.dest(config.dist.html))
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-2"></div>
+  <h3>Плагин gulp-sass</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-sass для преобразования файлов sass в css и занесем его в раздел зависимости файла package.json</p>
+      <code>npm i -D gulp-sass</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную sass</p>
+      <code>const sass = require('gulp-sass');</code>
+    </li>
+    <li>
+      <p>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет файл scss и передает второй задаче.Вторая задача преобразует его в css. Третья задача записывает его в папку назначения. Если будут ошибки при компиляции, они запишутся в файл sass.logfile.</p>
+<pre>
+const scssTask = () => {
+  return gulp.src(config.src.css)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('dist'));
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-3"></div>
+  <h3>Плагин gulp-concat</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-concat (для соединения файлов в один и переименования его) и занесем его в раздел зависимости файла package.json</p>
+      <code>npm i -D gulp-concat</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную concat</p>
+      <code>const concat = require('gulp-concat');</code>
+    </li>
+    <li>
+      <p>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет исходные файлы и передает второй задаче.Вторая задача соединяет их в один и дает ему имя. Третья задача записывает его в папку назначения.</p>
+<pre>
+function concat () {
+  return gulp.src('src/scss/style.scss')
+    .pipe(concat(style.min.css))
+    .pipe(gulp.dest('dist/css'));
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-4"></div>
+  <h3>Плагин gulp-autoprefixer</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-autoprefixer (для создания префикса свойствам css для поддержки в старых браузерах) и занесем его в раздел зависимости файла
+      package.json</p>
+      <code>npm i -D gulp-autoprefixer</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную autoprefixer</p>
+      <code>const autoprefixer = require('gulp-autoprefixer');</code>
+    </li>
+    <li>
+      <p>Напишем функцию для добавления префиксов в файлах css</p>
+<pre>
+function prefix () {
+  gulp.src('src/*.css')
+    .pipe(autoprefixer({
+      browser: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('dist'))
+};
+exports.prefix = prefix;
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-5"></div>
+  <h3>Плагин gulp-clean-css</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-clean-css (для удаления пробелов и коментариев из css) и занесем его в раздел зависимости файла package.json</p>
+      <code>npm i -D gulp-clean-css</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную cleanCSS</p>
+      <code>const cleanCSS = require('gulp-clean-css');</code>
+    </li>
+    <li>
+      <p>Напишем функцию для минификации css</p>
+<pre>
+function minify-css () {
+  return gulp.src('src/*.css')
+    .pipe(cleanCSS({compatibility:'ie8'}))
+    .pipe(gulp.dest('dist'));
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-6"></div>
+  <h3>Плагин gulp-plumber</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-plumber (сборка не остановится не смотря на ошибки, ошибки запломбируются) и занесем его в раздел зависимости файла package.json</p>
+      <code>npm i -D gulp-plumber</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную plumber</p>
+      <code>const plumber = require('gulp-plumber');</code>
+    </li>
+    <li>
+      <p>Добавим plumber в функцию преобразования pug файлов</p>
+<pre>
+function pugTask () {
+  return gulp.src('src/**/*.pug')
+        .pipe(plumber())
+        .pipe(pug({
+            pretty: true
+          }))
+        .pipe(plumber.stop())
+        .pipe(gulp.dest('dist/'))
+}</pre>
+    </li>
+    <li>
+      <p>Добавим plumber в функцию преобразования scss файлов</p>
+<pre>
+function scssTask () {
+  return gulp.src(config.src.css)
+              .pipe(plumber())
+              .pipe(sass().on('error', sass.logError))
+              .pipe(plumber.stop())
+              .pipe(gulp.dest(config.dist.css))
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-7"></div>
+  <h3>Плагин gulp-sourcemaps</h3>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-sourcemaps (браузер покажет в каком файле источник стилей) и занесем его в раздел зависимости файла package.json</p>
+      <code>npm i -D gulp-sourcemaps</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную sourcemaps</p>
+      <code>const sourcemaps = require('gulp-sourcemaps');</code>
+    </li>
+    <li>
+      <p>Добавим sourcemaps в функцию минификации css файлов</p>
+<pre>
+function minify-css () {
+  return gulp.src('src/css/*.css')
+    .pipe(sourcemaps.init())
+      .pipe(cleanCSS({compatibility:'ie8'}))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/css'));
+}</pre>
+    </li>
+    <li>
+      <p>Добавим sourcemaps в функцию соединения js файлов</p>
+<pre>
+function scripts () {
+  return gulp.src('src/js/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('main.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-8"></div>
+  <h3>Плагин browser-sync</h3>
+
+  <ol>
+    <li>
+      <p>Установим плагин browser-sync для запуска локального сервера. Это нужно для автоматического обновления страницы в браузере</p>
+      <code>npm i -D browser-sync</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную browserSync</p>
+      <code>const browserSync = require('browser-sync').create();</code>
+    </li>
+    <li>Напишем функцию которая запускает сервер
+<pre>
+function webServer () {
+  browserSync.init({
+    server: {
+      baseDir: './dist/'
+    },
+    port: 9000,
+    host: 'localhost',
+    notify: true,
+  });
+}
+</pre>
+      </li>
+    </ol>
+  </div>
+
+  <div class="anchor" id="plugins-9"></div>
+  <h3>Плагин babel</h3>
+
+  <p>Babel преобразует js код с новым синтаксисом в старый синтаксис, чтобы его понимали старые браузеры. Работает babel при помощи пресетов. Нам будет достаточно одного пресета @babel/preset-env</p>
+
+  <ol>
+    <li>
+      <p>Установим в наш проект плагин gulp-babel и занесем его в раздел зависимости файла  package.json</p>
+      <code>npm i -D gulp-babel @babel/core @babel/preset-env</code>
+    </li>
+    <li>
+      <p>В файле gulpfile.js создадим переменную babel</p>
+      <code>const babel = require('gulp-babel');</code>
+    </li>
+    <li>
+      <p>Добавим babel в функцию соединения js файлов</p>
+<pre>
+function scripts () {
+  return gulp.src('src/js/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('main.js'))
+      .pipe(
+        babel({
+          presets: ['@babel/env']
+        })
+      )
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'));
+}
+</pre>
+      </li>
+    </ol>
+  </div>
 </article>
 
 
 <!-- setup -->
 <article class="article">
   <div class="anchor" id="setup"></div>
-  <h2>Настройка gulp для pug, scss, js</h2>
+  <h3>Настройка gulp для pug, scss, js</h3>
 
-  <ol>
-    <li>В папке с проектом выполним инициализацию<code>npm init -y</code>(то же что и npm init , не отвечая на
-      вопросы)</li>
-    <li>Установим необходимые
-      пакеты
-      <code>npm i -D gulp gulp-cli</code>
-      <code>npm i -D gulp-pug gulp-plumber</code>
-      <code>npm i -D gulp-sass sass</code>
-      <code>npm i -D gulp-concat gulp-sourcemaps browser-sync</code>
-    </li>
-    <li>В gulpfile.js напишем код
-      <pre>const gulp = require('gulp'),
-    pug = require('gulp-pug'),
-    plumber = require('gulp-plumber'),
-    sass = require('gulp-sass')(require('sass')),
-    concat = require('gulp-concat'),
-    sourcemaps = require('gulp-sourcemaps'),
-    browserSync = require('browser-sync').create();
+  <p>Установим необходимые пакеты</p>
+  <code>npm i -D gulp-pug gulp-plumber</code>
+  <code>npm i -D gulp-sass sass</code>
+  <code>npm i -D gulp-concat gulp-sourcemaps browser-sync</code>
+
+  <p>В gulpfile.js напишем код</p>
+<pre>
+const gulp = require('gulp'),
+      pug = require('gulp-pug'),
+      plumber = require('gulp-plumber'),
+      sass = require('gulp-sass')(require('sass')),
+      concat = require('gulp-concat'),
+      sourcemaps = require('gulp-sourcemaps'),
+      browserSync = require('browser-sync').create();
 
 const src = 'src/',
       dist = 'dist/';
@@ -215,291 +621,8 @@ exports.scss = scssTask;
 exports.js = jsTask;
 
 exports.default = gulp.parallel(start, watchFiles, webServer);
-    </pre>
-    </li>
-    <li>Список доступных задач можно посмотреть по команде<code>gulp --tasks</code></li>
-    </ol>
-</article>
+</pre>
 
-
-<!-- gulpfile -->
-<article class="article">
-  <div class="anchor" id="gulpfile"></div>
-  <h2>gulpfile.js</h2>
-
-  <p>Поскольку gulp работает на node.js, то в файле gulpfile.js доступны такие команды языка javascript как require, exports и другие. </p>
-  <ol>
-    <li>В файле gulpfile.js создадим переменную в которую поместим плагин gulp
-      <code>const gulp = require('gulp');</code>
-      или создадим только те переменные, какие мы будем использовать
-      <code>const {src, dest, watch, series, parallel} = require('gulp');</code>
-    </li>
-    <li>Каждая задача пишется в отдельную функцию. Создадим функцию вывода текста в консоль и назовем ее hello.
-      Сделаем export этой функции для выполнения ее из командной строки
-      <code>
-        function hello () {
-        <br>&nbsp;&nbsp;console.log('Привет, я выполнился')
-        <br>};
-        <br>exports.hello = hello;
-      </code>
-    </li>
-    <li>Чтобы запустить эту задачу выполним команду в командной строке в папке проекта<code>gulp hello</code></li>
-  </ol>
-  <h4>Задача копирования файлов</h4>
-  <ol>
-    <li>Чтобы скопировать файл напишем функцию copy(), в ней запишем задачу gulp.src (возьми файл), pipe (перейди в
-      следующую задачу), gulp.dist (сохрани файл) и экспортируем эту функцию в node.js
-      <code>
-        function copy() {
-        <br>&nbsp;&nbsp;return gulp.src('src/css/main.css')
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;.pipe(gulp.dest('dist/css/main.css'));
-        <br>};
-        <br>exports.copy = copy
-        </code>
-    </li>
-    <li>Запустим таск copy<code>gulp copy</code></li>
-    <li>В итоге появится новый файл <code>d://project1/dist/css/main.css</code></li>
-  </ol>
-  <h4>Задача удаления файлов</h4>
-  <ol>
-    <li>Первым делом надо очищать папку dist от файлов с предыдущей сборки. Установим плагин gulp-rm набрав в
-      командной строке<code>npm i -D gulp-rm</code></li>
-    <li>В gulpfile создадим переменную<code>const rm = require('gulp-rm')</code></li>
-    <li>Чтобы очитить папку напишем функцию clean(), в ней запишем задачу gulp.src (возьми все файлы) с параметром
-      read: false (не читай эти файлы), pipe (перейди в следующую задачу), gulp.rm (удали эти файлы) и экспортируем
-      эту функцию в node.js
-      <code>
-        function clean() {
-        <br>&nbsp;&nbsp;return gulp.src('dist/**/*', {read: false})
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;.pipe(rm());
-        <br>};
-        <br>exports.clean = clean
-      </code>
-    </li>
-  </ol>
-  <h4>Задачи по умолчанию</h4>
-  <ol>
-    <li>В файле gulpfile.js напишем экспорт задачи по
-      умолчанию<code>exports.default = gulp.series('clean', 'copy');</code></li>
-    <li>Эта задача будет выполняться при запуске gulp в папке проекта<code>gulp</code></li>
-  </ol>
-  <h4>gulp watch</h4>
-  <ol>
-    <li>Напишем функцию слежения, которая при изменении файлов запускает другую функцию
-      <code>
-        function watch () {
-        <br>&nbsp;&nbsp;gulp.watch('src/sass/main.sass', style);
-        }
-        <br>exports.watch = watch;
-      </code>
-    </li>
-    <li>В терминале запускаем задачу watch<code>gulp watch</code></li>
-  </ol>
-</article>
-
-
-<!-- plugins -->
-<article class="article">
-  <div class="anchor" id="plugins"></div>
-  <h2>Плагины</h2>
-
-  <div class="content__menu">
-    <p class="content1__menu-link" id="content1__menu-link1">gulp-pug</p>
-    <p class="content1__menu-link" id="content1__menu-link2">gulp-sass</p>
-    <p class="content1__menu-link" id="content1__menu-link3">gulp-concat</p>
-    <p class="content1__menu-link" id="content1__menu-link4">gulp-autoprefixer</p>
-    <p class="content1__menu-link" id="content1__menu-link5">gulp-clean-css</p>
-    <p class="content1__menu-link" id="content1__menu-link6">gulp-plumber</p>
-    <p class="content1__menu-link" id="content1__menu-link7">gulp-sourcemaps</p>
-    <p class="content1__menu-link" id="content1__menu-link8">browser-sync</p>
-    <p class="content1__menu-link" id="content1__menu-link9">babel</p>
-  </div>
-
-  <div class="content__items">
-    <div class="content1__item" id="content1__item1">
-      <h3>Плагин gulp-pug</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-pug для преобразования файлов pug в html и занесем его в раздел  зависимости файла package.json<code>npm i -D gulp-pug</code></li>
-        <li>В файле gulpfile.js создадим переменную pug<code>const pug = require('gulp-pug');</code></li>
-        <li>В переменную pugTask запишем стрелочную функцию, которая будет брать pug файлы из исходной папки, передавать их плагину gulp-pug, полученный html код делать красивым, записывать его в конечную папку и перезапускать браузер чтобы увидеть примененные изменения
-          <pre>const pugTask = () => {
-  return gulp.src(config.src.html)
-              .pipe(pug())
-              .pipe(pug({
-                  pretty: true
-              }))
-              .pipe(gulp.dest(config.dist.html))
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item2">
-      <h3>Плагин gulp-sass</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-sass для преобразования файлов sass в css и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-sass</code></li>
-        <li>В файле gulpfile.js создадим переменную sass<code>const sass = require('gulp-sass');</code></li>
-        <li>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет файл scss и передает второй задаче.Вторая задача преобразует его в css. Третья задача записывает его в папку назначения. Если будут ошибки при компиляции, они запишутся в файл sass.logfile.
-          <pre>const scssTask = () => {
-  return gulp.src(config.src.css)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('dist'));
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item3">
-      <h3>Плагин gulp-concat</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-concat (для соединения файлов в один и переименования его) и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-concat</code></li>
-        <li>В файле gulpfile.js создадим переменную concat<code>const concat = require('gulp-concat');</code></li>
-        <li>Напишем функцию (function) которая вернет (return) выполненную задачу (task). Первая задача берет исходные файлы и передает второй задаче.Вторая задача соединяет их в один и дает ему имя. Третья задача записывает его в папку назначения.
-          <pre>function concat () {
-  return gulp.src('src/scss/style.scss')
-    .pipe(concat(style.min.css))
-    .pipe(gulp.dest('dist/css'));
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item4">
-      <h3>Плагин gulp-autoprefixer</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-autoprefixer (для создания префикса свойствам css для поддержки в старых браузерах) и занесем его в раздел зависимости файла
-          package.json<code>npm i -D gulp-autoprefixer</code></li>
-        <li>В файле gulpfile.js создадим переменную autoprefixer<code>const autoprefixer = require('gulp-autoprefixer');</code></li>
-        <li>Напишем функцию для добавления префиксов в файлах css
-          <pre>function prefix () {
-  gulp.src('src/*.css')
-    .pipe(autoprefixer({
-      browser: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('dist'))
-};
-exports.prefix = prefix;
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item5">
-      <h3>Плагин gulp-clean-css</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-clean-css (для удаления пробелов и коментариев из css) и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-clean-css</code></li>
-        <li>В файле gulpfile.js создадим переменную cleanCSS<code>const cleanCSS = require('gulp-clean-css');</code>
-        </li>
-        <li>Напишем функцию для минификации css
-          <pre>function minify-css () {
-  return gulp.src('src/*.css')
-    .pipe(cleanCSS({compatibility:'ie8'}))
-    .pipe(gulp.dest('dist'));
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item6">
-      <h3>Плагин gulp-plumber</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-plumber (сборка не остановится не смотря на ошибки, ошибки запломбируются) и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-plumber</code></li>
-        <li>В файле gulpfile.js создадим переменную plumber<code>const plumber = require('gulp-plumber');</code></li>
-        <li>Добавим plumber в функцию преобразования pug файлов
-          <pre>function pugTask () {
-  return gulp.src('src/**/*.pug')
-        .pipe(plumber())
-        .pipe(pug({
-            pretty: true
-          }))
-        .pipe(plumber.stop())
-        .pipe(gulp.dest('dist/'))
-}</pre>
-        </li>
-        <li>Добавим plumber в функцию преобразования scss файлов
-          <pre>function scssTask () {
-  return gulp.src(config.src.css)
-              .pipe(plumber())
-              .pipe(sass().on('error', sass.logError))
-              .pipe(plumber.stop())
-              .pipe(gulp.dest(config.dist.css))
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item7">
-      <h3>Плагин gulp-sourcemaps</h3>
-      <ol>
-        <li>Установим в наш проект плагин gulp-sourcemaps (браузер покажет в каком файле источник стилей) и занесем его в раздел зависимости файла package.json<code>npm i -D gulp-sourcemaps</code></li>
-        <li>В файле gulpfile.js создадим переменную sourcemaps<code>const sourcemaps = require('gulp-sourcemaps');</code></li>
-        <li>Добавим sourcemaps в функцию минификации css файлов
-          <pre>function minify-css () {
-  return gulp.src('src/css/*.css')
-    .pipe(sourcemaps.init())
-      .pipe(cleanCSS({compatibility:'ie8'}))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/css'));
-}</pre>
-        </li>
-        <li>Добавим sourcemaps в функцию соединения js файлов
-          <pre>function scripts () {
-  return gulp.src('src/js/*.js')
-    .pipe(sourcemaps.init())
-      .pipe(concat('main.js'))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/js'));
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item8">
-      <h3>Плагин browser-sync</h3>
-      <ol>
-        <li>Установим плагин browser-sync для запуска локального сервера. Это нужно для автоматического обновления страницы в браузере<code>npm i -D browser-sync</code></li>
-        <li>В файле gulpfile.js создадим переменную browserSync<code>const browserSync = require('browser-sync').create();</code></li>
-        <li>Напишем функцию которая запускает сервер
-          <pre>function webServer () {
-  browserSync.init({
-    server: {
-      baseDir: './dist/'
-    },
-    port: 9000,
-    host: 'localhost',
-    notify: true,
-  });
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-    <div class="content1__item" id="content1__item9">
-      <h3>Плагин babel</h3>
-      <ul>
-        <li>
-          <p>Babel преобразует js код с новым синтаксисом в старый синтаксис, чтобы его понимали старые браузеры. Работает babel при помощи пресетов. Нам будет достаточно одного пресета @babel/preset-env</p>
-        </li>
-      </ul>
-      <ol>
-        <li>Установим в наш проект плагин gulp-babel и занесем его в раздел зависимости файла  package.json<code>npm i -D gulp-babel @babel/core @babel/preset-env</code></li>
-        <li>В файле gulpfile.js создадим переменную babel<code>const babel = require('gulp-babel');</code></li>
-        <li>Добавим babel в функцию соединения js файлов
-          <pre>function scripts () {
-  return gulp.src('src/js/*.js')
-    .pipe(sourcemaps.init())
-      .pipe(concat('main.js'))
-      .pipe(
-        babel({
-          presets: ['@babel/env']
-        })
-      )
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/js'));
-}
-</pre>
-        </li>
-      </ol>
-    </div>
-  </div>
+  <p>Список доступных задач можно посмотреть по команде</p>
+  <code>gulp --tasks</code>
 </article>

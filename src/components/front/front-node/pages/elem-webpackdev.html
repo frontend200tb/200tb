@@ -3,50 +3,55 @@
 
 <!-- Содержание -->
 <article class="article">
-  <h2>Содержание</h2>
+  <h3>Содержание</h3>
 
-  <p><a href="#config">Простая конфигурация</a></p>
-  <p><a href="#props">Свойства объекта devServer</a></p>
-  <p><a href="#events">Свойства объекта devServer</a></p>
+      <a href="#config">Простая конфигурация</a>
+  <br><a href="#props">Свойства объекта devServer</a>
+  <br><a href="#events">Свойства объекта devServer</a>
 </article>
 
 
 <!-- webpack-dev-server -->
 <article class="article">
   <div class="anchor" id="config"></div>
-  <h2>Простая конфигурация</h2>
+  <h3>Простая конфигурация</h3>
 
   <p>Сервер. Есть несколько способов, которые позволяют при сохранении кода автоматически его собирать и обновлять в браузере. Рассмотрим вариант webpack-dev-server. Установим webpack-dev-server</p>
-    <pre>npm i -D webpack-dev-server</pre>
+    <code>npm i -D webpack-dev-server</code>
     <p>Пропишем в файле webpack.config.js</p>
-    <pre>const path = require('path');
+<pre>
+const path = require('path');
 module.exports = {
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'src'),
-    },              
+    },
     watchFiles: path.join(__dirname, 'src'),
     port: 9000,
     overlay: true,
   }
-}</pre>
+}
+</pre>
     <p>Пропишем в package.json</p>
-<pre>"scripts": {
+<pre>
+"scripts": {
   "serve": "webpack serve --mode development --open",
-}</pre>
+}
+</pre>
     <p>serve означает запустить веб сервер.</p>
     <p>--mode development включает режим разработки.</p>
     <p>--open автоматически запускает браузер, который в системе установлен по умолчанию.</p>
     <p>Теперь сервер можно запустить командной</p>
-    <pre>npm run serve </pre>
+    <code>npm run serve</code>
     <p>Для остановки сервера надо нажать</p>
-    <pre>CTRL + c</pre>
+    <code>CTRL + c</code>
 
 
 <!-- Свойства объекта devServer -->
 <article class="article">
   <div class="anchor" id="props"></div>
-  <h3>Свойства объекта devServer</h3>  
+  <h3>Свойства объекта devServer</h3>
+
   <ol>
     <li><a href="#allowedHosts">allowedHosts</a></li>
     <li><a href="#bonjour">bonjour</a></li>
@@ -77,7 +82,8 @@ module.exports = {
 <!-- События объекта devServer -->
 <article class="article">
   <div class="anchor" id="events"></div>
-  <h3>События объекта devServer</h3>  
+  <h3>События объекта devServer</h3>
+
   <ol>
     <li><a href="#onAfterSetupMiddleware">onAfterSetupMiddleware</a></li>
     <li><a href="#onBeforeSetupMiddleware">onBeforeSetupMiddleware</a></li>
@@ -256,16 +262,19 @@ module.exports = {
 <!-- static -->
 <div class="anchor" id="static"></div>
   <h4>static</h4>
+
   <code>boolean string object [string, object]</code>
   <p>Этот параметр позволяет настроить параметры обслуживания файлов static из каталога. Чтобы отключить, установите false</p>
+
   <h4>directory</h4>
   <p>Сообщите серверу, откуда обслуживать контент.</p>
-<pre>module.exports = {
+<pre>
+module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
     },
   },
-};</pre>
+};
+</pre>
 </article>
-

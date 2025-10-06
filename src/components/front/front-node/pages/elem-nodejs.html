@@ -1,15 +1,15 @@
-<!-- Заголовок -->
-<article class="article">
-  <h1>Мои программы на node.js</h1>
-</article>
+<h1>Мои программы на node.js</h1>
+
 
 <!-- Содержание -->
-<div class="article__contents">
-  <a href="#os" class="contents__link">Модуль os</a>
-  <a href="#global-const" class="contents__link">Глобальные переменные</a>
-  <a href="#path" class="contents__link">Модуль path</a>
-  <a href="#fs" class="contents__link">Модуль fs</a>
-</div>
+<article class="article__contents">
+  <h3>Содержание</h3>
+
+      <a href="#os">Модуль os</a>
+  <br><a href="#global-const">Глобальные переменные</a>
+  <br><a href="#path">Модуль path</a>
+  <br><a href="#fs">Модуль fs</a>
+</article>
 
 
 <article class="article">
@@ -50,7 +50,7 @@
   <p>os.release() возвращает информацию о версии операционной системы в виде строчного значения.</p>
   <code>const os = require('os');
   <br>console.log('Релиз платформы: ', os.release());</code>
-  
+
   <br>console.log('Версия: ', os.version());
   <br>console.log('Релиз платформы: ', os.release());
   <br>console.log('Архитектура платформы: ', os.arch());
@@ -98,7 +98,7 @@
 
   <h2>Создать файл</h2>
   <p>Есть два метода для записи в файл - writeFileSync (синхронный) и writeFile (асинхронный).</p>
-  
+
   <p>В синхронный метод передаются два параметра - имя файла и данные для записи в файл.</p>
   <p>Создадим файл some.txt в текущей папке. Для этого в качестве первого параметра передадим только имя файла.</p>
   <code>const fs = require('fs');

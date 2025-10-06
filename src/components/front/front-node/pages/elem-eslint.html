@@ -1,28 +1,22 @@
 <h1>Eslint</h1>
 
-<!-- Заголовок -->
-<div class="article">
-  <div class="anchor" id="content"></div>
-  <h2>Содержание</h2>
-</div>
 
 <!-- Содержание -->
-<div class="article article__content">
+<article class="article">
+  <h3>Содержание</h3>
 
-  <div>
-    <p><a href="#about">about</a></p>
-    <p><a href="#links">links</a></p>
-    <p><a href="#install">install</a></p>
-    <p><a href="#eslintrc">.eslintrc.js</a></p>
-  </div>
-
-</div>
+     <a href="#about">about</a>
+  <br><a href="#links">links</a>
+  <br><a href="#install">install</a>
+  <br><a href="#eslintrc">.eslintrc.js</a>
+</article>
 
 
 <!-- about -->
 <article class="article">
   <div class="anchor" id="about"></div>
-  <h2>About</h2>
+  <h3>About</h3>
+
   <p>Линтер — это статический анализатор для языка программирования. Он сообщает о потенциально опасных выражениях в коде, которые могут привести к аварийному завершению программы. Также линтер может сообщить об устаревших участках кода, синтаксических ошибках и неиспользованных переменных. Всего существует около 300 правил, которые можно включить/выключить по желанию.</p>
   <p>Find and fix problems in your JavaScript code. ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.</p>
 </article>
@@ -31,7 +25,7 @@
 <!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
-  <h2>Links</h2>
+  <h3>Links</h3>
 
   <p><a href="https://eslint.org/">https://eslint.org/</a></p>
   <p><a href="https://www.npmjs.com/package/eslint">https://www.npmjs.com/package/eslint</a></p>
@@ -46,19 +40,21 @@
 <!-- install -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>install</h2>
+  <h3>install</h3>
 
   <p>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb</p>
   <code>npm i -D eslint eslint-config-airbnb</code>
 
   <p>В файл package.json добавятся зависимости для разработки. Вручную добавим скрипт для запуска проверки</p>
-<pre>"scripts": {
+<pre>
+"scripts": {
   "lint": "eslint ./src",
 },
 "devDependencies": {
   "eslint": "^8.49.0",
   "eslint-config-airbnb": "^19.0.4",
-}</pre>
+}
+</pre>
 </article>
 
 
@@ -71,7 +67,8 @@
   <code>touch .eslintrc.js</code>
 
   <p>Из файла .eslintrc.js будем экспортировать объект</p>
-<pre>module.exports = {
+<pre>
+module.exports = {
   env: {
     commonjs: true,
     es6: true,
@@ -91,5 +88,6 @@
   rules: {
     'no-console': 0,
   },
-}</pre>
+}
+</pre>
 </article>
