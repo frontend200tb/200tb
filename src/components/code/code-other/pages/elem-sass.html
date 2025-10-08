@@ -3,35 +3,59 @@
 
 <!-- Содержание -->
 <article class="article">
-  <h2>Содержание</h2>
+  <h3>Содержание</h3>
 
+  <p><a href="#about">about</a></p>
   <p><a href="#links">links</a></p>
   <p><a href="#install">Установка</a></p>
-  <p><a href="#variable">Переменные</a></p>
-  <p><a href="#nest">Вложенность</a></p>
-  <p><a href="#fragment">Фрагментирование</a></p>
-  <p><a href="#import">Импорт</a></p>
-  <p><a href="#mixin">Миксины</a></p>
-  <p><a href="#extend">Наследование</a></p>
-  <p><a href="#math">Математические операторы</a></p>
+  <p><a href="#help">Помощь sass -h</a></p>
+  <p><a href="#variable">Переменные ($)</a></p>
+  <p><a href="#nest">Вложенность. Родительский селектор (&)</a></p>
+  <p><a href="#use">Шаблоны (@use)</a></p>
+  <p><a href="#mixin">Миксины (@mixin @include)</a></p>
+  <p><a href="#extend">Наследование (@extend)</a></p>
+  <p><a href="#math">Математические операторы (+ - * %)</a></p>
+  <p><a href="#func">Функции (@function)</a></p>
+  <p><a href="#if">Условные оператор (@if @else)</a></p>
   <p><a href="#comment">Комментарии</a></p>
+  <p><a href="#depr">Устаревший синтаксис</a></p>
+  <ol>
+    <li><a href="#division">Математический оператор деления</a></li>
+    <li><a href="#import">Импорт @import</a></li>
+  </ol>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h3>About</h3>
+
+  <p>Sass (Syntactically AwesomeStyle Sheets) - это препроцессор CSS. Он помогает придерживаться принципа DRY (Don't Repeat Youself - не повторяйся) и предоставляет компилятор, который позваляет писать в двух разных синтаксисах: SASS и SCSS.</p>
+
+  <h4>Синтаксис SASS</h4>
+  <p>Это старый синтаксис с отступом, в котором отсутствуют фигурные скобки и точки с запятой. Имеет расширение .sass и напоминает Python.</p>
+
+  <h4>Синтаксис SCSS</h4>
+  <p>Это более новывй и популярный синтаксис, в котором обязательны фигурные скобки и точки с запятой. Он является подмножеством синтаксиса CSS3. Это позволяет писать обычный CSS с дополнительными функциями.</p>
 </article>
 
 
 <!-- links -->
 <article class="article">
   <div class="anchor" id="links"></div>
-  <h2>links</h2>
+  <h3>links</h3>
 
   <p><a href="https://sass-scss.ru/">https://sass-scss.ru/</a></p>
   <p><a href="https://sass-lang.com/">https://sass-lang.com/</a></p>
+  <p><a href="https://popov.dev/library/articles/16">Руководство для начинающих по Sass</a></p>
 </article>
 
 
 <!-- Установка -->
 <article class="article">
   <div class="anchor" id="install"></div>
-  <h2>Установка</h2>
+  <h3>Установка SASS</h3>
 
   <h4>Глобальная установка npm пакета sass</h4>
   <code>npm install -g sass</code>
@@ -39,9 +63,12 @@
   <code>c:\Users\11001000\AppData\Roaming\npm\node_modules\sass\</code>
   <p>Проверим установленную версию</p>
   <code>sass --version</code>
-  <code>1.75.0 compiled with dart2js 3.3.3</code>
-  <p>Получим информацию по использованию sass</p>
-  <code>sass --help</code>
+  <code>1.93.2 compiled with dart2js 3.9.3</code>
+
+  <h4>Ипользование sass</h4>
+  <h4>Можно скомпилировать как один файл, таки и все файлы из определенной директории</h4>
+  <code>sass input.scss [output.css]</code>
+  <code>sass input-dir:output-dir</code>
 
   <h4>Компиляция файла scss в css</h4>
   <p>Создадим файл style.scss</p>
@@ -71,12 +98,88 @@
 </article>
 
 
-<!-- Переменные -->
+<!-- Помощь sass -h -->
+<article class="article">
+  <div class="anchor" id="help"></div>
+  <h3>Помощь sass -h</h3>
+
+  <p>Получим информацию по использованию sass</p>
+  <code>sass -h</code>
+  (сокращенно от sass --help)
+
+<pre>
+=== Input and Output ===================
+    --[no-]stdin               Read the stylesheet from stdin.
+    --[no-]indented            Use the indented syntax for input
+                               from stdin.
+-I, --load-path=PATH           A path to use when resolving imports.
+                               May be passed multiple times.
+-p, --pkg-importer=TYPE        Built-in importer(s) to use for pkg: URLs.
+
+          [node]               Load files like Node.js package resolution.
+
+-s, --style=NAME               Output style.
+                               [expanded (default), compressed]
+    --[no-]charset             Emit a @charset or BOM for CSS with non-ASCII
+characters.
+                               (defaults to on)
+    --[no-]error-css           When an error occurs, emit a
+                               stylesheet descri
+bing it.
+                               Defaults to true when compiling to a file.
+    --update                   Only compile out-of-date stylesheets.
+
+=== Source Maps ========================
+    --[no-]source-map          Whether to generate source maps.
+                               (defaults to on)
+    --source-map-urls          How to link from source maps to source files.
+                               [relative (default), absolute]
+    --[no-]embed-sources       Embed source file contents in source maps.
+    --[no-]embed-source-map    Embed source map contents in CSS.
+
+=== Warnings ===========================
+-q, --[no-]quiet               Don't print warnings.
+    --[no-]quiet-deps          Don't print compiler warnings from dependencie
+s.
+                               Stylesheets imported through load paths count
+as dependencies.
+    --[no-]verbose             Print all deprecation warnings even when they'
+re repetitive.
+    --fatal-deprecation        Deprecations to treat as errors. You may also
+pass a Sass
+                               version to include any behavior deprecated in
+or before it.
+                               See https://sass-lang.com/documentation/breaki
+ng-changes for
+                               a complete list.
+    --silence-deprecation      Deprecations to ignore.
+    --future-deprecation       Opt in to a deprecation early.
+
+=== Other ==============================
+-w, --watch                    Watch stylesheets and recompile when they chan
+ge.
+    --[no-]poll                Manually check for changes rather than using a
+ native watcher.
+                               Only valid with --watch.
+    --[no-]stop-on-error       Don't compile more files once an error is enco
+untered.
+-i, --interactive              Run an interactive SassScript shell.
+-c, --[no-]color               Whether to use terminal colors for messages.
+    --[no-]unicode             Whether to use Unicode characters for messages
+.
+    --[no-]trace               Print full Dart stack traces for exceptions.
+-h, --help                     Print this usage information.
+    --version                  Print the version of Dart Sass.
+</pre>
+</article>
+
+
+<!-- Переменные ($) -->
 <article class="article">
   <div class="anchor" id="variable"></div>
-  <h2>Переменные</h2>
+  <h3>Переменные ($)</h3>
 
-  <p>В переменных можно хранить цвета, шрифты и другие значения css. Чтобы создать переменную надо использовать символ $.</p>
+  <p>В переменных можно хранить цвета, шрифты и другие значения css. При создании и обращении к переменной, ее запись начинается с симовла $.</p>
 <pre>$font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
@@ -90,99 +193,125 @@ body {
   font: 100% Helvetica, sans-serif;
   color: #333;
 }</pre>
+
+  <p>По умолчанию область видимости всех переменных локальная. Добавление переключателя !global делает переменную глобальной, то есть видимой на всех уровнях.</p>
+<pre>
+$myColor: red;
+
+h1 {
+  $myColor: green !global;
+  color: $muColor;
+}
+
+p {
+  color: $myColor;
+}
+</pre>
+  <p>Заголовок и параграф будут показаны одним цветом - зеленым</p>
+<pre>
+h1 {
+  color: green;
+}
+p {
+  color: green;
+}
+</pre>
+
+  <p>Глобальные переменные нужно определять отдельно от локальных переменных, в файле под названием _global.scss. Он включается в основной код с помощью функции @include</p>
 </article>
 
 
-<!-- Вложенность -->
+<!-- Вложенность. Родительский селектор (&) -->
 <article class="article">
   <div class="anchor" id="nest"></div>
-  <h2>Вложенность</h2>
+  <h3>Вложенность</h3>
 
-  <h4>В sass можно вкладывать селекторы</h4>
-<pre>nav {
+  <p>В sass можно вкладывать селекторы</p>
+<pre>
+nav {
   ul {
     li {
       margin: 0;
     }
   }
-}</pre>
+}
+</pre>
+
   <p>Получится</p>
-<pre>nav ul li {
+<pre>
+nav ul li {
   margin: 0;
-}</pre>
+}
+</pre>
 
-  <h4>Ссылка на родителя селектора</h4>
-<pre>a {
-  font-weight: bold;
-  text-decoration: none;
+  <h3>Родительский селектор (&)</h3>
 
+  <p>Во вложенном селекторе можно использовать символ & для ссылки на родительский селектор.</p>
+<pre>
+a {
   &:hover {
     text-decoration: underline;
   }
-
-  body.firefox & {
-    font-weight: normal;
-  }
-}</pre>
-  <p>Получится</p>
-<pre>a {
-  font-weight: bold;
-  text-decoration: none;
 }
+</pre>
+
+  <p>Получится</p>
+<pre>
 a:hover {
   text-decoration: underline;
 }
-body.firefox a {
-  font-weight: normal;
-}</pre>
+</pre>
+
   <p>Символ & будет заменен на родительский селектор, каким он компилируется в CSS. Это означает, что если у вас есть глубоко вложенное правило, родительский селектор будет полностью вычислен до символа & и подставится вместо него.</p>
   <p>Символ & должен быть указан в начале составного селектора, также он может содержать последующий суффикс, который будет добавлен к родительскому селектору. Например:</p>
-<pre>#main {
+<pre>
+#main {
   color: black;
 
   &-sidebar {
     border: 1px solid;
   }
-}</pre>
+}
+</pre>
+
   <p>Получится</p>
-<pre>#main {
+<pre>
+#main {
   color: black;
 }
 #main-sidebar {
   border: 1px solid;
-}</pre>
+}
+</pre>
 </article>
 
 
-<!-- Фрагментирование -->
+<!-- Шаблоны (@use) -->
 <article class="article">
-  <div class="anchor" id="fragment"></div>
-  <h2>Фрагментирование</h2>
+  <div class="anchor" id="use"></div>
+  <h3>Шаблоны (@use)</h3>
 
-  <p>Вы можете создавать фрагменты Sass-файла, которые будут содержать в себе небольшие отрывки CSS, которые можно будет использовать в других Sass-файлах. Это отличный способ сделать ваш CSS модульным, а также облегчить его обслуживание. Фрагмент — это простой Sass-файл, имя которого начинается с нижнего подчеркивания, например, _partial.scss. Нижнее подчеркивание в имени Sass-файла говорит компилятору о том, что это только фрагмент и он не должен компилироваться в CSS. Фрагменты Sass подключаются при помощи директивы @import.</p>
-</article>
-
-
-<!-- Импорт -->
-<article class="article">
-  <div class="anchor" id="import"></div>
-  <h2>Импорт</h2>
-
-  <p>CSS имеет возможность импорта, которая позволяет разделить ваш CSS-файл на более мелкие. Директива @import в CSS создает еще один HTTP-запрос. Sass берет идею импорта файлов через директиву @import, но вместо создания отдельного HTTP-запроса Sass импортирует указанный в директиве файл в тот, где он вызывается, т.е. на выходе получается один CSS-файл, скомпилированный из нескольких фрагментов.</p>
+  <p>Правило @use используется для подключения шаблонов css кода. Правило @use должно быть написано до любых других правил. При подключения шаблона имя файла пишут без символа подчеркивания и без расширения.</p>
+  <p>Шаблоны используют чтобы при разработке не писать большие файлы, а разбивать их на несколько маленьких. При этом маленькие файлы не будут компилироваться в отдельные css файлы, а будут включаться внутрь тех файлов, которые подключают эти шаблоны. Для этого нужно в названии файла шаблона первым символом использовать символ подчеркивания. Символ подчеркивания указывает SASS что это файл - частичный шаблон и компилировать отдельно его не нужно.</p>
   <p>Файл _reset.scss с кусочком кода</p>
-<pre>body {
+<pre>
+body {
   margin: 0;
   padding: 0;
-}</pre>
-  <p>Файл base.scss куда нужно сделать импорт</p>
-<pre>@import 'reset';
+}
+</pre>
+  <p>Файл base.scss куда нужно вставить шаблон</p>
+<pre>
+@use 'reset';
 
 body {
   font-family: Helvetica;
   background-color: #efefef;
-}</pre>
-  <p>Получиттся один файл base.css</p>
-<pre>body {
+}
+</pre>
+  <p>Получится один файл base.css</p>
+<pre>
+body {
   margin: 0;
   padding: 0;
 }
@@ -190,39 +319,45 @@ body {
 body {
   font-family: Helvetica;
   background-color: #efefef;
-}</pre>
-  <p>Мы используем @import 'reset'; в base.scss файле. Когда вы импортируете файл, то не нужно указывать _ в начале имени и расширение .scss. Sass — умный язык и он сам догадается.</p>
+}
+</pre>
 </article>
 
 
-<!-- Миксины -->
+<!-- Миксины (@mixin @include) -->
 <article class="article">
   <div class="anchor" id="mixin"></div>
-  <h2>Миксины</h2>
+  <h3>Миксины (@mixin @include)</h3>
 
   <p>Миксины позволяют создавать группы деклараций CSS, которые можно использовать по нескольку раз. Можно передавать переменные в миксины, чтобы сделать их более гибкими. Так же хорошо использовать миксины для вендорных префиксов. Пример для transform:</p>
-<pre>@mixin transform($property) {
+<pre>
+@mixin transform($property) {
   -webkit-transform: $property;
   -ms-transform: $property;
   transform: $property;
 }
-.box { @include transform(rotate(30deg)); }</pre>
+.box { @include transform(rotate(30deg)); }
+</pre>
+
   <p>Получится</p>
-<pre>.box {
+<pre>
+.box {
   -webkit-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
   transform: rotate(30deg);
-}</pre>
+}
+</pre>
 </article>
 
 
-<!-- Наследование -->
+<!-- Наследование (@extend) -->
 <article class="article">
   <div class="anchor" id="extend"></div>
-  <h2>Наследование</h2>
+  <h3>Наследование (@extend)</h3>
 
-  <p>Используя директиву @extend можно наследовать наборы свойств CSS от одного селектора другому.</p>
-<pre>%message-shared {
+  <p>Использование @extend позволяет передавать наборы свойств CSS от одного селектора другому.</p>
+<pre>
+%message-shared {
   border: 1px solid #ccc;
   padding: 10px;
   color: #333;
@@ -240,9 +375,11 @@ body {
 .error {
   @extend %message-shared;
   border-color: red;
-}</pre>
+}
+</pre>
   <p>Получится</p>
-<pre>.error, .success, .message {
+<pre>
+.error, .success, .message {
   border: 1px solid #ccc;
   padding: 10px;
   color: #333;
@@ -254,33 +391,118 @@ body {
 
 .error {
   border-color: red;
-}</pre>
+}
+</pre>
 </article>
 
 
-<!-- Математические операторы -->
+<!-- Математические операторы (+ - * %) -->
 <article class="article">
   <div class="anchor" id="math"></div>
-  <h2>Математические операторы</h2>
+  <h3>Математические операторы (+ - * %)</h3>
 
-  <p>Использовать математику в CSS очень полезно. Sass имеет несколько стандартных математических операторов, таких как +, -, *, / и %.</p>
-<pre>div {
+  <p>Использовать математику в CSS очень полезно. Sass имеет несколько стандартных математических операторов, таких как +, -, *, %.</p>
+<pre>
+div {
   width: 100px + 200px * 2 - 300px;
-}</pre>
+}
+</pre>
   <p>Получится</p>
-<pre>div {
+<pre>
+div {
   width: 200px;
-}</pre>
+}
+</pre>
+</article>
+
+
+<!-- Функции (@function) -->
+<article class="article">
+  <div class="anchor" id="func"></div>
+  <h3>Функции (@function)</h3>
+
+  <p>Встроенные функции позволяют нам выполнять вычисления возвращають значение</p>
+<pre>
+@use "sass:math";
+
+@function pxToRem($pxValue) {
+  @return math.div($pxValue, 16px) * 1rem;
+}
+
+div {
+  width: pxToRem(480); // возвращает 30rem
+}
+</pre>
+</article>
+
+
+<!-- Условные оператор (@if @else) -->
+<article class="article">
+  <div class="anchor" id="if"></div>
+  <h3>Условный оператор (@if @else)</h3>
+
+  <p>Можно написать условную конструкцию используя операторы @if и @else. Пример миксина с условным оператором</p>
+<pre>
+@mixin body-theme($theme) {
+  @if $theme == "light" {
+    background-color: $light-bg;
+  } @else {
+    background-color: $dark-bg;
+  }
+}
+</pre>
 </article>
 
 
 <!-- Комментарии -->
 <article class="article">
   <div class="anchor" id="comment"></div>
-  <h2>Комментарии</h2>
+  <h3>Комментарии</h3>
 
   <p>Стандартный многострочный CSS комментарий, обозначаемый /* */ сохранится на выходе в файле CSS</p>
   <p>Однострочный комментарий, обозначаемый // в выходной файл CSS не попадет</p>
 </article>
 
 
+<!-- Устаревший синтаксис -->
+<article class="article">
+  <div class="anchor" id="depr"></div>
+  <h3>Устаревший синтаксис</h3>
+
+  <p>К устаревшиму синтаксису относятся:</p>
+  <ol>
+    <li>Математический оператор деления /</li>
+    <li>Подключение шаблонов с помощью @import</li>
+  </ol>
+</article>
+
+
+<!-- Математический оператор деления -->
+<article class="article">
+  <div class="anchor" id="import"></div>
+  <h3>Математический оператор деления</h3>
+
+<p>Математический оператор деления / устарел и будет удален в Dart Sass 2.00. Вместо него нужно подключить библиотеку sass:math и использовать функцию math.div.</p>
+<pre>
+@use "sass:math";
+
+div {
+  width: math.div(100px, 20px) + 100px;
+}
+</pre>
+  <p>Получится</p>
+<pre>
+div {
+  width: 105px;
+}
+</pre>
+</article>
+
+
+<!-- Импорт -->
+<article class="article">
+  <div class="anchor" id="import"></div>
+  <h3>Импорт</h3>
+
+  <p>Вместо @use раньше использовался @import, который устарел и будет удален в Dart Sass 3.00.</p>
+</article>

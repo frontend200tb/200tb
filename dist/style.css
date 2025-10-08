@@ -87,11 +87,13 @@ Page
 
 a,
 a:visited {
+  -webkit-text-decoration: none;
   text-decoration: none;
   color: #555;
 }
 
 a:hover {
+  -webkit-text-decoration: underline;
   text-decoration: underline;
   color: #865;
   cursor: pointer;
@@ -457,6 +459,7 @@ nav
 }
 .nav a {
   padding: 10px;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 1.2em;
   color: #fff;
@@ -599,6 +602,7 @@ Aside
   font-size: 1rem;
   border: 5px solid white;
   border-radius: 20px;
+  -webkit-text-decoration: none;
   text-decoration: none;
   color: #fff;
 }
@@ -843,6 +847,7 @@ Article
 }
 .article__contents a {
   font-weight: 700;
+  -webkit-text-decoration: none;
   text-decoration: none;
   color: #222;
 }
@@ -850,6 +855,7 @@ Article
   color: #222;
 }
 .article__contents a:hover {
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 .article__contents ol {
@@ -1166,6 +1172,7 @@ header__1
   margin-left: 5px;
   padding-bottom: 3px;
   color: #fff;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -1408,38 +1415,6 @@ _social-icons.scss
   \*************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /*********************
-settings
-*********************/
-.set-up-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-@media (max-width: 580px) {
-  .set-up-btn {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-@media (max-width: 580px) {
-  .set-section {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-/*---------------*/
-/* Конец settings */
-/*********************
 set-btn.scss
 *********************/
 .set-btn {
@@ -1612,6 +1587,38 @@ search-btn {
 }
 
 /* Конец _search-btn.scss */
+/*********************
+settings
+*********************/
+.set-up-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media (max-width: 580px) {
+  .set-up-btn {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media (max-width: 580px) {
+  .set-section {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*---------------*/
+/* Конец settings */
 /*!***********************************************************************************************************************************************************************************!*\
   !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./src/components/Footer/Footer.component.scss ***!
   \***********************************************************************************************************************************************************************************/

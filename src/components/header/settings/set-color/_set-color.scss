@@ -1,0 +1,64 @@
+.set-color {
+  margin: 10px 0;
+}
+
+@media (max-width: 580px) {
+  .set-color {
+    text-align: center;
+  }
+}
+/*---------------*/
+
+#select-red {
+  width: 20px;
+  height: 20px;
+  background: var(--red);
+}
+
+#select-sand {
+  width: 20px;
+  height: 20px;
+  background: var(--sand);
+}
+
+#select-yellow {
+  width: 20px;
+  height: 20px;
+  background: var(--yellow);
+}
+
+#select-olive {
+  width: 20px;
+  height: 20px;
+  background: var(--olive);
+}
+
+#select-green {
+  width: 20px;
+  height: 20px;
+  background: var(--green);
+}
+
+#select-dodgerblue {
+  width: 20px;
+  height: 20px;
+  background: var(--dodgerblue);
+}
+
+#select-blue {
+  width: 20px;
+  height: 20px;
+  background: var(--blue);
+}
+
+#select-brown {
+  width: 20px;
+  height: 20px;
+  background: var(--brown);
+}
+
+#select-silver {
+  width: 20px;
+  height: 20px;
+  background: var(--silver);
+}

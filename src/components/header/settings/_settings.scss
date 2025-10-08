@@ -1,3 +1,10 @@
+@use 'set-btn/set-btn';
+@use 'set-color/set-color';
+@use 'set-view/set-view';
+@use 'theme/theme';
+@use 'snow/snow';
+@use 'search-btn/search-btn';
+
 /*********************
 settings
 *********************/
@@ -21,10 +28,3 @@ settings
 /*---------------*/
 
 /* Конец settings */
-
-@import 'set-btn/set-btn';
-@import 'set-color/set-color';
-@import 'set-view/set-view';
-@import 'theme/_theme';
-@import 'snow/_snow';
-@import 'search-btn/search-btn';

@@ -1,0 +1,21 @@
+/*********************
+search-btn.scss
+*********************/
+
+search-btn {
+  display: inline-block;
+  margin: 0 5px;
+  height: 30px;
+}
+
+.search-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-image: url(./assets/search-svgrepo-com.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Конец _search-btn.scss */

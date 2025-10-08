@@ -2,6 +2,7 @@ import showGustokashin from './gustokashin/gustokashin';
 import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
 import show1580        from './1580/1580';
+import showMisis       from './misis/misis';
 import showStepik      from './stepik/stepik';
 import showAlgBooks    from './alg-books/alg-books';
 import showAlgCourses  from './alg-courses/alg-courses';
@@ -37,6 +38,14 @@ export const dataConspectNav = [
     content: '<alg-1580></alg-1580>',
     act() {
       show1580();
+    },
+  },
+  {
+    url: 'misis.html',
+    text: 'Misis',
+    content: '<alg-misis></alg-misis>',
+    act() {
+      showMisis();
     },
   },
   {
