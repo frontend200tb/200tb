@@ -1,0 +1,542 @@
+<article class="article">
+  <h1>МИСИС. Спортивное программирование на C++</h1>
+  <strong>NlogN Beginners 5-7 Вечерняя группа</strong>
+  <p><a href="https://csacademy.com" target="_blank">https://csacademy.com</a></p>
+  <p><a href="https://contest.misis.ru/" target="_blank">https://contest.misis.ru/</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#p4">Занятие 4. Циклы</a>
+  <br><a href="#t4.1">Задача A. Максимум и минимум</a>
+  <br><a href="#t4.2">Задача B. Перепись</a>
+  <br><a href="#t4.3">Задача C. Монетки</a>
+  <br><a href="#t4.4">Задача D. Количество нулей</a>
+  <br><a href="#t4.5">Задача E. Ряд - 2</a>
+  <br><a href="#t4.6">Задача F. Список квадратов</a>
+  <br><a href="#t4.7">Задача G. Делители</a>
+  <br><a href="#t4.8">Задача H. Степень двойки</a>
+  <br><a href="#t4.9">Задача I. Среднее значение последовательности</a>
+</article>
+
+
+<!-- Занятие 4. Циклы -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Занятие 4. Циклы (2021-02-06)</h3>
+
+  <p>Если нужно сделать одинаковую операцию с большим количеством чисел, то программа может занять много строк, в которых можно наделать много ошибок. Чтобы этого избежать, нужно использовать циклы.</p>
+</article>
+
+
+<!-- Задача A. Максимум и минимум -->
+<article class="article">
+  <div class="anchor" id="t4.1"></div>
+  <h3>Задача A. Максимум и минимум</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/A" target="_blank">https://contest.misis.ru/contest/1081/problems/A</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>Вам дана последовательность чисел длины n. Найдите самое большое и самое маленькое числа в последовательности.</p>
+
+  <h4>Входные данные</h4>
+  <p>В первой строке входного файла задано одно число N - количество чисел в последовательности. Вторая строка содержит N чисел, записанных через пробедл. Все числа натуральные и не превышают 30000.</p>
+
+  <h4>Выходные данные</h4>
+  <p>В выходной файл нужно вывести два числа через пробел: самое маленькое и самое большое числа.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+5
+5 1 6 5 9
+</pre>
+    <code>1 9</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n; // число чисел
+  cin >> n;
+  int in; // считанное число
+  cin >> in;
+  int min = in;
+  int max = in;
+
+  for (int i = 1; i &lt; n; i++) {
+    cin >> in;
+    if (min > in) {
+      min = in;
+    }
+    if (in > max) {
+      max = in;
+    }
+  }
+
+  cout &lt;&lt; min &lt;&lt; ' ' &lt;&lt; max;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Перепись -->
+<article class="article">
+  <div class="anchor" id="t4.2"></div>
+  <h3>Задача B. Перепись</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/B" target="_blank">https://contest.misis.ru/contest/1081/problems/B</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>В доме живет N жильцов. Однажды решили провести перепись всех жильцов данного дома и составили список, в котором указали возраст и пол каждого жильца. Требуется найти номер самого старшего жителя мужского пола.</p>
+
+  <h4>Входные данные</h4>
+  <p>Во входном файле в первой строке задано натуральное число N - количество жильцов (N ≤ 100). В последующих N строках располагается информация о всех жильцах: каждая строка содержит два целых числа: V и S - возраст и пол человека. (1 ≤ V ≤ 100, S = 0 или 1). Мужскому полу зоответствует значение S = 1, а женскому - S = 0.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выходной файл должен содержать номер самого старшего мужчины в списке. Если таких жильцов несколько, то следует вывести наименьший номер. Если жильцов мужского пола нет, то выведите -1.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+4
+25 1
+70 1
+100 0
+3 1
+</pre>
+    <code>2</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n; // число жильцов
+  cin >> n;
+
+  int res = -1;
+  int v; // возраст
+  int s; // пол
+  int max = 0; // максимальный возраст
+
+  for (int i = 1; i &lt;= n; i++) {
+    cin >> v >> s;
+    if (s == 1) {
+      if (v > max) {
+        max = v;
+        res = i;
+      }
+      min = in;
+    }
+  }
+
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Монетки -->
+<article class="article">
+  <div class="anchor" id="t4.3"></div>
+  <h3>Задача C. Монетки</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/C" target="_blank">https://contest.misis.ru/contest/1081/problems/C</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>На столе лежат n монеток. Некоторые из них лежат вверх решкой, а некоторые - гербом. Определите минимальное число монеток, которые нужно перевернуть, чтобы все монетки были повернуты вверх одной и той же стороной.</p>
+
+  <h4>Входные данные</h4>
+  <p>В первой строке входных данных записано натуральное число N (1 ≤ N ≤ 100) - число монеток. В каждой из последуюдих N строк содержится одно целое число - 1 если монетка лежит решкой вверх и 0 если вверх гербом.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите минимальное количество монет, которые нужно перевернуть.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+5
+1
+0
+1
+1
+0
+</pre>
+    <code>2</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n; // число монет
+  cin >> n;
+
+  int cnt1 = 0; // число решек
+  int cnt0 = 0; // число гербов
+  int in;
+
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    if (in == 1) {
+      cnt1++;
+    } else {
+      cnt0++;
+    }
+  }
+
+  if (cnt1 > cnt0) {
+    cout &lt;&lt; cnt0;
+  } else {
+    cout &lt;&lt; cnt1;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Количество нулей -->
+<article class="article">
+  <div class="anchor" id="t4.4"></div>
+  <h3>Задача D. Количество нулей</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/D" target="_blank">https://contest.misis.ru/contest/1081/problems/D</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>Дано несколько чисел. Подсчитайте, сколько из них равны нулю, и выведите это количество.</p>
+
+  <h4>Входные данные</h4>
+  <p>Сначала вводится число n, затем вводятся ровно n целых чисел. Все числа во входных данных целые неотрицательные, не превосходящие 30000.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+5
+0
+7
+0
+2
+2
+</pre>
+    <code>2</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n; // число чисел
+  cin >> n;
+
+  int cnt0 = 0; // число нулей
+  int in;
+
+  for (int i = 0; i &lt; n; i++) {
+    cin >> in;
+    if (in == 0) {
+      cnt0++;
+    }
+  }
+
+  cout &lt;&lt; cnt0;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Ряд - 2 -->
+<article class="article">
+  <div class="anchor" id="t4.5"></div>
+  <h3>Задача E. Ряд - 2</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/E" target="_blank">https://contest.misis.ru/contest/1081/problems/E</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>Даны два целых числа A и B. Выведите все числа от A до B включительно в порядке возрастания, если A &lt; B, или в порядке убывания в противном случае.</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводятся два целых числа, не превосходящих 200 по абсолютному значению.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+179
+179
+</pre>
+    <code>179</code>
+
+    <h4>Пример 2</h4>
+<pre>
+1
+10
+</pre>
+    <code>1 2 3 4 5 6 7 8 9 10</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+
+  if (a > b) {
+    for (int i = a; i >= b; i--) {
+      cout &lt;&lt; i &lt;&lt; ' ';
+    }
+  } else {
+    for (int i = a; i &lt;= b; i++) {
+      cout &lt;&lt; i &lt;&lt; ' '';
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача F. Список квадратов -->
+<article class="article">
+  <div class="anchor" id="t4.6"></div>
+  <h3>Задача F. Список квадратов</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/F" target="_blank">https://contest.misis.ru/contest/1081/problems/F</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>По данному целому числу N распечатайте все квадраты натуральных чисел, не превосходящие N, в порядке возрастания.</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводится натуральное число, не превосходящее 100.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>50</code>
+    <code>1 4 9 16 25 36 49</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  int num = 1;
+  while (num * num &lt;= n) {
+    cout &lt;&lt; num * num &lt;&lt; ' ';
+    num++;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача G. Делители -->
+<article class="article">
+  <div class="anchor" id="t4.7"></div>
+  <h3>Задача G. Делители</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/G" target="_blank">https://contest.misis.ru/contest/1081/problems/G</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>По данному натуральному числу выведите все его натуральные делители в порядке возрастания.</p>
+
+  <h4>Входные данные</h4>
+  <p>На вход подается единственное натуральное число n (n ≤ 1000).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите все делители числа в порядке возрастания. Делители можно выводить на одной строке, разделяя пробелом, или на разных строках.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>10</code>
+    <code>1 2 5 10</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  for (int i = 1; i &lt;= n; i++) {
+    if (n % i == 0) {
+      cout &lt;&lt; i &lt;&lt; ' ';
+    }
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача H. Степень двойки -->
+<article class="article">
+  <div class="anchor" id="t4.8"></div>
+  <h3>Задача H. Степень двойки</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/H" target="_blank">https://contest.misis.ru/contest/1081/problems/H</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>Дано натуральное число N. Выведите слово YES, если число N является степенью двойки, или слово NO в противном случае.</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводится натуральное число, не превосходящее 200.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>8</code>
+    <code>YES</code>
+
+    <h4>Пример 2</h4>
+    <code>3</code>
+    <code>NO</code>
+
+    <h4>Пример 3</h4>
+    <code>1</code>
+    <code>YES</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  while (n % 2 == 0) {
+    n /= 2;
+  }
+
+  if (n == 1) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача I. Среднее значение последовательности -->
+<article class="article">
+  <div class="anchor" id="t4.9"></div>
+  <h3>Задача I. Среднее значение последовательности</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/I" target="_blank">https://contest.misis.ru/contest/1081/problems/I</a></p>
+
+  <p>Время 1с. Память 16мб.</p>
+
+  <p>Определите среднее значение всех элементов последовательности, завершающейся числом 0. Сам ноль в последовательность не входит.</p>
+
+  <p>Среднее значение последовательности - это сумма всех чисел в последовательности, деленная на количество чисел в последовательности.</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводится последовательность целых чисел, оканчивающаяся числом 0 (само число 0 в последовательность не входит, а служит признаком ее окончания).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>1 7 9 0</code>
+    <code>5.66666667</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int in; // следующее входное число
+  cin >> in;
+  double sum = 0; // сумма чисел
+  int cnt = 0; // число чисел
+
+  while (in != 0) {
+    sum += in;
+    cnt++;
+    cin >> in;
+  }
+
+  cout &lt;&lt; sum / cnt;
+}
+</pre>
+  </details>
+</article>

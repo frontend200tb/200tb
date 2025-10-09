@@ -1,0 +1,412 @@
+<article class="article">
+  <h1>МИСИС. Спортивное программирование на C++</h1>
+  <strong>NlogN Beginners 5-7 Вечерняя группа</strong>
+  <p><a href="https://csacademy.com" target="_blank">https://csacademy.com</a></p>
+  <p><a href="https://contest.misis.ru/" target="_blank">https://contest.misis.ru/</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#p2">Занятие 2. Условный оператор</a>
+  <br><a href="#t2.1">Задача A. Больше-меньше</a>
+  <br><a href="#t2.2">Задача B. Орешки</a>
+  <br><a href="#t2.3">Задача C. Сбор земляники</a>
+  <br><a href="#t2.4">Задача D. От перестановки что-то меняется ...</a>
+  <br><a href="#t2.5">Задача E. Мышка</a>
+  <br><a href="#t2.6">Задача F. Внеземные гости</a>
+  <br><a href="#t2.7">Задача G. Количество позиций</a>
+</article>
+
+
+<!-- Занятие 2. Условный оператор -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Занятие 2. Условный оператор (2021-01-23)</h3>
+</article>
+
+
+<!-- Задача A. Больше-меньше -->
+<article class="article">
+  <div class="anchor" id="t2.1"></div>
+  <h3>Задача A. Больше-меньше</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/A" target="_blank">https://contest.misis.ru/contest/1081/problems/A</a></p>
+
+  <p>Время 2с. Память 16мб.</p>
+
+  <p>Одна из основных операций с числами - их сравнение. Мы подозреваем, что вы в совершенстве владеете этой операцией и можете сравнивать любые числа, в том числе и целые. В данной задаче необходимо сравнить два целых числа.</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны числа A и B, не превосходящие по абсолютной величине 2*10⁹.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите один символ</p>
+  <p>"&lt;", если A &lt; B,</p>
+  <p>"&gt;", если A &gt; B,</p>
+  <p>"=", если A = B.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>5 7</code>
+    <code>&lt;</code>
+
+    <h4>Пример 2</h4>
+    <code>-7 -12</code>
+    <code>&gt;</code>
+
+    <h4>Пример 3</h4>
+    <code>13 13</code>
+    <code>=</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+
+  if (a &lt; b) {
+    cout &lt;&lt; "&lt;";
+  } else if (a > b) {
+    cout &lt;&lt; ">";
+  } else {
+    cout &lt;&lt; "=";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Орешки -->
+<article class="article">
+  <div class="anchor" id="t2.2"></div>
+  <h3>Задача B. Орешки</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/B" target="_blank">https://contest.misis.ru/contest/1081/problems/B</a></p>
+
+  <p>Время 1с. Память 16 мб.</p>
+
+  <p>Белочка собрала в лесу N шишек с орешками. Белочка очень привередливо выбирала шишки, и брала только те, в которых ровно M орешков. Также известно, что для пропитания зимой ей необходимо не менее K орешков. Определите, хватит ли на зиму орешков белочке.</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны три натуральных числа N, M, K (N, M ≤ 100, K ≤ 10000).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите "YES" если белочке хватит орешков и "NO" в противном случае.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>4 5 20</code>
+    <code>YES</code>
+
+    <h4>Пример 2</h4>
+    <code>4 5 21</code>
+    <code>NO</code>
+
+    <h4>Пример 3</h4>
+    <code>3 2 1</code>
+    <code>YES</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, m, k;
+  cin >> n >> m >> k;
+
+  if (n * m >= k) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Сбор земляники -->
+<article class="article">
+  <div class="anchor" id="t2.3"></div>
+  <h3>Задача C. Сбор земляники</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/C" target="_blank">https://contest.misis.ru/contest/1081/problems/C</a></p>
+
+  <p>Время 1с. Память 16 мб.</p>
+
+  <p>Маша и Миша собрали землянику. Маше удалось собрать X ягод, а Мише - Y ягод. Поскольку ягода была очень вкусной, то ребята могли какую-то часть ягод съесть. По нашим подсчетам вместе они съели Z ягод.</p>
+  <p>Требуется определить: сколько ягод ребята собрали в результате, при этом следует проверить, не ошиблись ли мы в расчетах, подсчитывая количество съеденных ягод (их не должно было получиться больше, чем сорванных ягод).</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны три натуральных числа X, Y, Z, не превышающих 1000. Все числа расположены в первой строке файла и разделены пробелом.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите количество собранных ягод, если наши подсчеты оказались правдоподобными, либо слово "Imposible" в противном случае.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>3 2 1</code>
+    <code>4</code>
+
+    <h4>Пример 2</h4>
+    <code>12 13 5</code>
+    <code>20</code>
+
+    <h4>Пример 3</h4>
+    <code>2 5 9</code>
+    <code>Imposible</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x, y, z;
+  cin >> x >> y >> z;
+
+  if (x + y &lt; z) {
+    cout &lt;&lt; "Imposible";
+  } else {
+    cout &lt;&lt; x + y - z;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. От перестановки что-то меняется ... -->
+<article class="article">
+  <div class="anchor" id="t2.4"></div>
+  <h3>Задача D. От перестановки что-то меняется ...</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/D" target="_blank">https://contest.misis.ru/contest/1081/problems/D</a></p>
+
+  <p>Время 1с. Память 16 мб.</p>
+
+  <p>Всем извествно, что от перестановки слагаемых сумма не изменяется. Однако, случается и так, что перестановка двух чисел приводит к более интересным последствиям.</p>
+  <p>Пусть, например, заданы три числа a1, a2, a3. Рассмотрим равенство a1 + a2 = a3. Оно может быть неверным (например, если a1 = 1, a2 = 4, a3 = 3), однако может стать верным, если поменять некоторые числа местами (например, если поменять местами a2 и a3, оно обратится в равенство 1 + 3 = 4).</p>
+  <p>Ваша задача - по заданным трем числам определить: можно ли их переставить так, чтобы сумма первых двух равнялась третьему.</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны три целых числа a1, a2, a3 (-10⁸ ≤ a1, a2, a3 ≤ 10⁸).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите слово "YES", если заданные числа можно переставить так, чтобы сумма первых двух равнялась третьему. В противном случае выведите в выходной файл слово "NO".</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>3 5 2</code>
+    <code>YES</code>
+
+    <h4>Пример 2</h4>
+    <code>2 2 5</code>
+    <code>NO</code>
+
+    <h4>Пример 3</h4>
+    <code>2 2 4</code>
+    <code>YES</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a1, a2, a3;
+  cin >> a1 >> a2 >> a3;
+
+  if (a1 + a2 &lt; a3) {
+    cout &lt;&lt; "YES";
+  } else if (a1 + a3 &lt; a2) {
+    cout &lt;&lt; "YES";
+  } else if (a2 + a3 &lt; a1) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Мышка -->
+<article class="article">
+  <div class="anchor" id="t2.5"></div>
+  <h3>Задача E. Мышка</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/E" target="_blank">https://contest.misis.ru/contest/1081/problems/E</a></p>
+
+  <p>Время 1с. Память 16 мб.</p>
+
+  <p>Однажды компьютерная мышка подумала, что стоит взять про запас еще один коврик. Чтобы никто не заметил запасного коврика, мышка решила его спрятать под свой прямоугольный коврик. Пробравшись ночью на склад, мышка обнаружила там только круглые коврики. Удастся ли мышке спрятать круглый коврик под прямоугольным ковриком?</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны три натуральных числа W, H, R, где W и H - ширина и высота прямоугольного коврика, а R - радиус запасного коврика. Все числа не превосходят значения 10⁹</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите "YES", если новый коврик можно спрятать под старым, и слово "NO", если этого сделать нельзя.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>4 7 2</code>
+    <code>YES</code>
+
+    <h4>Пример 2</h4>
+    <code>4 7 3</code>
+    <code>NO</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int w, h, r;
+  cin >> w >> h >> r;
+
+  if (2 * r > w or 2 * r > h) {
+    cout &lt;&lt; "NO";
+  } else {
+    cout &lt;&lt; "YES";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача F. Внеземные гости -->
+<article class="article">
+  <div class="anchor" id="t2.6"></div>
+  <h3>Задача F. Внеземные гости</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/F" target="_blank">https://contest.misis.ru/contest/1081/problems/F</a></p>
+
+  <p>Время 1с. Память 16 мб.</p>
+
+  <p>Недавно на поле фермера Джона были обнаружены следы приземления летающих тарелок. Об этом даже писала газета Mew Yorc Courier.</p>
+
+  <p>Поле фермера Джона имеет форму крука радиусом r1. По сообщениям журналиста были обнаружены два следа от летающих тарелок, имевшие форму кругов. Один из них имел радиус r2, второй - радиус r3. Также сообщается, что они находились внутри поля фермера Джона и не пересекались (при этом, они, возможно, касались друг друга и/или границы поля).</p>
+
+  <p>Поскольку журналисты часто склонны преувеличивать масштабы событий, необходимо написать программу, которая будет проверять, могли ли иметь место события, описанные в газете.</p>
+
+  <h4>Входные данные</h4>
+  <p>Даны три целых положительных числа r1, r2, r3 (1 ≤ r1, r2, r3 ≤ 10⁹).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Вывежиье сдлвл YES, если информация, опубликованная в газете, может соответствовать правде, и слово NO иначе.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>10 10 10</code>
+    <code>NO</code>
+
+    <h4>Пример 2</h4>
+    <code>10 3 4</code>
+    <code>YES</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int r1, r2, r3;
+  cin >> r1 >> r2 >> r3;
+
+  if (r3 >= r1 + r2) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача G. Количество позиций -->
+<article class="article">
+  <div class="anchor" id="t2.7"></div>
+  <h3>Задача G. Количество позиций</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/G" target="_blank">https://contest.misis.ru/contest/1081/problems/G</a></p>
+
+  <p>Время 0.5с. Память 256 мб.</p>
+
+  <p>Петя стоит в шеренге из n  человек, но точно не знает на какой позиции. Он может сказать, что перед ним стоит не менее a человек, а после него - не более b человек. Найдите количество позиций, на которых может стоять Петя.</p>
+
+  <h4>Входные данные</h4>
+  <p>В единственной строке записано три целых числа n, a, b (0 ≤ a, b, n ≤ 100).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите одно число - количество искомых позиций.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>3 1 1</code>
+    <code>2</code>
+
+    <h4>Пример 2</h4>
+    <code>5 2 3</code>
+    <code>3</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, a, b;
+  cin >> n >> a >> b;
+
+  int left = n - a;
+  int right = b + 1;
+  if (right > left) {
+    cout &lt;&lt; left;
+  } else {
+    cout &lt;&lt; right;
+  }
+}
+</pre>
+  </details>
+</article>

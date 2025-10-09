@@ -1,0 +1,383 @@
+<article class="article">
+  <h2>Сергей Новоселов</h2>
+  <strong>ФТЛ - спортивное программирование</strong>
+  <p><a href="https://vkvideo.ru/@club222539443" target="_blank">vkvideo.ru/@club222539443</a></p>
+  <p>Конспект курса</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <br><a href="#p7">Занятие 7. Условный оператор</a>
+</article>
+
+
+<!-- Занятие 7. Условный оператор -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>Занятие 7. Условный оператор (2023-10-08)</h3>
+
+  <p>Как проверить что введенное число n равно 0?</p>
+  <code>int res = 1 / (abs(n) + 1);</code>
+  <p>Для n = 0, целочисленное деление 1 / 1 = 1. Для всех остальных чисел знаменатель будет больше 1. Значит результат целочисленного деления 1 на число больше 1 равен 0.</p>
+  <p>В этом идея математического решения задач, без использования логических операторов.</p>
+
+  <p>Порешаем домашнее задание - задачки с сайта acmp.ru</p>
+
+  <h4>Задача 907 Мышка acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Если радиус круглого коврика r * 2 меньше чем высота и ширина прямоугольного коврика, то круглый коврик можно спрятать под прямоугольный.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int w, h, r;
+  cin >> w >> h >> r;
+  if (w >= r * 2 && h >= r * 2) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+
+  <h4>Задача 539 Торт acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Если требуется один кусочек, то это весь торт и его резать не надо. Если нужно четное число кусочков, то режем торт по диаметру и с один надрез дает два кусочка. Если нужно нечетное число кусочков, то режем по радиусу и один надрез дает один кусочек.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  if (n == 1) {
+    cout &lt;&lt; 0;
+  } else if(n % 2 == 0) {
+    cout &lt;&lt; n / 2;
+  } else {
+    cout &lt;&lt; n;
+  }
+}
+</pre>
+  </details>
+
+  <h4>Задача 597 Внеземные гости acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Сумма диаметров летающих тарелок должна быть меньше диаметра поля.</p>
+  </details>
+
+  <h4>Задача 970 От перестановки что-то меняется acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a1, a2, a3;
+  cin >> a1 >> a2 >> a3;
+  if (a1 + a2 == a3 || a1 + a3 == a2 || a2 + a3 == a1) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+
+  <h4>Задача 766 Орешки acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, m, k;
+  cin >> n >> m >> k;
+  if (n * m >= k) {
+    cout &lt;&lt; "YES";
+  } else {
+    cout &lt;&lt; "NO";
+  }
+}
+</pre>
+  </details>
+
+  <p>Порешаем задачи на silvertests.ru. Модуль 8 Условный оператор</p>
+
+  <h4>Задача 2 из 17. Условный оператор (IF ... ELSE)</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  if (n &lt; 0) {
+    cout &lt;&lt; '-';
+  } else {
+    cout &lt;&lt; '+';
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 3 из 17. Наибольшее из двух чисел</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  double a, b;
+  cin >> a >> b;
+  if (a >= b) {
+    cout &lt;&lt; a;
+  } else {
+    cout &lt;&lt; b;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 6 из 17. Про цифры</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  int n2, n3;
+  n3 = n % 10;
+  n /= 10;
+  n2 = n % 10;
+  if (n2 > n3) {
+    cout &lt;&lt; n2;
+  } else {
+    cout &lt;&lt; n3;
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 7 из 17. Проверка кратности</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int m, n;
+  cin >> m >> n;
+  if (m % n == 0) {
+    cout &lt;&lt; m / n;
+  } else {
+    cout &lt;&lt; "not completely divisible";
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 10 из 17. Такие разные скорости</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int k, m;
+  cin >> k >> m;
+  double k1 = k * 10.0 / 36;
+  if (k1 > m) {
+    cout &lt;&lt; k &lt;&lt; " kph";
+  } else {
+    cout &lt;&lt; m &lt;&lt; " mps";
+  }
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 11 из 17. Система уравнений</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+  int y;
+  if (x == 0) {
+    y = 0;
+  } else {
+    y = x * x - x - 1;
+  }
+
+  cout &lt;&lt; y;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 12 из 17. Неполный условный оператор</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  double a, b;
+  cin >> a >> b;
+  double mx = a;
+  if (b > a) {
+    mx = b;
+  }
+
+  cout &lt;&lt; "Maximum " &lt;&lt; mx;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 14 из 17. Разборчивая невеста</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, r, f, s;
+  cin >> n >> r >> f >> s;
+  int mn = r;
+  char res = "R";
+  if (mn > f) {
+    mn = f;
+    res = "F";
+  }
+  if (mn > s) {
+    mn = s;
+    res = "S";
+  }
+
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 16 из 17. Контрольная работа</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, c, d;
+  cin >> a >> b >> c >> d;
+  double sr = 1.0 * (a * 5 + b * 4 + c * 3 + d * 2) / (a + b + c + d);
+  int res = 0;
+  if (sr &lt; 5) {
+    res += a;
+  }
+  if (sr &lt; 4) {
+    res += b;
+  }
+  if (sr &lt; 3) {
+    res += c;
+  }
+
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <h4>Задача 17 из 17. Василий считает цифры</h4>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n1, n2, n3, n4;
+  cin >> n1 >> n2 >> n3 >> n4;
+  int sum1 = n1 / 1000 + n1 / 100 % 10 + n1 / 10 % 10 + n1 % 10;
+  int sum2 = n2 / 1000 + n2 / 100 % 10 + n2 / 10 % 10 + n2 % 10;
+  int sum3 = n3 / 1000 + n3 / 100 % 10 + n3 / 10 % 10 + n3 % 10;
+  int sum4 = n4 / 1000 + n4 / 100 % 10 + n4 / 10 % 10 + n4 % 10;
+  int res = (sum1 % 2 == 0) + (sum2 % 2 == 0) + (sum3 % 2 == 0) + (sum4 % 2 == 0);
+
+  cout &lt;&lt; res;
+
+  return 0;
+}
+</pre>
+  </details>
+
+  <p>Домашнее задание. Модуль 8 Условный оператор, решить задачи 4, 5, 8, 9, 13, 15 с сайта silvertests.ru</p>
+</article>

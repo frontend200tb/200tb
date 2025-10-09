@@ -1,0 +1,195 @@
+<article class="article">
+  <h2>Сергей Новоселов</h2>
+  <strong>ФТЛ - спортивное программирование</strong>
+  <p><a href="https://vkvideo.ru/@club222539443" target="_blank">vkvideo.ru/@club222539443</a></p>
+  <p>Конспект курса</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <br><a href="#p6">Занятие 6. Тернарный логический оператор. Подсчет значений логических выражений. Простые математические задачи</a>
+</article>
+
+
+<!-- Занятие 6. Тернарный логический оператор. Подсчет значений логических выражений. Простые математические задачи -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Занятие 6. Тернарный логический оператор. Подсчет значений логических выражений. Простые математические задачи (2023-10-04)</h3>
+
+  <p>На сайте <a href="https://informatics.msk.ru">https://informatics.msk.ru</a> на курсе Андреевой - Программирование это так просто, программирование - это так сложно. Тема 3 Оператор присваивания. Решить задачи повышенной сложности 1484 - 1493</p>
+
+  <p>Порешаем задачи с сайта acmp.ru</p>
+
+  <h4>Задача 903 Бисер acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>В шкатулке хранится разноцветный бисер (или бусины). Все бусины имеют одинаковую форму, размер и вес. Бусины могут быть одного из N различных цветов.В шкатулке много бусин каждого цвета. Требуется определить минимальное число бусин, которые можно не глядя вытащить из шкатулки так, чтобы среди них гарантированно были две бусины одного цвета.</p>
+
+    <h4>Входные данные</h4>
+    <p>Входной файл INPUT.TXT содержит одно натуральное число N (1 ≤ N ≤ 10⁹) количество цветов бусин.</p>
+
+    <h4>Выходные данные</h4>
+    <p>В выходной файл OUTPUT.TXT выведите ответ на поставленную задачу.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  int res = n + 1;
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
+
+  <h4>Задача 8 Арифметика acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+  cin >> a >> b >> c;
+  cout &lt;&lt; (a * b == c ? "YES" : "NO");
+}
+</pre>
+  </details>
+
+  <h4>Задача 692 Бинарные числа acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Проверить является ли число n ( |n| &lt; = 10000) степенью двойки 2<sup>k</sup>, где k неотрицательное целое число.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  int res = (n == 1 || n == 2 || n == 4 || n == 8
+  || n == 16 || n == 32 || n == 64 || n == 128
+  || n == 256 || n == 512 || n == 1024 || n == 2048
+  || n == 4096 || n = 8192) ? "YES" : "NO";
+  cout &lt;&lt; res;
+}
+</pre>
+  </details>
+
+  <h4>Задача 92 Журавлики acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int s;
+  cin >> s;
+  int x = s / 6;;
+  cout &lt;&lt; x &lt;&lt; ' ' &lt;&lt; 4 * x &lt;&lt; ' ' &lt;&lt; x;
+}
+</pre>
+  </details>
+
+  <h4>Задача 33 Два бандита acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Сколько банок не подстрелил Гарри, а сколько Ларри.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+  cout &lt;&lt; b - 1 &lt;&lt; ' ' &lt;&lt; a - 1;
+}
+</pre>
+  </details>
+
+  <h4>Задача 62 Клетки acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Определить цвет клетки на шахматной доске.</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char c;
+  int n;
+  cin >> c >> n;
+  cout &lt;&lt; ((c - 'A') + n) % 2 == 0 ? "WHITE" : "BLACK";
+}
+</pre>
+  </details>
+
+  <h4>Задача 943 Змейка - 3 acmp.ru</h4>
+
+  <details>
+    <summary>Условие</summary>
+    <p>Вывести элемент матрицы из строки Y и столбца X</p>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, m, y, x;
+  cin >> n >> m >> y >> x;
+  cout &lt;&lt; (y % 2 == 0 ? (y - 1) * m + (m - x)
+  : (y - 1) * m + x - 1);
+}
+</pre>
+  </details>
+
+  <h4>Домашнее задание</h4>
+
+  <p>Порешать задачи 907 Мышка, 539 Торт, 597 Внеземные гости, 970 От перестановки что-то меняется, 766 Орешки</p>
+</article>

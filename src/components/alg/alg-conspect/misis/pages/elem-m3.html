@@ -1,0 +1,384 @@
+<article class="article">
+  <h1>МИСИС. Спортивное программирование на C++</h1>
+  <strong>NlogN Beginners 5-7 Вечерняя группа</strong>
+  <p><a href="https://csacademy.com" target="_blank">https://csacademy.com</a></p>
+  <p><a href="https://contest.misis.ru/" target="_blank">https://contest.misis.ru/</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#p3">Занятие 3. Целочисленная арифметика. Операция деления</a>
+  <br><a href="#t3.1">Задача A. Дележ яблок</a>
+  <br><a href="#t3.2">Задача B. Последняя цифра</a>
+  <br><a href="#t3.3">Задача C. Сумма цифр</a>
+  <br><a href="#t3.4">Задача D. Электронные часы</a>
+  <br><a href="#t3.5">Задача E. Стоимость покупки</a>
+  <br><a href="#t3.6">Задача F. Прорешка на делимость</a>
+  <br><a href="#t3.7">Задача G. Максимум</a>
+  <br><a href="#t3.8">Задача H. Половина</a>
+</article>
+
+
+<!-- Занятие 3. Целочисленная арифметика. Операция деления -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Занятие 3. Целочисленная арифметика. Операция деления</h3>
+</article>
+
+
+<!-- Задача A. Дележ яблок -->
+<article class="article">
+  <div class="anchor" id="t3.1"></div>
+  <h3>Задача A. Дележ яблок</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/A" target="_blank">https://contest.misis.ru/contest/1081/problems/A</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>n школьников делят k яблок поровну, неделящийся остаток остается в корзине. Сколько яблок достанется каждому школьнику? Сколько яблок останется в корзине?</p>
+
+  <h4>Входные данные</h4>
+  <p>Программа получает на вход числа n и k. n - количество школьников, k - количество яблок. n, k - целые положительные числа, не превосходящие 10000.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Программа должна вывести два числа через пробел: количество яблок у каждого школьника и количество яблок, оставшихся в корзине.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>3 14</code>
+    <code>4 2</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, k;
+  cin >> n >> k;
+
+  cout &lt;&lt; k / n &lt;&lt; ' ' &lt;&lt; k % n;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B. Последняя цифра -->
+<article class="article">
+  <div class="anchor" id="t3.2"></div>
+  <h3>Задача B. Последняя цифра</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/B" target="_blank">https://contest.misis.ru/contest/1081/problems/B</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>Дано натуральное число. Выведите его последнюю цифру.</p>
+
+  <h4>Входные данные</h4>
+  <p>Дано одно число n, не превосходящее 10000.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите последнюю цифру n.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>179</code>
+    <code>9</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  cout &lt;&lt; n % 10;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C. Сумма цифр -->
+<article class="article">
+  <div class="anchor" id="t3.3"></div>
+  <h3>Задача C. Сумма цифр</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/C" target="_blank">https://contest.misis.ru/contest/1081/problems/C</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>Дано трехзначное число. Найдите сумму его цифр.</p>
+
+  <h4>Входные данные</h4>
+  <p>Дано одно число n.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите сумму цифр n.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>123</code>
+    <code>6</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  cout &lt;&lt; n % 10 + (n / 10) % 10 + n / 100;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D. Электронные часы -->
+<article class="article">
+  <div class="anchor" id="t3.4"></div>
+  <h3>Задача D. Электронные часы</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/D" target="_blank">https://contest.misis.ru/contest/1081/problems/D</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>С начала суток прошло n минут. Определите, сколько часов и минут будут показывать электронные часы в этот момент. Программа должна вывести два числа: количество часов (от 0 до 23) и количество минут (от 0 до 59).</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводится число n - целое, положительное, не превышает 10⁷</p>
+
+  <h4>Выходные данные</h4>
+  <p>Программа должна вывести два числа: количество часов (от 0 до 23) и количество минут (от 0 до 59).</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>150</code>
+    <code>2 30</code>
+
+    <h4>Пример 2</h4>
+    <code>1441</code>
+    <code>0 1</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  int t = n % (24 * 60);
+  int h = t / 60;
+  int m = t % 60;
+  cout &lt;&lt; h &lt;&lt; ' ' &lt;&lt; m;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E. Стоимость покупки -->
+<article class="article">
+  <div class="anchor" id="t3.5"></div>
+  <h3>Задача E. Стоимость покупки</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/E" target="_blank">https://contest.misis.ru/contest/1081/problems/E</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>Пирожок в столовой стоит a рублей и b копеек. Определите, сколько рублей и копеек нужно заплатить за n пирожков.</p>
+
+  <h4>Входные данные</h4>
+  <p>Программа получает на вход три числа a, b, n (0 ≤ a, n ≤ 10000; 0 ≤ b &lt; 100).</p>
+
+  <h4>Выходные данные</h4>
+  <p>Программа должна вывести два числа: стоимость покупки в рублях и копейках.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>10 15 2</code>
+    <code>20 30</code>
+
+    <h4>Пример 2</h4>
+    <code>2 50 4</code>
+    <code>10 0</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, n;
+  cin >> a >> b >> n;
+
+  int r = a * n + (b * n) / 100;
+  int k = (b * n) % 100;
+  cout &lt;&lt; r &lt;&lt; ' ' &lt;&lt; k;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача F. Прорешка на делимость -->
+<article class="article">
+  <div class="anchor" id="t3.6"></div>
+  <h3>Задача F. Прорешка на делимость</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/F" target="_blank">https://contest.misis.ru/contest/1081/problems/F</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>Даны два натуральных числа n и m. Если одно из них делится на другое нацело, выведите 1, иначе выведите любое другое целое число. Требуется решить задачу, не используя оператор if.</p>
+
+  <h4>Входные данные</h4>
+  <p>Дано два числа</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code></code>
+    <code></code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+
+  cout &lt;&lt; (n % m) * (m % n) + 1;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача G. Максимум -->
+<article class="article">
+  <div class="anchor" id="t3.7"></div>
+  <h3>Задача G. Максимум</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/G" target="_blank">https://contest.misis.ru/contest/1081/problems/G</a></p>
+
+  <p>Время 1с. Память 256мб.</p>
+
+  <p>Напишите программу, которая считывает два целых числа a и b и выводит наибольшее значение из них. Числа - целые от 1 до 1000.</p>
+
+  <p>При решении задачи можно пользоваться только целочисленными арифметическими операциями +, -, *, /, %, =. Нельзя пользоваться условным оператором if.</p>
+
+  <h4>Входные данные</h4>
+  <p>Вводятся 2 числа</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code></code>
+    <code></code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+
+  int a1 = (a / b) * a;
+  int b1 = (b / a) * b;
+  int c = (a1 + b1) / (a/b + b/a);
+
+  cout &lt;&lt; c;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача H. Половина -->
+<article class="article">
+  <div class="anchor" id="t3.8"></div>
+  <h3>Задача H. Половина</h3>
+
+  <p><a href="https://contest.misis.ru/contest/1081/problems/H" target="_blank">https://contest.misis.ru/contest/1081/problems/H</a></p>
+
+  <p>Время 1с. Память 64мб.</p>
+
+  <p>Вам дается вещественное число X. Требуется вывести X/2.</p>
+
+  <h4>Входные данные</h4>
+  <p>Дается число X.</p>
+
+  <h4>Выходные данные</h4>
+  <p>Выведите X/2.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>1.000</code>
+    <code>0.500</code>
+  </details>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  double x;
+  cin >> x;
+
+  cout &lt;&lt; x / 2;
+}
+</pre>
+  </details>
+</article>
