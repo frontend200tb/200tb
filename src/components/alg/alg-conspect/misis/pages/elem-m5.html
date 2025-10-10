@@ -3,6 +3,8 @@
   <strong>NlogN Beginners 5-7 Вечерняя группа</strong>
   <p><a href="https://csacademy.com" target="_blank">https://csacademy.com</a></p>
   <p><a href="https://contest.misis.ru/" target="_blank">https://contest.misis.ru/</a></p>
+  <p>2021-02-13 Занятие 5 Лекция Повторение 1ч 21м</p>
+  <p>2021-02-13 Занятие 5 Разбор.mp4 33м</p>
 </article>
 
 
@@ -10,13 +12,174 @@
 <article class="article">
   <h3>Содержание</h3>
 
-  <br><a href="#p5">Занятие 5. Циклы 2</a>
+      <a href="#p5">Занятие 5. Повторение</a>
+  <br><a href="#t5.1">Задача A</a>
+  <br><a href="#t5.2">Задача B</a>
+  <br><a href="#t5.3">Задача C</a>
+  <br><a href="#t5.4">Задача D</a>
+  <br><a href="#t5.5">Задача E</a>
+  <br><a href="#t5.6">Задача F</a>
 </article>
 
 
 <!-- Занятие 5. Циклы -->
 <article class="article">
   <div class="anchor" id="p5"></div>
-  <h3>Занятие 5. Циклы (2021-02-13)</h3>
+  <h3>Занятие 5. Повторение (2021-02-13)</h3>
 
+</article>
+
+
+<!-- Задача A -->
+<article class="article">
+  <div class="anchor" id="t5.1"></div>
+  <h3>Задача A</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a;
+  cin >> a;
+
+  cout &lt;&lt; 2 * a + 1;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача B -->
+<article class="article">
+  <div class="anchor" id="t5.2"></div>
+  <h3>Задача B</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+
+  cout &lt;&lt; b - 1 &lt;&lt; ' ' &lt;&lt; a - 1;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача C -->
+<article class="article">
+  <div class="anchor" id="t5.3"></div>
+  <h3>Задача C</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+
+  if (x > 10) {
+    cout &lt;&lt; "a";
+  } else if (x >= 5) {
+    cout &lt;&lt; "b";
+  } else {
+    cout &lt;&lt; "c";
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача D -->
+<article class="article">
+  <div class="anchor" id="t5.4"></div>
+  <h3>Задача D</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+
+  if (x % 4 == 1 || x % 4 == 2) {
+    cout &lt;&lt; 1;
+  } else {
+    cout &lt;&lt; 0;
+  }
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача E -->
+<article class="article">
+  <div class="anchor" id="t5.5"></div>
+  <h3>Задача E</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+
+  int sum = 0;
+  for (int i = 1; i &lt;= x; i++) {
+    sum += i;
+  }
+
+  cout &lt;&lt; sum;
+}
+</pre>
+  </details>
+</article>
+
+
+<!-- Задача F -->
+<article class="article">
+  <div class="anchor" id="t5.6"></div>
+  <h3>Задача F</h3>
+
+  <details>
+    <summary>Решение</summary>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int l, r;
+  cin >> l >> r;
+
+  for (int i = l; i &lt;= r; i++) {
+    cout &lt;&lt; i &lt;&lt; ' ';
+  }
+}
+</pre>
+  </details>
 </article>
