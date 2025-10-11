@@ -162,46 +162,69 @@ int main() {
     <p>Нужно расположить стороны коробок в порядке возрастания и сравнить стороны одной коробки со сторонами другой.</p>
 <pre>
 #include &lt;iostream&gt;
+#include &lt;algorithm&gt;
 
 using namespace std;
 
 int main() {
-  int t1, t2;
-  cin >> t1 >> t2;
-  string s;
-  cin >> s;
+  int a1, b1, c1, a2, b2, c2; // стороны двух коробок
+  cin >> a1 >> b1 >> c1 >> a2 >> b2 >> c2;
 
-  int res = 0;
+  int min1 = min(a1, min(b1, c1));
+  int max1 = max(a1, max(b1, c1));
+  int mid1 = a1 + b1 + c1 - min1 - max1;
 
-  if (s == "freeze") {
-    if (t1 >= t2) {
-      res = t2;
+  int min2 = min(a2, min(b2, c2));
+  int max2 = max(a2, max(b2, c2));
+  int mid2 = a2 + b2 + c2 - min2 - max2;
+
+  if (min1 == min2 and mid1 == mid2 and max1 == max2) {
+    cout &lt;&lt; "Boxes are equal";
+  } else if (min2 >= min1 and mid2 >= mid1 and max2 >= max1) {
+    cout &lt;&lt; "The first box is smaller than the second one";
+  } else if (min1 >= min2 and mid1 >= mid2 and max1 >= max2) {
+    cout &lt;&lt; "The first box is larger than the second one";
+  } else {
+    cout &lt;&lt; "Boxes are incomparable";
+  }
+}
+</pre>
+  </details>
+
+  <h4>Задача 677 Количество участников олимпиады с сайта acmp.ru</h4>
+
+  <details>
+    <summary>Решение</summary>
+    <p>Составим уравнение, где x - число участников</p>
+    <code>1 / k + 1 / n + 1/ m + d / x = 1</code>
+    <p>Умножим все на x*k*n*m</p>
+    <code>x*n*m + x*k*m + x*k*n + k*n*m*d = x*k*n*m</code>
+    <code>k*n*m*d = x*(k*n*m-n*m-k*m-k*n)</code>
+    <code>x = (k*n*m*d)/(k*n*m-n*m-k*m-k*n)</code>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int k, n, m, d;
+  cin >> k >> n >> m >> d;
+
+  int num = k * n * m * d; // числитель
+  int den = k * n * m - n * m - k * m - k * n; // знаменатель
+
+  if (den &lt;= 0 or num % den != 0) {
+    cout &lt;&lt; -1;
+  } else {
+    int res = num / den;
+    if (res % k != 0 or res % n != 0 or res % m != 0) {
+      cout &lt;&lt; -1;
     } else {
-      res = t1;
+      cout &lt;&lt; res;
     }
   }
-
-  if (s == "heat") {
-    if (t1 &lt;= t2) {
-      res = t2;
-    } else {
-      res = t1;
-    }
-  }
-
-  if (s == "auto") {
-    res = t2;
-  }
-
-  if (s == "fan") {
-    res = t1;
-  }
-
-  cout &lt;&lt; res;
-
-  return 0;
 }
 </pre>
   </details>
 </article>
-

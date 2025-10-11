@@ -258,6 +258,24 @@ const dataVideoAlgorithm = [
   {
     id: 16,
     year: 2021,
+    date: '2021.02.20',
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Спортивное программирование на C++',
+    author: 'Чежегов',
+    authorName: 'Алексей',
+    name: 'МИСИС',
+    numberLessons: '11 видео',
+    time_h_m: [8, 26],
+    size: '7.4 gb',
+    link: '',
+    isLearned: true,
+    dateLearned: '2025.10.10 пт',
+  },
+
+  {
+    id: 17,
+    year: 2021,
     date: '2021.06.30',
     category: 'основы',
     theme: 'Алгоритмы',
@@ -274,7 +292,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 17,
+    id: 18,
     year: 2021,
     date: '2021.10.01',
     category: 'основы',
@@ -292,7 +310,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 18,
+    id: 19,
     year: 2022,
     date: '2022.08.02',
     category: 'основы',
@@ -310,7 +328,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 19,
+    id: 20,
     year: 2023,
     date: '2023.03.10',
     category: 'основы',
@@ -328,7 +346,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 20,
+    id: 21,
     year: 2023,
     date: '2023.11.18',
     category: 'основы',
@@ -346,7 +364,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 21,
+    id: 22,
     year: 2024,
     date: '2024.03.29',
     category: 'основы',
@@ -364,7 +382,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 22,
+    id: 23,
     year: 2024,
     date: '2024.01.07',
     category: 'основы',
@@ -382,7 +400,7 @@ const dataVideoAlgorithm = [
   },
 
   {
-    id: 23,
+    id: 24,
     year: 2025,
     date: '2025.05.03',
     category: 'основы',

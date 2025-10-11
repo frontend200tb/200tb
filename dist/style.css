@@ -170,6 +170,10 @@ code {
   cursor: pointer;
 }
 
+.time-memory {
+  font-style: italic;
+}
+
 /* Конец Page */
 .container {
   margin: 0 auto;
