@@ -1,6 +1,5 @@
 import showSilver      from './silver/silver';
 import showInformatics from './informatics/informatics';
-import showAcmp        from './acmp/acmp';
 import showTimus       from './timus/timus';
 import showCoderun     from './coderun/coderun';
 import showCodewars    from './codewars/codewars';
@@ -22,14 +21,6 @@ export const dataPractNav = [
     content: '<alg-informatics></alg-informatics>',
     act() {
       showInformatics();
-    },
-  },
-  {
-    url: 'acmp.html',
-    text: 'acmp',
-    content: '<alg-acmp></alg-acmp>',
-    act() {
-      showAcmp();
     },
   },
   {
