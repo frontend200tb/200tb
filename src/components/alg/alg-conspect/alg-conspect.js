@@ -15,11 +15,11 @@ function createMainNav(navCode) {
     el.elem.href = '';
     el.elem.innerHTML = el.text;
     el.elem.addEventListener('click', (event) => {
-      const algorithm = document.getElementById('conspect');
+      const conspect = document.getElementById('conspect');
       event.preventDefault();
       // добавим class="active"
       classActive(navCode, el.elem);
-      algorithm.innerHTML = el.content;
+      conspect.innerHTML = el.content;
       el.act();
     });
   });

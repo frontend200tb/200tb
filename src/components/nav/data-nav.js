@@ -2,6 +2,7 @@
 import showAlgBase     from '../alg/alg-base/alg-base';
 import showAlgConspect from '../alg/alg-conspect/alg-conspect';
 import showAlgPract    from '../alg/alg-pract/alg-pract';
+import showAlgTa       from '../alg/alg-ta/alg-ta';
 
 // code
 import showCodeHtml   from '../code/code-html/code-html';
@@ -54,6 +55,14 @@ export const dataNavAlg = [
     content: '<alg-pract></alg-pract>',
     act() {
       showAlgPract();
+    },
+  },
+  {
+    url: 'alg-ta.html',
+    text: 'ТА',
+    content: '<alg-ta></alg-ta>',
+    act() {
+      showAlgTa();
     },
   },
 ]
