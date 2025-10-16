@@ -4,5 +4,6 @@ export const asideThemes = [
   'links',
   'install',
   'C++',
+  'C++ библиотеки',
   'Roadmap C++',
 ];

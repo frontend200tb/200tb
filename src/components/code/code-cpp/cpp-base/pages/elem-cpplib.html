@@ -1,0 +1,143 @@
+<h1>Стандартные библиотеки языка Си</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#algorithm">algorithm</a>
+  <br><a href="#iostream">iostream</a>
+  <br><a href="#vector">vector</a>
+  <br><a href="#cmath">cmath</a>
+</article>
+
+
+<!-- algorithm -->
+<article class="article">
+  <div class="anchor" id="algorithm"></div>
+  <h3>algorithm</h3>
+
+  <p>Содержит алгоритмические функции:</p>
+  <ol>
+    <li><strong>min(arg1, arg2)</strong> 	возвращает минимальный элемент из arg1 и arg2;</li>
+    <li><strong>max(arg1, arg2)</strong>		возвращает максимальный элемент из arg1 и arg2;</li>
+    <li><strong>swap(arg1, arg2)</strong>	меняет местами значения в переменных из arg1 и arg2;</li>
+    <li><strong>sort(po1, pos2)</strong> 	упорядочивает элементы в указанном диапазоне по не убыванию элементов или согласно критерию упорядочивания, заданному функцией.</li>
+    <li><strong>find(pos1, pos2, arg)</strong>	находит позицию первого вхождения элемента с заданным значением в диапазон. Если элемент не будет найден значение будет равно .end();</li>
+    <li><strong>count(pos1, pos2, arg)</strong>	возвращает количество элементов в диапазоне равных значению arg.</li>
+  </ol>
+</article>
+
+
+<!-- iostream -->
+<article class="article">
+  <div class="anchor" id="iostream"></div>
+  <h3>iostream</h3>
+</article>
+
+
+<!-- vector -->
+<article class="article">
+  <div class="anchor" id="vector"></div>
+  <h3>vector</h3>
+
+  <p>4 метода, которые возвращают итератор на элемент вектора:</p>
+  <ol>
+    <li><strong>.begin()</strong>	возвращает итератор, указывающий на первый элемент в векторе.</li>
+    <li><strong>.end()</strong> возвращает итератор, указывающий за последним элементом вектора или конец вектора.</li>
+    <li><strong>.rbegin()</strong> возвращает итератор, указывающий на последний элемент вектора.</li>
+    <li><strong>.rend()</strong> возвращает итератор, указывающий перед первым элементом вектора.</li>
+  </ol>
+  <p>Остальные методы:</p>
+  <ol>
+    <li><strong>.size()</strong> возвращает целое число размер вектора.</li>
+    <li><strong>.empty()</strong> возвращает true если вектор пустой, либо false.</li>
+    <li><strong>.clear()</strong> удаляет все элементы вектора.</li>
+    <li><strong>.back()</strong> возвращает значение последнего элемента.</li>
+    <li><strong>.front()</strong> возвращает значение первого элемента.</li>
+    <li><strong>.push_back(val)</strong> добавляет в конец вектора новый элемент со значением val.</li>
+    <li><strong>.emplace_back(val)</strong> аналогично <strong>.push_back(val)</strong>.</li>
+    <li><strong>.pop_back()</strong> удаляет последний элемент вектора.</li>
+  </ol>
+  <p>Добавление элементов на определенную позицию:</p>
+  <ol>
+    <li><strong>.push_front(val)</strong> добавляет в начало вектора новый элемент со значением val.</li>
+    <li><strong>.pop_front()</strong> удаляет первый элемент вектора.</li>
+    <li><strong>.insert(pos, val)</strong> добавление элемента val в vector в заданную позицию итератором pos.</li>
+    <li><strong>.emplace(pos, val)</strong> аналогично <strong>.insert(pos, val)</strong>.</li>
+    <li><strong>.insert(pos, vals)</strong> добавление элементов vals в vector начиная с позиции, заданной итератором pos.</li>
+    <li><strong>.insert(pos, n, val)</strong> добавлет n элементов val в vector начиная с позиции, заданной итератором pos.</li>
+    <li><strong>.insert(pos, begin, end)</strong> добавлет начиная с позиции, заданной итератором pos, элементы из другого контейнера между итераторами begin и end.</li>
+  </ol>
+  <p>Удаление элементов на определенной позиции:</p>
+  <ol>
+    <li><strong>.erase(pos)</strong> удаление элемент на позиции заданной итератором pos.</li>
+    <li><strong>.erase(begin, end)</strong> удаление элементов из диапазона, заданного итераторами begin и end.</li>
+  </ol>
+  <p>Изменение размера вектора</p>
+  <ol>
+    <li><strong>.resize(n)</strong> новый размер вектора. Если вектор содержал больше элементов, то с конца удаляются лишние элементы. Если вектор содержал меньше элементов, то в конец добавляются элементы инициализированные значением по умолчанию.</li>
+    <li><strong>.resize(n, val)</strong> новый размер вектора. Если вектор содержал больше элементов, то с конца удаляются лишние элементы. Если вектор содержал меньше элементов, то в конец добавляются элементы со значением val.</li>
+  </ol>
+  <p>Изменение элементов вектора</p>
+  <ol>
+    <li><strong>.assign()</strong> заменяет элементы вектора</li>
+    <li><strong>.swap()</strong> обменивает значения двух контейнеров</li>
+  </ol>
+</article>
+
+
+<!-- cmath -->
+<article class="article">
+  <div class="anchor" id="cmath"></div>
+  <h3>cmath</h3>
+
+  <p>Содержит математические функции и константы</p>
+
+  <h4>Константы</h4>
+  <ol>
+    <li><strong>e</strong> 2.71828 основание натурального логарифма</li>
+    <li><strong>pi</strong> 3.14159 число пи</li>
+    <li><strong>sqrt2</strong> 1.41421 корень числа 2</li>
+    <li><strong>phi</strong> 1.618 золотое сечение (число Фидия)</li>
+  </ol>
+
+  <h4>Математические функции</h4>
+  <ol>
+    <li><strong>abs(arg)</strong> возвращает число по абсолютной величине;</li>
+    <li><strong>sqrt(arg)</strong> возвращает корень от числа;</li>
+    <li><strong>pow(arg1, arg2)</strong> возвращает число arg1 в степени arg2;</li>
+    <li><strong>exp(arg)</strong> возвращает экспоненту в степени arg;</li>
+    <li><strong>log(arg)</strong>	возвращает натуральный логарифм от arg;</li>
+    <li><strong>log10(arg)</strong> возвращает логарифм по основанию 10 от arg;</li>
+  </ol>
+
+  <h4>Функции округления</h4>
+  <ol>
+    <li><strong>round(arg)</strong>	возвращает правильное математическое округление;</li>
+    <li><strong>ceil(arg)</strong> возвращает округление в большую сторону;</li>
+    <li><strong>floor(arg)</strong>	возвращает округление в меньшую сторону.</li>
+  </ol>
+
+  <h4>Тригонометрические функции</h4>
+  <ol>
+    <li><strong>sin(arg)</strong>	возвращает синус от аргумента;	</li>
+    <li><strong>cos(arg)</strong>	возвращает косинус от аргумента;</li>
+    <li><strong>tan(arg)</strong>	возвращает тангенс от аргумента.</li>
+    <li><strong>asin(arg)</strong> возвращает арксинус от аргумента;</li>
+    <li><strong>acos(arg)</strong> возвращает арккосинус от аргумента;</li>
+    <li><strong>atan(arg)</strong> возвращает арктангенс от аргумента. Результат от (-pi / 2) до (pi / 2)</li>
+    <li><strong>atan2(arg)</strong> возвращает арктангенс от аргумента. Результат от -pi до pi</li>
+  </ol>
+  <p>Arg передается как радианы, не градус!</p>
+  <p>Переведем grad градусов в arg радиан</p>
+  <code>int arg = (grad / 180) * pi;</code>
+  <p>В библиотеке нет котангенса, но его можно выразить через тангенс</p>
+  <code>int cotan = 1 / tan(arg);</code>
+
+  <h4>Проверка на значение</h4>
+  <ol>
+    <li><strong>isinf(arg)</strong> возвращает true, если аргумент представляет +Infinity или -Infinity</li>
+    <li><strong>isnan(arg)</strong> возвращает true, если аргумент представляет NaN</li>
+  </ol>
+</article>

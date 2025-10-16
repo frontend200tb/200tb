@@ -601,6 +601,21 @@ const dataBooksPaper = [
   },
 
   {
+    id: 40,
+    year: 2006,
+    category: 'paper',
+    theme: 'Бумажные книги',
+    title: 'Скользкие места C++',
+    author: 'Дьюхэрст',
+    authorName: 'Стефан',
+    pages: '264',
+    cover: 'мягкая',
+    image: '2006 Дьюхэрст - Скользкие места C++.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 41,
     year: 2006,
     category: 'paper',
@@ -1123,6 +1138,21 @@ const dataBooksPaper = [
     image: '2020 Дейтел - Как программировать на C (7е).jpg',
     isLearned: true,
     dateLearned: '2025.07.23 ср',
+  },
+
+  {
+    id: 76,
+    year: 2020,
+    category: 'paper',
+    theme: 'Бумажные книги',
+    title: 'JavaScript для Frontend разработчиков',
+    author: 'Кириченко',
+    authorName: 'Андрей',
+    pages: '320',
+    cover: 'мягкая',
+    image: '2020 Кириченко - JavaScript для Frontend разработчиков.jpg',
+    isLearned: false,
+    dateLearned: '',
   },
 
   {
