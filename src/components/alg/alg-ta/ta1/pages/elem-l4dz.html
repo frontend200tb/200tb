@@ -1,0 +1,696 @@
+<h1>Тренировки по алгоритмам 1.0</h1>
+
+
+<article class="article">
+  <h2>Михаил Густокашин</h2>
+  <p>Конспект курса <strong>Тренировки по алгоритмам 1.0</strong> (с 2021.06.02 до 2021.06.30)</p>
+  <p><a href="https://yandex.ru/yaintern/algorithm-training_2021" target="_blank">yandex.ru/yaintern/algorithm-training_2021</a></p>
+
+  <h4>Домашнее задание по лекции 4. Словари и сортировка подсчётом</h4>
+  <p><a href="https://contest.yandex.ru/contest/27665/problems/" target="_blank">contest.yandex.ru/contest/27665/problems</a></p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#t1">A. Словарь синонимов</a>
+  <br><a href="#t2">B. Номер появления слова</a>
+  <br><a href="#t3">C. Самое частое слово</a>
+  <br><a href="#t4">D. Клавиатура</a>
+  <br><a href="#t5">E. Пирамида</a>
+  <br><a href="#t6">F. Продажи</a>
+  <br><a href="#t7">G. Банковские счета</a>
+  <br><a href="#t8">H. Расшифровка письменности Майя</a>
+  <br><a href="#t9">I. Контрольная по ударениям</a>
+  <br><a href="#t10">J. Дополнительная проверка на списывание</a>
+</article>
+
+
+<!-- A. Словарь синонимов -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>A. Словарь синонимов</h3>
+
+  <div class="time-memory">(Время 1с. Память 256мб)</div>
+
+  <p>Вам дан словарь, состоящий из пар слов. Каждое слово является синонимом к парному ему слову. Все слова в словаре различны. Для одного данного слова определите его синоним.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Программа получает на вход количество пар синонимов N. Далее следует N строк, каждая строка содержит ровно два слова-синонима. После этого следует одно слово.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Программа должна вывести синоним к данному слову.</p>
+
+  <p>Примечание</p>
+
+  <p>Эту задачу можно решить и без словарей (сохранив все входные данные в списке), но решение со словарем будет более простым.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+3
+Hello Hi
+Bye Goodbye
+List Array
+Goodbye
+</pre>
+    <code>Bye</code>
+
+    <h4>Пример 2</h4>
+<pre>
+1
+beep Car
+Car
+</pre>
+    <code>beep</code>
+
+    <h4>Пример 3</h4>
+<pre>
+2
+Ololo Ololo
+Numbers 1234567890
+Numbers
+</pre>
+    <code>1234567890</code>
+  </details>
+</article>
+
+
+<!-- B. Номер появления слова -->
+<article class="article">
+  <div class="anchor" id="t2"></div>
+  <h3>B. Номер появления слова</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Во входном файле (вы можете читать данные из файла input.txt) записан текст. Словом считается последовательность непробельных символов идущих подряд, слова разделены одним или большим числом пробелов или символами конца строки. Для каждого слова из этого текста подсчитайте, сколько раз оно встречалось в этом тексте ранее.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Вводится текст.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>one two one tho three</code>
+    <code>0 0 1 0 0</code>
+
+    <h4>Пример 2</h4>
+<pre>
+She sells sea shells on the sea shore;
+The shells that she sells are sea shells I'm sure.
+So if she sells sea shells on the sea shore,
+I'm sure that the shells are sea shore shells.
+</pre>
+    <code>0 0 0 0 0 0 1 0 0 1 0 0 1 0 2 2 0 0 0 0 1 2 3 3 1 1 4 0 1 0 1 2 4 1 5 0 0 </code>
+
+    <h4>Пример 3</h4>
+    <code>aba aba; aba @?"</code>
+    <code>0 0 1 0</code>
+  </details>
+</article>
+
+
+<!-- C. Самое частое слово -->
+<article class="article">
+  <div class="anchor" id="t3"></div>
+  <h3>C. Самое частое слово</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Дан текст. Выведите слово, которое в этом тексте встречается чаще всего (с учетом регистра, и следующих знаков пунктуации за ним – не удаляйте их, и не приводите строку к нижнему регистру). Если таких слов несколько, выведите то, которое меньше в лексикографическом порядке.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Вводится текст.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите ответ на задачу.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+    <code>apple orange banana banana orange</code>
+    <code>banana</code>
+
+    <h4>Пример 2</h4>
+    <code>oh you touch my tralala mmm my ding ding dong</code>
+    <code>ding</code>
+
+    <h4>Пример 3</h4>
+<pre>
+q w e r t y u i o p
+a s d f g h j k l
+z x c v b n m
+</pre>
+    <code>a</code>
+  </details>
+</article>
+
+
+<!-- D. Клавиатура -->
+<article class="article">
+  <div class="anchor" id="t4"></div>
+  <h3>D. Клавиатура</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>На региональном этапе Всероссийской олимпиады школьников по информатике в 2009 году предлагалась следующая задача.</p>
+
+  <p>Всем известно, что со временем клавиатура изнашивается,и клавиши на ней начинают залипать. Конечно, некоторое время такую клавиатуру еще можно использовать, но для нажатий клавиш приходиться использовать большую силу.</p>
+
+  <p>При изготовлении клавиатуры изначально для каждой клавиши задается количество нажатий,которое она должна выдерживать. Если знать эти величины для используемой клавиатуры,то для определенной последовательности нажатых клавиш можно определить,какие клавиши в процессе их использования сломаются, а какие — нет.</p>
+
+  <p>Требуется написать программу, определяющую, какие клавиши сломаются в процессе заданного варианта эксплуатации клавиатуры.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Первая строка входных данных содержит целое число n (1 ≤ n ≤ 1000) — количество клавиш на клавиатуре. Вторая строка содержит n целых чисел — с1, с2, … , сn, где сi (1 ≤ ci ≤ 100000) — количество нажатий,выдерживаемых i-ой клавишей. Третья строка содержит целое число k (1 ≤ k ≤ 100000) — общее количество нажатий клавиш, и последняя строка содержит k целых чисел pj (1 ≤ pj ≤ n) — последовательность нажатых клавиш.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Программа должна вывести n строк, содержащих информацию об исправности клавиш.Если i-я клавиша сломалась, то i-ая строка должна содержать слово YES,если же клавиша работоспособна — слово NO.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+5
+1 50 3 4 3
+16
+1 2 3 4 5 1 3 3 4 5 5 5 5 5 4 5
+</pre>
+<pre>
+YES
+NO
+NO
+NO
+YES
+</pre>
+  </details>
+</article>
+
+
+<!-- E. Пирамида -->
+<article class="article">
+  <div class="anchor" id="t5"></div>
+  <h3>E. Пирамида</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Для строительства двумерной пирамиды используются прямоугольные блоки, каждый из которых характеризуется шириной и высотой.</p>
+
+  <p>Можно поставить один блок на другой, только если ширина верхнего блока строго меньше ширины нижнего (блоки нельзя поворачивать). Самым нижним в пирамиде может быть блок любой ширины.</p>
+
+  <p>По заданному набору блоков определите, пирамиду какой наибольшей высоты можно построить из них.</p>
+
+  <h4>Формат ввода</h4>
+  <p>В первой строке входных данных задается число N — количество блоков (1 ≤ N ≤ 100000).</p>
+
+  <p>В следующих N строках задаются пары натуральных чисел wi и hi (1 ≤ wi, hi ≤ 10<sup>9</sup>) — ширина и высота блока соответственно.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите одно целое число — максимальную высоту пирамиды.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+3
+3 1
+2 2
+3 3
+</pre>
+    <code>5</code>
+    <p>В примере пирамида будет состоять из двух блоков: нижним блоком будет блок номер 3, а верхним — блок номер 2. Блок номер 1 нельзя использовать вместе с блоком номер 3.</p>
+  </details>
+</article>
+
+
+<!-- F. Продажи -->
+<article class="article">
+  <div class="anchor" id="t6"></div>
+  <h3>F. Продажи</h3>
+
+  <div class="time-memory">(Время 1с. Память 256мб)</div>
+
+  <p>Дана база данных о продажах некоторого интернет-магазина. Каждая строка входного файла представляет собой запись вида Покупатель товар количество, где Покупатель — имя покупателя (строка без пробелов), товар — название товара (строка без пробелов), количество — количество приобретенных единиц товара.</p>
+
+  <p>Создайте список всех покупателей, а для каждого покупателя подсчитайте количество приобретенных им единиц каждого вида товаров.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Вводятся сведения о покупках в указанном формате.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите список всех покупателей в лексикографическом порядке, после имени каждого покупателя выведите двоеточие, затем выведите список названий всех приобретенных данным покупателем товаров в лексикографическом порядке, после названия каждого товара выведите количество единиц товара, приобретенных данным покупателем. Информация о каждом товаре выводится в отдельной строке.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+Ivanov paper 10
+Petrov pens 5
+Ivanov marker 3
+Ivanov paper 7
+Petrov envelope 20
+Ivanov envelope 5
+</pre>
+<pre>
+Ivanov:
+envelope 5
+marker 3
+paper 17
+Petrov:
+envelope 20
+pens 5
+</pre>
+
+    <h4>Пример 2</h4>
+<pre>
+Ivanov aaa 1
+Petrov aaa 2
+Sidorov aaa 3
+Ivanov aaa 6
+Petrov aaa 7
+Sidorov aaa 8
+Ivanov bbb 3
+Petrov bbb 7
+Sidorov aaa 345
+Ivanov ccc 45
+Petrov ddd 34
+Ziborov eee 234
+Ivanov aaa 45
+</pre>
+<pre>
+Ivanov:
+aaa 52
+bbb 3
+ccc 45
+Petrov:
+aaa 9
+bbb 7
+ddd 34
+Sidorov:
+aaa 356
+Ziborov:
+eee 234
+</pre>
+
+    <h4>Пример 3</h4>
+<pre>
+TKSNUU FKXYPUGQ 855146
+TKSNUU FKXYPUGQ 930060
+TKSNUU FKXYPUGQ 886973
+TKSNUU FKXYPUGQ 59344
+TKSNUU FKXYPUGQ 296343
+TKSNUU FKXYPUGQ 193166
+TKSNUU FKXYPUGQ 211696
+TKSNUU FKXYPUGQ 821064
+TKSNUU FKXYPUGQ 672846
+TKSNUU FKXYPUGQ 820341
+TKSNUU FKXYPUGQ 350693
+TKSNUU FKXYPUGQ 469538
+TKSNUU FKXYPUGQ 849069
+TKSNUU FKXYPUGQ 502007
+TKSNUU FKXYPUGQ 961595
+TKSNUU FKXYPUGQ 747271
+TKSNUU FKXYPUGQ 863648
+TKSNUU FKXYPUGQ 952069
+TKSNUU FKXYPUGQ 286019
+TKSNUU FKXYPUGQ 364841
+TKSNUU FKXYPUGQ 455930
+TKSNUU FKXYPUGQ 100486
+TKSNUU FKXYPUGQ 335026
+TKSNUU FKXYPUGQ 197672
+TKSNUU FKXYPUGQ 217640
+TKSNUU FKXYPUGQ 612549
+TKSNUU FKXYPUGQ 622501
+TKSNUU FKXYPUGQ 96554
+TKSNUU FKXYPUGQ 327166
+TKSNUU FKXYPUGQ 425399
+TKSNUU FKXYPUGQ 362309
+TKSNUU FKXYPUGQ 78477
+TKSNUU FKXYPUGQ 258916
+TKSNUU FKXYPUGQ 297923
+TKSNUU FKXYPUGQ 8891
+TKSNUU FKXYPUGQ 13639
+TKSNUU FKXYPUGQ 77308
+TKSNUU FKXYPUGQ 707620
+TKSNUU FKXYPUGQ 68205
+TKSNUU FKXYPUGQ 256702
+TKSNUU FKXYPUGQ 668334
+TKSNUU FKXYPUGQ 968673
+TKSNUU FKXYPUGQ 138125
+TKSNUU FKXYPUGQ 222904
+TKSNUU FKXYPUGQ 214091
+TKSNUU FKXYPUGQ 500231
+TKSNUU FKXYPUGQ 19611
+TKSNUU FKXYPUGQ 491343
+TKSNUU FKXYPUGQ 404307
+TKSNUU FKXYPUGQ 68367
+TKSNUU FKXYPUGQ 287107
+TKSNUU FKXYPUGQ 794935
+TKSNUU FKXYPUGQ 254217
+TKSNUU FKXYPUGQ 206370
+TKSNUU FKXYPUGQ 202761
+TKSNUU FKXYPUGQ 929017
+TKSNUU FKXYPUGQ 843359
+TKSNUU FKXYPUGQ 955269
+TKSNUU FKXYPUGQ 134139
+TKSNUU FKXYPUGQ 946168
+TKSNUU FKXYPUGQ 967781
+TKSNUU FKXYPUGQ 856474
+TKSNUU FKXYPUGQ 465070
+TKSNUU FKXYPUGQ 580526
+TKSNUU FKXYPUGQ 172109
+TKSNUU FKXYPUGQ 191703
+TKSNUU FKXYPUGQ 207916
+TKSNUU FKXYPUGQ 512264
+TKSNUU FKXYPUGQ 533081
+TKSNUU FKXYPUGQ 577208
+TKSNUU FKXYPUGQ 831389
+TKSNUU FKXYPUGQ 439158
+TKSNUU FKXYPUGQ 565633
+TKSNUU FKXYPUGQ 452643
+TKSNUU FKXYPUGQ 164426
+TKSNUU FKXYPUGQ 540743
+TKSNUU FKXYPUGQ 880704
+TKSNUU FKXYPUGQ 868529
+TKSNUU FKXYPUGQ 240742
+TKSNUU FKXYPUGQ 868865
+TKSNUU FKXYPUGQ 910442
+TKSNUU FKXYPUGQ 146737
+TKSNUU FKXYPUGQ 820984
+TKSNUU FKXYPUGQ 660948
+TKSNUU FKXYPUGQ 957975
+TKSNUU FKXYPUGQ 135847
+TKSNUU FKXYPUGQ 401865
+TKSNUU FKXYPUGQ 982859
+TKSNUU FKXYPUGQ 748454
+TKSNUU FKXYPUGQ 354734
+TKSNUU FKXYPUGQ 525638
+TKSNUU FKXYPUGQ 119140
+TKSNUU FKXYPUGQ 484816
+TKSNUU FKXYPUGQ 616539
+TKSNUU FKXYPUGQ 682553
+TKSNUU FKXYPUGQ 841541
+TKSNUU FKXYPUGQ 713063
+TKSNUU FKXYPUGQ 433453
+TKSNUU FKXYPUGQ 465340
+TKSNUU FKXYPUGQ 985635
+</pre>
+<pre>
+TKSNUU:
+FKXYPUGQ 49769497
+</pre>
+  </details>
+</article>
+
+
+<!-- G. Банковские счета -->
+<article class="article">
+  <div class="anchor" id="t7"></div>
+  <h3>G. Банковские счета</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Некоторый банк хочет внедрить систему управления счетами клиентов, поддерживающую следующие операции:</p>
+  <ul>
+    <li>Пополнение счета клиента.</li>
+    <li>Снятие денег со счета.</li>
+    <li>Запрос остатка средств на счете.</li>
+    <li>Перевод денег между счетами клиентов.</li>
+    <li>Начисление процентов всем клиентам.</li>
+  </ul>
+
+  <p>Вам необходимо реализовать такую систему. Клиенты банка идентифицируются именами (уникальная строка, не содержащая пробелов). Первоначально у банка нет ни одного клиента. Как только для клиента проводится операция пололнения, снятия или перевода денег, ему заводится счет с нулевым балансом. Все дальнейшие операции проводятся только с этим счетом. Сумма на счету может быть как положительной, так и отрицательной, при этом всегда является целым числом.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Входной файл содержит последовательность операций. Возможны следующие операции: DEPOSIT name sum - зачислить сумму sum на счет клиента name. Если у клиента нет счета, то счет создается. WITHDRAW name sum - снять сумму sum со счета клиента name. Если у клиента нет счета, то счет создается. BALANCE name - узнать остаток средств на счету клиента name. TRANSFER name1 name2 sum - перевести сумму sum со счета клиента name1 на счет клиента name2. Если у какого-либо клиента нет счета, то ему создается счет. INCOME p - начислить всем клиентам, у которых открыты счета, p% от суммы счета. Проценты начисляются только клиентам с положительным остатком на счету, если у клиента остаток отрицательный, то его счет не меняется. После начисления процентов сумма на счету остается целой, то есть начисляется только целое число денежных единиц. Дробная часть начисленных процентов отбрасывается.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Для каждого запроса BALANCE программа должна вывести остаток на счету данного клиента. Если же у клиента с запрашиваемым именем не открыт счет в банке, выведите ERROR.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+DEPOSIT Ivanov 100
+INCOME 5
+BALANCE Ivanov
+TRANSFER Ivanov Petrov 50
+WITHDRAW Petrov 100
+BALANCE Petrov
+BALANCE Sidorov
+</pre>
+<pre>
+105
+-50
+ERROR
+</pre>
+
+    <h4>Пример 2</h4>
+<pre>
+BALANCE Ivanov
+BALANCE Petrov
+DEPOSIT Ivanov 100
+BALANCE Ivanov
+BALANCE Petrov
+DEPOSIT Petrov 150
+BALANCE Petrov
+DEPOSIT Ivanov 10
+DEPOSIT Petrov 15
+BALANCE Ivanov
+BALANCE Petrov
+DEPOSIT Ivanov 46
+BALANCE Ivanov
+BALANCE Petrov
+DEPOSIT Petrov 14
+BALANCE Ivanov
+BALANCE Petrov
+</pre>
+<pre>
+ERROR
+ERROR
+100
+ERROR
+150
+110
+165
+156
+165
+156
+179
+</pre>
+
+    <h4>Пример 2</h4>
+<pre>
+BALANCE a
+BALANCE b
+DEPOSIT a 100
+BALANCE a
+BALANCE b
+WITHDRAW a 20
+BALANCE a
+BALANCE b
+WITHDRAW b 78
+BALANCE a
+BALANCE b
+WITHDRAW a 784
+BALANCE a
+BALANCE b
+DEPOSIT b 849
+BALANCE a
+BALANCE b
+</pre>
+<pre>
+ERROR
+ERROR
+100
+ERROR
+80
+ERROR
+80
+-78
+-704
+-78
+-704
+771
+</pre>
+  </details>
+</article>
+
+
+<!-- H. Расшифровка письменности Майя -->
+<article class="article">
+  <div class="anchor" id="t8"></div>
+  <h3>H. Расшифровка письменности Майя</h3>
+
+  <div class="time-memory">(Время 2с. Память 64мб)</div>
+
+  <p>Расшифровка письменности Майя оказалась более сложной задачей, чем предполагалось ранними исследованиями. На протяжении более чем двух сотен лет удалось узнать не так уж много. Основные результаты были получены за последние 30 лет.</p>
+
+  <p>Письменность Майя основывается на маленьких рисунках, известных как значки, которые обозначают звуки. Слова языка Майя обычно записываются с помощью этих значков, которые располагаются рядом друг с другом в некотором порядке.</p>
+
+  <p>Одна из проблем расшифровки письменности Майя заключается в определении этого порядка. Рисуя значки некоторого слова, писатели Майя иногда выбирали позиции для значков, исходя скорее из эстетических взглядов, а не определенных правил. Это привело к тому, что, хотя звуки для многих значков известны, археологи не всегда уверены, как должно произноситься записанное слово.</p>
+
+  <p>Археологи ищут некоторое слово W. Они знают значки для него, но не знают все возможные способы их расположения. Поскольку они знают, что Вы приедете на IOI '06, они просят Вас о помощи. Они дадут Вам g значков, составляющих слово W, и последовательность S всех значков в надписи, которую они изучают, в порядке их появления. Помогите им, подсчитав количество возможных появлений слова W.</p>
+
+  <p>Задание Напишите программу, которая по значкам слова W и по последовательности S значков надписи подсчитывает количество всех возможных вхождений слова W в S, то есть количество всех различных позиций идущих подряд g значков в последовательности S, которые являются какой-либо перестановкой значков слова W .</p>
+
+  <h4>Формат ввода</h4>
+  <p>1 ≤ g ≤ 3 000, g – количество значков в слове W</p>
+
+  <p>g ≤ |S| ≤ 3 000 000 где |S| – количество значков в последовательности S</p>
+
+  <p>На вход программы поступают данные в следующем формате:</p>
+
+  <p>СТРОКА 1: Содержит два числа, разделенных пробелом – g и |S|. СТРОКА 2: Содержит g последовательных символов, с помощью которых записывается слово W . Допустимы символы: 'a'-'z' и 'A'-'Z'; большие и маленькие буквы считаются различными. СТРОКА 3: Содержит |S| последовательных символов, которые представляют значки в надписи. Допустимы символы: 'a'-'z' и 'A'-'Z'; большие и маленькие буквы считаются различными.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Единственная строка выходных данных программы должна содержать количество возможных вхождений слова W в S.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+4 11
+cAda
+AbrAcadAbRa
+</pre>
+    <code>2</code>
+  </details>
+</article>
+
+
+<!-- I. Контрольная по ударениям -->
+<article class="article">
+  <div class="anchor" id="t1"></div>
+  <h3>I. Контрольная по ударениям</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Учительница задала Пете домашнее задание — в заданном тексте расставить ударения в словах, после чего поручила Васе проверить это домашнее задание. Вася очень плохо знаком с данной темой, поэтому он нашел словарь, в котором указано, как ставятся ударения в словах. К сожалению, в этом словаре присутствуют не все слова. Вася решил, что в словах, которых нет в словаре, он будет считать, что Петя поставил ударения правильно, если в этом слове Петей поставлено ровно одно ударение. Оказалось, что в некоторых словах ударение может быть поставлено больше, чем одним способом. Вася решил, что в этом случае если то, как Петя поставил ударение, соответствует одному из приведенных в словаре вариантов, он будет засчитывать это как правильную расстановку ударения, а если не соответствует, то как ошибку. Вам дан словарь, которым пользовался Вася и домашнее задание, сданное Петей. Ваша задача — определить количество ошибок, которое в этом задании насчитает Вася.</p>
+
+  <h4>Формат ввода</h4>
+  <p>Вводится сначала число N — количество слов в словаре (0 ≤ N ≤ 20000). Далее идет N строк со словами из словаря. Каждое слово состоит не более чем из 30 символов. Все слова состоят из маленьких и заглавных латинских букв. В каждом слове заглавная ровно одна буква — та, на которую попадает ударение. Слова в словаре расположены в алфавитном порядке. Если есть несколько возможностей расстановки ударения в одном и том же слове, то эти варианты в словаре идут в произвольном порядке. Далее идет упражнение, выполненное Петей. Упражнение представляет собой строку текста, суммарным объемом не более 300000 символов. Строка состоит из слов, которые разделяются между собой ровно одним пробелом. Длина каждого слова не превышает 30 символов. Все слова состоят из маленьких и заглавных латинских букв (заглавными обозначены те буквы, над которыми Петя поставил ударение). Петя мог по ошибке в каком-то слове поставить более одного ударения или не поставить ударения вовсе.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите количество ошибок в Петином тексте, которые найдет Вася.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+4
+cAnnot
+cannOt
+fOund
+pAge
+thE pAge cAnnot be found
+</pre>
+    <code>2</code>
+
+    <h4>Пример 2</h4>
+<pre>
+4
+cAnnot
+cannOt
+fOund
+pAge
+The PAGE cannot be found
+</pre>
+    <code>4</code>
+
+    <h4>Пример 3</h4>
+    <code>0
+      ciFqrfIxe LgvqquN zvdlhnXJ tizFPXtv JxqWqgnR CabaJ hFYoqbhH UyfiTXO YvAylvnc ymtHHfnqh bmTLsEnh hikroekt dtVSftFBz ofQrMfo jGTGofv dVRwfJw UaRfzE wbjjGsM xKcezhleq XskqyXtl pWCkyr JcuiiawHw hHBbOV pIfztqkuo PNbjXhtoi lvthZdUc oozdiZCq xDdnpRqsD HDfocjpl aziTbCh jsJMkTpaG voKfnjYb ADtpndbo gwOkCvJs hGnvtbM NkFodqOwy BOgxWv qzMsbelpO tlQnic QlxjhTzNj OZvzmoNX NlbLsjq OvkpysLzc BFCjEESh aiLyKJas zhJbcdu vqxrKhgke BsEikapC aCCoHAFR qNSYNouc TboUQd bOJWCAy NiNkHPmA wsGXhub xIvDhv qeGgpTBkd XPOkfsxz bbgcyuWq YHioAxh mngcZbpgh qgbfVztk JMusos ogpskgdN HUmedvmA GhhpYKH vduijcpv rfMZlB rvpodvq UogggJX yhnKvOpz cKQHazal xdXpPMCzn zaYdrbic FYDsrfaF kFpUcXtY jihQVZ nhpgJXoT rwJokNFH eGvoNulk LugdwQRbl xlRQdy mOrvmCmhG tJpEDolo zLhXCegyl Orrnefa sQqsjckkm BaadhPSXa vLmbthY mlwXEbpns oLctMjmM spQHUtA qnxUrLGo ScAndtRh apdwiTV odtrlufr zkrreoWHT wbOJLyIvn TDPtdjFp CJtnhbNr ohkLVpww vJLdOfp ctswuolD kuIdtiWLq pHQvvlN uzEgrQhpG ncHyqZzt gkntqtmx ZAvUjYgJ hbjSXnN URnTcdbRk wMdRlrQ ilpvgMpja oIjXxmG sdnIJTkk bFvhViK dpdtgpt CembyhyMM RcBIirR rWyYzJfc UNbTfQQ plxhCpee bUbkgdDF JTgQAQhvp onFayvlm rykjyldhw xAuEnxF phbhlXB xxDDxfSfM aPHXcXsag sTseOhrrY MMiaCH avfBbeIfl hrtuxe zJlubLs Wwwdjvc JBnqWcAl hDXOdeHZr Nelvhp ydmbzqym kzbCxuN rNQCDbeqB VRaax yykZbEzOc XomeWckS jBrCrHrx FzGrd YvfUzRryb YYPSRO wxBazrm EkezBXg aUiYcod aTtjEEpz WczSYbDx tlFeIKB LlSQDtyVa iMGfoQ WyXVU wakvcqSU loKOoSnzA pWywmptia RcEMjACB bfyrkwpLp iSofdn SacAoja uIkcgpWnM dkqErpG nkxTwHfh srejafR rjXxUCQ BCstjy LBdeArjn SbunWWcd FmTkfGwh nyGRjOi VlZjliwD lQhjguWx IkemfP VGfqFBuiN aYrbvKu iabtpq QnjzcKE sffhhZYY JuooLppkr LqyjiBC WySPUmsQb CXjftV TmtgreN cicNuaor YIgdgc vTFwiGktI TNFmWdHU DpfEtwtf zssykzEsf xcsCKfnaS OBEwUVkzg PgArpsz RmUcaQels JmJaqn IcXnrvhkg vgkOPzmv BezbGaMfb bnjTmLse TnkNLq CxfpAoD slhLtnoaP jnppioo STcoufpS XmRtQqd yDpbsld qrVIEXn VZhmozgvr zuELbtea WiOopcPg vRwLRoy TyJkPUvOq yZSsjoi AzlwLPf suwNmPrzF kuJeUivG EnTHwlj XpZkNZH xygjBcx bTytkWFW ygKis iwjgktgw DzFDkhb elWPfddxy TyvlSNVR OBqjNCtXI cSYxJTb DqedLuqN vxikfztEc AbcQgnxiS bdCmDnn VbLDUWsz eeuucmp osIYklu sLXmxRipG yswHjZayD bMihpnRs lmyVpf gtfkgpmbB buPjpqli yxFSIu Ggjzeqm dTqrvPtei XduXypxn BykKgHhqe ewcUDvM lxWoiXBT HeqhAZu ialinsqW lcNzJmK yCKPbQrz hOjxGWvPq HgenCiuw QnWaEtz lRvwixAj otnJuciJ qtNWZPtL tJYiHzUiG rNhaIjil Oggvgmdq nhylWth VhrHlcnJV ceHFAVnU udtpWoJ wiQAeN mUkmTUv BqnLMdeSy kiffoynx vsnzxZe QbyfijgM ecxxWebWo TFoLnXouN SldaeWjV fuXlPWzBg qNNShyw avvNUgmP lhblkew svZdutKT avlFkl Afntea NrGVToH Hlvkxnut NbNbQXnc ugqqBFWcq bphIBvYpz FuuAUB CnqFfWxy lNdVncXmk UBvozFuqz muVHqMpa vcyQgcXN lfzcMdN eMmz ehXopYXAg GjBapgXVY qimorSZZt YEyoXzclm eUlyvxi aFrOSW htxGkVuJ ydszmKyb zAvzlkXM oRQizsGBz gZodlbKg pwQSugvyq MOvfpsCs tGNJBf lZqEdtPD sHYmFjcH wkRltsoYz qkWmhhBJ wgATDnhc HnbkMwnRv oSolCjBj xyQfzgenj xBtaqrEj eoCCfSg xYgfXZ htSgaFlbt DPrfLUw bdhrUaqT IabsomJE cyVtEg SMntmDjx jwwkwJkRo HeFyGSaTh KiSTzh dBCcqt vnAunEzf kGzwbur qmkMBbGCw Tdkunrkh YrYVnrbC muJSHjn Unuwgjfj ObbZfLsWd UjmxpJN KNlbLhF jFlbrLf pyOglEK</code>
+    <code>296</code>
+    <p>Примечания к примерам тестов</p>
+
+    <p>1. В слове cannot, согласно словарю возможно два варианта расстановки ударения. Эти варианты в словаре могут быть перечислены в любом порядке (т.е. как сначала cAnnot, а потом cannOt, так и наоборот).Две ошибки, совершенные Петей — это слова be (ударение вообще не поставлено) и fouNd (ударение поставлено неверно). Слово thE отсутствует в словаре, но поскольку в нем Петя поставил ровно одно ударение, признается верным. 2. Неверно расставлены ударения во всех словах, кроме The (оно отсутствует в словаре, в нем поставлено ровно одно ударение). В остальных словах либо ударные все буквы (в слове PAGE), либо не поставлено ни одного ударения.</p>
+  </details>
+</article>
+
+
+<!-- J. Дополнительная проверка на списывание -->
+<article class="article">
+  <div class="anchor" id="t10"></div>
+  <h3>J. Дополнительная проверка на списывание</h3>
+
+  <div class="time-memory">(Время 1с. Память 64мб)</div>
+
+  <p>Преподаватель курса ОиМП заказал у одного известного психолога полное психологическое обследование всех студентов, поступивших на ФНК с целью выяснить их склонность к списыванию еще до начала занятий и отчислить их за списывание еще до того как они приступят к занятиям и смогут позорить ФНК своими преступлениями. Психолог, привлеченный для проведения обследования, известен своим инновационным методом, позволяющим понять склонность к списыванию студента по наиболее часто используемому им в программах идентификатору. Помогите известному психологу определить, какие из студентов потенциально являются преступниками. Напишите программу, которая по приведенной программе выяснит наиболее часто используемый в ней идентификатор.</p>
+
+  <p>Поскольку разные студенты на тестировании пишут программы на разных языках программирования, ваша программа должна уметь работать с произвольным языком. Поскольку в разных языках используются различные ключевые слова, то список ключевых слов в анализируемом языке предоставляется на вход программе. Все последовательности из латинских букв, цифр и знаков подчеркивания, которые не являются ключевыми словами и содержат хотя бы один символ, не являющийся цифрой, могут быть идентификаторами. При этом в некоторых языках идентификаторы могут начинаться с цифры, а в некоторых - нет. Если идентификатор не может начинаться с цифры, то последовательность, начинающаяся с цифры, идентификатором не является. Кроме этого, задано, является ли язык чувствительным к регистру символов, используемых в идентификаторах и ключевых словах.</p>
+
+  <h4>Формат ввода</h4>
+  <p>В первой строке вводятся число n - количество ключевых слов в языке (0 <= n <= 50) и два слова C и D, каждое из которых равно либо "yes", либо "no". Слово C равно "yes", если идентификаторы и ключевые слова в языке чувствительны к регистру символов, и "no", если нет. Слово D равно "yes", если идентификаторы в языке могут начинаться с цифры, и "no", если нет.</p>
+
+  <p>Следующие n строк содержат по одному слову, состоящему из букв латинского алфавита и символов подчеркивания - ключевые слова. Все ключевые слова непусты, различны, при этом, если язык не чувствителен к регистру, то различны и без учета регистра. Длина каждого ключевого слова не превышает 50 символов.</p>
+
+  <p>Далее до конца входных данных идет текст программы. Он содержит только символы с ASCII-кодами от 32 до 126 и переводы строки.</p>
+
+  <p>Размер входных данных не превышает 10 килобайт. В программе есть хотя бы один идентификатор.</p>
+
+  <h4>Формат вывода</h4>
+  <p>Выведите идентификатор, встречающийся в программе максимальное число раз. Если таких идентификаторов несколько, следует вывести тот, который встречается в первый раз раньше. Если язык во входных данных не чувствителен к регистру, то можно выводить идентификатор в любом регистре.</p>
+
+  <details>
+    <summary>Примеры</summary>
+    <h4>Пример 1</h4>
+<pre>
+0 yes no
+int main() {
+  int a;
+  int b;
+  scanf("%d%d", &a, &b);
+  printf("%d", a + b);
+}
+</pre>
+    <code>int</code>
+
+    <h4>Пример 2</h4>
+<pre>
+0 yes no
+#define INT int
+int main() {
+  INT a, b;
+  scanf("%d%d", &a, &b);
+  printf("%d %d", a + b, 0);
+}
+</pre>
+    <code>d</code>
+
+    <h4>Пример 3</h4>
+<pre>
+6 no no
+program
+var
+begin
+end
+while
+for
+program sum;
+var
+  A, B: integer;
+begin
+  read(A, b);
+  writeln(a + b);
+end.
+</pre>
+    <code>a</code>
+
+    <h4>Пример 4</h4>
+<pre>
+1 yes yes
+_
+a = 0h
+b = 0h
+c = 0h
+</pre>
+    <code>0h</code>
+  </details>
+</article>
