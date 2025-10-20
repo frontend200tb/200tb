@@ -1,19 +1,23 @@
 // Создаем массив pages со страницами из aside меню
-import htmlL0   from './../pages/elem-l0.html';
-import htmlL1   from './../pages/elem-l1.html';
-import htmlL2   from './../pages/elem-l2.html';
-import htmlR0   from './../pages/elem-r0.html';
-import htmlL3   from './../pages/elem-l3.html';
-import htmlR12  from './../pages/elem-r12.html';
-import htmlL4   from './../pages/elem-l4.html';
-import htmlL5   from './../pages/elem-l5.html';
-import htmlR34  from './../pages/elem-r34.html';
-import htmlL6   from './../pages/elem-l6.html';
-import htmlR56  from './../pages/elem-r56.html';
+import htmlL0      from './../pages/elem-l0.html';
+import htmlL1      from './../pages/elem-l1.html';
+import htmlL1adz   from './../pages/elem-l1adz.html';
+import htmlL1bdz   from './../pages/elem-l1bdz.html';
+import htmlL2      from './../pages/elem-l2.html';
+import htmlR0      from './../pages/elem-r0.html';
+import htmlL3      from './../pages/elem-l3.html';
+import htmlR12     from './../pages/elem-r12.html';
+import htmlL4      from './../pages/elem-l4.html';
+import htmlL5      from './../pages/elem-l5.html';
+import htmlR34     from './../pages/elem-r34.html';
+import htmlL6      from './../pages/elem-l6.html';
+import htmlR56     from './../pages/elem-r56.html';
 
 export const pages = [
   htmlL0,
   htmlL1,
+  htmlL1adz,
+  htmlL1bdz,
   htmlL2,
   htmlR0,
   htmlL3,
