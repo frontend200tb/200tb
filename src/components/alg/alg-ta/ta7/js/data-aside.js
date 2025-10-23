@@ -1,5 +1,6 @@
 // Создаем массив asideThemes с темами для блока aside
 export const asideThemes = [
+  'ДЗ 0',
   'Лекция 1',
   'Разбор 1',
   'Лекция 2',
