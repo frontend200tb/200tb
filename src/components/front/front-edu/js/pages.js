@@ -14,16 +14,19 @@ export default function pageLink(asideItems, currentContent) {
       if (pages[index]) {
         currentContent.innerHTML = pages[index];
         switch (index) {
-          case 0: // htmlEduDsr2024cpp
+          case 0: // htmlVgu2025Lec
+            vgu2025Links();
+            break;
+          case 1: // htmlDsr2024Lec
             dsr2024Links();
             break;
-          case 1: // htmlEduVgu2024nets
+          case 2: // htmlVgu2024Lec
             vgu2024Links();
             break;
-          case 8: // htmlEduDsr2023net
+          case 3: // htmlDsr2023Lec
             dsr2023Links();
             break;
-          case 13: // htmlEduQuiz
+          case 14: // htmlEduQuiz
             quizLinks();
             break;
         }
@@ -31,6 +34,43 @@ export default function pageLink(asideItems, currentContent) {
     });
   })
 }
+
+
+// 2025 ВГУ Углубленный C++
+function vgu2025Links() {
+  const currentContent = document.querySelector('#edu');
+
+  const vguLectures = document.querySelectorAll('.js-vgu2025-cpp');
+  if (vguLectures) {
+    for (let i = 0; i < vguLectures.length; i++) {
+      vguLectures[i].addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (htmlPages.htmlVgu2025Lec[i]) {
+          currentContent.innerHTML = htmlPages.htmlVgu2025Lec[i];
+          backToVgu2025();
+        }
+      });
+    }
+  }
+}
+
+function backToVgu2025() {
+  const currentContent = document.querySelector('#edu');
+
+  const linkToVgu = document.getElementById('link-to-vgu2025cpp');
+  if (linkToVgu) {
+    linkToVgu.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (pages[0]) {
+        currentContent.innerHTML = pages[0];
+        vgu2025Links();
+      }
+    });
+  }
+}
+
 
 // 2024 DSR C++: Начала программирования
 function dsr2024Links() {
@@ -58,8 +98,8 @@ function backToDsr2024() {
     linkToDsr.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (pages[0]) {
-        currentContent.innerHTML = pages[0];
+      if (pages[1]) {
+        currentContent.innerHTML = pages[1];
         dsr2024Links();
       }
     });
@@ -93,15 +133,15 @@ function backToVgu2024() {
     linkToVgu.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (pages[1]) {
-        currentContent.innerHTML = pages[1];
+      if (pages[2]) {
+        currentContent.innerHTML = pages[2];
         vgu2024Links();
       }
     });
   }
 }
 
-// 2024 DSR .Net School
+// 2023 DSR .Net School
 function dsr2023Links() {
   const currentContent = document.querySelector('#edu');
 
@@ -142,8 +182,8 @@ function backToDsr2023() {
     linkToDsr.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (pages[8]) {
-        currentContent.innerHTML = pages[8];
+      if (pages[3]) {
+        currentContent.innerHTML = pages[3];
         dsr2023Links();
       }
     });
@@ -232,8 +272,8 @@ function backToQuiz() {
     linkToQuiz.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (pages[13]) {
-        currentContent.innerHTML = pages[13];
+      if (pages[14]) {
+        currentContent.innerHTML = pages[14];
         quizLinks();
       }
     });

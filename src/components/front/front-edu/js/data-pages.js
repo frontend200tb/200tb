@@ -2,20 +2,26 @@
 // Создаем объект htmlPages с остальными страницами
 
 // Aside
+import htmlEduVgu2025cpp     from './../pages/elem-edu-vgu2025cpp.html';
 import htmlEduDsr2024cpp     from './../pages/elem-edu-dsr2024cpp.html';
 import htmlEduVgu2024nets    from './../pages/elem-edu-vgu2024nets.html';
+import htmlEduDsr2023net     from './../pages/elem-edu-dsr2023net.html';
 import htmlEduCourses        from './../pages/elem-edu-courses.html';
 import htmlEduCoursesLearned from './../pages/elem-edu-courseslearned.html';
 import htmlEduLearning       from './../pages/elem-edu-learning.html';
 import htmlEduRss            from './../pages/elem-edu-rss.html';
 import htmlEduRss2024stage2  from './../pages/elem-edu-rss2024-stage2.html';
 import htmlEduRss2023stage1  from './../pages/elem-edu-rss2023-stage1.html';
-import htmlEduDsr2023net     from './../pages/elem-edu-dsr2023net.html';
 import htmlEduRss2023stage0  from './../pages/elem-edu-rss2023-stage0.html';
 import htmlEduRss2022stage3  from './../pages/elem-edu-rss2022-stage3-angular.html';
 import htmlEduRss2022stage1  from './../pages/elem-edu-rss2022-stage1.html';
 import htmlEduRss2022stage0  from './../pages/elem-edu-rss2022-stage0.html';
 import htmlEduQuiz           from './../pages/elem-edu-quiz.html';
+
+// ВГУ 2025 C++ lectures
+import htmlVgu2025Lec0   from './../pages/vgu2025cpp/lec0.html';
+import htmlVgu2025Lec1a  from './../pages/vgu2025cpp/lec1a.html';
+import htmlVgu2025Lec1b  from './../pages/vgu2025cpp/lec1b.html';
 
 // DSR 2024 C++ lectures
 import htmlDsr2024Lec1  from './../pages/dsr2024cpp/lec1.html';
@@ -135,15 +141,16 @@ import htmlHhEng  from './../pages/hh/hh-eng.html';
 
 
 export const pages = [
+  htmlEduVgu2025cpp,
   htmlEduDsr2024cpp,
   htmlEduVgu2024nets,
+  htmlEduDsr2023net,
   htmlEduCourses,
   htmlEduCoursesLearned,
   htmlEduLearning,
   htmlEduRss,
   htmlEduRss2024stage2,
   htmlEduRss2023stage1,
-  htmlEduDsr2023net,
   htmlEduRss2023stage0,
   htmlEduRss2022stage3,
   htmlEduRss2022stage1,
@@ -151,7 +158,14 @@ export const pages = [
   htmlEduQuiz,
 ];
 
-// Создаем массив страниц с лекциями DSR 2024
+// Создаем массив страниц с лекциями ВГУ 2025 C++
+const htmlVgu2025Lec = [
+  htmlVgu2025Lec0,
+  htmlVgu2025Lec1b,
+  htmlVgu2025Lec1a,
+];
+
+// Создаем массив страниц с лекциями DSR 2024 C++
 const htmlDsr2024Lec = [
   htmlDsr2024Lec1,
   htmlDsr2024Lec2,
@@ -283,6 +297,7 @@ const htmlRsTest = [
 
 
 export const htmlPages = {
+  htmlVgu2025Lec,
   htmlDsr2024Lec,
   htmlVgu2024Lec,
   htmlDsr2023Lec,
