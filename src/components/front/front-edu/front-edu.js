@@ -3,6 +3,7 @@
 Объект frontEdu содержит страницу front-edu
 Функция showFrontEdu показывает страницу front-edu
 ************************/
+import './scss/border.scss';
 import './js/element-front-edu';
 import {createAside, createMain} from './js/f-create-aside';
 

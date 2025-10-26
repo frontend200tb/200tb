@@ -8,6 +8,7 @@
 
 <article class="article">
   <p>2 группа. 17.00 - 19.30</p>
+  <h2>Паттерны проектирования</h2>
 </article>
 
 
@@ -15,13 +16,246 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#p1">1. Паттерны</a></p>
+  <p><a href="#p1">Стратегия</a></p>
+  <p><a href="#p2">Шаблонный метод</a></p>
+  <p><a href="#p3">Фабричный метод</a></p>
 </article>
 
 
-<!-- 1.	Паттерны -->
+<!-- Стратегия -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>1.	Паттерны</h3>
+  <h3>Стратегия</h3>
+
+  <h4 class="center">Утиный пруд</h4>
+
+  <p>На входе в зоопарк поставили большой экран. Нам поставили задачу на этом экране показывать уток. Пусть есть родительский класс Duck (утка), в котором определены методы quack (крякать), swim(плавать), display (показать). И есть два производных класса MallardDuck и RedheadDuck, в которых переопределены методы display, поскольку эти утки выглядят по разному.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Duck</div>
+        <div class="border">
+          quack()
+          <br>swim()
+          <br>display()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">MallardDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RedheadDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="center">Летающие утки</h4>
+
+  <p>Все получилось прекрасно. Но нам добавили задачу - утки должны летать.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Duck</div>
+        <div class="border">
+          quack()
+          <br>swim()
+          <br>display()
+          <br>fly()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">MallardDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RedheadDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="center">Резиновые утки</h4>
+
+  <p>Утки научились летать. Но нам добавили задачу - добавить резиновых уток, которые не умеют летать, но умеют плавать и крякать. Хотя крякают они не по-настоящему, а по своему.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Duck</div>
+        <div class="border">
+          quack()
+          <br>swim()
+          <br>display()
+          <br>fly()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">MallardDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RedheadDuck</div>
+        <div class="border">
+          display() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RubberDuck</div>
+        <div class="border">
+          quack() {своя версия}
+          <br>display() {своя версия}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Поскольку резиновые утки летать не умеют, то метод fly надо переопределить</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">RubberDuck</div>
+        <div class="border">
+          quack() {своя версия}
+          <br>display() {своя версия}
+          <br>fly() {ничего не делает}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="center">Деревянные утки</h4>
+
+  <p>Наступила осень. И нам добавили задачу - добавить деревянных уток, которые не умеют ни летать ни крякать, а только плавают.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">DecoyDuck</div>
+        <div class="border">
+          quack() {ничего не делает}
+          <br>display() {своя версия}
+          <br>fly() {ничего не делает}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="center">Выделение интерфейсов</h4>
+
+  <p>Получается уже два метода которые нужно переопределять так, чтобы их не было. Выделим эти методы в отдельные интерфейсы.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Flyable</div>
+        <div class="border">
+          fly()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Quackable</div>
+        <div class="border">
+          quack()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Duck</div>
+        <div class="border">
+          swim()
+          <br>display()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">MallardDuck</div>
+        <div class="border">
+          display()
+          <br>fly()
+          <br>quack()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RedheadDuck</div>
+        <div class="border">
+          display()
+          <br>fly()
+          <br>quack()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">RubberDuck</div>
+        <div class="border">
+          display()
+          <br>quack()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">DecoyDuck</div>
+        <div class="border">
+          display()
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4>Принцип проектирования 1</h4>
+
+  <p>Выделить аспекты приложения, которые могут изменяться, и отделить их от тех, которые всегда остаются неизменными.</p>
+  <p>Мы знаем, что fly() и quack() - части класса Duck, изменяющиеся в зависимости от субъекта.</p>
+  <p>Чтобы отделить эти аспекты поведения от класса Duck, мы выносим оба метода за пределы класса Duck и создаем новый набор классов для представления каждого аспекта.</p>
+
+  <h4>Принцип проектирования 2</h4>
+
+  <p>Программировать на уровне интерфейса, а не на уровне реализации.</p>
+</article>
+
+
+<!-- Шаблонный метод -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Шаблонный метод</h3>
+
+</article>
+
+
+<!-- Фабричный метод -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Фабричный метод</h3>
 
 </article>
