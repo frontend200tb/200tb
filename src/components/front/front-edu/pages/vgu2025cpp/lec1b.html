@@ -175,6 +175,7 @@
   <div class="flexcol">
     <div class="flexrow">
       <div>
+        <div class="border">Interface</div>
         <div class="border">Flyable</div>
         <div class="border">
           fly()
@@ -182,6 +183,7 @@
       </div>
 
       <div>
+        <div class="border">Interface</div>
         <div class="border">Quackable</div>
         <div class="border">
           quack()
@@ -189,6 +191,7 @@
       </div>
 
       <div>
+        <div class="border">Class</div>
         <div class="border">Duck</div>
         <div class="border">
           swim()
@@ -242,6 +245,208 @@
   <h4>Принцип проектирования 2</h4>
 
   <p>Программировать на уровне интерфейса, а не на уровне реализации.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Interface</div>
+        <div class="border">FlyBehavior</div>
+        <div class="border">
+          fly()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">FlyWithWings</div>
+        <div class="border">
+          fly() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">FlyNoWay</div>
+        <div class="border">
+          fly() {ничего не делает}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4>Программирование на уровне реализации и интерфейса</h4>
+
+  <p>Программирование на уровне реализации выглядит так:</p>
+<pre>
+Dog d = new Dog();
+d.bark();
+</pre>
+  <p>Объявление d с типом Dog требует программирования на уровне конкретной реализации Animal.</p>
+
+  <p>Программирование на уровне интерфейса:</p>
+<pre>
+Animal animal = new Dog();
+animal.makeSound();
+</pre>
+  <p>Полиморфное использование ссылки.</p>
+  <p>Или ище лучше, вместо жесткой фиксации подтипа в коде (new Dog()), объект конкретной реализации присваивается во время выполнения:</p>
+<pre>
+a = getAnimal();
+a.makeSound();
+</pre>
+  <p>Фактический подтип Animal неизвестен... Важно лишь то, что он умеет реагировать на makeSound().</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Animal</div>
+        <div class="border">
+          makeSound()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">Dog</div>
+        <div class="border">
+          makeSound() {bark();}
+          <br>bark() {гав-гав}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Cat</div>
+        <div class="border">
+          makeSound() {meow();}
+          <br>meow() {мяу}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Абстрактный тип Animal может быть классом или интерфейсом. Dog и Cat это конкретные реализации</p>
+
+  <h4>Интерфейсы</h4>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Interface</div>
+        <div class="border">FlyBehavior</div>
+        <div class="border">
+          fly()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">FlyWithWings</div>
+        <div class="border">
+          fly() {своя версия}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">FlyNoWay</div>
+        <div class="border">
+          fly() {ничего не делает}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Interface</div>
+        <div class="border">QuackBehavior</div>
+        <div class="border">
+          quack()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">Quack</div>
+        <div class="border">
+          quack() {кряканье}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Squeak</div>
+        <div class="border">
+          quack() {резиновые утки пищат}
+        </div>
+      </div>
+
+      <div>
+        <div class="border">MuteQuack</div>
+        <div class="border">
+          quack() {ничего не делает}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4>Интеграция поведения с классом Duck</h4>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Class</div>
+        <div class="border">Duck</div>
+        <div class="border">
+          FlyBehavior flyBehavior
+          <br>QuackBehavior quackBehavior
+        </div>
+        <div class="border">
+          performQuack()
+          <br>sweem()
+          <br>display()
+          <br>performFly()
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Реализация performQuack()</p>
+<pre>
+public class Duck {
+  QuackBehavior quackBehavior;
+
+  public void performQuack() {
+    quackBehavior.quack();
+  }
+}
+
+public class MallardDuck extends Duck {
+  public MallardDuck() {
+    quackBehavior = new Quack();
+    flyBehavior = new FlyWithWings();
+  }
+
+  public void display() {
+    System.out.println("I'm a real Mallard duck");
+  }
+}
+</pre>
+
+<pre>
+class Duck {
+protected:
+  // две ссылочные переменные с типами интерфейсов поведения
+  // переменные наследуются всеми субклассами Duck
+  FlyBehavior* flyBehavior;
+  QuackBehavior* quackBehavior;
+
+public:
+
+}
+</pre>
 </article>
 
 

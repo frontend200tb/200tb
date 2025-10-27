@@ -8,6 +8,7 @@
 
 <article class="article">
   <p>1 группа. 15.00 - 18.30</p>
+  <h2>Классы</h2>
 </article>
 
 
@@ -15,13 +16,815 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#p1">1. Классы</a></p>
+  <p><a href="#p1">Класс Point</a></p>
+  <p><a href="#p2">Конструктор</a></p>
+  <p><a href="#p3">Деструктор</a></p>
+  <p><a href="#p4">Передача объекта в функцию</a></p>
+  <p><a href="#p5">Конструктор копирования</a></p>
+  <p><a href="#p6">Код из лекции</a></p>
+  <p><a href="#p7">Класс Matrix</a></p>
 </article>
 
 
-<!-- 1.	Классы -->
+<!-- Класс Point -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>1.	Классы</h3>
+  <h3>Класс Point</h3>
 
+  <p>В Visual Studio 2022 создадим новый проект (Файл - Создать - Проектк Ctrl+Shift+N - Консольное приложение C++). Назовем его oop1.</p>
+  <p>В прокте создадим заголовочный файл Point.h (Правый клик на названии проекта в обозревателе решений - Добавить - Создать элемент Ctrl+Shift+A).</p>
+  <p>Создадим класс Point (точка), который хранит координаты точки. Координаты сделаем приватными, а для доступа к ним напишем геттеры и сеттеры. В заголовочном файле пропишем описание приватных полей и публичных методов. Сами методы определим в файле Point.cpp.</p>
+  <p>В функции main создадим точку и выведем ее координаты.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+int main() {
+  Point p1;
+  cout &lt;&lt; "x = " &lt;&lt; p1.getX() &lt;&lt; ' ';
+  cout &lt;&lt; "y = " &lt;&lt; p1.getY() &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+
+class Point {
+  int x;
+  int y;
+
+public:
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+
+void Point::setX(int _x) {
+  x = _x;
+}
+
+void Point::setY(int _y) {
+  y = _y;
+}
+
+int Point::getX() {
+  return x;
+}
+
+int Point::getY() {
+  return y;
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+x = -858993460 y = -858993460
+</pre>
+
+  <p>Поскольку в классе Point мы не написали никакой конструктор, который инициализирует начальные значения для точки, компилятор написал свой конструктор по-умолчанию, который инициализирует значения для точки совсем не тем, что нам нужно.</p>
+  <p>Зададим свои значения для точки и выведем их.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+int main() {
+  Point p1;
+  cout &lt;&lt; "x = " &lt;&lt; p1.getX() &lt;&lt; ' ';
+  cout &lt;&lt; "y = " &lt;&lt; p1.getY() &lt;&lt; '\n';
+
+  p1.setX(10);
+  p1.setY(20);
+  cout &lt;&lt; "x = " &lt;&lt; p1.getX() &lt;&lt; ' ';
+  cout &lt;&lt; "y = " &lt;&lt; p1.getY() &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+x = -858993460 y = -858993460
+x = 10 y = 20
+</pre>
+
+</article>
+
+
+<!-- Конструктор -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Конструктор</h3>
+
+  <p>Чтобы при создании точки в ней были нужные нам значения, напишем свой конструктор. Конструктор принимает два целых числа, которые становятся координатами точки. Если при создании точки одно или оба числа не передаются, то конструктор задает по-умолчанию значения 0 для не заданных координат.</p>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+
+class Point {
+  int x;
+  int y;
+
+public:
+  Point(int a = 0, int b = 0);
+
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+
+Point::Point(int a, int b) : x(a), y(b) {}
+
+void Point::setX(int _x) {
+  x = _x;
+}
+
+void Point::setY(int _y) {
+  y = _y;
+}
+
+int Point::getX() {
+  return x;
+}
+
+int Point::getY() {
+  return y;
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+x = 0 y = 0
+x = 10 y = 20
+</pre>
+
+  <p>Пусть при каждом срабатывании конструктор пишет слово "Construstor" и выводит значения координат созданной точки. Для этого напишем метод print в классе Point. Метод print не должен изменять значения полей, поэтому напишем его с ключевым словом const.</p>
+  <p>Создадим три точки тремя разными способами: 1. не передавая значений, 2. передав только координату x, 3. передав обе координаты x и y.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include "Point.h"
+
+int main() {
+  Point p1;
+  Point p2(10);
+  Point p3(10, 20);
+}
+</pre>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+
+class Point {
+  int x;
+  int y;
+
+public:
+  Point(int a = 0, int b = 0);
+
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+
+  void print() const;
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+#include &lt;iostream&gt;
+
+using namespace std;
+
+Point::Point(int a, int b) : x(a), y(b) {
+  cout &lt;&lt; "Constructor\n";
+  print();
+}
+
+void Point::setX(int _x) {
+  x = _x;
+}
+
+void Point::setY(int _y) {
+  y = _y;
+}
+
+int Point::getX() {
+  return x;
+}
+
+int Point::getY() {
+  return y;
+}
+
+void Point::print() const {
+  cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; ' ';
+  cout &lt;&lt; "y = " &lt;&lt; y &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constructor
+x = 0 y = 0
+Constructor
+x = 10 y = 0
+Constructor
+x = 10 y = 20
+</pre>
+</article>
+
+
+<!-- Деструктор -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Деструктор</h3>
+
+  <p>Поскольку в нашем классе Point не было указателей и не было динамического выделения памяти для указателей, то деструктор нам был не нужен.</p>
+  <p>Пусть в нашем классе Point координаты точки хранятся в указателях на целочисленные переменные. Тогда в конструкторе, при инициализации необходимо динамически выделить память под эти переменные. В деструкторе нужно вернуть выделенную память системе.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include "Point.h"
+
+int main() {
+  Point p1;
+  Point p2(10);
+  Point p3(10, 20);
+}
+</pre>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+
+class Point {
+  int *x;
+  int *y;
+
+public:
+  Point(int a = 0, int b = 0);
+  ~Point();
+
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+
+  void print() const;
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+#include &lt;iostream&gt;
+
+using namespace std;
+
+Point::Point(int a, int b) : x(new int(a)), y(new int(b)) {
+  cout &lt;&lt; "Constructor\n";
+  print();
+}
+
+Point::~Point() {
+  cout &lt;&lt; "Destructor\n";
+  print();
+  delete x;
+  delete y;
+}
+
+void Point::setX(int _x) {
+  *x = _x;
+}
+
+void Point::setY(int _y) {
+  *y = _y;
+}
+
+int Point::getX() {
+  return *x;
+}
+
+int Point::getY() {
+  return *y;
+}
+
+void Point::print() const {
+  cout &lt;&lt; "x = "  &lt;&lt;  x &lt;&lt; ' ';
+  cout &lt;&lt; "*x = " &lt;&lt; *x &lt;&lt; '\n';
+  cout &lt;&lt; "y = "  &lt;&lt;  y &lt;&lt; ' ';
+  cout &lt;&lt; "*y = " &lt;&lt; *y &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constructor
+x = 00000196B4F54A10 *x = 0
+y = 00000196B4F55570 *y = 0
+Constructor
+x = 00000196B4F63110 *x = 10
+y = 00000196B4F63210 *y = 0
+Constructor
+x = 00000196B4F63410 *x = 10
+y = 00000196B4F633D0 *y = 20
+Destructor
+x = 00000196B4F63410 *x = 10
+y = 00000196B4F633D0 *y = 20
+Destructor
+x = 00000196B4F63110 *x = 10
+y = 00000196B4F63210 *y = 0
+Destructor
+x = 00000196B4F54A10 *x = 0
+y = 00000196B4F55570 *y = 0
+</pre>
+</article>
+
+
+<!-- Передача объекта в функцию -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Передача объекта в функцию</h3>
+
+  <p>Напишем функцию f, которая принимает объект класса Point, изменяет координаты x и y и печатает их.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+void f(Point& other) {
+  cout &lt;&lt; "function\n";
+  other.setX(10);
+  other.setY(20);
+  other.print(); // выведем координаты точки
+}
+
+int main() {
+  Point p1(4, 5); // создадим точку
+  cout &lt;&lt; "______________\n";
+  f(p1); // передадим точку в функцию
+  cout &lt;&lt; "______________\n";
+  cout &lt;&lt; "point1\n";
+  p1.print(); // выведем координаты точки
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constructor
+x = 000001CB4A274A40 *x = 4
+y = 000001CB4A272F30 *y = 5
+______________
+function
+x = 000001CB4A274A40 *x = 10
+y = 000001CB4A272F30 *y = 20
+______________
+point1
+x = 000001CB4A274A40 *x = 10
+y = 000001CB4A272F30 *y = 20
+______________
+Destructor
+x = 000001CB4A274A40 *x = 10
+y = 000001CB4A272F30 *y = 20
+</pre>
+
+  <p>Когда функция f принимает точку p1, то внутри функции создается ее копия с именем other. Печатаются координаты точки other. Функция f завершает свою работу. Точка other уничтожается. Но поскольку в созданной копии other присутствовали реальные адреса координат, то и точка p1 изменила свои координаты во время выполнения функции.</p>
+
+  <p>Чтобы нельзя было менять переданный в функцию объект, его надо передавать с модификатором const</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+void f(const Point& other) {
+  cout &lt;&lt; "function\n";
+  other.print(); // выведем координаты точки
+}
+
+int main() {
+  Point p1(4, 5); // создадим точку
+  cout &lt;&lt; "______________\n";
+  f(p1); // передадим точку в функцию
+  cout &lt;&lt; "______________\n";
+  cout &lt;&lt; "point1\n";
+  p1.print(); // выведем координаты точки
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constructor
+x = 0000018F96774A10 *x = 4
+y = 0000018F96775A50 *y = 5
+______________
+function
+x = 0000018F96774A10 *x = 4
+y = 0000018F96775A50 *y = 5
+______________
+point1
+x = 0000018F96774A10 *x = 4
+y = 0000018F96775A50 *y = 5
+______________
+Destructor
+x = 0000018F96774A10 *x = 4
+y = 0000018F96775A50 *y = 5
+</pre>
+</article>
+
+
+<!-- Конструктор копирования -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>Конструктор копирования</h3>
+
+  <p>Напишем конструктор копирования, чтобы мы могли создавать точку, используя копию другой точки. Для того чтобы новая точка имела свои адреса, выделим в конструкторе копирования под них новую память оператором new.</p>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+int main() {
+  Point p1(4, 5); // создадим точку
+  cout &lt;&lt; "______________\n";
+
+  Point p2(p1);
+  p2.print();
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+
+class Point {
+  int *x;
+  int *y;
+
+public:
+  Point(int a = 0, int b = 0);
+  Point(const Point&);
+  ~Point();
+
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+
+  void print() const;
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+#include &lt;iostream&gt;
+
+using namespace std;
+
+Point::Point(int a, int b) : x(new int(a)), y(new int(b)) {
+  cout &lt;&lt; "Constructor\n";
+  print();
+}
+
+Point::Point(const Point& p) {
+  cout &lt;&lt; "Copy constructor\n";
+  x = new int(*p.x);
+  y = new int(*p.y);
+}
+
+Point::~Point() {
+  cout &lt;&lt; "Destructor\n";
+  print();
+  delete x;
+  delete y;
+}
+
+void Point::setX(int _x) {
+  *x = _x;
+}
+
+void Point::setY(int _y) {
+  *y = _y;
+}
+
+int Point::getX() {
+  return *x;
+}
+
+int Point::getY() {
+  return *y;
+}
+
+void Point::print() const {
+  cout &lt;&lt; "x = "  &lt;&lt;  x &lt;&lt; ' ';
+  cout &lt;&lt; "*x = " &lt;&lt; *x &lt;&lt; '\n';
+  cout &lt;&lt; "y = "  &lt;&lt;  y &lt;&lt; ' ';
+  cout &lt;&lt; "*y = " &lt;&lt; *y &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constructor
+x = 00000275FCE44A10 *x = 4
+y = 00000275FCE4D330 *y = 5
+______________
+Copy constructor
+x = 00000275FCE450E0 *x = 4
+y = 00000275FCE42FA0 *y = 5
+______________
+Destructor
+x = 00000275FCE450E0 *x = 4
+y = 00000275FCE42FA0 *y = 5
+Destructor
+x = 00000275FCE44A10 *x = 4
+y = 00000275FCE4D330 *y = 5
+</pre>
+</article>
+
+
+<!-- Код из лекции -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Код из лекции</h3>
+
+  <p>Файл oop1.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Point.h"
+
+using namespace std;
+
+void f(const Point& other) {
+  other.print();
+}
+
+int main() {
+  Point obj(4,5);
+  cout &lt;&lt; "______________\n";
+  f(obj);
+  cout &lt;&lt; "______________\n";
+  obj.print();
+
+  Point d(obj);
+  d.print();
+}
+</pre>
+
+  <p>Файл Point.h</p>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Point {
+  int* x;
+  int *y;
+
+public:
+  Point(int a = 0, int b = 0) : x(new int(a)), y(new int) {
+    *y = b;
+    cout &lt;&lt; "Constr\n";
+    print();
+  }
+
+  Point(const Point& obj) {
+    x = new int(*obj.x);
+    y = new int(*obj.y);
+    cout &lt;&lt; "Copy constr\n";
+  }
+
+  ~Point() {
+    cout &lt;&lt; "Destr\n";
+    print();
+    delete x;
+    delete y;
+  }
+
+  void setX(int);
+  void setY(int);
+  int getX();
+  int getY();
+
+  void print() const {
+    cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; ", *x = " &lt;&lt; *x;
+    cout &lt;&lt; " y = " &lt;&lt; y &lt;&lt; ", *y = " &lt;&lt; *y &lt;&lt; endl;
+  }
+};
+</pre>
+
+  <p>Файл Point.cpp</p>
+<pre>
+#include "Point.h"
+
+void Point::setX(int _x) {
+  *x = _x;
+}
+
+void Point::setY(int _y) {
+  *y = _y;
+}
+
+int Point::getX() {
+  return *x;
+}
+
+int Point::getY() {
+  return *y;
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+Constr
+x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
+______________
+x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
+______________
+x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
+Copy constr
+x = 00000205F81C39B0, *x = 4 y = 00000205F81C1350, *y = 5
+Destr
+x = 00000205F81C39B0, *x = 4 y = 00000205F81C1350, *y = 5
+Destr
+x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
+</pre>
+</article>
+
+
+<!-- Класс Matrix -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>Класс Matrix</h3>
+
+  <p>Файл Source.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Matrix.h"
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; Matrix::getCount() &lt;&lt; endl;
+
+  Matrix A(4);
+
+  cout &lt;&lt; A.getCount() &lt;&lt; endl;
+
+  Matrix B(5);
+
+  cout &lt;&lt; Matrix::getCount() &lt;&lt; endl;
+
+  cout &lt;&lt; A &lt;&lt; endl &lt;&lt; B;
+
+  B = ++A;
+
+  cout &lt;&lt; A &lt;&lt; endl &lt;&lt; B;
+}
+</pre>
+
+  <p>Файл Matrix.h</p>
+<pre>
+#pragma once
+#include &lt;ostream&gt;
+
+class Matrix {
+  int size;
+  int** matrix;
+  static int count;
+
+public:
+  Matrix(int s) : size(s) {
+    matrix = new int*[size];
+    for (int i = 0; i &lt; size; ++i) {
+      matrix[i] = new int[size];
+      for (int j = 0; j &lt; size; ++j)
+        matrix[i][j] = i + j;
+    }
+    count++;
+  }
+  Matrix(const Matrix& other) : size(other.size) {
+    matrix = new int* [size];
+    for (int i = 0; i &lt; size; ++i) {
+      matrix[i] = new int[size];
+      for (int j = 0; j &lt; size; ++j)
+        matrix[i][j] = other.matrix[i][j];
+    }
+    count++;
+  }
+  Matrix& operator=(const Matrix& other) {
+    if (this == &other)
+      return *this;
+    if (size == other.size) {
+      for (int i = 0; i &lt; size; ++i)
+        for (int j = 0; j &lt; size; ++j)
+          matrix[i][j] = other.matrix[i][j];
+    }
+    else {
+      for (int i = 0; i &lt; size; ++i)
+        delete[] matrix[i];
+      delete[] matrix;
+      matrix = new int* [other.size];
+      for (int i = 0; i &lt; other.size; ++i) {
+        matrix[i] = new int[other.size];
+        for (int j = 0; j &lt; other.size; ++j)
+          matrix[i][j] = other.matrix[i][j];
+      }
+      size = other.size;
+    }
+    return *this;
+  }
+
+  ~Matrix() {
+    for (int i = 0; i &lt; size; ++i)
+      delete[] matrix[i];
+    delete[] matrix;
+    count--;
+  }
+
+  Matrix operator*(double k) {
+    Matrix res(size);
+    for (int i = 0; i &lt; size; ++i)
+      for (int j = 0; j &lt; size; ++j)
+        res.matrix[i][j] = matrix[i][j] * k;
+    return res;
+  }
+
+  friend Matrix operator*(double k, const Matrix& other);
+
+  friend ostream& operator&lt;&lt;(ostream& out, const Matrix& other) {
+    out &lt;&lt; "size = " &lt;&lt; other.size &lt;&lt; endl;
+    for (int i = 0; i &lt; other.size; ++i) {
+      for (int j = 0; j &lt; other.size; ++j)
+        out &lt;&lt; other.matrix[i][j] &lt;&lt; " ";
+      out &lt;&lt; endl;
+    }
+    return out;
+  }
+
+  Matrix& operator++() {
+    for (int i = 0; i &lt; size; ++i)
+      for (int j = 0; j &lt; size; ++j)
+        matrix[i][j]++;
+      return *this;
+  }
+  Matrix operator++(int) {
+    Matrix tmp(*this);
+    for (int i = 0; i &lt; size; ++i)
+      for (int j = 0; j &lt; size; ++j)
+        matrix[i][j]++;
+    return tmp;
+  }
+
+  static int getCount() {
+    return count;
+  }
+};
+
+int Matrix::count = 0;
+
+Matrix operator*(double k, const Matrix& other) {
+  Matrix res(other.size);
+  for (int i = 0; i &lt; other.size; ++i)
+    for (int j = 0; j &lt; other.size; ++j)
+      res.matrix[i][j] = other.matrix[i][j] * k;
+  return res;
+}
+</pre>
 </article>
