@@ -1,10 +1,6 @@
 /** **************
 Функция createElements принимает объект category, создает и возвращает массив elements
 ****************** */
-/*
-Алгоритм работы
-
-*/
 
 import createList from './f-create-list';
 import createLearnedList from './f-create-learned-list';

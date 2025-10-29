@@ -21,8 +21,7 @@
   <p><a href="#p3">Деструктор</a></p>
   <p><a href="#p4">Передача объекта в функцию</a></p>
   <p><a href="#p5">Конструктор копирования</a></p>
-  <p><a href="#p6">Код из лекции</a></p>
-  <p><a href="#p7">Класс Matrix</a></p>
+  <p><a href="#p6">Класс Matrix</a></p>
 </article>
 
 
@@ -415,7 +414,7 @@ x = 000001CB4A274A40 *x = 10
 y = 000001CB4A272F30 *y = 20
 </pre>
 
-  <p>Когда функция f принимает точку p1, то внутри функции создается ее копия с именем other. Печатаются координаты точки other. Функция f завершает свою работу. Точка other уничтожается. Но поскольку в созданной копии other присутствовали реальные адреса координат, то и точка p1 изменила свои координаты во время выполнения функции.</p>
+  <p>Когда функция f принимает точку p1, то внутри функции создается ее копия с именем other. В объекте other находятся копии указателей, которые указывают на ту же память, что и указатели в оригинальном объекте p1. Функция изменяет значения в адресах памяти, на которые указывают указатели и печатает их. Функция f завершает свою работу. Точка other уничтожается. Как мы видим, в точке p1 координаты изменились.</p>
 
   <p>Чтобы нельзя было менять переданный в функцию объект, его надо передавать с модификатором const</p>
 
@@ -574,116 +573,6 @@ y = 00000275FCE42FA0 *y = 5
 Destructor
 x = 00000275FCE44A10 *x = 4
 y = 00000275FCE4D330 *y = 5
-</pre>
-</article>
-
-
-<!-- Код из лекции -->
-<article class="article">
-  <div class="anchor" id="p6"></div>
-  <h3>Код из лекции</h3>
-
-  <p>Файл oop1.cpp</p>
-<pre>
-#include &lt;iostream&gt;
-#include "Point.h"
-
-using namespace std;
-
-void f(const Point& other) {
-  other.print();
-}
-
-int main() {
-  Point obj(4,5);
-  cout &lt;&lt; "______________\n";
-  f(obj);
-  cout &lt;&lt; "______________\n";
-  obj.print();
-
-  Point d(obj);
-  d.print();
-}
-</pre>
-
-  <p>Файл Point.h</p>
-<pre>
-#pragma once
-#include &lt;iostream&gt;
-
-using namespace std;
-
-class Point {
-  int* x;
-  int *y;
-
-public:
-  Point(int a = 0, int b = 0) : x(new int(a)), y(new int) {
-    *y = b;
-    cout &lt;&lt; "Constr\n";
-    print();
-  }
-
-  Point(const Point& obj) {
-    x = new int(*obj.x);
-    y = new int(*obj.y);
-    cout &lt;&lt; "Copy constr\n";
-  }
-
-  ~Point() {
-    cout &lt;&lt; "Destr\n";
-    print();
-    delete x;
-    delete y;
-  }
-
-  void setX(int);
-  void setY(int);
-  int getX();
-  int getY();
-
-  void print() const {
-    cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; ", *x = " &lt;&lt; *x;
-    cout &lt;&lt; " y = " &lt;&lt; y &lt;&lt; ", *y = " &lt;&lt; *y &lt;&lt; endl;
-  }
-};
-</pre>
-
-  <p>Файл Point.cpp</p>
-<pre>
-#include "Point.h"
-
-void Point::setX(int _x) {
-  *x = _x;
-}
-
-void Point::setY(int _y) {
-  *y = _y;
-}
-
-int Point::getX() {
-  return *x;
-}
-
-int Point::getY() {
-  return *y;
-}
-</pre>
-
-  <p>Результат</p>
-<pre>
-Constr
-x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
-______________
-x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
-______________
-x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
-Copy constr
-x = 00000205F81C39B0, *x = 4 y = 00000205F81C1350, *y = 5
-Destr
-x = 00000205F81C39B0, *x = 4 y = 00000205F81C1350, *y = 5
-Destr
-x = 00000205F81B6D20, *x = 4 y = 00000205F81C31B0, *y = 5
 </pre>
 </article>
 

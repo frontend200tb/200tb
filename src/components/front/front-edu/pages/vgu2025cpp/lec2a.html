@@ -1,0 +1,591 @@
+<article class="article">
+  <h1>Занятие 2 (28.10.2025 вт)</h1>
+</article>
+
+
+<div id="link-to-vgu2025cpp" class="btn-back">назад</div>
+
+
+<article class="article">
+  <p>1 группа. 17.00 - 20.00</p>
+  <h2>Наследование</h2>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Класс Pair</a></p>
+  <p><a href="#p2">Класс Triad</a></p>
+  <p><a href="#p3">Класс Quadr</a></p>
+  <p><a href="#p4">Класс TriadBro</a></p>
+  <p><a href="#p5">Код из урока</a></p>
+  <p><a href="#p6">Класс Shape</a></p>
+</article>
+
+
+<!-- Класс Pair -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Класс Pair</h3>
+
+  <p>Создадим класс Pair, который хранит два целочисленных значения a и b и функцию sum, которая возвращает их сумму. В классе создадим конструктор по умолчанию, конструктор с парамтрами, деструктор и метод print, который печатает значения. Переменные a и b напишем с модификтором protected, чтобы они были доступны в наследниках, все остальное напишем с модификатором public.</p>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+
+using namespace std;
+
+int main() {
+  Pair pair1;
+  pair1.print();
+  cout &lt;&lt; pair1.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+
+  Pair pair2(5, 3);
+  pair2.print();
+  cout &lt;&lt; pair2.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Файл Pair.h</p>
+
+<pre>
+#pragma once
+
+class Pair {
+protected:
+  int a;
+  int b;
+
+public:
+  Pair();
+  Pair(int _a, int _b);
+  ~Pair();
+
+  void print();
+  int sum();
+};
+</pre>
+
+  <p>Файл Pair.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+
+using namespace std;
+
+Pair::Pair() : a(0), b(0) {
+  cout &lt;&lt; "Constructor Pair (0,0)\n";
+}
+
+Pair::Pair(int _a, int _b) : a(_a), b(_b) {
+  cout &lt;&lt; "Constructor Pair (a,b)\n";
+}
+
+Pair::~Pair() {
+  cout &lt;&lt; "Destructor Pair\n";
+}
+
+void Pair::print() {
+  cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ")" &lt;&lt; endl;
+}
+
+int Pair::sum() {
+  return a + b;
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Constructor Pair (0,0)
+(0, 0)
+0
+______________
+Constructor Pair (a,b)
+(5, 3)
+8
+______________
+Destructor Pair
+Destructor Pair
+</pre>
+</article>
+
+
+<!-- Класс Triad -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Класс Triad</h3>
+
+  <p>Создадим класс Triad, который будет наследоваться от класса Pair и содержать три значения a, b, c. Конструктор класса Triad сначала будет вызывать конструктор класса Pair, а потом выполняться сам.</p>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+#include "Triad.h"
+
+using namespace std;
+
+int main() {
+  Triad triad1;
+  triad1.print();
+  cout &lt;&lt; triad1.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+
+  Triad triad2(5, 3, 10);
+  triad2.print();
+  cout &lt;&lt; triad2.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Файл Triad.h</p>
+
+<pre>
+#pragma once
+
+class Triad : public Pair {
+protected:
+  int c;
+
+public:
+  Triad();
+  Triad(int _a, int _b, int _c);
+  ~Triad();
+
+  void print();
+  int sum();
+};
+</pre>
+
+  <p>Файл Triad.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+#include "Triad.h"
+
+using namespace std;
+
+Triad::Triad() : Pair(), c(0) {
+  cout &lt;&lt; "Constructor Triad (0,0,0)\n";
+}
+
+Triad::Triad(int _a, int _b, int _c) : Pair(_a, _b), c(_c) {
+  cout &lt;&lt; "Constructor Triad (a,b,c)\n";
+}
+
+Triad::~Triad() {
+  cout &lt;&lt; "Destructor Triad \n";
+}
+
+void Triad::print() {
+  cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; ")" &lt;&lt; endl;
+}
+
+int Triad::sum() {
+  return a + b + c;
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Constructor Pair (0,0)
+Constructor Triad (0,0,0)
+(0, 0, 0)
+0
+______________
+Constructor Pair (a,b)
+Constructor Triad (a,b,c)
+(5, 3, 10)
+18
+______________
+Destructor Triad
+Destructor Pair
+Destructor Triad
+Destructor Pair
+</pre>
+</article>
+
+
+<!-- Класс Quadr -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Класс Quadr</h3>
+
+  <p>Создадим класс Quadr, который будет наследоваться от класса Triad и содержать четыре значения a, b, c, d. Конструктор класса Quadr сначала будет вызывать конструктор класса Triad, а потом выполняться сам.</p>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include &lt;iostream&lt;
+#include "Pair.h"
+#include "Triad.h"
+#include "Quadr.h"
+
+using namespace std;
+
+int main() {
+  Quadr quadr1;
+  quadr1.print();
+  cout &lt;&lt; quadr1.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+
+  Quadr quadr2(5, 3, 10, 20);
+  quadr2.print();
+  cout &lt;&lt; quadr2.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Файл Quadr.h</p>
+
+<pre>
+#pragma once
+
+class Quadr : public Triad {
+protected:
+  int d;
+
+public:
+  Quadr();
+  Quadr(int _a, int _b, int _c, int _d);
+  ~Quadr();
+
+  void print();
+  int sum();
+};
+</pre>
+
+  <p>Файл Quadr.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+#include "Triad.h"
+#include "Quadr.h"
+
+using namespace std;
+
+Quadr::Quadr() : Triad(), d(0) {
+  cout &lt;&lt; "Constructor Quadr (0,0,0,0)\n";
+}
+
+Quadr::Quadr(int _a, int _b, int _c, int _d) : Triad(_a, _b, _c), d(_d)
+{
+  cout &lt;&lt; "Constructor Quadr (a,b,c,d)\n";
+}
+
+Quadr::~Quadr() {
+  cout &lt;&lt; "Destructor Quadr \n";
+}
+
+void Quadr::print() {
+  cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt; ", " &lt;&lt; d &lt;&lt; ")" &lt;&lt; endl;
+}
+
+int Quadr::sum() {
+  return a + b + c + d;
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Constructor Pair (0,0)
+Constructor Triad (0,0,0)
+Constructor Quadr (0,0,0,0)
+(0, 0, 0, 0)
+0
+______________
+Constructor Pair (a,b)
+Constructor Triad (a,b,c)
+Constructor Quadr (a,b,c,d)
+(5, 3, 10, 20)
+38
+______________
+Destructor Quadr
+Destructor Triad
+Destructor Pair
+Destructor Quadr
+Destructor Triad
+Destructor Pair
+</pre>
+</article>
+
+
+<!-- Класс TriadBro -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Класс TriadBro</h3>
+
+  <p>Создадим класс TriadBro, который будет наследоваться от класса Pair и содержать три значения a, b, c. Конструктор класса TriadBro сначала будет вызывать конструктор класса Pair, а потом выполняться сам. Класс TriadBro будет братом классу Triad и они друг от друга не наследуются.</p>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+#include "Triad.h"
+#include "Quadr.h"
+#include "TriadBro.h"
+
+using namespace std;
+
+int main() {
+  TriadBro triadbro1;
+  triadbro1.print();
+  cout &lt;&lt; triadbro1.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+
+  TriadBro triadbro2(10, 20, 30);
+  triadbro2.print();
+  cout &lt;&lt; triadbro2.sum() &lt;&lt; '\n';
+  cout &lt;&lt; "______________\n";
+}
+</pre>
+
+  <p>Файл TriadBro.h</p>
+
+<pre>
+#pragma once
+
+class TriadBro : public Pair {
+protected:
+  int c;
+
+public:
+  TriadBro();
+  TriadBro(int _a, int _b, int _c);
+  ~TriadBro();
+
+  void print();
+  int sum();
+};
+</pre>
+
+  <p>Файл TriadBro.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Pair.h"
+#include "TriadBro.h"
+
+using namespace std;
+
+TriadBro::TriadBro() : Pair(), c(0) {
+  cout &lt;&lt; "Constructor TriadBro (0,0,0)\n";
+}
+
+TriadBro::TriadBro(int _a, int _b, int _c) : Pair(_a, _b), c(_c) {
+  cout &lt;&lt; "Constructor TriadBro (a,b,c)\n";
+}
+
+TriadBro::~TriadBro() {
+  cout &lt;&lt; "Destructor TriadBro \n";
+}
+
+void TriadBro::print() {
+  cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; ")" &lt;&lt; endl;
+}
+
+int TriadBro::sum() {
+  return a + b + c;
+}
+</pre>
+</article>
+
+
+<!-- Код из урока -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>Код из урока</h3>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include "Pair.h"
+
+void foo(Triad* p) {
+  p->print();
+}
+
+int main() {
+  //
+
+  Shape* sh = new Circle(10);
+  sh->view();
+}
+</pre>
+
+  <p>Файл Pair.h</p>
+
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+using namespace std;
+
+class Pair {
+protected:
+  int a;
+  int b;
+public:
+  Pair() : a(0), b(0) {
+    cout &lt;&lt; "Constr Pair (0,0)\n";
+  }
+  Pair(int _a, int _b) : a(_a), b(_b) {
+    cout &lt;&lt; "Constr Pair (a,b)\n";
+  }
+  virtual ~Pair() {
+    cout &lt;&lt; "Destr Pair \n";
+  }
+  virtual void print() {
+    cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ")" &lt;&lt; endl;
+  }
+  Pair* f() {
+    return this;
+  }
+};
+
+class Triad : public Pair {
+protected:
+  int c;
+public:
+  Triad() : Pair(), c(0) {
+    cout &lt;&lt; "Constr Triad (0,0,0)\n";
+  }
+  Triad(int _a, int _b, int _c) : Pair(_a, _b), c(_c) {
+    cout &lt;&lt; "Constr Triad (a,b,c)\n";
+  }
+  ~Triad() {
+    cout &lt;&lt; "Destr Triad \n";
+  }
+  void print() {
+    cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; ")" &lt;&lt; endl;
+  }
+  int f2() {
+    return a + b + c;
+  }
+  Pair* f() {
+    return this;
+  }
+};
+
+class Triad2 : public Triad {
+  int d;
+public:
+  Triad2() : Triad(), d(0) {
+    cout &lt;&lt; "Constr Triad2 (0,0,0)\n";
+  }
+  Triad2(int _a, int _b, int _c, int _d) : Triad(_a, _b, _c), d(_d)
+  {
+    cout &lt;&lt; "Constr Triad2 (a,b,c, d)\n";
+  }
+  ~Triad2() {
+    cout &lt;&lt; "Destr Triad2 \n";
+  }
+  void print() {
+    cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; ", " &lt;&lt; d &lt;&lt; ")" &lt;&lt; endl;
+  }
+};
+
+class TriadBro : public Pair {
+protected:
+  int c;
+public:
+  TriadBro() : Pair(), c(0) {
+    cout &lt;&lt; "Constr Triad (0,0,0)\n";
+  }
+  TriadBro(int _a, int _b, int _c) : Pair(_a, _b), c(_c) {
+    cout &lt;&lt; "Constr Triad (a,b,c)\n";
+  }
+  ~TriadBro() {
+    cout &lt;&lt; "Destr Triad \n";
+  }
+  void print() {
+    cout &lt;&lt; "(" &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; ")" &lt;&lt; endl;
+  }
+  int f2() {
+    return a + b + c;
+  }
+};
+</pre>
+</article>
+
+
+<!-- Класс Shape -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Класс Shape</h3>
+
+  <p>Создадим класс Shape, который будет содержать виртуальный метод view. Поскольку метод view не реализован, то класс становится абстрактным. Абстрактный класс не может стать типом и от него нельзя создать объект. Метод view обязан быть реализованным в потомках класса Shape.</p>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include "Pair.h"
+#include "Shape.h"
+
+void foo(Triad* p) {
+  p->print();
+}
+
+int main() {
+  //
+
+  Shape* sh = new Circle(10);
+  sh->view();
+}
+</pre>
+
+  <p>Файл Shape.h</p>
+
+<pre>
+#pragma once
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+class Shape {
+  std::string name;
+public:
+  Shape(std::string _name = "") : name(_name) {}
+  virtual void view() = 0;
+  std::string getName() {
+    return name;
+  }
+};
+
+class Circle : public Shape {
+  int radius;
+public:
+  Circle(int r) : Shape("Circle"), radius(r){}
+  void view() {
+    std::cout &lt;&lt; getName() &lt;&lt; " " &lt;&lt; radius &lt;&lt; std::endl;
+  }
+};
+
+class Something {
+public:
+  virtual int method1(int) = 0;
+  virtual void meyhod2() = 0;
+};
+
+class Anything : public Something, Shape {
+  int method1(int) {}
+  void meyhod2()  {}
+  void view() {
+    std::cout &lt;&lt; getName() &lt;&lt; " " &lt;&lt; std::endl;
+  }
+};
+</pre>
+</article>

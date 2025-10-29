@@ -19,9 +19,13 @@ import htmlEduRss2022stage0  from './../pages/elem-edu-rss2022-stage0.html';
 import htmlEduQuiz           from './../pages/elem-edu-quiz.html';
 
 // ВГУ 2025 C++ lectures
-import htmlVgu2025Lec0   from './../pages/vgu2025cpp/lec0.html';
-import htmlVgu2025Lec1a  from './../pages/vgu2025cpp/lec1a.html';
-import htmlVgu2025Lec1b  from './../pages/vgu2025cpp/lec1b.html';
+import htmlVgu2025Lec0    from './../pages/vgu2025cpp/lec0.html';
+import htmlVgu2025Lec1b   from './../pages/vgu2025cpp/lec1b.html';
+import htmlVgu2025Lec1a   from './../pages/vgu2025cpp/lec1a.html';
+import htmlVgu2025Lec1ap  from './../pages/vgu2025cpp/lec1ap.html';
+import htmlVgu2025Lec2a   from './../pages/vgu2025cpp/lec2a.html';
+import htmlVgu2025Lec1bp  from './../pages/vgu2025cpp/lec1bp.html';
+import htmlVgu2025M1  from './../pages/vgu2025cpp/m1.html';
 
 // DSR 2024 C++ lectures
 import htmlDsr2024Lec1  from './../pages/dsr2024cpp/lec1.html';
@@ -163,6 +167,10 @@ const htmlVgu2025Lec = [
   htmlVgu2025Lec0,
   htmlVgu2025Lec1b,
   htmlVgu2025Lec1a,
+  htmlVgu2025Lec1ap,
+  htmlVgu2025Lec2a,
+  htmlVgu2025Lec1bp,
+  htmlVgu2025M1,
 ];
 
 // Создаем массив страниц с лекциями DSR 2024 C++
