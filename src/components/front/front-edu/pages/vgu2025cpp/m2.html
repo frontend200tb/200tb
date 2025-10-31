@@ -1,0 +1,475 @@
+<article class="article">
+  <h1>Конспект методички ч.2</h1>
+</article>
+
+
+<div id="link-to-vgu2025cpp" class="btn-back">назад</div>
+
+
+<article class="article">
+  <p>Авсеева, Чернышов - ООП на языке C++. Часть 2. 2024. 80стр</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p4">4 Наследование в языке C++ (3)</a></p>
+  <p><a href="#p4.1">4.1 Модификаторы наследования (3)</a></p>
+  <p><a href="#p4.2">4.2 Конструкторы и деструкторы при наследовании (9)</a></p>
+  <p><a href="#p4.3">4.3 Пример построения классов при наследовании (14)</a></p>
+  <p><a href="#p4.4">4.4 Совместимость типов при наследовании (20)</a></p>
+</article>
+
+
+<!-- 4 Наследование в языке C++ -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Наследование в языке C++</h3>
+
+</article>
+
+
+<!-- 4.1 Модификаторы наследования -->
+<article class="article">
+  <div class="anchor" id="p4.1"></div>
+  <h3>4.1 Модификаторы наследования</h3>
+
+  <p>Когда один класс наследуется другим, первый из них называется <strong>базовым или родительским</strong> классом, а класс-наследник называется <strong>производным, потомком или дочерним</strong> классом.</p>
+
+<pre>
+// базовый класс
+class Parent {};
+
+// производный класс
+class Child : public Parent {};
+</pre>
+
+  <p>При определении класса-потомка за его именем следует разделитель-двоеточие ":", затем необязытельный модификатор наследования и имя родительского класса. По умолчанию модификатор наследования privte.</p>
+  <p>Модификатор наследования определяет видимость полей и методов класса родителя для самого класса потомка и его будущих наследников. Модификатор protected открывает доступ наследникам и дружественным класса.</p>
+
+  <p>Рассмотрим пример.</p>
+
+<pre>
+class Parent {
+private:
+  int m_private;
+
+protected:
+  int m_protected;
+
+public:
+  int m_public;
+};
+
+class Child: public Parent {
+public:
+  Child() {
+    m_private = 1; // запрещено
+    m_protected = 2; // разрешено
+    m_public = 3; // разрешено
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Parent parent;
+  parent.m_private = 1; // запрещено
+  parent.m_protected = 2; // запрещено
+  parent.m_public = 3; // разрешено
+}
+</pre>
+
+  <p>Модификатор protected предоставляет доступ всем производным классам. Поэтому любые изменения членов с модификатором protected в базовом классе приведут к тому, что придется внести изменения во все производные классы, работающие с этими членами.</p>
+  <p>Модификатор private предоставляет лучшую защиту данных от изменений. При этом для доступа к ним делают открытый интерфейс пользователя, используя методы set() и get().</p>
+  <p>Таким образом, модификатор private используется при закрытом наследовании, protected - защищенном наследовании, public - открытом наследовании.</p>
+  <p>При закрытом (private) наследовании все элементы базового класса становятся закрытыми (private) для производного класса и недоступны в нем.</p>
+  <p>При защищенном (protected) наследовании открытые (public) и защищенные (protected) элементы базового класса становятся защищенными (protected) в производном классе.</p>
+  <p>При открытом (public) наследовании открытые (public) элементы базового класса остаются открытыми (public) в производном классе, а защищенные (protected) элементы базового класса остаются защищенными (protected) в производном классе.</p>
+  <p>Закрытые (private) элементы базового класса при любом типе наследования остаются недоступными в производном классе.</p>
+  <p>Таким образом, в производном классе можно еще сильнее ограничить доступ к элементам базового класса, но сделать элементы доступнее никогда нельзя.</p>
+
+  <p>Рассмотрим пример открытого наследования.</p>
+
+<pre>
+class Parent {
+private:
+  int m_private;
+
+protected:
+  int m_protected;
+
+public:
+  int m_public;
+};
+
+class Pub : public Parent {
+public:
+  Pub() {
+    m_private = 1; // запрещено
+    m_protected = 2; // разрешено
+    m_public = 3; // разрешено
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Parent parent;
+  parent.m_private = 1; // запрещено
+  parent.m_protected = 2; // запрещено
+  parent.m_public = 3; // разрешено
+
+  Pub pub;
+  pub.m_private = 1; // запрещено
+  pub.m_protected = 2; // запрещено
+  pub.m_public = 3; // разрешено
+}
+</pre>
+
+  <p>При закрытом наследовании все элементы базового класса наследуются как закрытые. Это прекращает процесс дальнейшего наследования. Рассмотрим пример закрытого наследования.
+  </p>
+
+<pre>
+class Parent {
+private:
+  int m_private;
+
+protected:
+  int m_protected;
+
+public:
+  int m_public;
+};
+
+class Priv : private Parent {
+public:
+  Priv() {
+    m_private = 1; // запрещено
+    m_protected = 2; // разрешено
+    m_public = 3; // разрешено
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Parent parent;
+  parent.m_private = 1; // запрещено
+  parent.m_protected = 2; // запрещено
+  parent.m_public = 3; // разрешено
+
+  Priv pub;
+  priv.m_private = 1; // запрещено
+  priv.m_protected = 2; // запрещено
+  priv.m_public = 3; // запрещено
+}
+</pre>
+
+  <p>На практике наследование типа private и protected используется редко.</p>
+</article>
+
+
+<!-- 4.2 Конструкторы и деструкторы при наследовании -->
+<article class="article">
+  <div class="anchor" id="p4.2"></div>
+  <h3>4.2 Конструкторы и деструкторы при наследовании</h3>
+
+  <p>Базовый и производный класс могут иметь конструкторы и деструкторы. Конструкторы выполняются в порядке наследования, а деструкторы - в обратном порядке.</p>
+  <p>Такой порядок происходит из-за того что базовый класс не значет о существовании производного класса. Инициализация в нем выполняется независимо от производного класса и может стать основой для инициализации в производном классе. Инициализация первым базового класса гарантирует, что при инициализации производного класса могут использоваться элементы базового класса, которые уже проинициализированы. Поскольку базовый класс лежит в основе производного, вызов деструктора базового класса раньше деструктора производного может привести к разрушению производного класса до того, как он выполнит свой деструктор, освобождающий выделенную память.</p>
+
+<pre>
+class Parent {
+public:
+  Parent() {
+    cout &lt;&lt; "Parent constructor\n";
+  }
+  ~Parent() {
+    cout &lt;&lt; "Parent destructor\n";
+  }
+};
+
+class Child : public Parent {
+public:
+  Child() {
+    cout &lt;&lt; "Child constructor\n";
+  }
+  ~Child() {
+    cout &lt;&lt; "Child destructor\n";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Parent parent;
+  Child child;
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Parent constructor
+Parent constructor
+Child constructor
+Child destructor
+Parent destructor
+Parent destructor
+</pre>
+
+  <p>Конструкторы базового и производного класса могут иметь параметры. При наследовании если параметры есть только у конструктора производного класса, то они передаются обычным способом. Однако если параметры есть у конструктора базового класса, то необходимо передать их ему из конструктора производного класса. В этом случае используется расширенная запись коснтруктора производного класса через двоеточие ":".</p>
+  <p>Конструкторы базового и производного класса могут иметь как одинаковые так и различные параметры. Конструктор производного класса может использовать все переданные ему аргументы сам, а может и не использовать их, а передать их в конструктор базового класса.</p>
+
+<pre>
+class Parent {
+protected:
+  int i;
+
+public:
+  Parent(int _i) {
+    i = _i;
+    cout &lt;&lt; "Parent constructor\n";
+  }
+  ~Parent() {
+    cout &lt;&lt; "Parent destructor\n";
+  }
+}
+
+class Child : public Parent {
+  int n;
+
+public:
+  Child(int _n, int _i) : Parent(_i) {
+    n - _n;
+    cout &lt;&lt; "Child constructor\n";
+  }
+  ~Child() {
+    cout &lt;&lt; "Child destructor\n";
+  }
+}
+</pre>
+
+<pre>
+int main() {
+  Child child(2, 3);
+}
+</pre>
+
+  <p>Рассмотрим пример, когда конструктор базового класса имеет больше параметров, чем конструктор производного класса.</p>
+
+<pre>
+class Parent {
+  int i, j;
+
+public:
+  Parent(int _i, int _j) {
+    i = _i;
+    j = _j;
+    cout &lt;&lt; "Parent constructor\n";
+  }
+  ~Parent() {
+    cout &lt;&lt; "Parent destructor\n";
+  }
+  int getI() {
+    return i;
+  }
+  int getJ() {
+    return j;
+  }
+}
+
+class Child : public Parent {
+  int n;
+
+public:
+  Child(int _n);
+  ~Child() {
+    cout &lt;&lt; "Child destructor\n";
+  }
+  int getN() {
+    return n;
+  }
+};
+
+Child::Child(int _n) : Parent(_n/2, _n%2) {
+  n = _n;
+}
+</pre>
+
+<pre>
+int main() {
+  Child child(15);
+  cout &lt;&lt; child.getI() &lt;&lt; ' ' &lt;&lt; child.getJ()
+  &lt;&lt; ' ' &lt;&lt; child.getN() &lt;&lt; endl;
+}
+</pre>
+
+  <p>В конструкторе производного класса описывается вызов конструктора базового класса.</p>
+</article>
+
+
+<!-- 4.3 Пример построения классов при наследовании -->
+<article class="article">
+  <div class="anchor" id="p4.3"></div>
+  <h3>4.3 Пример построения классов при наследовании</h3>
+
+  <p>Напишем класс Pixel который имеет три поля: координаты x и y и видимость пиксела на экране. Добавим методы для инициализации пикселя, а также методы Show(), Hide(), MoveTo().</p>
+
+<pre>
+class Point {
+protected:
+  int X;
+  int Y;
+  bool Visible;
+
+public:
+  int getX() { return X; }
+  int getY() { return Y; }
+  bool isVisible() { return Visible; }
+
+  // конструктор копирования
+  Point(cont Point& cp) {
+    X = cp.X;
+    Y = cp.Y;
+    Visible = cp.Visible;
+  }
+
+  // прототип конструктора
+  Point(int _X = 0, int _Y = 0);
+  void Show();
+  void High();
+  void MoveTo(int _X, int _Y);
+};
+
+// конструктор
+Point::Point(int _X, int _Y) {
+  X = _X;
+  Y = _Y;
+  Visible = false;
+}
+
+void Point::Show() {
+  Visible = true;
+}
+
+void Point::Hide() {
+  Visible = false;
+}
+
+void Point::MoveTo(int _X, int _Y) {
+  Hide();
+  X = _X;
+  Y = _Y;
+  Show();
+}
+</pre>
+
+<pre>
+int main() {
+  Point Center(320, 120); // объект типа Point
+  Point *point_ptr; // указатель на тип Point
+  point_ptr = &amp;Center; // указатель на Center
+}
+</pre>
+
+<pre>
+Point aPoint;
+Point bPoint(100);
+Point Row[80];
+</pre>
+
+<pre>
+Point pointA(50, 50);
+pointA.Show();
+pointA.MoveTo(100, 130);
+pointA.Hide();
+</pre>
+
+  <p>Если потребуется создать новый класс, то можно его создать с нуля или воспользоваться готовым классом Point, сделав его базовым.</p>
+  <p>Создадим класс Circle, окружность имеющач центр и радиус.</p>
+
+<pre>
+class Circle : public Point {
+  int r; // радиус
+
+public:
+  Circle(int _X, int _Y, int _r);
+  void Show();
+  void Hide();
+  void Expand(int dr);
+  void Contract(int dr);
+  void MoveTo(int _X, int _Y);
+};
+
+Circle::Circle(int _X, int _Y, int _r) : Point(_X, _Y) {
+  r = _r;
+}
+
+void Circle::Show() {
+  Visible = true;
+}
+
+void Circle::Hide() {
+  Visible = false;
+}
+
+void Circle::Expand(int dr) {
+  Hide();
+  r += dr;
+  Show();
+}
+
+void Circle::Contract(int dr) {
+  Expand(-dr);
+}
+
+void Circle::MoveTo(int _X, int _Y) {
+  Hide();
+  X = _X;
+  Y = _Y;
+  Show();
+}
+</pre>
+
+<pre>
+int main() {
+  Circle C(150, 200, 50);
+  // центр в точке (150, 200)
+  // радиус 50
+
+  C.Show();
+  getch();
+  C.MoveTo(300, 100);
+  getch();
+  C.Expand(50);
+  getch();
+  C.Contract(70);
+  getch();
+}
+</pre>
+
+  <p>Если нужно вызвать метод базового класса в одноименном методе производного класса, нужно выполнить обычный вызов функции, но с добавлением имени базового класса и оператора разрешения области видимости</p>
+
+<pre>
+void Circle::Show() {
+  Visible = true;
+  Point::Show();
+}
+
+void Circle::Hide() {
+  Visible = false;
+  Point::Hide();
+}
+</pre>
+</article>
+
+
+<!-- 4.4 Совместимость типов при наследовании -->
+<article class="article">
+  <div class="anchor" id="p4.4"></div>
+  <h3>4.4 Совместимость типов при наследовании</h3>
+
+</article>

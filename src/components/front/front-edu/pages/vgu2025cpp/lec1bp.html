@@ -27,4 +27,235 @@
   <div class="anchor" id="p1"></div>
   <h3>Стратегия</h3>
 
+  <p>Вы решили написать приложение навигатор для путешественников. Оно должно показывать красивую и удобную карту, позволяющую с легкостью ориентироваться в незнакомом городе.</p>
+  <p>Одной из самых востребованных функций являлся поиск и прокладывание маршрутов. Пребывая в неизвестном ему городе, пользователь должен иметь возможность указать начальную точку и пункт назначения, а навигатор - проложить оптимальный путь.</p>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">Navigator</div>
+        <div class="border">
+          + buildRoute(A,B)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Первая версия вашего навигатора могла прокладывать маршрут лишь по дорогам, поэтому отлично подходила для путешествий на автомобиле. Но, очевидно, не все ездят в отпуск на машине. Поэтому следующим шагом вы добавили в навигатор прокладывание пеших маршрутов.</p>
+  <p>Через некоторое время выяснилось, что некоторые люди предпочитают ездить по городу на общественном транспорте. Поэтому вы добавили и такую опцию прокладывания пути.</p>
+  <p>Но и это еще не все. В ближайшей перспективе вы хотели бы добавить прокладывание маршрутов по велодорожкам. А в отдаленном будущем - интересные маршруты посещения достопримечательностей.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <p>Файл ivan.cpp</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include "Navigator.h"
+
+using namespace std;
+
+int main() {
+  bool flag = true;
+  int type;
+
+  while (flag) {
+    cout &lt;&lt; "Enter type of travel from 1 to 5\n";
+    cout &lt;&lt; "1 auto\n";
+    cout &lt;&lt; "2 go\n";
+    cout &lt;&lt; "3 bus\n";
+    cout &lt;&lt; "4 velo\n";
+    cout &lt;&lt; "5 dostoprimechatelnosti\n";
+    cin >> type;
+    if (type &lt; 1 or type > 5) {
+      cout &lt;&lt; "Error type. Must be from 1 to 5\n";
+    } else {
+      flag = false;
+    }
+  }
+
+  Navigator n;
+  switch (type) {
+  case 1: n.set(new Auto); break;
+  case 2: n.set(new Go); break;
+  case 3: n.set(new Bus); break;
+  case 4: n.set(new Velo); break;
+  case 5: n.set(new Dost); break;
+  }
+
+  n.getRoute();
+}
+</pre>
+
+    <p>Файл Navigator.h</p>
+
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Behavior {
+public:
+  // проложить маршрут
+  virtual void buildRoute() = 0;
+};
+
+class Auto : public Behavior {
+public:
+  void buildRoute() {
+    cout &lt;&lt; "Travel by auto\n";
+  }
+};
+
+class Go : public Behavior {
+public:
+  void buildRoute() {
+    cout &lt;&lt; "Travel by go\n";
+  }
+};
+
+class Bus : public Behavior {
+public:
+  void buildRoute() {
+    cout &lt;&lt; "Travel by bus\n";
+  }
+};
+
+class Velo : public Behavior {
+public:
+  void buildRoute() {
+    cout &lt;&lt; "Travel by velo\n";
+  }
+};
+
+class Dost : public Behavior {
+public:
+  void buildRoute() {
+    cout &lt;&lt; "Travel by dostoprimechatelnosti\n";
+  }
+};
+
+class Navigator {
+protected:
+  Behavior* behavior;
+
+public:
+  Navigator() : behavior(nullptr) {
+    cout &lt;&lt; "Constructor\n";
+  }
+  ~Navigator() {
+    cout &lt;&lt; "Destructor\n";
+    if (behavior) delete behavior;
+  }
+  void getRoute() {
+    if (behavior) behavior->buildRoute();
+  }
+  void set(Behavior* _behavior) {
+    behavior = _behavior;
+  }
+};
+</pre>
+  </details>
+</article>
+
+
+<!-- Шаблонный метод -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Шаблонный метод</h3>
+
+  <p>Вы пишете программу для дата-майнинга в офисных документах. Пользователи будут загружать в нее документы в разных форматах (PDF, DOC, CSV), а программа должна извлекать из них полезную информацию.</p>
+  <p>В первой версии вы ограничились только обработкой DOC-файлов. В следующей версии добавили поддержку CSV. В через месяц прикрутили работу с PDF документами.</p>
+  <p>Классы дата-майнинга содержат много дублирования.</p>
+  <p>В какой-то момент вы заметили, что код всех трех классов обработки документов хоть и отличается в части работы с файлами, но содержит довольно много общего в части самого извлечения данных. Было бы здорово избавиться от повторной реализациии алгоритма извлечения данных в каждом из классов.</p>
+
+  <details>
+    <summary>Решение</summary>
+
+    <p>Файл ivan.cpp</p>
+
+<pre>
+#include "Maining.h"
+
+int main() {
+  Doc d;
+  d.openfile();
+  d.process();
+  d.closefile();
+
+  Csv c;
+  c.openfile();
+  c.process();
+  c.closefile();
+
+  Pdf p;
+  p.openfile();
+  p.process();
+  d.closefile();
+}
+</pre>
+
+    <p>Файл Maining.h</p>
+
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Maining {
+public:
+  virtual void maining() final {
+    openfile();
+    process();
+    closefile();
+  }
+  void openfile() {
+    cout &lt;&lt; "Open file\n";
+  }
+  void closefile() {
+    cout &lt;&lt; "Close file\n";
+  }
+  virtual void process() = 0;
+};
+
+class Doc : public Maining {
+public:
+  void process() {
+    cout &lt;&lt; "Maining in doc file\n";
+  }
+};
+
+class Csv : public Maining {
+public:
+  void process() {
+    cout &lt;&lt; "Maining in csv file\n";
+  }
+};
+
+class Pdf : public Maining {
+public:
+  void process() {
+    cout &lt;&lt; "Maining in pdf file\n";
+  }
+};
+</pre>
+  </details>
+</article>
+
+
+<!-- Фабричный метод -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Фабричный метод</h3>
+
+  <p>Представьте что вы пишете симулятор мебельного магазина. Ваш код содержит:</p>
+  <ol>
+    <li>Семейство зависимых продуктов. Скажем, Кресло + Диван + Столик</li>
+    <li>Несколько вариаций этого семейства. Например, продукты Кресло, Диван и Столик представлены в трех разных стилях: Ар-деко, Викторианский и Модерне.</li>
+  </ol>
+  <p>Вам нужен такой способ создавать объекты продуктов, чтобы они сочетались с другими продуктами того же семейства. Это важно, так как клиенты расстраиваются, если получают несочетающуюся мебель.</p>
+  <p>Кроме того, вы не хотите вносить изменения в существующий код при добавлении новых продуктов или семейств в программу. Поставщики часто обновляют свои каталоги, и вы бы не хотели менять уже написанный код каждый раз при получении новых моделей мебели.</p>
 </article>

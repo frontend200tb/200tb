@@ -25,7 +25,9 @@ import htmlVgu2025Lec1a   from './../pages/vgu2025cpp/lec1a.html';
 import htmlVgu2025Lec1ap  from './../pages/vgu2025cpp/lec1ap.html';
 import htmlVgu2025Lec2a   from './../pages/vgu2025cpp/lec2a.html';
 import htmlVgu2025Lec1bp  from './../pages/vgu2025cpp/lec1bp.html';
-import htmlVgu2025M1  from './../pages/vgu2025cpp/m1.html';
+import htmlVgu2025Lec2b   from './../pages/vgu2025cpp/lec2b.html';
+import htmlVgu2025M1      from './../pages/vgu2025cpp/m1.html';
+import htmlVgu2025M2      from './../pages/vgu2025cpp/m2.html';
 
 // DSR 2024 C++ lectures
 import htmlDsr2024Lec1  from './../pages/dsr2024cpp/lec1.html';
@@ -170,7 +172,9 @@ const htmlVgu2025Lec = [
   htmlVgu2025Lec1ap,
   htmlVgu2025Lec2a,
   htmlVgu2025Lec1bp,
+  htmlVgu2025Lec2b,
   htmlVgu2025M1,
+  htmlVgu2025M2,
 ];
 
 // Создаем массив страниц с лекциями DSR 2024 C++
