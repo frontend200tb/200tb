@@ -5,4 +5,5 @@ export const asideThemes = [
   'Я.Контест',
   'Я.Контест 2019',
   'Я.Контест 2024',
+  'YandexCup2025',
 ];
