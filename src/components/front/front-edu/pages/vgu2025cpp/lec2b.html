@@ -16,13 +16,716 @@
 <article class="article">
   <h2>Содержание</h2>
 
-  <p><a href="#p1">Команда</a></p>
+  <p><a href="#p1">Паттерн Команда</a></p>
+  <p><a href="#p2">Определение паттерна Команда</a></p>
+  <p><a href="#p3">Архитектура</a></p>
 </article>
 
 
-<!-- Команда -->
+<!-- Паттерн Команда -->
 <article class="article">
   <div class="anchor" id="p1"></div>
-  <h3>Команда</h3>
+  <h3>Паттерн Команда</h3>
 
+  <h4>Программирование пульта управления</h4>
+
+  <p>Пульт имеет семь программируемых ячеек. Каждая ячейка связывается с определенным устройством. Для каждой из семи ячеек имеются кномки Вкл и Выкл. Дополнительно есть кнопка Отмена для отмены нажатия последней кнопки.</p>
+
+  <p>Классы управления устройствами</p>
+  <ol>
+    <li>Light. Методы on(), off().</li>
+    <li>GarageDoor. Методы up(), down(), stop(), lightOn(), lightOff()</li>
+    <li>Stereo. Методы on(), off(), setCD(), setDVD(), setRadio(), setVolume()</li>
+    <li>CeilingFan. Методы high(), medium(), low(), off(), getSpeed()</li>
+    <li>CeilingLight. Методы on(), off(), dim().</li>
+    <li>OutdoorLight. Методы on(), off().</li>
+    <li>GardenLight. Методы setDuskTime(), setDawnTime(), manualOn(), manualOff().</li>
+  </ol>
+
+  <h4>Реализация интерфейса Command</h4>
+
+  <p>Реализация команды для включения света</p>
+
+<pre>
+class Command {
+public:
+  virtual void execute() = 0;
+};
+</pre>
+
+<pre>
+class LightOnCommand : public Command {
+  Light* light;
+
+public:
+  LightOnCommand(Light* light) {
+    this->light = light;
+  }
+  void execute() {
+    light->on();
+  }
+};
+</pre>
+
+  <p>Использование объекта команды.</p>
+
+<pre>
+class SimpleRemoteControl {
+  Command* slot;
+
+public:
+  SimpleRemoteControl() {}
+  void setCommand(Command* command) {
+    slot = command;
+  }
+  void buttonWasPressed() {
+    slot->execute();
+  }
+};
+</pre>
+
+  <p>Тестирование.</p>
+
+<pre>
+class Light {
+public:
+  void on() {
+    cout &lt;&lt; "Light is on\n";
+  }
+  void off() {
+    cout &lt;&lt; "Light is off\n";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  SimpleRemoteControl* remoteControl =
+  new SimpleRemoteControl;
+  Light* light = new Light;
+  LightOnCommand* lightOn =
+  new LightOnCommand(light);
+  remoteControl->setCommand(lightOn);
+  remoteControl->buttonWasPressed();
+}
+</pre>
+
+  <p>Результат</p>
+  <code>Light is on</code>
+
+  <h4>Добавление еще одного устройства.</h4>
+
+<pre>
+class GarageDoor {
+public:
+  void up() {
+    cout &lt;&lt; "The door is up\n";
+  }
+  void down() {
+    cout &lt;&lt; "The door is down\n";
+  }
+  void stop() {
+    cout &lt;&lt; "The door is stopped\n";
+  }
+  void lightOn() {
+    cout &lt;&lt; "The light in garage is on\n";
+  }
+  void lightOff() {
+    cout &lt;&lt; "The light in garage is off\n";
+  }
+};
+</pre>
+
+<pre>
+class GarageDoorOpenCommand : public Command {
+  GarageDoor* garageDoor;
+
+public:
+  GarageDoorOpenCommand(GarageDoor* garageDoor) {
+    this->garageDoor = garageDoor;
+  }
+  void execute() {
+    garageDoor->up();
+  }
+  string getName() {
+    return "GarageDoorOpenCommand";
+  }
+};
+</pre>
+
+<pre>
+class GarageDoorCloseCommand : public Command {
+  GarageDoor* garageDoor;
+
+public:
+  GarageDoorCloseCommand(GarageDoor* garageDoor) {
+    this->garageDoor = garageDoor;
+  }
+  void execute() {
+    garageDoor->down();
+  }
+  string getName() {
+    return "GarageDoorCloseCommand";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  SimpleRemoteControl* remoteControl =
+                       new SimpleRemoteControl;
+  Light* light = new Light;
+  Command* lightOn = new LightOnCommand(light);
+  GarageDoor* garageDoor = new GarageDoor;
+  Command* garageOpen =
+          new GarageDoorOpenCommand(garageDoor);
+
+  remoteControl->setCommand(lightOn);
+  remoteControl->buttonWasPressed();
+  remoteControl->setCommand(garageOpen);
+  remoteControl->buttonWasPressed();
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Light is on
+The door is up
+</pre>
+</article>
+
+
+<!-- Определение паттерна Команда -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Определение паттерна Команда</h3>
+
+  <p><strong>Паттерн Команда</strong> инкапсулирует запрос в виде объекта, делая возможной параметризацию клиентских объектов с другими запросами, организацию очереди или регистрацию запросов, а также поддержку отмены операций.</p>
+
+  <p>Классы и интерфейсы:</p>
+  <ol>
+    <li>Client</li>
+    <li>Invoker. Метод setCommand()</li>
+    <li>Receiver. Метод action()</li>
+    <li>interface Command. Методы execute(), undo()</li>
+    <li>ConcreteCommand. Методы execute(), undo()</li>
+  </ol>
+
+<pre>
+public void execute() {
+  receiver.action();
+}
+</pre>
+
+  <h4>Связывание команд с ячейками</h4>
+
+  <p>Каждая ячейка связывается с командой. При нажатии кнопки вызывается метод execute() соответствующей команды. Метод execute() выполняет операции с получателем.</p>
+
+  <h4>Реализация пульта</h4>
+
+<pre>
+class Command {
+public:
+  virtual void execute() = 0;
+  virtual string getName() = 0;
+};
+</pre>
+
+<pre>
+class RemoteControl {
+  Command** onCommands;
+  Command** offCommands;
+public:
+  RemoteControl() {
+    onCommands = new Command*[7];
+    offCommands = new Command*[7];
+    Command* noCommand = new NoCommand;
+    for (int i = 0; i &lt; 7; i++) {
+      onCommands[i] = noCommand;
+      offCommands[i] = noCommand;
+    }
+  }
+
+  void setCommand(int slot,
+                  Command* onCommand,
+                  Command* offCommmand) {
+    onCommands[slot] = onCommand;
+    offCommands[slot] = offCommmand;
+  }
+
+  void onButtonWasPushed(int slot) {
+    onCommands[slot]->execute();
+  }
+
+  void offButtonWasPushed(int slot) {
+    offCommands[slot]->execute();
+  }
+
+  string toString() {
+    ostringstream stringBuffer;
+    stringBuffer &lt;&lt; "\n------ Remote Control ------\n";
+    for (int i = 0; i &lt; 7; i++) {
+      stringBuffer &lt;&lt; "[slot " &lt;&lt; i &lt;&lt; "] "
+      &lt;&lt; onCommands[i]->getName()
+      &lt;&lt; "   "
+      &lt;&lt; offCommands[i]->getName()
+      &lt;&lt; "\n";
+     }
+    return stringBuffer.str();
+  }
+};
+</pre>
+
+  <p>Стандартная библиотека sstream содержит малоизвестный класс ostringstream. Он представляет удобный интерфейс потоков ввода-вывода и прекрасно переваривает все встроенные типы данных. Результирующую строку легко получить с помощью метода str().</p>
+
+  <h4>Реализация команд для класса Light</h4>
+
+<pre>
+class Light {
+  string location;
+
+public:
+  Light(string location) {
+     this->location = location;
+  }
+  void on() {
+    cout &lt;&lt; "Light is on\n";
+  }
+  void off() {
+    cout &lt;&lt; "Light is off\n";
+  }
+};
+</pre>
+
+<pre>
+class LightOnCommand : public Command {
+  Light* light;
+
+public:
+  LightOnCommand(Light* light) {
+    this->light = light;
+  }
+  void execute() {
+    light->on();
+  }
+  string getName() {
+    return "LightOnCommand";
+  }
+};
+</pre>
+
+<pre>
+class LightOffCommand : public Command {
+  Light* light;
+
+public:
+  LightOffCommand(Light* light) {
+    this->light = light;
+  }
+  void execute() {
+    light->off();
+  }
+  string getName() {
+    return "LightOffCommand";
+  }
+};
+</pre>
+
+  <h4>Реализация команд для класса Stereo</h4>
+
+<pre>
+class Stereo {
+  string location;
+
+public:
+  Stereo(string location) {
+    this->location = location;
+  }
+  void on() {
+    cout &lt;&lt; location + " Stereo is on\n";
+  }
+  void off() {
+    cout &lt;&lt; location + " Stereo is off\n";
+  }
+  void setSD() {
+    cout &lt;&lt; location + " stereo is set for CD input\n";
+  }
+  void setDVD() {
+    cout &lt;&lt; location + " stereo is set for DVD input\n";
+  }
+  void setRadio() {
+    cout &lt;&lt; location + " Radio is set\n";
+  }
+  void setVolume(int volume) {
+    cout &lt;&lt; location + " stereo volume set to " &lt;&lt; volume;
+  }
+};
+</pre>
+
+<pre>
+class StereoOnWihtCDCommand : public Command {
+  Stereo* stereo;
+
+public:
+  StereoOnWihtCDCommand(Stereo* stereo) {
+    this->stereo = stereo;
+  }
+  void execute() {
+    stereo->on();
+    stereo->setSD();
+    stereo->setVolume(10);
+  }
+  string getName() {
+    return "StereoOnWihtCDCommand";
+  }
+};
+</pre>
+
+<pre>
+class StereoOffCommand : public Command {
+  Stereo* stereo;
+
+public:
+  StereoOffCommand(Stereo* stereo) {
+    this->stereo = stereo;
+  }
+  void execute() {
+    stereo->off();
+  }
+  string getName() {
+    return "StereoOffCommand";
+  }
+};
+</pre>
+
+  <h4>Объект noCommand</h4>
+
+<pre>
+void onButtonWasPushed(int slot) {
+  if(onCommands[slot] != nullptr)
+    onCommands[slot]->execute();
+}
+</pre>
+
+<pre>
+class NoCommand : public Command {
+public:
+
+  void execute() {}
+
+  string getName() {
+    return "NoCommand";
+  }
+};
+</pre>
+
+  <p>Тестирование кода</p>
+
+<pre>
+int main() {
+  RemoteControl* remoteControl = new RemoteControl;
+  Light* livingRoomLight = new Light("Living Room");
+  Light* kitchenLight = new Light("Kitchen");
+  GarageDoor* garageDoor = new GarageDoor();
+  Stereo* stereo = new Stereo("Living Room");
+  LightOnCommand* livingRoomLightOn = new LightOnCommand(livingRoomLight);
+  LightOnCommand* kitchenLightOn = new LightOnCommand(kitchenLight);
+  LightOffCommand* livingRoomLightOff = new LightOffCommand(livingRoomLight);
+  LightOffCommand* kitchenLightOff = new LightOffCommand(kitchenLight);
+  GarageDoorOpenCommand* garageDoorOpen = new GarageDoorOpenCommand(garageDoor);
+  GarageDoorCloseCommand* garageDoorClose = new GarageDoorCloseCommand(garageDoor);
+  StereoOnWihtCDCommand* stereoOnWihtCD = new StereoOnWihtCDCommand(stereo);
+  StereoOffCommand* stereoOff = new StereoOffCommand(stereo);
+
+  remoteControl->setCommand(0, livingRoomLightOn, livingRoomLightOff);
+  remoteControl->setCommand(1, kitchenLightOn, kitchenLightOff);
+  remoteControl->setCommand(2, garageDoorOpen, garageDoorClose);
+  remoteControl->setCommand(3, stereoOnWihtCD, stereoOff);
+  cout &lt;&lt; remoteControl->toString();
+  remoteControl->onButtonWasPushed(0);
+  remoteControl->onButtonWasPushed(3);
+  remoteControl->offButtonWasPushed(3);
+  remoteControl->offButtonWasPushed(0);
+  remoteControl->onButtonWasPushed(1);
+  remoteControl->offButtonWasPushed(1);
+  remoteControl->onButtonWasPushed(2);
+  remoteControl->offButtonWasPushed(2);
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+------ Remote Control ------
+[slot 0] LightOnCommand   LightOffCommand
+[slot 1] LightOnCommand   LightOffCommand
+[slot 2] GarageDoorOpenCommand   GarageDoorCloseCommand
+[slot 3] StereoOnWihtCDCommand   StereoOffCommand
+[slot 4] NoCommand   NoCommand
+[slot 5] NoCommand   NoCommand
+[slot 6] NoCommand   NoCommand
+Light is on
+Living Room Stereo is on
+Living Room stereo is set for CD input
+Living Room stereo volume set to 10Living Room Stereo is off
+Light is off
+Light is on
+Light is off
+The door is up
+The door is down
+</pre>
+</article>
+
+
+<!-- Архитектура -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Архитектура</h3>
+
+  <ol>
+    <li>Класс RemoteLoader создает объекты команд, связываемые с ячейками пульта. Каждый объект команды инкапсулирует запрос к некоторому устройству.</li>
+    <li>Класс RemoteControl. Поля onCommands, offCommands. Методы setCommand(), onButtonWasPushed(), offButtonWasPushed(). Класс RemoteControl управляет набором объектов команд (по одному на кнопку). При нажатии кнопки вызывается соответствующий метод ButtonWasPushed(), который активизирует метод eecute() объекта команды. Класс пульта больше ничего не знает о тех классах, к которым он обращается, так как он отделен от них объектом команды</li>
+    <li>Интерфейс Command. Метод execute(). Все команды RemoteControl реализуют интерфейс команды, состоящей из единственного метода execute(). Команды инкапсулируют набор операций с калассом устройства. Пульт активизирует эти операции вызовом метода execute()</li>
+    <li>Класс Light. Методы on(), off(). Классы устройств выполняют непосредственную работу по управлению домашней электроникой. В данном примере используется класс Light.</li>
+    <li>Класс LightOnCommand. Метод execute(). Каждая операция, активизируется нажатием кнопки на пульте, реализуется простым объектом команды. Объект команды хранит ссылку на экземпляр класса устройства, реализующий метод execute, который вызывает один или несколько методов объекта. На диаграмме показаны два класса, реализующие операции включения и выключения света.</li>
+    <li>Класс LightOffCommand. Метод execute().</li>
+  </ol>
+
+<pre>
+public void execute() {
+  light.on();
+}
+</pre>
+
+<pre>
+public void execute() {
+  light.off();
+}
+</pre>
+
+  <h4>Механизм отмены</h4>
+
+<pre>
+class Command {
+public:
+  virtual void execute() = 0;
+  virtual void undo() = 0;
+  virtual string getName() = 0;
+};
+</pre>
+
+<pre>
+class LightOnCommand : public Command {
+  Light* light;
+
+public:
+  LightOnCommand(Light* light) {
+    this->light = light;
+  }
+  void execute() {
+    light->on();
+  }
+  void undo() {
+    light->off();
+  }
+  string getName() {
+    return "LightOnCommand";
+  }
+};
+</pre>
+
+<pre>
+class LightOffCommand : public Command {
+  Light* light;
+
+public:
+  LightOffCommand(Light* light) {
+    this->light = light;
+  }
+  void execute() {
+    light->off();
+  }
+  void undo() {
+    light->on();
+  }
+  string getName() {
+    return "LightOffCommand";
+  }
+};
+</pre>
+
+  <p>Изменения в RemoteControl</p>
+
+<pre>
+class RemoteControl {
+  Command** onCommands;
+  Command** offCommands;
+  Command* undoCommand;
+
+public:
+  RemoteControl() {
+    onCommands = new Command*[7];
+    offCommands = new Command*[7];
+    Command* noCommand = new NoCommand;
+    for (int i = 0; i &lt; 7; i++) {
+      onCommands[i] = noCommand;
+      offCommands[i] = noCommand;
+    }
+    undoCommand = noCommand;
+  }
+  void setCommand(int slot,
+                  Command* onCommand,
+                  Command* offCommmand) {
+    onCommands[slot] = onCommand;
+    offCommands[slot] = offCommmand;
+  }
+  void onButtonWasPushed(int slot) {
+    onCommands[slot]->execute();
+    undoCommand = onCommands[slot];
+  }
+
+  void offButtonWasPushed(int slot) {
+    offCommands[slot]->execute();
+    undoCommand = offCommands[slot];
+  }
+
+  void undoButtonWasPushed() {
+    undoCommand->undo();
+  }
+
+  string toString();
+};
+</pre>
+
+  <h4>Тестирование кнопки отмены</h4>
+
+<pre>
+int main() {
+  RemoteControl* remoteControl = new RemoteControl;
+  Light* livingRoomLight = new Light("Living Room");
+  LightOnCommand* livingRoomLightOn =
+                new LightOnCommand(livingRoomLight);
+  LightOffCommand* livingRoomLightOff =
+                new LightOffCommand(livingRoomLight);
+
+  remoteControl->setCommand(0, livingRoomLightOn,
+			   livingRoomLightOff);
+  cout &lt;&lt; remoteControl->toString();
+
+  remoteControl->onButtonWasPushed(0);
+  remoteControl->offButtonWasPushed(0);
+  cout &lt;&lt; remoteControl->toString();
+
+  remoteControl->undoButtonWasPushed();
+  remoteControl->offButtonWasPushed(0);
+  remoteControl->onButtonWasPushed(0);
+  cout &lt;&lt; remoteControl->toString();
+
+  remoteControl->undoButtonWasPushed();
+}
+</pre>
+
+  <h4>Реализация отмены с состоянием</h4>
+
+<pre>
+class CeilingFan {
+public:
+  const int HIGH = 3;
+  const int MEDIUM = 2;
+  const int LOW = 1;
+  const int OFF = 0;
+private:
+  string location;
+  int speed;
+public:
+  CeilingFan(string location) {
+    this->location = location;
+    speed = OFF;
+  }
+  void high() {
+    speed = HIGH;
+    cout &lt;&lt; location + " ceiling fan is on high\n";
+  }
+  void medium() {
+    speed = MEDIUM;
+    cout &lt;&lt; location + " ceiling fan is on medium\n";
+  }
+  void low() {
+    speed = LOW;
+    cout &lt;&lt; location + " ceiling fan is on low\n";
+  }
+  void off() {
+    speed = OFF;
+    cout &lt;&lt; location + " ceiling fan is off\n";
+  }
+  int getSpeed() {
+    return speed;
+  }
+};
+</pre>
+
+<pre>
+class CeilingFanHighCommand : public Command {
+  CeilingFan* ceilingFan;
+  int prevSpeed;
+public:
+  CeilingFanHighCommand(CeilingFan* ceilingFan) {
+    this->ceilingFan = ceilingFan;
+  }
+  void execute() {
+    prevSpeed = ceilingFan->getSpeed();
+    ceilingFan->high();
+  }
+  void undo() {
+    if (prevSpeed == ceilingFan->HIGH) {
+      ceilingFan->high();
+    }
+    else if (prevSpeed == ceilingFan->MEDIUM) {
+      ceilingFan->medium();
+    }
+    else if (prevSpeed == ceilingFan->LOW) {
+      ceilingFan->low();
+    }
+    else if (prevSpeed == ceilingFan->OFF) {
+      ceilingFan->off();
+    }
+  }
+  string getName() {
+    return "CeilingFanHighCommand";
+  }
+};
+</pre>
+
+  <p>Тестирования</p>
+
+<pre>
+int main() {
+  RemoteControl* remoteControl = new RemoteControl;
+
+  CeilingFan* ceilingFan = new CeilingFan("Living room");
+  CeilingFanHighCommand* ceilingFanHigh =
+		new CeilingFanHighCommand(ceilingFan);
+  CeilingFanLowCommand* ceilingFanLow =
+		new CeilingFanLowCommand(ceilingFan);
+  CeilingFanMediumCommand* ceilingFanMedium =
+		new CeilingFanMediumCommand(ceilingFan);
+  CeilingFanOffCommand* ceilingFanOff =
+		new CeilingFanOffCommand(ceilingFan);
+
+  remoteControl->setCommand(0, ceilingFanLow, ceilingFanOff);
+  remoteControl->setCommand(1, ceilingFanMedium, ceilingFanOff);
+  remoteControl->setCommand(2, ceilingFanHigh, ceilingFanOff);
+
+  remoteControl->onButtonWasPushed(1);
+  remoteControl->offButtonWasPushed(1);
+  cout &lt;&lt; remoteControl->toString();
+
+  remoteControl->undoButtonWasPushed();
+  remoteControl->onButtonWasPushed(2);
+  cout &lt;&lt; remoteControl->toString();
+
+  remoteControl->undoButtonWasPushed();
+}
+</pre>
 </article>

@@ -17,8 +17,11 @@
   <h2>Содержание</h2>
 
   <p><a href="#p1">Стратегия</a></p>
-  <p><a href="#p2">Шаблонный метод</a></p>
-  <p><a href="#p3">Фабричный метод</a></p>
+  <p><a href="#p2">Определение паттерна Стратегия</a></p>
+  <p><a href="#p3">Шаблонный метод</a></p>
+  <p><a href="#p4">Шаблонный метод. Использование перехватчиков</a></p>
+  <p><a href="#p5">Фабричный метод</a></p>
+  <p><a href="#p6">Фабричный метод. Абстрактная фабрика</a></p>
 </article>
 
 
@@ -62,7 +65,7 @@
 
   <h4 class="center">Летающие утки</h4>
 
-  <p>Все получилось прекрасно. Но нам добавили задачу - утки должны летать.</p>
+  <p>Все получилось прекрасно. Но нам добавили задачу - утки должны летать. Добавим в класс Duck метод fly().</p>
 
   <div class="flexcol">
     <div class="flexrow">
@@ -96,7 +99,7 @@
 
   <h4 class="center">Резиновые утки</h4>
 
-  <p>Утки научились летать. Но нам добавили задачу - добавить резиновых уток, которые не умеют летать, но умеют плавать и крякать. Хотя крякают они не по-настоящему, а по своему.</p>
+  <p>Утки научились летать. Но нам добавили задачу - добавить резиновых уток, которые не умеют летать, но умеют плавать и крякать. Хотя крякают они не по-настоящему, а по своему. Добавим производный класс RubberDuck, в котором переопределим методы quack() и display().</p>
 
   <div class="flexcol">
     <div class="flexrow">
@@ -136,7 +139,7 @@
     </div>
   </div>
 
-  <p>Поскольку резиновые утки летать не умеют, то метод fly надо переопределить</p>
+  <p>Поскольку резиновые утки летать не умеют, то метод fly() надо переопределить</p>
 
   <div class="flexcol">
     <div class="flexrow">
@@ -153,7 +156,7 @@
 
   <h4 class="center">Деревянные утки</h4>
 
-  <p>Наступила осень. И нам добавили задачу - добавить деревянных уток, которые не умеют ни летать ни крякать, а только плавают.</p>
+  <p>Наступила осень. И нам добавили задачу - добавить деревянных уток, которые не умеют ни летать ни крякать, а только плавают. Добавим производный класс DecoyDuck, в котором переопределим методы quack(), display() и fly().</p>
 
   <div class="flexcol">
     <div class="flexrow">
@@ -170,12 +173,11 @@
 
   <h4 class="center">Выделение интерфейсов</h4>
 
-  <p>Получается уже два метода которые нужно переопределять так, чтобы их не было. Выделим эти методы в отдельные интерфейсы.</p>
+  <p>В классе RubberDuck метод fly() переопределяется так, чтобы его не было. В классе DecoyDuck уже два метода quack() и fly() переопределяются так, чтобы их не было.  Выделим эти методы в отдельные интерфейсы Flyable и Quackable.</p>
 
   <div class="flexcol">
     <div class="flexrow">
       <div>
-        <div class="border">Interface</div>
         <div class="border">Flyable</div>
         <div class="border">
           fly()
@@ -183,7 +185,6 @@
       </div>
 
       <div>
-        <div class="border">Interface</div>
         <div class="border">Quackable</div>
         <div class="border">
           quack()
@@ -191,7 +192,6 @@
       </div>
 
       <div>
-        <div class="border">Class</div>
         <div class="border">Duck</div>
         <div class="border">
           swim()
@@ -310,7 +310,9 @@ a.makeSound();
       <div>
         <div class="border">Dog</div>
         <div class="border">
-          makeSound() {bark();}
+          makeSound() {
+          <br>bark();
+          <br>}
           <br>bark() {гав-гав}
         </div>
       </div>
@@ -318,7 +320,9 @@ a.makeSound();
       <div>
         <div class="border">Cat</div>
         <div class="border">
-          makeSound() {meow();}
+          makeSound() {
+          <br>meow();
+          <br>}
           <br>meow() {мяу}
         </div>
       </div>
@@ -397,7 +401,6 @@ a.makeSound();
   <div class="flexcol">
     <div class="flexrow">
       <div>
-        <div class="border">Class</div>
         <div class="border">Duck</div>
         <div class="border">
           FlyBehavior flyBehavior
@@ -405,7 +408,7 @@ a.makeSound();
         </div>
         <div class="border">
           performQuack()
-          <br>sweem()
+          <br>swim()
           <br>display()
           <br>performFly()
         </div>
@@ -435,6 +438,8 @@ public class MallardDuck extends Duck {
 }
 </pre>
 
+  <h4>Реализация</h4>
+
 <pre>
 class Duck {
 protected:
@@ -444,23 +449,990 @@ protected:
   QuackBehavior* quackBehavior;
 
 public:
+  Duck() : flyBehavior(nullptr), quackBehavior(nullptr){}
+  ~Duck() {
+    delete flyBehavior;
+    delete quackBehavior;
+  }
+  void performFly() const {
+    flyBehavior->fly();
+  }
+  void performQuack() const {
+    quackBehavior->quack();
+  }
+  void swim() const {
+    cout &lt;&lt; "All ducks float\n";
+  }
+  virtual void display() const = 0;
+};
+</pre>
 
+<pre>
+class MallardDuck : public Duck {
+public:
+  MallardDuck() {
+    FlyBehavior = new FlyWithWings;
+    quackBehavior = new Quack;
+  }
+  void display() const {
+    cout &lt;&lt; "I'm a real Mallard duck\n";
+  }
+};
+</pre>
+
+<pre>
+class QuackBehavior {
+public:
+  virtual void quack() const = 0;
+};
+class Quack : public QuackBehavior {
+  void quack() const{
+    cout &lt;&lt; "Quack\n";
+  }
+};
+class MuteQuack : public QuackBehavior {
+  void quack() const{
+    cout &lt;&lt; "&lt;&lt;.........&gt;&gt;\n";
+  }
+};
+class Squeak : public QuackBehavior {
+  void quack() const{
+    cout &lt;&lt; "Squeak\n";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Duck* mallard = new MallardDuck;
+  mallard->performFly();
+  mallard->performQuack();
 }
 </pre>
+
+  <p>Результат</p>
+
+<pre>
+I am flying
+Quack
+</pre>
+
+  <h4>Динамическое изменение поведения</h4>
+
+<pre>
+class Duck{
+protected:
+//две ссылочные переменные с типами интерфейсов поведения
+//переменные наследуются всеми субклассами Duck
+  FlyBehavior* flyBehavior;
+  QuackBehavior* quackBehavior;
+public:
+  Duck() : flyBehavior(nullptr), quackBehavior(nullptr){}
+  ~Duck() {
+    delete flyBehavior;
+    delete quackBehavior;
+  }
+  virtual void display() const = 0;
+
+  void performFly() const {
+    flyBehavior->fly();
+  }
+  void performQuack() const {
+    quackBehavior->quack();
+  }
+  void swim() const {
+    cout &lt;&lt; "All ducks float\n";
+  }
+  void setFlyBehavior(FlyBehavior* _flyBehavior) {
+    flyBehavior = _flyBehavior;
+  }
+  void setQuackBehavior(QuackBehavior* _quackBehavior) {
+    quackBehavior = _quackBehavior;
+  }
+};
+</pre>
+
+<pre>
+class ModelDuck : public Duck {
+public:
+  ModelDuck() {
+    flyBehavior = new FlyNoWay;
+    quackBehavior = new Quack;
+  }
+  void display() const {
+    cout &lt;&lt; "I'm a model Duck\n";
+  }
+};
+</pre>
+
+<pre>
+class FlyBehavior {
+public:
+  virtual void fly() const = 0;
+};
+
+class FlyWithWings : public FlyBehavior {
+  void fly() const {
+    cout &lt;&lt; "I'm flying\n";
+  }
+};
+
+class FlyNoWay : public FlyBehavior {
+  void fly() const {
+    cout &lt;&lt; "I'm NOT flying\n";
+  }
+};
+
+class FlyRocketPowered : public FlyBehavior {
+  void fly() const {
+    cout &lt;&lt; "I'm flying with a rocket\n";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  Duck* mallard = new MallardDuck;
+  mallard->performFly();
+  mallard->performQuack();
+
+  Duck* model = new ModelDuck;
+  model->performFly();
+  model->setFlyBehavior(new FlyRocketPowered);
+  model->performFly();
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+I'm flying
+Quack
+I'm NOT flying
+I'm flying with a rocket
+</pre>
+
+  <h4>Диаграмма классов</h4>
+
+  <h4>Клиент</h4>
+  <p>Базовый класс Duck. Производные классы MallardDuck, RedheadDuck, RubberDuck, DecoyDuck.</p>
+
+  <p>Инкапсуляция fly</p>
+  <p>Интерфейс FlyBehavior содержит метод fly(). От него наследуются производные классы FlyWithWings и FlyNoWay.</p>
+
+  <p>Инкапсуляция quack</p>
+  <p>Интерфейс QuackBehavior содержит метод quack(). От него наследуются производные классы Quack, Squeak и MuteQuack.</p>
+</article>
+
+
+<!-- Определение паттерна Стратегия -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Определение паттерна Стратегия</h3>
+
+  <p>Паттерн Стратегия определяет семейство алгоритмов, инкапсулирует каждый из них и обеспечивает их взаимозаменяемость. Он позволяет модифицировать алгоритмы независимо от их использования на стороне клиента.</p>
 </article>
 
 
 <!-- Шаблонный метод -->
 <article class="article">
-  <div class="anchor" id="p2"></div>
+  <div class="anchor" id="p3"></div>
   <h3>Шаблонный метод</h3>
 
+  <h4>Рецепты в кофейне</h4>
+  <p>Рецепт кофе:</p>
+  <ol>
+    <li>Вскипятить воду</li>
+    <li>Заварить кофе в горячей воде</li>
+    <li>Перелить кофе в чашку</li>
+    <li>Добавить сахар и молоко</li>
+  </ol>
+
+  <p>Рецепт чая:</p>
+  <ol>
+    <li>Вскипятить воду</li>
+    <li>Заварить чай в горячей воде</li>
+    <li>Перелить чай в чашку</li>
+    <li>Добавить лимон</li>
+  </ol>
+
+  <h4>Классы для кофе и чая</h4>
+
+<pre>
+class Coffee {
+public:
+  void prepareRecipe() {
+    boilWater();
+    brewCoffeeGrinds();
+    pourInCap();
+    addSugarAndMilk();
+  }
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void brewCoffeeGrinds() {
+    cout &lt;&lt; "Dripping Coffee through filter\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+  void addSugarAndMilk() {
+    cout &lt;&lt; "Adding sugar and milk\n";
+  }
+};
+</pre>
+
+<pre>
+class Tea {
+  void prepareRecipe() {
+    boilWater();
+    steepTeaBag();
+    pourInCap();
+    addLemon();
+  }
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void steepTeaBag() {
+    cout &lt;&lt; "Steeping the tea\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+  void addLemon() {
+    cout &lt;&lt; "AddingLemon\n";
+  }
+};
+</pre>
+
+  <h4>Диаграмма классов</h4>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">CaffeineBevarage</div>
+        <div class="border">
+          prepareRecipe()
+          <br>boilWater()
+          <br>pourinCup()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">Coffee</div>
+        <div class="border">
+          prepareRecipe()
+          <br>brewCoffeeGrinds()
+          <br>addSugarAndMilk()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Tea</div>
+        <div class="border">
+          prepareRecipe()
+          <br>steep TeaBag()
+          <br>addLemon()
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Алгоритм работы:</p>
+  <ol>
+    <li>Вскипятить воду</li>
+    <li>Использовать горячую воду для настаивания кофе или чая</li>
+    <li>Перелить напиток в чашку</li>
+    <li>Добавить дополнения в напиток</li>
+  </ol>
+
+  <h4>Абстрагирование prepareRecipe()</h4>
+
+<pre>
+class Coffee {
+public:
+  void prepareRecipe() {
+    boilWater();
+    brewCoffeeGrinds();
+    pourInCup();
+    addSugarAndMilk();
+  }
+};
+</pre>
+
+<pre>
+class Tea {
+public:
+  void prepareRecipe() {
+    boilWater();
+    steepTeaBag();
+    pourInCup();
+    addLemon();
+  }
+};
+</pre>
+
+<pre>
+void prepareRecipe() {
+  boilWater();
+  brew();
+  pourInCup();
+  addCondiments();
+}
+</pre>
+
+  <h4>Класс CaffeineBevarage</h4>
+
+<pre>
+class CaffeineBeverage {
+public:
+  virtual void prepareRecipe() final {
+    boilWater();
+    brew();
+    pourInCap();
+    addCondiments();
+  }
+
+  virtual void brew() = 0;
+  virtual void addCondiments() = 0;
+
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+};
+</pre>
+
+  <p>Шаблонный метод определяет основные шаги алгоритма и позволяет субклассам предоставить реализацию одного или нескольких шагов.</p>
+
+  <h4>Реализация</h4>
+
+<pre>
+class CaffeineBeverage {
+public:
+  virtual void prepareRecipe() final {
+    boilWater();
+    brew();
+    pourInCap();
+    addCondiments();
+  }
+  virtual void brew() = 0;
+  virtual void addCondiments() = 0;
+
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+};
+</pre>
+
+<pre>
+class Coffee : public CaffeineBeverage {
+public:
+  void brew() {
+    cout &lt;&lt; "Dripping Coffee through filter\n";
+  }
+  void addCondiments() {
+    cout &lt;&lt; "Adding sugar and milk\n";
+  }
+};
+</pre>
+
+<pre>
+class Tea : public CaffeineBeverage {
+public:
+  void brew() {
+    cout &lt;&lt; "Steeping the tea\n";
+  }
+  void addCondiments() {
+    cout &lt;&lt; "Adding Lemon\n";
+  }
+};
+</pre>
+
+<pre>
+class CaffeineBeverage {
+public:
+  virtual void prepareRecipe() final {
+    boilWater();
+    brew();
+    pourInCap();
+    addCondiments();
+  }
+  virtual void brew() = 0;
+  virtual void addCondiments() = 0;
+
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+};
+</pre>
+
+<pre>
+class Tea : public CaffeineBeverage {
+public:
+  void brew() {
+    cout &lt;&lt; "Steeping the tea\n";
+  }
+  void addCondiments() {
+    cout &lt;&lt; "Adding Lemon\n";
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  CaffeineBeverage* tea = new Tea;
+  tea->prepareRecipe();
+}
+</pre>
+
+  <p>Результат работы программы</p>
+
+<pre>
+Boiling water
+Steeping the tea
+Pouring into cup
+Adding Lemon
+</pre>
+</article>
+
+
+<!-- Шаблонный метод. Использование перехватчиков -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Шаблонный метод. Использование перехватчиков</h3>
+
+<pre>
+class CaffeineBeverage {
+public:
+  virtual void prepareRecipe() final {
+    boilWater();
+    brew();
+    pourInCap();
+    if (customerWantsCondiments())
+      addCondiments();
+  }
+
+  virtual void brew() = 0;
+  virtual void addCondiments() = 0;
+
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+  virtual bool customerWantsCondiments() {
+    return true;
+  }
+};
+</pre>
+
+<pre>
+class CoffeeWithHook : public CaffeineBeverage {
+public:
+  void brew() {
+    cout &lt;&lt; "Dripping Coffee through filter\n";
+  }
+
+  void addCondiments() {
+    cout &lt;&lt; "Adding sugar and milk\n";
+  }
+
+  bool customerWantsCondiments() {
+    char answer;
+    cout &lt;&lt; "Would you like milk and sugar with your coffee (y/n)? ";
+    cin >> answer;
+    if (answer == 'y')
+      return true;
+    return false;
+  }
+};
+</pre>
+
+<pre>
+class CaffeineBeverage {
+public:
+  virtual void prepareRecipe() final {
+    boilWater();
+    brew();
+    pourInCap();
+    if (customerWantsCondiments())
+      addCondiments();
+  }
+
+  virtual void brew() = 0;
+  virtual void addCondiments() = 0;
+
+  void boilWater() {
+    cout &lt;&lt; "Boiling water\n";
+  }
+  void pourInCap() {
+    cout &lt;&lt; "Pouring into cup\n";
+  }
+  virtual bool customerWantsCondiments() {
+    return true;
+  }
+};
+</pre>
+
+<pre>
+class CoffeeWithHook : public CaffeineBeverage {
+public:
+  void brew() {
+    cout &lt;&lt; "Dripping Coffee through filter\n";
+  }
+
+  void addCondiments() {
+    cout &lt;&lt; "Adding sugar and milk\n";
+  }
+
+  bool customerWantsCondiments() {
+    char answer;
+    cout &lt;&lt; "Would you like milk and sugar with your coffee (y/n)? ";
+    cin >> answer;
+    if (answer == 'y')
+      return true;
+    return false;
+  }
+};
+</pre>
+
+<pre>
+int main() {
+  CaffeineBeverage* coffee = new CoffeeWithHook;
+  coffee->prepareRecipe();
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Boiling water
+Dripping Coffee through filter
+Pouring into cup
+Would you like milk and sugar your coffee (y/n)? y
+Adding sugar and milk
+</pre>
+
+  <h4>Принцип проектирования</h4>
+
+  <div class="flexcol">
+    <div class="flexrow">
+      <div>
+        <div class="border">CaffeineBevarage</div>
+        <div class="border">
+          prepareRecipe()
+          <br>boilWater()
+          <br>pourinCup()
+          <br>brew()
+          <br>addCondiments()
+        </div>
+      </div>
+    </div>
+
+    <div class="flexrow">
+      <div>
+        <div class="border">Coffee</div>
+        <div class="border">
+          brew()
+          <br>addCondiments()
+        </div>
+      </div>
+
+      <div>
+        <div class="border">Tea</div>
+        <div class="border">
+          brew()
+          <br>addCondiments()
+        </div>
+      </div>
+    </div>
+  </div>
 </article>
 
 
 <!-- Фабричный метод -->
 <article class="article">
-  <div class="anchor" id="p3"></div>
+  <div class="anchor" id="p5"></div>
   <h3>Фабричный метод</h3>
 
+  <h4>Определение изменяемых аспектов</h4>
+
+<pre>
+Pizza orderPizza() {
+  Pizza pizza = new Pizza();
+  pizza.prepare();
+  pizza.bake();
+  pizza.cut();
+  pizza.box();
+  return pizza;
+}
+</pre>
+
+<pre>
+Pizza* orderPizza(string type){
+  Pizza pizza;
+
+  if (type == "cheese") {
+    pizza = new CheesePizza();
+  } else if (type == "greek") {
+    pizza = new GreekPizza();
+  } else if (type == "pepperoni") {
+    pizza = new PepperoniPizza();
+  }
+
+  pizza.prepare();
+  pizza.bake();
+  pizza.cut();
+  pizza.box();
+  return pizza;
+}
+</pre>
+
+  <h4>Добавление новых типов пиццы</h4>
+
+<pre>
+Pizza* orderPizza(string type){
+  Pizza pizza;
+
+  if (type == "cheese") {
+    pizza = new CheesePizza();
+  } else if (type == "pepperoni") {
+    pizza = new PepperoniPizza();
+  } else if (type == "clam") {
+    pizza = newCalmPizza();
+  } else if (type == "veggie") {
+    pizza = new VeggiePizza();
+  }
+
+  pizza.prepare();
+  pizza.bake();
+  pizza.cut();
+  pizza.box();
+  return pizza;
+}
+</pre>
+
+  <h4>Инкапсуляция создания объектов</h4>
+
+<pre>
+class SimplePizzaFactory {
+public:
+  Pizza* createPizza(string type) {
+    Pizza* pizza = nullptr;
+    if (type == "cheese") {
+      pizza = new CheesePizza;
+    }
+    else if (type == "clam") {
+      pizza = new ClamPizza;
+    }
+    else if (type == "pepperoni") {
+      pizza = new PepperonyPizza; }
+
+    return pizza;
+  }
+};
+</pre>
+
+<pre>
+class PizzaStore {
+  SimplePizzaFactory* factory;
+public:
+  PizzaStore(SimplePizzaFactory* _factory) {
+    factory = _factory;
+  }
+  ~PizzaStore() {
+    delete factory;
+  }
+  Pizza* orderPizza(string type) {
+    Pizza* pizza = factory->createPizza(type);
+
+    pizza->prepare();
+    pizza->bake();
+    pizza->cut();
+    pizza->box();
+
+    return pizza;
+  }
+};
+</pre>
+
+  <h4>Классы пиццы</h4>
+
+<pre>
+class Pizza {
+public:
+  virtual void prepare() = 0;
+  virtual void bake() = 0;
+  virtual void cut() = 0;
+  virtual void box() = 0;
+};
+</pre>
+
+<pre>
+class CheesePizza : public Pizza {
+  void prepare() {
+    cout &lt;&lt; "Preparing cheese pizza\n";
+  }
+  void bake() {
+    cout &lt;&lt; "Baking cheese pizza\n";
+  }
+  void cut() {
+    cout &lt;&lt; "Cutting cheese pizza\n";
+  }
+  void box() {
+    cout &lt;&lt; "Boxing cheese pizza\n";
+  }
+};
+</pre>
+
+<pre>
+class ClamPizza : public Pizza {
+  void prepare() {
+    cout &lt;&lt; "Preparing clam pizza\n";
+  }
+  void bake() {
+    cout &lt;&lt; "Baking clam pizza\n";
+  }
+  void cut() {
+    cout &lt;&lt; "Cutting clam pizza\n";
+  }
+  void box() {
+    cout &lt;&lt; "Boxing clam pizza\n";
+  }
+};
+</pre>
+
+  <h4>Простая фабрика</h4>
+
+  <p>Класс PizzaStore с одним методом orderPizza(). Класс SimplePizzaFactory с одним методом createPizza(). Класс Pizza с методами prepare(), bake(), cut(), box(). От базового класса Pizza есть наследники: производные классы CheesePizza, VwggiePizza, ClamPizza, PepperoniPizza.</p>
+
+  <p>Работа программы</p>
+
+<pre>
+int main() {
+  PizzaStore* store = new PizzaStore(new SimplePizzaFactory);
+  Pizza* pizza = store->orderPizza("clam");
+
+  cout &lt;&lt; "_________________\n";
+
+  pizza = store->orderPizza("cheese");
+
+  cout &lt;&lt; "\n";
+  system("pause");
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Preparing clam pizza
+Baking clam pizza
+Cutting clam pizza
+Boxing clam pizza
+________________
+Preparing cheese pizza
+Baking cheese pizza
+Cutting cheese pizza
+Boxing cheese pizza
+</pre>
+
+  <h4>Расширение бизнеса</h4>
+
+  <p>Открываем пиццерию в Нью-Йорке и в Чикаго. В каждом городе пиццу готовят по-своему.</p>
+
+<pre>
+NYPizzaFactory nyFactory = new NYPizzaFactory();
+PizzaStore nyStore = new PizzaStore(nyFactory);
+nyStore.order("Vwggie");
+
+ChicagoPizzaFactory chicagoFactory = new ChicagoPizzaFactory();
+PizzaStore chicagoStore = new PizzaStore(chicagoFactory);
+chicagoStore.order("Veggie");
+</pre>
+
+  <h4>Пицца</h4>
+
+<pre>
+class Pizza {
+protected:
+  string name;
+  string dough;
+  string sauce;
+  vector&lt;string&gt; toppings;
+
+public:
+  string getName() {
+    return name;
+  }
+  void prepare() {
+    cout &lt;&lt; "Preparing cheese pizza\n";
+    cout &lt;&lt; "Tossing dough...\n";
+    cout &lt;&lt; "Adding sauce...\n";
+    cout &lt;&lt; "Adding toppings: \n";
+    for (int i = 0; i &lt; toppings.size(); i++) {
+      cout &lt;&lt; "   " &lt;&lt; toppings[i];
+    }
+  }
+  virtual void bake() {
+    cout &lt;&lt; "Bake for 20 minutes\n";
+  }
+  virtual void cut() {
+    cout &lt;&lt; "Cutting\n";
+  }
+  virtual void box() {
+    cout &lt;&lt; "Place to box\n";
+  }
+};
+</pre>
+
+<pre>
+class NYStyleCheesePizza : public Pizza {
+public:
+  NYStyleCheesePizza() {
+    name = "NY Style Sauce and Cheese Pizza";
+    dough = "Thin Crust Dough";
+    sauce = "Marinara Sauce";
+    toppings.push_back("Grated Reggiano Cheese");
+  }
+};
+</pre>
+
+<pre>
+class NYStyleClamPizza : public Pizza {
+public:
+  NYStyleClamPizza() {
+    name = "NY Style Sauce and Clam Pizza";
+    dough = "Thin Crust Dough";
+    sauce = "Marinara Sauce";
+    toppings.push_back("Clams");
+  }
+};
+</pre>
+
+<pre>
+class ChicagoStyleCheesePizza : public Pizza {
+public:
+  ChicagoStyleCheesePizza() {
+    name = "Chicago Style Deep Dish Cheese Pizza";
+    dough = "Extra Thick Crust Dough";
+    sauce = "Marinara Sauce";
+    toppings.push_back("Shredded Mozzarella Cheese");
+  }
+  void cut() {
+    cout &lt;&lt; "Cutting the pizza into square slices\n";
+  }
+};
+</pre>
+
+  <h4>Локализация операций по изготовлению пиццы</h4>
+
+<pre>
+class PizzaStore {
+public:
+  Pizza* orderPizza(string type) {
+    Pizza* pizza = createPizza(type);
+    pizza->prepare();
+    pizza->bake();
+    pizza->cut();
+    pizza->box();
+    return pizza;
+  }
+
+protected:
+  virtual Pizza* createPizza(string type) = 0;
+};
+</pre>
+
+<pre>
+class NYStylePizzaStore : public PizzaStore {
+public:
+  Pizza* createPizza(string type) {
+    Pizza* pizza = nullptr;
+    if (type == "cheese") {
+      pizza = new NYStyleCheesePizza;
+    }
+    else if (type == "clam") {
+      pizza = new NYStyleClamPizza;
+    }
+    else if (type == "pepperoni") {
+      pizza = new NYStylePepperoniPizza;
+    }
+    return pizza;
+  }
+};
+</pre>
+
+<pre>
+class ChicagoStylePizzaStore : public PizzaStore {
+public:
+  Pizza* createPizza(string type) {
+    Pizza* pizza = nullptr;
+    if (type == "cheese") {
+      pizza = new ChicagoStyleCheesePizza;
+    }
+    else if (type == "clam") {
+      pizza = new ChicagoStyleClamPizza;
+    }
+    else if (type == "pepperoni") {
+      pizza = new ChicagoStylePepperoniPizza;
+    }
+    return pizza;
+  }
+};
+</pre>
+
+  <h4>Классы-создатели</h4>
+
+  <p>Базовый класс PizzaStore с методами createPizza() и orderPizza(). Производные классы NYPizzaStore с методом createPizza() и ChicagoPizzaStore с методом createPizza().</p>
+
+  <h4>Классы-продукты</h4>
+  <p>Базовый класс Pizza. Производные классы NYStyleCheesePizza, NYStylePepperoniPizza, NYStyleClamPizza, NYStyleVeggiePizza, ChicagoStyleCheesePizza, ChicagoStylePepperoniPizza, ChicagoStyleClamPizza, ChicagoStyleVeggiePizza</p>
+
+  <p>Фабричный метод отвечает за создание объектов и инкапсулирует эту операцию в производном классе. Таким образом клиентский код в базовом классе отделяется от кода создания объекта в производном классе.</p>
+  <p>Фабричный метод объявляется абстрактным, чтобы производные классы предоставили реализацию создания объектов.</p>
+  <p>Фабричный метод возвращает некий тип Product, обычно используемый методами, определенными в базовом классе.</p>
+  <p>Фабричный метод изолирует клиента (код базового класса такой, как orderPizza()) от информации о конкретном типе создаваемого продукта.</p>
+  <p>Фабричный метод может быть параметризован для выбора между несколькими разновидностями продукта.</p>
+
+  <h4>Тестирование</h4>
+
+<pre>
+int main() {
+  PizzaStore* nyStore = new NYStylePizzaStore;
+  PizzaStore* chStore = new ChicagoStylePizzaStore;
+
+  Pizza* pizza;
+  pizza = nyStore->orderPizza("cheese");
+  cout &lt;&lt; "Ordered a " &lt;&lt; pizza->getName() &lt;&lt; "\n\n";
+
+  pizza = chStore->orderPizza("cheese");
+  cout &lt;&lt; "Ordered a " &lt;&lt; pizza->getName() &lt;&lt; "\n";
+
+}
+</pre>
+
+  <p><strong>Паттерн Фабричный Метод</strong> определяет интерфейс создания объекта, но позволяет производным классам выбрать класс создаваемого экземпляра. Таким образом, фабричный метод делегирует операцию создания экземпляра субклассам.</p>
+</article>
+
+
+<!-- Фабричный метод. Абстрактная фабрика -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Фабричный метод. Абстрактная фабрика</h3>
+
+  <h4>Различные наборы ингредиентов</h4>
+
+  <p>Пиццы делаются из одних компонентов, но в разных регионах используются разные реализации этих компонентов</p>
 </article>

@@ -1280,7 +1280,7 @@ th {
 }
 
 .border {
-  width: 120px;
+  min-width: 120px;
   border: 1px solid black;
 }
 
