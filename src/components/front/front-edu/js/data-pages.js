@@ -26,6 +26,7 @@ import htmlVgu2025Lec1ap  from './../pages/vgu2025cpp/lec1ap.html';
 import htmlVgu2025Lec2a   from './../pages/vgu2025cpp/lec2a.html';
 import htmlVgu2025Lec1bp  from './../pages/vgu2025cpp/lec1bp.html';
 import htmlVgu2025Lec2b   from './../pages/vgu2025cpp/lec2b.html';
+import htmlVgu2025Lec2bp  from './../pages/vgu2025cpp/lec2bp.html';
 import htmlVgu2025M1      from './../pages/vgu2025cpp/m1.html';
 import htmlVgu2025M2      from './../pages/vgu2025cpp/m2.html';
 
@@ -173,6 +174,7 @@ const htmlVgu2025Lec = [
   htmlVgu2025Lec2a,
   htmlVgu2025Lec1bp,
   htmlVgu2025Lec2b,
+  htmlVgu2025Lec2bp,
   htmlVgu2025M1,
   htmlVgu2025M2,
 ];

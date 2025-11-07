@@ -1,0 +1,181 @@
+<article class="article">
+  <h1>Практика по занятию 2 (06.11.2025 чт)</h1>
+</article>
+
+
+<div id="link-to-vgu2025cpp" class="btn-back">назад</div>
+
+
+<article class="article">
+  <p>2 группа. 17.00 - 20.00</p>
+  <h2>Паттерны проектирования</h2>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Паттерн Команда</a></p>
+</article>
+
+
+<!-- Паттерн Команда -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Паттерн Команда</h3>
+
+  <p>Задача. Окно может быть в трех состояниях: открыто, закрыто, проветривание.  Реализовать пульт на котором три кнопки: выполнить, отменить, вернуть</p>
+
+  <p>Файл Window.h</p>
+
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Window {
+public:
+  void open() {
+    cout &lt;&lt; "Window is open\n";
+  }
+  void close() {
+    cout &lt;&lt; "Window is close\n";
+  }
+  void wind() {
+    cout &lt;&lt; "Window is wind\n";
+  }
+};
+</pre>
+
+<p>Файл Command.h</p>
+
+<pre>
+#pragma once
+#include "Window.h"
+
+class Command {
+public:
+  virtual void execute() = 0;
+  virtual void undo() = 0;
+  virtual void redo() = 0;
+};
+
+class OpenCommand : public Command {
+  Window window;
+
+public:
+  OpenCommand(Window _w) : window(_w) {}
+  void execute() {
+    window.open();
+  }
+  void undo() {
+    window.close();
+  }
+  void redo() {
+    window.open();
+  }
+};
+
+class CloseCommand : public Command {
+  Window window;
+
+public:
+  CloseCommand(Window _w) : window(_w) {}
+  void execute() {
+    window.close();
+  }
+  void undo() {
+    window.open();
+  }
+  void redo() {
+    window.close();
+  }
+};
+
+class WindCommand : public Command {
+  Window window;
+
+public:
+  WindCommand(Window _w) : window(_w) {}
+  void execute() {
+    window.wind();
+  }
+  void undo() {
+    window.close();
+  }
+  void redo() {
+    window.wind();
+  }
+};
+
+class NoCommand : public Command {
+  void execute() {}
+  void undo() {}
+  void redo() {}
+};
+</pre>
+
+  <p>Файл RemoteControl.h</p>
+
+<pre>
+#pragma once
+#include "Command.h"
+
+class RemoteControl {
+  Command* command;
+
+public:
+  RemoteControl(Command* _c) : command(_c) {}
+  ~RemoteControl() { delete command; }
+  void setCommand(Command* _c) {
+    command = _c;
+  }
+  void pressButton() {
+    command->execute();
+  }
+  void pressUndo() {
+    command->undo();
+  }
+  void pressRedo() {
+    command->redo();
+  }
+};
+</pre>
+
+  <p>Файл ivan.cpp</p>
+
+<pre>
+#include "Window.h"
+#include "Command.h"
+#include "RemoteControl.h"
+
+int main() {
+  Window* window = new Window();
+  OpenCommand* open = new OpenCommand(*window);
+  RemoteControl* remote = new RemoteControl(open);
+  remote->pressButton();
+
+  CloseCommand* close = new CloseCommand(*window);
+  remote->setCommand(close);
+  remote->pressButton();
+
+  WindCommand* wind = new WindCommand(*window);
+  remote->setCommand(wind);
+  remote->pressButton();
+  remote->pressUndo();
+  remote->pressRedo();
+}
+</pre>
+
+  <p>Результат</p>
+
+<pre>
+Window is open
+Window is close
+Window is wind
+Window is close
+Window is wind
+</pre>
+</article>

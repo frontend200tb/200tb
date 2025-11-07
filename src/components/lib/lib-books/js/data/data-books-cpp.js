@@ -559,6 +559,19 @@ const dataBooksCpp = [
   },
 
   {
+    id: 41,
+    year: 2003,
+    category: 'code',
+    theme: 'c++',
+    title: 'Основы C++. Методы программной инженерии',
+    author: 'Штерн',
+    authorName: 'Виктор',
+    pages: '881',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 42,
     year: 2004,
     category: 'code',
@@ -1631,6 +1644,19 @@ const dataBooksCpp = [
     author: 'Липпман',
     authorName: 'Стенли',
     pages: '1118',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 121,
+    year: 2015,
+    category: 'code',
+    theme: 'c++',
+    title: 'Безопасное программирование на C и C++ (2е)',
+    author: 'Сикорд',
+    authorName: 'Роберт',
+    pages: '498',
     isLearned: false,
     dateLearned: '',
   },
