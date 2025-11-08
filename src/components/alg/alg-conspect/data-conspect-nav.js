@@ -1,4 +1,3 @@
-import showGustokashin from './gustokashin/gustokashin';
 import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
 import show1580        from './1580/1580';
@@ -8,14 +7,6 @@ import showAlgBooks    from './alg-books/alg-books';
 import showAlgCourses  from './alg-courses/alg-courses';
 
 export const dataConspectNav = [
-  {
-    url: 'gustokashin.html',
-    text: 'МГ',
-    content: '<alg-gustokashin></alg-gustokashin>',
-    act() {
-      showGustokashin();
-    },
-  },
   {
     url: 'fatin.html',
     text: 'МФ',
