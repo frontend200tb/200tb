@@ -1,0 +1,642 @@
+<article class="article">
+  <h1>2005 Михаил Майоров. Основы C++</h1>
+  <p>Конспект видео курса</p>
+  <p>11 уроков. Длительность 2ч 54м.</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#p1">1 Installation</a></p>
+  <p><a href="#p2">2 Variables</a></p>
+  <p><a href="#p3">3 Variables. if, if else</a></p>
+  <p><a href="#p4">4 Loops</a></p>
+  <p><a href="#p5">5 Arrays</a></p>
+  <p><a href="#p6">6 Arrays</a></p>
+  <p><a href="#p7">7 Arrays</a></p>
+  <p><a href="#p8">8 Functions</a></p>
+  <p><a href="#p9">9 Classes</a></p>
+  <p><a href="#p10">10 Classes</a></p>
+  <p><a href="#p11">11 Conclusion</a></p>
+
+</article>
+
+
+<!-- 1 Installation -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>1 Installation</h3>
+
+  <p>Для прохождения курса будем использовать Microsoft Visual C++ 2005 Express Edition. Это IDE, которая позволяет создавать проекты.</p>
+  <p>Откроем Visual C++ и создадим проект</p>
+  <ol>
+    <li>
+      <p>Выберем пункт меню</p>
+      <code>File - New - Project Ctrl+Shift+N</code>
+    </li>
+    <li>
+      <p>В открывшемся окне New Project на вкладке Project types выберем General, а на вкладке Templates выберем Empty Project</p>
+      <p>В поле Name напишем имя проекта first</p>
+      <p>В поле Location можно выбрать расположение проекта.</p>
+      <p>Нажимаем кнопку OK</p>
+    </li>
+    <li>
+      <p>В окне Solution Explorer появится наш проект first</p>
+    </li>
+    <li>
+      <p>В нашем проекте first появились три папки Header Files, Resource Files, Source Files. Header Files для заголовочных файлов. Source Files для исходных файлов на языке C++. Resource Files для файлов ресурсов, которые относятся только к Windows платформе и нас в данном курсе не интересует.</p>
+    </li>
+  </ol>
+  <p>Создадим наш первый файл</p>
+  <ol>
+    <li>
+      <p>Нажмем на папке Source Files и выберем пункт меню</p>
+      <code>Project - Add New Item Ctrl+Shift+A</code>
+    </li>
+    <li>
+      <p>В открывшемся окне Add New Item на вкладке Categories выберем Code, а на вкладке Templates выберем C++ File (.cpp)</p>
+      <p>В поле Name напишем имя файла main</p>
+      <p>В поле Location можно выбрать расположение файла.</p>
+      <p>Нажимаем кнопку ADD</p>
+    </li>
+    <li>
+      <p>В папке Source Files появится название файла main.cpp</p>
+    </li>
+    <li>Справа от окна Solution Explorer в новом окне откроется файл main.cpp</li>
+  </ol>
+  <p>Каждая программа на языке C++ начинает выполняться с функции main(). Напишем ее</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  cin.get();
+}
+</pre>
+  <p>Соберем наш проект. Выберем пункт меню</p>
+  <code>Build - Build Solution F7</code>
+  <p>Чтобы запустить процесс отладки нажимаем кнопку Start Debugging. Откроется консоль и мы увидим результат</p>
+  <code>Hello World!</code>
+  <p>Консоль не закрывается и ожидает от нас нажатия на любую клавишу. Это благодаря команде cin.get().</p>
+</article>
+
+
+<!-- 2 Variables -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2 Variables</h3>
+
+  <p>Напишем программу, которая вводит два числа и вычисляет их сумму. Прежде чем ввести два числа, нужно выделить для них память. Чтобы сохранить результат, нужно выделить память для хранения результата. Память в выделяется при помощи объявления переменных. Для объявления переменной сначала пишут ее тип, потом ее имя. Тип int означает целочисленную переменную.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  int y;
+  int z;
+
+  x = 12;
+  y = 23;
+  z = x + y;
+
+  cout &lt;&lt; z;
+}
+</pre>
+</article>
+
+
+<!-- 3 Variables. if, if else -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3 Variables. if, if else</h3>
+
+  <p>Ллогический тип данных может принимать одно из двух значений true или false. Условный оператор if в круглых скобках содержит условие, а в фигурных скобках - тело. Сначала оценивается условие, если оно равно true, то выполняется тело оператора, если равно false, то тело не выполняется</p>
+  <p>Создадим переменную со значением true. Проверим, что переменная равна значению true</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  bool x = true;
+
+  if (x == true) {
+    cout &lt;&lt; "true";
+  }
+}
+</pre>
+
+  <p>Создадим переменную со значением false. Проверим, что переменная не равна значению true</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  bool x = false;
+
+  if (x != true) {
+    cout &lt;&lt; "true";
+  }
+}
+</pre>
+
+  <p>Создадим целочисленную переменную x и введем ее значение с клавиатуры. Проверим, что переменная меньше 12.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+
+  if (x &lt; 12) {
+    cout &lt;&lt; "true";
+  } else {
+    cout &lt;&lt; "false";
+  }
+}
+</pre>
+</article>
+
+
+<!-- 4 Loops -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Loops</h3>
+
+  <p>Напишем цикл с помощью оператора for.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; "line " &lt;&lt; i &lt;&lt; endl;
+  }
+}
+</pre>
+
+  <p>Напишем цикл с помощью оператора while.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int i = 0;
+  while (i &lt; 5) {
+    cout &lt;&lt; "line " &lt;&lt; i &lt;&lt; endl;
+    i++;
+  }
+}
+</pre>
+
+  <p>Напишем цикл с помощью оператора do while.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int i = 0;
+  do {
+    cout &lt;&lt; "line " &lt;&lt; i &lt;&lt; endl;
+    i++;
+  } while (i &lt; 5);
+}
+</pre>
+</article>
+
+
+<!-- 5 Arrays -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5 Arrays</h3>
+
+  <p>Создадим массив из 20 целых чисел</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  x = 23;
+  int a[20];
+  a[0] = 12;
+  a[1] = 34;
+  a[2] = 56;
+}
+</pre>
+
+  <p>Зададим значения элементам массива в цикле</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a[20];
+  for (int i = 0; i &lt; 20; i++) {
+    a[i] = i + 1;
+  }
+  for (int i = 0; i &lt; 20; i++) {
+    cout &lt;&lt; a[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 6 Arrays -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Arrays</h3>
+
+  <p>Создадим массив и сразу проинициализируем его пятью элементами.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a = {12, 23, 34, 45, 56};
+  for (int i = 0; i &lt; 20; i++) {
+    cout &lt;&lt; a[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+  <p>Если в массиве a хранится база данных возрастов сотрудников, которые имеют ID. По номеру ID можно получить возраст из базы данных.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a = {12, 23, 34, 45, 56};
+  while (true) {
+    cout &lt;&lt; "Enter your ID ";
+    int ID = 0;
+    cin >> ID;
+    if (ID &lt; 0 || ID > 4) {
+      break;
+    }
+
+    cout &lt;&lt; "Age is " &lt;&lt; a[ID] &lt;&lt; endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- 7 Arrays -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Arrays</h3>
+
+  <p>Напишем алгоритм поиска максимального возраста id человека с таким возрастом.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a = {12, 23, 34, 45, 56};
+  int age = a[0];
+  int id = 0;
+  for (int i = 1; i &lt; 5; i++) {
+    if (age &lt; a[i]) {
+      age = a[i];
+      id = i;
+    }
+  }
+
+  cout &lt;&lt; "Age " &lt;&lt; age &lt;&lt; "has id = " &lt;&lt; id;
+}
+</pre>
+
+  <p>Найдем средний возраст работников.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a = {12, 23, 34, 45, 56};
+  int sum = 0;
+  for (int i = 0; i &lt; 5; i++) {
+    sum += a[i];
+  }
+  int average = sum / 5;
+
+  cout &lt;&lt; average;
+}
+</pre>
+</article>
+
+
+<!-- 8 Functions -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Functions</h3>
+
+  <p>Напишем функцию суммирования двух целых чисел.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int sum(int x, int y) {
+  return x + y;
+}
+
+int main() {
+  int a = 5;
+  int b = 10;
+
+  cout &lt;&lt; sum(a, b);
+}
+</pre>
+
+  <p>Напишем функцию суммирования целых чисел массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int sum(int arr[], size) {
+  int res = 0;
+  for (int i = 0; i &lt; size; i++) {
+    res += arr[i];
+  }
+  return res;
+}
+
+int main() {
+  int a = {12, 23, 34. 45, 56};
+
+  cout &lt;&lt; sum(a, 5);
+}
+</pre>
+</article>
+
+
+<!-- 9 Classes -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Classes</h3>
+
+  <p>Напишем класс Person, который содержин одно поле и один метод, который печатает значение поля.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Person {
+public:
+  int age;
+  char* name;
+
+  void printAge() {
+    cout &lt;&lt; age &lt;&lt; endl;
+  }
+  void printName() {
+    cout &lt;&lt; name &lt;&lt; endl;
+  }
+};
+
+int main() {
+  Person p1;
+  p1.age = 25;
+  p1.name = "Petr";
+  p1.printAge();
+  p1.printName();
+
+  Person p2;
+  p2.age = 35;
+  p2.name = "Vova";
+  p2.printAge();
+  p2.printName();
+}
+</pre>
+</article>
+
+
+<!-- 10 Classes -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Classes</h3>
+
+  <p>Весь код программы мы писали в одном файле. Обычно, когда программа содержит функцию и классы, то ее разбивают на несколько файлов. Создадим новый файл, в котором будет содержаться класс Person. Для этого выберем пункт меню</p>
+  <code>Project - Add Class</code>
+  <p>В открывшемся окне Add Class на вкладке Categories выберем C++, на вкладке Templates выберем C++ Class и нажмем кнопку Add.</p>
+  <p>В открывшемся окне Generic C++ Class Wizard в поле Class name напишем имя класса Person. Для него будут созданы заголовочный файл Person.h и исходный файл Person.cpp. Это хорошая практика держать декларацию класса отдельно от его реализации. Нажимаем на кнопку Finish</p>
+  <p>В папке Header Files появится файл Person.h. В папке Source Files появится файл Person.cpp.</p>
+
+  <p>Файл Person.h будет уже иметь начальный код</p>
+<pre>
+#pragma once
+
+class Person {
+public:
+  Person();
+  ~Person();
+};
+</pre>
+
+  <p>Файл Person.cpp будет уже иметь начальный код</p>
+<pre>
+#include "Person.h"
+
+Person::Person() {}
+Person::~Person() {}
+</pre>
+
+  <p>Теперь напишем свой класс Person в файлах Person.h и Person.cpp и уберем его из файла main.cpp.</p>
+
+  <p>Файл Person.h</p>
+<pre>
+#pragma once
+
+class Person {
+public:
+  int age;
+  char* name;
+
+  Person();
+  ~Person();
+  void printAge();
+  void printName();
+};
+</pre>
+
+  <p>Файл Person.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+Person::Person() {}
+Person::~Person() {}
+
+void Person::printAge() {
+  cout &lt;&lt; age &lt;&lt; endl;
+}
+void Person::printName() {
+  cout &lt;&lt; name &lt;&lt; endl;
+}
+</pre>
+
+  <p>Файл main.cpp.</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+int main() {
+  Person p1;
+  p1.age = 25;
+  p1.name = "Petr";
+  p1.printAge();
+  p1.printName();
+
+  Person p2;
+  p2.age = 35;
+  p2.name = "Vova";
+  p2.printAge();
+  p2.printName();
+}
+</pre>
+</article>
+
+
+<!-- 11 Conclusion -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h3>11 Conclusion</h3>
+
+  <p>Для класса Person напишем конструктор. Конструктор класса это функция, которая проводит начальную инициализацию объекта во время его создания.</p>
+
+  <p>Файл Person.h</p>
+<pre>
+#pragma once
+
+class Person {
+public:
+  int age;
+  char* name;
+
+  Person(int _age, char* _name);
+  ~Person();
+  void printAge();
+  void printName();
+};
+</pre>
+
+  <p>Файл Person.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+Person::Person(int _age, char* _name) {
+  age = _age;
+  name = _name;
+}
+Person::~Person() {}
+
+void Person::printAge() {
+  cout &lt;&lt; age &lt;&lt; endl;
+}
+void Person::printName() {
+  cout &lt;&lt; name &lt;&lt; endl;
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+int main() {
+  Person p1(25, "Petr");
+  p1.printAge();
+  p1.printName();
+
+  Person p2(35, "Vova");
+  p2.printAge();
+  p2.printName();
+}
+</pre>
+
+  <p>Добавим конструктор по умолчанию, для того чтобы можно было создавать объекты класса Person без параметров.</p>
+
+  <p>Файл Person.h</p>
+<pre>
+#pragma once
+
+class Person {
+public:
+  int age;
+  char* name;
+
+  Person();
+  Person(int _age, char* _name);
+  ~Person();
+  void printAge();
+  void printName();
+};
+</pre>
+
+  <p>Файл Person.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+Person::Person() {}
+Person::Person(int _age, char* _name) {
+  age = _age;
+  name = _name;
+}
+Person::~Person() {}
+
+void Person::printAge() {
+  cout &lt;&lt; age &lt;&lt; endl;
+}
+void Person::printName() {
+  cout &lt;&lt; name &lt;&lt; endl;
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Person.h"
+
+using namespace std;
+
+int main() {
+  Person p[5];
+  p[0].age = 25;
+  p[0].name = "Petr";
+  p[0].printAge();
+  p[0].printName();
+}
+</pre>
+</article>

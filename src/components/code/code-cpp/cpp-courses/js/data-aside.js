@@ -4,4 +4,5 @@ export const asideThemes = [
   'codelessons<br>Уроки программирования',
   'metanit<br>Руководство по C++',
   'yandex<br>Основы C++',
+  '2005 Майоров',
 ];

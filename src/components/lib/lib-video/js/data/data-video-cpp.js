@@ -2,6 +2,22 @@ const dataVideoCpp = [
 
   {
     id: 1,
+    year: 2005,
+    date: '',
+    category: 'code',
+    theme: 'c++',
+    title: 'Основы C++',
+    author: 'Михаил Майоров',
+    name: '',
+    numberLessons: '11 уроков',
+    time_h_m: [2, 54],
+    size: '2.4 gb',
+    isLearned: true,
+    dateLearned: '2025.11.09 вс',
+  },
+
+  {
+    id: 1,
     year: 2015,
     date: '',
     category: 'code',
