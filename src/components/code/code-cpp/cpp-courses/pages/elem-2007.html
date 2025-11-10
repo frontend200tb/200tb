@@ -1,0 +1,380 @@
+<article class="article">
+  <h1>2007 Базовые функции C++</h1>
+  <p>Конспект видео курса</p>
+  <p>20 уроков. Длительность 3ч 48м.</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#p0">Урок 0</a></p>
+  <p><a href="#p1">Урок 1. Вводный</a></p>
+  <p><a href="#p2">Урок 2. Переменные</a></p>
+  <p><a href="#p3">Урок 3. Логика</a></p>
+  <p><a href="#p4">Урок 4. Циклы</a></p>
+  <p><a href="#p5">Урок 5. Массивы</a></p>
+  <p><a href="#p6">Урок 6. Ссылки</a></p>
+  <p><a href="#p7">Урок 7. Функции</a></p>
+
+</article>
+
+
+<!-- Урок 0 -->
+<article class="article">
+  <div class="anchor" id="p0"></div>
+  <h3>Урок 0</h3>
+
+  <p>Для прохождения курса будем использовать Dev-C++ 4.9.9.2.</p>
+
+</article>
+
+
+<!-- Урок 1. Вводный -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Урок 1. Вводный</h3>
+
+  <p>Напишем первую программу</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+}
+</pre>
+
+  <p>Если консоль сама закрывается, то можно использовать несколько методов, чтобы оставить ее открытой до нажатия на клавишу.</p>
+  <p>Системная команда PAUSE из библиотеки iostream для задержки консольного окна.</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  system("PAUSE");
+}
+</pre>
+  <p>В результате октроется консоль и мы увидим фразу</p>
+  <code>Для продолжения нажмите любую клавишу . . .</code>
+  <p>Консоль будет ожидать нажатия клавиши, прежде чем закрыться.</p>
+  <p>Можно задержать консоль и без вывода этой фразы.</p>
+<pre>
+#include &lt;iostream&gt;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  system("PAUSE >> void");
+}
+</pre>
+
+  <p>Функция getchar() из библиотеки stdio.h для задержки консольного окна</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  getchar();
+}
+</pre>
+
+  <p>Функция getch() из библиотеки conio.h для задержки консольного окна</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;conio.h&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World!";
+  getch();
+}
+</pre>
+</article>
+
+
+<!-- Урок 2. Переменные -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>Урок 2. Переменные</h3>
+
+  <p>Объявление переменной и инициализация переменной</p>
+  <code>int x;</code>
+  <code>x = 5;</code>
+
+  <p>Можно в одной строчке объявить и инициализировать переменную</p>
+  <code>int x = 5;</code>
+
+  <p>Выведем значение переменной, используя функцию printf из библиотеки stdio.h</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+using namespace std;
+
+int main() {
+  int x = 5;
+  printf("%i", x);
+}
+</pre>
+
+  <p>Добавим еще одну переменную и выведем ее</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+using namespace std;
+
+int main() {
+  int x = 5;
+  int y = x + 5;
+  printf("%i", y);
+}
+</pre>
+
+  <p>Объявим переменную с плавающей точкой.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+using namespace std;
+
+int main() {
+  float x = 5.5;
+  printf("%f", x);
+}
+</pre>
+
+  <p>Объявим переменную двойной точности</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  double x = 5.56;
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Объявим символьную переменную</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char x = 'a';
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Объявим строковую переменную</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string x = "strelok";
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Введем число и выведем его</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x;
+  cin >> x;
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Введем вещественное число и выведем его</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  double x;
+  cin >> x;
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Введем символ и выведем его</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char x;
+  cin >> x;
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Введем строку и выведем ее. Функция cin запишет в строковую переменную строку только до первого пробельного символа.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string x;
+  cin >> x;
+  cout &lt;&lt; x;
+}
+</pre>
+
+  <p>Введем строку до конца, вместе с пробельными символами. Функция getline() принимает два аргумента, первый это поток cin откуда брать строку, а второй это переменная x куда записывать строку.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string x;
+  getline(cin, x);
+  cout &lt;&lt; x;
+}
+</pre>
+</article>
+
+
+<!-- Урок 3. Логика -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>Урок 3. Логика</h3>
+
+  <p>Тип данных bool содержит переменную логического типа, принимающую одно из двух значений true или false. Выражения, возвращающие логические значения используются в условных операторах.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x = 45;
+  if (x &lt; 50) {
+    cout &lt;&lt; "x &lt; 50";
+  } else if (x > 50) {
+    cout &lt;&lt; "x > 50";
+  } else {
+    cout &lt;&lt; "x = 50";
+  }
+}
+</pre>
+</article>
+
+
+<!-- Урок 4. Циклы -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>Урок 4. Циклы</h3>
+
+  <p>Напишем цикл while</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 5;
+
+  while (n != 0) {
+    cout &lt;&lt; "n = " &lt;&lt; n &lt;&lt; endl;
+    n--;
+  }
+}
+</pre>
+
+  <p>Напишем цикл do while</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 5;
+
+  do {
+    cout &lt;&lt; "n = " &lt;&lt; n &lt;&lt; endl;
+    n--;
+  } while (n != 0);
+}
+</pre>
+
+  <p>Напишем цикл for</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; "i = " &lt;&lt; i &lt;&lt; endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- Урок 5. Массивы -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>Урок 5. Массивы</h3>
+
+  <p>Создадим массив из пяти нулей.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int x[5] = {0};
+  x[2] = 10;
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; x[i] &lt;&lt; endl;
+  }
+}
+</pre>
+
+  <p>Создадим массив из простых чисел.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+int main() {
+  const int size = 1000;
+  int A[size] = {};
+  for (int i = 2; i &lt; size; i++) {
+    if(A[i] == 0) {
+      for (int j = i; j &lt; size; j += i) {
+        A[i] = 2;
+      }
+      A[i] = 1;
+    }
+  }
+  int cnt = 0;
+  for (int i = 0; i &lt; size; i++) {
+    if (A[i] == 1) {
+      cout &lt;&lt; setw(6) &lt;&lt; "   ";
+      cnt++;
+      if (cnt % 5) {
+        cout &lt;&lt; endl;
+      }
+    }
+  }
+}
+</pre>
+</article>
