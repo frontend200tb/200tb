@@ -17,6 +17,7 @@
   <p><a href="#p5">Урок 5. Массивы</a></p>
   <p><a href="#p6">Урок 6. Ссылки</a></p>
   <p><a href="#p7">Урок 7. Функции</a></p>
+  <p><a href="#p8">Урок 8. Крестики-нолики</a></p>
 
 </article>
 
@@ -347,10 +348,9 @@ int main() {
 }
 </pre>
 
-  <p>Создадим массив из простых чисел.</p>
+  <p>Создадим массив из простых чисел. Для этого соберем Решето Эратосфена. Выведем числа по 5 в строке.</p>
 <pre>
 #include &lt;iostream&gt;
-#include &lt;iomanip&gt;
 
 using namespace std;
 
@@ -360,7 +360,7 @@ int main() {
   for (int i = 2; i &lt; size; i++) {
     if(A[i] == 0) {
       for (int j = i; j &lt; size; j += i) {
-        A[i] = 2;
+        A[j] = 2;
       }
       A[i] = 1;
     }
@@ -368,13 +368,177 @@ int main() {
   int cnt = 0;
   for (int i = 0; i &lt; size; i++) {
     if (A[i] == 1) {
-      cout &lt;&lt; setw(6) &lt;&lt; "   ";
+      cout &lt;&lt; i &lt;&lt; " ";
       cnt++;
-      if (cnt % 5) {
-        cout &lt;&lt; endl;
+      if (cnt % 5 == 0) {
+        cout &lt;&lt; '\n';
       }
     }
   }
 }
 </pre>
+
+  <p>Напишем поле для игры в крестики-нолики. Пользователь вводит цифру от 0 до 8 и крестик попадает в нужную клетку.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "0|1|2" &lt;&lt; '\n';
+  cout &lt;&lt; "3|4|5" &lt;&lt; '\n';
+  cout &lt;&lt; "6|7|8" &lt;&lt; '\n';
+  cout &lt;&lt; "Enter number 0 .. 8 ";
+  int choice;
+  cin >> choice;
+
+  if (choice >= 0 and choice &lt;= 8) {
+    int x = choice / 3;
+    int y = choice % 3;
+    char board[3][3] = {};
+    board[x][y] = 'X';
+    for (int i = 0; i &lt; 3; i++) {
+      for (int j = 0; j &lt; 3; j++) {
+        cout &lt;&lt; board[i][j];
+        if (j != 2) {
+          cout &lt;&lt; '|';
+        }
+      }
+      cout &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+</article>
+
+
+<!-- Урок 6. Ссылки -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>Урок 6. Ссылки</h3>
+
+  <p>Создадим структуру Person</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+struct Person {
+  int age;
+  int height;
+  int weight;
+  string name;
+  string job;
+};
+
+bool isAdult(Person p) {
+  cout &lt;&lt; sizeof(p) &lt;&lt; '\n';
+  if (p.age > 18) {
+    return true;
+  }
+  return false;
+}
+
+int main() {
+  Person dasha = {20, 160, 50, "Dasha", "Student"};
+  bool flag = false;
+  if (isAdult(dasha)) {
+    bool flag = true;
+  }
+  cout &lt;&lt; dasha.name &lt;&lt; " is ";
+  if (!flag) {
+    cout &lt;&lt; "not ";
+  }
+  cout &lt;&lt; "adult\n";
+}
+</pre>
+
+  <p>bool isAdult(Person p). Если параметр функции это объект, то при передаче объекта в функцию, весь объект должен скопироваться, во временный объект с которым будет работать функция.</p>
+  <p>Если объект большой, то будет копироваться много памяти.</p>
+  <p>Если внутри функции будет изменено поле объекта, например p.age = 14, то сам объект внутри функции main не изменится.</p>
+  <p>bool isAdult(Person &p). Если параметр функции это ссылка на объект, то при передаче объекта в функцию, скопируется ссылка на объект, а функция будет работать с самим объектом.</p>
+  <p>Не зависимо от размера объекта будет копироваться только 8 байт, которые занимает адрес на ячейку памяти.</p>
+  <p>Если внутри функции будет изменено поле объекта, например p.age = 14, то и сам объект внутри функции main изменится.</p>
+  <p>bool isAdult(const Person &p). Если параметр функции ссылка с модификатором const, то программа не скомпилируется, если внутри функции будет изменяться объект.</p>
+</article>
+
+
+<!-- Урок 7. Функции -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>Урок 7. Функции</h3>
+
+  <p>Напишем функцию перевода градусов по цельсию в градусы по фаренгейту.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+double cToF(double celsius) {
+  return 9 * celsius / 5 + 32;
+}
+
+int main() {
+  cout &lt;&lt; "Please enter temperature in Celcius: ";
+  double tempC;
+  cin >> tempC;
+  cout &lt;&lt; "Temperature in Fahrenheit is: " &lt;&lt; cToF(tempC);
+}
+</pre>
+
+  <p>Напишем функцию, которая принимает массив вещественных чисел и возвращает среднее значение. Передадим в эту функцию массив из четырех оценок американских студентов.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+double average(double arr[], int size) {
+  double sum = 0;
+  for (int i = 0; i &lt; size; i++) {
+    sum += arr[i];
+  }
+  return sum / size;
+}
+
+int main() {
+  double grades[] = {86, 73, 92, 78};
+  int n = sizeof(grades) / sizeof(grades[0]);
+  cout &lt;&lt; average(grades, n);
+}
+</pre>
+
+  <p>Напишем функцию сортировки массива целых чисел. В функцию передадим указатель на массив, при этом внутри функции не будет создана копия массива, а функция отсортирует оригинальный массив.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void sortArr(int *arr, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = i; j &lt; n; j++) {
+      if (arr[j] &lt; arr[i]) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+      }
+    }
+  }
+}
+
+int main() {
+  int A[] = {5, 12, 17, 3, 7, 126, 1};
+  int size = sizeof(A) / sizeof(A[0]);
+  sortArr(A, size);
+  for (int i = 0; i &lt; size; i++) {
+    cout &lt;&lt; A[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+</article>
+
+
+<!-- Урок 8. Крестики-нолики -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>Урок 8. Крестики-нолики</h3>
 </article>

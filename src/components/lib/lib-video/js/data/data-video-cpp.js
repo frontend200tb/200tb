@@ -17,6 +17,22 @@ const dataVideoCpp = [
   },
 
   {
+    id: 2,
+    year: 2007,
+    date: '',
+    category: 'code',
+    theme: 'c++',
+    title: 'Базовые функции C++',
+    author: 'Стрелок',
+    name: 'Паша',
+    numberLessons: '8 уроков',
+    time_h_m: [3, 48],
+    size: '386 mb',
+    isLearned: true,
+    dateLearned: '2025.11.11 вт',
+  },
+
+  {
     id: 1,
     year: 2015,
     date: '',
