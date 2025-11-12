@@ -1,7 +1,7 @@
 <article class="article">
   <h1>2007 Базовые функции C++</h1>
   <p>Конспект видео курса</p>
-  <p>20 уроков. Длительность 3ч 48м.</p>
+  <p>8 уроков. Длительность 3ч 48м.</p>
 </article>
 
 
@@ -541,4 +541,136 @@ int main() {
 <article class="article">
   <div class="anchor" id="p8"></div>
   <h3>Урок 8. Крестики-нолики</h3>
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+char board[9] = {'-', '-', '-', '-', '-', '-', '-', '-', '-'};
+
+void clearscreen() {
+  for (int i = 0; i &lt; 40; i++) {
+    cout &lt;&lt; endl;
+  }
+}
+
+void clearboard() {
+  for (int i = 0; i &lt; 9; i++) {
+    board[i] = '-';
+  }
+}
+
+bool has_wonQ(char player) {
+  int wins[][3] = {{0,1,2}, {3,4,5}, {6,7,8},
+  {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
+
+  for (int i = 0; i &lt; 8; i++) {
+    int count = 0;
+    for (int j = 0; j &lt; 3; j++) {
+      if(board[wins[i][j]] == player) {
+        count++;
+      }
+    }
+    if(count == 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+void print_board() {
+  cout &lt;&lt; "Game board:\n";
+  cout &lt;&lt; "-" &lt;&lt; board[6] &lt;&lt; "-|-"
+       &lt;&lt; board[7] &lt;&lt; "-|-"
+       &lt;&lt; board[8] &lt;&lt; "-\n";
+  cout &lt;&lt; "-" &lt;&lt; board[3] &lt;&lt; "-|-"
+       &lt;&lt; board[4] &lt;&lt; "-|-"
+       &lt;&lt; board[5] &lt;&lt; "-\n";
+  cout &lt;&lt; "-" &lt;&lt; board[0] &lt;&lt; "-|-"
+       &lt;&lt; board[1] &lt;&lt; "-|-"
+       &lt;&lt; board[2] &lt;&lt; "-\n";
+}
+
+int get_move() {
+  cout &lt;&lt; "\nMove options: \n";
+  cout &lt;&lt; "-7-|-8-|-9-\n";
+  cout &lt;&lt; "-4-|-5-|-6-\n";
+  cout &lt;&lt; "-1-|-2-|-3-\n\n";
+
+  print_board();
+  cout &lt;&lt; "\nYour move: ";
+
+  int move;
+  cin >> move;
+  while(move > 9 || move &lt; 1 || board[move-1] != '-') {
+    cout &lt;&lt; "Please enter a legal move (1-9):\n";
+    cin >> move;
+  }
+  return move;
+}
+
+char play_and_get_winner() {
+  int turn = 1;
+
+  while(!has_wonQ('X') && !has_wonQ('O')) {
+    clearscreen();
+    int move = get_move();
+    cout &lt;&lt; "The move you entered is: " &lt;&lt; move &lt;&lt; endl;
+    if (turn % 2 == 1) {
+      board[move-1] = 'X';
+      if (has_wonQ('X')) {
+        cout &lt;&lt; "Congratulations player X! You have won!\n";
+        return 'X';
+      }
+    } else {
+      board[move-1] = 'O';
+      if (has_wonQ('O')) {
+        cout &lt;&lt; "Congratulations player O! You have won!\n";
+        return 'O';
+      }
+    }
+    turn++;
+    if (turn == 10) {
+      cout &lt;&lt; "\t   It's a draw!\n";
+      return 'D';
+    }
+  }
+}
+
+int main() {
+  cout &lt;&lt; "Welcome to tic-tac-toe!\n\n";
+  string reply = "y";
+  int x_wins = 0, o_wins = 0, ties = 0;
+
+  while (reply == "y") {
+    clearboard();
+    char winner = play_and_get_winner();
+    print_board();
+
+    switch(winner) {
+      case 'X':
+        x_wins++;
+        break;
+      case 'O':
+        o_wins++;
+        break;
+      case 'D':
+        ties++;
+        break;
+    }
+
+    cout &lt;&lt; "\n\t*Winner Statistics*\nPlayer X: "
+         &lt;&lt; x_wins &lt;&lt; ", Player O: "
+         &lt;&lt; o_wins &lt;&lt; " and Ties: "
+         &lt;&lt; ties &lt;&lt; "\n\n";
+    cout &lt;&lt; "\nWould you like to play again? (y/n): ";
+    cin >> reply;
+    while (reply != "y" && reply != "n") {
+      cout &lt;&lt; "Please enter a valid reply (y/n): ";
+      cin >> reply;
+    }
+  }
+}
+</pre>
 </article>

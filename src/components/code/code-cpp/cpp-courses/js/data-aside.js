@@ -6,4 +6,5 @@ export const asideThemes = [
   'yandex<br>Основы C++',
   '2005 Майоров',
   '2007 cplus-plus.ru',
+  '2008 C++',
 ];

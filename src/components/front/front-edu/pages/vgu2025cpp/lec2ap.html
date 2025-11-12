@@ -1,0 +1,278 @@
+<article class="article">
+  <h1>Практика по занятию 2 Наследование (10.11.2025 пн)</h1>
+</article>
+
+
+<div id="link-to-vgu2025cpp" class="btn-back">назад</div>
+
+
+<article class="article">
+  <p>1 группа. 15.00 - 18.00</p>
+  <h2>Лабораторная работа 2</h2>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">1. Кольца</a></p>
+  <p><a href="#p2">2. Дачная война</a></p>
+</article>
+
+
+<!-- 1. Кольца -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>1. Кольца</h3>
+
+  <p>Написать систему классов для хранения информации о ювелирных кольцах.</p>
+  <ol>
+    <li>Кольца бывают золотые и серебряные</li>
+    <li>Цена кольца определяется весом и ценой грамма металла</li>
+    <li>При этом на золотые кольца делается наценка 5%, а на серебряные - 10%</li>
+    <li>Золотые кольца еще бывают с камнем</li>
+    <li>При этом для колец с камнем наценка на металл не делается, а к стоимости добавляется стоимость камня.</li>
+    <li>Предусмотреть вывод информации о кольце на экран</li>
+    <li>Создать массив из нескольких колец разного вида. И вывести в цикле информацию об этих кольцах</li>
+  </ol>
+
+  <p>Файл ivan.cpp</p>
+<pre>
+#include "Ring.h"
+
+int main() {
+  Ring* ring1 = new GoldRing(1, 1);
+  Ring* ring2 = new SilverRing(1, 1);
+  Ring* ring3 = new RingWithStone(1, 1, 1);
+
+  Ring* A[] = { ring1, ring2, ring3 };
+
+  for (auto r : A) {
+    r->print();
+  }
+}
+</pre>
+
+  <p>Файл Ring.h</p>
+<pre>
+#pragma once
+
+class Ring {
+protected:
+  double weight;
+  double cenaZaGram;
+
+public:
+  Ring(double, double);
+  ~Ring() {}
+  virtual double cena() = 0;
+  virtual void print() = 0;
+};
+
+class GoldRing : public Ring {
+  double nacenka;
+
+public:
+  GoldRing(double, double);
+  ~GoldRing() {}
+  double cena();
+void print();
+};
+
+
+class SilverRing : public Ring {
+  double nacenka;
+
+public:
+  SilverRing(double, double);
+  ~SilverRing() {}
+  double cena();
+void print();
+};
+
+class RingWithStone : public GoldRing {
+  double cenaStone;
+
+public:
+  RingWithStone(double, double, double);
+  ~RingWithStone() {}
+  double cena();
+void print();
+};
+</pre>
+
+  <p>Файл Ring.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Ring.h"
+
+using namespace std;
+
+Ring::Ring(double _w, double _c) : weight(_w), cenaZaGram(_c) {}
+
+GoldRing::GoldRing(double _w, double _c) : Ring(_w, _c), nacenka(5) {}
+
+double GoldRing::cena() {
+  return weight * cenaZaGram + nacenka * (weight * cenaZaGram) / 100;
+}
+
+void GoldRing::print() {
+  cout &lt;&lt; "Gold ring, weight = " &lt;&lt; weight;
+  cout &lt;&lt; " cena = " &lt;&lt; cena() &lt;&lt; '\n';
+}
+
+SilverRing::SilverRing(double _w, double _c) : Ring(_w, _c), nacenka(10) {}
+
+double SilverRing::cena() {
+  return weight * cenaZaGram + nacenka * (weight * cenaZaGram) / 100;
+}
+
+void SilverRing::print() {
+  cout &lt;&lt; "Silver ring, weight = " &lt;&lt; weight;
+  cout &lt;&lt; " cena = " &lt;&lt; cena() &lt;&lt; '\n';
+}
+
+RingWithStone::RingWithStone(double _w, double _c, double _cs) : GoldRing(_w, _c), cenaStone(_cs) {}
+
+double RingWithStone::cena() {
+  return weight * cenaZaGram + cenaStone;
+}
+
+void RingWithStone::print() {
+  cout &lt;&lt; "Gold ring with stone, weight = " &lt;&lt; weight;
+  cout &lt;&lt; " cena = " &lt;&lt; cena() &lt;&lt; '\n';
+}
+</pre>
+</article>
+
+
+<!-- 2. Дачная война -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2. Дачная война</h3>
+
+  <p>Дачная война. В задаче участвуют объекты: дачник, кроты (мужского и женского пола). На игровом поле располагаются грядки, на которых выращивается урожай. Дачник перемещается по полю к ближайшему кроту, который находится на поверхности, и имеет параметры: скорость перемещения и радиус удара. Кроты хаотично перемещаются по полю под землей и хаотично вылезают на поверхность. Если крот вылез на поверхность, то он находится на ней некоторое время и уничтожает какое-то количество урожая. При движении под землей крот не видит движения дачника. Если кроты мужского и женского пола встретятся под землей, то они замирают и через некоторое время у них появляется еще один крот. Перед запуском задаются параметры дачника, размер игрового поля, количество и тип кротов. Игра считается оконченной, если будет уничтожен весь урожай, или погибнут все кроты.</p>
+
+  <p>Файл ivan.cpp</p>
+<pre>
+#include "Field.h"
+#include "Farmer.h"
+#include "Krot.h"
+
+int main() {
+  // начальные условия
+  int widthField = 10; // ширина поля
+  int heightField = 10; // высота поля
+  int speedFarmer = 2; // скорость дачника
+  int radiusFarmer = 3; // радиус удара дачника
+  int xFarmer = 1; // начальная координата x дачника
+  int yFarmer = 1; // начальная координата y дачника
+  int cntMale = 2; // количество кротов мужского пола
+  int cntFemale = 1; // количество кротов женского пола
+
+  // создаем объекты игры
+  Field* field = new Field(widthField, heightField);
+  Farmer* farmer = new Farmer(speedFarmer, radiusFarmer, xFarmer, yFarmer);
+  Krot* krot1 = new Krot("male", 8, 8);
+  Krot* krot2 = new Krot("female", 9, 9);
+
+  int cntKrots = cntMale + cntFemale;
+  bool finish = false;
+
+  // процесс игры
+  while (!finish) {
+
+    // условие окончания игры
+    if (field.getCnt() == 0) {
+        cout &lt;&lt; "Urozhaya net";
+        finish = true;
+    }
+    if (cntKrots == 0) {
+        cout &lt;&lt; "Krotov net";
+        finish = true;
+    }
+
+  }
+}
+</pre>
+
+  <p>Файл Field.h</p>
+<pre>
+#pragma once
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Field {
+  int w; // ширина
+  int h; // высота
+  int ur_cnt; // количество урожая
+vector&lt;vector&lt;int&gt; &gt; A; // матрица с урожаем
+
+public:
+  Field(int, int);
+  int getCnt();
+};
+
+Field::Field(int _w, int _h) : w(_w), h(_h), ur_cnt(_w * _h) {
+  A.resize(w, vector&lt;int&gt;(h, 1)); // изначально матрица заполнена единицами, то есть урожаем
+}
+
+int Field::getCnt() {
+  return ur_cnt;
+}
+</pre>
+
+  <p>Файл Farmer.h</p>
+<pre>
+#pragma once
+
+class Farmer {
+  double speed;
+  double radius;
+  int x; // координаты дачника
+  int y; // координаты дачника
+
+public:
+  Farmer(double, double, int, int);
+  void move(int);
+  void hit();
+};
+
+Farmer::Farmer(double _s, double _r, int _x, int _y) : speed(_s), radius(_r), x(_x), y(_y) {}
+
+void Farmer::move(int _steps) {
+
+}
+
+void Farmer::hit() {
+
+}
+</pre>
+
+  <p>Файл Krot.h</p>
+<pre>
+#pragma once
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Krot {
+  string pol; // пол крота
+  bool onEarth; // крот на земле или под землей
+  int x; // координаты крота
+  int y; // координаты крота
+
+public:
+  Krot(string, int, int);
+  void move();
+};
+
+Krot::Krot(string _p, int _x, int _y) : pol(_p), x(_x), y(_y), onEarth(false) {}
+
+void Krot::move() {
+
+}
+</pre>
+</article>
