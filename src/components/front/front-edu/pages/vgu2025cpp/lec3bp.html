@@ -1,0 +1,169 @@
+<article class="article">
+  <h1>Практика по занятию 3 (13.11.2025 чт)</h1>
+</article>
+
+
+<div id="link-to-vgu2025cpp" class="btn-back">назад</div>
+
+
+<article class="article">
+  <p>2 группа. 17.00 - 18.30</p>
+  <h2>Многопоточность</h2>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h2>Содержание</h2>
+
+  <p><a href="#p1">Thread, jthread и mutex</a></p>
+  <p><a href="#p1.1">1. Параллельный вывод в консоль</a></p>
+  <p><a href="#p1.2">2. Счетчик в двух потоках</a></p>
+  <p><a href="#p1.3">3. Таймер с прерыванием (используем std::jthread)</a></p>
+  <p><a href="#p1.4">4. Параллельное сложение массива</a></p>
+  <p><a href="#p1.5">5. Перевод средств между счетами</a></p>
+  <p><a href="#p2">condition_variable</a></p>
+</article>
+
+
+<!-- Thread, jthread и mutex -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>Thread, jthread и mutex</h3>
+
+  <p><a href="https://cpp-kt.github.io/cpp-notes/26_multithreading.html">https://cpp-kt.github.io/cpp-notes/26_multithreading.html</a></p>
+</article>
+
+
+<!-- 1. Параллельный вывод в консоль -->
+<article class="article">
+  <div class="anchor" id="p1.1"></div>
+  <h3>1. Параллельный вывод в консоль</h3>
+
+  <p>Создайте два потока, которые по очереди выводят свои сообщения в консоль.</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+
+void f1() {
+  cout &lt;&lt; "Perviy potok\n";
+}
+
+void f2() {
+  cout &lt;&lt; "Vtoroy potok\n";
+}
+
+int main() {
+  thread t1(f1);
+  t1.join();
+
+  thread t2(f2);
+  t2.join();
+}
+</pre>
+</article>
+
+
+<!-- 2. Счетчик в двух потоках -->
+<article class="article">
+  <div class="anchor" id="p1.2"></div>
+  <h3>2. Счетчик в двух потоках</h3>
+
+  <p>Запустите два потока, каждый из которых увеличивает общий счетчик. Используйте std::mutex для предотвращения одновременного доступа.</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+int cnt = 0;
+mutex m;
+
+void f1() {
+  lock_guard&lt;mutex&gt; lock(m);
+  cnt++;
+  cout &lt;&lt; "Perviy potok\n";
+}
+
+void f2() {
+  lock_guard&lt;mutex&gt; lock(m);
+  cnt++;
+  cout &lt;&lt; "Vtoroy potok\n";
+}
+
+int main() {
+  thread t1(f1);
+  thread t2(f2);
+
+  t1.join();
+  t2.join();
+
+  cout &lt;&lt; cnt;
+}
+</pre>
+</article>
+
+
+<!-- 3. Таймер с прерыванием (используем std::jthread) -->
+<article class="article">
+  <div class="anchor" id="p1.3"></div>
+  <h3>3. Таймер с прерыванием (используем std::jthread)</h3>
+
+  <p>Создайте поток, который выполняет обратный отсчет. Используйте std::jthread и stop_token для прерывания отсчета.</p>
+</article>
+
+
+<!-- 4. Параллельное сложение массива -->
+<article class="article">
+  <div class="anchor" id="p1.4"></div>
+  <h3>4. Параллельное сложение массива</h3>
+
+  <p>Разделите массив на N частей и вычислите сумму каждой части в отдельных потоках. Соберите результаты в основном потоке.</p>
+</article>
+
+
+<!-- 5. Перевод средств между счетами -->
+<article class="article">
+  <div class="anchor" id="p1.5"></div>
+  <h3>5. Перевод средств между счетами</h3>
+
+  <p>Реализуйте потокобезопасный перевод средств между двумя банковскими счетами. Есть два счета (Account), каждый со своим мьютексом для синхронизации. Есть два потока, каждый из которых переводит средства между счетами.</p>
+
+<pre>
+struct Account {
+  int balance;
+  std::mutex mtx;
+  Account(int initialBalance) : balance(initialBalance) {}
+};
+
+void transfer(Account& from, Account& to, int amount) {
+  // TODO Implement
+}
+
+int main() {
+  Account account1(1000);
+  Account account2(1000);
+  2 / 2
+  std::thread t1(transfer, std::ref(account1), std::ref(account2), 100);
+  std::thread t2(transfer, std::ref(account2), std::ref(account1), 200);
+  t1.join();
+  t2.join();
+  std::cout &lt;&lt; "Final Balance:\n"
+  &lt;&lt; "Account 1: " &lt;&lt; account1.balance &lt;&lt; "\n"
+  &lt;&lt; "Account 2: " &lt;&lt; account2.balance &lt;&lt; std::endl;
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- condition_variable -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>condition_variable</h3>
+</article>
