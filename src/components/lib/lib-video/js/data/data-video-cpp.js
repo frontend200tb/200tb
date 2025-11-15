@@ -45,7 +45,23 @@ const dataVideoCpp = [
     time_h_m: [1, 55],
     size: '633 mb',
     isLearned: true,
-    dateLearned: '2025.11.12 ср',
+    dateLearned: '2025.11.15 сб',
+  },
+
+  {
+    id: 4,
+    year: 2011,
+    date: '',
+    category: 'code',
+    theme: 'c++',
+    title: 'Основы C++ 1 семестр',
+    author: 'Евгений Линский',
+    name: 'lectorium.tv',
+    numberLessons: '12 уроков',
+    time_h_m: [16, 22],
+    size: '8.3 gb',
+    isLearned: false,
+    dateLearned: '',
   },
 
   {

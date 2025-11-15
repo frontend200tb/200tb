@@ -7,4 +7,5 @@ export const asideThemes = [
   '2005 Майоров',
   '2007 cplus-plus.ru',
   '2008 C++',
+  '2011 Линский',
 ];
