@@ -1,7 +1,7 @@
 /******************
 Скрипт из файла alg-conspect.js
 Навигация по теме Конспекты
-МФ ФТЛ 1580 Misis Stepik Книги Курсы
+МФ ФТЛ 1580 Misis МИФИ Stepik Книги Курсы
 *******************/
 import './element-conspect';
 import {dataConspectNav} from './data-conspect-nav';

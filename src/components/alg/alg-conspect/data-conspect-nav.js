@@ -2,6 +2,7 @@ import showFatin       from './fatin/fatin';
 import showFtl         from './ftl/ftl';
 import show1580        from './1580/1580';
 import showMisis       from './misis/misis';
+import showMifi        from './mifi/mifi';
 import showStepik      from './stepik/stepik';
 import showAlgBooks    from './alg-books/alg-books';
 import showAlgCourses  from './alg-courses/alg-courses';
@@ -37,6 +38,14 @@ export const dataConspectNav = [
     content: '<alg-misis></alg-misis>',
     act() {
       showMisis();
+    },
+  },
+  {
+    url: 'mifi.html',
+    text: 'МИФИ',
+    content: '<alg-mifi></alg-mifi>',
+    act() {
+      showMifi();
     },
   },
   {
