@@ -4,8 +4,8 @@ import show1580        from './1580/1580';
 import showMisis       from './misis/misis';
 import showMifi        from './mifi/mifi';
 import showStepik      from './stepik/stepik';
-import showAlgBooks    from './alg-books/alg-books';
-import showAlgCourses  from './alg-courses/alg-courses';
+import showBooks       from './books/books';
+import showCourses     from './courses/courses';
 
 export const dataConspectNav = [
   {
@@ -57,19 +57,19 @@ export const dataConspectNav = [
     },
   },
   {
-    url: 'alg-books.html',
+    url: 'books.html',
     text: 'Книги',
     content: '<alg-books></alg-books>',
     act() {
-      showAlgBooks();
+      showBooks();
     },
   },
   {
-    url: 'alg-courses.html',
+    url: 'courses.html',
     text: 'Курсы',
     content: '<alg-courses></alg-courses>',
     act() {
-      showAlgCourses();
+      showCourses();
     },
   },
 ];
