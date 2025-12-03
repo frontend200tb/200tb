@@ -1493,6 +1493,19 @@ const dataBooksAlg = [
     dateLearned: '',
   },
 
+  {
+    id: 115,
+    year: 2025,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Алгоритмы и структуры данных для тех кто ненавидит читать лонгриды',
+    author: 'Исида',
+    authorName: 'Моритэру',
+    pages: '256',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

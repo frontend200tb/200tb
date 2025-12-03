@@ -1260,6 +1260,19 @@ const dataBooksJs = [
     year: 2025,
     category: 'code',
     theme: 'javascript',
+    title: 'JavaScript. Только самое нужное',
+    author: 'Боссо',
+    authorName: 'Юбер',
+    pages: 192,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 92,
+    year: 2025,
+    category: 'code',
+    theme: 'javascript',
     title: 'Паттерны проектирования JavaScript',
     author: 'Ди',
     authorName: 'Франческо Уго',
@@ -1269,7 +1282,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 92,
+    id: 93,
     year: 2025,
     category: 'code',
     theme: 'javascript',
@@ -1282,7 +1295,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 93,
+    id: 94,
     year: 2025,
     category: 'code',
     theme: 'javascript',

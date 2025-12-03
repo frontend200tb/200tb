@@ -2466,6 +2466,19 @@ const dataBooksCpp = [
     dateLearned: '',
   },
 
+  {
+    id: 182,
+    year: 2025,
+    category: 'code',
+    theme: 'c++',
+    title: 'Создаем игры и изучаем C++ (3е)',
+    author: 'Хортон',
+    authorName: 'Джон',
+    pages: '528',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

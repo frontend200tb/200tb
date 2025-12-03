@@ -1313,6 +1313,19 @@ const dataBooksArch = [
     dateLearned: '',
   },
 
+  {
+    id: 102,
+    year: 2025,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Паттерны коммуникации, руководство для ИТ-разработчиков',
+    author: 'Рид',
+    authorName: 'Джеки',
+    pages: '266',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

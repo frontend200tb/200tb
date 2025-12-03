@@ -132,6 +132,19 @@ const dataBooksTs = [
     dateLearned: '',
   },
 
+  {
+    id: 11,
+    year: 2025,
+    category: 'code',
+    theme: 'typescript',
+    title: 'Практический TypeScript',
+    author: 'Герасимов',
+    authorName: 'Александр',
+    pages: '238',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];
