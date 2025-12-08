@@ -1158,19 +1158,6 @@ const dataBooksComp = [
 
   {
     id: 90,
-    year: 2020,
-    category: 'основы',
-    theme: 'Компьютер',
-    title: 'API',
-    author: 'Константинов',
-    authorName: 'Сергей',
-    pages: '86',
-    isLearned: false,
-    dateLearned: '',
-  },
-
-  {
-    id: 91,
     year: 2021,
     category: 'основы',
     theme: 'Компьютер',
@@ -1183,7 +1170,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 92,
+    id: 91,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1196,7 +1183,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 93,
+    id: 92,
     year: 2022,
     category: 'основы',
     theme: 'Компьютер',
@@ -1209,7 +1196,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 94,
+    id: 93,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1222,7 +1209,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 95,
+    id: 94,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1235,7 +1222,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 96,
+    id: 95,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1248,7 +1235,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 97,
+    id: 96,
     year: 2023,
     category: 'основы',
     theme: 'Компьютер',
@@ -1261,7 +1248,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 98,
+    id: 97,
     year: 2024,
     category: 'основы',
     theme: 'Компьютер',
@@ -1274,7 +1261,7 @@ const dataBooksComp = [
   },
 
   {
-    id: 99,
+    id: 98,
     year: 2024,
     category: 'основы',
     theme: 'Компьютер',

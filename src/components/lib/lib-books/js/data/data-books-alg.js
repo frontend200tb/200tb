@@ -681,6 +681,19 @@ const dataBooksAlg = [
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
+    title: 'Чисто функциональные структуры данных',
+    author: 'Окасаки',
+    authorName: 'Крис',
+    pages: '253',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 54,
+    year: 2016,
+    category: 'основы',
+    theme: 'Алгоритмы',
     title: 'Машина Тьюринга',
     author: 'Пильщиков',
     authorName: 'Владимир',
@@ -690,7 +703,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 54,
+    id: 55,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -703,7 +716,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 55,
+    id: 56,
     year: 2016,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -716,7 +729,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 56,
+    id: 57,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -729,7 +742,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 57,
+    id: 58,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -742,7 +755,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 58,
+    id: 59,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -755,7 +768,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 59,
+    id: 60,
     year: 2017,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -768,7 +781,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 60,
+    id: 61,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -781,7 +794,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 61,
+    id: 62,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -794,7 +807,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 62,
+    id: 63,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -807,7 +820,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 63,
+    id: 64,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -820,7 +833,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 64,
+    id: 65,
     year: 2018,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -833,7 +846,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 65,
+    id: 66,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -846,7 +859,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 66,
+    id: 67,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -859,7 +872,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 67,
+    id: 68,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -872,7 +885,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 68,
+    id: 69,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -885,7 +898,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 69,
+    id: 70,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -898,7 +911,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 70,
+    id: 71,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -910,7 +923,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 71,
+    id: 72,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -923,7 +936,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 72,
+    id: 73,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -936,7 +949,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 73,
+    id: 74,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -949,7 +962,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 74,
+    id: 75,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -962,7 +975,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 75,
+    id: 76,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -975,7 +988,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 76,
+    id: 77,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -988,7 +1001,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 77,
+    id: 78,
     year: 2019,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1001,7 +1014,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 78,
+    id: 79,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1014,7 +1027,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 79,
+    id: 80,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1027,7 +1040,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 80,
+    id: 81,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1040,7 +1053,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 81,
+    id: 82,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1053,7 +1066,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 82,
+    id: 83,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1066,7 +1079,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 83,
+    id: 84,
     year: 2020,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1079,7 +1092,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 84,
+    id: 85,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1092,7 +1105,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 85,
+    id: 86,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1105,7 +1118,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 86,
+    id: 87,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1117,7 +1130,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 87,
+    id: 88,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1130,7 +1143,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 88,
+    id: 89,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1143,7 +1156,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 89,
+    id: 90,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1156,7 +1169,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 90,
+    id: 91,
     year: 2021,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1169,7 +1182,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 91,
+    id: 92,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1182,7 +1195,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 92,
+    id: 93,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1195,7 +1208,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 93,
+    id: 94,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1208,7 +1221,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 94,
+    id: 95,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1221,7 +1234,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 95,
+    id: 96,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1234,7 +1247,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 96,
+    id: 97,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1247,7 +1260,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 97,
+    id: 98,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1260,7 +1273,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 98,
+    id: 99,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1273,7 +1286,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 99,
+    id: 100,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1286,7 +1299,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 100,
+    id: 101,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1299,7 +1312,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 101,
+    id: 102,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1312,7 +1325,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 102,
+    id: 103,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1325,7 +1338,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 103,
+    id: 104,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1338,7 +1351,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 104,
+    id: 105,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1351,7 +1364,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 105,
+    id: 106,
     year: 2023,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1364,7 +1377,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 106,
+    id: 107,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1377,7 +1390,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 107,
+    id: 108,
     year: 2022,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1390,7 +1403,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 108,
+    id: 109,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1403,7 +1416,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 109,
+    id: 110,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1416,7 +1429,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 110,
+    id: 111,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1429,7 +1442,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 111,
+    id: 112,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1442,7 +1455,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 112,
+    id: 113,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1455,7 +1468,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 113,
+    id: 114,
     year: 2024,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1468,7 +1481,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 114,
+    id: 115,
     year: 2025,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1481,7 +1494,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 114,
+    id: 116,
     year: 2025,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1494,7 +1507,7 @@ const dataBooksAlg = [
   },
 
   {
-    id: 115,
+    id: 117,
     year: 2025,
     category: 'основы',
     theme: 'Алгоритмы',
@@ -1502,6 +1515,19 @@ const dataBooksAlg = [
     author: 'Исида',
     authorName: 'Моритэру',
     pages: '256',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 118,
+    year: 2025,
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Грокаем структуры данных',
+    author: 'Ла Рокка',
+    authorName: 'Марчелло',
+    pages: '288',
     isLearned: false,
     dateLearned: '',
   },

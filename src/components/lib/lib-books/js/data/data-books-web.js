@@ -643,6 +643,19 @@ const dataBooksWeb = [
     dateLearned: '',
   },
 
+  {
+    id: 51,
+    year: 2025,
+    category: 'theme',
+    theme: 'web',
+    title: 'Создаем динамические веб-сайты с помощью PHP, MySQL, JаvaScript, CSS и HTML5 (7е)',
+    author: 'Никсон',
+    authorName: 'Робин',
+    pages: '656',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

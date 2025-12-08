@@ -924,6 +924,19 @@ const dataBooksHtmlcss = [
     dateLearned: '',
   },
 
+  {
+    id: 71,
+    year: 2024,
+    category: 'code',
+    theme: 'html css',
+    title: 'Информационные технологии в строительстве, основы HTML + CSS',
+    author: 'Барышева',
+    authorName: 'Ольга',
+    pages: '262',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];
