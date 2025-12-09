@@ -1397,10 +1397,10 @@ class A {
 <!-- Урок 10 -->
 <article class="article">
   <div class="anchor" id="p10"></div>
-  <h3>Урок 10</h3>
+  <h3>Урок 10 Умные указатели (Smart Pointers)</h3>
 
-  <h4>Умные указатели Smart Pointers</h4>
-  <p>Напишем scoped_ptr - оболочку для указателя. Пусть нам нужно выделить на куче объект с помощью new, который будет виден только в пределах фигурных скобок области видимости. Пусть при выходе из области видимости автоматически вызывается delete для созданного объекта.</p>
+  <h4>1. scoped_ptr</h4>
+  <p>Напишем  - оболочку для указателя. Пусть нам нужно выделить на куче объект с помощью new, который будет виден только в пределах фигурных скобок области видимости. Пусть при выходе из области видимости автоматически вызывается delete для созданного объекта.</p>
   <p>Файл scoped_ptr.h</p>
 <pre>
 class scoped_ptr {
@@ -1479,4 +1479,224 @@ private:
   scoped_ptr& operator=(const scoped_ptr &p);
 };
 </pre>
+  <p>Попытка скопировать или присвоить теперь вызовет ошибку на этапе компиляции, потому что это приватные методы и к ним обращаться извне нельзя.</p>
+  <p>Но мы по прежнему можем создать один объект и два указателя на него. И при выходе из области видимости по прежнему будет вызываться двойной delete на одну и ту же область памяти.</p>
+  <p>Файл main.cpp</p>
+<pre>
+Object *pObj = new Object();
+scoped_ptr p1 = pObj;
+scoped_ptr p2 = pObj;
+</pre>
+  <p>Есть еще одна ситуация, когда происходит ошибка. Это если записать ноль в scoped_ptr</p>
+  <code>scoped_ptr p = 0;</code>
+  <p>Самое простое это сделать проверку в деструкторе</p>
+  <code>if (pObj) delete pObj;</code>
+  <p>И добавить проверку на 0</p>
+<pre>
+bool isNull();
+bool scoped_ptr::isNull() {
+  return pObj == 0;
+}
+</pre>
+  <p>Все что scoped_ptr умеет делать это в нужный момент вызывать деструктор и удалять объект. Но он имеет ограничения. Его нельзя передавать в функцию и возвращать из функции. Хотелось бы чтобы умным указателем можно было пользоваться так же как и обычным указателем. Создадим умный указатель на объект</p>
+  <code>scoped_ptr p = new Object;</code>
+  <p>Нам нужно уметь обращаться к методам объекта и уметь разименовывать указатель и передавать объект по указателю в функцию</p>
+  <code>p->doSomething();</code>
+  <code>(*p).doSomething();</code>
+  <code>func(Object o) {}</code>
+  <code>func(*p);</code>
+
+  <h4>Перегрузка (overloading)</h4>
+  <p>Функция называется перегруженная если она имеет одно и тоже имя, тип возвращаемого значения, но разный набор параметров.</p>
+<pre>
+void f(int a);
+void f(int a, int b);
+
+int main() {
+  f(3);
+  f(5,5);
+}
+</pre>
+  <p>При вызове функции компилятор понимает какую функцию нужно вызвать только по набору параметров.</p>
+  <p>Для scoped_ptr нам нужно перегрузить операторы</p>
+  <code>Object* operator->();</code>
+  <code>Object* operator*()</code>
+<pre>
+Object* scoped_ptr::operator->() {
+  return pObj; // возвращает указатель
+}
+
+Object* scoped_ptr::operator*() {
+  return *pObj; // возвращает объект
+}
+</pre>
+  <p>Теперь можно использовать эти операторы</p>
+<pre>
+scoped_ptr p1 = new Object();
+
+p1.operator->()->doSomething(); // вызов метода
+p1->doSomething(); // это то же самое
+
+Object o = *p;
+</pre>
+
+  <h4>2. auto_ptr</h4>
+  <p>Напишем auto_ptr - оболочку для указателя, который работает точно также как scoped_ptr за исключением конструктора копирования и оператора присваивания. Смысл указателя auto_ptr в том, чтобы на один объект был только один указатель. Поэтому при копировании и присваивании старый указатель больше не должен указывать на объект.</p>
+<pre>
+auto_ptr(auto_ptr &p2) {
+  pObj = p2.pObj;
+  p2.pObj = 0;
+}
+</pre>
+
+<pre>
+auto_ptr p1 = new Object();
+auto_ptr p2 = new Object();
+p1 = p2;
+p1 = p1; // ничего не делать
+</pre>
+
+<pre>
+auto_ptr& operator=(auto_ptr &p2) {
+  if (this == p2) {
+    return;
+  }
+  delete pObj;
+  pObj = p2.pObj;
+  p2.Obj = 0;
+}
+</pre>
+
+  <h4>3. shared_ptr</h4>
+<pre>
+shared_ptr p1 = new Object();
+shared_ptr p2 = p1;
+</pre>
+  <p>shared_ptr хранит в себе переменную count - счетчик ссылок, который показывает сколько существует указателей на данный объект. p1 и p2 это два указателя на объект storage, который хранит счетчик указателей на объект и свой указатель на объект.</p>
+<pre>
+storage {
+  pObj;
+  int count;
+}
+</pre>
+  <p>Теперь в деструкторе мы можем проверить сколько ссылок на объект существует. Если больше одной, то уменьшаем счетчик на 1. Если осталась одна ссылка, то уничтожаем объект. Такая техника называется подсчет ссылок.</p>
+</article>
+
+
+<!-- Урок 11 -->
+<article class="article">
+  <div class="anchor" id="p11"></div>
+  <h3>Урок 11 Связный список (Linked List)</h3>
+
+  <p>Напишем класс для связного списка, который хранит целые числа.</p>
+  <p>Файл List.h</p>
+<pre>
+class List {
+protected:
+  int myValue;
+  List *myNext;
+
+public:
+  List(int value) {
+    myValue = value;
+    myNext = 0;
+  }
+
+  void addValue(int value) {
+    List *current = this;
+    while (current->myNext != 0) {
+      current = current->myNext;
+    }
+    current->myNext = new List(value);
+  }
+
+  int len() {
+    int counter = 0;
+    for (List *current = this; current != 0; current = current->myNext) {
+      counter++;
+    }
+    return counter;
+  }
+};
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include "List.h"
+
+int main() {
+  List l(5);
+  l.addValue(6);
+  l.addValue(7);
+}
+</pre>
+
+  <p>По односвязному списку идти можно только вперед.</p>
+
+  <h4>Двусвязный список (Double Linked List)</h4>
+  <p>Напишем класс для двусвязного списка, который хранит целые числа. Он будет незначительно отличаться от класса List. Чтобы не писать весь класс заново, можем использовать уже готоый класс List. Создадим класс DList, который наследуется от класса List.</p>
+  <p>Файл DList.h</p>
+<pre>
+class DList: public List {
+private:
+  List *myPrev;
+
+public:
+  DList(int value): List(value) {
+    myPrev = 0;
+  }
+
+  void addValue(int value) {
+    DList *current = this;
+    while (current->myNext != 0) {
+      current = (DList*)current->myNext;
+    }
+    current->myNext = new DList(value);
+    ((DList*)current->myNext)->myPrev = current;
+  }
+};
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include "List.h"
+
+int main() {
+  DList l(5);
+  l.addValue(6);
+  l.addValue(7);
+}
+</pre>
+
+  <p>List это базовый (base) класс, или родительский. Dlist это производный (derived) класс, или наследник.</p>
+  <p>Напишем функцию addSequence, которая добавляет в список l, num раз, значение val.</p>
+
+  <p>Файо main.cpp</p>
+<pre>
+void addSequence(List *l, int num, int val) {
+  for (int i = 0; i &lt; num; i++) {
+    l->addValue(val);
+  }
+}
+
+int main() {
+  Dlist l(6);
+  addSequence(&l,10,5);
+  addSequence(&l,10,6);
+}
+</pre>
+  <p>Объект производного класса является и объектом базового класса. Объект производного класса наследует все функции из базового класса, то есть он умеет все то что умеет и базовый класс.</p>
+  <p>Файл main.cpp</p>
+<pre>
+int tmp = 0;
+scanf("%d", &tmp);
+List *l = 0;
+if (tmp == 1) {
+  l = new List(5);
+} else {
+  l = new DList(6);
+}
+l->addValue(6);
+</pre>
+  <p>На момент компиляции неизвестно какой будет объект - класса List или DList. Но потом у этого объекта все равно можно вызвать метод addValue, потому что это метод родительского класса Lis, а это значит, что он обязательно есть в дочернем классе DList</p>
 </article>
