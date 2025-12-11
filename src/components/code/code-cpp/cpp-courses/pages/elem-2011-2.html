@@ -1,0 +1,280 @@
+<article class="article">
+  <h1>2011 [Петр Алексеев] С++ алгоритмы и структуры данных</h1>
+  <p>Конспект видео курса</p>
+  <p>10 уроков. Длительность 3ч 50м.</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#p1">1 Таблица кодировки</a></p>
+  <p><a href="#p2">2 Динамический массив</a></p>
+  <p><a href="#p3">3 Связный список</a></p>
+  <p><a href="#p4">4 Дерево</a></p>
+  <p><a href="#p5">5 Рекурсивное дерево</a></p>
+  <p><a href="#p6">6 Пирамида (куча)</a></p>
+  <p><a href="#p7">7 Множество</a></p>
+  <p><a href="#p8">8 Графы</a></p>
+  <p><a href="#p9">9 Календарь</a></p>
+  <p><a href="#p10">10 Сортировка и поиск</a></p>
+
+</article>
+
+
+<!-- 1 Таблица кодировки -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>1 Таблица кодировки</h3>
+
+  <p>Создадим таблицу кодировки с помощью ООП. Создадим класс CodeTable который будет кодировать строку по принципу из символа 'a' получается символ 'z' и т.д.</p>
+  <p>Файл codetable.h</p>
+<pre>
+#pragma once
+
+typedef unsigned char byte;
+
+class CodeTable {
+  byte lBound;
+  byte hBound;
+  byte *array;
+
+public:
+  CodeTable(byte low, byte high, byte* iniTable = 0);
+  CodeTable(const CodeTable &src);
+
+  ~CodeTable();
+
+  byte& operator[](byte i);
+};
+</pre>
+
+  <p>Файл codetable.cpp</p>
+<pre>
+#include &lt;stdexcept&gt;
+#include &lt;string&gt;
+#include "codetable.h"
+
+using namespace std;
+
+CodeTable::CodeTable(byte low, byte high, byte* iniTable) {
+  if ((hBound = high) &lt; (lBound = low)) {
+    throw out_of_range("CodeTable constructor: lower bound is higher than upper one");
+  }
+  array = new byte[high - low + 1];
+  for (byte code = lBound; ; code++) {
+    array[code - lBound] = code;
+    if (code == hBound) break;
+  }
+
+  if (iniTable) {
+    for (int ndx = 0; ndx &lt;= high - lBound && iniTable[ndx]; ndx++) {
+      array[ndx] = iniTable[ndx];
+    }
+  }
+}
+
+CodeTable::CodeTable(const CodeTable &src) {
+  array = new byte[(hBound = src.hBound) - (lBound = src.lBound) + 1];
+
+  for (byte ndx = lBound; ; ndx++) {
+    array[ndx - lBound] = src.array[ndx - lBound];
+    if (ndx == hBound) break;
+  }
+}
+
+CodeTable::~CodeTable() {
+  delete[] array;
+}
+
+byte & CodeTable:: operator[] (byte i) {
+  if (i &lt; lBound || i > hBound) {
+    throw out_of_range("Index is out of range");
+  }
+  return array[i - lBound];
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "codetable.h"
+
+using namespace std;
+
+void doCode(byte* source, byte* dest, CodeTable & codeTable) {
+  for (int i = 0; source[i]; i++) {
+    dest[i] = codeTable[source[i]];
+  }
+}
+
+int main() {
+  CodeTable codeTable(32, 255);
+
+  for (int i = 0; i &lt; 13; i++) {
+    byte b = codeTable['a' + i];
+    codeTable['a' + i] = codeTable['z' - i];
+    codeTable['z' - i] = b;
+  }
+
+  byte *src = (byte*)"Hello, world!";
+  byte *dst = new byte[strlen((char*)src) + 1];
+  memset(dst, 0, strlen((char*)src) + 1);
+  doCode(src, dst, codeTable);
+  cout &lt;&lt; "Source string : " &lt;&lt; src &lt;&lt;'\n';
+  cout &lt;&lt; "Destination string : " &lt;&lt; dst &lt;&lt;'\n';
+
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- 2 Динамический массив -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2 Динамический массив</h3>
+
+  <p>Файл DinamicArray.h</p>
+<pre>
+#pragma once
+
+#include &lt;stdexcept&gt;
+
+using namespace std;
+
+template &lt;class Elem&gt;
+class DynamicArray {
+private:
+  int size;
+  int maxSize;
+  Elem *array;
+
+public:
+  DynamicArray(int sz = 0, int maxSz = 0, Elem *iniArray = NULL);
+  DynamicArray(const DynamicArray&lt;Elem&gt; & a) {
+    size = maxSize = 0;
+    *this = a;
+  }
+  ~DynamicArray() { delete[] array; }
+
+  Elem & operator [] (int i);
+  DynamicArray&lt;Elem&gt; & operator = (const DynamicArray&lt;Elem&gt; & a);
+  void Resize(int delta);
+  void Add(const Elem & e);
+
+private:
+  void Enlarge(int delta);
+  void Shrink(int delta);
+};
+
+template &lt;class Elem&gt;
+DynamicArray&lt;Elem&gt;::DynamicArray(int sz, int maxSz, Elem *iniArray) {
+  if ((size =sz) &lt; 0) {
+    throw out_of_range("DynamicArray constructor : Negative array size");
+  }
+  maxSize = (maxSz &lt; sz ? sz : maxSz);
+  array = new Elem[maxSize];
+  if (iniArray) {
+    for (int i = 0; i &lt; size; i++) {
+      array[i] = iniArray[i];
+    }
+  }
+}
+
+template &lt;class Elem&gt;
+Elem & DynamicArray&lt;Elem&gt;::operator [] (int i) {
+  if (i &lt; 0 || i &gt;= size) {
+    throw out_of_range("operator [] : Array index is out of range");
+  }
+  return array[i];
+}
+
+template &lt;class Elem&gt;
+DynamicArray&lt;Elem&gt; & DynamicArray&lt;Elem&gt;::operator=(const DynamicArray&lt;Elem&gt; & a) {
+  Resize(a.size - size);
+  for (int i = 0; i &lt; size; i++) {
+    array[i] = a.array[i];
+  }
+  return *this;
+}
+
+template &lt;class Elem&gt;
+void DynamicArray&lt;Elem&gt;::Resize(int delta) {
+  if (delta > 0) {
+    Enlarge(delta);
+  } else if (delta &lt; 0) {
+    Shrink(-delta);
+  }
+}
+
+template &lt;class Elem&gt;
+void DynamicArray&lt;Elem&gt;::Add(const Elem & e) {
+  Resize(1);
+  array[size-1] = e;
+}
+
+template &lt;class Elem&gt;
+void DynamicArray&lt;Elem&gt;::Enlarge(int delta) {
+  if ((size += delta) > maxSize) {
+    maxSize = size;
+    Elem *newArray = new Elem[maxSize];
+    for (int i = 0; i &lt; size - delta; i++) {
+      newArray[i] = array[i];
+    }
+    array = newArray;
+  }
+}
+
+template &lt;class Elem&gt;
+void DynamicArray&lt;Elem&gt;::Shrink(int delta) {
+  size = (delta > size ? 0: size- delta);
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "DynamicArray.h"
+
+using namespace std;
+
+void DoCode(char * source, char * dest, DynamicArray&lt;char&gt; & codeTable) {
+  for (int i = 0; source[i]; i++) {
+    dest[i] = codeTable[source[i]];
+  }
+}
+
+int main() {
+  DynamicArray&lt;char&gt; codeTable(128);
+  for (int c = 0; c &lt; 128; c++) codeTable[c] = c;
+
+  for (int i = 0; i &lt; 13; i++) {
+    char b = codeTable['a' + i];
+    codeTable['a' + i] = codeTable['z' - i];
+    codeTable['z' - i] = b;
+  }
+
+  char src[] = "Hello, World!";
+  char *dst = new char[strlen(src) + 1];
+
+  memset(dst, 0, strlen(src) + 1);
+
+  DoCode(src, dst, codeTable);
+
+  cout &lt;&lt; "Source string : " &lt;&lt; src &lt;&lt; '\n';
+  cout &lt;&lt; "Destination string : " &lt;&lt; dst &lt;&lt; '\n';
+
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- 3 Связный список -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3 Связный список</h3>
+</article>

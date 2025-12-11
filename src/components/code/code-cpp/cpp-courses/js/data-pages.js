@@ -6,7 +6,8 @@ import htmlCourse4    from './../pages/elem-course-cpp-4.html';
 import html2005Major  from './../pages/elem-2005major.html';
 import html2007       from './../pages/elem-2007.html';
 import html2008       from './../pages/elem-2008.html';
-import html2011       from './../pages/elem-2011.html';
+import html2011_1     from './../pages/elem-2011-1.html';
+import html2011_2     from './../pages/elem-2011-2.html';
 
 export const pages = [
   htmlCourse1,
@@ -16,5 +17,6 @@ export const pages = [
   html2005Major,
   html2007,
   html2008,
-  html2011,
+  html2011_1,
+  html2011_2,
 ];
