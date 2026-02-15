@@ -1052,6 +1052,21 @@ const dataBooksPaper = [
 
   {
     id: 70,
+    year: 2017,
+    category: 'paper',
+    theme: 'Бумажные книги',
+    title: 'C++ за 24 часа',
+    author: 'Кейденхед',
+    authorName: 'Роджерс',
+    pages: '448',
+    cover: 'мягкая',
+    image: '2017 Кейденхед - C++ за 24 часа.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 70,
     year: 2018,
     category: 'paper',
     theme: 'Бумажные книги',
