@@ -44,7 +44,28 @@
   <div class="anchor" id="p2"></div>
   <h3>2 Введение в язык Си (18)</h3>
 
-  <p>Читаю на стр 26</p>
+  <p>Напишем программу, которая переводит 2 морские сажени в футы.</p>
+<pre>
+main() {
+  int feet, fathoms;
+  fathoms = 2;
+  feet = 6 * fathoms;
+  printf("В %d морских саженях содержится %d футов", fathoms, feet);
+}
+</pre>
+
+  <p>Напишем свою функцию butler() и вызовем ее из функции main().</p>
+<pre>
+butler() {
+  printf("Вы вызывали, сэр?\n");
+}
+
+main() {
+  printf("Я вызываю функцию butler.\n");
+  butler();
+  printf("Да, принесите мне чашку чая и гибкие диски.\n");
+}
+</pre>
 </article>
 
 
