@@ -1263,7 +1263,7 @@ const dataBooksJs = [
     title: 'JavaScript. Только самое нужное',
     author: 'Боссо',
     authorName: 'Юбер',
-    pages: 192,
+    pages: 194,
     isLearned: false,
     dateLearned: '',
   },
@@ -1286,6 +1286,19 @@ const dataBooksJs = [
     year: 2025,
     category: 'code',
     theme: 'javascript',
+    title: 'Разработка фронтенд-приложений',
+    author: 'Кузьмин',
+    authorName: 'Антон',
+    pages: 497,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 94,
+    year: 2025,
+    category: 'code',
+    theme: 'javascript',
     title: 'Создание фронтенд-фреймворка с нуля',
     author: 'Орбайсета',
     authorName: 'Анхель Сола',
@@ -1295,7 +1308,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 94,
+    id: 95,
     year: 2025,
     category: 'code',
     theme: 'javascript',

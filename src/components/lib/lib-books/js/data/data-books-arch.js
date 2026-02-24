@@ -1365,6 +1365,19 @@ const dataBooksArch = [
     dateLearned: '',
   },
 
+  {
+    id: 106,
+    year: 2026,
+    category: 'основы',
+    theme: 'Архитектура ПО',
+    title: 'Принципы модернизации программных архитектур',
+    author: 'Пачеко',
+    authorName: 'Диего',
+    pages: '498',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

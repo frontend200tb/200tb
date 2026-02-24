@@ -937,6 +937,71 @@ const dataBooksHtmlcss = [
     dateLearned: '',
   },
 
+  {
+    id: 72,
+    year: 2025,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML CSS. Вся веб-разработка в схемах и иллюстрациях',
+    author: 'ANK Со',
+    authorName: '',
+    pages: '208',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 73,
+    year: 2025,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML и CSS для непрограммистов',
+    author: 'Cuantum Technologies',
+    authorName: '',
+    pages: '336',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 74,
+    year: 2025,
+    category: 'code',
+    theme: 'html css',
+    title: 'CSS для профессионалов',
+    author: 'Stack Overflow',
+    authorName: '',
+    pages: '290',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 75,
+    year: 2025,
+    category: 'code',
+    theme: 'html css',
+    title: 'HTML и CSS. 33 урока для начинающих',
+    author: 'Дронов',
+    authorName: 'Владимир',
+    pages: '618',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 76,
+    year: 2025,
+    category: 'code',
+    theme: 'html css',
+    title: 'Веб-дизайн с нуля. HTML + CSS на практике (2е)',
+    author: 'Макфедрис',
+    authorName: 'Пол',
+    pages: '417',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

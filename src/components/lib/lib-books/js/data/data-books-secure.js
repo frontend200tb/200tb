@@ -27,7 +27,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 2,
+    id: 3,
     year: 1998,
     category: 'основы',
     theme: 'Безопасность',
@@ -40,7 +40,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 1,
+    id: 4,
     year: 2001,
     category: 'основы',
     theme: 'Безопасность',
@@ -53,7 +53,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 2,
+    id: 5,
     year: 2001,
     category: 'основы',
     theme: 'Безопасность',
@@ -66,7 +66,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 3,
+    id: 6,
     year: 2001,
     category: 'основы',
     theme: 'Безопасность',
@@ -79,7 +79,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 4,
+    id: 7,
     year: 2002,
     category: 'основы',
     theme: 'Безопасность',
@@ -92,7 +92,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 5,
+    id: 8,
     year: 2003,
     category: 'основы',
     theme: 'Безопасность',
@@ -105,7 +105,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 6,
+    id: 9,
     year: 2003,
     category: 'основы',
     theme: 'Безопасность',
@@ -118,7 +118,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 7,
+    id: 10,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -131,7 +131,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 8,
+    id: 11,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -144,7 +144,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 9,
+    id: 12,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -157,7 +157,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 10,
+    id: 13,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -170,7 +170,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 11,
+    id: 14,
     year: 2004,
     category: 'основы',
     theme: 'Безопасность',
@@ -183,7 +183,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 12,
+    id: 15,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -196,7 +196,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 13,
+    id: 16,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -209,7 +209,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 14,
+    id: 17,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -222,7 +222,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 15,
+    id: 18,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -235,7 +235,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 16,
+    id: 19,
     year: 2005,
     category: 'основы',
     theme: 'Безопасность',
@@ -248,7 +248,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 17,
+    id: 20,
     year: 2006,
     category: 'основы',
     theme: 'Безопасность',
@@ -261,7 +261,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 18,
+    id: 21,
     year: 2006,
     category: 'основы',
     theme: 'Безопасность',
@@ -274,7 +274,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 19,
+    id: 22,
     year: 2007,
     category: 'основы',
     theme: 'Безопасность',
@@ -287,7 +287,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 20,
+    id: 23,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -300,7 +300,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 21,
+    id: 24,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -313,7 +313,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 22,
+    id: 25,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -326,7 +326,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 23,
+    id: 26,
     year: 2008,
     category: 'основы',
     theme: 'Безопасность',
@@ -339,7 +339,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 24,
+    id: 27,
     year: 2009,
     category: 'основы',
     theme: 'Безопасность',
@@ -352,7 +352,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 25,
+    id: 28,
     year: 2009,
     category: 'основы',
     theme: 'Безопасность',
@@ -365,7 +365,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 26,
+    id: 29,
     year: 2009,
     category: 'основы',
     theme: 'Безопасность',
@@ -378,7 +378,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 27,
+    id: 30,
     year: 2009,
     category: 'основы',
     theme: 'Безопасность',
@@ -391,7 +391,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 28,
+    id: 31,
     year: 2010,
     category: 'основы',
     theme: 'Безопасность',
@@ -404,7 +404,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 29,
+    id: 32,
     year: 2011,
     category: 'основы',
     theme: 'Безопасность',
@@ -417,7 +417,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 30,
+    id: 33,
     year: 2011,
     category: 'основы',
     theme: 'Безопасность',
@@ -430,7 +430,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 31,
+    id: 34,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -442,7 +442,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 32,
+    id: 35,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -455,7 +455,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 33,
+    id: 36,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -468,7 +468,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 34,
+    id: 37,
     year: 2012,
     category: 'основы',
     theme: 'Безопасность',
@@ -481,7 +481,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 35,
+    id: 38,
     year: 2013,
     category: 'основы',
     theme: 'Безопасность',
@@ -494,7 +494,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 36,
+    id: 39,
     year: 2014,
     category: 'основы',
     theme: 'Безопасность',
@@ -507,7 +507,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 37,
+    id: 40,
     year: 2014,
     category: 'основы',
     theme: 'Безопасность',
@@ -520,7 +520,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 38,
+    id: 41,
     year: 2016,
     category: 'основы',
     theme: 'Безопасность',
@@ -533,7 +533,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 39,
+    id: 42,
     year: 2016,
     category: 'основы',
     theme: 'Безопасность',
@@ -546,7 +546,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 40,
+    id: 43,
     year: 2016,
     category: 'основы',
     theme: 'Безопасность',
@@ -559,7 +559,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 41,
+    id: 44,
     year: 2017,
     category: 'основы',
     theme: 'Безопасность',
@@ -572,7 +572,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 42,
+    id: 45,
     year: 2017,
     category: 'основы',
     theme: 'Безопасность',
@@ -585,7 +585,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 43,
+    id: 46,
     year: 2017,
     category: 'основы',
     theme: 'Безопасность',
@@ -598,7 +598,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 44,
+    id: 47,
     year: 2017,
     category: 'основы',
     theme: 'Безопасность',
@@ -611,7 +611,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 45,
+    id: 48,
     year: 2018,
     category: 'основы',
     theme: 'Безопасность',
@@ -624,7 +624,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 46,
+    id: 49,
     year: 2019,
     category: 'основы',
     theme: 'Безопасность',
@@ -637,7 +637,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 47,
+    id: 50,
     year: 2019,
     category: 'основы',
     theme: 'Безопасность',
@@ -650,7 +650,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 48,
+    id: 51,
     year: 2019,
     category: 'основы',
     theme: 'Безопасность',
@@ -663,7 +663,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 49,
+    id: 52,
     year: 2020,
     category: 'основы',
     theme: 'Безопасность',
@@ -676,7 +676,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 49,
+    id: 53,
     year: 2020,
     category: 'основы',
     theme: 'Безопасность',
@@ -689,7 +689,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 50,
+    id: 54,
     year: 2020,
     category: 'основы',
     theme: 'Безопасность',
@@ -702,7 +702,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 51,
+    id: 55,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -715,7 +715,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 52,
+    id: 56,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -728,7 +728,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 53,
+    id: 57,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -741,7 +741,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 54,
+    id: 58,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -754,7 +754,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 55,
+    id: 59,
     year: 2021,
     category: 'основы',
     theme: 'Безопасность',
@@ -767,7 +767,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 56,
+    id: 60,
     year: 2022,
     category: 'основы',
     theme: 'Безопасность',
@@ -780,7 +780,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 57,
+    id: 61,
     year: 2022,
     category: 'основы',
     theme: 'Безопасность',
@@ -793,7 +793,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 58,
+    id: 62,
     year: 2022,
     category: 'основы',
     theme: 'Безопасность',
@@ -806,7 +806,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 59,
+    id: 63,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -819,7 +819,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 60,
+    id: 64,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -832,7 +832,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 61,
+    id: 65,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -845,7 +845,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 62,
+    id: 66,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -858,7 +858,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 63,
+    id: 67,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -871,7 +871,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 64,
+    id: 68,
     year: 2023,
     category: 'основы',
     theme: 'Безопасность',
@@ -884,7 +884,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 65,
+    id: 69,
     year: 2024,
     category: 'основы',
     theme: 'Безопасность',
@@ -897,7 +897,7 @@ const dataBooksSecure = [
   },
 
   {
-    id: 66,
+    id: 70,
     year: 2025,
     category: 'основы',
     theme: 'Безопасность',
@@ -905,6 +905,19 @@ const dataBooksSecure = [
     author: 'Базаров',
     authorName: 'Магама',
     pages: '226',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 71,
+    year: 2025,
+    category: 'основы',
+    theme: 'Безопасность',
+    title: 'Грокаем безопасность веб-приложений',
+    author: 'Макдональд',
+    authorName: 'Малькольм',
+    pages: '336',
     isLearned: false,
     dateLearned: '',
   },
