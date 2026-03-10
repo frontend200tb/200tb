@@ -1420,8 +1420,8 @@ const dataBooksPaper = [
     pages: '480',
     cover: 'мягкая',
     image: '2024 Наков - C++. Основы программирования.jpg',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2026.03.10 вт',
   },
 
   {
