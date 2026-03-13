@@ -1399,6 +1399,21 @@ const dataBooksPaper = [
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
+    title: 'Оптимизирующие компиляторы',
+    author: 'Владимиров',
+    authorName: 'Константин',
+    pages: '274',
+    cover: 'мягкая',
+    image: '2024 Владимиров - Оптимизирующие компиляторы.jpg',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 95,
+    year: 2024,
+    category: 'paper',
+    theme: 'Бумажные книги',
     title: 'Реализация полезных алгоритмов на C++',
     author: 'Кедик',
     authorName: 'Дмитро',
@@ -1410,7 +1425,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 95,
+    id: 96,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1425,7 +1440,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 96,
+    id: 97,
     year: 2024,
     category: 'paper',
     theme: 'Бумажные книги',
@@ -1440,7 +1455,7 @@ const dataBooksPaper = [
   },
 
   {
-    id: 97,
+    id: 98,
     year: 2025,
     category: 'paper',
     theme: 'Бумажные книги',
