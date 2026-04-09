@@ -54,6 +54,22 @@ const dataVideoCpp = [
     date: '',
     category: 'code',
     theme: 'c++',
+    title: 'C++ базовый курс',
+    author: 'Александр Солдаткин',
+    name: '',
+    numberLessons: '13 уроков',
+    time_h_m: [2, 50],
+    size: '566 mb',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 5,
+    year: 2011,
+    date: '',
+    category: 'code',
+    theme: 'c++',
     title: 'Основы C++ 1 семестр',
     author: 'Евгений Линский',
     name: 'lectorium.tv',
@@ -65,7 +81,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 5,
+    id: 6,
     year: 2011,
     date: '',
     category: 'code',
@@ -81,7 +97,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 1,
+    id: 7,
     year: 2015,
     date: '',
     category: 'code',
@@ -97,7 +113,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 2,
+    id: 8,
     year: 2017,
     date: '',
     category: 'code',
@@ -113,7 +129,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 3,
+    id: 9,
     year: 2017,
     date: '',
     category: 'code',
@@ -129,7 +145,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 4,
+    id: 10,
     year: 2018,
     date: '',
     category: 'code',
@@ -145,7 +161,7 @@ const dataVideoCpp = [
   },
 
   {
-    id: 5,
+    id: 11,
     year: 2021,
     date: '',
     category: 'code',
