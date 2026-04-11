@@ -1,0 +1,803 @@
+<article class="article">
+  <h1>2011 Александр Солдаткин - C++ базовый курс</h1>
+  <p>Конспект видео курса</p>
+  <p>12 уроков. Длительность 2ч 50м.</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#p1">1 Операторы ввода-вывода</a></p>
+  <p><a href="#p2">2 Типы данных</a></p>
+  <p><a href="#p3">3 Условный оператор if</a></p>
+  <p><a href="#p4">4 Оператор switch</a></p>
+  <p><a href="#p5.1">5 Оператор while (ч.1)</a></p>
+  <p><a href="#p5.2">5 Оператор while (ч.2)</a></p>
+  <p><a href="#p6">6 Цикл for</a></p>
+  <p><a href="#p7">7 Календарь 2026</a></p>
+  <p><a href="#p8">8 Русские буквы в консоли</a></p>
+  <p><a href="#p9">9 Одномерные массивы</a></p>
+  <p><a href="#p10">10 Двумерные массивы</a></p>
+  <p><a href="#p11.1">11 Указатели (ч.1)</a></p>
+  <p><a href="#p11.2">11 Указатели (ч.2)</a></p>
+  <p><a href="#p12">12 Строки</a></p>
+
+</article>
+
+
+<!-- 1 Операторы ввода-вывода -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>1 Операторы ввода-вывода</h3>
+
+  <p>Для начала нам понадобится среда разработки. Я буду использовать Code Blocks.</p>
+  <p>Создадим первый проект. Выбираем Create a new project. Выбираем Console application, нажимаем Go. Выбираем C++, нажимаем Next. Впишем имя проекта и выберем где он будет находиться, нажимаем Next. Компилятор не меняем, нажимаем Finish.</p>
+  <p>Создастся проект, в котором есть один файл main.cpp.</p>
+  <p>Напишем первую программу, которая выводит в консоль имя.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Name is Alex";
+}
+</pre>
+  <p>Создадим переменную типа string для хранения имени.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string name;
+  name = "Alex";
+
+  cout &lt;&lt; "Name is " &lt;&lt; name;
+}
+</pre>
+  <p>Имя будем вводить с клавиатуры.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter name ";
+  string name;
+  cin >> name;
+
+  cout &lt;&lt; "Name is " &lt;&lt; name;
+}
+</pre>
+</article>
+
+
+<!-- 2 Типы данных -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>2 Типы данных</h3>
+
+  <p>Создадим переменную типа int для хранения целого числа.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter integer number ";
+  int num;
+  cin >> num;
+
+  cout &lt;&lt; "Number is " &lt;&lt; num;
+}
+</pre>
+
+  <p>Создадим переменную типа double для хранения дробного числа.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter double number ";
+  double num;
+  cin >> num;
+
+  cout &lt;&lt; "Number is " &lt;&lt; num;
+}
+</pre>
+
+  <p>Создадим переменную типа char для хранения одного символа.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter character ";
+  char ch;
+  cin >> ch;
+
+  cout &lt;&lt; "Character is " &lt;&lt; ch;
+}
+</pre>
+
+  <p>Рассмотрим операции +, -, *, /, % с целыми числами.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+  cout &lt;&lt; "Enter number 1 ";
+  cin >> a;
+  cout &lt;&lt; "Enter number 2 ";
+  cin >> b;
+
+  c = a + b;
+  cout &lt;&lt; a &lt;&lt; " + " &lt;&lt; b
+       &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+
+  c = a - b;
+  cout &lt;&lt; a &lt;&lt; " - " &lt;&lt; b
+       &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+
+  c = a * b;
+  cout &lt;&lt; a &lt;&lt; " * " &lt;&lt; b
+       &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+
+  if (b != 0) {
+    c = a / b;
+    cout &lt;&lt; a &lt;&lt; " / " &lt;&lt; b
+        &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+  }
+
+  if (b != 0) {
+    c = a % b;
+    cout &lt;&lt; a &lt;&lt; " % " &lt;&lt; b
+        &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- 3 Условный оператор if -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>3 Условный оператор if</h3>
+
+  <p>Введем целое число и проверим отрицательное оно или положительное.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter number ";
+  int a;
+  cin >> a;
+
+  if (a &lt; 0) {
+    cout &lt;&lt; a &lt;&lt; " &lt; " &lt;&lt; 0;
+  } else if (a > 0) {
+    cout &lt;&lt; a &lt;&lt; " &gt; " &lt;&lt; 0;
+  } else if (a == 0) {
+    cout &lt;&lt; a &lt;&lt; " = " &lt;&lt; 0;
+  }
+}
+</pre>
+
+  <p>Введем целое число и проверим находится ли оно в диапазоне от 0 до 10.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter number ";
+  int a;
+  cin >> a;
+
+  if (a >= 0 && a &lt;= 10) {
+    cout &lt;&lt; a &lt;&lt; " in range 0 - 10 " &lt;&lt; endl;
+  } else if (a &lt; 0 || a > 10) {
+    cout &lt;&lt; a &lt;&lt; " not in range 0 - 10 " &lt;&lt; endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- 4 Оператор switch -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Оператор switch</h3>
+
+  <p>Рассмотрим операции +, -, *, /, % с целыми числами. Операции можно выбирать с помощью пунктов меню.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+  int item;
+
+  // вводим два числа
+  cout &lt;&lt; "Enter number 1 ";
+  cin >> a;
+  cout &lt;&lt; "Enter number 2 ";
+  cin >> b;
+
+  // показываем меню
+  cout &lt;&lt; "1. + \n";
+  cout &lt;&lt; "2. - \n";
+  cout &lt;&lt; "3. * \n";
+  cout &lt;&lt; "4. / \n";
+  cout &lt;&lt; "5. % \n";
+
+  // выбираем пункт меню
+  cout &lt;&lt; "Enter item ";
+  cin >> item;
+
+  switch (item) {
+
+    case 1:
+      c = a + b;
+      cout &lt;&lt; a &lt;&lt; " + " &lt;&lt; b
+          &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+      break;
+
+    case 2:
+      c = a - b;
+      cout &lt;&lt; a &lt;&lt; " - " &lt;&lt; b
+          &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+      break;
+
+    case 3:
+      c = a * b;
+      cout &lt;&lt; a &lt;&lt; " * " &lt;&lt; b
+          &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+      break;
+
+    case 4:
+      if (b != 0) {
+        c = a / b;
+        cout &lt;&lt; a &lt;&lt; " / " &lt;&lt; b
+            &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+      } else {
+        cout &lt;&lt; "Error: division by zero" &lt;&lt; endl;
+      }
+      break;
+
+    case 5:
+      if (b != 0) {
+        c = a % b;
+        cout &lt;&lt; a &lt;&lt; " % " &lt;&lt; b
+            &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+      } else {
+        cout &lt;&lt; "Error: division by zero" &lt;&lt; endl;
+      }
+      break;
+
+    default:
+      cout &lt;&lt; "error";
+      break;
+
+  }
+}
+</pre>
+</article>
+
+
+<!-- 5 Оператор while (ч.1) -->
+<article class="article">
+  <div class="anchor" id="p5.1"></div>
+  <h3>5 Оператор while (ч.1)</h3>
+
+  <p>Напишем цикл, в котором вычисляется сумма от 1 до 5.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int cnt = 1, sum = 0;
+
+  while (cnt &lt; 6) {
+    sum += cnt;
+    cnt++;
+  }
+
+  cout &lt;&lt; sum;
+}
+</pre>
+</article>
+
+
+<!-- 5 Оператор while (ч.2) -->
+<article class="article">
+  <div class="anchor" id="p5.2"></div>
+  <h3>5 Оператор while (ч.2)</h3>
+
+  <p>Напишем цикл while, в котором вычисляется сумма от 1 до 5. Посмотрим как меняются переменные на каждом шаге цикла.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int cnt = 1, sum = 0;
+
+  while (cnt &lt; 6) {
+    sum += cnt;
+    cout &lt;&lt; "cnt = " &lt;&lt; cnt &lt;&lt; ' ';
+    cout &lt;&lt; "sum = " &lt;&lt; sum &lt;&lt; endl;
+    cnt++;
+  }
+}
+</pre>
+
+  <p>Заменим сумму на произведение.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int cnt = 1, mul = 1;
+
+  while (cnt &lt; 6) {
+    mul *= cnt;
+    cout &lt;&lt; "cnt = " &lt;&lt; cnt &lt;&lt; ' ';
+    cout &lt;&lt; "mul = " &lt;&lt; mul &lt;&lt; endl;
+    cnt++;
+  }
+}
+</pre>
+
+  <p>Рассмотрим операции +, -, *, /, % с целыми числами. Операции можно выбирать с помощью пунктов меню. Добавим пункт выхода из меню. Программа будет выполняться пока не будет выбран пункт выхода.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+  int item;
+
+  do {
+    // вводим два числа
+    cout &lt;&lt; "Enter number 1 ";
+    cin >> a;
+    cout &lt;&lt; "Enter number 2 ";
+    cin >> b;
+
+    // показываем меню
+    cout &lt;&lt; "1. + \n";
+    cout &lt;&lt; "2. - \n";
+    cout &lt;&lt; "3. * \n";
+    cout &lt;&lt; "4. / \n";
+    cout &lt;&lt; "5. % \n";
+    cout &lt;&lt; "6. Exit \n";
+
+    // выбираем пункт меню
+    cout &lt;&lt; "Enter item ";
+    cin >> item;
+
+    switch (item) {
+
+      case 1:
+        c = a + b;
+        cout &lt;&lt; a &lt;&lt; " + " &lt;&lt; b
+            &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+        break;
+
+      case 2:
+        c = a - b;
+        cout &lt;&lt; a &lt;&lt; " - " &lt;&lt; b
+            &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+        break;
+
+      case 3:
+        c = a * b;
+        cout &lt;&lt; a &lt;&lt; " * " &lt;&lt; b
+            &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+        break;
+
+      case 4:
+        if (b != 0) {
+          c = a / b;
+          cout &lt;&lt; a &lt;&lt; " / " &lt;&lt; b
+              &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+        } else {
+          cout &lt;&lt; "Error: division by zero" &lt;&lt; endl;
+        }
+        break;
+
+      case 5:
+        if (b != 0) {
+          c = a % b;
+          cout &lt;&lt; a &lt;&lt; " % " &lt;&lt; b
+              &lt;&lt; " = " &lt;&lt; c &lt;&lt; endl;
+        } else {
+          cout &lt;&lt; "Error: division by zero" &lt;&lt; endl;
+        }
+        break;
+
+      case 6:
+        cout &lt;&lt; "Exit";
+        break;
+
+      default:
+        cout &lt;&lt; "error";
+        break;
+
+    }
+  } while (item != 6);
+}
+</pre>
+</article>
+
+
+<!-- 6 Цикл for -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Цикл for</h3>
+
+  <p>Напишем цикл for, в котором вычисляется сумма чисел от 1 до 5. Посмотрим как меняются переменные на каждом шаге цикла.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int sum = 0;
+
+  for (int cnt = 1; cnt &lt; 6; cnt++) {
+    sum += cnt;
+    cout &lt;&lt; "cnt = " &lt;&lt; cnt &lt;&lt; ' ';
+    cout &lt;&lt; "sum = " &lt;&lt; sum &lt;&lt; endl;
+  }
+}
+</pre>
+
+  <p>Напишем цикл for, в котором вычисляется сумма чисел от 1 до n. Посмотрим как меняются переменные на каждом шаге цикла.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int sum = 0;
+  cout &lt;&lt; "Enter number ";
+  int n;
+  cin >> n;
+
+  for (int cnt = 1; cnt &lt;= n; cnt++) {
+    sum += cnt;
+    cout &lt;&lt; "cnt = " &lt;&lt; cnt &lt;&lt; ' ';
+    cout &lt;&lt; "sum = " &lt;&lt; sum &lt;&lt; endl;
+  }
+}
+</pre>
+
+  <p>Напишем цикл for, в котором вычисляется произведение чисел от 1 до n. Посмотрим как меняются переменные на каждом шаге цикла.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int mul = 1;
+  cout &lt;&lt; "Enter number ";
+  int n;
+  cin >> n;
+
+  for (int cnt = 1; cnt &lt;= n; cnt++) {
+    mul *= cnt;
+    cout &lt;&lt; "cnt = " &lt;&lt; cnt &lt;&lt; ' ';
+    cout &lt;&lt; "mul = " &lt;&lt; mul &lt;&lt; endl;
+  }
+}
+</pre>
+
+  <p>Выведем все четные числа от 1 до n.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter number ";
+  int n;
+  cin >> n;
+
+  for (int i = 1; i &lt;= n; i++) {
+    if (i % 2 == 0) {
+      cout &lt;&lt; i &lt;&lt; ' ';
+    }
+  }
+}
+</pre>
+
+  <p>Выведем все нечетные числа от 1 до n.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter number ";
+  int n;
+  cin >> n;
+
+  for (int i = 1; i &lt;= n; i++) {
+    if (i % 2 != 0) {
+      cout &lt;&lt; i &lt;&lt; ' ';
+    }
+  }
+}
+</pre>
+
+  <p>Напишем таблицу умножения от 1 до n. Создадим два цикла - внешний и внутренний.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  for (int i = 1; i &lt; 10; i++) {
+    for (int j = 1; j &lt; 10; j++) {
+      cout &lt;&lt; i * j &lt;&lt; '\t';
+    }
+    cout &lt;&lt; endl;
+  }
+}
+</pre>
+</article>
+
+
+<!-- 7 Календарь 2026 -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Календарь 2026</h3>
+
+  <p>Напишем календарь на 2026 год. 1 января это четверг.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int days; // число дней в месяце
+  int d = 4; // день недели. 1 января это 4 день
+
+  for (int month = 1; month &lt; 13; month++) {
+    switch (month) {
+
+      case 1:
+        cout &lt;&lt; "\t\t\tJanuary\n";
+        days = 31;
+        break;
+
+      case 2:
+        cout &lt;&lt; "\t\t\tFebruary\n";
+        days = 28;
+        break;
+
+      case 3:
+        cout &lt;&lt; "\t\t\tMarch\n";
+        days = 31;
+        break;
+
+      case 4:
+        cout &lt;&lt; "\t\t\tApril\n";
+        days = 30;
+        break;
+
+      case 5:
+        cout &lt;&lt; "\t\t\tMay\n";
+        days = 31;
+        break;
+
+      case 6:
+        cout &lt;&lt; "\t\t\tJune\n";
+        days = 30;
+        break;
+
+      case 7:
+        cout &lt;&lt; "\t\t\tJuly\n";
+        days = 31;
+        break;
+
+      case 8:
+        cout &lt;&lt; "\t\t\tAugust\n";
+        days = 31;
+        break;
+
+      case 9:
+        cout &lt;&lt; "\t\t\tSeptember\n";
+        days = 30;
+        break;
+
+      case 10:
+        cout &lt;&lt; "\t\t\tOktober\n";
+        days = 31;
+        break;
+
+      case 11:
+        cout &lt;&lt; "\t\t\tNovember\n";
+        days = 30;
+        break;
+
+      case 12:
+        cout &lt;&lt; "\t\t\tDecember\n";
+        days = 31;
+        break;
+    }
+
+    cout &lt;&lt; "Mo\tTu\tWe\tTh\tFr\tSa\tSu\n";
+
+    // выставим табуляцию до 1 января
+    for (int tab = 1; tab &lt; d; tab++) {
+      cout &lt;&lt; '\t';
+    }
+
+    // заполним дни месяца
+    for (int day = 1; day &lt;= days; day++) {
+      cout &lt;&lt; day &lt;&lt; '\t';
+      if (d % 7 == 0) {
+        cout &lt;&lt; '\n';
+        d = 0;
+      }
+      d++;
+    }
+
+    // переход на следуюдий месяц
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 8 Русские буквы в консоли -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Русские буквы в консоли</h3>
+
+  <p>Буквы английского алфавита распологаются в первой части таблицы ASCII. Буквы русского алфавита распологаются во второй части таблицы ASCII.</p>
+  <p>Таблица ASCII это кодировка символов, где каждый символ занимает место в памяти 1 байт. Каждый символ кодируется 8 битами. Символы с кодами от 0 до 127 - это первая часть таблицы, которая не меняется. Символы с кодами от 128 до 255 - это вторая часть таблицы, в которую можно поместить национальный алфавит. Для этого нужно применить нужную кодировку символов.</p>
+
+  <p>Попробуем вывести в консоль строку из английский символов и сторку из русских символов.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello" &lt;&lt; '\n';
+  cout &lt;&lt; "Привет" &lt;&lt; '\n';
+}
+</pre>
+  <p>Английский текст выводится правильно</p>
+  <code>Hello</code>
+  <p>Русский текст не выводится</p>
+  <code>╨Я╤А╨╕╨▓╨╡╤В</code>
+
+  <p>Запишем текст в переменные типа string и попробуем вывести их в консоль снова.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string eng = "Hello";
+  string rus = "Привет";
+
+  cout &lt;&lt; eng &lt;&lt; '\n';
+  cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+  <p>Английский текст выводится правильно</p>
+  <code>Hello</code>
+  <p>Русский текст не выводится</p>
+  <code>╨Я╤А╨╕╨▓╨╡╤В</code>
+
+  <p>Введем с консоли имя и запишем его в переменную типа string и попробуем вывести его в консоль снова.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Enter name ";
+  string name;
+  cin >> name;
+
+  cout &lt;&lt; name &lt;&lt; '\n';
+}
+</pre>
+  <p>Теперь любые символы и английские и русские правильно отображаются на экране. Почему так происходит? Потому что когда мы вводим русский символ в консоли, то мы его получаем и записываем в переменную в той кодировке, в какой он дальше будет выведен обратно на консоль. А когда мы пишем русский символ внутри программы, то он будет записан в переменную в той кодировке, в которой работает редактор кода. И эта кодировка может отличаться от кодировки символов консоли.</p>
+
+  <p>По умолчанию в консоли используется кодировка WINDOWS-866. Сохраним текст программф в кодировке WINDOWS-866.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  string eng = "Hello";
+  string rus = "Привет";
+
+  cout &lt;&lt; eng &lt;&lt; '\n';
+  cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+  <p>Русский текст теперь должен отображаться правильно.</p>
+  <code>Привет</code>
+
+  <p>Кодировку консоли можно изменить и внутри программы</p>
+  <code>system("chcp 866"); // кодировка WINDOWS-866</code>
+  <code>system("chcp 1251"); // кодировка WINDOWS-1251</code>
+
+  <p>Сохраним текст программы в кодировке WINDOWS-866. Изменим внутри программы кодировку консоли на WINDOWS-866</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  system("chcp 866");
+  string eng = "Hello";
+  string rus = "Привет";
+
+  cout &lt;&lt; eng &lt;&lt; '\n';
+  cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+  <p>Теперь русский текст выводится правильно.</p>
+  <code>Привет</code>
+
+  <p>Сохраним текст программы в кодировке WINDOWS-1251. Изменим внутри программы кодировку консоли на WINDOWS-1251</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  system("chcp 1251");
+  string eng = "Hello";
+  string rus = "Привет";
+
+  cout &lt;&lt; eng &lt;&lt; '\n';
+  cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+  <p>Теперь русский текст выводится правильно.</p>
+  <code>Привет</code>
+
+  <p>Заголовочный файл windows.h содержит функцию SetConsoleCP() которая также меняет кодировку консоли. Напишем программу, которая вводит русский текст с консоли в кодировке 1251, а выводит текст на косноль в кодировке 866.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;windows.h&gt;
+
+using namespace std;
+
+int main() {
+  string rus;
+
+  SetConsoleCP(1251);
+  cin >> rus;
+
+  SetConsoleCP(866);
+  cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+</article>
