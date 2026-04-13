@@ -1,7 +1,7 @@
 <article class="article">
   <h1>2011 Александр Солдаткин - C++ базовый курс</h1>
   <p>Конспект видео курса</p>
-  <p>12 уроков. Длительность 2ч 50м.</p>
+  <p>13 уроков. Длительность 2ч 50м.</p>
 </article>
 
 
@@ -23,6 +23,7 @@
   <p><a href="#p11.1">11 Указатели (ч.1)</a></p>
   <p><a href="#p11.2">11 Указатели (ч.2)</a></p>
   <p><a href="#p12">12 Строки</a></p>
+  <p><a href="#p13">13 Функции</a></p>
 
 </article>
 
@@ -798,6 +799,671 @@ int main() {
 
   SetConsoleCP(866);
   cout &lt;&lt; rus &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Выведем в консоль буквы русского алфавита.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;windows.h&gt;
+
+using namespace std;
+
+int main() {
+  setlocale(LC_ALL, "Rus");
+
+  char ch = 'а';
+  for (int i = 0; i &lt; 32; i++) {
+    cout &lt;&lt; ch++ &lt;&lt; ' ';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 9 Одномерные массивы -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Одномерные массивы</h3>
+
+  <p>Создадим массив из пяти целых чисел. Заполним его и выведем на экран.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int mas[5];
+
+  mas[0] = 315;
+  mas[1] = 41;
+  mas[2] = 8;
+  mas[3] = 62;
+  mas[4] = 97;
+
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; mas[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+
+  <p>Пусть значения массива вводятся с клавиатуры.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int mas[5];
+
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; "Enter " &lt;&lt; i &lt;&lt; " element ";
+    cin >> mas[i];
+  }
+
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; mas[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+
+  <p>Размер массива должен быть известен до компиляции. Определим его как константу. Элементы массивы можно задавать при его объявлении. Размер массива можно не указывать, если его элементы сразу получают значения. В этом случае его размер определяется количеством созданных элементов. Его размер можно определить оператором sizeof.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  const int n = 5;
+  int mas[n] = {315, 41, 8, 62, 97};
+  for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; mas[i] &lt;&lt; ' ';
+  }
+
+  cout &lt;&lt; '\n';
+
+  int mas2[] = {84, 37, 90};
+  int m = sizeof(mas2) / sizeof(int);
+  for (int i = 0; i &lt; m; i++) {
+    cout &lt;&lt; mas2[i] &lt;&lt; ' ';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 10 Двумерные массивы -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Двумерные массивы</h3>
+
+  <p>Создадим двумерный массив из трех строк и трех столбцов. Заполним его и выведем на экран.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int mas[3][3];
+
+  mas[0][0] = 31;
+  mas[0][1] = 41;
+  mas[0][2] = 8;
+
+  mas[1][0] = 62;
+  mas[1][1] = 97;
+  mas[1][2] = 4;
+
+  mas[2][0] = 67;
+  mas[2][1] = 37;
+  mas[2][2] = 2;
+
+  for (int i = 0; i &lt; 3; i++) {
+    for (int j = 0; j &lt; 3; j++) {
+      cout &lt;&lt; mas[i][j] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+
+<p>Пусть значения массива вводятся с клавиатуры. Зададим размер массива константами.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 3;
+  int m = 3;
+  int mas[n][m];
+
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      cout &lt;&lt; "Enter [" &lt;&lt; i &lt;&lt; "] ["
+           &lt;&lt; j &lt;&lt; "] element ";
+      cin >> mas[i][j];
+    }
+  }
+  cout &lt;&lt; '\n';
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      cout &lt;&lt; mas[i][j] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 11 Указатели (ч.1) -->
+<article class="article">
+  <div class="anchor" id="p11.1"></div>
+  <h3>11 Указатели (ч.1)</h3>
+
+  <p>Указатели и динамическое распределение памяти. Указатели это тип переменных, которые содержат адрес других переменных. Динамическое распределение это выделение памяти под переменные во время выполнения программы, а не во время компиляции.</p>
+  <p>Создадим переменную a, указатель pa на переменную a, указатель ppa на указатель pa. Посмотрим значения переменных и их адреса.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int a = 40;
+  int *pa = &amp;a;
+  int **ppa = &amp;pa;
+
+  cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; '\n';
+  cout &lt;&lt; "&a = " &lt;&lt; &a &lt;&lt; '\n';
+  cout &lt;&lt; '\n';
+  cout &lt;&lt; "*pa = " &lt;&lt; *pa &lt;&lt; '\n';
+  cout &lt;&lt; "pa = " &lt;&lt; pa &lt;&lt; '\n';
+  cout &lt;&lt; "&pa = " &lt;&lt; &pa &lt;&lt; '\n';
+  cout &lt;&lt; '\n';
+  cout &lt;&lt; "**ppa = " &lt;&lt; **ppa &lt;&lt; '\n';
+  cout &lt;&lt; "*ppa = " &lt;&lt; *ppa &lt;&lt; '\n';
+  cout &lt;&lt; "ppa = " &lt;&lt; ppa &lt;&lt; '\n';
+  cout &lt;&lt; "&ppa = " &lt;&lt; &ppa &lt;&lt; '\n';
+}
+</pre>
+
+  <p>Создадим двумерный массив и заполним его случайными числами.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 3;
+  int m = 3;
+  int mas[n][m];
+
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      mas[i][j] = rand() % 100;
+      cout &lt;&lt; mas[i][j] &lt;&lt; '\t';
+    }
+    cout &lt;&lt; '\n';
+  }
+}
+</pre>
+
+  <p>С указателя можно работать с двумерным массивом как с одномерным.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 3;
+  int m = 3;
+  int mas[n][m];
+  int *p = &mas[0][0];
+
+  for (int i = 0; i &lt; n * m; i++) {
+    *(p+i) = rand() % 100;
+    cout &lt;&lt; *(p+i) &lt;&lt; '\t';
+    if ((i + 1) % 3 == 0) {
+      cout &lt;&lt; '\n';
+    }
+  }
+}
+</pre>
+</article>
+
+
+<!-- 11 Указатели (ч.2) -->
+<article class="article">
+  <div class="anchor" id="p11.2"></div>
+  <h3>11 Указатели (ч.2)</h3>
+
+  <p>До этого мы работали со статическими массивами. Теперь создадим динамический массив. Если в программе динамически выделяется память с помощью оператора new, то потом эту память нужно обязательно освободить с помощью оператора delete.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n = 10;
+
+  int *mas = new int[n];
+
+  for (int i = 0; i &lt; n; i++) {
+    mas[i] = rand() % 100;
+    cout &lt;&lt; mas[i] &lt;&lt; '\t';
+  }
+
+  delete [] mas;
+}
+</pre>
+
+  <p>При создании динамического массива, его размер может быть задан во время выполнения программы. При создании статического массива, его размер должен быть известен во время компиляции.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  cout &lt;&lt; "Enter array size ";
+  cin >> n;
+
+  int *mas = new int[n];
+
+  for (int i = 0; i &lt; n; i++) {
+    mas[i] = rand() % 100;
+    cout &lt;&lt; mas[i] &lt;&lt; '\t';
+  }
+
+  delete [] mas;
+}
+</pre>
+
+  <p>Создадим двумерный динамический массив. Сначала создадим массив указателей. Затем в цикле для каждого указателя выделем память для одномерного массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  int n;
+  int m;
+  cout &lt;&lt; "Enter array rows ";
+  cin >> n;
+  cout &lt;&lt; "Enter array cols ";
+  cin >> m;
+
+  int **mas = new int*[n];
+
+  for (int i = 0; i &lt; n; i++) {
+    mas[i] = new int[m];
+  }
+
+  for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+      mas[i][j] = rand() % 200;
+      cout &lt;&lt; mas[i][j] &lt;&lt; '\t';
+    }
+    cout &lt;&lt; '\n';
+  }
+
+  for (int i = 0; i &lt; n; i++) {
+    delete [] mas[i];
+  }
+
+  delete [] mas;
+}
+</pre>
+</article>
+
+
+<!-- 12 Строки -->
+<article class="article">
+  <div class="anchor" id="p12"></div>
+  <h3>12 Строки</h3>
+
+  <p>Библиотека cstring содержит функцию strcmp(), которая сравнивает две строки. Возвращает 0 если строки равны, возвращает 1 если первая строка больше, возвращает -1 если первая строка меньше.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+int main() {
+  char str1[] = "dima";
+  char str2[] = "dima";
+  int res = strcmp(str1, str2);
+
+  cout &lt;&lt; res;
+}
+</pre>
+
+  <p>Функция stricmp сравнивает две строки без учета регистра.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+int main() {
+  char str1[] = "dima";
+  char str2[] = "Dima";
+  int res = stricmp(str1, str2);
+
+  cout &lt;&lt; res;
+}
+</pre>
+
+  <p>Введем строку с клавиатуры. Для ввода имени из четырех букв нам нужен массив из 5 сивовол, потому что последний символ это всегда символ конца строки, который записывается в массив автоматически.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char name[5];
+  cin >> name;
+  cout &lt;&lt; name;
+}
+</pre>
+
+  <p>Если ввести 5 символов и попытаться записать их в строку из 5 символов, то получим ошибку. Чтобы этого не произошло будем использовать функцию getline, которая запишет в переменную name число символов, равное размеру переменной name.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char name[5];
+  cin.getline(name, sizeof(name));
+  cout &lt;&lt; name;
+}
+</pre>
+
+  <p>Функция get считывает один символ.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char ch;
+  cin.get(ch);
+  cout &lt;&lt; ch;
+}
+</pre>
+
+  <p>Будем вводить символы пока не достигнем конца строки.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+  char ch;
+
+  do {
+    cin.get(ch);
+    cout &lt;&lt; ch;
+  } while (ch != '\n');
+}
+</pre>
+
+  <p>Как записать в массив текст с консоли когда мы заранее не знаем количество символов. Это можно сделать с помощью буферизированного потока. Для начала посмотрим как работать с буферизированным потоком.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;strstream&gt;
+
+using namespace std;
+
+int main() {
+  ostrstream ostr; // создадим буферизированный поток
+  ostr &lt;&lt; "Some text!"; // запишем в него текст
+  ostr &lt;&lt; ends; // запишем символ конца строки
+  char *p;
+  p = ostr.str();
+
+  cout &lt;&lt; p;
+}
+</pre>
+
+  <p>Теперь запишем в массив текст с консоли когда мы заранее не знаем количество символов. С указателем на строку можно работать как с обычным массивом.</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;strstream&gt;
+
+using namespace std;
+
+int main() {
+  ostrstream ostr; // создадим буферизированный поток
+  char *p;
+  char ch;
+  cout &lt;&lt; "Enter text\n";
+
+  do {
+    cin.get(ch);
+    ostr &lt;&lt; ch;
+  } while (ch != '\n');
+
+  ostr &lt;&lt; ends;
+  p = ostr.str();
+  cout &lt;&lt; "\n\n";
+  cout &lt;&lt; p;
+
+  if (p[0] && p[1] && p[2]) {
+    cout &lt;&lt; "1 symbol " &lt;&lt; p[0] &lt;&lt; '\n';
+    cout &lt;&lt; "2 symbol " &lt;&lt; p[1] &lt;&lt; '\n';
+    cout &lt;&lt; "3 symbol " &lt;&lt; p[2] &lt;&lt; '\n';
+  }
+}
+</pre>
+</article>
+
+
+<!-- 13 Функции -->
+<article class="article">
+  <div class="anchor" id="p13"></div>
+  <h3>13 Функции</h3>
+
+  <p>Создадим функцию, которая выводит на экран текст.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show() {
+  cout &lt;&lt; "function work" &lt;&lt; '\n';
+}
+
+int main() {
+  show();
+  show();
+  show();
+}
+</pre>
+
+  <p>Создадим функцию sum, которая возвращает сумму двух чисел. Результат этой функции передадим в функцию show, которая выводит на экран целое число.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(int a) {
+  cout &lt;&lt; a &lt;&lt; '\n';
+}
+
+int sum(int a, int b) {
+  return a + b;
+}
+
+int main() {
+  show(sum(3, 4));
+  show(sum(5, 15));
+  show(sum(100, 1));
+}
+</pre>
+
+  <p>Создадим функцию div, которая делит первое число на второе и возвращает вещественное число. Результат этой функции передадим в функцию show, которая выводит на экран вещественное число.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(double a) {
+  cout &lt;&lt; a &lt;&lt; '\n';
+}
+
+double div(double a, double b) {
+  return a / b;
+}
+
+int main() {
+  show(div(3.0, 4.0));
+  show(div(5.5, 3.1));
+  show(div(100.9, 14.3));
+}
+</pre>
+
+  <p>Мы передавали переменные в функцию по значению. При этом в области видимости функции создавались копии переменных и функция работала с копиями, не изменяя оригинальные переменные, которые передавались в функцию. Можно передавать переменные в функцию по ссылке. Функция будет работать с переданными переменными и если они изменятся в функции, то они изменятся и в программе в том месте откуда была вызвана функция.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(int a) {
+  cout &lt;&lt; a &lt;&lt; '\n';
+}
+
+void mult10(int &a) {
+  a *= 10;
+}
+
+int main() {
+  int a = 5;
+  mult10(a);
+  show(a);
+
+  int b = 32;
+  mult10(b);
+  show(b);
+
+  int c = 11;
+  mult10(c);
+  show(c);
+}
+</pre>
+
+  <p>Можно передавать переменные в функцию через указатель. Функция будет работать с переданными переменными и если они изменятся в функции, то они изменятся и в программе в том месте откуда была вызвана функция.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(int a) {
+  cout &lt;&lt; a &lt;&lt; '\n';
+}
+
+void mult2(int *a) {
+  *a = *a * 2;
+}
+
+int main() {
+  int a = 5;
+  mult2(&a);
+  show(a);
+
+  int b = 32;
+  mult2(&b);
+  show(b);
+
+  int c = 11;
+  mult2(&c);
+  show(c);
+}
+</pre>
+
+  <p>Напишем функцию, которая заполняет массив случайными числами. Имя массива одновременно является адресом на его первый элемент.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(int *arr, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; arr[i] &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+}
+
+void init(int *arr, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    arr[i] = rand() % 50;
+  }
+}
+
+int main() {
+  const int n = 10;
+  int mas[n];
+
+  init(&mas[0], n);
+  show(&mas[0], n);
+  show(mas, n);
+}
+</pre>
+
+  <p>Перегрузка функции это когда функции имеют одно и то же имя, но принимают разные параметры. Создадим перегруженную функцию init для двумерного массива. Создадим перегруженную функцию show для двумерного массива.</p>
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void show(int *arr, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    cout &lt;&lt; arr[i] &lt;&lt; ' ';
+  }
+  cout &lt;&lt; '\n';
+}
+
+void show(int *arr, int n, int m) {
+  for (int i = 0; i &lt; n * m; i++) {
+    cout &lt;&lt; arr[i] &lt;&lt; ' ';
+    if ((i+1) % m == 0) {
+      cout &lt;&lt; '\n';
+    }
+  }
+  cout &lt;&lt; '\n';
+}
+
+void init(int *arr, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    arr[i] = rand() % 50;
+  }
+}
+
+void init(int *arr, int n, int m) {
+  for (int i = 0; i &lt; n * m; i++) {
+    arr[i] = rand() % 50;
+  }
+}
+
+int main() {
+  const int n = 5;
+  const int m = 10;
+  int mas[n];
+
+  init(&mas[0], n);
+  show(&mas[0], n);
+  show(mas, n);
+
+  cout &lt;&lt; '\n';
+
+  int mas2[n][m];
+  int *p = &mas2[0][0]; // указатель на двумерный массив
+
+  init(&mas2[0][0], n, m);
+  show(&mas2[0][0], n, m);
+  show(p, n, m);
 }
 </pre>
 </article>
