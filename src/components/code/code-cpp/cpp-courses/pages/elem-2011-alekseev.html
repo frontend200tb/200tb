@@ -28,7 +28,9 @@
   <div class="anchor" id="p1"></div>
   <h3>1 Таблица кодировки</h3>
 
-  <p>Создадим таблицу кодировки с помощью ООП. Создадим класс CodeTable который будет кодировать строку по принципу из символа 'a' получается символ 'z' и т.д.</p>
+  <p>Создадим таблицу кодировки с помощью ООП. Создадим класс CodeTable который хранит массив символов array. Поля lbound и hbound описывают нижнюю и верхнюю границу диапазона символов. В конструкторе задаются lbound и hbound и происходит инициализация таблицы преобразования массивом iniTable. Второй конструктор это конструктор копирования. Деструктор нужен для того чтобы освободить память от массива array. Определение оператора [] индексации.</p>
+  <p>#pragma once это защита от повторного включения заголовочного файла.</p>
+
   <p>Файл codetable.h</p>
 <pre>
 #pragma once
@@ -41,14 +43,24 @@ class CodeTable {
   byte *array;
 
 public:
+  // конструктор
   CodeTable(byte low, byte high, byte* iniTable = 0);
+
+  // конструктор копирования
   CodeTable(const CodeTable &src);
 
+  // деструктор
   ~CodeTable();
 
   byte& operator[](byte i);
 };
 </pre>
+
+  <p>В конструкторе сначала проверяем что верхняя граница не ниже нижней границы. Потом выделяем память под массив array. В каждую ячейку массива записываем его индекс. Теперь таблица кодов будет преобразовываться код сам в себя. Далее проверяется условие if (iniTable). Если массив iniTable не задан, то условие if не выполняется и инициализация таблицы не выполняется. Иначе инициализируем массив array массивом iniTable.</p>
+  <p>В конструкторе копирования выделяется память под массив и в него копируются данные из переданного массива.</p>
+  <p>Деструктор освобождает память, которую коснтруктор динамически выделял под массив array с помощью оператора new.</p>
+  <p>Определение оператора [] - это операция индексации. Сначала проверяется что индекс попадает в границы между lbound и hbound. Потом из индекса вычитается значение нижней границы чтобы получить индекс элемента в массиве array.</p>
+  <p>#include &lt;stdexcept&gt; подключение стандартной библиотеки для поддержки типовых исключений.</p>
 
   <p>Файл codetable.cpp</p>
 <pre>
@@ -58,6 +70,7 @@ public:
 
 using namespace std;
 
+// конструктор
 CodeTable::CodeTable(byte low, byte high, byte* iniTable) {
   if ((hBound = high) &lt; (lBound = low)) {
     throw out_of_range("CodeTable constructor: lower bound is higher than upper one");
@@ -75,6 +88,7 @@ CodeTable::CodeTable(byte low, byte high, byte* iniTable) {
   }
 }
 
+// конструктор копирования
 CodeTable::CodeTable(const CodeTable &src) {
   array = new byte[(hBound = src.hBound) - (lBound = src.lBound) + 1];
 
@@ -84,10 +98,12 @@ CodeTable::CodeTable(const CodeTable &src) {
   }
 }
 
+// деструктор
 CodeTable::~CodeTable() {
   delete[] array;
 }
 
+// операция индексации []
 byte & CodeTable:: operator[] (byte i) {
   if (i &lt; lBound || i > hBound) {
     throw out_of_range("Index is out of range");
@@ -95,6 +111,12 @@ byte & CodeTable:: operator[] (byte i) {
   return array[i - lBound];
 }
 </pre>
+
+  <p>Функция doCode заполняет массив dest элементами преобразованными по таблице преобразования codeTable с помощью операции индексации, которая задана в классе CodeTable.</p>
+  <p>В функции main создадим экземпляр класса CodeTable. В цикле for мы заменяем маленькие буквы алфавита по правилу 'a' заменяется на 'z', 'b' заменяется на 'y' и так далее.</p>
+  <p>Создадим строку src для преобразования. Создадим строку dst, в которой будем хранить результат преобразования.</p>
+  <p>Функция memset копирует данные из строки src в строку dst.</p>
+  <p>Функция doCode преобразовывает символы по таблице символов.</p>
 
   <p>Файл main.cpp</p>
 <pre>
@@ -129,6 +151,10 @@ int main() {
   return 0;
 }
 </pre>
+
+  <p>Выводим на экран исходную и преобразованную строки. Преобразовывались только маленькие буквы.</p>
+  <code>Source string : Hello, world!</code>
+  <code>Destination string : Hvool, dliow!</code>
 </article>
 
 
@@ -136,6 +162,22 @@ int main() {
 <article class="article">
   <div class="anchor" id="p2"></div>
   <h3>2 Динамический массив</h3>
+
+  <p>В статическом массиве число элементов изменять нельзя. Мы хотим создать динамический массив в котором можно увеличивать или уменьшать число элементов. Сделаем его на основе статического массива.</p>
+  <p>Пусть нам нужен динамический массив, который изначально содержит 5 элементов, тогда создадим статичкский массив из 10 элементов. Заведем переменную elementsCount = 5, которая указывает на то что в число элементов в массиве равно пяти, хотя память выделена под 10 элементов.</p>
+  <p>Добавим в этот массив еще один элемент, тогда elementsCount = 6.</p>
+  <p>Добавим еще 5 элементов и получится массив из 11 элементов. Но тогда для хранения 11 элементов нам не хватит размера массива из 10 элементов. Тогда создадим новый статический массив на 22 элемента. Скопируем в него 6 элементов из старого массива и добавим 5 новых элементов. Таким образом, в новом массиве будет elementsCount = 11. А старый массив удалим и освободим от него память.</p>
+  <p>template &lt;class Elem&gt; означает что класс DinamicArray является шаблонным. Это сделано для того чтобы в массиве можно было сохранять элементы любого типа данных. Поле size это количество элементов в массиве. Поле maxSize это максимальное количество элементов массива. Поле array это указатель на сам массив, который хранится в куче.</p>
+  <p>operator [] оператор индексации нужен чтобы к элементам DynamicArray мы могли обращаться как к обычному массиву через квадратные скобки.</p>
+  <p>Метод Resize изменяет размер массива.</p>
+  <p>Метод Add добавляет элемент в массив.</p>
+  <p>Метод Enlarge увеличивает размер массива.</p>
+  <p>Метод Shrink уменьшает размер массива.</p>
+  <p>В условии if ((size = sz) &lt; 0) сначала переменной size присваивается значение переменной sz, а за тем проверяется что это значение меньше нуля. Если size меньше нуля то выбрасывается исключение.</p>
+  <p>Операция индексации проверяет что индекс не выходит за границы массива.</p>
+  <p>Метод Resize принимает параметр delta. Если delta больше нуля то вызывается метод Enlarge, если delta меньше нуля то вызывается метод Shrink.</p>
+  <p>Метод Add добавляет новый элемент в конец массива и увеличивает его размер на 1.</p>
+  <p>В условии if ((size += delta) > maxSize) сначала увеличивается переменная size на значение delta, а затем проверяется что это значение больше maxSize. Если больше, то выделяется место для нового массива и старый массив переносится в новое место.</p>
 
   <p>Файл DinamicArray.h</p>
 <pre>
@@ -153,14 +195,22 @@ private:
   Elem *array;
 
 public:
+  // конструктор
   DynamicArray(int sz = 0, int maxSz = 0, Elem *iniArray = NULL);
+
+  // конструктор копирования
   DynamicArray(const DynamicArray&lt;Elem&gt; & a) {
     size = maxSize = 0;
     *this = a;
   }
+
+  // деструктор
   ~DynamicArray() { delete[] array; }
 
+  // оператор индексации
   Elem & operator [] (int i);
+
+  // оператор присваивания
   DynamicArray&lt;Elem&gt; & operator = (const DynamicArray&lt;Elem&gt; & a);
   void Resize(int delta);
   void Add(const Elem & e);
@@ -170,9 +220,10 @@ private:
   void Shrink(int delta);
 };
 
+// реализация конструктора класса
 template &lt;class Elem&gt;
 DynamicArray&lt;Elem&gt;::DynamicArray(int sz, int maxSz, Elem *iniArray) {
-  if ((size =sz) &lt; 0) {
+  if ((size = sz) &lt; 0) {
     throw out_of_range("DynamicArray constructor : Negative array size");
   }
   maxSize = (maxSz &lt; sz ? sz : maxSz);
@@ -184,6 +235,7 @@ DynamicArray&lt;Elem&gt;::DynamicArray(int sz, int maxSz, Elem *iniArray) {
   }
 }
 
+// реализация операции индексации
 template &lt;class Elem&gt;
 Elem & DynamicArray&lt;Elem&gt;::operator [] (int i) {
   if (i &lt; 0 || i &gt;= size) {
@@ -192,6 +244,7 @@ Elem & DynamicArray&lt;Elem&gt;::operator [] (int i) {
   return array[i];
 }
 
+// реализация операции присваивания
 template &lt;class Elem&gt;
 DynamicArray&lt;Elem&gt; & DynamicArray&lt;Elem&gt;::operator=(const DynamicArray&lt;Elem&gt; & a) {
   Resize(a.size - size);
@@ -277,4 +330,53 @@ int main() {
 <article class="article">
   <div class="anchor" id="p3"></div>
   <h3>3 Связный список</h3>
+</article>
+
+
+<!-- 4 Дерево -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>4 Дерево</h3>
+</article>
+
+
+<!-- 5 Рекурсивное дерево -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>5 Рекурсивное дерево</h3>
+</article>
+
+
+<!-- 6 Пирамида (куча) -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>6 Пирамида (куча)</h3>
+</article>
+
+
+<!-- 7 Множество -->
+<article class="article">
+  <div class="anchor" id="p7"></div>
+  <h3>7 Множество</h3>
+</article>
+
+
+<!-- 8 Графы -->
+<article class="article">
+  <div class="anchor" id="p8"></div>
+  <h3>8 Графы</h3>
+</article>
+
+
+<!-- 9 Календарь -->
+<article class="article">
+  <div class="anchor" id="p9"></div>
+  <h3>9 Календарь</h3>
+</article>
+
+
+<!-- 10 Сортировка и поиск -->
+<article class="article">
+  <div class="anchor" id="p10"></div>
+  <h3>10 Сортировка и поиск</h3>
 </article>
