@@ -354,6 +354,11 @@ int main() {
   <p>Метод AddLast принимающий в качестве параметра связный список, добавляет в конец списка другой связный список.</p>
   <p>Метод AddFirst добавляет элемент в начало списка.</p>
   <p>Метод AddLast принимающий в качестве параметра значение, добавляет элемент с этим значением в конец списка.</p>
+  <p>Метод RemoveFirst удаляет первый элемент и возвращает его значение.</p>
+  <p>Метод Remove удаляет элемент со значением n и возвращает true если элемент успешно удален.</p>
+  <p>Метод Insert вставляет элемент со значением n. Список получается упорядоченным.</p>
+  <p>Метод GetItemsCount возвращает число элементов.</p>
+  <p>Метод GetAllItemsInfo возвращает строку с информацией о элементах списка.</p>
 
   <p>Файл IntList.h</p>
 <pre>
@@ -413,15 +418,162 @@ public:
   void AddLast(const IntList & src);
   void AddFirst(int item);
   void AddLast(int item);
-  int RemoveFirst(int n);
+  int RemoveFirst();
   bool Remove(int n);
   void Insert(int n);
 
   int GetItemsCount() {
     return itemsCount;
   }
+
+  string GetAllItemsInfo();
+};
+</pre>
+
+  <p>Файл IntList.cpp</p>
+<pre>
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include "IntList.h"
+
+using namespace std;
+
+// конструктор копирования
+IntList::IntList(const IntList & src) {
+  itemsCount = 0;
+  first = last = NULL;
+  AddLast(src);
+}
+
+// деструктор
+IntList::~IntList() {
+  ListItem *current = NULL;
+  ListItem *next = first;
+  while (next) {
+    current = next;
+    next = next->next;
+    delete current;
+  }
+}
+
+void IntList::AddLast(const IntList & src) {
+  for (ListItem *cur = src.first; cur; cur = cur->next) {
+    AddLast(cur->item);
+  }
+}
+
+void IntList::AddFirst(int item) {
+  ListItem *newItem = new ListItem(item, first);
+  if (!first) {
+    last = newItem;
+  }
+  first = newItem;
+  itemsCount++;
+}
+
+void IntList::AddLast(int item) {
+  ListItem *newItem = new ListItem(item);
+  if (!last) {
+    first = newItem;
+  } else {
+    last->next = newItem;
+  }
+  last = newItem;
+  itemsCount++;
+}
+
+int IntList::RemoveFirst() {
+  int res = first->item;
+  first = first->next;
+  itemsCount--;
+  return res;
+}
+
+bool IntList::Remove(int value) {
+  ListItem *prev = 0;
+  ListItem *current = first;
+  while (current) {
+    if (current->item == value) {
+      if (prev) {
+        prev->next = current->next;
+      }
+      if (current == last) {
+        last = prev;
+      }
+      delete current;
+      itemsCount--;
+      return true;
+    } else {
+      prev = current;
+      current = current->next;
+    }
+  }
+  return false;
+}
+
+void IntList::Insert(int value) {
+  ListItem *prev = NULL;
+  ListItem *succ = first;
+
+  while (succ != NULL && succ->item &lt; value) {
+    prev = succ;
+    succ = succ->next;
+  }
+
+  ListItem *newItem = new ListItem(value, succ);
+  if (succ == NULL) {
+    last = newItem;
+  }
+  if (prev == NULL) {
+    first = newItem;
+  } else {
+    prev->next = newItem;
+  }
+  itemsCount++;
+}
+
+string IntList::GetAllItemsInfo() {
+  stringstream stream;
+  ListItem *current = first;
+  while (current) {
+    stream &lt;&lt; current->item &lt;&lt; ' ';
+    current = current->next;
+  }
+  stream &lt;&lt; endl;
+  return stream.str();
 }
 </pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "IntList.h"
+
+using namespace std;
+
+int main() {
+  IntList list;
+  list.AddLast(2);
+  list.AddLast(3);
+  list.AddFirst(1);
+
+  cout &lt;&lt; list.GetAllItemsInfo();
+
+  IntList list1(list);
+  list1.AddLast(4);
+  list1.Remove(2);
+  list1.Remove(5);
+  list1.Remove(4);
+
+  cout &lt;&lt; list1.GetAllItemsInfo();
+
+  return 0;
+}
+</pre>
+
+  <p>Результат</p>
+  <code>1 2 3</code>
+  <code>1 3</code>
 </article>
 
 
