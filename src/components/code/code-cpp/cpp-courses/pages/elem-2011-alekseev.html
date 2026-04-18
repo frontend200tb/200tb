@@ -581,6 +581,145 @@ int main() {
 <article class="article">
   <div class="anchor" id="p4"></div>
   <h3>4 Дерево</h3>
+
+  <p>Файл Tree.h</p>
+<pre>
+#pragma once
+
+template &lt;class T&gt;
+class Tree {
+  struct Node {
+    T item;
+    Node *son;
+    Node *brother;
+
+    Node(T i, Node *s = NULL, Node *b = NULL) {
+      item = i;
+      son = s;
+      brother = b;
+    }
+  };
+
+  Node *root;
+
+public:
+  Tree() {
+    root = NULL;
+  }
+
+  ~Tree() {
+    DeleteSubtree(root);
+  }
+
+  int GetHeight() {
+    return GetHeight(root);
+  }
+
+  int GetNodesOnLevel(int level) {
+    return GetNodesOnLevel(root, level);
+  }
+
+  void Add(const T &elem) {
+    Add(root, elem);
+  }
+
+private:
+  void Add(Node *&node, const T &elem);
+  void DeleteSubtree(Node *node);
+  int GetHeight(Node *node);
+  int GetNodesOnLevel(Node *node, int level);
+};
+
+template &lt;class T&gt;
+void Tree&lt;T&gt;::DeleteSubtree(Node *node) {
+  if (node) {
+    DeleteSubtree(node->son);
+    DeleteSubtree(node->brother);
+    delete node;
+  }
+}
+
+template &lt;class T&gt;
+int Tree&lt;T&gt;::GetHeight(Node *node) {
+  if (node == NULL) {
+    return 0;
+  }
+  int max = 0;
+  for (Node *current = node->son; current; current = current->brother) {
+    int curHeight = GetHeight(current);
+    if (curHeight > max) {
+      max = curHeight;
+    }
+  }
+  return max + 1;
+}
+
+template &lt;class T&gt;
+int Tree&lt;T&gt;::GetNodesOnLevel(Node *node, int level) {
+  if (node == NULL) {
+    return 0;
+  }
+  if (level &lt;= 0) {
+    return 0;
+  }
+  return GetNodesOnLevel(node->son, level - 1) +
+  (level == 1) +
+  GetNodesOnLevel(node->brother, level);
+}
+
+template &lt;class T&gt;
+void Tree&lt;T&gt;::Add(Node *&node, const T &item) {
+  if (node == NULL) {
+    node = new Node(item);
+  } else if (item &lt; node->item) {
+    Add(node->son, item);
+  } else {
+    Add(node->brother, item);
+  }
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Tree.h"
+
+using namespace std;
+
+int main() {
+  Tree&lt;int&gt; tree;
+
+  tree.Add(12);
+  tree.Add(5);
+  tree.Add(3);
+  tree.Add(10);
+  tree.Add(7);
+  tree.Add(11);
+  tree.Add(6);
+  tree.Add(9);
+
+  cout &lt;&lt; "Tree height : " &lt;&lt; tree.GetHeight() &lt;&lt;
+       endl &lt;&lt; "There are " &lt;&lt; tree.GetNodesOnLevel(3)
+       &lt;&lt; " nodes on the 3rd level" &lt;&lt; endl;
+
+  return 0;
+}
+</pre>
+
+  <p>Результат программы</p>
+  <code>Tree height : 4</code>
+  <code>There are 3 nodes on the 3rd level</code>
+
+  <p>Получившееся дерево</p>
+<pre>
+12
+|
+5 - 10 - 11
+|   |
+3   7
+    |
+    6
+</pre>
 </article>
 
 
@@ -588,6 +727,99 @@ int main() {
 <article class="article">
   <div class="anchor" id="p5"></div>
   <h3>5 Рекурсивное дерево</h3>
+
+  <p>Рекурсивное дерево зададим классом, который определяет и само дерево и элемент этого дерева.</p>
+
+  <p>Файл Tree.h</p>
+<pre>
+#pragma once
+
+#include &lt;ctype.h&gt;
+
+template &lt;class T&gt;
+class Tree {
+  T item;
+  Tree&lt;T&gt; *son;
+  Tree&lt;T&gt; *brother;
+
+public:
+  Tree(const T & item, Tree&lt;T&gt; *son = NULL, Tree&lt;T&gt; *brother = NULL);
+
+  ~Tree();
+
+  int GetHeight();
+};
+
+template &lt;class T&gt;
+Tree&lt;T&gt;::Tree(const T & item, Tree&lt;T&gt; *son, Tree&lt;T&gt; *brother) {
+  Tree&lt;T&gt;::item = item;
+  Tree&lt;T&gt;::son = son;
+  Tree&lt;T&gt;::brother = brother;
+}
+
+template &lt;class T&gt;
+Tree&lt;T&gt;::~Tree() {
+  if (son) {
+    delete son;
+  }
+  if (brother) {
+    delete brother;
+  }
+}
+
+template &lt;class T&gt;
+int Tree&lt;T&gt;::GetHeight() {
+  int max = 0;
+  for (Tree&lt;T&gt; *current = son; current; current = current->brother) {
+    int curHeight = current->GetHeight();
+    if (curHeight > max) {
+      max = curHeight;
+    }
+  }
+  return max + 1;
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Tree.h"
+
+using namespace std;
+
+int main() {
+  Tree&lt;int&gt; *tree =
+    new Tree&lt;int&gt;(1,
+      new Tree&lt;int&gt;(2, NULL,
+      new Tree&lt;int&gt;(3,
+        new Tree&lt;int&gt;(5, NULL,
+        new Tree&lt;int&gt;(6,
+          new Tree&lt;int&gt;(8, NULL,
+            new Tree&lt;int&gt;(9, NULL,
+              new Tree&lt;int&gt;(10))))),
+      new Tree&lt;int&gt;(4,
+        new Tree&lt;int&gt;(7)))));
+
+  cout &lt;&lt; "Tree height: " &lt;&lt; tree->GetHeight() &lt;&lt; endl;
+
+  delete tree;
+  return 0;
+}
+</pre>
+
+  <p>Результат</p>
+  <code>Tree height: 4</code>
+
+  <p>Получившееся дерево</p>
+<pre>
+      1
+ /    |    \
+2     3     4
+    /   \    \
+   5     6    7
+       / | \
+      8  9  10
+</pre>
 </article>
 
 
@@ -595,6 +827,123 @@ int main() {
 <article class="article">
   <div class="anchor" id="p6"></div>
   <h3>6 Пирамида (куча)</h3>
+
+  <p>Пирамида (куча) это пронумерованное бинарное дерево. У каждого элемента может быть не более двух дочерних элементов (поддеревьев). Предок узла с номером i всегда является узел с номером i/2.</p>
+<pre>
+        1
+     /    \
+    2      3
+   / \    / \
+  4   5  6   7
+ / \
+8   9
+</pre>
+
+  <p>Пирамиду будем хранить в массиве items. Массив статический, поэтому количество элементов в нем увеличить не получится.</p>
+  <p>Метод Insert добавляет элемент в кучу. При попытке вставить больше элементов, выдается исключение NoMoreSpace. При добавлении элемента он сначала становится в конец массива, затем всплывает на свое место.</p>
+
+  <p>Файл Heap.h</p>
+<pre>
+#pragma once
+
+#include &lt;exception&gt;
+#include "NoMoreSpace.h"
+
+using namespace std;
+
+template &lt;class T&gt;
+class Heap {
+private:
+  int count;
+  T *items;
+  int size;
+
+public:
+  Heap(int size) {
+    count = 0;
+    items = new T[Heap::size = size];
+  }
+
+  void Insert(const T & element);
+
+  T & operator [](int i) {
+    return items[i];
+  }
+
+  const T & operator [](int i) const {
+    return items[i];
+  }
+
+  void Print();
+};
+
+template &lt;class T&gt;
+void Heap&lt;T&gt;::Insert(const T & elem) {
+  if (count >= size) {
+    throw NoMoreSpace();
+  }
+  int curIndex = count++;
+  int parentIndex;
+
+  while (curIndex > 0 && elem &lt; items[parentIndex = (curIndex-1)/2]) {
+    items[curIndex] = items[parentIndex];
+    curIndex = parentIndex;
+  }
+  items[curIndex] = elem;
+}
+
+template &lt;class T&gt;
+void Heap&lt;T&gt;::Print() {
+  for (int i = 0; i &lt; count; i++) {
+    cout &lt;&lt; items[i] &lt;&lt; ' ';
+  }
+  cout &lt;&lt; endl;
+}
+</pre>
+
+  <p>Файл NoMoreSpace.h</p>
+<pre>
+#pragma once
+
+#include &lt;exception&gt;
+
+using namespace std;
+
+class NoMoreSpace : public exception {
+  char *msg;
+
+public:
+  NoMoreSpace() : msg("No more space") {}
+
+  const char * what() const throw() {
+    return msg;
+  }
+};
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "Heap.h"
+
+using namespace std;
+
+int main() {
+  Heap&lt;int&gt; heap(5);
+  try {
+    heap.Insert(3);
+    heap.Insert(7);
+    heap.Insert(1);
+    heap.Insert(4);
+    heap.Insert(2);
+    heap.Insert(0);
+  } catch (NoMoreSpace & ex) {
+    cout &lt;&lt; "Got an exception: " &lt;&lt; ex.what() &lt;&lt; endl;
+  }
+  heap.Print();
+  return 0;
+}
+</pre>
 </article>
 
 
@@ -602,6 +951,16 @@ int main() {
 <article class="article">
   <div class="anchor" id="p7"></div>
   <h3>7 Множество</h3>
+
+  <p>Множество это битовое поле, в котором для доступа к элементу используется не его имя, а индекс. Похоже на массив, но каждый элемент всегда занимает один бит. Основные операции:</p>
+  <ul>
+    <li>Проверка принадлежности элемента множеству</li>
+    <li>Объединение множеств</li>
+    <li>Пересечение множеств</li>
+    <li>Добавление элемента в множество</li>
+    <li>Удаление элемента из множества</li>
+    <li>Определение числа элементов множества (мощность множества)</li>
+  </ul>
 </article>
 
 
