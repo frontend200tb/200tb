@@ -961,6 +961,225 @@ int main() {
     <li>Удаление элемента из множества</li>
     <li>Определение числа элементов множества (мощность множества)</li>
   </ul>
+
+  <p>Файл Set.h</p>
+<pre>
+#pragma once
+
+typedef unsigned short WORD;
+
+class Set {
+private:
+  int minElem;
+  int maxElem;
+  WORD *elems;
+  int numWords;
+
+  friend const Set & operator | (const Set & s1, const Set & s2);
+  friend const Set & operator & (const Set & s1, const Set & s2);
+  friend const Set & operator - (const Set & s1, const Set & s2);
+  friend const Set & operator - (const Set & s);
+
+public:
+  Set(int min = 0, int max = 255);
+
+  Set(const Set & s);
+
+  ~Set();
+
+  bool Has(int n) const;
+
+  Set & operator |= (int n);
+  Set & operator |= (const Set & other);
+  Set & operator &= (const Set & other);
+  Set & operator -= (int n);
+  Set & operator -= (const Set & other);
+  Set & Inverse();
+};
+</pre>
+
+  <p>Файл Set.cpp</p>
+<pre>
+#include &lt;stdexcept&gt;
+#include "Set.h"
+
+using namespace std;
+
+Set::Set(int min, int max) {
+  if (min > max) {
+    minElem = max;
+    maxElem = min;
+  } else {
+    minElem = min;
+    maxElem = max;
+  }
+  int num = maxElem - minElem + 1;
+  numWords = (num + 15) >> 4;
+  elems = new WORD[numWords];
+
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] = 0;
+  }
+}
+
+Set::Set(const Set & s) {
+  minElem = s.minElem;
+  maxElem = s.maxElem;
+  elems = new WORD[numWords = s.numWords];
+
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] = s.elems[i];
+  }
+}
+
+Set::~Set() {
+  delete [] elems;
+}
+
+bool Set::Has(int n) const {
+  if (n > maxElem || n &lt; minElem) {
+    return false;
+  }
+
+  int word = (n - minElem) >> 4;
+  int bit = (n - minElem) & 15;
+  return (elems[word] & (1 &lt;&lt; bit)) != 0;
+}
+
+// добавление элемента в множество
+Set & Set::operator |= (int n) {
+  if (n &lt;= maxElem && n >= minElem) {
+    int word = (n - minElem) >> 4;
+    int bit = (n - minElem) & 15;
+    elems[word] |= (1 &lt;&lt; bit); // записываем в нужный бит 1
+  } else {
+    throw out_of_range("Cannot add an element: it is out of range");
+  }
+  return *this;
+}
+
+// добавление множества в множество
+Set & Set:: operator |= (const Set & other) {
+  if (other.minElem != minElem || other.maxElem != maxElem) {
+    throw out_of_range("Set incomparable");
+  }
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] |= other.elems[i];
+  }
+  return *this;
+}
+
+// пересечение множеств
+Set & Set::operator &= (const Set & other) {
+  if (other.minElem != minElem || other.maxElem != maxElem) {
+    throw out_of_range("Set incomparable");
+  }
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] &= other.elems[i];
+  }
+  return *this;
+}
+
+// удаление элемента из множества
+Set & Set::operator -= (int n) {
+  if (n &lt;= maxElem && n >= minElem) {
+    int word = (n - minElem) >> 4;
+    int bit = (n - minElem) & 15;
+    elems[word] &= ~(1 &lt;&lt; bit); // записываем в нужный бит 0
+  }
+  return *this;
+}
+
+// удаление множества из множества
+Set & Set:: operator -= (const Set & other) {
+  if (other.minElem != minElem || other.maxElem != maxElem) {
+    throw out_of_range("Sets incomparable");
+  }
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] &= ~other.elems[i];
+  }
+  return *this;
+}
+
+// инверсия элементов
+Set & Set::Inverse() {
+  for (int i = 0; i &lt; numWords; i++) {
+    elems[i] = ~elems[i];
+  }
+  return *this;
+}
+
+const Set & operator | (const Set & s1, const Set & s2) {
+  return Set(s1) |= s2;
+}
+
+const Set & operator & (const Set & s1, const Set & s2) {
+  return Set(s1) &= s2;
+}
+
+const Set & operator - (const Set & s1, const Set & s2) {
+  return Set(s1) -= s2;
+}
+
+const Set & operator - (const Set & s) {
+  return Set(s).Inverse();
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+#include "Set.h"
+
+using namespace std;
+
+void PrintSet(const Set & s) {
+  cout &lt;&lt; '[';
+  bool first = true;
+  for (int i = 0; i &lt; 256; i++) {
+    if (s.Has(i)) {
+      cout &lt;&lt; (first ? "" : ", ") &lt;&lt; i;
+      first = false;
+    }
+  }
+  cout &lt;&lt; ']' &lt;&lt; endl;
+}
+
+int main() {
+  Set s1, s2;
+
+  (((s1 |= 2) |= 5) |= 25) |= 32;
+  ((((s2 |= s1) |= 1) |= 5) |= 12) |= 18;
+
+  cout &lt;&lt; "s1 = ";
+  PrintSet(s1);
+  cout &lt;&lt; "s2 = ";
+  PrintSet(s2);
+
+  Set s3 = s2;
+
+  s3 -= s1;
+  cout &lt;&lt; "s3 = ";
+  PrintSet(s3);
+
+  try {
+    s1 |= 1000;
+  } catch (const exception & x) {
+    cout &lt;&lt; "Exception: " &lt;&lt; x.what() &lt;&lt; endl;
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>Результат</p>
+<pre>
+s1 = [2, 5, 25, 32]
+s2 = [1, 2, 5, 12, 18, 25, 32]
+s3 = [1, 12, 18]
+Exception: Cannot add an element: it is out of range
+</pre>
 </article>
 
 
@@ -968,6 +1187,345 @@ int main() {
 <article class="article">
   <div class="anchor" id="p8"></div>
   <h3>8 Графы</h3>
+
+  <p>Зададим графы в различных их представлениях.</p>
+  <p>Абстрактный класс Graph содержит основные операции, которые должны быть внутри всех графов. Пустой виртуальный деструктор обязывает все производные классы иметь свой деструктор, чтобы правильно удалять объекты, которые уже не нужны в памяти.</p>
+  <p>Метод AddArc добавляет в граф дугу от вершины from до вершины to.</p>
+  <p>Метод HasArc проверяет есть ли в графе дуга от вершины from до вершины to.</p>
+  <p>Метод CountVertex подсчитывает количество вершин в графе.</p>
+
+  <p>Файл Graph.h</p>
+<pre>
+#pragma once
+
+class Graph {
+public:
+  virtual ~Graph() {}
+  virtual void AddArc(int from, int to) = 0;
+  virtual bool HasArc(int from, int to) const = 0;
+  virtual int CountVertex() const = 0;
+};
+</pre>
+
+  <p>L граф это граф построенный на основе списка.</p>
+  <p>Файл ListGraph.h</p>
+<pre>
+#pragma once
+
+#include "Graph.h"
+#include "List.h"
+
+class SetGraph;
+class ArcGraph;
+class ListGraph;
+
+class ListGraph : public Graph {
+private:
+  friend ListGraph * Convert(const SetGraph & srcGraph);
+  friend ArcGraph * Convert(const ListGraph & srcGraph);
+
+  List&lt;int&gt; *graph;
+
+  int vertexNumber;
+
+public:
+  ListGraph(int n) : vertexNumber(n), graph(new List&lt;int&gt;[n]) {}
+
+  ~ListGraph() {
+    delete graph;
+  }
+
+  int CountVertex() const {
+    return vertexNumber;
+  }
+
+  void AddArc(int from, int to);
+  bool HasArc(int from, int to) const;
+};
+</pre>
+
+  <p>Файл ListGraph.cpp</p>
+<pre>
+#include "ListGraph.h"
+
+// добавление дуги
+void ListGraph::AddArc(int from, int to) {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || >= vertexNumber) {
+    return;
+  }
+  graph[from].Add(to);
+}
+
+// проверка наличия дуги
+bool ListGraph::HasArc(int from, int to) const {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || to >= vertexNumber) {
+    return false;
+  }
+  return graph[from].Has(to);
+}
+</pre>
+
+  <p>Файл List.h</p>
+<pre>
+#pragma once
+
+#include &lt;stdlib.h&gt;
+
+class ArcGraph;
+class ListGraph;
+
+template &lt;class T&gt;
+class List {
+  friend ArcGraph * Convert(const ListGraph & srcGraph);
+
+  struct ListItem {
+    T item;
+    ListItem *next;
+
+    ListItem(const T & item, ListItem *next = NULL) {
+      ListItem::item = item;
+      ListItem::next = next;
+    }
+  };
+
+  ListItem *first, *last;
+
+  int count;
+
+public:
+  List() {
+    first = last = NULL;
+    count = 0;
+  }
+
+  ~List();
+
+  void Add(const T &);
+  bool Has(const T &) const;
+};
+
+template &lt;class T&gt;
+List&lt;T&gt;::~List() {
+  ListItem * current = first;
+  ListItem * prev = NULL;
+
+  while (current) {
+    prev = current;
+    current = current->next;
+    delete prev;
+  }
+}
+
+template &lt;class T&gt;
+void List&lt;T&gt;::Add(const T & item) {
+  ListItem *newItem = new ListItem(item);
+
+  if (last) {
+    last->next = newItem;
+  } else {
+    first = newItem;
+  }
+
+  last = newItems;
+  count++;
+}
+
+template &lt;class T&gt;
+bool List&lt;T&gt;::Has(const T & item) const {
+  for (ListItem *current = first; current; current = current->next) {
+    if (current->item == item) {
+      return true;
+    }
+  }
+  return false;
+}
+</pre>
+
+  <p>Set граф - это граф построенный на множестве.</p>
+  <p>Файл SetGraph.h</p>
+<pre>
+#pragma once
+
+#include "Graph.h"
+#include "Set.h"
+
+class MatrixGraph;
+class ListGraph;
+
+class SetGraph : public Graph {
+private:
+  friend SetGraph * Convert(const MatrixGraph & srcGraph);
+  friend ListGraph * Convert(const SetGraph & srcGraph);
+
+  Set **graph;
+  int vertexNumber;
+
+public:
+  SetGraph(int n) : vertexNumber(n), graph(new Set*[n]) {
+    for (int i = 0; i &lt; n; i++) {
+      graph[i] = new Set(0, n);
+    }
+  }
+
+  ~SetGraph();
+
+  int CountVertex() const {
+    return vertexNumber;
+  }
+
+  void AddArc(int from, int to);
+  bool HasArc(int from, int to) const;
+};
+</pre>
+
+  <p>Файл Set.h</p>
+<pre>
+#pragma once
+
+typedef unsigned short WORD;
+
+class Set {
+private:
+  int minElem;
+  int maxElem;
+  WORD *elems;
+  int numWords;
+
+  friend const Set & operator | (const Set & s1, const Set & s2);
+  friend const Set & operator & (const Set & s1, const Set & s2);
+  friend const Set & operator - (const Set & s1, const Set & s2);
+  friend const Set & operator - (const Set & s);
+
+public:
+  Set(int min = 0, int max = 255);
+
+  Set(const Set & s);
+
+  ~Set();
+
+  bool Has(int n) const;
+
+  Set & operator |= (int n);
+  Set & operator |= (const Set & other);
+  Set & operator &= (const Set & other);
+  Set & operator -= (int n);
+  Set & operator -= (const Set & other);
+  Set & Inverse();
+}
+</pre>
+
+  <p>Файл SetGraph.cpp</p>
+<pre>
+#include "SetGraph.h"
+
+// деструктор
+SetGraph::~SetGraph() {
+  for (int i = 0; i &lt; vertexNumber; i++) {
+    delete graph[i];
+  }
+  delete [] graph;
+}
+
+// добавление дуги
+void SetGraph::AddArc(int from, int to) {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || >= vertexNumber) {
+    return;
+  }
+  *graph[from] |= to;
+}
+
+// проверка наличия дуги
+bool SetGraph::HasArc(int from, int to) const {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || to >= vertexNumber) {
+    return false;
+  }
+  return graph[from]->Has(to);
+}
+</pre>
+
+  <p>Matrix граф - это граф построенный на матрице.</p>
+  <p>Файл Matrix.Graph.h</p>
+<pre>
+#pragma once
+
+#include "Graph.h"
+
+class ArcGraph;
+class SetGraph;
+
+class MatrixGraph : public Graph {
+private:
+  friend MatrixGraph * Convert(const ArcGraph & srcGraph);
+  friend SetGraph * Convert(const MatrixGraph & srcGraph);
+
+  bool **graph; // квадратная матрица
+  int vertexNumber; // число вершин по высоте и ширине
+
+public:
+  MatrixGraph(int n);
+
+  ~MatrixGraph();
+
+  int CountVertex() const {
+    return vertexNumber;
+  }
+
+  void AddArc(int from, int to);
+  bool HasArc(int from, int to) const;
+};
+</pre>
+
+  <p>Файл MatrixGraph.cpp</p>
+<pre>
+#include "MatrixGraph.h"
+
+MatrixGraph::MatrixGraph(int n) {
+  graph = new bool*[vertexNumber = n];
+  for (int i = 0; i &lt; n; i++) {
+    bool *row = graph[i] = new bool[n];
+    for (int j = 0; j &lt; n; j++) {
+      row[j] = false;
+    }
+  }
+}
+
+MatrixGraph::~MatrixGraph() {
+  for (int i = 0; i &lt; vertexNumber; i++) {
+    delete graph[i];
+  }
+  delete graph;
+}
+
+// добавление дуги
+void MatrixGraph::AddArc(int from, int to) {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || >= vertexNumber) {
+    return;
+  }
+  graph[from][to] = true;
+}
+
+// проверка наличия дуги
+bool MatrixGraph::HasArc(int from, int to) const {
+  if (from &lt; 0 || from >= vertexNumber || to &lt; 0 || to >= vertexNumber) {
+    return false;
+  }
+  return graph[from][to];
+}</pre>
+
+  <p>Arc граф это граф который хранит только набор дуг.</p>
+  <p>Файл ArcGraph.h</p>
+<pre>
+#pragma once
+
+#include "Graph.h"
+#include &lt;stdlib.h&gt;
+
+class MatrixGraph;
+
+class ArcGraph : public Graph {
+private
+}
+</pre>
 </article>
 
 
