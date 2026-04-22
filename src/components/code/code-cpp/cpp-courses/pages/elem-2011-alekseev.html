@@ -1917,7 +1917,415 @@ void StructDate::SetYear(int year) {
 }
 
 Date & StructDate::AddDays(int days) {
+  if (days &lt; 0) {
+    return SubDays(-days);
+  }
 
+  while (days > 0) {
+    int mDays = GetDaysInMonth(m, y);
+    if (d + days &lt;= mDays) {
+      d +=days;
+      days = 0;
+    } else {
+      days -= (mDays - d + 1);
+      d = 1;
+      if (++m > DECEMBER) {
+        m = JANUARY;
+        y++;
+      }
+    }
+  }
+  return *this;
+}
+
+Date & StructDate::SubDays(int days) {
+  if (days &lt; 0) {
+    return AddDays(-days);
+  }
+
+  while (days > 0) {
+    if (days &lt; d) {
+      d -=days;
+      days = 0;
+    } else {
+      if (--m &lt; JANUARY) {
+        m = DECEMBER;
+        y--;
+      }
+      days -= d;
+      d = GetDaysInMonth(m, y);
+    }
+  }
+  return *this;
+}
+
+Date & StructDate::AddMonths(int months) {
+  if (months &lt; 0) {
+    return SubMonths(-months);
+  }
+
+  y += months / 12;
+  m += months % 12;
+  if (m > DECEMBER) {
+    m -= 12;
+    y++;
+  }
+
+  int limit = GetDaysInMonth(m, y);
+  if (d > limit) {
+    d = limit;
+  }
+  return *this;
+}
+
+Date & StructDate::SumMonths(int months) {
+  if (months &lt; 0) {
+    return AddMonths(-months);
+  }
+
+  y -= months / 12;
+  m -= months % 12;
+  if (m &lt; JANUARY) {
+    m += 12;
+    y--;
+  }
+
+  int limit = GetDaysInMonth(m, y);
+  if (d > limit) {
+    d = limit;
+  }
+  return *this;
+}
+
+Date & StructDate::AddYears(int years) {
+  y += years;
+
+  if (d == 29 && m == FEBRUARY && !IsLeapYear(y)) {
+    d = 28;
+  }
+  return *this;
+}
+
+Date & StructDate::SubYears(int years) {
+  y -= years;
+
+  if (d == 29 && m == FEBRUARY && !IsLeapYear(y)) {
+    d = 28;
+  }
+  return *this;
+}
+
+Date & StructDate::operator = (const Date & date) {
+  d = date.GetDate();
+  m = date.GetMonth();
+  y = date.GetYear();
+  return *this;
+}
+
+Date & StructDate::operator &lt; (const Date & date) const {
+  date_d = date.GetDate();
+  date_m = date.GetMonth();
+  date_y = date.GetYear();
+  return y &lt; date_y ||
+    (y == date_y && (m &lt; date_m ||
+    (m == date_m && d &lt; date_d)));
+}
+
+Date & StructDate::operator == (const Date & date) const {
+  return y == date.GetYear() && m == date.GetMonth() && d == date.GetDate();
+}
+
+Date & StructDate::operator > (const Date & date) const {
+  date_d = date.GetDate();
+  date_m = date.GetMonth();
+  date_y = date.GetYear();
+  return y > date_y ||
+    (y == date_y && (m > date_m ||
+    (m == date_m && d > date_d)));
+}
+</pre>
+
+  <p>Файл DaysDate.h</p>
+<pre>
+#pragma once
+
+#include "Date.h"
+
+class DaysDate : public Date {
+private:
+  long days;
+
+public:
+  DaysDate();
+  DaysDate(const DaysDate & date) {
+    days = date.days;
+  }
+  DaysDate(int d, int m, int y);
+
+  void SetDate(int day);
+  int GetDate() const;
+  void SetMonth(int month);
+  int GetMonth() const;
+  void SetYear(int year);
+  int GetYear() const;
+
+  Date & AddDays(int days = 1);
+  Date & SubDays(int days = 1);
+  Date & AddMonths(int months = 1);
+  Date & SubMonths(int months = 1);
+  Date & AddYears(int years = 1);
+  Date & SubYears(int years = 1);
+
+  Date & operator = (const Date & date);
+
+  bool operator &lt; (const Date & date) const;
+  bool operator == (const Date & date) const;
+  bool operator > (const Date & date) const;
+  bool operator &lt;= (const Date & date) const;
+  bool operator != (const Date & date) const;
+  bool operator >= (const Date & date) const;
+};
+</pre>
+
+  <p>Массив monthLength хранит число дней, прошедших с начала года до начала месяца.</p>
+  <p>Функция Convert конвертирует дату в виде дня, месяца, года в число дней прошедших с 1 января 1600 года. Функция Convert имеет перегруженный вариант, который конвертирует число дней прошедших с 1 января 1600 года в дату в виде дня, месяца, года.</p>
+  <p>Функция CorrectLastMonthDate следит чтобы при изменении месяца, день не мог стать больше числа дней в месяце.</p>
+  <p>Файл DaysDate.cpp</p>
+<pre>
+#include &lt;time.h&gt;
+#include "DaysDate.h"
+
+static const int monthLength[2][12] = {
+  {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334},
+  {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335}
+};
+
+static long Convert(int d, int m, int y) {
+  int year = y - 1600;
+  long days = year*365 + year/4 - year/100 + year/400;
+  bool leap = IsLeapYear(y);
+  if (leap) {
+    days--;
+  }
+
+  return days + monthLength[leap][m-1] + d;
+}
+
+static void Convert(long days, int & d, int & m, int & y) {
+  y = (int)(1600 + 4*days/(365*4 + 1)) + 1;
+  int diff = (int)(days - Convert(1, JANUARY, y) + 1);
+  if (diff &lt;= 0) {
+    y--;
+  }
+  bool leap = IsLeapYear(y);
+  if (diff &lt;= 0) {
+    diff += 365 + leap;
+  }
+  for (m = JANUARY;
+  m &lt; DECEMBER && diff > monthLength[leap][m];
+  m++) ;
+
+  d = diff - monthLength[leap][m-1];
+}
+
+static void CorrectLastMonthDate(int & d, int m, int y) {
+  int limit = GetDaysInMonth(m, y);
+  if (d > limit) {
+    d = limit;
+  }
+}
+
+// конструктор по умолчанию
+DaysDate::DaysDate() {
+  time_t tm;
+  time(&tm);
+  struct tm * dt = localtime(&tm);
+  days = Convert(dt->tm_mday, dt->tm_mon + 1, dt->tm_year + 1900);
+}
+
+// конструктор
+DaysDate::DaysDate(int d, int m, int y) {
+  days = Convert(d, m, y);
+}
+
+void DaysDate::SetDate(int day) {
+  int d, m, y;
+  Convert(days, d, m, y);
+  days = Convert(day, m, y);
+}
+
+int DaysDate::GetDate() const {
+  int d, m, y;
+  Convert(days, d, m, y);
+  return d;
+}
+
+void DaysDate::SetMonth(int month) {
+  int d, m, y;
+  Convert(days, d, m, y);
+  CorrectLastMonthDate(d, month, y);
+  days = Convert(d, month, y);
+}
+
+int DaysDate::GetMonth() const {
+  int d, m, y;
+  Convert(days, d, m, y);
+  return m;
+}
+
+void DaysDate::SetYear(int year) {
+  int d, m, y;
+  Convert(days, d, m, y);
+  CorrectLastMonthDate(d, m, year);
+  days = Convert(d, m, year);
+}
+
+int DaysDate::GetYear() const {
+  int d, m, y;
+  Convert(days, d, m, y);
+  return y;
+}
+
+Date & DaysDate::AddDays(int days) {
+  DaysDate::days += days;
+  return *this;
+}
+
+Date & DaysDate::SubDays(int days) {
+  DaysDate::days -= days;
+  return *this;
+}
+
+Date & DaysDate::AddMonths(int months) {
+  if (months &lt; 0) {
+    return SubMonths(-months);
+  }
+  int d, m, y;
+
+  Convert(days, d, m, y);
+  y += months / 12;
+  m += months % 12;
+  if (m > DECEMBER) {
+    y++;
+    m -= 12;
+  }
+  CorrectLastMonthDate(d, m, y);
+
+  days = Convert(d, m, y);
+  return *this;
+}
+
+Date & DaysDate::SubMonths(int months) {
+  if (months &lt; 0) {
+    return AddMonths(-months);
+  }
+  int d, m, y;
+
+  Convert(days, d, m, y);
+  y -= months / 12;
+  m -= months % 12;
+  if (m &lt; JANUARY) {
+    y--;
+    m += 12;
+  }
+  CorrectLastMonthDate(d, m, y);
+
+  days = Convert(d, m, y);
+  return *this;
+}
+
+Date & DaysDate::AddYears(int years) {
+  int d, m, y;
+
+  Convert(days, d, m, y);
+  y += years;
+
+  if (d == 29 && m == FEBRUARY && !IsLeapYear(y)) {
+    d = 28;
+  }
+  days = Convert(d, m, y);
+  return *this;
+}
+
+Date & DaysDate::SubYears(int years) {
+  int d, m, y;
+
+  Convert(days, d, m, y);
+  y -= years;
+
+  if (d == 29 && m == FEBRUARY && !IsLeapYear(y)) {
+    d = 28;
+  }
+  days = Convert(d, m, y);
+  return *this;
+}
+
+Date & DaysDate::operator = (const Date & date) {
+  days = Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+  return *this;
+}
+
+bool DaysDate::operator &lt; (const Date & date) const {
+  return days &lt; Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+
+bool DaysDate::operator == (const Date & date) const {
+  return days == Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+
+bool DaysDate::operator > (const Date & date) const {
+  return days > Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+
+bool DaysDate::operator &lt;= (const Date & date) const {
+  return days &lt;= Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+
+bool DaysDate::operator != (const Date & date) const {
+  return days != Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+
+bool DaysDate::operator >= (const Date & date) const {
+  return days >= Convert(date.GetDate(), date.GetMonth(), date.GetYear());
+}
+</pre>
+
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include "StructDate.h"
+#include "DaysDate.h"
+
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Today: " &lt;&lt; StructDate().GetString() &lt;&lt; endl;
+
+  StructDate dt1(21, JUNE, 2003);
+  cout &lt;&lt; "Should be 21-Jun-2003: "
+  &lt;&lt; dt1.GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 1-Jul-9004: "
+  &lt;&lt; (dt1.AddYears(7001) += 10).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 1-Jan-9004: "
+  &lt;&lt; dt1.SubMonths(6).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 31-Dec-9003: "
+  &lt;&lt; (--dt1).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 29-Feb-9004: "
+  &lt;&lt; (dt1.AddMonths(2)).GetString() &lt;&lt; endl &lt;&lt; endl;
+
+  DaysDate dt2(21, JUNE, 2003);
+  cout &lt;&lt; "Should be 21-Jun-2003: "
+  &lt;&lt; dt1.GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 1-Jul-9004: "
+  &lt;&lt; (dt1.AddYears(7001) += 10).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 1-Jan-9004: "
+  &lt;&lt; dt1.SubMonths(6).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 31-Dec-9003: "
+  &lt;&lt; (--dt1).GetString() &lt;&lt; endl;
+  cout &lt;&lt; "Should be 29-Feb-9004: "
+  &lt;&lt; (dt1.AddMonths(2)).GetString() &lt;&lt; endl &lt;&lt; endl;
+
+  return 0;
 }
 </pre>
 </article>
@@ -1927,4 +2335,160 @@ Date & StructDate::AddDays(int days) {
 <article class="article">
   <div class="anchor" id="p10"></div>
   <h3>10 Сортировка и поиск</h3>
+
+  <p>Шаблонная функция PrintArray принимает массив любого типа данных. Проходится по элементам массива и выводит их на экран.</p>
+  <p>В массиве test1 последние два элемента равны 0, мы так обозначили, что в массив можно поместить еще два элемента, а пока размер массива на 2 меньше. Размер массива test1 равен len1, так что последний элемент имеет номер len1-1. Пока двух последних элементов нет, то последний элемент массива имеет номер len-3.</p>
+  <p>Функция BinSearch выполняет бинарный поиск по отсортированному массиву.</p>
+  <p>Функция InsertSort сортировка вставками.</p>
+  <p>Файл main.cpp</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include "BinSearch.h"
+#include "InsertSort.h"
+#include "MergeSort.h"
+#include "HeapSort.h"
+#include "QuickSort.h"
+#include "DigitSort.h"
+#include "IntKey.h"
+
+using namespace std;
+
+template &lt;class Element&gt;
+void PrintArray(Element * array, int low, int high) {
+  for (int i = low; i &lt;= high; i++) {
+    cout &lt;&lt; array[i] &lt;&lt; (i &lt; high ? ", " : "");
+  }
+  cout &lt;&lt; endl;
+}
+
+int main() {
+  int test1[] = {
+    0, 4, 5, 6, 9, 12, 19, 20, 29, 32,
+    37, 40, 43, 44, 46, 52, 58, 65, 67, 70,
+    73, 76, 77, 88, 89, 0, 0
+  };
+  int len1 = sizeof(test1)/sizeof(int);
+
+  PrintArray&lt;int&gt;(test1, 0, len1 - 3);
+
+  cout &lt;&lt; BinSearch&lt;int&gt;(test1, 0, len1 - 3, 58) &lt;&lt; endl &lt;&lt; endl;
+
+  Insert&lt;int&gt;(test1, 0, len1 - 3, 10);
+  Insert&lt;int&gt;(test1, 0, len1 - 2, 95);
+  PrintArray&lt;int&gt;(test1, 0, len1 - 1);
+  cout &lt;&lt; endl;
+
+  int len2 = 25;
+  int *test2 = new int[len2];
+
+  int seed = 13;
+  for (int i = 0; i &lt; len2; i++) {
+    // заполняем массив псевдослучайными числами
+    test2[i] = (seed = (837*seed + 1079) % 2313) % 1000;
+  }
+  PrintArray&lt;int&gt;(test2, 0, len2 - 1);
+
+  InsertSort&lt;int&gt;(test2, 0, len2 - 1);
+  PrintArray&lt;int&gt;(test2, 0, len2 - 1);
+
+  for (int i = 0; i &lt; len2; i++) {
+    // заполняем массив псевдослучайными числами
+    test2[i] = (seed = (837*seed + 1079) % 213) % 100;
+  }
+  PrintArray&lt;int&gt;(test2, 0, len2 - 1);
+
+  BinInsertSort&lt;int&gt;(test2, 0, len2 - 1);
+  PrintArray&lt;int&gt;(test2, 0, len2 - 1);
+  cout &lt;&lt; endl;
+}
+
+string sTest1[] = {
+  "the", "final", "step", "in", "the",
+  "deployment", "process", "occurs", "when", "the",
+  "software", "is", "installed", "on", "individual",
+  "user", "system", "installation", "consists", "of",
+  "copying", "software", "onto", "the", "user\'s",
+  "system,", "then", "configuring", "the", "user\'s"
+};
+int lenT1 = sizeof(sTest1)/sizeof(string);
+
+string sTest2[] = {
+  "system", "to", "support", "that", "software.",
+}
+</pre>
+
+  <p>Файл BinSearch.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+int BinSearch(Key * array, int low, int high, const Key & key) {
+  while (low &lt; high) {
+    int middle = (low + high) / 2;
+    if (array[middle] >= key) {
+      high = middle;
+    } else {
+      low = middle + 1;
+    }
+  }
+  return array[low] == key ? low : -1;
+}
+</pre>
+
+  <p>Файл Insert.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+void Insert(Key * array, int low, int high, const Key & key) {
+  if (array[high] &lt;= key) {
+    array[high+1] = key;
+  } else {
+    int border = high;
+
+    while (low &lt; high) {
+      int middle = (low + high) / 2;
+      if (array[middle] >= key) {
+        high = middle;
+      } else {
+        low = middle + 1;
+      }
+    }
+
+    for (int i = border; i >= low; i--) {
+      array[i+1] = array[i];
+    }
+
+    array[low] = key;
+  }
+}
+</pre>
+
+  <p>Файл InsertSort.h</p>
+<pre>
+#pragma once
+
+#include "Insert.h"
+
+template &lt;class Key&gt;
+void InsertSort(Key * array, int low, int high) {
+  for (int i = low + 1; i &lt;= high; i++) {
+    Key temp = array[i];
+    int j;
+    for (j = i - 1; j >= low && array[j] > temp; j--) {
+      array[j + 1] = array[j];
+    }
+    array[j + 1] = temp;
+  }
+}
+
+template &lt;class Key&gt;
+void BinInsertSort(Key * array, int low, int high) {
+  for (int i = low + 1; i &lt;= high; i++) {
+    Key temp = array[i];
+    Insert&lt;key&gt;(array, low, i-1, temp);
+  }
+}
+</pre>
 </article>
