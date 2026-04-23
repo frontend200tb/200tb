@@ -9,6 +9,7 @@ import html2008       from './../pages/elem-2008.html';
 import html2011A      from './../pages/elem-2011-alekseev.html';
 import html2011L      from './../pages/elem-2011-linski.html';
 import html2011S      from './../pages/elem-2011-soldatkin.html';
+import htmlJavarush   from './../pages/elem-cpp-javarush.html';
 
 export const pages = [
   htmlCourse1,
@@ -21,4 +22,5 @@ export const pages = [
   html2011A,
   html2011L,
   html2011S,
+  htmlJavarush,
 ];

@@ -2340,6 +2340,12 @@ int main() {
   <p>В массиве test1 последние два элемента равны 0, мы так обозначили, что в массив можно поместить еще два элемента, а пока размер массива на 2 меньше. Размер массива test1 равен len1, так что последний элемент имеет номер len1-1. Пока двух последних элементов нет, то последний элемент массива имеет номер len-3.</p>
   <p>Функция BinSearch выполняет бинарный поиск по отсортированному массиву.</p>
   <p>Функция InsertSort сортировка вставками.</p>
+  <p>Функция Merge объединяет два отсортированных массива.</p>
+  <p>Функция MergeSort сортировка слиянием. Массив разбивается на подмассивы до тех пор пока в них не останется по одному элементу. После этого массивы объединяются как отсортированные массивы.</p>
+  <p>Функция HeapSort пирамидальная сортировка.</p>
+  <p>Функция QuickSort быстрая сортировка.</p>
+  <p>Функция DigitSort цифровая сортировка.</p>
+
   <p>Файл main.cpp</p>
 <pre>
 #include &lt;iostream&gt;
@@ -2415,7 +2421,78 @@ int lenT1 = sizeof(sTest1)/sizeof(string);
 
 string sTest2[] = {
   "system", "to", "support", "that", "software.",
+  "you", "should", "ensure", "that", "your",
+  "installation", "procedure, "does", "not", "overwrite",
+  "existing", "jre", "installations", "as", "they",
+  "may", "be", "required", "by", "other",
+  "applications"
+};
+int lenT2 = sizeof(sTest2)/sizeof(string);
+
+string *sTest = new string[lenT1 + lenT2];
+
+BinInsertSort&lt;string&gt;(sTest1, 0, lenT1 - 1);
+PrintArray&lt;string&gt;(sTest1, 0, lenT1 - 1);
+cout &lt;&lt; endl;
+
+BinInsertSort&lt;string&gt;(sTest2, 0, lenT2 - 1);
+PrintArray&lt;string&gt;(sTest2, 0, lenT2 - 1);
+cout &lt;&lt; endl;
+
+Merge&lt;string&gt;(sTest1, 0, lenT1 - 1, sTest2, 0, lenT2 - 1, sTest, 0);
+PrintArray&lt;string&gt;(sTest, 0, lenT1 + lenT2 - 1);
+cout &lt;&lt; endl;
+
+string sMerge[] = {
+  "we", "are", "pleased", "to", "announce",
+  "a", "new", "release", "of", "hugs98",
+  "an", "interpreter", "and", "programming", "environment",
+  "for", "developing", "haskell", "programs", "sources",
+  "and", "binaries", "are", "freely", "available",
+  "on", "the", "word", "wide", "web"
+};
+int lenMerge = sizeof(sMerge)/sizeof(string);
+
+MergeSort&lt;string&gt;(sMerge, 0, lenMerge - 1);
+PrintArray&lt;string&gt;(sMerge, 0, lenMerge - 1);
+cout &lt;&lt; endl;
+
+string sHeap[] = {
+  "the", "java", "runtime", "environment", "contains",
+  "the", "java", "virtual", "machine", "runtime",
+  "class", "libraries", "and", "java", "application",
+  "louncher", "that", "are", "necessary", "to",
+};
+int lenHeap = sizeof(sHeap)/sizeof(string);
+
+HeapSort&lt;string&gt;(sHeap, 0, lenHeap - 1);
+PrintArray&lt;string&gt;(sHeap, 0, lenHeap - 1);
+cout &lt;&lt; endl;
+
+string sQuick[] = {
+  "when", "you", "register", "we", "ask",
+  "for", "information", "such", "as", "your",
+  "name", "email", "address", "birth", "date"
+};
+int lenQuick = sizeof(sQuick)/sizeof(string);
+
+QuickSort&lt;string&gt;(sQuick, 0, lenQuick - 1);
+PrintArray&lt;string&gt;(sQuick, 0, lenQuick - 1);
+cout &lt;&lt; endl;
+
+const int len3 = 100;
+IntKey test3[len3];
+seed = 13;
+for (int i = 0; i &lt; len3; i++) {
+  test3[i] = IntKey(seed = (837*seed + 1079) & 0x7FFFFFFF);
 }
+PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
+cout &lt;&lt; endl;
+
+DigitSort&lt;IntKey&gt;(test3, 0, len3 - 1);
+PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
+
+return 0;
 </pre>
 
   <p>Файл BinSearch.h</p>
@@ -2489,6 +2566,203 @@ void BinInsertSort(Key * array, int low, int high) {
     Key temp = array[i];
     Insert&lt;key&gt;(array, low, i-1, temp);
   }
+}
+</pre>
+
+  <p>Файл Merge.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+void Merge(Key * arr1, int low1, int high1,
+           Key * arr2, int low2, int high2,
+           Key * arr3, int low3) {
+  int ndx1 = low1;
+  int ndx2 = low2;
+  int ndx3 = low3;
+
+  while (ndx &lt;= high1 && ndx2 &lt;= high2) {
+    if (arr1[ndx1] &lt; arr2[ndx2]) {
+      arr3[ndx3++] = arr1[ndx1++];
+    } else {
+      arr3[ndx3++] = arr2[ndx2++];
+    }
+  }
+
+  if (ndx1 > high1) {
+    while (ndx2 &lt;= high2) {
+      arr3[ndx3++] = arr2[ndx2++];
+    } else {
+      while (ndx1 &lt;= high1) {
+        arr3[ndx3++] = arr1[ndx1++];
+      }
+    }
+  }
+}
+</pre>
+
+  <p>Функция Move копирует элементы одного массива в другой массив.</p>
+  <p>Файл MergeSort.h</p>
+<pre>
+#pragma once
+
+#include "Merge.h"
+#include &lt;math.h&gt;
+
+template &lt;class Key&gt;
+void Move(Key * src, int sLow, int sHigh, Key * dst, int dLow) {
+  for (int pSrc = sLow, pDst = dLow; pSrc &lt; sHigh; ) {
+    dst[pDst++] = src[pSrc++];
+  }
+}
+
+template &lt;class Key&gt;
+void MergeSort(Key * array, int low, int high) {
+  int n = high - low + 1;
+  int frag = n;
+  int len = 1;
+  Key * source = array;
+  Key * dest = new Key[n];
+  int sourceLow = Low;
+  int destLow = 0;
+
+  while (frag > 1) {
+    int pSource = sourceLow;
+    int pDest = destLow;
+    do {
+      int nextSource = min(pSource + 2 * len, sourceLow + n);
+      if (nextSource > pSource + len) {
+        Merge&lt;Key&gt;(source, pSource, pSource+len-1,
+        source, pSource+len, nextSource-1, dest, pDest);
+      } else {
+        Move&lt;Key&gt;(source, pSource, nextSource-1,
+        dest, pDest);
+      }
+      pSource = nextSource;
+      pDest += 2 * len;
+    } while (pSource &lt; sourceLow+n);
+    len *= 2;
+    frag = (frag + 1) / 2;
+
+    Key * tempArray = dest;
+    dest = source;
+    source = tempArray;
+
+    int tempLow = destLow;
+    destLow = sourceLow;
+    sourceLow = tempLow;
+  }
+
+  if (source != array) {
+    Move&lt;Key&gt;(source, sourceLow, sourceLow + n - 1, dest, destLow);
+  }
+}
+</pre>
+
+  <p>Функция HeapSort.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+void HeapSort(Key * array, int low, int high) {
+  int heapLength = 1;
+
+  // пока весь массив не станет частью пирамиды
+  // заполняем пирамиду элементами массива
+  while (heapLength &lt;= high-low) {
+    int ndx = low + heapLength;
+    Key elem = array[ndx];
+    while (ndx > low && elem > array[(ndx - low - 1)/2]) {
+      array[ndx] = array[(ndx - low - 1)/2];
+      ndx = (ndx - low - 1)/2;
+    }
+    array[ndx] = elem;
+    heapLength++;
+  }
+
+  // пока в пирамиде остаются элементы
+  // перетаскиваем их в массив
+  while (heapLength > 1) {
+    heapLength--;
+    Key elem = array[low + heapLength];
+    array[low + heapLength] = array[low];
+    int ndx = low;
+    while (2*(ndx-low) &lt; heapLength-1) {
+      int child1 = low + 2*(ndx - low) + 1;
+      int child2 = low + 2*(ndx - low) + 2;
+      if (child2 &lt;= low + heapLength - 1 &&
+          array[child2] > array[child1]) {
+            child1 = child2;
+      }
+      if (elem > array[child1]) {
+        break;
+      }
+      array[ndx] = array[child1];
+      ndx = child1;
+    }
+    array[ndx] = elem;
+  }
+}
+</pre>
+
+  <p>Файл QuickSort.h</p>
+<pre>
+#pragma once
+
+#include "InsertSort.h"
+
+template &lt;class Key&gt;
+void QuickSort(Key * array, int low, int high) {
+  int pLow = low;
+  int pHigh = high;
+  Key elem = array[low];
+
+  while (pLow != pHigh) {
+    while (pHigh > pLow && array[pHigh] >= elem) {
+      pHigh--;
+    }
+
+    if (pHigh > pLow) {
+      array[pLow] = array[pHigh];
+
+      while (pLow &lt; pHigh && array[pLow] &lt;= elem) {
+        pLow++;
+      }
+      array[pHigh] = array[pLow];
+    }
+  }
+
+  array[pLow] = elem;
+  if (pLow - low > 1) {
+    if (pLow - low > 10) {
+      QuickSort&lt;Key&gt;(array, low, pLow-1);
+    } else {
+      InsertSort&lt;Key&gt;(array, low, pLow-1);
+    }
+  }
+
+  if (high - pHigh > 1) {
+    if (high - pHigh > 10) {
+      QuickSort&lt;Key&gt;(array, pHigh+1, high);
+    } else {
+      InsertSort&lt;Key&gt;(array, pHigh+1, high);
+    }
+  }
+}
+</pre>
+
+  <p>Файл IntKey.h</p>
+<pre>
+#pragma once
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class IntKey {
+  friend ostream & operator &lt;&lt; (ostream & out, const IntKey & v);
+
+  int value;
 }
 </pre>
 </article>
