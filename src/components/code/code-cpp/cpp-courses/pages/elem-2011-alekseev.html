@@ -2338,13 +2338,19 @@ int main() {
 
   <p>Шаблонная функция PrintArray принимает массив любого типа данных. Проходится по элементам массива и выводит их на экран.</p>
   <p>В массиве test1 последние два элемента равны 0, мы так обозначили, что в массив можно поместить еще два элемента, а пока размер массива на 2 меньше. Размер массива test1 равен len1, так что последний элемент имеет номер len1-1. Пока двух последних элементов нет, то последний элемент массива имеет номер len-3.</p>
+  <p>Функция main.cpp это точка входа в приложение.</p>
   <p>Функция BinSearch выполняет бинарный поиск по отсортированному массиву.</p>
+  <p>Функция Insert</p>
   <p>Функция InsertSort сортировка вставками.</p>
   <p>Функция Merge объединяет два отсортированных массива.</p>
   <p>Функция MergeSort сортировка слиянием. Массив разбивается на подмассивы до тех пор пока в них не останется по одному элементу. После этого массивы объединяются как отсортированные массивы.</p>
   <p>Функция HeapSort пирамидальная сортировка.</p>
   <p>Функция QuickSort быстрая сортировка.</p>
+  <p>Тип данных IntKey</p>
   <p>Функция DigitSort цифровая сортировка.</p>
+  <p>Тип данных ListBuffer предназначен для управления памятью. Выделяется память для создания списков.</p>
+  <p>Тип данных Element это элемент списка (массива). Элемент хранит значение и номер следующего элемента в массиве.</p>
+  <p>Тип данных KeyList</p>
 
   <p>Файл main.cpp</p>
 <pre>
@@ -2407,92 +2413,92 @@ int main() {
   BinInsertSort&lt;int&gt;(test2, 0, len2 - 1);
   PrintArray&lt;int&gt;(test2, 0, len2 - 1);
   cout &lt;&lt; endl;
+
+  string sTest1[] = {
+    "the", "final", "step", "in", "the",
+    "deployment", "process", "occurs", "when", "the",
+    "software", "is", "installed", "on", "individual",
+    "user", "system", "installation", "consists", "of",
+    "copying", "software", "onto", "the", "user\'s",
+    "system,", "then", "configuring", "the", "user\'s"
+  };
+  int lenT1 = sizeof(sTest1)/sizeof(string);
+
+  string sTest2[] = {
+    "system", "to", "support", "that", "software.",
+    "you", "should", "ensure", "that", "your",
+    "installation", "procedure", "does", "not", "overwrite",
+    "existing", "jre", "installations", "as", "they",
+    "may", "be", "required", "by", "other",
+    "applications"
+  };
+  int lenT2 = sizeof(sTest2)/sizeof(string);
+
+  string *sTest = new string[lenT1 + lenT2];
+
+  BinInsertSort&lt;string&gt;(sTest1, 0, lenT1 - 1);
+  PrintArray&lt;string&gt;(sTest1, 0, lenT1 - 1);
+  cout &lt;&lt; endl;
+
+  BinInsertSort&lt;string&gt;(sTest2, 0, lenT2 - 1);
+  PrintArray&lt;string&gt;(sTest2, 0, lenT2 - 1);
+  cout &lt;&lt; endl;
+
+  Merge&lt;string&gt;(sTest1, 0, lenT1 - 1, sTest2, 0, lenT2 - 1, sTest, 0);
+  PrintArray&lt;string&gt;(sTest, 0, lenT1 + lenT2 - 1);
+  cout &lt;&lt; endl;
+
+  string sMerge[] = {
+    "we", "are", "pleased", "to", "announce",
+    "a", "new", "release", "of", "hugs98",
+    "an", "interpreter", "and", "programming", "environment",
+    "for", "developing", "haskell", "programs", "sources",
+    "and", "binaries", "are", "freely", "available",
+    "on", "the", "word", "wide", "web"
+  };
+  int lenMerge = sizeof(sMerge)/sizeof(string);
+
+  MergeSort&lt;string&gt;(sMerge, 0, lenMerge - 1);
+  PrintArray&lt;string&gt;(sMerge, 0, lenMerge - 1);
+  cout &lt;&lt; endl;
+
+  string sHeap[] = {
+    "the", "java", "runtime", "environment", "contains",
+    "the", "java", "virtual", "machine", "runtime",
+    "class", "libraries", "and", "java", "application",
+    "louncher", "that", "are", "necessary", "to",
+  };
+  int lenHeap = sizeof(sHeap)/sizeof(string);
+
+  HeapSort&lt;string&gt;(sHeap, 0, lenHeap - 1);
+  PrintArray&lt;string&gt;(sHeap, 0, lenHeap - 1);
+  cout &lt;&lt; endl;
+
+  string sQuick[] = {
+    "when", "you", "register", "we", "ask",
+    "for", "information", "such", "as", "your",
+    "name", "email", "address", "birth", "date"
+  };
+  int lenQuick = sizeof(sQuick)/sizeof(string);
+
+  QuickSort&lt;string&gt;(sQuick, 0, lenQuick - 1);
+  PrintArray&lt;string&gt;(sQuick, 0, lenQuick - 1);
+  cout &lt;&lt; endl;
+
+  const int len3 = 100;
+  IntKey test3[len3];
+  seed = 13;
+  for (int i = 0; i &lt; len3; i++) {
+    test3[i] = IntKey(seed = (837*seed + 1079) & 0x7FFFFFFF);
+  }
+  PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
+  cout &lt;&lt; endl;
+
+  DigitSort&lt;IntKey&gt;(test3, 0, len3 - 1);
+  PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
+
+  return 0;
 }
-
-string sTest1[] = {
-  "the", "final", "step", "in", "the",
-  "deployment", "process", "occurs", "when", "the",
-  "software", "is", "installed", "on", "individual",
-  "user", "system", "installation", "consists", "of",
-  "copying", "software", "onto", "the", "user\'s",
-  "system,", "then", "configuring", "the", "user\'s"
-};
-int lenT1 = sizeof(sTest1)/sizeof(string);
-
-string sTest2[] = {
-  "system", "to", "support", "that", "software.",
-  "you", "should", "ensure", "that", "your",
-  "installation", "procedure, "does", "not", "overwrite",
-  "existing", "jre", "installations", "as", "they",
-  "may", "be", "required", "by", "other",
-  "applications"
-};
-int lenT2 = sizeof(sTest2)/sizeof(string);
-
-string *sTest = new string[lenT1 + lenT2];
-
-BinInsertSort&lt;string&gt;(sTest1, 0, lenT1 - 1);
-PrintArray&lt;string&gt;(sTest1, 0, lenT1 - 1);
-cout &lt;&lt; endl;
-
-BinInsertSort&lt;string&gt;(sTest2, 0, lenT2 - 1);
-PrintArray&lt;string&gt;(sTest2, 0, lenT2 - 1);
-cout &lt;&lt; endl;
-
-Merge&lt;string&gt;(sTest1, 0, lenT1 - 1, sTest2, 0, lenT2 - 1, sTest, 0);
-PrintArray&lt;string&gt;(sTest, 0, lenT1 + lenT2 - 1);
-cout &lt;&lt; endl;
-
-string sMerge[] = {
-  "we", "are", "pleased", "to", "announce",
-  "a", "new", "release", "of", "hugs98",
-  "an", "interpreter", "and", "programming", "environment",
-  "for", "developing", "haskell", "programs", "sources",
-  "and", "binaries", "are", "freely", "available",
-  "on", "the", "word", "wide", "web"
-};
-int lenMerge = sizeof(sMerge)/sizeof(string);
-
-MergeSort&lt;string&gt;(sMerge, 0, lenMerge - 1);
-PrintArray&lt;string&gt;(sMerge, 0, lenMerge - 1);
-cout &lt;&lt; endl;
-
-string sHeap[] = {
-  "the", "java", "runtime", "environment", "contains",
-  "the", "java", "virtual", "machine", "runtime",
-  "class", "libraries", "and", "java", "application",
-  "louncher", "that", "are", "necessary", "to",
-};
-int lenHeap = sizeof(sHeap)/sizeof(string);
-
-HeapSort&lt;string&gt;(sHeap, 0, lenHeap - 1);
-PrintArray&lt;string&gt;(sHeap, 0, lenHeap - 1);
-cout &lt;&lt; endl;
-
-string sQuick[] = {
-  "when", "you", "register", "we", "ask",
-  "for", "information", "such", "as", "your",
-  "name", "email", "address", "birth", "date"
-};
-int lenQuick = sizeof(sQuick)/sizeof(string);
-
-QuickSort&lt;string&gt;(sQuick, 0, lenQuick - 1);
-PrintArray&lt;string&gt;(sQuick, 0, lenQuick - 1);
-cout &lt;&lt; endl;
-
-const int len3 = 100;
-IntKey test3[len3];
-seed = 13;
-for (int i = 0; i &lt; len3; i++) {
-  test3[i] = IntKey(seed = (837*seed + 1079) & 0x7FFFFFFF);
-}
-PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
-cout &lt;&lt; endl;
-
-DigitSort&lt;IntKey&gt;(test3, 0, len3 - 1);
-PrintArray&lt;IntKey&gt;(test3, 0, len3 - 1);
-
-return 0;
 </pre>
 
   <p>Файл BinSearch.h</p>
@@ -2564,7 +2570,7 @@ template &lt;class Key&gt;
 void BinInsertSort(Key * array, int low, int high) {
   for (int i = low + 1; i &lt;= high; i++) {
     Key temp = array[i];
-    Insert&lt;key&gt;(array, low, i-1, temp);
+    Insert&lt;Key&gt;(array, low, i-1, temp);
   }
 }
 </pre>
@@ -2581,7 +2587,7 @@ void Merge(Key * arr1, int low1, int high1,
   int ndx2 = low2;
   int ndx3 = low3;
 
-  while (ndx &lt;= high1 && ndx2 &lt;= high2) {
+  while (ndx1 &lt;= high1 && ndx2 &lt;= high2) {
     if (arr1[ndx1] &lt; arr2[ndx2]) {
       arr3[ndx3++] = arr1[ndx1++];
     } else {
@@ -2592,10 +2598,10 @@ void Merge(Key * arr1, int low1, int high1,
   if (ndx1 > high1) {
     while (ndx2 &lt;= high2) {
       arr3[ndx3++] = arr2[ndx2++];
-    } else {
-      while (ndx1 &lt;= high1) {
-        arr3[ndx3++] = arr1[ndx1++];
-      }
+    }
+  } else {
+    while (ndx1 &lt;= high1) {
+      arr3[ndx3++] = arr1[ndx1++];
     }
   }
 }
@@ -2623,7 +2629,7 @@ void MergeSort(Key * array, int low, int high) {
   int len = 1;
   Key * source = array;
   Key * dest = new Key[n];
-  int sourceLow = Low;
+  int sourceLow = low;
   int destLow = 0;
 
   while (frag > 1) {
@@ -2763,6 +2769,159 @@ class IntKey {
   friend ostream & operator &lt;&lt; (ostream & out, const IntKey & v);
 
   int value;
+public:
+  IntKey(int v = 0) : value(v) {}
+  IntKey(const IntKey & key) : value(key.value) {}
+  int getValue() { return value; }
+  int length() { return 8; }
+  int power() {return 16; }
+  int operator [] (int i) const {
+    return (value >> (4*(7-i))) & 15;
+  }
+};
+
+ostream & operator &lt;&lt; (ostream & out, const IntKey & v) {
+  return out &lt;&lt; v.value;
 }
+</pre>
+
+  <p>Файл DigitSort.h</p>
+<pre>
+#pragma once
+
+#include "Element.h"
+#include "ListBuffer.h"
+#include "KeyList.h"
+
+template &lt;class Key&gt;
+void DigitSort(Key * array, int low, int high) {
+  int n = high - low + 1;
+  int listNumber = array[low].power();
+  int passes = array[low].length();
+  ListBuffer&lt;Key&gt; buffer(n);
+
+  KeyList&lt;Key&gt; * lists = new KeyList&lt;Key&gt;[listNumber];
+  for (int i = 0; i &lt; listNumber; i++) {
+    lists[i].Initialize(&buffer);
+  }
+
+  for (int digit = passes-1; digit >= 0; digit--) {
+    for (int i = low; i &lt;= high; i++) {
+      lists[array[i][digit]].AddKey(array[i]);
+    }
+
+    int start = low;
+    for (int i = 0; i &lt; listNumber; i++) {
+      start = lists[i].ToArray(array, start);
+      lists[i].Clear();
+    }
+    buffer.Clear();
+  }
+}
+</pre>
+
+  <p>Файл ListBuffer.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+class ListBuffer {
+private:
+  Element&lt;Key&gt; * buffer;
+  int size;
+  int freePtr;
+
+public:
+  ListBuffer(int n) {
+    buffer = new Element&lt;Key&gt;[size = n];
+    Clear();
+  }
+
+  ~ListBuffer() {
+    delete [] buffer;
+  }
+
+  void Clear() {
+    freePtr = 0;
+  }
+
+  Element&lt;Key&gt; & operator [] (int i) {
+    return buffer[i];
+  }
+
+  int get() {
+    return freePtr++;
+  }
+};
+</pre>
+
+  <p>Файл Element.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+struct Element {
+  Key value;
+  int next;
+
+  Element() {
+    next = -1;
+  }
+
+  Element(const Element&lt;Key&gt; & src) : value(src.value), next(src.next) {}
+
+  Element(const Key & val, int n = -1) : value(val), next(n) {}
+
+  Element & operator = (const Element&lt;Key&gt; & src) {
+    value = src.value;
+    next = src.next;
+    return *this;
+  }
+};
+</pre>
+
+  <p>Файл KeyList.h</p>
+<pre>
+#pragma once
+
+template &lt;class Key&gt;
+class KeyList {
+private:
+  ListBuffer&lt;Key&gt; * buffer;
+  int first;
+  int last;
+
+public:
+  KeyList(ListBuffer&lt;Key&gt; * buf = NULL) : buffer(buf), first(-1), last(-1) {}
+
+  void Initialize(ListBuffer&lt;Key&gt; * buf) {
+    buffer = buf;
+  }
+
+  void AddKey(const Key & key) {
+    int nextElem = buffer->get();
+    (*buffer)[nextElem] = Element&lt;Key&gt;(key);
+
+    if (first == -1) {
+      first = nextElem;
+    } else {
+      (*buffer)[last].next = nextElem;
+    }
+    last = nextElem;
+  }
+
+  int ToArray(Key * array, int from) {
+    int ptr = first;
+    while (ptr != -1) {
+      array[from++] = (*buffer)[ptr].value;
+      ptr = (*buffer)[ptr].next;
+    }
+    return from;
+  }
+
+  void Clear() {
+    first = last = -1;
+  }
+};
 </pre>
 </article>

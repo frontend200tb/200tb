@@ -10,5 +10,6 @@ export const asideThemes = [
   '2011 Алексеев',
   '2011 Линский',
   '2011 Солдаткин',
+  '2015 Foxford',
   'Javarush',
 ];
