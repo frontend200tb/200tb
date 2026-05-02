@@ -1,5 +1,6 @@
 // Создаем массив asideThemes с темами для блока aside
 export const asideThemes = [
+  'Javarush',
   'Введение в C++',
   'codelessons<br>Уроки программирования',
   'metanit<br>Руководство по C++',
@@ -11,5 +12,4 @@ export const asideThemes = [
   '2011 Линский',
   '2011 Солдаткин',
   '2015 Foxford',
-  'Javarush',
 ];

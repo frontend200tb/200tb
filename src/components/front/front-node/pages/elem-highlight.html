@@ -1,0 +1,150 @@
+<h1>Highlight</h1>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+      <a href="#about">about</a>
+  <br><a href="#links">links</a>
+  <br><a href="#install">install</a>
+  <br><a href="#component">Highlight.component.js</a>
+</article>
+
+
+<!-- about -->
+<article class="article">
+  <div class="anchor" id="about"></div>
+  <h3>About</h3>
+
+  <p>Highlight.js — это библиотека для подсветки синтаксиса кода, написанная на JavaScript. Она работает как в браузере, так и на сервере (Node.js). Используется для языков C++, Javascropt и других, всего 192 языков. Множество готовых цветовых тем (всего 512 стилей).</p>
+  <p>Библиотека была создана Иваном Сагалаевым, первый коммит датируется августом 2006 года. За почти 20 лет развития она стала стандартом де-факто для подсветки синтаксиса в вебе.</p>
+</article>
+
+
+<!-- links -->
+<article class="article">
+  <div class="anchor" id="links"></div>
+  <h3>Links</h3>
+
+  <p><a href="https://highlightjs.org/">https://highlightjs.org/</a></p>
+  <p><a href="https://www.npmjs.com/package/highlight.js">https://www.npmjs.com/package/highlight.js</a></p>
+  <p><a href="https://github.com/highlightjs/highlight.js">https://github.com/highlightjs/highlight.js</a></p>
+</article>
+
+
+<!-- install -->
+<article class="article">
+  <div class="anchor" id="install"></div>
+  <h3>install</h3>
+
+  <code>npm install highlight.js</code>
+  <p>После установки пакет появится в папке node_modules/highlight.js. Теперь все необходимые файлы библиотеки есть внутри вашего проекта</p>
+
+  <h4>Добавление новых языков</h4>
+  <p>Теперь, если в будущем вам понадобится добавить поддержку, например, Python, процесс будет очень простым:</p>
+  <ol>
+    <li>Добавьте импорт языка: import python from 'highlight.js/lib/languages/python';</li>
+    <li>Зарегистрируйте его: hljs.registerLanguage('python', python);</li>
+  </ol>
+  <p>Библиотека будет сама подтянута из папки node_modules и включена в вашу финальную сборку Webpack'ом. Весь процесс полностью автономен и не требует подключения к интернету.</p>
+</article>
+
+
+<!-- component -->
+<article class="article">
+  <div class="anchor" id="component"></div>
+  <h3>Файл Highlight.component.js</h3>
+
+  <p>Создадим файл Highlight.component.js</p>
+<pre class="language-javascript">
+// 1. Импортируем ядро библиотеки
+import hljs from 'highlight.js/lib/core';
+
+// 2. Импортируем только те языки, которые вам нужны
+//    Это ключевой момент: мы загружаем только C++ и JavaScript,
+//    что значительно уменьшает размер итогового бандла.
+import cpp from 'highlight.js/lib/languages/cpp';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+// 3. Импортируем CSS-тему. Она будет обработана Webpack'ом.
+import 'highlight.js/styles/github-dark.css';
+
+class HighlightComponent extends HTMLElement {
+  constructor() {
+    super();
+    this.observer = null;
+  }
+
+  connectedCallback() {
+    // 4. Регистрируем языки, которые мы импортировали
+    hljs.registerLanguage('cpp', cpp);
+    hljs.registerLanguage('javascript', javascript);
+
+    // 5. Запускаем подсветку
+    this.initHighlighting();
+    this.setupMutationObserver();
+  }
+
+  disconnectedCallback() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  initHighlighting() {
+    this.highlightAllCode();
+  }
+
+  highlightAllCode() {
+    // Находим все блоки с кодом, как и раньше
+    const codeBlocks = document.querySelectorAll(
+      'pre code, pre[class*="language-"], code[class*="language-"]'
+    );
+
+    codeBlocks.forEach((block) => {
+      if (!block.classList.contains('hljs')) {
+        // Используем метод из установленной библиотеки
+        hljs.highlightElement(block);
+      }
+    });
+  }
+
+  setupMutationObserver() {
+    // ... (код MutationObserver остается без изменений)
+    this.observer = new MutationObserver((mutations) => {
+      let needsHighlight = false;
+      for (const mutation of mutations) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          for (const node of mutation.addedNodes) {
+            if (node.nodeType === 1) {
+              if (node.matches && (
+                node.matches('pre code, pre[class*="language-"], code[class*="language-"]')
+              )) {
+                needsHighlight = true;
+                break;
+              }
+              if (node.querySelectorAll && node.querySelectorAll('pre code,
+              pre[class*="language-"], code[class*="language-"]').length > 0) {
+                needsHighlight = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+      if (needsHighlight) {
+        setTimeout(() => this.highlightAllCode(), 50);
+      }
+    });
+
+    this.observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
+}
+
+customElements.define('highlight-component', HighlightComponent);
+</pre>
+</article>

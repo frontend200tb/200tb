@@ -263,8 +263,8 @@
 
     <li>
       <p>Запишем в него код первой программы</p>
-<pre>
-#include &lt;stdio.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
 
 int main() {
   printf("Hello, world!");
@@ -458,8 +458,8 @@ int main() {
     </li>
     <li>
       <p>Увидим в нем код первой программы</p>
-<pre>
-#include &lt;stdio.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
 
 int main() {
   printf("Hello, world!");
@@ -512,9 +512,9 @@ int main() {
     </li>
     <li>
       <p>Выполним русификацию консоли</p>
-<pre>
-#include &lt;stdio.h&gt;
-#include &lt;locale.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
+#include <locale.h>
 
 int main() {
   setlocale(LC_ALL, "");
@@ -559,9 +559,9 @@ int main() {
     </li>
     <li>
       <p>Выполним русификацию консоли</p>
-<pre>
-#include &lt;stdio.h&gt;
-#include &lt;locale.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
+#include <locale.h>
 
 int main() {
   setlocale(LC_ALL, "");
@@ -581,15 +581,14 @@ int main() {
   <h3>Первая программа в Windows</h3>
 
   <p>Чтобы написать программу для среды Windows нужно пользоваться функциями Win32 API. Для этого подключим заголовочный файл windows.h</p>
-  <code>#include &lt;windows.h&gt;</code>
+  <code class="language-cpp">#include <windows.h></code>
   <p>Вместо функции printf() воспользуемся функцией MessageBox() для вывода информации в новом окне.</p>
-<pre>
-#include &lt;windows.h&gt;
+<pre class="language-cpp">
+#include <windows.h>
 
-int main()
-{
-    MessageBox(0, "Привет!", "Окно", MB_OK);
-    return 0;
+int main() {
+  MessageBox(0, "Привет!", "Окно", MB_OK);
+  return 0;
 }
 </pre>
   <p>Откроется окно консоли и откроется окно программы</p>
@@ -633,13 +632,12 @@ int main()
     </li>
     <li>
       <p>Русификация Windows в кодировке windows-1251 не требуется</p>
-<pre>
-#include &lt;windows.h&gt;
+<pre class="language-cpp">
+#include <windows.h>
 
-int main()
-{
-    MessageBox(0, "Привет!", "Окно", MB_OK);
-    return 0;
+int main() {
+  MessageBox(0, "Привет!", "Окно", MB_OK);
+  return 0;
 }
 </pre>
     </li>
@@ -670,32 +668,32 @@ int main()
     </li>
     <li>
       <p>Выполним русификацию</p>
-<pre>
-#include &lt;windows.h&gt;
+<pre class="language-cpp">
+#include <windows.h>
 
-int main()
-{
-    setlocale(LC_ALL, "");
-    MessageBoxW(0, L"Привет!", L"Окно", MB_OK);
-    return 0;
+int main() {
+  setlocale(LC_ALL, "");
+  MessageBoxW(0, L"Привет!", L"Окно", MB_OK);
+  return 0;
 }
 </pre>
     </li>
   </ol>
   <p>MessageBox - это макрос. В зависимости от специальных макроопределений для включения/выключения Unicode он превращается либо в функцию MessageBoxA (A - ASCII), либо в функцию MessageBoxW (W- wide). MessageBoxA может работать только с кодировкой ASCII. MessageBoxW работает с кодировкой UTF-8</p>
-      <p>Выполним русификацию переменных</p>
-<pre>
-#include <stdio.h>
-#include &lt;windows.h&gt;
 
-int main()
-{
+  <p>Выполним русификацию переменных</p>
+<pre class="language-cpp">
+#include <stdio.h>
+#include <windows.h>
+
+int main() {
   wchar_t a[100];
   wchar_t b[100];
   swprintf(a, 100, L"Привет!");
   swprintf(b, 100, L"Окно");
   MessageBoxW(0, a, b, MB_OK);
-    return 0;
+
+  return 0;
 }
 </pre>
 </article>
@@ -795,25 +793,22 @@ int main()
   <h3>Максимум двух чисел</h3>
 
   <p>Напишем программу нахождения максимума двух чисел</p>
-<pre>
-#include &lt;stdio.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
 
-int main()
-{
-    int x = 10;
-    int y = 20;
-    int max;
-    if(x > y)
-    {
-        max = x;
-    }
-    else
-    {
-        max = y;
-    }
-    printf("%d\n", max);
+int main() {
+  int x = 10;
+  int y = 20;
+  int max;
 
-    return 0;
+  if(x > y) {
+    max = x;
+  } else {
+    max = y;
+  }
+  printf("%d\n", max);
+
+  return 0;
 }
 </pre>
 </article>
@@ -831,46 +826,43 @@ int main()
     <li>max() для нахождения максимума двух чисел</li>
     <li>show() для вывода результата</li>
   </ol>
+
   <p>Файл main.c</p>
-<pre>
-#include &lt;stdio.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
 
 int getX();
 int getY();
 int max(int, int);
 void show(int);
 
-int main()
-{
-    int x = getX();
-    int y = getY();
-    int m = max(x, y);
-    show(m);
+int main() {
+  int x = getX();
+  int y = getY();
+  int m = max(x, y);
+  show(m);
 
-    return 0;
+  return 0;
 }
 
-int getX()
-{
-    return 10;
+int getX() {
+  return 10;
 }
 
-int getY()
-{
-    return 20;
+int getY() {
+  return 20;
 }
 
-int max(int a, int b)
-{
-    if(a > b) {
-        return a;
-    } else {
-    return b;}
+int max(int a, int b) {
+  if(a > b) {
+    return a;
+  } else {
+    return b;
+  }
 }
 
-void show(int c)
-{
-    printf("%d\n", c);
+void show(int c) {
+  printf("%d\n", c);
 }
 </pre>
 </article>
@@ -884,20 +876,19 @@ void show(int c)
   <p>Изменим программу. Разобьем ее на модули. Вынесем каждую функцию в отдельный файл</p>
 
   <p>Файл main.c</p>
-<pre>
+<pre class="language-cpp">
 #include "getx.h"
 #include "gety.h"
 #include "max.h"
 #include "show.h"
 
-int main()
-{
-    int x = getX();
-    int y = getY();
-    int m = max(x, y);
-    show(m);
+int main() {
+  int x = getX();
+  int y = getY();
+  int m = max(x, y);
+  show(m);
 
-    return 0;
+  return 0;
 }
 </pre>
 
@@ -915,10 +906,9 @@ int main()
   <p>В открывшемся окне <strong>Properties</strong> на вкладке <strong>Build</strong> ставим галочки <strong>Debug</strong> и <strong>Release</strong></p>
 
   <p>Файл getx.c</p>
-<pre>
-int getX()
-{
-    return 10;
+<pre class="language-cpp">
+int getX() {
+  return 10;
 }
 </pre>
 
@@ -933,7 +923,7 @@ int getX()
 <p>Поставим галочки у <strong>Add file to active project</strong> и <strong>Debug</strong> и <strong>Release</strong> и нажмем <strong>Finish</strong></p>
 
   <p>Файл getx.h</p>
-<pre>
+<pre class="language-cpp">
 #ifndef GETX_H_INCLUDED
 #define GETX_H_INCLUDED
 
@@ -943,7 +933,7 @@ int getX();
 </pre>
 
   <p>Файл gety.c</p>
-<pre>
+<pre class="language-cpp">
 int getY()
 {
     return 20;
@@ -951,7 +941,7 @@ int getY()
 </pre>
 
   <p>Файл gety.h</p>
-<pre>
+<pre class="language-cpp">
 #ifndef GETY_H_INCLUDED
 #define GETY_H_INCLUDED
 
@@ -961,7 +951,7 @@ int getY();
 </pre>
 
   <p>Файл max.c</p>
-<pre>
+<pre class="language-cpp">
 int max(int a, int b)
 {
     if(a > b) {
@@ -972,7 +962,7 @@ int max(int a, int b)
 </pre>
 
   <p>Файл max.h</p>
-<pre>
+<pre class="language-cpp">
 #ifndef MAX_H_INCLUDED
 #define MAX_H_INCLUDED
 
@@ -982,17 +972,16 @@ int max(int, int);
 </pre>
 
   <p>Файл show.c</p>
-<pre>
-#include &lt;stdio.h&gt;
+<pre class="language-cpp">
+#include <stdio.h>
 
-void show(int c)
-{
-    printf("%d\n", c);
+void show(int c) {
+  printf("%d\n", c);
 }
 </pre>
 
   <p>Файл show.h</p>
-<pre>
+<pre class="language-cpp">
 #ifndef SHOW_H_INCLUDED
 #define SHOW_H_INCLUDED
 

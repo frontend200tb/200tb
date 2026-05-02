@@ -19,7 +19,8 @@
 
   <details>
     <summary>Перебор генератора в цикле for of</summary>
-<pre>function* some() {
+<pre class="language-js">
+function* some() {
   console.log('yield a');
   yield 'a';
   console.log('yield b');
@@ -30,7 +31,8 @@
 
 for (let a of some()) {
   console.log(a);
-}</pre>
+}
+</pre>
   </details>
 </article>
 
@@ -44,7 +46,8 @@ for (let a of some()) {
 
   <details>
     <summary>Решение</summary>
-<pre>function cleanStr(str) {
+<pre class="language-js">
+function cleanStr(str) {
   return str.trim().replace(/ +/g, ' ');
 }
 
@@ -70,7 +73,8 @@ let s = 'всем привет ура ура';
 console.log(wordsCount(s));
 for (let word of getWords(s)) {
   console.log(word)
-}</pre>  
+}
+</pre>
   </details>
 </article>
 

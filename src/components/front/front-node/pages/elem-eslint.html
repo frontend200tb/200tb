@@ -42,17 +42,23 @@
   <div class="anchor" id="install"></div>
   <h3>install</h3>
 
-  <p>Установим в наш проект локально как зависимости для разработки eslint и eslint-config-airbnb</p>
-  <code>npm i -D eslint eslint-config-airbnb</code>
+  <p>eslint-config-airbnb — полный конфиг (включает правила для React)</p>
+  <p>eslint-config-airbnb-base — базовый конфиг (без React, только JS)</p>
+  <p>eslint-plugin-import — это очень важный плагин, который помогает писать правильные и чистые импорты в JavaScript/TypeScript</p>
+  <p>Установим в наш проект eslint (локально как зависимости для разработки)</p>
+  <code>npm i -D eslint eslint-config-airbnb-base eslint-plugin-import</code>
 
-  <p>В файл package.json добавятся зависимости для разработки. Вручную добавим скрипт для запуска проверки</p>
+  <p>В файл package.json добавятся зависимости для разработки. Вручную добавим два скрипта:</p>
+  <p>lint - Проверка кода без исправлений</p>
+  <p>lint:fix - Проверка с автоматическим исправлением</p>
 <pre>
 "scripts": {
   "lint": "eslint ./src",
+  "lint:fix": "eslint ./src --fix",
 },
 "devDependencies": {
-  "eslint": "^8.49.0",
-  "eslint-config-airbnb": "^19.0.4",
+  "eslint": "^8.57.1",
+  "eslint-config-airbnb-base": "^15.0.0",
 }
 </pre>
 </article>

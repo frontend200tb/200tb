@@ -5,10 +5,11 @@ export const asideThemes = [
   'Babel',
   'Eslint',
   'Gulp',
+  'Highlight',
+  'Tailwind',
   'Vite',
   'Webpack',
   'webpack.config.js',
   'webpack-dev-server',
-  'Tailwind',
   'Nodejs',
 ];

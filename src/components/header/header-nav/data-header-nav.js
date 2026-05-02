@@ -20,7 +20,7 @@ const dataHeaderNav = [
       showCode();
     },
   },
- {
+  {
     url: '/index.html',
     text: 'Frontend',
     content: '<front-edu></front-edu>',
@@ -28,7 +28,7 @@ const dataHeaderNav = [
       showFront();
     },
   },
- {
+  {
     url: '/lib.html',
     text: 'Lib',
     content: '<lib-books></lib-books>',

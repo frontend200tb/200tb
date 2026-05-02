@@ -91,119 +91,112 @@
 <article class="article">
   <div class="anchor" id="es"></div>
   <h2>ECMAScript Editions</h2>
-  <table class="ws-table-all">
-  <tbody><tr>
-  <th>Ver</th>
-  <th>Official Name</th>
-  <th>Дата выхода</th>
-  <th>Description</th>
-  </tr>
-  <tr>
-  <td>ES1</td>
-  <td>ECMAScript 1</td>
-  <td>Июнь 1997</td>
-  <td>First edition</td>
-  </tr>
-  <tr class="tr-space"></tr>
-  <tr>
-  <td>ES2</td>
-  <td>ECMAScript 2</td>
-  <td>Июнь 1998</td>
-  <td>Editorial changes</td>
-  </tr>
-  <tr class="tr-space"></tr>
-  <tr>
-  <td>ES3</td>
-  <td>ECMAScript 3 (1999)</td>
-  <td>Декабрь 1999</td>
-  <td>Added regular expressions<br>
-  Added try/catch<br>
-  Added switch<br>
-  Added do-while</td>
-  </tr>
-  <tr class="tr-space"></tr>
-  <tr>
-  <td>ES4</td>
-  <td>ECMAScript 4</td>
-  <td>Не выпущена</td>
-  <td>Never released</td>
-  </tr>
-  <tr>
-  <td>ES5</td>
-  <td>ECMAScript 5 (2009)</td>
-  <td>Декабрь 2009</td>
-  <td>
-  Added "strict mode"<br>
-  Added JSON support<br>
-  Added String.trim()<br>
-  Added Array.isArray()<br>
-  Added Array iteration methods<br>
-  Allows trailing commas for object literals<br>
-  </td>
-  </tr>
-  <tr>
-  <td>ES6</td>
-  <td>ECMAScript 2015</td>
-  <td>Июнь 2015</td>
-  <td>Added let and const<br>
-  Added default parameter values<br>
-  Added Array.find()<br>
-  Added Array.findIndex()<br>
-  </td>
-  </tr>
-  <tr>
-  <td>ES7</td>
-  <td>ECMAScript 2016</td>
-  <td>Июнь 2016</td>
-  <td>Added exponential operator (**)<br>
-  Added Array.includes()
-  </td>
-  </tr>
-  <tr>
-  <td>ES8</td>
-  <td>ECMAScript 2017</td>
-  <td>Июнь 2017</td>
-  <td>Added string padding<br>
-  Added Object.entries()<br>
-  Added Object.values()<br>
-  Added async functions<br>
-  Added shared memory<br>
-  Allows trailing commas for function parameters<br>
-  </td>
-  </tr>
-  <tr>
-  <td>ES9</td>
-  <td>ECMAScript 2018</td>
-  <td>Июнь 2018</td>
-  <td>
-  Added rest / spread properties<br>
-  Added asynchronous iteration<br>
-  Added Promise.finally()<br>
-  Additions to RegExp
-  </td>
-  </tr>
-  <tr>
-  <td>ES10</td>
-  <td>ECMAScript 2019</td>
-  <td>Июнь 2019</td>
-  <td>
-  String.trimStart()<br>
-  String.trimEnd()<br>
-  Array.flat()<br>
-  Object.fromEntries<br>
-  Optional catch binding
-  </td>
-  </tr>
-  <tr>
-  <td>ES11</td>
-  <td>ECMAScript 2020</td>
-  <td>Июнь 2020</td>
-  <td>
-  The Nullish Coalescing Operator (??)<br>
-  </td>
-  </tr>
 
-  </tbody></table>
+  <h4>ES1 (1997) — Первая редакция</h4>
+  <p>Самая первая стандартизированная версия JavaScript.</p>
+  <p>Базировалась на Netscape JavaScript 1.3.</p>
+  <p>Установила основы: синтаксис, типы данных, операторы, управляющие конструкции.</p>
+
+  <h4>ES2 (1998) — Небольшие правки</h4>
+  <p>Основная цель — гармонизация с международным стандартом ISO/IEC 16262.</p>
+  <p>Незначительные редакционные изменения, без новых возможностей.</p>
+
+  <h4>ES3 (1999) — Большой шаг вперёд</h4>
+  <p>Регулярные выражения (RegExp).</p>
+  <p>Блок try...catch (исключения).</p>
+  <p>switch, do...while, throw.</p>
+  <p>Методы массивов: push, pop, shift, unshift, slice, splice и др.</p>
+  <p>Ключевое слово in (проверка свойства в объекте).</p>
+
+  <h4>ES4 (отменена, 2008)</h4>
+  <p>Планировали классы, интерфейсы, дженерики, типы и многое другое.</p>
+  <p>Слишком амбициозно → раскол в комитете → отмена.</p>
+  <p>Часть идей позже перекочевала в ES6.</p>
+
+  <h4>ES5 (2009) — Стабильное улучшение</h4>
+  <p>"use strict" (строгий режим).</p>
+  <p>Геттеры/сеттеры (get, set).</p>
+  <p>Новые методы массивов: forEach, map, filter, reduce, some, every.</p>
+  <p>bind() для функций.</p>
+  <p>JSON.parse() и JSON.stringify() (нативная поддержка JSON).</p>
+  <p>Object.create(), Object.defineProperty().</p>
+
+  <h4>ES5.1 (2011) — Гармонизация</h4>
+  <p>Синхронизация с ISO-версией. Новых фич почти нет.</p>
+
+  <h4>ES6 / ES2015 (2015) — Революция! (крупнейшее обновление)</h4>
+  <p>С этого момента версии называют по году:</p>
+  <p>let и const (блочная область видимости).</p>
+  <p>Стрелочные функции () => {}.</p>
+  <p>Классы class, конструктор super.</p>
+  <p>Шаблонные строки `hello ${name}`.</p>
+  <p>Деструктуризация массивов и объектов: let {x, y} = obj.</p>
+  <p>Параметры по умолчанию, оператор ... (rest/spread).</p>
+  <p>Промисы (Promise).</p>
+  <p>Map, Set, WeakMap, WeakSet.</p>
+  <p>Итераторы и for...of.</p>
+  <p>Генераторы: function*, yield.</p>
+  <p>Модули: import / export.</p>
+  <p>Symbol.</p>
+
+  <h4>ES7 / ES2016 (2016) — Небольшое дополнение</h4>
+  <p>Array.prototype.includes() (проверка наличия элемента).</p>
+  <p>Оператор возведения в степень: 2 ** 4 (16).</p>
+
+  <h4>ES8 / ES2017 (2017) — Удобства с асинхронностью</h4>
+  <p>Асинхронные функции: async / await (главное нововведение).</p>
+  <p>Object.values(), Object.entries().</p>
+  <p>Object.getOwnPropertyDescriptors().</p>
+  <p>Метод padStart() / padEnd() для строк.</p>
+  <p>Разрешение завершающей запятой в параметрах функций.</p>
+
+  <h4>ES9 / ES2018 (2018) — Распыление объектов</h4>
+  <p>Rest/spread для объектов: {...obj}.</p>
+  <p>Асинхронные итерации: for await...of.</p>
+  <p>Promise.prototype.finally().</p>
+  <p>Регулярные выражения: флаг s (dotAll), lookbehind (?&lt;=...), именованные группы.</p>
+
+  <h4>ES10 / ES2019 (2019) — Мелкие улучшения</h4>
+  <p>Array.prototype.flat() и flatMap().</p>
+  <p>Object.fromEntries() (обратный Object.entries()).</p>
+  <p>String.prototype.trimStart() / trimEnd().</p>
+  <p>try...catch без параметра: try {...} catch {...}.</p>
+  <p>Function.prototype.toString() теперь возвращает точный исходный код.</p>
+
+  <h4>ES11 / ES2020 (2020) — Новые операторы и BigInt</h4>
+  <p>BigInt для работы с очень большими числами: 123n.</p>
+  <p>Оператор нулевого слияния: ?? (a ?? b – вернёт b, если a === null или undefined).</p>
+  <p>Опциональная цепочка: obj?.prop?.nested.</p>
+  <p>Promise.allSettled() (не падает при ошибке).</p>
+  <p>globalThis (универсальный глобальный объект).</p>
+  <p>Динамический import() (загрузка модулей по требованию).</p>
+
+  <h4>ES12 / ES2021 (2021)</h4>
+  <p>Логические операторы присваивания: &&=, ||=, ??=.</p>
+  <p>String.prototype.replaceAll().</p>
+  <p>Промис Promise.any() (возвращает первый успешный).</p>
+  <p>Слабая ссылка: WeakRef, FinalizationRegistry.</p>
+  <p>Числовые разделители: 1_000_000.</p>
+
+  <h4>ES13 / ES2022 (2022)</h4>
+  <p>Поля классов (публичные и приватные) с #private.</p>
+  <p>await верхнего уровня в модулях.</p>
+  <p>Статические инициализаторы в классах.</p>
+  <p>Метод .at() для массивов, строк и типизированных массивов (отрицательные индексы).</p>
+  <p>hasOwn() – альтернатива Object.prototype.hasOwnProperty().</p>
+
+  <h4>ES14 / ES2023 (2023)</h4>
+  <p>Методы массивов: findLast(), findLastIndex().</p>
+  <p>toReversed(), toSorted(), toSpliced(), with() (не мутирующие версии привычных методов).</p>
+  <p>Символ Symbol.asyncDispose (для явного освобождения ресурсов).</p>
+  <p>Hashbang (#!/usr/bin/env node) строго определён в стандарте.</p>
+
+  <h4>ES15 / ES2024 (готовится, частично доступен)</h4>
+  <p>Promise.withResolvers().</p>
+  <p>Object.groupBy() и Map.groupBy().</p>
+  <p>Atomics.waitAsync().</p>
+  <p>Регулярные выражения с флагом /v (лучшая поддержка Unicode).</p>
+  <p>Set методы: union(), intersection(), difference(), symmetricDifference().</p>
 </article>
 
 

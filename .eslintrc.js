@@ -1,27 +1,23 @@
 module.exports = {
   env: {
-    commonjs: true,
-    es2020: true,
-    // browser: true, нужен чтобы eslint понимал объекты браузера
-    // иначе ругается на window, document
-    browser: true,
-    node: true,
-    mocha: true,
+    browser: true,      // для window, document
+    node: true,         // для require, module
+    es2023: true,       // современный JavaScript
+    commonjs: true,     // для CommonJS синтаксиса (если используется)
   },
   extends: [
     'airbnb-base',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
   parserOptions: {
-    ecmaVersion: 11,
-    // sourceType: module,
+    ecmaVersion: 2023, // поддерживает современные фичи
+    sourceType: 'module', // для import/export
   },
   rules: {
-    'no-console': 0,
-    'linebreak-style': [0, 'error', 'windows'],
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-console': 0, // разрешаем console.log
+    'linebreak-style': 0, // отключаем проверку переносов строк (кроссплатформенность)
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }], // разрешаем i++ в циклах
+    'import/prefer-default-export': 0, // если у вас компоненты с одним экспортом по умолчанию не требовать export default
+    'class-methods-use-this': 0, // для компонентов-классов, где не все методы используют this
+    'max-len': ['warn', { code: 120 }], // строки до 120 символов (вместо 80)
   },
 };
