@@ -17,6 +17,7 @@
     "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
     "babel-loader": "^10.0.0",
+    "baseline-browser-mapping": "^2.10.28",
     "css-loader": "^7.1.2",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",

@@ -87,13 +87,11 @@ Page
 
 a,
 a:visited {
-  -webkit-text-decoration: none;
   text-decoration: none;
   color: #555;
 }
 
 a:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
   color: #865;
   cursor: pointer;
@@ -463,7 +461,6 @@ nav
 }
 .nav a {
   padding: 10px;
-  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 1.2em;
   color: #fff;
@@ -606,7 +603,6 @@ Aside
   font-size: 1rem;
   border: 5px solid white;
   border-radius: 20px;
-  -webkit-text-decoration: none;
   text-decoration: none;
   color: #fff;
 }
@@ -851,7 +847,6 @@ Article
 }
 .article__contents a {
   font-weight: 700;
-  -webkit-text-decoration: none;
   text-decoration: none;
   color: #222;
 }
@@ -859,7 +854,6 @@ Article
   color: #222;
 }
 .article__contents a:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 .article__contents ol {
@@ -1176,7 +1170,6 @@ header__1
   margin-left: 5px;
   padding-bottom: 3px;
   color: #fff;
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
