@@ -1,5 +1,4 @@
 // Создаем массив pages со страницами из aside меню
-import htmlJavarush   from './../pages/elem-cpp-javarush.html';
 import htmlCourse1    from './../pages/elem-course-cpp-1.html';
 import htmlCourse2    from './../pages/elem-course-cpp-2.html';
 import htmlCourse3    from './../pages/elem-course-cpp-3.html';
@@ -13,7 +12,6 @@ import html2011S      from './../pages/elem-2011-soldatkin.html';
 import html2015       from './../pages/elem-2015-foxford.html';
 
 export const pages = [
-  htmlJavarush,
   htmlCourse1,
   htmlCourse2,
   htmlCourse3,

@@ -1,6 +1,7 @@
-import showCppBase    from './cpp-base/cpp-base';
-import showCppBooks   from './cpp-books/cpp-books';
-import showCppCourses from './cpp-courses/cpp-courses';
+import showCppBase     from './cpp-base/cpp-base';
+import showCppBooks    from './cpp-books/cpp-books';
+import showCppCourses  from './cpp-courses/cpp-courses';
+import showCppJavarush from './cpp-javarush/cpp-javarush';
 
 export const dataCppNav = [
   {
@@ -25,6 +26,14 @@ export const dataCppNav = [
     content: '<cpp-courses></cpp-courses>',
     act() {
       showCppCourses();
+    },
+  },
+  {
+    url: 'cpp-javarush.html',
+    text: 'Javarush',
+    content: '<cpp-javarush></cpp-javarush>',
+    act() {
+      showCppJavarush();
     },
   },
 ];
