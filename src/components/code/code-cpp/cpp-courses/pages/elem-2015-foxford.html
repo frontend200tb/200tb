@@ -177,6 +177,82 @@ int main() {
   return 0;
 }
 </pre>
+
+  <p>Адреса ячеек двумерного массива</p>
+<pre class="language-cpp">
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int i, j;
+  int a[2][3];
+  for (i = 0; i < 2; i++) {
+    for (j = 0; j < 3; j++) {
+      printf("%d ", &a[i][j]);
+    }
+  }
+  return 0;
+}
+</pre>
+
+  <p>Указатель на место в памяти, где лежит значение типа int</p>
+  <code>int *a;</code>
+  <p>Мы объявили переменную, но место в памяти для нее не выделили. Чтобы выделить место в памяти для указателя, надо этой переменной присвоить значение.</p>
+  <code>a = malloc(32);</code>
+  <p>В указателе будел лежать адрес начала блока из 32 байт</p>
+
+  <p>Выделим место в памяти для массива из 10 переменных типа int. Запишем адрес первого элемента в указатель a. Теперь с переменной a можно работать как с массивом.</p>
+<pre class="language-cpp">
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int *a = malloc(sizeof(int) * 10);
+  return 0;
+}
+</pre>
+
+  <p>При использовании функции malloc() этом ячейки памяти будут заполнены мусорными значениями.Чтобы память была заполнена нулями, нужно использовать функцию calloc()</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int *a = calloc(sizeof(int) * 10);
+  return 0;
+}
+</pre>
+
+  <p>Статический массив остается неизменным во время выполнения программы. Если нам нужно, чтобы число элементов в массиве могло изменяться, то можно написать свой динамический массив. Пусть у нас есть массив A на 10 элементов типа int. Нам нужно массив A увеличить до 20 элементов. Создадим второй массив B на 20 элементов типа int, переместим в него элементы из массива A.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  // объявляем указатели
+  int *a, *b;
+  // выделяем память
+  a = malloc(sizeof(int) * 10);
+  b = malloc(sizeof(int) * 10);
+
+  for (int i = 0; i < 10; i++) {
+    // копируем элементы
+    b[i] = a[i];
+  }
+
+  // освобождаем память
+  free(a);
+
+  // переносим указатель на новую область памяти
+  a = b;
+
+  return 0;
+}
+</pre>
+
+  <p>При этом массив a не перезаписывается, просто указатель a теперь указывает на другое место. Память выделенную с помощью функций malloc(), calloc(), realloc() всегда необходимо освобождать с помощью функции free().</p>
 </article>
 
 
@@ -185,6 +261,69 @@ int main() {
   <div class="anchor" id="p5"></div>
   <h3>5 Структуры в С</h3>
 
+  <p>Скалярное произведение двух векторов</p>
+<pre class="language-cpp">
+#include <stdio.h>
+
+struct point {
+  int x, y;
+};
+
+int main() {
+  struct point a, b;
+  scanf("%d %d %d %d", &a.x, &a.y, &b.x, &b.y);
+  int c = a.x * b.x + a.y * b.y;
+  printf("%d\n", c);
+
+  return 0;
+}
+</pre>
+
+  <p>Решиим задачу. В первой строке дано число символов, которые мы хотим считать. Во второй строке даны символы, которые нужно посчитать. В третьей строке дана строка с символами.</p>
+
+<pre>
+#include <stdio.h>
+
+typedef struct char_counter {
+  char character;
+  int count;
+} char_counter;
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  char c;
+  scanf("%c", &c);
+
+  char_counter res[n];
+  for (int i = 0; i < n; i++) {
+    scanf("%c", &(res[i].character));
+  }
+
+  scanf("%c", &c);
+  while (c == 10 || c == 13) {
+    scanf("%c", &c);
+  }
+
+  while (c != 10 && c != 13) {
+    for (int i = 0; i < n; i++) {
+      if (res[i].character == c) {
+        res[i].count++;
+      }
+    }
+    scanf("%c", &c);
+  }
+
+  for (int i = 0; i < n; i++) {
+    printf("%c: &d occurences\n", res[i].character, res[i].count);
+  }
+
+  return 0;
+}
+</pre>
+
+  <p>После первого ввода числа n scanf("%d", &n), во входном потоке остается перевод строки, который нужно пропустить scanf("%c", &c). Потом в цикле for считываются символы строки. И опять нужно пропустить символ перевода строки scanf("%c", &c).</p>
+  <p>Для того чтобы программа понимала символы перевода строки и в windows и в linux, нужна строка while (c != 10 && c != 13)</p>
 </article>
 
 
