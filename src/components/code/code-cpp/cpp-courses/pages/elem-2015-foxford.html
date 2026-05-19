@@ -332,6 +332,165 @@ int main() {
   <div class="anchor" id="p6"></div>
   <h3>6 Функции в С</h3>
 
+  <p>Напишем функцию abs(), которая принимает целое число и возвращает его абсолютное значение по модулю.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+
+int abs(int a) {
+  if (a < 0) {
+    a = -a;
+  }
+  return a;
+}
+
+int main() {
+  printf("%d\n", abs(-5));
+
+  int x = -10;
+  int y = abs(x);
+  printf("x = %d y = %d", x, y);
+
+  return 0;
+}
+</pre>
+
+  <p>Напишем функцию gcd(), которая принимает два целых числа и возвращает их наибольший общий делитель.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+
+int gcd(int x, int y) {
+  while (x != 0 && y != 0) {
+    if (x > y) {
+      x %= y;
+    } else {
+      y %= x;
+    }
+  }
+  return x + y;
+}
+
+int main() {
+  printf("%d", gcd(10, 20));
+
+  return 0;
+}
+</pre>
+
+  <p>В функции abs() и gcd() мы передавали параметры по значению. При этом внутри функции создавались копии этих параметров, которые могли изменяться. После выполнения функции копии параметров уничтожались, а исходные переменные, которые передавались при вызове функции, оставались неизменными.</p>
+  <p>Пусть мы хотим создавать функции, которые могут менять значения переменных, для этого мы должны передавать параметры по ссылке или через указатель.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+
+struct data {
+  int field;
+};
+
+void modify(data *d) {
+  d->field = 10;
+}
+
+int main() {
+  data x = {5};
+  printf("%d\n", x.field);
+
+  modify(&x);  // передаем адрес структуры
+  printf("%d", x.field);
+
+  return 0;
+}
+</pre>
+
+  <p>Напишем функцию swap(), которая принимает два указателя на переменные типа int и меняет значение переменных местами.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+  int tmp = *x;
+  *x = *y;
+  *y = tmp;
+}
+
+int main() {
+  int a, b;
+  a = 3;
+  b = 5;
+  printf("a = %d b = %d\n", a, b);
+
+  swap(&a, &b);
+  printf("swap\n");
+  printf("a = %d b = %d", a, b);
+
+  return 0;
+}
+</pre>
+
+  <p>Функция swap() создает две переменные, куда копирует значение входных параметров - адреса переменных x и y. Настоящие адреса, которые мы передали в функцию, сама функция никак изенить не может. Но функция меняет значения, которые записаны по этим адресам.</p>
+
+  <p>Напишем функцию sum(), которая принимает массив целых чисел и возвращает сумму всех элементов.</p>
+
+<pre class="language-cpp">
+#include <stdio.h>
+
+int sum(int n, int *arr) {
+  int res = 0;
+  for (int i = 0; i < n; i++) {
+    res += arr[i];
+  }
+  return res;
+}
+
+int main() {
+
+}
+</pre>
+
+  <p>Напишем функцию array_swap(), которая принимает два массива целых чисел. Если длины массива одинаковые, функция меняет элементы массивов местами и возвращает 0. Если длины массивов разные, то функция возвращает 1.</p>
+
+<pre class="language-cpp">
+int array_swap(int n, int m, int *a, int *b) {
+  if (n != m) {
+    return 1;
+  }
+  for (int i = 0; i < n; i++) {
+    swap(&a[i], &b[i];)
+  }
+  return 0;
+}
+</pre>
+
+  <p>Создадим структуру данных для хранения стека. И создадим глобальную переменную current для хранения текущей вершины стека.</p>
+
+<pre class="language-cpp">
+struct stack_node {
+  int value;
+  struct stack_node *next;
+};
+
+stack_node *current = 0;
+</pre>
+
+  <p>Напишем функции push() И pop() для добавления элемента на вершину стека и удаления элемента с вершины стека.</p>
+
+<pre class="language-cpp">
+void push(int x) {
+  stack_node *new_n = malloc(sizeof(stack_node));
+  new_n->value = x;
+  new_n->next = current;
+  current = new_n;
+}
+
+int pop() {
+  int res = current->value;
+  stack_node *old = current;
+  current = current->next;
+  free(old);
+  return res;
+}
+</pre>
 </article>
 
 
