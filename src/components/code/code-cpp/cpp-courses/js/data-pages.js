@@ -1,8 +1,8 @@
 // Создаем массив pages со страницами из aside меню
 import htmlCourse1    from './../pages/elem-course-cpp-1.html';
 import htmlCourse2    from './../pages/elem-course-cpp-2.html';
-import htmlCourse3    from './../pages/elem-course-cpp-3.html';
-import htmlCourse4    from './../pages/elem-course-cpp-4.html';
+import htmlMetanit    from './../pages/elem-cpp-metanit.html';
+import htmlYandex    from './../pages/elem-cpp-yandex.html';
 import html2005M      from './../pages/elem-2005-majorov.html';
 import html2007       from './../pages/elem-2007.html';
 import html2008       from './../pages/elem-2008.html';
@@ -14,8 +14,8 @@ import html2015       from './../pages/elem-2015-foxford.html';
 export const pages = [
   htmlCourse1,
   htmlCourse2,
-  htmlCourse3,
-  htmlCourse4,
+  htmlMetanit,
+  htmlYandex,
   html2005M,
   html2007,
   html2008,
