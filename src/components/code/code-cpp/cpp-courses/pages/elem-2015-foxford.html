@@ -687,6 +687,58 @@ void qsort(int *a, int l, int r) {
   <p>Если выделить область памяти и не освободить ее, то произойдет утечка памяти, когда эту память уже нельзя переиспользовать.</p>
   <p>При обращении к памяти, которую заранее не выделили для себя, получаем ошибку segmentation fault.</p>
 
+  <h4>Многомерные динамические массивы</h4>
+
+  <p>Одномерный статический массив:</p>
+  <code>int a[10]</code>
+  <p>Одномерный динамический массив:</p>
+  <code>int *a = malloc(10 * sizeof(int))</code>
+  <p>Многомерный статический массив:</p>
+  <code>int a[10][10]</code>
+  <p>Многомерный динамический массив:</p>
+
+<pre class="language-cpp">
+// выделение памяти
+int **a = malloc(10 * sizeof(int));
+for (int i = 0; i < 10; i++) {
+  a[i] = malloc(10 * sizeof(int));
+}
+
+// освобождение памяти
+for (int i = 0; i < 10; i++) {
+  free(a[i]);
+}
+free(a);
+</pre>
+
+  <p>Напишем функцию tr(), которая принимает матрицу размером n x n в виде двумерного динамического массива и транспонирует матрицу.</p>
+
+<pre class="language-cpp">
+void tr(int n, int **a) {
+  for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+      int tmp = a[i][j]; // *(j + *(a+i))
+      a[i][j] = a[j][i];
+      a[j][i] = tmp;
+    }
+  }
+}
+</pre>
+
+  <h4>Аргументы командной строки</h4>
+
+<pre class="language-cpp">
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char **argv) {
+  printf("argc = %d\n", argc);
+  for (int i = 0; i < argc; i++) {
+    printf("%s\n", argv[i]);
+  }
+  return 0;
+}
+</pre>
 </article>
 
 
