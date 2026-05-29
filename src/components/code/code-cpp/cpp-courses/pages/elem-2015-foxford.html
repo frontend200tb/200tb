@@ -863,23 +863,25 @@ int b = 2;
 double c = 1.0*a/b; // 0.5
 </pre>
 
+  <p>Напишем функцию print(), которая принимает число типа double и выводит все его биты.</p>
+
 <pre class="language-cpp">
 #include <stdio.h>
 
-void printf(double d) {
+void print(double d) {
   long long *t = (long long *)&d;
 
   // вывод мантисы
   for (int i = 0; i < 52; i++) {
     printf("%d", (*t >> i) & 1);
   }
-  printf(' ');
+  printf(" ");
 
   // вывод экспоненты
   for (int i = 52; i < 63; i++) {
     printf("%d", (*t >> i) & 1);
   }
-  printf(' ');
+  printf(" ");
 
   // вывод знакового бита
   printf("%d", (*t >> 63) & 1);
@@ -888,8 +890,15 @@ void printf(double d) {
 }
 
 int main() {
+  printf("Enter 1 double number\n");
   double t;
   scanf("%lf", &t);
+  print(t);
+
+  printf("Enter 2 double number for sum\n");
+  double t1, t2;
+  scanf("%lf %lf", &t1, &t2);
+  t = t1 + t2;
   print(t);
 
   return 0;
@@ -903,6 +912,48 @@ int main() {
   <div class="anchor" id="p10"></div>
   <h3>10 Компиляция и сборка программ на С</h3>
 
+  <h4>Прототипы функций</h4>
+
+  <p>До того как функция будет вызвана, она должна быть объявлена в коде выше. Если есть две функции, которые вызывают друг друга, то в каком порядке мы бы их не записали, все равно компилятор попытается вызвать еще не объявленную функцию и выдаст ошибку. Прототипы функций решают эту проблему.</p>
+  <p>Прототипом функции называется объявление функции, но без тела функции. Прототип оканчивается точкой с запятой.</p>
+  <code>int sum(int a, int b);</code>
+
+  <h4>Разделение программы на несколько файлов</h4>
+
+  <p>Большие программы обычно не пишут в одном файле и в одной функции main(). В основном файле пишут функцию main(), а другие функции пишут в других файлах.</p>
+
+  <h4>Заголовочные файлы</h4>
+
+  <p>Прототипы функций пишут в заголовочных файлах. Заголовочные файлы подключают там, где нужно использовать эти функции.</p>
+
+  <p>Файл print.h</p>
+  <code>void print(int *a, int n);</code>
+
+  <p>Файл print.c</p>
+<pre class="language-cpp">
+#include <stdio.h>
+
+void print(int *a, int n) {
+  for (int i = 0; i < n; i++) {
+    printf("%d\n", a[i]);
+  }
+}
+</pre>
+
+  <p>Файл main.c</p>
+<pre class="language-cpp">
+#include "print.h"
+
+int main() {
+  int a[5];
+  for (int i = 0; i < 5; i++) {
+    a[i] = i;
+  }
+  print(a, 5);
+
+  return 0;
+}
+</pre>
 </article>
 
 
