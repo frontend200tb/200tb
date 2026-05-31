@@ -4,7 +4,7 @@
 Теория Задачи Яндекс
 *******************/
 import './element-alg';
-import {dataAlgNav} from './data-alg-nav';
+import { dataAlgNav } from './data-alg-nav';
 
 // Создаем ссылки для меню mainnav
 createMainNav(dataAlgNav);
