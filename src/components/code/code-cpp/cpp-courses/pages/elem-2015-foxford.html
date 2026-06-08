@@ -1157,6 +1157,14 @@ int main() {
   <div class="anchor" id="p13"></div>
   <h3>13 Введение в ООП в С++ - 2</h3>
 
+  <h4>Статические поля и методы класса</h4>
+
+  <p>Статические поля и методы класса:</p>
+  <ol>
+    <li>Объявляются внутри класса с момощью ключевого слова static</li>
+    <li>Могут работать без создания объекта класса</li>
+    <li>Работают только со статическими полями и методами класса</li>
+  </ol>
 </article>
 
 
@@ -1165,4 +1173,154 @@ int main() {
   <div class="anchor" id="p14"></div>
   <h3>14 Различные способы работы с объектами</h3>
 
+  <h4>Присваивание объектов</h4>
+
+  <p>Присваивание объектов в C++ происходит не так как в Java и Python.</p>
+  <p>Создадим класс MyClass, который содержит три поля - два типа int и одно типа указателя на int. Создадим два объекта x и y класса MyClass. Зададим значения полям объекта x и сделаем присваивание объекту y объекта x. Изменим значения полей объекта x. Выведем на печать значения полей объекта y.</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+  int a, b;
+  int *c;
+}
+
+int main() {
+  MyClass x, y;
+  x.a = 4;
+  x.b = 5;
+  *(x.c) = 6;
+
+  y = x;
+
+  x.a = 5;
+  x.b = 6;
+  *(x.c) = 7;
+
+  cout << y.a << ' ' << y.b << ' ' << *(y.c);
+}
+</pre>
+
+  <p>В результате получим</p>
+  <code>4 5 7</code>
+
+<pre>
+MyClass Func() {
+  return MyClass();
+}
+
+MyClass Func() {
+  MyClass t();
+  return t;
+}
+
+MyClass Func() {
+  MyClass *p = new MyClass();
+  return *p;
+}
+</pre>
+
+  <h4>Дружественные функции (классы...)</h4>
+
+  <h4>Перегрузка операторов</h4>
+
+  <p>Напишем класс Ratio для чисел представленных в виде простых дробей.</p>
+  <p>Перегрузим оператор + для сложения двух чисел класса Ratio.</p>
+  <p>Перегрузим оператор - для вычитания двух чисел класса Ratio.</p>
+  <p>Перегрузим оператор - для изменения знака числа класса Ratio.</p>
+  <p>Перегрузим оператор == для проверки равенства двух чисел класса Ratio.</p>
+  <p>Перегрузим оператор &lt;&lt; для вывода числа класса Ratio.</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+class Ratio {
+private:
+  int num; // числитель
+  int denom; // знаменатель
+
+public:
+  Ratio(int _a, int _b) {
+    num = _a;
+    denom = _b;
+  }
+
+  Ratio & operator+=(const Ratio & a) {
+    num = num * a.denom + denom * a.num;
+    denom *= a.denom;
+    return *this;
+  }
+
+  // оператор присваивания
+  Ratio & operator=(const Ratio & a) {
+    num = a.num;
+    denom = a.denom;
+    return *this;
+  }
+
+  // префиксный оператор ++
+  Ratio & operator++() {
+    num++;
+    return *this;
+  }
+
+  // постфиксный оператор ++
+  Ratio & operator++(int) {
+    Ratio old = *this;
+    num++;
+    return old;
+  }
+
+  friend Ratio operator+(const Ratio &a, const Ratio &b);
+  friend Ratio operator-(const Ratio &a, const Ratio &b);
+  friend Ratio operator-(const Ratio &a);
+  friend bool operator==(const Ratio &a, const Ratio &b);
+  friend bool operator!=(const Ratio &a, const Ratio &b);
+  friend ostream &operator<<(ostream & out, const Ratio &r);
+};
+
+Ratio operator+(const Ratio &a, const Ratio &b) {
+  return Ratio(a.num * b.denom + b.num * a.denom, a.denom * b.denom);
+}
+
+Ratio operator-(const Ratio &a, const Ratio &b) {
+  return Ratio(a.num * b.denom - b.num * a.denom, a.denom * b.denom);
+}
+
+Ratio operator-(const Ratio &a) {
+  return Ratio(-a.num, a.denom);
+}
+
+bool operator==(const Ratio &a, const Ratio &b) {
+  return (a.num * b.denom == b.num * a.denom);
+}
+
+bool operator!=(const Ratio &a, const Ratio &b) {
+  return !(a == b);
+}
+
+ostream &operator<<(ostream & out, const Ratio &r) {
+  out << r.num << "/" << r.denom;
+  return out;
+}
+
+int main() {
+  Ratio a(1, 3);
+  Ratio b(1, 2);
+  Ratio c = a + b;
+  Ratio d = a - b;
+  Ratio e = -(a + b);
+
+  cout << c << endl;
+  cout << d << endl;
+  cout << e << endl;
+  cout << (d == Ratio(2, 48)) << endl;
+  cout << (d != Ratio(2, 48)) << endl;
+}
+</pre>
 </article>

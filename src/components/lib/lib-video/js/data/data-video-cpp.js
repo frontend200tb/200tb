@@ -108,8 +108,8 @@ const dataVideoCpp = [
     numberLessons: '14 уроков',
     time_h_m: [28, 30],
     size: '6.9 gb',
-    isLearned: false,
-    dateLearned: '',
+    isLearned: true,
+    dateLearned: '2026.06.08 пн',
   },
 
   {

@@ -1,0 +1,34 @@
+/*********************
+pre
+code
+*********************/
+
+
+/* pre*/
+pre,
+code {
+  display: block;
+  margin: .5em 0;
+  padding: .5em;
+  color: #005588;
+  background-color: #f5f2f0;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.pre_function {
+  color: #DD4A68;
+}
+
+.pre_keyword {
+  color: #07a;
+}
+
+.code-inline {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+/* Конец pre code */
