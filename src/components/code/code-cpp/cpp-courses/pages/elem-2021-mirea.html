@@ -1,0 +1,126 @@
+<article class="article">
+  <h1>2021 МИРЭА - Спортивное программирование. Младшая группа</h1>
+  <p>Конспект видео курса</p>
+  <p>7 уроков. Длительность 12ч 55м.</p>
+</article>
+
+
+<!-- Содержание -->
+<article class="article">
+  <h3>Содержание</h3>
+
+  <p><a href="#p1">02.10.2021 Занятие 1. Основы C++ 1</a></p>
+  <p><a href="#p2">06.10.2021 Занятие 2. C++ векторы. Лекция</a></p>
+  <p><a href="#p2z">06.10.2021 Занятие 2. С++ векторы. Разбор задач</a></p>
+  <p><a href="#p3">09.10.2021 Занятие 3. C++ Функции библиотеки STL</a></p>
+  <p><a href="#p4">16.10.2021 Занятие 4. Асимптотика и оценка времени работы программы. Перебор</a></p>
+  <p><a href="#p5">20.10.2021 Занятие 5. Разбор контеста на перебор</a></p>
+  <p><a href="#p6">24.10.2021 Занятие 6. Структуры данных. Std__map, std__set</a></p>
+
+</article>
+
+
+<!-- 02.10.2021 Занятие 1. Основы C++ 1 -->
+<article class="article">
+  <div class="anchor" id="p1"></div>
+  <h3>02.10.2021 Занятие 1. Основы C++ 1</h3>
+
+  <p>Мы будем программировать в программе CodeBlocks 20.03. Любая программа на C++ всегда начинается с функции main(). Напишем первую программу - вывод приветствия.</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "Hello world";
+  return 0;
+}
+</pre>
+
+  <p>Выведем приветствие в две строки</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "Hello world" << endl;
+  cout << "Hello again";
+  return 0;
+}
+</pre>
+
+  <p>Выведем текст, число и математическое выражение</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "2 + 2" << endl;
+  cout << 2 << endl;
+  cout << 2 + 2 << endl;
+  return 0;
+}
+</pre>
+
+  <p>В спортивном программировании для перевода строки используется символ '\n', а не endl. Потому что endl кроме перевода строки еще сбрасывает буфер, а это лишние операции, на которые тратится время.</p>
+  <p>Попробуем подключить русский язык. Сам текст программы, содержащий русский язык, должен быть сохранен в кодировке windows-1251.</p>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  setlocale(LC_ALL, "Russian");
+  cout << "Привет";
+  return 0;
+}
+</pre>
+</article>
+
+
+<!-- 06.10.2021 Занятие 2. C++ векторы. Лекция -->
+<article class="article">
+  <div class="anchor" id="p2"></div>
+  <h3>06.10.2021 Занятие 2. C++ векторы. Лекция</h3>
+</article>
+
+
+<!-- 06.10.2021 Занятие 2. С++ векторы. Разбор задач -->
+<article class="article">
+  <div class="anchor" id="p2z"></div>
+  <h3>06.10.2021 Занятие 2. С++ векторы. Разбор задач</h3>
+</article>
+
+
+<!-- 09.10.2021 Занятие 3. C++ Функции библиотеки STL -->
+<article class="article">
+  <div class="anchor" id="p3"></div>
+  <h3>09.10.2021 Занятие 3. C++ Функции библиотеки STL</h3>
+</article>
+
+
+<!-- 16.10.2021 Занятие 4. Асимптотика и оценка времени работы программы. Перебор -->
+<article class="article">
+  <div class="anchor" id="p4"></div>
+  <h3>16.10.2021 Занятие 4. Асимптотика и оценка времени работы программы. Перебор</h3>
+</article>
+
+
+<!-- 20.10.2021 Занятие 5. Разбор контеста на перебор -->
+<article class="article">
+  <div class="anchor" id="p5"></div>
+  <h3>20.10.2021 Занятие 5. Разбор контеста на перебор</h3>
+</article>
+
+
+<!-- 24.10.2021 Занятие 6. Структуры данных. Std__map, std__set -->
+<article class="article">
+  <div class="anchor" id="p6"></div>
+  <h3>24.10.2021 Занятие 6. Структуры данных. Std__map, std__set</h3>
+</article>

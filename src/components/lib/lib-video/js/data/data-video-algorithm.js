@@ -274,6 +274,24 @@ const dataVideoAlgorithm = [
   },
 
   {
+    id: 16,
+    year: 2021,
+    date: '',
+    category: 'основы',
+    theme: 'Алгоритмы',
+    title: 'Спортивное программирование на C++. Младшая группа',
+    author: '',
+    authorName: '',
+    name: 'МИРЭА',
+    numberLessons: '7 видео',
+    time_h_m: [12, 55],
+    size: '1.1 gb',
+    link: '',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
     id: 17,
     year: 2021,
     date: '2021.06.30',

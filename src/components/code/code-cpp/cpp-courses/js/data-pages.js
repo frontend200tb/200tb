@@ -10,6 +10,7 @@ import html2011A      from './../pages/elem-2011-alekseev.html';
 import html2011L      from './../pages/elem-2011-linski.html';
 import html2011S      from './../pages/elem-2011-soldatkin.html';
 import html2015       from './../pages/elem-2015-foxford.html';
+import html2021M      from './../pages/elem-2021-mirea.html';
 
 export const pages = [
   htmlCourse1,
@@ -23,4 +24,5 @@ export const pages = [
   html2011L,
   html2011S,
   html2015,
+  html2021M,
 ];
