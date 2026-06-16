@@ -9,8 +9,15 @@ Article
   background-color: antiquewhite;
 
   & h3 {
-    margin: 5px;
-    padding: 5px;
+    margin: 1.5rem 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  & h4 {
+    margin: 1rem 0;
+    padding: 0;
     border-radius: 0;
     box-shadow: none;
   }
