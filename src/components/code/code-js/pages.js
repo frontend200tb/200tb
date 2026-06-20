@@ -10,6 +10,7 @@ import showJsPractice  from './js-practice/js-practice';
 import showJsBooks     from './js-books/js-books';
 import showJsCourses   from './js-courses/js-courses';
 import showJsInterview from './js-interview/js-interview';
+import showWebJavarush from './web-javarush/web-javarush';
 
 export default function pageLink() {
   const currentContent = document.querySelector('#js');
@@ -92,6 +93,15 @@ export default function pageLink() {
       e.preventDefault();
       currentContent.innerHTML = '<js-interview></js-interview>';
       showJsInterview();
+    });
+  }
+
+  const webJavarush = document.getElementById('js-10');
+  if (webJavarush) {
+    webJavarush.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentContent.innerHTML = '<web-javarush></web-javarush>';
+      showWebJavarush();
     });
   }
 
