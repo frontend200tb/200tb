@@ -4,7 +4,7 @@
 Функция showStepik показывает страницу stepik
 ******************** */
 import './js/element-stepik';
-import {createAside, createMain} from './js/f-create-aside';
+import { createAside, createMain } from './js/f-create-aside';
 
 // 1. Создаем объект stepik
 const stepik = {};

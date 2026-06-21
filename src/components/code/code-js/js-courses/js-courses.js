@@ -4,7 +4,7 @@
 Функция showJsCourses показывает страницу js-courses
 ******************** */
 import './js/element-js-courses';
-import {createAside, createMain} from './js/f-create-aside';
+import { createAside, createMain } from './js/f-create-aside';
 
 // 1. Создаем объект jsCourses
 const jsCourses = {};

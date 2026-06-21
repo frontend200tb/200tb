@@ -1,7 +1,7 @@
 /************************
 Функция pageLink вешает обработчик клика на элементы asideMenu
 ************************/
-import {pages} from './data-pages';
+import { pages } from './data-pages';
 
 export default function pageLink(asideItems, currentContent) {
   asideItems.forEach((elem, index) => {
