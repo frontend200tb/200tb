@@ -3,4 +3,5 @@ export const asideThemes = [
   'Web FullStack',
   'Web Core',
   'Уровень 1',
+  'Уровень 2',
 ];
