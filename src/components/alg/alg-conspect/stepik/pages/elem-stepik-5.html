@@ -902,5 +902,54 @@ bool isEaual(double a, double b) {
     <h4>Тест</h4>
     <code>1000000000</code>
     <code>4</code>
+
+<pre class="language-cpp">
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  long long n;
+  cin >> n;
+
+  long long m = 1, day = 1;
+  while (m > 0) {
+    m *= n;
+    day++;
+  }
+
+  cout << day;
+}
+</pre>
+  </details>
+
+  <details>
+    <summary>Задача 2. Определение подходящих типов</summary>
+    <p>Дано целое число. Требуется определить все подходящие для его хранения типы данных.</p>
+    <h4>Входные данные</h4>
+    <p>Входные данные содержат единственное целое число n (-2⁶⁴≤n≤2⁶⁴).</p>
+    <h4>Выходные данные</h4>
+    <p>Выведите все подходящие типы данных, в которых можно хранить число n. Если их несколько, то выводите каждый новый тип в отдельной строке. Типы данных следует выводить в том же порядке, что и в следующем списке:</p>
+    <h4>Тест 1</h4>
+<pre>
+1000000000
+</pre>
+<pre>
+int
+unsigned int
+long long
+unsigned long long
+</pre>
+  </details>
+    <h4>Тест 2</h4>
+<pre>
+-113
+</pre>
+<pre>
+char
+short int
+int
+long long
+</pre>
   </details>
 </article>
