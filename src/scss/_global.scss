@@ -19,13 +19,14 @@ html {
   scroll-behavior: smooth;
 }
 
+// tablet version
 @media (max-width: 992px) {
   html {
     font-size: 1rem;
   }
 }
 
-//мобильная версия
+// mobile version
 @media (max-width: 580px) {
   html {
     font-size: 0.8rem;

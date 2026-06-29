@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+<defs>
+<linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="0.000000000000909495" y1="199" x2="400" y2="199" gradientTransform="matrix(0.000000000000000004,0.06,0.06,-0.000000000000000004,0.06,0)">
+<stop offset="0" style="stop-color:rgb(89.803922%,17.647059%,15.294118%);stop-opacity:1;"/>
+<stop offset="1" style="stop-color:rgb(74.901961%,9.019608%,11.372549%);stop-opacity:1;"/>
+</linearGradient>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<rect x="0" y="0" width="24" height="24" style="fill:rgb(0%,0%,0%);fill-opacity:0.121569;stroke:none;"/>
+  </g>
+</mask>
+<clipPath id="clip1">
+  <rect x="0" y="0" width="24" height="24"/>
+</clipPath>
+<g id="surface5" clip-path="url(#clip1)">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 10.234375 9.59375 L 14.070312 12.15625 L 14.609375 11.878906 Z M 10.234375 9.59375 "/>
+</g>
+</defs>
+<g id="surface1">
+<rect x="0" y="0" width="24" height="24" style="fill:url(#linear0);stroke:none;"/>
+<use xlink:href="#surface5" mask="url(#mask0)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 19.933594 8.765625 C 19.933594 8.765625 19.777344 7.648438 19.289062 7.15625 C 18.679688 6.511719 17.980469 6.511719 17.671875 6.472656 C 15.402344 6.3125 12.007812 6.3125 12.007812 6.3125 L 12 6.3125 C 12 6.3125 8.605469 6.3125 6.335938 6.472656 C 6.019531 6.511719 5.328125 6.515625 4.714844 7.15625 C 4.230469 7.648438 4.074219 8.765625 4.074219 8.765625 C 4.074219 8.765625 3.910156 10.074219 3.910156 11.386719 L 3.910156 12.617188 C 3.910156 13.925781 4.074219 15.238281 4.074219 15.238281 C 4.074219 15.238281 4.230469 16.355469 4.714844 16.847656 C 5.335938 17.496094 6.136719 17.472656 6.496094 17.539062 C 7.792969 17.664062 12 17.699219 12 17.699219 C 12 17.699219 15.402344 17.695312 17.671875 17.53125 C 17.988281 17.496094 18.679688 17.488281 19.289062 16.847656 C 19.777344 16.355469 19.933594 15.238281 19.933594 15.238281 C 19.933594 15.238281 20.09375 13.933594 20.09375 12.617188 L 20.09375 11.386719 C 20.09375 10.074219 19.933594 8.765625 19.933594 8.765625 Z M 10.324219 14.101562 L 10.324219 9.550781 L 14.699219 11.832031 Z M 10.324219 14.101562 "/>
+</g>
+</svg>

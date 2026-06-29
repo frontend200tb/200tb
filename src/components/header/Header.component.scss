@@ -78,12 +78,13 @@ header__1
 header__2
 *********************/
 .header__2 {
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 5px 10px;
+  font-family: monospace, sans-serif;
 }
 
 @media (max-width: 580px) {
