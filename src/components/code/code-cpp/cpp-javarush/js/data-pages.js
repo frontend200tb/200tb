@@ -6,6 +6,7 @@ import htmlLevel3     from './../pages/elem-level3.html';
 import htmlLevel4     from './../pages/elem-level4.html';
 import htmlLevel5     from './../pages/elem-level5.html';
 import htmlLevel6     from './../pages/elem-level6.html';
+import htmlLevel7     from './../pages/elem-level7.html';
 
 export const pages = [
   htmlJavarush,
@@ -15,4 +16,5 @@ export const pages = [
   htmlLevel4,
   htmlLevel5,
   htmlLevel6,
+  htmlLevel7,
 ];
