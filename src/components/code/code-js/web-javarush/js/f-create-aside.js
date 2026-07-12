@@ -1,7 +1,7 @@
 /** ***************
 Функция createInput создает inputArray
 **************** */
-import {asideThemes} from './data-aside';
+import { asideThemes } from './data-aside';
 import pageLink      from './pages';
 
 // 2. Создаем массив asideDiv для элементов aside меню
