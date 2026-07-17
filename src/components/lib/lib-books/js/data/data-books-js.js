@@ -1299,6 +1299,19 @@ const dataBooksJs = [
     year: 2025,
     category: 'code',
     theme: 'javascript',
+    title: 'JavaScript. Основы программирования',
+    author: 'Наков',
+    authorName: 'Светлин',
+    pages: 482,
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 95,
+    year: 2025,
+    category: 'code',
+    theme: 'javascript',
     title: 'Создание фронтенд-фреймворка с нуля',
     author: 'Орбайсета',
     authorName: 'Анхель Сола',
@@ -1308,7 +1321,7 @@ const dataBooksJs = [
   },
 
   {
-    id: 95,
+    id: 96,
     year: 2025,
     category: 'code',
     theme: 'javascript',

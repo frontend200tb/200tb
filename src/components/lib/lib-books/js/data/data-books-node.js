@@ -173,6 +173,19 @@ const dataBooksNode = [
     dateLearned: '',
   },
 
+  {
+    id: 13,
+    year: 2024,
+    category: 'framework',
+    theme: 'node',
+    title: 'Node.js. Разработка приложений',
+    author: 'Попова',
+    authorName: 'Юлия',
+    pages: '247',
+    isLearned: false,
+    dateLearned: '',
+  },
+
   {},
 
 ];

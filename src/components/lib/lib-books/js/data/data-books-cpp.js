@@ -1653,6 +1653,19 @@ const dataBooksCpp = [
     year: 2015,
     category: 'code',
     theme: 'c++',
+    title: 'Язык C++ и программирование на нем (2е)',
+    author: 'Рейзлин',
+    authorName: 'Валерий',
+    pages: '272',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 129,
+    year: 2015,
+    category: 'code',
+    theme: 'c++',
     title: 'Безопасное программирование на C и C++ (2е)',
     author: 'Сикорд',
     authorName: 'Роберт',
@@ -1662,7 +1675,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 129,
+    id: 130,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1675,7 +1688,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 130,
+    id: 131,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1688,7 +1701,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 131,
+    id: 132,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1701,7 +1714,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 132,
+    id: 133,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1714,7 +1727,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 133,
+    id: 134,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1727,7 +1740,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 134,
+    id: 135,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1740,7 +1753,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 135,
+    id: 136,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1753,7 +1766,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 136,
+    id: 137,
     year: 2016,
     category: 'code',
     theme: 'c++',
@@ -1766,7 +1779,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 137,
+    id: 138,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1779,7 +1792,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 138,
+    id: 139,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1792,7 +1805,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 139,
+    id: 140,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1805,7 +1818,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 140,
+    id: 141,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1818,7 +1831,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 141,
+    id: 142,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1831,7 +1844,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 142,
+    id: 143,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1844,7 +1857,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 143,
+    id: 144,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1857,7 +1870,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 144,
+    id: 145,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1870,7 +1883,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 145,
+    id: 146,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1883,7 +1896,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 146,
+    id: 147,
     year: 2017,
     category: 'code',
     theme: 'c++',
@@ -1896,7 +1909,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 147,
+    id: 148,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1909,7 +1922,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 148,
+    id: 149,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1922,7 +1935,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 149,
+    id: 150,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1935,7 +1948,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 150,
+    id: 151,
     year: 2018,
     category: 'code',
     theme: 'c++',
@@ -1947,7 +1960,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 151,
+    id: 152,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1960,7 +1973,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 152,
+    id: 153,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1973,7 +1986,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 153,
+    id: 154,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1986,7 +1999,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 154,
+    id: 155,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -1999,7 +2012,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 155,
+    id: 156,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -2012,7 +2025,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 156,
+    id: 157,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -2025,7 +2038,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 157,
+    id: 158,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -2038,7 +2051,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 158,
+    id: 159,
     year: 2019,
     category: 'code',
     theme: 'c++',
@@ -2051,7 +2064,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 159,
+    id: 160,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2064,7 +2077,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 160,
+    id: 161,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2077,7 +2090,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 161,
+    id: 162,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2090,7 +2103,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 162,
+    id: 163,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2103,7 +2116,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 163,
+    id: 164,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2116,7 +2129,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 164,
+    id: 165,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2129,7 +2142,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 165,
+    id: 166,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2142,7 +2155,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 166,
+    id: 167,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2155,7 +2168,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 167,
+    id: 168,
     year: 2020,
     category: 'code',
     theme: 'c++',
@@ -2168,7 +2181,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 168,
+    id: 169,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2181,7 +2194,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 169,
+    id: 170,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2194,7 +2207,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 170,
+    id: 171,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2207,7 +2220,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 171,
+    id: 172,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2220,7 +2233,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 172,
+    id: 173,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2233,7 +2246,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 173,
+    id: 174,
     year: 2021,
     category: 'code',
     theme: 'c++',
@@ -2246,7 +2259,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 174,
+    id: 175,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2259,7 +2272,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 175,
+    id: 176,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2272,7 +2285,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 176,
+    id: 177,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2285,7 +2298,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 177,
+    id: 178,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2298,7 +2311,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 178,
+    id: 179,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2311,7 +2324,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 179,
+    id: 180,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2324,7 +2337,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 180,
+    id: 181,
     year: 2022,
     category: 'code',
     theme: 'c++',
@@ -2337,7 +2350,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 181,
+    id: 182,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2350,7 +2363,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 182,
+    id: 183,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2363,7 +2376,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 183,
+    id: 184,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2376,7 +2389,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 184,
+    id: 185,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2389,7 +2402,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 185,
+    id: 186,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2402,7 +2415,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 186,
+    id: 187,
     year: 2023,
     category: 'code',
     theme: 'c++',
@@ -2415,7 +2428,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 187,
+    id: 188,
     year: 2024,
     category: 'code',
     theme: 'c++',
@@ -2428,7 +2441,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 188,
+    id: 189,
     year: 2024,
     category: 'code',
     theme: 'c++',
@@ -2441,7 +2454,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 189,
+    id: 190,
     year: 2024,
     category: 'code',
     theme: 'c++',
@@ -2454,7 +2467,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 190,
+    id: 191,
     year: 2025,
     category: 'code',
     theme: 'c++',
@@ -2467,7 +2480,7 @@ const dataBooksCpp = [
   },
 
   {
-    id: 191,
+    id: 192,
     year: 2025,
     category: 'code',
     theme: 'c++',
@@ -2480,7 +2493,20 @@ const dataBooksCpp = [
   },
 
   {
-    id: 192,
+    id: 193,
+    year: 2025,
+    category: 'code',
+    theme: 'c++',
+    title: 'Безопасный С++',
+    author: 'Талантов',
+    authorName: 'Сергей',
+    pages: '418',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 194,
     year: 2025,
     category: 'code',
     theme: 'c++',
@@ -2488,6 +2514,19 @@ const dataBooksCpp = [
     author: 'Хортон',
     authorName: 'Джон',
     pages: '528',
+    isLearned: false,
+    dateLearned: '',
+  },
+
+  {
+    id: 195,
+    year: 2026,
+    category: 'code',
+    theme: 'c++',
+    title: 'Программирование на C++. Конспект лекций',
+    author: 'Додонов',
+    authorName: 'А.Е.',
+    pages: '340',
     isLearned: false,
     dateLearned: '',
   },
