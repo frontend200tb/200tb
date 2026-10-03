@@ -9,21 +9,21 @@ nav
   flex-wrap: wrap;
   gap: 10px;
   margin: 0 0 10px 0;
-  padding: 10px 0;
+  padding: 5px 5px;
   text-align: center;
-  border: 5px solid white;
-  border-radius: 20px;
-  box-shadow: 4px 6px #222;
-  /* тень на 4px вправо и 6px вниз */
+  border: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 4px #222;
+  /* тень на 2px вправо и 4px вниз */
 
   & a {
-    padding: 10px;
+    padding: 5px 10px;
     text-decoration: none;
     font-size: 1.2em;
     color: #fff;
-    border: 5px solid white;
-    border-radius: 20px;
-    box-shadow: 4px 6px #222;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 4px #222;
   }
 
   & a:hover {
@@ -46,7 +46,7 @@ nav
       padding: 5px;
       border: 1px solid white;
       border-radius: 5px;
-      box-shadow: 4px 6px #222;
+      box-shadow: 2px 4px #222;
     }
   }
 }

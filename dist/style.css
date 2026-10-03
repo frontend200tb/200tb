@@ -418,23 +418,23 @@ nav
       flex-wrap: wrap;
   gap: 10px;
   margin: 0 0 10px 0;
-  padding: 10px 0;
+  padding: 5px 5px;
   text-align: center;
-  border: 5px solid white;
-  border-radius: 20px;
-  -webkit-box-shadow: 4px 6px #222;
-          box-shadow: 4px 6px #222;
-  /* тень на 4px вправо и 6px вниз */
+  border: 3px solid white;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px #222;
+          box-shadow: 2px 4px #222;
+  /* тень на 2px вправо и 4px вниз */
 }
 .nav a {
-  padding: 10px;
+  padding: 5px 10px;
   text-decoration: none;
   font-size: 1.2em;
   color: #fff;
-  border: 5px solid white;
-  border-radius: 20px;
-  -webkit-box-shadow: 4px 6px #222;
-          box-shadow: 4px 6px #222;
+  border: 3px solid white;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px #222;
+          box-shadow: 2px 4px #222;
 }
 .nav a:hover {
   -webkit-animation: vert 1.5s linear infinite;
@@ -456,8 +456,8 @@ nav
     padding: 5px;
     border: 1px solid white;
     border-radius: 5px;
-    -webkit-box-shadow: 4px 6px #222;
-            box-shadow: 4px 6px #222;
+    -webkit-box-shadow: 2px 4px #222;
+            box-shadow: 2px 4px #222;
   }
 }
 nav-component .nav a:hover {
@@ -559,16 +559,16 @@ nav-component .nav a:hover {
 Aside
 *********************/
 .aside {
-  min-width: 180px;
+  min-width: 190px;
   background: none;
   /* Стилизация ссылок левого меню */
 }
 .aside a {
   display: block;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 5px 10px;
   font-size: 1rem;
-  border: 5px solid white;
+  border: 3px solid white;
   border-radius: 20px;
   text-decoration: none;
   color: #fff;
